@@ -72,61 +72,56 @@ code {
     }
 }
 
-/* Navbar */
-
-#navbar {
-    background-color: #449999;
-    border-bottom: #ccc;
+/******* Nav bar *******/
+.navbar-brand {
+  padding: 5px 0px;
+  height: auto;
 }
-
-#navbar .navbar-collapse {
-    margin-left: 45px;
+.navbar-inverse {
+  background-color: #58595b;
 }
-
-#navbar .caret {
-    border-top-color: #fff;
-    border-bottom-color: #fff;
+.navbar-nav {
+  padding: 0.5% 0%;
 }
-
-#navbar .navbar-nav > li > a {
-    margin-top: 5px;
-    color: #fff;
-    font-weight: 600;
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+  padding: 10px;
 }
-
-#navbar .navbar-nav > li.active > a,
-#navbar .navbar-nav > li.open > a,
-#navbar .navbar-nav > li > a:hover,
-#navbar .navbar-nav > li > a:active {
-    background-color: transparent !important;
-    text-decoration: underline;
-    color: #fff;
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #449999;
 }
-
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > .open > a:hover {
+  background-color: #2e2e2c;
+}
+.dropdown-menu {
+  background-color: #2e2e2c;
+  border: none;f
+  z-index: 10000;
+  left: inherit;
+}
+.dropdown-menu > li > a {
+  color: #fff;
+}
+#navbar-contents {
+  max-height: none;
+}
 @media (max-width: 767px) {
-    #navbar {
-        margin-top: 10px;
-    }
-    #navbar .navbar-collapse {
-        border-top: solid 1px #333;
-        margin-left: -15px;
-    }
-    #navbar a {
-        color: #fff !important;
-    }
-    #navbar li.active > a {
-        background-color: #449999 !important;
-        text-decoration: underline;
-    }
-    #navbar a:hover {
-        text-decoration: underline;
-    }
-}
-
-@media (min-width: 768px) {
-    #navbar ul.nav li.dropdown:hover > ul.dropdown-menu {
-        display: block;
-    }
+  .dropdown {
+    background: #2e2e2c;
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+    color: #2e2e2c;
+    background: #f3f3f4;
+  }
+  li.divider {
+    display: none;
+  }
 }
 
 /* Article */

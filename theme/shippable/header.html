@@ -1,39 +1,36 @@
-<header id="header" class="navbar navbar-inverse navbar-static-top ltgray" role="banner">
-
+<nav class="navbar-fixed-top navbar-inverse">
   <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Logo and toggle grouped together for better display on mobile size -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-contents">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img alt="brand" src="/static/ash/images/main-logo.png"></a>
+        </div>
 
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#header-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="https://www.shippable.com" class="navbar-brand"><img src="/static/ash/images/main-logo.png"/></a>
-    </div>
-
-    <nav id="header-collapse" class="collapse navbar-collapse bs-navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="https://www.shippable.com/features.html" target="_blank">FEATURES</a></li>
-        <li><a href="https://www.shippable.com/pricing.html" target="_blank">PRICING</a></li>
-        <li><a href="http://docs.shippable.com" target="_blank">DOCS</a></li>
-        <li><a href="https://www.shippable.com/aboutus.html" target="_blank">ABOUT US</a></li>
-        <li><a href="http://blog.shippable.com" target="_blank">BLOG</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">LOGIN<i class="fa fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="https://app.shippable.com/auth/github"><i class="fa fa-github fa-lg"></i>
-                github auth
-              </a>
-            </li>
-            <li><a href="https://app.shippable.com/auth/bitbucket"><i class="fa fa-bitbucket fa-lg"></i>
-                bitbucket auth
-              </a>
+        <!-- Nav content to be toggled -->
+        <div class="collapse navbar-collapse" id="navbar-contents">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/products.html">PRODUCTS</a></li>
+            <li><a href="/pricing.html">PRICING</a></li>
+            <li><a href="http://docs.shippable.com" target="_blank">DOCS</a></li>
+            <li><a href="http://blog.shippable.com" target="_blank">BLOG</a></li>
+            <li><a href="/company.html">COMPANY</a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">LOGIN <i class="fa fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="<%= feUrl %>/auth/github"><i class="fa fa-github fa-lg"></i> github</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><a href="<%= feUrl %>/auth/bitbucket"><i class="fa fa-bitbucket fa-lg"></i> bitbucket</a></li>
+              </ul>
             </li>
           </ul>
-        </li>
-      </ul>
-    </nav>
-
+        </div>
+      </div>
+    </div>
   </div>
-
-</header>
+</nav>
