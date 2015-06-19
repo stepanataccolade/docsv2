@@ -24,7 +24,7 @@ flavored markdown and Mkdocs markdown). Just be careful not to create many commi
 To get started you have to have git and python3 with pip and virtualenv installed:
 
 ```bash
-$ git clone git@github.com:Shippable/docs.git shippable-docs
+$ git clone git@github.com:Shippable/docsv2.git shippable-docs
 $ cd shippable-docs
 $ virtualenv venv
 $ source venv/bin/activate
