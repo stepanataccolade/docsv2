@@ -28,6 +28,10 @@ a:link, a:visited {
     font-family: ProximaNova-Regular, "proxima-nova", "Maven Pro", sans-serif;
 }
 
+a:hover, a:active {
+  text-decoration: none;
+}
+
 blockquote {
     margin-bottom: 10px;
     padding: 10px;
@@ -186,7 +190,7 @@ code {
 .sub-tabs .dropdown-menu > .active > a:focus {
     color: #449999;
 }
-#dropdown-nav {
+#accordion1 {
   display: none;
 }
 #drop-nav-button {
@@ -194,47 +198,48 @@ code {
   background-color: #fff;
   color: #58595b;
   border: 1px solid #ADADAD;
-}
-#dropdown-nav .dropdown-menu {
-  background: #fff;
-  width: 100%;
-  left: 50%;
-  right: auto;
+  text-transform: uppercase;
   text-align: center;
-  -webkit-transform: translate(-50%, 0%);
-  -moz-transform: translate(-50%, 0%);
-  -o-transform: translate(-50%, 0%);
-  -ms-transform: translate(-50%, 0%);
 }
-#dropdown-nav .dropdown-menu > li {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
+#sections {
+  text-align: center;
 }
-#dropdown-nav .dropdown-menu > .active > a,
-#dropdown-nav .dropdown-menu > .active > a:hover,
-#dropdown-nav .dropdown-menu > .active > a:focus {
-    color: #449999;
+#sections .panel-group .panel-heading,
+#sections .panel-default {
+  border-color: #fff;
 }
-#dropdown-nav .caret {
-  border-top-color: #449999;
-  border-bottom-color: #449999;
+#sections .panel-default > .panel-heading {
+  background: #fff;
+}
+#sections .panel-title > a {
+  color: #58595b;
+}
+#sections .panel-title > a:hover,
+#sections .panel-title > a:focus {
+  color: #449999;
+}
+#sections li {
+  list-style-type: none;
+}
+#sections li > a {
+  border: none;
+  margin: 10px;
 }
 @media (max-width: 1199px) {
   #full-nav {
     display: none;
   }
-  #dropdown-nav {
+  #accordion1 {
     display: inline;
   }
-  #dropdown-nav .dropdown-menu {
+  #accordion1 .dropdown-menu {
     margin: auto;
     padding: 0px;
   }
-  #dropdown-nav .dropdown-menu > li {
+  #accordion1 .dropdown-menu > li {
     display: inline;
   }
-  #dropdown-nav .dropdown-menu > li > a {
+  #accordion1 .dropdown-menu > li > a {
     border: none;;
     width: auto;
   }
