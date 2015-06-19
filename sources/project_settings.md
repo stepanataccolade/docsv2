@@ -24,7 +24,7 @@ Any settings on the UI applies to all builds for that project.
 
 This tells us whether you want to do a Docker build for your project ie., run your build on a custom Docker container by building a Docker image. The default CI mode is **OFF**.
 
-Read our guides on [How to do a Docker Build](docker-build) to learn more.
+Read our guides on [How to do a Docker Build](docker_build) to learn more.
 
 ### Build Image
 
