@@ -1,7 +1,13 @@
 /* Elements */
 
 body {
-    color: #333;
+    color: #58595b;
+    font-family: ProximaNova-Regular, "proxima-nova", "Maven Pro", sans-serif;
+}
+
+p {
+  font-size: 15px;
+  line-height: 24px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -16,10 +22,6 @@ h1 {
 
 hr {
     margin: 1.5em 0;
-}
-
-p, ul {
-    color: #333;
 }
 
 blockquote {
