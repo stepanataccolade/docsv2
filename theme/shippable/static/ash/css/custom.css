@@ -369,11 +369,65 @@ code {
     background-color: #eee;
 }
 
-/* Footer */
+/******* Footer *******/
+#footer.bg {
+  margin-top: 60px;
+  padding: 40px 0px 0px;
+  background: #58595b;
+}
+#footer .col-sm-3 > h3 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  margin-top: 0px;
+}
+#footer .col-sm-3 > ul {
+  margin-top: 30px;
+  font-size: 13px;
+  list-style-type: none;
+  padding: 0;
+}
+#footer .col-sm-3 > ul > li {
+  margin-bottom: 9px;
+}
+#footer a {
+  color: #fff;
+  transition: all 0.2s linear 0s;
+}
+#footer a:hover,
+#footer a:active,
+#footer a:focus {
+  color: #449999;
+}
+.hiring {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius:5px;
+  background-color: #449999;
+  padding: 3px 8px;
+}
+@media (max-width: 767px) {
+  #footer {
+    text-align: center;
+  }
+  #footer.bg {
+    padding-top: 30px;
+  }
+  #footer .col-sm-3 {
+    margin-top: 30px;
+  }
+  .col-sm-3 > ul {
+    margin-top: 10px;
+  }
+}
 
-#footer {
-    margin-top: 10em;
-    padding-top: 5em;
-    border-top: solid 1px #58595b;
-    background-color: #fff;
+/******* Copyright *******/
+.copyright {
+  text-align: center;
+  color: #a1aab6;
+  font-size: 13px;
+  margin: 50px 0px 30px;
 }
