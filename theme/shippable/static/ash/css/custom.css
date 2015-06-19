@@ -53,87 +53,72 @@ code {
 }
 
 /* Header */
-
-#header {
-    z-index: 10000;
+/******* Nav bar *******/
+.navbar-brand {
+  padding: 5px 0px;
+  height: auto;
 }
-
-@media (max-width: 767px) {
-    #header .navbar-header {
-        background-color: #000;
-        border-bottom: solid 1px #333;
-    }
-    #header .navbar-nav {
-        margin-top: 0;
-        background-color: #000;
-    }
-    #header a:hover {
-        text-decoration: underline;
-    }
+.navbar-inverse {
+  background-color: #58595b;
 }
-
-/* Navbar */
-
-#navbar {
-    background-color: #449999;
-    border-bottom: #ccc;
+.navbar-nav {
+  padding: 0.5% 0%;
 }
-
-#navbar .navbar-collapse {
-    margin-left: 45px;
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+  padding: 10px;
 }
-
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #449999;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > .open > a:hover {
+  background-color: #2e2e2c;
+}
 .dropdown-menu {
-  background-color: #fff;
+  background-color: #2e2e2c;
   border: none;
   z-index: 10000;
   left: inherit;
 }
-
-#navbar .navbar-nav > li > a {
-    margin-top: 5px;
-    color: #fff;
-    font-weight: 600;
-}
-
-#navbar .navbar-nav > li.active > a,
-#navbar .navbar-nav > li.open > a,
-#navbar .navbar-nav > li > a:hover,
-#navbar .navbar-nav > li > a:active {
-    background-color: transparent !important;
-    text-decoration: underline;
+.dropdown-menu > li > a {
     color: #fff;
 }
-
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    color: #449999;
+    background-color: #f3f3f4;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #fff;
+    outline: 0px none;
+}
+.navbar-nav > li > a i {
+    display: inline;
+}
+#navbar-contents {
+  max-height: none;
+}
 @media (max-width: 767px) {
-    #navbar {
-        margin-top: 10px;
-    }
-    #navbar .navbar-collapse {
-        border-top: solid 1px #333;
-        margin-left: -15px;
-    }
-    #navbar a {
-        color: #fff !important;
-    }
-    #navbar li.active > a {
-        background-color: #449999 !important;
-        text-decoration: underline;
-    }
-    #navbar a:hover {
-        text-decoration: underline;
-    }
-}
-
-@media (min-width: 768px) {
-    #navbar ul.nav li.dropdown:hover > ul.dropdown-menu {
-        display: block;
-    }
-}
-@media (min-width: 768px) {
-    .navbar-nav > li > a i {
-      display: inline;
-    }
+  .dropdown {
+    background: #2e2e2c;
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+    color: #2e2e2c;
+    background: #f3f3f4;
+  }
+  li.divider {
+    display: none;
+  }
 }
 /***** Sub-nav *****/
 /*make the nav sticky*/
@@ -162,6 +147,7 @@ code {
   margin: 0px;
   padding: 15px 0px;
 }
+
 .sub-nav li:hover > a {
   color: #449999;
   border-bottom: 2px solid;
@@ -170,15 +156,38 @@ code {
   float: left;
   margin-bottom: -1px;
 }
-.nav .caret {
+.sub-tabs .open > a,
+.sub-tabs .open > a:hover,
+.sub-tabs .open > a:focus {
+    background-color: #f3f3f4;
+    border: inherit;
+    border-bottom: 2px solid #449999;
+}
+
+.sub-tabs .caret {
   border-top-color: #449999;
   border-bottom-color: #449999;
+}
+.sub-tabs .dropdown-menu {
+    background-color: #fff;
+    padding: 0px;
+}
+.sub-tabs .dropdown-menu > li > a {
+  padding: 15px;
+}
+.sub-tabs .dropdown-menu > .active > a,
+.sub-tabs .dropdown-menu > .active > a:hover,
+.sub-tabs .dropdown-menu > .active > a:focus {
+    color: #449999;
 }
 #dropdown-nav {
   display: none;
 }
 #drop-nav-button {
   width: 100%;
+  background-color: #fff;
+  color: #58595b;
+  border: 1px solid #ADADAD;
 }
 #dropdown-nav .dropdown-menu {
   background: #fff;
@@ -195,6 +204,15 @@ code {
   display: inline-block;
   *display: inline;
   *zoom: 1;
+}
+#dropdown-nav .dropdown-menu > .active > a,
+#dropdown-nav .dropdown-menu > .active > a:hover,
+#dropdown-nav .dropdown-menu > .active > a:focus {
+    color: #449999;
+}
+#dropdown-nav .caret {
+  border-top-color: #449999;
+  border-bottom-color: #449999;
 }
 @media (max-width: 1199px) {
   #full-nav {
@@ -223,7 +241,7 @@ code {
 
 /* Article */
 #article {
-    margin-top: 120px;
+    margin-top: 100px;
     max-width: 1000px;
     /*  margin-left: 245px;*/
 }
