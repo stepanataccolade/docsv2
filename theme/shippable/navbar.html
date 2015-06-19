@@ -1,39 +1,54 @@
-<nav id="navbar" class="navbar navbar-inverse navbar-static-top">
-
-  <div class="container">
-
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-
-    <nav id="navbar-collapse" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav" style="margin-top: 10px; float: none;">
+<!-- Sub-nav -->
+<div class="sticky-anchor">
+  <div class="sub-nav" id="sub-nav-ci">
+    <div class="container" id="full-nav">
+      <ul class="nav sub-tabs bg">
         {% for section in nav %}
-        {% if section.children %}
-        <li class="dropdown{% if section.active %} active{% endif %}">
-          {% for first_item in section.children[:1] %}
-          <a href="/{{ first_item.url }}" class="dropdown-toggle" data-toggle="dropdown">{{ section.title }} <b class="caret"></b></a>
-          {% endfor %}
-          <ul class="dropdown-menu">
-            {% for section in section.children %}
-            {% include "navbar_sub.html" %}
+            {% if section.children %}
+            <li class="dropdown{% if section.active %} active{% endif %}">
+              {% for first_item in section.children[:1] %}
+              <a href="/{{ first_item.url }}" class="dropdown-toggle" data-toggle="dropdown">{{ section.title }} <b class="caret"></b></a>
+              {% endfor %}
+              <ul class="dropdown-menu">
+                {% for section in section.children %}
+                {% include "navbar_sub.html" %}
+                {% endfor %}
+              </ul>
+            </li>
+            {% else %}
+            <li {% if section.active %}class="active"{% endif %}>
+              <a href="/{{ section.url }}">{{ section.title }}</a>
+            </li>
+            {% endif %}
             {% endfor %}
-          </ul>
-        </li>
-        {% else %}
-        <li {% if section.active %}class="active"{% endif %}>
-          <a href="/{{ section.url }}">{{ section.title }}</a>
-        </li>
-        {% endif %}
-        {% endfor %}
       </ul>
-    </nav>
-
+    </div>
+    <div class="dropdown" id="dropdown-nav">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="drop-nav-button" data-toggle="dropdown" aria-expanded="true">
+          Menu <i class="fa fa-chevron-down"></i>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="drop-nav-button">
+          {% for section in nav %}
+            {% if section.children %}
+            <li class="dropdown{% if section.active %} active{% endif %}">
+              {% for first_item in section.children[:1] %}
+              <a href="/{{ first_item.url }}" class="dropdown-toggle" data-toggle="dropdown">{{ section.title }} <b class="caret"></b></a>
+              {% endfor %}
+              <ul class="dropdown-menu">
+                {% for section in section.children %}
+                {% include "navbar_sub.html" %}
+                {% endfor %}
+              </ul>
+            </li>
+            {% else %}
+            <li {% if section.active %}class="active"{% endif %}>
+              <a href="/{{ section.url }}">{{ section.title }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+      </div>
+    </div>
   </div>
-
-</nav>
+</div>

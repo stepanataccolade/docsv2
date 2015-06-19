@@ -97,8 +97,8 @@ code {
   background-color: #2e2e2c;
 }
 .dropdown-menu {
-  background-color: #2e2e2c;
-  border: none;f
+  background-color: #fff;
+  border: none;
   z-index: 10000;
   left: inherit;
 }
@@ -123,11 +123,100 @@ code {
     display: none;
   }
 }
+@media (min-width: 768px) {
+    .navbar-nav > li > a i {
+      display: inline;
+    }
+}
+/***** Sub-nav *****/
+/*make the nav sticky*/
+.sub-nav {
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  z-index: 1000;
+}
+.sub-nav .sub-tabs {
+  border-bottom: none;
+  text-align: center;
+}
+.sub-tabs > li {
+  width: 12.5%;
+  background: #fff;
+}
+.sub-nav li > a {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #58595b;
+  border-radius: 0px;
+  border: 1px solid #ededed;
+  border-bottom: 2px solid #ededed;
+  border-top: none;
+  margin: 0px;
+  padding: 15px 0px;
+}
+.sub-nav li:hover > a {
+  color: #449999;
+  border-bottom: 2px solid;
+}
+.sub-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+.nav .caret {
+  border-top-color: #449999;
+  border-bottom-color: #449999;
+}
+#dropdown-nav {
+  display: none;
+}
+#drop-nav-button {
+  width: 100%;
+}
+#dropdown-nav .dropdown-menu {
+  background: #fff;
+  width: 100%;
+  left: 50%;
+  right: auto;
+  text-align: center;
+  -webkit-transform: translate(-50%, 0%);
+  -moz-transform: translate(-50%, 0%);
+  -o-transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%, 0%);
+}
+#dropdown-nav .dropdown-menu > li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+@media (max-width: 1199px) {
+  #full-nav {
+    display: none;
+  }
+  #dropdown-nav {
+    display: inline;
+  }
+  #dropdown-nav .dropdown-menu {
+    margin: auto;
+    padding: 0px;
+  }
+  #dropdown-nav .dropdown-menu > li {
+    display: inline;
+  }
+  #dropdown-nav .dropdown-menu > li > a {
+    border: none;;
+    width: auto;
+  }
+}
+@media (max-height: 500px) {
+  .sub-nav li > a {
+    padding: 10px 0px;
+  }
+}
 
 /* Article */
-
 #article {
-    margin-top: 1em;
+    margin-top: 120px;
     max-width: 1000px;
     /*  margin-left: 245px;*/
 }
@@ -212,7 +301,7 @@ code {
     #sidebar .tocbar.affix {
         position: fixed;
         z-index: 10;
-        top: 1em;
+        top: 120px;
     }
 }
 
