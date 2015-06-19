@@ -24,6 +24,10 @@ hr {
     margin: 1.5em 0;
 }
 
+a:link, a:visited {
+    font-family: ProximaNova-Regular, "proxima-nova", "Maven Pro", sans-serif;
+}
+
 blockquote {
     margin-bottom: 10px;
     padding: 10px;
