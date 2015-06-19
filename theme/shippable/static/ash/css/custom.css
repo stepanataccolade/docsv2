@@ -371,8 +371,8 @@ code {
 
 /******* Footer *******/
 #footer.bg {
-    margin-top: 60px;
-  padding-top: 40px;
+  margin-top: 60px;
+  padding: 40px 0px 0px;
   background: #58595b;
 }
 #footer .col-sm-3 > h3 {
