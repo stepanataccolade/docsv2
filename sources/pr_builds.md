@@ -6,7 +6,7 @@ page_keywords: PR builds, CI/CD, shippable CI, documentation, shippable, config,
 
 ## How do you get here?
 
-- Login to [Shippable](https://shippable.com)
+- Login to [Shippable](http://shippable.com)
 - Select **CI** from the Landing page
 - Choose a Subscription from the dropdown
 - On the [Subscription Dashboard](ci_dashboard), click on the specific project name

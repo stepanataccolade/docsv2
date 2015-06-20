@@ -14,7 +14,7 @@ The user guide is organized by the different tabs on the product - so you will f
 
 ## Add a new formation
 
-- Login to [Shippable](https://shippable.com)
+- Login to [Shippable](http://shippable.com)
 - On the Landing page, Click on Formations
 
      ![Shippable Formations](images/formations_landing.gif)

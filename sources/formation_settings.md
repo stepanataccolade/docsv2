@@ -14,7 +14,7 @@ Once the Service Instance has been updated, you can click `Deploy Service` to de
 
 ## How do you get here?
 
-- Login to [Shippable](https://shippable.com)
+- Login to [Shippable](http://shippable.com)
 - On the Landing page, click on **Formations**
 - Select your Formation
 - Click on the `Settings` tab

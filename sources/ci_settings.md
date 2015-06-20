@@ -8,7 +8,7 @@ This explains the settings available at your subscription level.
 
 ## How do you get here?
 
-- Login to [Shippable](https://shippable.com)
+- Login to [Shippable](http://shippable.com)
 - Click on **CI** on the landing page
 - Click on a specific subscription from the dropdown
 - Click on the **Settings** tab from the Subscription dashboard

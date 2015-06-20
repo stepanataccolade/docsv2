@@ -8,7 +8,7 @@ This page walks through the Subscriptions dashboard and the options available fr
 
 ## How do you get here?
 
-- Login to [Shippable](https://shippable.com)
+- Login to [Shippable](http://shippable.com)
 - Click on **CI** on the Shippable Landing page
 - Click on a subscription from the dropdown
 - This will bring you to the **Status** page that is also referred to as the Subscriptions Dashboard

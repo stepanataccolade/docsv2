@@ -6,7 +6,7 @@ page_keywords: formations,multi containers, microservices, Continuous Integratio
 
 ## How do you get here?
 
-- Login to [Shippable](https://shippable.com)
+- Login to [Shippable](http://shippable.com)
 - On the Landing page, click on **Formations**
 - Select your Formation
 
