@@ -36,4 +36,4 @@ You can click on the `Re-run` icon to re-run the historical build with the same 
 
 ### Run a new build
 
-Clicking on the 'Play' icon will kick off a new build for that project/branch.
+Clicking on the ![play](images/play_icon.gif) icon will kick off a new build for that project/branch.
