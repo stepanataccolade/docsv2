@@ -37,9 +37,3 @@ You can click on the `Re-run` icon to re-run the historical build with the same 
 ### Run a new build
 
 Clicking on the 'Play' icon will kick off a new build for that project/branch.
-
-
-## Build badge (NEEDS UPDATE AFTER BADGES ARE ADDED)
-
-Badges will display the status of your default branch. You can find the build badges on the project's page. Click on the **Badge** button and copy the markdown to your README file to display the status of most recent build on your Github or Bitbucket repo page.
-
