@@ -8,7 +8,7 @@ This page will explain the different options available in the Account Settings P
 
 ## How do you get here?
 
-- Login to [Shippable](https://shippable.com)
+- Login to [Shippable](http://shippable.com)
 - Click on Account Settings icon on the top nav bar
 
       ![account_settings](images/account_settings.gif)

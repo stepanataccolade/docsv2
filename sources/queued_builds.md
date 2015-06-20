@@ -6,7 +6,7 @@ page_keywords: project dashboard, queued builds, waiting builds, CI/CD, shippabl
 
 ## How do you get here?
 
-- Login to [Shippable](https://shippable.com)
+- Login to [Shippable](http://shippable.com)
 - Select **CI** from the Landing page
 - Choose a Subscription from the dropdown
 - On the [Subscription Dashboard](ci_dashboard), click on the specific project name

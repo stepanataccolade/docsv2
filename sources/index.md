@@ -32,10 +32,10 @@ Shippable uses either your [GitHub](https://github.com) or [Bitbucket](https://b
 
 ### Step 1: Sign in to Shippable
 
-To sign in, visit the [Shippable website](https://shippable.com),
+To sign in, visit the [Shippable website](http://shippable.com)
 click **Login**, and choose between GitHub or Bitbucket auth. This will take you to either the GitHub or Bitbucket sign-in page, where you enter your credentials.
 
-Click `Authorize Application` on GitHub or `Grant access` on Bitbucket to allow access to repos. If you are a GitHub user, this initial flow only grants us access to public repositories. To grant permissions for private repositories, see the [access policy](permissions.md) page for more details. 
+Click `Authorize Application` on GitHub or `Grant access` on Bitbucket to allow access to repos. If you are a GitHub user, this initial flow only grants us access to public repositories. To grant permissions for private repositories, see the [access policy](permissions.md) page for more details.
 
 
 ### Step 2: Create YML file
@@ -89,7 +89,7 @@ Shippable uses either your [GitHub](https://github.com) or [Bitbucket](https://b
 
 ### Step 1: Sign in to Shippable
 
-To sign in, visit the [Shippable website](https://shippable.com),
+To sign in, visit the [Shippable website](http://shippable.com),
 click **Login**, and choose between GitHub or Bitbucket auth. This will take you to either the GitHub or Bitbucket Sign In page, where you enter your credentials.
 
 Click `Authorize Application` on GitHub or `Grant access` on Bitbucket to allow access to repos. The [access policy](permissions.md) page has more details on Shippable's access policies.
