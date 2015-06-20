@@ -15,15 +15,12 @@ This page walks through the details on the Project Dashboard, which gives you de
 
 The Project Dashboard has panels for Current Build and Build History for each branch.
 
+![project_dashboard](images/project_dashboard.gif)
+
+
 ## Current Builds
 
 The Current Build section shows the **commit** builds in progress for all branches in your project. If there are any PR builds, they will show up in the [PR builds](pr_builds) tab.
-
-## Active Branches Toggle
-
-By default, the dashboard only shows details about the active branch. If you would like to see all branches for the project, set the toggle to **OFF**
-
-![Active Branches](images/active_branches_icon.gif)
 
 
 ## Build History
@@ -36,8 +33,5 @@ You can click on the `Re-run` icon to re-run the historical build with the same 
 
 ### Run a new build
 
-<<<<<<< HEAD
 Clicking on the ![play](images/play_icon.gif) icon will kick off a new build for that project/branch.
-=======
-Clicking on the 'Play' icon will kick off a new build for that project/branch.
->>>>>>> f55c3348bf83c429853bad27524aba60df70ff00
+
