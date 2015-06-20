@@ -47,6 +47,8 @@ Before using Lighthouse, make sure you are set up with the following Account Int
   - Click on the `Save` Icon
   - You will see the `Sync Status` getting updated. If we are successfully able to sync, you will see the status changing to `success`
 
+  ![LHSScreenShot](images/lhscrst1.gif)
+
 ### Step 2: Configure Notifications for the Lighthouse Image
 
 - Click on the image_name to go to the Image Details Page
