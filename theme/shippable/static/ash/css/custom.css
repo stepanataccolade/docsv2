@@ -24,11 +24,7 @@ hr {
     margin: 1.5em 0;
 }
 
-a:link, a:visited {
-    font-family: ProximaNova-Regular, "proxima-nova", "Maven Pro", sans-serif;
-}
-
-a:hover, a:active {
+a:hover, a:focus, a:active {
   text-decoration: none;
 }
 
@@ -253,7 +249,7 @@ code {
 /* Article */
 #article {
     margin-top: 100px;
-    max-width: 1000px;
+    /*max-width: 1000px;*/
     /*  margin-left: 245px;*/
 }
 
@@ -261,7 +257,7 @@ code {
 
 #sidebar {
     padding-top: 31px;
-   /* padding-left: 0px;*/
+    padding-left: 0px;
 }
 
 #sidebar a {
@@ -342,6 +338,10 @@ code {
 }
 
 /* Mainbar */
+
+#mainbar {
+  padding-right: 0px !important;
+}
 
 #mainbar .gsc-result-info {
     margin-top: 14px;
