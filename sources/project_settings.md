@@ -10,7 +10,7 @@ Check out the [How To Run a Build](build_case2) for guidance on running a build 
 
 ## How do you get here?
 
-- Login to [Shippable](https://shippable.com)
+- Login to [Shippable](http://shippable.com)
 - Click on **CI** on the Shippable Landing Page and choose the appropriate subscription
 - This brings you to the [Subscriptions Dashboard](ci_dashboard). If your project is enabled, it will show up on the dashboard. If not, click on the ![add icon](images/enable_icon.gif) to enable your project
 - Click on the project

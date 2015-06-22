@@ -8,7 +8,7 @@ This page describes the different integrations you can set up for your account. 
 
 ## How do you get here?
 
-- Login to [Shippable](https://shippable.com)
+- Login to [Shippable](http://shippable.com)
 - Click on the Account Settings icon on the top nav bar
 
      ![account_settings](images/account_settings.gif)

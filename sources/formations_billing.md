@@ -8,7 +8,7 @@ This page explains how to upgrade your Formation and/or edit the number of conta
 
 ## How do you get here?
 
-- Login to [Shippable](https://shippable.com)
+- Login to [Shippable](http://shippable.com)
 - Click on **Formations** on the landing page
 - Click on a specific Formation from the dropdown
 - Click on the **Billing** tab

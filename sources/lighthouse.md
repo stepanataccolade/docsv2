@@ -18,7 +18,7 @@ Today, we support watching images that are hosted on either Docker Hub or Google
 
 ## How do you get here?
 
-- Login to [Shippable](https://shippable.com)
+- Login to [Shippable](http://shippable.com)
 - Click on **Lighthouse** on the top nav bar
 
     ![Lighthouse](images/lighthouse_landing.gif)
@@ -46,6 +46,8 @@ Before using Lighthouse, make sure you are set up with the following Account Int
   - Integration: The Account Integration Name that you created to connect to the registry
   - Click on the `Save` Icon
   - You will see the `Sync Status` getting updated. If we are successfully able to sync, you will see the status changing to `success`
+
+  ![LHSScreenShot](images/lhscrst1.gif)
 
 ### Step 2: Configure Notifications for the Lighthouse Image
 
