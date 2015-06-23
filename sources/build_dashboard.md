@@ -14,6 +14,8 @@ You can get to the builds dashboard in a few different ways:
 - By clicking on the build from the Current or Running builds on the Shippable landing page
 - By clicking on a build link in the notification emails you receive
 
+![build dashboard](images/build_dashboard.gif)
+
 ## Build Matrix
 
 If you have a [matrix build](yml_reference/#build-matrix), each build opens up as a different tab that will have the following sections.

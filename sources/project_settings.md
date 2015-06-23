@@ -6,7 +6,7 @@ page_keywords: project settings, CI/CD, shippable CI, documentation, shippable, 
 
 This page documents the configuration for your build that is set up in the UI. It also covers the additional settings that you can set up via the Shippable YML.
 
-Check out the [How To Run a Build](build_case2) for guidance on running a build with the basic YML settings.
+Check out [How To Run a Build](build_case2) for guidance on running a build with the basic YML settings.
 
 ## How do you get here?
 
