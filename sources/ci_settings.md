@@ -13,9 +13,15 @@ This explains the settings available at your subscription level.
 - Click on a specific subscription from the dropdown
 - Click on the **Settings** tab from the Subscription dashboard
 
+![ci_settings](images/ci_settings.gif)
+
+*****
+
 ## Sync Subscription
 
 Use this icon to force sync your subscription if you have updated your subscription settings upstream in Github or Bitbucket and you need the update to be propagated immediately.
+
+*****
 
 ## Deployment Key
 
