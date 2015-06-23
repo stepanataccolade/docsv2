@@ -24,7 +24,34 @@ Any settings on the UI applies to all builds for that project.
 
 This tells us whether you want to do a Docker build for your project ie., run your build on a custom Docker container by building a Docker image. The default CI mode is **OFF**.
 
-Read our guides on [How to do a Docker Build](docker_build) to learn more.
+**Docker Build: OFF**
+
+![project settings db off](images/proj_settings_db_off.gif)
+
+**Docker Build: ON**
+
+![project settings db on](images/proj_settings_db_on.gif)
+
+Read our guides on [How to do a Docker Build](docker_build) to learn more about Docker Build.
+
+### Docker Build Order
+
+Option shown if Docker Build is **ON**
+
+You can choose between doing the Docker Build **Pre-CI or Post-CI**.
+
+Pre-CI workflow is:
+
+- Build the image using Dockerfile at the root of your repo
+- Pull code from GitHub/Bitbucket and test code in the container
+- Push container to Docker Hub or GCR
+
+Post-CI workflow is:
+
+- Pull image specified from Docker Hub or GCR (default is minv2)
+- Pull code from GitHub/Bitbucket and test in container
+- If CI passes, build container from Dockerfile at the root of the repo
+- Push container to Docker Hub or GCR
 
 ### Build Image
 
@@ -65,6 +92,12 @@ By default, we use build numbers as tags. Check out our [blog](http://blog.shipp
 
 More details [here](docker_registries.md).
 
+### Source Code Location
+
+Option shown only if **Docker Build is ON** and **Docker Build Order is Pre-CI**.
+
+This is where you specify the location in your source code where the tests will be run. For example, in our [sample docker build project](https://github.com/shippableSamples/docker-build-nodejs), it is `/src`
+
 ### Lighthouse
 
 You will see an option to turn ON Lighthouse for an image that you push to the registry. (Push Build = YES). If you set this to ON, you will be notified everytime the image gets updated in the registry.
@@ -92,9 +125,13 @@ found on our [blog](http://blog.shippable.com/container-caching) .
 
 You can use the ```[reset_minion]``` tag in your commit message to reset the minion. We will clear all the cached dependencies and packages, when we see a [reset_minion] tag and your build will run on a fresh minion. Once this build finishes execution, we will cache the minion once again so that further builds can run using the cached minion.
 
+------
+
 ### Project Integrations
 
 #### Hub Integration
+
+![hub integration](images/hub_integration.gif)
 
 You will need this if you are pulling from or pushing to a docker registry, such as Docker Hub or Google Container Registry.
 

@@ -25,6 +25,8 @@ Post-CI workflow is:
 
 To use these workflows, your app must be "Dockerized". Details on this can be found in Docker's official documentation [Docker's official documentation](https://docs.dockerhub.com).
 
+### Sample Project
+
 A sample project can be found [here](https://github.com/shippableSamples/docker-build-nodejs) that demonstrates how to dockerize a simple nodejs app.
 
 
