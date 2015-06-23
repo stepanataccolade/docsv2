@@ -21,9 +21,14 @@ This is where you can upgrade your Formation plan and edit your number of contai
 
 Before you can add containers, you need atleast one valid payment method in your account. To add a payment method to your account, follow the steps below:
 
-- Click on the Account Settings icon on the top nav bar
+- Click on Account Settings on the top nav bar
+
+     ![account_settings](images/account_settings.gif)
+
 - Click on the **Cards** tab
 - Add a new payment method by clicking on the ![add icon](images/add_icon.gif)
+
+![add_card](images/add_card.gif)
 
 ### Upgrade Plan
 
@@ -33,6 +38,8 @@ Before you can add containers, you need atleast one valid payment method in your
 - Enter your payment details
 - Click the **Buy** button
 - Your formation will now be upgraded to the updated number of containers
+
+![formation billing](images/formation_billing.gif)
 
 **Note:**
 When you downgrade a plan or decrease the number of containers, an adjustment is applied to the next billing cycle.
