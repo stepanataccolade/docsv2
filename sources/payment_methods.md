@@ -19,3 +19,5 @@ This page explains where your payment instruments are stored.
 
 This section lists the credit cards that are currently linked to your account or used previously. You can add a new card or remove cards from here.
 
+![add_card](images/add_card.gif)
+

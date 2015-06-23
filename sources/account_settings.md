@@ -13,6 +13,10 @@ This page will explain the different options available in the Account Settings P
 
       ![account_settings](images/account_settings.gif)
 
+-----------
+
+![account_info](images/account_info.gif)
+
 
 ## Account Information
 
@@ -41,6 +45,7 @@ If you are using a Bitbucket Account to log in, this displays your bitbucket use
 If you are using a GitHub Account to log in, you will see an option to `Link Bitbucket` here. You can use this to connect both your accounts to get a consolidated view of all your projects in one Shippable Account.
 
 Read our guide on [linking GitHub and Bitbucket Accounts](link_gh_and_bb) for more details.
+
 
 ## Misc Settings
 
