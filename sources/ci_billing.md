@@ -21,18 +21,25 @@ This is where you can upgrade your subscription plan and edit your number of con
 
 Before you can add containers, you need atleast one valid payment method in your account. To add a payment method to your account, follow the steps below:
 
-- Click on the Account Settings icon on the top nav bar
+- Click on Account Settings on the top nav bar
+
+     ![account_settings](images/account_settings.gif)
+
 - Click on the **Cards** tab
 - Add a new payment method by clicking on the ![add icon](images/add_icon.gif)
 
+![add_card](images/add_card.gif)
+
 ### Upgrade Plan
 
-- Make sure your plan is set to `Multi-Tenant CI`
+- Your plan should be set to `Multi-Tenant CI`
 - Use the slider to select the number of containers you want for your subscription
 - The total price automatically updates to reflect the price you will pay for the number of containers chosen
 - Enter your payment details
-- Click the **Buy** button
+- Click the **Buy** button (see pre-requisite above)
 - Your CI Plan is now updated and the number of minion count on your Subscriptions dashboard should reflect the new number of containers on your plan
+
+![ci_billing](images/ci_billing.gif)
 
 **Note:**
 When you downgrade a plan or decrease the number of containers, an adjustment is applied to the next billing cycle.

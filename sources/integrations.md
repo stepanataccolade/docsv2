@@ -19,15 +19,22 @@ This page describes the different integrations you can set up for your account. 
 
 ## Add a New Account Integration
 
+To add a new integration, click on ![add_icon](images/add_icon.gif)
+
+![add_integration](images/add_integration.gif)
+
+-------
+
 ### Docker Hub
 
 You will need this to pull or push images to Docker Hub as part of building your project.
 
-1. To add a new integration, click on ![add_icon](images/add_icon.gif)
-3. **Master Integration:** On the dropdown, Choose `Docker`
-4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:docker-mydockerusername`
-5. Enter your credentials
-6. Click on `Save`
+1. **Master Integration:** On the dropdown, Choose `Docker`
+2. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:docker-mydockerusername`
+3. Enter your credentials
+4. Click on `Save`
+
+![docker_integration](images/docker_integration.gif)
 
 The integration will now be available to all your projects. To learn more about where this integration is used, check out our [Docker Registries Guide](docker_registries).
 
@@ -50,6 +57,8 @@ You will need this to pull or push images to Google Container Registry as part o
 11. Enter your JSON key that you saved earlier
 12. Click on `Save`
 
+![gcr_integration](images/gcr_integration.gif)
+
 The integration will now be available to all your projects. To learn more about where this integration is used, check out our [Docker Registries Guide](docker_registries).
 
 ------------
@@ -64,6 +73,8 @@ This is the integration that is used to set up email notifications for Lighthous
 4. Enter a name for your integration. Use a distinctive name that's easy to associate to the integration and recall. Example: `Example: my-shippable-emailid`
 5. Enter your email address: `janedoe@shippable.com`
 6. Click on `Save`
+
+![lighthouse_integration](images/lighthouse_integration.gif)
 
 You can now use this integration to send update emails to the email id when an image gets updated.
 

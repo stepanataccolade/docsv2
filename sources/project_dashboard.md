@@ -27,6 +27,16 @@ The Current Build section shows the **commit** builds in progress for all branch
 
 You can view build history by branch. This is also where you can delete builds for any branch. Click on the **Delete Builds** button on the branch panel and choose the builds you would like to delete.
 
+### Delete Builds
+
+Click on the **Delete Builds** Button:
+
+![delete_build1](images/delete_build1.gif)
+
+Choose the builds you would like to delete and click **Confirm**
+
+![delete_build2](images/delete_build2.gif)
+
 ### Re-run builds
 
 You can click on the `Re-run` icon to re-run the historical build with the same build info.
