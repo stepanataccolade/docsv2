@@ -263,6 +263,9 @@ code {
 #sidebar a {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
+.sticky-anchor {
+  position: fixed;
+}
 
 #sidebar .tocbar {
   position: fixed;
