@@ -67,10 +67,11 @@ $(document).ready(function() {
         var set_tocbar_width = function() {
             $('#sidebar .tocbar').width($('#sidebar').width());
         };
-        $('#sidebar .tocbar').affix({ offset: { top: 200 } });
+        // $('#sidebar .tocbar').affix({ offset: { top: 200 } });
         $(window).resize(set_tocbar_width);
         set_tocbar_width();
     }
+
 
     if($.cookie("css")) {
         $("#colors").attr("href",$.cookie("css"));

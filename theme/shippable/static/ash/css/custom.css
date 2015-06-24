@@ -265,9 +265,18 @@ code {
 }
 
 #sidebar .tocbar {
-    border: solid 1px #dbdde0;
-    border-radius: 4px;
-    background-color: #fff;
+  position: fixed;
+  border: solid 1px #dbdde0;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 10px;
+  padding-right: 0px;
+  z-index: 10;
+}
+
+#sidebar .tocbar.stick {
+  position: absolute;
+  bottom: 0px;
 }
 
 #sidebar .tocbar a:hover {
