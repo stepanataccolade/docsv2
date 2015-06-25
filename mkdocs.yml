@@ -11,50 +11,46 @@ google_analytics: ['UA-50610279-1', 'auto']
 
 # Pages
 pages:
-  - [index.md, Getting Started]
-
-  - [ci_overview.md, CI/CD, Overview]
-  - [ci_dashboard.md, CI/CD, CI Subscription Dashboard]
-  - [ci_billing.md, CI/CD, CI Subscription Billing]
-  - [ci_settings.md, CI/CD, CI Subscription Settings]
-  - [project_dashboard.md, CI/CD, Project Dashboard]
-  - [pr_builds.md, CI/CD, PR Builds]
-  - [queued_builds.md, CI/CD, Queued Builds]
-  - [project_settings.md, CI/CD, Project Settings]
-  - [build_dashboard.md, CI/CD, Build Dashboard]
-
-  - [formations_overview.md, Formations, Overview]
-  - [formations_status.md, Formations, Formations Dashboard]
- # - [formation_services.md, Shippable Formations, Formation Services]
-  - [formation_settings.md, Formations, Formation Settings]
-  - [formations_billing.md, Formations, Formations Billing]
-
-  - [lighthouse.md, Lighthouse]
-
-  - [account_settings.md, Account, Account Settings]
-  - [integrations.md, Account, Integrations]
-  - [payment_methods.md, Account, Payment Methods]
-
-  - [link_gh_and_bb.md, How To, Link GitHub and Bitbucket Accounts]
-  - [build_case2.md, How To, Use CI with Test and Coverage]
-  - [docker_registries.md, How To, Use a Docker Registry]
-  - [docker_build.md, How To, Do a Docker Build]
-  - [languages.md, How To, Use Specific Languages for CI]
-  #- [sample_formation.md, How To, Create a Sample Formation]
-  - [using_gitlab.md, How To, Use Shippable CI with Gitlab]
-  - [heroku.md, How To, Deploy to Heroku]
-  - [beanstalk.md, How To, Deploy to Amazon Elastic Beanstalk]
-  - [opswork.md, How To, Deploy to AWS OpsWorks]
-  - [appengine.md, How To, Deploy to Google App Engine]
-  - [openshift.md, How To, Deploy to Red Hat OpenShift]
-  - [digitalocean.md, How To, Deploy to DigitalOcean]
-  - [codedeploy.md, How To, Deploy to AWS CodeDeploy]
-
-  - [api.md, API]
-
-  - [faq.md, Reference, FAQ]
-  - [basic_flow.md, Reference, How the Build works]
-  - [yml_reference.md, Reference, YML Reference]
-  - [supported_services.md, Reference, Supported Languages]
-  - [permissions.md, Reference, Access and Permissions]
-  - [glossary.md, Reference, Glossary]
+- Getting Started: index.md
+- CI/CD:
+  - Overview: ci_overview.md
+  - CI Subscription Dashboard: ci_dashboard.md
+  - CI Subscription Billing: ci_billing.md
+  - CI Subscription Settings: ci_settings.md
+  - Project Dashboard: project_dashboard.md
+  - PR Builds: pr_builds.md
+  - Queued Builds: queued_builds.md
+  - Project Settings: project_settings.md
+  - Build Dashboard: build_dashboard.md
+- Formations:
+  - Overview: formations_overview.md
+  - Formations Dashboard: formations_status.md
+  - Formation Settings: formation_settings.md
+  - Formations Billing: formations_billing.md
+- Lighthouse: lighthouse.md
+- Account:
+  - Account Settings: account_settings.md
+  - Integrations: integrations.md
+  - Payment Methods: payment_methods.md
+- How To:
+  - Link GitHub and Bitbucket Accounts: link_gh_and_bb.md
+  - Use CI with Test and Coverage: build_case2.md
+  - Use a Docker Registry: docker_registries.md
+  - Do a Docker Build: docker_build.md
+  - Use Specific Languages for CI: languages.md
+  - Use Shippable CI with Gitlab: using_gitlab.md
+  - Deploy to Heroku: heroku.md
+  - Deploy to Amazon Elastic Beanstalk: beanstalk.md
+  - Deploy to AWS OpsWorks: opswork.md
+  - Deploy to Google App Engine: appengine.md
+  - Deploy to Red Hat OpenShift: openshift.md
+  - Deploy to DigitalOcean: digitalocean.md
+  - Deploy to AWS CodeDeploy: codedeploy.md
+- API: api.md
+- Reference:
+  - FAQ: faq.md
+  - How the Build works: basic_flow.md
+  - YML Reference: yml_reference.md
+  - Supported Languages: supported_services.md
+  - Access and Permissions: permissions.md
+  - Glossary: glossary.md
