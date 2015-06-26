@@ -24,6 +24,10 @@ hr {
     margin: 1.5em 0;
 }
 
+a:link, a:visited {
+  font-family: ProximaNova-Regular, "proxima-nova", "Maven Pro", sans-serif;
+}
+
 a:hover, a:focus, a:active {
   text-decoration: none;
 }
@@ -54,12 +58,19 @@ code {
 /* Bootstrap */
 
 /* Fixing "Little Necko" theme */
-.navbar-nav > li > a {
-    height: auto !important;
-}
 
 /* Header */
 /******* Nav bar *******/
+.navbar-nav > li > a {
+    height: auto !important;
+    font-size: 14px;
+}
+
+.navbar-collapse {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
 .navbar-brand {
   padding: 5px 0px;
   height: auto;
@@ -396,6 +407,9 @@ code {
 }
 
 /******* Footer *******/
+#footer {
+  line-height: 1.42857;
+}
 #footer.bg {
   margin-top: 60px;
   padding: 40px 0px 0px;
