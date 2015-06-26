@@ -18,8 +18,6 @@ pages:
   - CI Subscription Billing: ci_billing.md
   - CI Subscription Settings: ci_settings.md
   - Project Dashboard: project_dashboard.md
-  - PR Builds: pr_builds.md
-  - Queued Builds: queued_builds.md
   - Project Settings: project_settings.md
   - Build Dashboard: build_dashboard.md
 - Formations:
