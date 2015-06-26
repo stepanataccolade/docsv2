@@ -18,30 +18,48 @@ The Project Dashboard has panels for Current Build and Build History for each br
 ![project_dashboard](images/project_dashboard.gif)
 
 
-## Current Builds
+## Branches
 
-The Current Build section shows the **commit** builds in progress for all branches in your project. If there are any PR builds, they will show up in the [PR builds](pr_builds) tab.
+The top panel shows the latest **commit** builds for all branches in your project. PR builds are not shown in this section.
 
+## Processing and Queued Builds
+
+This panel lists all the builds across branches queued and waiting for a container to be freed up. Remember, the number of parallel builds that can be run depends on the number of containers in your plan.
 
 ## Build History
 
-You can view build history by branch. This is also where you can delete builds for any branch. Click on the **Delete Builds** button on the branch panel and choose the builds you would like to delete.
+You can view build history by branch. By default, the build history shows both commit and PR builds for all branches. You can choose the different tabs to see only PR builds or Commit Builds.
+
+### Filter by branch
+
+You can filter by branch by using the dropdown in the **Build History** panel.
+
+![all branches](images/all_branches.gif)
+
+### Commit Builds
+
+Click on the **Commits** tab under Build History to see a filtered list of commit builds for the selected branch(es).
+
+### PR Builds
+
+Shippable is integrated with GitHub to show your pull request status on
+CI. Whenever a pull request is opened for your repo, we will run the
+build for the respective pull request and notify you about the status.
+You can decide whether to merge the request or not, based on the status
+shown. If you accept the pull request, Shippable will run one more build
+for the merged repo and will send email notifications for the merged
+repo.
+
+Click on the **Pull Requests** tab under Build History to see a filtered list of PR builds for the selected branch(es).
+
 
 ### Delete Builds
 
-Click on the **Delete Builds** Button:
+Click on the **Delete Builds** Button under Build History:
 
 ![delete_build1](images/delete_build1.gif)
 
-Choose the builds you would like to delete and click **Confirm**
+Choose the builds you would like to delete and click **Confirm**:
 
 ![delete_build2](images/delete_build2.gif)
-
-### Re-run builds
-
-You can click on the `Re-run` icon to re-run the historical build with the same build info.
-
-### Run a new build
-
-Clicking on the ![play](images/play_icon.gif) icon will kick off a new build for that project/branch.
 
