@@ -50,4 +50,30 @@ For more details on adding Tests and Coverage to your builds, read our [Build Gu
 
 This is the build script that is being run. This will show anyone interested the environment variables being set and the commands being run while executing your build.
 
+## Build Badges
 
+You can use Build Badges to display the status of your most recent build on your Github or Bitbucket repo page using the API routes below:
+
+- Go to your project page on Shippable and retrieve your project id as shown below
+
+![build_badge](images/build_badge.gif)
+
+- In the example above, the project id is: `5589afabedd7f2c052339c59`
+
+- You can now use the following routes to display the status of your project by branch:
+
+For master branch:
+
+`https://api.shippable.com/projects/5589afabedd7f2c052339c59/badge/master`
+
+to get this:
+
+![build_badge2](images/build_badge2.gif)
+
+For develop branch:
+
+`https://api.shippable.com/projects/5589afabedd7f2c052339c59/badge/develop`
+
+to get this:
+
+![build_badge2](images/build_badge2.gif)
