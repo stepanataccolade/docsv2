@@ -1,4 +1,4 @@
-page_title: Using Shippable with Gitlab | Documentation | Shippable
+page_title: Using Shippable with Gitlab
 page_description: This section explains how to use Shippable with Gitlab
 page_keywords: getting started, questions, documentation, shippable, gitlab, source control
 

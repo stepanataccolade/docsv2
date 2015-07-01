@@ -1,4 +1,4 @@
-page_title: Docker registries support overview | Documentation | Shippable
+page_title: Docker registries support overview
 page_description: This section describes Shippable's support for common Docker registries and enabled scenarios
 page_keywords: shippable, Docker, Container, docker hub, docker registry, google container registry, gcr
 

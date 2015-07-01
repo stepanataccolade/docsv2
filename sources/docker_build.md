@@ -1,4 +1,4 @@
-page_title: Docker Build  | Documentation | Shippable
+page_title: Docker Build
 page_description: How to do a Docker Build using Shippable
 page_keywords: shippable, Docker, Container, docker hub, docker registry, google container registry, gcr
 

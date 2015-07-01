@@ -1,4 +1,4 @@
-page_title: How to run a build with test and coverage reports on Shippable | Documentation | Shippable
+page_title: How to run a build with test and coverage reports on Shippable
 page_description: Run a build with test and coverage reports on Shippable CI
 page_keywords: how-to, questions, documentation, shippable, Continuous Integration, Continuous Deployment, CI/CD
 

@@ -1,4 +1,4 @@
-page_title: Shippable CI Supported Services| Documentation | Shippable
+page_title: Shippable CI Supported Services
 page_description: Supported languages, services & platforms
 page_keywords: containers, languages, services, platforms, lxc, docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 

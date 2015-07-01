@@ -1,4 +1,4 @@
-page_title: Deploying to Heroku| Documentation | Shippable
+page_title: Deploying to Heroku
 page_description: How to deploy your application to Heroku
 page_keywords: heroku, continuous deployment, CI/CD
 

@@ -1,4 +1,4 @@
-page_title: Shippable Project Settings| Documentation | Shippable
+page_title: Shippable Project Settings
 page_description: How to configure Shippable CI Project Settings
 page_keywords: project settings, CI/CD, shippable CI, documentation, shippable, config, yml, build configuration, build timeout, build badge
 

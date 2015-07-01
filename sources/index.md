@@ -1,4 +1,4 @@
-page_title: Learn About What Makes Shippable Great | Documentation | Shippable
+page_title: Learn About What Makes Shippable Great
 page_description: Code examples, FAQs, language & platform support
 page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
