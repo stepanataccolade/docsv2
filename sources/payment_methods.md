@@ -1,4 +1,4 @@
-page_title: Shippable Payment Methods | Documentation | Shippable
+page_title: Shippable Payment Methods
 page_description: Payment methods stored in the Account
 page_keywords: Account Payment Methods, containers, lxc, docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, Tokens, account settings
 

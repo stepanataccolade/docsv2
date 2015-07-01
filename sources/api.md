@@ -1,4 +1,4 @@
-page_title: Shippable API | Documentation | Shippable
+page_title: Shippable API
 page_description: How to interface with Shippable's API
 page_keywords: shippable, API, HTTP
 

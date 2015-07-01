@@ -1,4 +1,4 @@
-page_title: Permissions and Access on Shippable | Documentation | Shippable
+page_title: Permissions and Access on Shippable
 page_description: explains how permissions work on shippable
 page_keywords: how-to, permissions, access questions, documentation, shippable, Continuous Integration, Continuous Deployment, CI/CD
 

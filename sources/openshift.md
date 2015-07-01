@@ -1,4 +1,4 @@
-page_title: Deploying to Openshift | Documentation | Shippable
+page_title: Deploying to Openshift
 page_description: How to deploy your application on openshift
 page_keywords: red hat openshift, continuous deployment, CI/CD
 

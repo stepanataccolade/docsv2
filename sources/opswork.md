@@ -1,4 +1,4 @@
-page_title: Deploying to AWS OpsWorks | Documentation | Shippable
+page_title: Deploying to AWS OpsWorks
 page_description: How to deploy your application to AWS OpsWorks
 page_keywords: aws opsworks, continuous deployment, CI/CD
 

@@ -1,4 +1,4 @@
-page_title: Shippable Project Dashboard| Documentation | Shippable
+page_title: Shippable Project Dashboard
 page_description: Explanation of the Shippable Project Dashboard
 page_keywords: project dashboard, CI/CD, shippable CI, documentation, shippable, config, yml
 

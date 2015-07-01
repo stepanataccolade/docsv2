@@ -1,4 +1,4 @@
-page_title: Shippable YML Reference| Documentation | Shippable
+page_title: Shippable YML Reference
 page_description: How to configure shippable YML
 page_keywords: project settings, CI/CD, shippable CI, documentation, shippable, config, yml, build configuration, build timeout, build badge
 

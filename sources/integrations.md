@@ -1,4 +1,4 @@
-page_title: Shippable Integrations | Documentation | Shippable
+page_title: Shippable Integrations
 page_description: Integratons with Dockerhub, GCR, lighthouse
 page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, Tokens, account settings, integrations, docker hub, gcr, lighthouse
 

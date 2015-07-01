@@ -1,4 +1,4 @@
-page_title: Deploying to Amazon Elastic Beanstalk| Documentation | Shippable
+page_title: Deploying to Amazon Elastic Beanstalk
 page_description: How to deploy your application to Amazon Elastic Beanstalk
 page_keywords: amazon elastic beanstalk, deployment, continuous deployment, CI/CD
 

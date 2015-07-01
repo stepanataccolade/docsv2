@@ -1,4 +1,4 @@
-page_title: Setting up your first formation | Shippable
+page_title: Setting up your first formation
 page_description: Quick start formations setup documentation
 page_keywords: getting started, formations, quick start, documentation, shippable
 
