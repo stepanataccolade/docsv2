@@ -55,7 +55,7 @@ Post-CI workflow is:
 
 ### Build Image
 
-**Pull Image from:** This is where you specify the build_image you want Shippable to use as the base image for your project. If nothing is provided, we use shippable/minv2 by default.
+**Pull Image from:** This is a mandatory field at this point if you use Project Settings. This is where you specify the build_image you want Shippable to use as the base image for your project. You can use shippable/minv2 as a default, if you don't have a custom image.
 
 Example: `dockerhub_username/repo_name: shippableimages/ubuntu1204_nodejs`
 
