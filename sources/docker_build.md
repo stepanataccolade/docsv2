@@ -1,10 +1,10 @@
 page_title: Docker Build
 page_description: How to do a Docker Build using Shippable
-page_keywords: shippable, Docker, Container, docker hub, docker registry, google container registry, gcr
+page_keywords: shippable, Docker, Container, docker hub, docker registry, google container registry, gcr, quay.io, private registry
 
 # Docker Build
 
-You can run your build in a custom Docker container by building a Docker image from a Dockerfile. Aside from providing a custom environment for your build, this image created can be pushed to your Docker Hub or GCR account, for later use in your deployment step.
+You can run your build in a custom Docker container by building a Docker image from a Dockerfile. Aside from providing a custom environment for your build, this image created can be pushed to your Docker Hub, GCR account or Quay.io account for later use in your deployment step.
 
 Make sure you have read our guide on [How to Use a Docker Registry](docker_registries.md) as well.
 
@@ -14,14 +14,14 @@ Pre-CI workflow is:
 
 - Build the image using Dockerfile at the root of your repo
 - Pull code from GitHub/Bitbucket and test code in the container
-- Push container to Docker Hub or GCR
+- Push container to a registry (Docker Hub, GCR, Quay.io)
 
 Post-CI workflow is:
 
-- Pull image specified from Docker Hub or GCR (default is minv2)
+- Pull image specified from a registry (Dockery Hub, GCR, Quay.io) (default is minv2)
 - Pull code from GitHub/Bitbucket and test in container
 - If CI passes, build container from Dockerfile at the root of the repo
-- Push container to Docker Hub or GCR
+- Push container to a registry (Docker Hub, GCR, Quay.io)
 
 To use these workflows, your app must be "Dockerized". Details on this can be found in Docker's official documentation [Docker's official documentation](https://docs.dockerhub.com).
 
@@ -33,29 +33,29 @@ A sample project can be found [here](https://github.com/shippableSamples/docker-
 ### Pre CI Dockerbuild
 
 1. Enable the repository on Shippable
-2. Make sure that Dockerhub/GCR integration is created in your [account settings](account_settings.md) and the integration is enabled in your [project settings](project_settings.md)
+2. Make sure the registry is integrated with your Shippable account in your [account settings](account_settings.md) and the integration is enabled in your [project settings](project_settings.md)
 3. On the Shippable Project page, go to 'Settings' and set the following options:
     - Docker Build : ON
     - Docker Build Order : Pre-CI
-    - Push Build : Toggle Yes/No based on whether you want to push to Dockerhub or GCR
-    - Push Image to : dockerhub_username/image_name or gcr.io/gcr_project_id/image_name
+    - Push Build : Toggle Yes/No based on whether you want to push to a registry
+    - Push Image to : ```dockerhub_username/image_name or gcr.io/gcr_project_id/image_name or quay.io/quay_username/quay_reponame```
       _We need an image name for the image we build from your Dockerfile, even if you choose not to push to a registry_
     - Push image tag : Click on the dropdown and choose the appropriate setting. You can choose your commitsha as your tag to keep it distinct or set the custom_tag to `latest`. By default, build numbers are used as tags.
-    - Source Location : (source code location where tests will be run)
+    - Source Location : (source code location within your container where tests will be run)
 4. Make sure the Dockerfile for the image you want to build is at the root of your repo
 5. Trigger a manual or webhook build
-6. After the build is complete, make sure your repo on Dockerhub or GCR project shows the image you just pushed. The image should be tagged with the Push image tag you set.
+6. After the build is complete, make sure your repo on the registry shows the image you just pushed. The image should be tagged with the Push image tag you set.
 
 
 ### Post CI Dockerbuild
 
 1. Enable the repository on Shippable
-2. Make sure that Dockerhub/GCR integration is created in your [account settings](account_settings.md) and the integration is enabled in your [project settings](project_settings.md)
+2. Make sure the registry is integrated with your Shippable account in your [account settings](account_settings.md) and the integration is enabled in your [project settings](project_settings.md)
 3. On the Shippable Project page, go to 'Settings' and set the following options:
     - Docker Build : ON
     - Dockerbuild order : Post-CI
-    - Push Build : Toggle Yes/No based on whether you want to push to Dockerhub or GCR
-    - Push Image to : dockerhub_username/image_name or gcr.io/gcr_project_id/image_name
+    - Push Build : Toggle Yes/No based on whether you want to push to a registry
+    - Push Image to : ```dockerhub_username/image_name or gcr.io/gcr_project_id/image_name or quay.io/quay_username/quay_reponame```
     _We need an image name for the image we build from your Dockerfile, even if you choose not to push to a registry_
     - Push image tag : Click on the dropdown and choose the appropriate setting. You can choose your commitsha as your tag to keep it distinct or set the custom_tag to `latest`. By default, build numbers are used as tags.
     - Pull image from : Since your Dockerbuild is happening post CI, enter the image you want to use for CI

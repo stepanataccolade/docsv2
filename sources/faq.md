@@ -71,10 +71,14 @@ You can use either of the tools below to validate if your YML is valid:
 
 ## I have enabled my repository and committed code, but my build doesn't start. What could be wrong?
 
-Please check the 'Notifications' tab on your repository page on Shippable. If it shows any errors, fix those and try again.
+A couple of reasons why this could happen:
 
-If the error shows a parsing failure for the yml, you can validate the
-file at [YAML Lint](http://www.yamllint.com/).
+(1) Missing YML in the branch you are building
+
+(2) Shippable YML is invalid. Please validate your YML using either of the links below:
+
+* [YAML Lint](http://www.yamllint.com/)
+* [YAML Online Parser](http://yaml-online-parser.appspot.com/)
 
 ## Why can't I see my BitBucket repos in my Shippable account?
 

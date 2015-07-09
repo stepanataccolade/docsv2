@@ -1,12 +1,15 @@
 page_title: Docker registries support overview
 page_description: This section describes Shippable's support for common Docker registries and enabled scenarios
-page_keywords: shippable, Docker, Container, docker hub, docker registry, google container registry, gcr
+page_keywords: shippable, Docker, Container, docker hub, docker registry, google container registry, gcr, private docker registry, quay.io
 
 # Overview
 
 Shippable is the world's only CI/CD platform built natively on Docker. Since all your builds run on Docker containers, it gives us a unique ability to support advanced Docker workflows.
 
-One of the most important decisions when using Docker for development is figuring out where to store and manage your Docker images. You can choose to run your own private registry, or pick from a hosted option like [Docker Hub](https://hub.docker.com/account/signup/) or [Google Container Registry](https://cloud.google.com/tools/container-registry/).
+One of the most important decisions when using Docker for development is figuring out where to store and manage your Docker images. You can choose to run your own private registry, or pick from the following hosted options:
+ * [Docker Hub](https://hub.docker.com/account/signup/)
+ * [Google Container Registry](https://cloud.google.com/tools/container-registry/)
+ * [Quay.io](https://quay.io/repository/)
 
 Once you've zeroed down on the registry option that fits your needs, you can configure Shippable to pull images from and push images to your registry as part of your CI workflow.
 
@@ -16,12 +19,16 @@ The following is a matrix of supported and unsupported scenarios for our image r
 
 | Pull from                       | Push to                     | Support                  |
 | --------------------------------- |---------------------------------| ------------------------ |
-| public image on Docker Hub      | private image in Docker Hub | Supported with all plans |
-| public image on Docker Hub      | private image in GCR        | Supported with all plans |
-| private image from Docker Hub   | private image in Docker Hub | Supported with all plans |
-| private image from GCR          | private image in GCR        | Supported with all plans |
-| private image from Docker Hub   | private image in GCR        | Unsupported |
-| private image from GCR          | private image in Docker Hub | Unsupported |
+| public image on Docker Hub      | private image in Docker Hub | Supported |
+| public image on Docker Hub      | private image in GCR        | Supported |
+| private image from Docker Hub   | private image in Docker Hub | Supported |
+| private image from GCR          | private image in GCR        | Supported |
+| private image on Quay.io        | private image in Quay.io    | Supported |
+| public image on Docker Hub      | private image in Quay.io    | Supported |
+| private image from Docker Hub   | private image in any other Hub  | Unsupported |
+| private image from GCR          | private image in any other Hub  | Unsupported |
+| private image from Quay.io      | private image in any other Hub  | Unsupported |
+
 
 ## Caching support
 
@@ -46,7 +53,7 @@ Check out the [Docker Hub Documentation](https://docs.docker.com/docker-hub/) to
 3. Scroll down to **Project Integrations** and click on `Hub`
 4. Choose the integration name from Step 1.
 5. Scroll back to **Project Settings** and set the following option:
-  - Pull image from : docker_hub_username/image_name
+  - Pull image from : ```docker_hub_username/image_name```
 6. Click on `Save`
 
 _The username above should be the same as the Docker Hub credentials you entered while connecting Docker Hub to Shippable._
@@ -59,7 +66,7 @@ _The username above should be the same as the Docker Hub credentials you entered
 4. Choose the integration name from Step 1.
 5. Scroll back to **Project Settings** and set the following options:
    - Push Build : Yes
-   - Push image to : docker_hub_username/image_name
+   - Push image to : ```docker_hub_username/image_name```
    - Push image tag : Click on the dropdown and choose the appropriate setting. You can choose your commitsha as your tag to keep it distinct or set the custom_tag to `latest`. By default, build numbers are used as tags. Check out our [blog](http://blog.shippable.com/immutable-containers-with-version-tags-on-docker-hub) on immutable containers to know why*
 6. Click on `Save`
 
@@ -102,6 +109,38 @@ Learn more about GCR at [Google's documentation](https://cloud.google.com/tools/
 >Pushing to GCR needs a credit card to be associated with your Google Cloud Platform account. If you do not have that configured in your [Google Dev Console](https://console.developers.google.com), the push will fail since GCR will reject it.
 
 -----
+
+## Quay.io
+
+You can use images stored in private repositories in Quay.io in any part of the build workflow. You can pull from and push private images to your Quay.io repositories.
+
+Check out the [Quay.io documentation](http://docs.quay.io/) to learn more about using Quay.io for your private registry requirements.
+
+### Pull images from Quay.io
+
+1. Follow the instructions to [integrate your Quay.io account to Shippable](integrations.md).
+2. Go to your project page and click on the `Settings` tab
+3. Scroll down to **Project Integrations** and click on `Hub`
+4. Choose the integration name from Step 1.
+5. Scroll back to **Project Settings** and set the following option:
+  - Pull image from : ```quay.io/quay_user_name/quay_repo_name```
+6. Click on `Save`
+
+_The username above should be the same as the Quay.io you entered while creating the Quay.io integration under your account._
+
+### Push images to Quay.io
+
+1. Follow the instructions to [integrate your Quay.io account to Shippable](integrations.md).
+2. Go to your project page and click on the `Settings` tab
+3. Scroll down to **Project Integrations** and click on `Hub`
+4. Choose the integration name from Step 1.
+5. Scroll back to **Project Settings** and set the following options:
+   - Push Build : Yes
+   - Push image to : ```quay.io/quay_user_name/quay_repo_name```
+   - Push image tag : Click on the dropdown and choose the appropriate setting. You can choose your commitsha as your tag to keep it distinct or set the custom_tag to `latest`. By default, build numbers are used as tags. Check out our [blog](http://blog.shippable.com/immutable-containers-with-version-tags-on-docker-hub) on immutable containers to know why*
+6. Click on `Save`
+
+_The username above should be the same as the Quay.io you entered while creating the Quay.io integration under your account._
 
 ## Docker Build
 

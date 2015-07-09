@@ -29,10 +29,12 @@ To add a new integration, click on ![add_icon](images/add_icon.gif)
 
 You will need this to pull or push images to Docker Hub as part of building your project.
 
-1. **Master Integration:** On the dropdown, Choose `Docker`
-2. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:docker-mydockerusername`
-3. Enter your credentials
-4. Click on `Save`
+1. Click on Account Settings and select the Integrations tab
+2. To add a new integration, click on ![add_icon](images/add_icon.gif)
+3. **Master Integration:** On the dropdown, Choose `Docker`
+4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:docker-mydockerusername`
+5. Enter your credentials
+6. Click on `Save`
 
 ![docker_integration](images/docker_integration.gif)
 
@@ -58,6 +60,21 @@ You will need this to pull or push images to Google Container Registry as part o
 12. Click on `Save`
 
 ![gcr_integration](images/gcr_integration.gif)
+
+The integration will now be available to all your projects. To learn more about where this integration is used, check out our [Docker Registries Guide](docker_registries).
+
+### Quay.io
+
+You will need this to pull or push images to Docker Hub as part of building your project.
+
+1. Click on Account Settings and select the Integrations tab
+2. To add a new integration, click on ![add_icon](images/add_icon.gif)
+3. **Master Integration:** On the dropdown, Choose `quay.io`
+4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:quay-myquayusername`
+5. Enter your credentials
+6. Click on `Save`
+
+![quay_integration](images/quay_integration.gif)
 
 The integration will now be available to all your projects. To learn more about where this integration is used, check out our [Docker Registries Guide](docker_registries).
 
