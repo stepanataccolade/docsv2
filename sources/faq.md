@@ -62,6 +62,13 @@ owner of the project has not given Shippable access to the project. You
 can verify this by confirming that the owner of the project can see the
 project on their Shippable dashboard.
 
+## How can I validate my shippable YML?
+
+You can use either of the tools below to validate if your YML is valid:
+
+* [YAML Lint](http://www.yamllint.com/)
+* [YAML Online Parser](http://yaml-online-parser.appspot.com/)
+
 ## I have enabled my repository and committed code, but my build doesn't start. What could be wrong?
 
 Please check the 'Notifications' tab on your repository page on Shippable. If it shows any errors, fix those and try again.
