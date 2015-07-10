@@ -29,7 +29,7 @@ To add a new integration, click on ![add_icon](images/add_icon.gif)
 
 You will need this to pull or push images to Docker Hub as part of building your project.
 
-1. Click on Account Settings and select the Integrations tab
+1. Click on Account Settings in the top navigation bar and select the Integrations tab
 2. To add a new integration, click on ![add_icon](images/add_icon.gif)
 3. **Master Integration:** On the dropdown, Choose `Docker`
 4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:docker-mydockerusername`
@@ -52,7 +52,7 @@ You will need this to pull or push images to Google Container Registry as part o
 4. Click on 'Create Client ID'. A dialog box appears. To proceed, click 'Okay, got it'
 5. Your new Public/Private key pair is generated and downloaded to your machine. Please store this carefully since you will not be able to retrieve this from your GDC account.
 6. Now you are ready to integrate with GCR on Shippable. Back to [Shippable](https://shippable.com).
-7. Click on Account Settings and select the Integrations tab
+7. Click on Account Settings in the top navigation bar and select the Integrations tab
 8. To add a new integration, click on ![add_icon](images/add_icon.gif)
 9. **Master Integration:** Click on `GCR`
 10. Enter a name for your integration. Use a distinctive name that's easy to associate to the integration and recall. `Example:gcr-gcrusername`
@@ -65,9 +65,9 @@ The integration will now be available to all your projects. To learn more about 
 
 ### Quay.io
 
-You will need this to pull or push images to Docker Hub as part of building your project.
+You will need this to pull or push images to Quay.io as part of building your project.
 
-1. Click on Account Settings and select the Integrations tab
+1. Click on Account Settings in the top navigation bar and select the Integrations tab
 2. To add a new integration, click on ![add_icon](images/add_icon.gif)
 3. **Master Integration:** On the dropdown, Choose `quay.io`
 4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:quay-myquayusername`
