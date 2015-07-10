@@ -69,7 +69,7 @@ You will need this to pull or push images to Quay.io as part of building your pr
 
 1. Click on Account Settings in the top navigation bar and select the Integrations tab
 2. To add a new integration, click on ![add_icon](images/add_icon.gif)
-3. **Master Integration:** On the dropdown, Choose `quay.io`
+3. **Master Integration:** On the dropdown, Choose `Quay.io`
 4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:quay-myquayusername`
 5. Enter your credentials
 6. Click on `Save`
@@ -84,7 +84,7 @@ Use the following steps to create an integration to a private registry from wher
 
 1. Click on Account Settings in the top navigation bar and select the Integrations tab
 2. To add a new integration, click on ![add_icon](images/add_icon.gif)
-3. **Master Integration:** On the dropdown, Choose `Private Docker Hub`
+3. **Master Integration:** On the dropdown, Choose `Private Docker Registry`
 4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:MyPrivateRegistry`
 5. Enter your credentials
 6. Click on `Save`
