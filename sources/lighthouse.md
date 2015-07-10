@@ -27,7 +27,7 @@ Today, we support watching images that are hosted on either Docker Hub or Google
 
 Lighthouse is available to all users for Shippable to watch any number of images for free!
 
-## Adding an image to the Lighthouse
+## Adding an image to Lighthouse
 
 To add an image to Lighthouse and receive notification when the image is updated in the registry, follow the steps below.
 
