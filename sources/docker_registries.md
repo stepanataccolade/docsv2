@@ -10,6 +10,7 @@ One of the most important decisions when using Docker for development is figurin
  * [Docker Hub](https://hub.docker.com/account/signup/)
  * [Google Container Registry](https://cloud.google.com/tools/container-registry/)
  * [Quay.io](https://quay.io/repository/)
+ * Any Private Docker Registry with a publicly accessible URL
 
 Once you've zeroed down on the registry option that fits your needs, you can configure Shippable to pull images from and push images to your registry as part of your CI workflow.
 
@@ -142,10 +143,54 @@ _The username above should be the same as the Quay.io you entered while creating
 
 _The username above should be the same as the Quay.io you entered while creating the Quay.io integration under your account._
 
+## Any Private Registry
+
+You can use images stored in any private registry in any part of the build workflow. The Private registry needs to have a publicly accessible URL and authentication mechanism similar to Docker Hub or Quay.io.
+
+### Pull images from Quay.io
+
+1. Follow the instructions to [integrate your Private Registry account to Shippable](integrations.md).
+2. Go to your project page and click on the `Settings` tab
+3. Scroll down to **Project Integrations** and click on `Hub`
+4. Choose the integration name from Step 1.
+5. Scroll back to **Project Settings** and set the following option:
+  - Pull image from : ```location of the image in your private registry```
+6. Click on `Save`
+
+### Push images to Quay.io
+
+1. Follow the instructions to [integrate your Private Registry account to Shippable](integrations.md).
+2. Go to your project page and click on the `Settings` tab
+3. Scroll down to **Project Integrations** and click on `Hub`
+4. Choose the integration name from Step 1.
+5. Scroll back to **Project Settings** and set the following options:
+   - Push Build : Yes
+   - Push image to : ```location of the image to be pushed```
+   - Push image tag : Click on the dropdown and choose the appropriate setting. You can choose your commitsha as your tag to keep it distinct or set the custom_tag to `latest`. By default, build numbers are used as tags. Check out our [blog](http://blog.shippable.com/immutable-containers-with-version-tags-on-docker-hub) on immutable containers to know why*
+6. Click on `Save`
+
 ## Docker Build
 
 Check out our guide on [how to do a Docker build](docker_build.md) to learn more about Docker Build.
 
-## Sample Project
+## Sample Scenarios
 
-[This Sample Project](https://github.com/shippableSamples/sample-gcr) demonstrates a simple scenario - choose a public image from Docker Hub, run CI on that container, and if CI passes, push the resulting image to a private GCR image.
+### Pull from Docker, Push to GCR
+
+The screenshot below shows the project settings and project integration when you are pulling an image from Docker and pushing to GCR. This assumes that `GCRShippableV3` is already created under [Account Settings/Integrations](integrations.md).
+
+![docker_gcr_settings](images/docker_gcr_settings.gif)
+
+### Pull from Docker, Push to Quay.io
+
+The screenshot below shows how the project settings and project integration needs to be configured to pull an image from Docker and push to a repo on quay.io. This assumes that `QuayShippableV3` is already created under [Account Settings/Integrations](integrations.md).
+
+![docker_quay_settings](images/docker_quay_settings.gif)
+
+### Pull from Docker, Push to a Private Registry
+
+The screenshot below shows how the project settings and project integration needs to be configured to pull an image from Docker and push to private registry. Please note the sample uses Quay as a private registry example. Replace the URL with your private registry URL. This also assumes that `MyPrivateRegistry` is already created under [Account Settings/Integrations](integrations.md).
+
+![docker_private_settings](images/docker_private_settings.gif)
+
+
