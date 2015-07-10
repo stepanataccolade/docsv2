@@ -331,6 +331,11 @@ code {
     }
 }
 
+/* tocbar accordion */
+#side-nav li ul {
+  display: none;
+}
+
 /* Mainbar */
 
 #mainbar {
