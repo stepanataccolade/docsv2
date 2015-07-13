@@ -44,14 +44,14 @@ Pre-CI workflow is:
 
 - Build the image using Dockerfile at the root of your repo
 - Pull code from GitHub/Bitbucket and test code in the container
-- Push container to Docker Hub or GCR
+- Push container to any [supported registry](docker_registries.md)
 
 Post-CI workflow is:
 
 - Pull image specified from Docker Hub or GCR (default is minv2)
 - Pull code from GitHub/Bitbucket and test in container
 - If CI passes, build container from Dockerfile at the root of the repo
-- Push container to Docker Hub or GCR
+- Push container to any [supported registry](docker_registries.md)
 
 ### Build Image
 
@@ -59,7 +59,7 @@ Post-CI workflow is:
 
 Example: `dockerhub_username/repo_name: shippableimages/ubuntu1204_nodejs`
 
-You can pull any public image or private image from Docker Hub or GCR. Read our guide on [how to use Docker Registries](docker_registries.md) to learn more about pulling images from Docker Hub or GCR.
+You can pull public or private images from any [supported registry](docker_registries.md). Currently this includes Docker Hub, GCR, Quay.io or any Private Registry. Read our guide on [how to use Docker Registries](docker_registries.md) to learn more about pulling images from any registry.
 
 The default image, shippable/minv2, comes installed with popular versions of all
 supported languages, tools and services. However, you might prefer starting with a small image that only has versions of your language installed (and we highly recommend this). To help with this, we have open sourced basic images for all supported languages. These images only come with popular versions of a language and are NOT pre-installed with any
@@ -73,18 +73,21 @@ for these images are in our [GitHub repository](https://github.com/shippableImag
 
 > **Note**
 >
-> Don't forget to set your HUB Integration to the correct registry if you are pulling a private repo from Docker Hub or GCR. Read the [Project Integrations section](project_settings/#project-integrations) to learn how.
+> Don't forget to set your HUB Integration to the correct registry if you are pulling a private repo from any supported registry. Read the [Project Integrations section](project_settings/#project-integrations) to learn how.
 >
 
 ### Push Build Image
 
-**Push Build:** Set this to **Yes** if you would like to push your image to a registry after the CI build is complete. We support both Docker Hub and GCR.
+**Push Build:** Set this to **Yes** if you would like to push your image to a registry after the CI build is complete. We support [multiple registry options](docker_registries.md)
+
+_Please note: Pull Request Builds are not pushed to the registry. Only Commit Builds are pushed to the registry_
 
 **Push image to:** Provide the full path of the registry location where you would like to push the build output.
 
-Example:
+Examples:
 `docker_hub_username/image_name`
 `gcr.io/gcr_project_id/image_name`
+`quay.io/quay_repo/quay_image_name`
 
 **Push image tag:**  Click on the dropdown and choose the appropriate setting. You can choose between `default`, `commitsha` or `custom` as your tag. For example, you can set your `custom` tag to `latest`.
 
