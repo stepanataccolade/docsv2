@@ -364,18 +364,18 @@ language: java
 jdk:
    - openjdk7
    - oraclejdk7
-       - openjdk6
-       - oraclejdk8
+   - openjdk6
+   - oraclejdk8
 
-    after_success:
-       - mvn clean cobertura:cobertura
-       - mvn test
+after_success:
+   - mvn clean cobertura:cobertura
+   - mvn test
 
-    notifications:
-      email:
-          recipients:
-         - exampleone@org.com
-         - exampletwo@org.com
+notifications:
+  email:
+    recipients:
+      - exampleone@org.com
+      - exampletwo@org.com
 ```
 
 Create a project by enabling the repo sample_java and run it using an
@@ -401,9 +401,9 @@ Go to your **Project Page**, click on **Settings** and choose the following imag
 
 `Pull Image from : shippableimages/ubuntu1204_java`
 
-Activate jdk in before_script section to run your build against the correct version.
+IMPORTANT: When you are using this custom image, we don't automatically switch JDKs during the build. You will need to do it explicitly within your YML file. Use the environment variable $SHIPPABLE_JDK_VERSION in before_script section to run your build against the correct version.
 
-A sample yml that helps you getting started with java image:
+A sample yml that helps you getting started with java image. Note the before_script section.
 
 ```yaml
 language: java
