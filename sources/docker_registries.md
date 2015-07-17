@@ -147,7 +147,7 @@ _The username above should be the same as the Quay.io you entered while creating
 
 You can use images stored in any private registry in any part of the build workflow. The Private registry needs to have a publicly accessible URL and authentication mechanism similar to Docker Hub or Quay.io.
 
-### Pull images from Quay.io
+### Pull images from a Private Registry
 
 1. Follow the instructions to [integrate your Private Registry account to Shippable](integrations.md).
 2. Go to your project page and click on the `Settings` tab
@@ -157,7 +157,7 @@ You can use images stored in any private registry in any part of the build workf
   - Pull image from : ```location of the image in your private registry```
 6. Click on `Save`
 
-### Push images to Quay.io
+### Push images to a Private Registry
 
 1. Follow the instructions to [integrate your Private Registry account to Shippable](integrations.md).
 2. Go to your project page and click on the `Settings` tab
