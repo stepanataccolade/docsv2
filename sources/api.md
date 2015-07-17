@@ -208,7 +208,7 @@ Response
 #### GET /projects/:projectId/runningBuilds
 
 Returns a list of objects, where each object is a projection of a build
-that is currently.
+that is currently in progress.
 
 Response
 
