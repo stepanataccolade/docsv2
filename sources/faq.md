@@ -137,3 +137,10 @@ webhook build will not be executed.
 ## Why is my build still not getting pushed to the registry, even though I have set *Push Build* to *Yes* under my Project Settings?
 
 We only push _commit builds_ to the registry and not _PR builds_. Please confirm this is not the case. If your build is a commit build and still not getting pushed to the registry, make sure your registry login details are correctly specified under your [integration settings](integrations.md). If the login details are correct and push is failing for a commit build, go ahead and [file a support issue](https://github.com/Shippable/support/issues/new) and we will take a look.
+
+## Why is my project showing up as "empty" after I enable it? It is certainly not empty in github! 
+
+A project is empty in Shippable if there are zero builds associated with it. A new project that you have just enabled shows up as an empty project. To avoid cluttering the project page with projects that are never built, the projects page doesn't show projects that have no builds unless you explicitly use the check box to let us know you want to see all projects. An exception to this is if you have just enabled a project; we do check this box during the enable process, so you are able to see your new project. We are continuously iterating on the user experience, so please write to us at support@shippable.com if you have any feedback on the feature.
+
+
+
