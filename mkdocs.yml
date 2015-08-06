@@ -36,6 +36,7 @@ pages:
   - Use a Docker Registry: docker_registries.md
   - Do a Docker Build: docker_build.md
   - Use Specific Languages for CI: languages.md
+  - Use Slack for Build Notifications: slack_notifications.md
   - Get Build Badges: build_badge.md
   - Use Shippable CI with Gitlab: using_gitlab.md
   - Deploy to Heroku: heroku.md
