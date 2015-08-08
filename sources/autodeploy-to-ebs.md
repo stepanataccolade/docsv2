@@ -26,7 +26,7 @@ Read on for further details on both.
 
 Go to your source repository on Github or Bitbucket and add a JSON file called `Dockerrun.aws.json` (case-sensitive)
 to the root of the repo.
-For the purpose of this document, I will use this [sample project](https://github.com/lekhab/sample-radar-ui-ebs/). This is a public project. Feel free to fork the project and walk through the example with me on your EBS environment.
+For the purpose of this document, I will use a[sample project called sample-radar-ui-ebs](https://github.com/ShippableSamples/sample-radar-ui-ebs/). This is a public project available on [ShippableSamples](https://github.com/ShippableSamples). Feel free to fork the project and walk through the example with me on your EBS environment.
 
 For Public images, use the example below. Replace the `ContainerPort` with your Container Port number.
 
