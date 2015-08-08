@@ -18,7 +18,7 @@ Read on for further details on both.
 
 - AWS Credentials: You will need to obtain Access Keys to integrate your account with Shippable. Please refer to [this documentation](http://docs.aws.amazon.com/general/latest/gr/getting-aws-sec-creds.html) for details on obtaining the keys.
 
-- You have an EBS Application on a Docker based Environment.
+- You have an Elastic Beanstalk Application on a Docker based Environment.
 
 - You have an S3 bucket on AWS to upload artifacts required to deploy the application. This S3 bucket needs to be accessible by the EBS application.
 
@@ -26,7 +26,7 @@ Read on for further details on both.
 
 - Go to your source repository on Github or Bitbucket and add a JSON file called ```Dockerrun.aws.json``` (case-sensitive) to the root of the repo. For the purpose of this document, I will use this [sample project](https://github.com/lekhab/sample-radar-ui-ebs/). This is a public project. Feel free to fork the project and walk through the example with me on your EBS environment.
 
-  For Public images, use the example below. Replace the ```ContainerPort``` with your Container Port number.
+For Public images, use the example below. Replace the ```ContainerPort``` with your Container Port number.
 
 ```
   {
@@ -64,7 +64,7 @@ For Private images, there is an additional section in the JSON file as below. Th
   }
 ```
 
-* Create an AWS Account Integration on Shippable
+- Create an AWS Account Integration on Shippable
 
     - Go to your Account Settings on [Shippable](www.shippable.com) and click on the Integrations tab
     - Click on the ![add_icon](images/add_icon.gif) on the top left to add a new integration
@@ -75,7 +75,7 @@ For Private images, there is an additional section in the JSON file as below. Th
     ![aws_acct_integration](images/aws_acct_integration.gif)
 
 
-* Create a Docker Integration on Shippable
+- Create a Docker Integration on Shippable
 
     - Go to your Account Settings and click on the Integrations tab
     - Click on the ![add_icon] on the top left to add a new integration
@@ -83,8 +83,7 @@ For Private images, there is an additional section in the JSON file as below. Th
     - Select Docker as the Master Integration
     - Enter your Docker credentials in the text boxes provided
 
-
-* Go to your Project page on Shippable and click on Settings
+- Go to your Project page on Shippable and click on Settings
 
     - Set Dockerbuild to ON
     - DockerBuild Order: You can choose either of these options. Read our [DockerBuild guide](docker-build.md) to learn more. I have selected Pre-CI for my sample
@@ -95,14 +94,16 @@ For Private images, there is an additional section in the JSON file as below. Th
 
     ![ebs_proj_int](images/ebs_proj_int1.gif)
 
-    - Scroll down to the Deployment Section under Settings
+
+- Scroll down to the Deployment Section under Settings
     - Add the EBS Application Name, S3 bucket name and EBS Environment as shown in the screenshot below
     - Make sure you have added Docker Integration to the project
 
     ![ebs_proj_int2](images/ebs_proj_int2.gif)
 
 
-*  Go back to the **Status** tab and run the project by clicking on the play icon. Your build output will indicate the steps being taken which includes:
+- Go back to the **Status** tab and run the project by clicking on the play icon. Your build output will indicate the steps being taken which includes:
+
     - Doing the CI steps and pushing to the Docker repo
     - Uploading artifacts to S3
     - Deploying a new application version to EBS
@@ -111,7 +112,7 @@ For Private images, there is an additional section in the JSON file as below. Th
 
     ![build_output](images/ebs_build_output.gif)
 
-* You should be able to go to your EBS Dashboard to see that the latest version was updated and deployed.
+- You should be able to go to your EBS Dashboard to see that the latest version was updated and deployed.
 
 
 ## Use Predefined Runtime Environments

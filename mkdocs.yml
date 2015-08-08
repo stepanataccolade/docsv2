@@ -39,8 +39,8 @@ pages:
   - Use Slack for Build Notifications: slack_notifications.md
   - Get Build Badges: build_badge.md
   - Use Shippable CI with Gitlab: using_gitlab.md
+  - Auto Deploy to Elastic Beanstalk: autodeploy-to-ebs.md
   - Deploy to Heroku: heroku.md
-  - Deploy to Amazon Elastic Beanstalk: beanstalk.md
   - Deploy to AWS OpsWorks: opswork.md
   - Deploy to Google App Engine: appengine.md
   - Deploy to Red Hat OpenShift: openshift.md
