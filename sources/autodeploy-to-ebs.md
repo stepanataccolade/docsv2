@@ -14,7 +14,7 @@ Read on for further details on both.
 
 ## Deploy via Docker containers
 
-**Pre-requisites:**
+**Pre-requisites**
 
 - AWS Credentials: You will need to obtain Access Keys to integrate your account with Shippable. Please refer to [this documentation](http://docs.aws.amazon.com/general/latest/gr/getting-aws-sec-creds.html) for details on obtaining the keys.
 
@@ -22,11 +22,13 @@ Read on for further details on both.
 
 - You have an S3 bucket on AWS to upload artifacts required to deploy the application. This S3 bucket needs to be accessible by the EBS application.
 
-**Next Steps:**
+**Next Steps**
 
-- Go to your source repository on Github or Bitbucket and add a JSON file called ```Dockerrun.aws.json``` (case-sensitive) to the root of the repo. For the purpose of this document, I will use this [sample project](https://github.com/lekhab/sample-radar-ui-ebs/). This is a public project. Feel free to fork the project and walk through the example with me on your EBS environment.
+Go to your source repository on Github or Bitbucket and add a JSON file called `Dockerrun.aws.json` (case-sensitive)
+to the root of the repo.
+For the purpose of this document, I will use this [sample project](https://github.com/lekhab/sample-radar-ui-ebs/). This is a public project. Feel free to fork the project and walk through the example with me on your EBS environment.
 
-For Public images, use the example below. Replace the ```ContainerPort``` with your Container Port number.
+For Public images, use the example below. Replace the `ContainerPort` with your Container Port number.
 
 ```
   {
@@ -64,56 +66,65 @@ For Private images, there is an additional section in the JSON file as below. Th
   }
 ```
 
-- Create an AWS Account Integration on Shippable
 
-    - Go to your Account Settings on [Shippable](www.shippable.com) and click on the Integrations tab
-    - Click on the ![add_icon](images/add_icon.gif) on the top left to add a new integration
-    - Select a name for your integration that's easy to remember. See example below
-    - Select AWS as the Master Integration
-    - Enter your AWS credentials in the text boxes provided
+**Create an AWS Account Integration on Shippable**
+
+- Go to your Account Settings on [Shippable](www.shippable.com) and click on the Integrations tab
+- Click on the ![add_icon](images/add_icon.gif) on the top left to add a new integration
+- Select a name for your integration that's easy to remember. See example below
+- Select AWS as the Master Integration
+- Enter your AWS credentials in the text boxes provided
 
     ![aws_acct_integration](images/aws_acct_integration.gif)
 
 
-- Create a Docker Integration on Shippable
+**Create a Docker Integration on Shippable**
 
-    - Go to your Account Settings and click on the Integrations tab
-    - Click on the ![add_icon] on the top left to add a new integration
-    - Select a name for your integration that's easy to remember. See example below
-    - Select Docker as the Master Integration
-    - Enter your Docker credentials in the text boxes provided
-
-- Go to your Project page on Shippable and click on Settings
-
-    - Set Dockerbuild to ON
-    - DockerBuild Order: You can choose either of these options. Read our [DockerBuild guide](docker-build.md) to learn more. I have selected Pre-CI for my sample
-    - Push Build: Yes
-    - Push Image: Select the Docker repository where the Image will be pushed to. Make sure you have turned on Docker Integration in the Integrations section
-    - Push Image tag: Use the default tag
-    - Source Location: Enter the location in the code where the build needs to run
-
-    ![ebs_proj_int](images/ebs_proj_int1.gif)
+- Go to your Account Settings and click on the Integrations tab
+- Click on the ![add_icon](images/add_icon.gif) on the top left to add a new integration
+- Select a name for your integration that's easy to remember. See example below
+- Select Docker as the Master Integration
+- Enter your Docker credentials in the text boxes provided
 
 
-- Scroll down to the Deployment Section under Settings
-    - Add the EBS Application Name, S3 bucket name and EBS Environment as shown in the screenshot below
-    - Make sure you have added Docker Integration to the project
+**Go to your Project page on Shippable and click on Settings**
 
-    ![ebs_proj_int2](images/ebs_proj_int2.gif)
+- Set Dockerbuild to ON
+- DockerBuild Order: You can choose either of these options. Read our [DockerBuild guide](docker_build.md) to learn more. I have selected Pre-CI for my sample
+- Push Build: Yes
+- Push Image: Select the Docker repository where the Image will be pushed to. Make sure you have turned on Docker Integration in the Integrations section
+- Push Image tag: Use the dropdown to select an appropriate tag. By default, build numbers are used as tags
+- Source Location: Enter the location in the code where the build needs to run
+
+  ![ebs_proj_int](images/ebs_proj_int1.gif)
 
 
-- Go back to the **Status** tab and run the project by clicking on the play icon. Your build output will indicate the steps being taken which includes:
+**Scroll down to the Deployment Section under Settings**
 
-    - Doing the CI steps and pushing to the Docker repo
-    - Uploading artifacts to S3
-    - Deploying a new application version to EBS
+- Click on the `Add Deployment` button and select `Elastic Beanstalk`
+- Add the AWS Integration Name from the dropdown
+- Add the S3 Bucket Name, EBS Application Name and EBS Environment as shown in the screenshot below
+- Make sure you have added Docker Integration to the project
+
+  ![ebs_proj_int2](images/ebs_proj_int2.gif)
+
+
+Go back to the **Status** tab and run the project by clicking on the play icon. Your build output will indicate the steps being taken which includes:
+
+  - Doing the CI steps and pushing to the Docker repo
+  - Uploading artifacts to S3
+  - Deploying a new application version to EBS
 
   A screenshot of the build output:
 
-    ![build_output](images/ebs_build_output.gif)
+  ![build_output](images/ebs_build_output.gif)
 
-- You should be able to go to your EBS Dashboard to see that the latest version was updated and deployed.
+You should now be able to go to your EBS Dashboard and see that the latest version was updated and deployed.
 
+> Note: If there is an EBS deployment already in progress, then kicking off another build in parallel
+> will result in a failed deployment.
+
+---------
 
 ## Use Predefined Runtime Environments
 
