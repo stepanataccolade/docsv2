@@ -121,7 +121,9 @@ Go back to the **Status** tab and run the project by clicking on the play icon. 
 
 You should now be able to go to your EBS Dashboard and see that the latest version was updated and deployed.
 
-> Note: If there is an EBS deployment already in progress, then kicking off another build in parallel
+> **Note:**
+>
+> If there is an EBS deployment already in progress, then kicking off another build in parallel
 > will result in a failed deployment.
 
 ---------
