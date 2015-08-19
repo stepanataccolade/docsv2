@@ -132,7 +132,9 @@ then add ```ci skip``` or ```skip ci``` to your commit message.
 Our webhook processor will look for the string ```ci skip``` or ```skip ci``` in the commit message and if it exists, then that particular
 webhook build will not be executed.
 
-**PR Builds:** To skip a PR build, the ```ci skip``` or ```skip ci``` needs to be part of your PR title, since that's what GitHub sends us as part of the webhook. Also, currently, if the original commit does not include the skip flags and subsequent commits do, the PR build will not skip a build.
+**PR Builds:** To skip a PR build, the ```ci skip``` or ```skip ci``` needs to be part of your PR title, since that's what GitHub sends us as part of the webhook.
+
+**PR Build with multiple commits:** If the original commit did not include the skip flags and subsequent commits do, the PR build will _not_ skip a build.
 
 ## Why is my build still not getting pushed to the registry, even though I have set *Push Build* to *Yes* under my Project Settings?
 
