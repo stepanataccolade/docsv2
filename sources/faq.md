@@ -126,15 +126,15 @@ This will change your minion timezone to paris time. Refer the article
 
 ## How do I skip webhook builds?
 
-Any changes to your source code will trigger a build automatically on
-Shippable. If you do not want to run build for a particular commit,
-then add **[ci skip]** or **[skip ci]** to your commit message.
+Any changes to your source code will trigger a build automatically on Shippable. If you do not want to run build for a particular commit,
+then add ```ci skip``` or ```skip ci``` to your commit message.
 
-Our webhook processor will look for the string **[ci skip]** or **[skip
-ci]** in the commit message and if it exists, then that particular
+Our webhook processor will look for the string ```ci skip``` or ```skip ci``` in the commit message and if it exists, then that particular
 webhook build will not be executed.
 
-To skip a PR build, the **[ci skip]** or **[skip ci]** needs to be part of your PR title, since that's what the webhook will contain.
+**PR Builds:** To skip a PR build, the ```ci skip``` or ```skip ci``` needs to be part of your PR title, since that's what GitHub sends us as part of the webhook.
+
+**PR Build with multiple commits:** If the original commit did not include the skip flags and subsequent commits do, the PR build will _not_ skip a build.
 
 ## Why is my build still not getting pushed to the registry, even though I have set *Push Build* to *Yes* under my Project Settings?
 
