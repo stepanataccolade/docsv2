@@ -5,16 +5,19 @@ page_keywords: digital ocean, continuous deployment, CI/CD
 # DigitalOcean
 
 DigitalOcean is a VPS provider that offers a number of pre-prepared
-virtual machine images to start from. The guide below will show how to
-deploy a Ruby on Rails application, built on Shippable, to DigitalOcean
-using Capistrano deployment tool.
+virtual machine images to start from.
+
+## Using Capistrano to deploy
+
+The guide below will show how to deploy a Ruby on Rails application,
+built on Shippable, to DigitalOcean using Capistrano deployment tool.
 
 > **Note**
 >
 > Some points from this guide were adapted from [DigitalOcean tutorial on Capistrano](https://www.digitalocean.com/community/tutorials/how-to-automate-ruby-on-rails-application-deployments-using-capistrano).
 > Please refer to if for more detailed instructions about steps in the process.
 
-## Creating and preparing a DigitalOcean droplet
+### Creating and preparing a DigitalOcean droplet
 
 First, we need to create a virtual machine, which is called 'droplet',
 in the DigitalOcean web interface. After clicking
@@ -69,7 +72,7 @@ content (you will need to create `.ssh` directory).
 Now the host is ready for the Capistrano deployment triggered from
 Shippable minion.
 
-## Adding Capistrano to a Rails project
+### Adding Capistrano to a Rails project
 
 First, you need to install Capistrano on your development workstation,
 as well as on the Shippable minion. Simply issue the following command
@@ -124,7 +127,7 @@ require 'capistrano/bundler'
 require 'capistrano/rvm'
 ```
 
-## Configuring Capistrano deployment
+### Configuring Capistrano deployment
 
 Capistrano configuration is split between the `config/deploy.rb` file
 that holds the entries common for all the environments and the
@@ -188,7 +191,7 @@ after_success:
   - cap production deploy
 ```
 
-## Using private git repositories
+### Using private git repositories
 
 In the sample `config/deploy.sh` file above, we are using public GitHub
 repository to host the application code. If the repository is private,
@@ -213,5 +216,76 @@ after_success:
   - cap production deploy
 ```
 
-We invite you to explore our Ruby on Rails + Capistrano sample at
+We invite you to explore our Ruby on Rails + Capistrano sample on our
 [Shippable GitHub account](https://github.com/shippableSamples/sample-rubyonrails-capistrano-digitalocean).
+
+## Using Dokku to deploy
+
+The guide below will show how to deploy a Node.js application,
+built on Shippable, to a DigitalOcean droplet running a dokku image.
+
+Dokku describes itself as a 'docker powered mini-heroku'. With Dokku installed on your droplet, you can interact with it very similarly as to how you would a heroku app. More information on Dokku can be found [here](http://progrium.viewdocs.io/dokku/).
+
+### Creating a DigitalOcean droplet with Dokku
+
+DigitalOcean has streamlined the process by providing a droplet image with dokku preinstalled. When creating a new droplet, scroll down to the 'Select Image' section, and choose 'Dokku v0.3.23 on 14.04'.
+
+![Dokku v0.3.23 on 14.04](images/dokku_on_do.gif)
+
+> **Note**
+>
+> If you already have a droplet running and would like to run Dokku on it. Follow the instructions on the [website](http://progrium.viewdocs.io/dokku/) and come back when you're done; the rest of the tutorial is still relevant for you, even if you installed Dokku yourself!
+>
+
+### Setting up your Project on Dokku
+
+After your droplet is created, visit its IP address, can be found under the Droplet name and should also be emailed to you. Here you will find a web console to finish setting up Dokku. We'll come back to this in a moment. Before going any further on this screen, you need to grab your deployment key from your Shippable account.
+
+After you login to your account, click on the CI dropdown and select the organization that is storing your app. Go to the 'Settings' tab on the right, and find the 'Deployment Key' section. Copy what you see there
+
+![deployment-key](images/deploy-key.gif)
+
+Then, paste this key in the Dokku setup console that we accessed earlier (using the IP address of the Droplet), and click 'Finish Setup'.
+
+![Dokku Setup](images/dokku-setup.gif)
+
+### Configuring the deployment
+
+The droplet can now be deployed using CI/CD on Shippable, there are a few changes to be made on the `shippable.yml` file to push the right branch to dokku on deployment. A simple YAML for a nodejs application would look like
+
+```YAML
+language: node_js
+
+node_js:
+  - 0.10.33
+
+after_success:
+  - if [ "$BRANCH" == "master" ]; then git remote add dokku dokku@<droplet-hostname>:<droplet-name>; fi
+  - if [ "$BRANCH" == "master" ]; then git push dokku master; fi
+
+```
+
+We wrapped the git commands in conditions to check if the current branch is master. This is so the app only gets deployments triggered for pushes to my master branch and not feature branches. Our [tutorial](http://blog.shippable.com/specifying-deployment-targets-for-different-git-branches) on git branches provides more help on picking a branch to deploy.
+
+Ensure that you replace `dokku@<droplet-hostname>:<droplet-name>` with your droplet ip address and droplet name, for example:
+```
+dokku@45.55.161.207:demo
+```
+If you setup DNS for your app, this app name section will instead specify the subdomain at which you'll access your app. More information on app naming and subdomains can be found in the [Dokku docs](http://progrium.viewdocs.io/dokku/dns/).
+
+After making sure that the app builds property, you can find the URL by looking in the logs for `after_success` section
+
+![after_success Dokku](images/dokku_after_success.gif)
+
+### Finishing Steps
+
+Dokku's buildpacks based on Heroku's standard. This isn't a hard requirement to fulfill. One way you can fulfill this is via a procfile that states what command to start your web server with. More on that can be found on [Heroku's site](https://devcenter.heroku.com/articles/getting-started-with-nodejs#define-a-procfile). Another option is to specify the command in the scripts section of your package.json file. Here is the snippet containing this information from a sample package.json file:
+
+```js
+"scripts": {
+  "start": "node index.js"
+},
+```
+
+We invite you to explore our Node + DigitalOcean sample on our
+[Shippable GitHub account](https://github.com/shippableSamples/sample-nodejs-digitalocean).
