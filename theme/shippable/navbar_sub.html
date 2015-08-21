@@ -1,6 +1,6 @@
 {% if not section.children %}
 <li {% if section.active %}class="active"{% endif %}>
-    <a href="/{{ section.url }}">{{ section.title }}</a>
+    <a href="{{ section.url }}">{{ section.title }}</a>
 </li>
 {% else %}
 <li class="dropdown-submenu">
