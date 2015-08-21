@@ -17,7 +17,7 @@
             </li>
             {% else %}
             <li {% if section.active %}class="active"{% endif %}>
-              <a href="/{{ section.url }}">{{ section.title }}</a>
+              <a href="{{ section.url }}">{{ section.title }}</a>
             </li>
             {% endif %}
             {% endfor %}
