@@ -84,7 +84,7 @@ Learn more about GCR at [Google's documentation](https://cloud.google.com/tools/
 
 ### Pull images from GCR
 
-1. Follow the instructions to [Integrate your GCR account with Shippable](integrations.md).
+1. Follow the instructions to [Integrate your GCR account with Shippable](integrations.md#google-container-registry-gcr).
 2. Go to your project page and click on the `Settings` tab
 3. Scroll down to **Project Integrations** and click on `Hub`
 4. Choose the integration name from Step 1.
@@ -119,7 +119,7 @@ Check out the [Quay.io documentation](http://docs.quay.io/) to learn more about 
 
 ### Pull images from Quay.io
 
-1. Follow the instructions to [integrate your Quay.io account to Shippable](integrations.md).
+1. Follow the instructions to [integrate your Quay.io account to Shippable](integrations.md#google-container-registry-gcr).
 2. Go to your project page and click on the `Settings` tab
 3. Scroll down to **Project Integrations** and click on `Hub`
 4. Choose the integration name from Step 1.
@@ -192,5 +192,3 @@ The screenshot below shows how the project settings and project integration need
 The screenshot below shows how the project settings and project integration needs to be configured to pull an image from Docker and push to private registry. Please note the sample uses Quay as a private registry example. Replace the URL with your private registry URL. This also assumes that `MyPrivateRegistry` is already created under [Account Settings/Integrations](integrations.md).
 
 ![docker_private_settings](images/docker_private_settings.gif)
-
-
