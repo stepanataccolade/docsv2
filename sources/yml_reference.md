@@ -259,6 +259,12 @@ matrix:
     - rvm: 1.9.3
 ```
 
+> **Note**
+>
+> When using matrix vars in your YML, please note matrix:include builds ONLY use env vars that are explicitly
+> specified in the include item. Global env variables that are outside of the include item are NOT inherited.
+> You will need to specify these separately under each matrix.
+
 ---
 
 ### Test Results
