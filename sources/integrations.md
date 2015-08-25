@@ -48,8 +48,8 @@ You will need this to pull or push images to Google Container Registry as part o
 
 1. On the [Google Developers Console](https://console.developers.google.com/), select the project you want to integrate with Shippable
 2. In the sidebar on the left, expand 'APIs & auth' and select 'Credentials'
-3. Click 'Create new Client ID' and select 'Service Account' in the pop-up window
-4. Click on 'Create Client ID'. A dialog box appears. To proceed, click 'Okay, got it'
+3. Click `Add Credentials` and select `Service Account` in the pop-up window
+4. Select `JSON` and click on `Create`. A dialog box appears to save the keys.
 5. Your new Public/Private key pair is generated and downloaded to your machine. Please store this carefully since you will not be able to retrieve this from your GDC account.
 6. Now you are ready to integrate with GCR on Shippable. Back to [Shippable](https://shippable.com).
 7. Click on Account Settings in the top navigation bar and select the Integrations tab
