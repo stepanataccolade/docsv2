@@ -291,6 +291,8 @@ code {
   padding: 10px;
   padding-right: 0px;
   z-index: 10;
+  max-height: 50%;
+  overflow-y: scroll;
 }
 
 #sidebar .tocbar.stick {
