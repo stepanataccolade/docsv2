@@ -205,60 +205,72 @@ Response
   sourceDescription
   fullName             | string  | The full name of the project, such as org/projectname
 
-#### GET /projects/:projectId/runningBuilds
 
-Returns a list of objects, where each object is a projection of a build
-that is currently in progress.
+#### GET /projects/:projectId/searchBuilds
 
-Response
+Used to get builds for a specified project. There are similar routes for accounts and subscriptions as well.
 
-A list of [/builds/:buildId](#buildid) objects
+Query options available for the route are listed below:
 
-#### GET /projects/:projectId/runningBuilds/:number
+**sortBy**
 
-Returns a list of up to the specified number of
+Field (or comma separated list of fields) to sort builds by (default: 'createdDate')
 
-Response
+```Example: ?sortBy=buildGroupNumber```
 
-A list of [/builds/:buildId](#buildid) objects
+**sortOrder**
 
-#### GET /projects/:projectId/queuedBuilds
+Order (or comma separated list of orders) to sort. Assigned to sortBy fields in order as they appeared in sortBy. Possible values: asc, desc, ascending, descending, 1, and -1 (default: -1)
 
-Returns a list of builds queued for this project.
+```Example: ?sortBy=buildGroupNumber,createdDate&sortOrder=asc,-1```
+```sorts by buildGroupNumber ascending, then createdDate descending```
 
-Response
+**status**
 
-A list of [/builds/:buildId](#buildid) objects
+Status (or comma separated list of statuses) of what you want to filter by. Do not include this field to search all statuses. Possible values:
+0, waiting (waiting)
+10, queued (queued)
+20, processing (processing)
+30, success (success)
+40, skipped (skipped)
+50, unstable (unstable)
+60, timeout (timeout)
+70, canceled (canceled)
+80, failed (failed)
+idle (equivalent to 0, 10)
+incomplete (equivalent to 0, 10, 20)
+started (equivalent to 10, 20)
+complete (equivalent to 30, 40, 50, 60, 70, 80)
+successful (equivalent to 30, 40)
+unsuccessful (equivalent to 50, 60, 70, 80)
 
-#### GET /projects/:projectId/queuedBuilds/:number
+```Example: ?status=20,successful```
 
-Returns a list of up to the specified number of queued builds.
+**branch**
 
-Response
+Name (or comma separated list of names) of branches you want to filter. Do not include this field to search all branches.
 
-A list of [/builds/:buildId](#buildid) objects
+```Example: ?branch=master,beta```
 
-#### GET /projects/:projectId/recentBuilds
+**isPR**
 
-Returns a list of recent builds for the project.
+Boolean value for if you want to search for pull request (PR) builds. True means you will only get PR builds, false means you will get only commit builds. Do not include this field to search both PR and commit builds.
 
-Response
+```Example: ?isPR=true```
 
-A list of [/builds/:buildId](#buildid) objects
+**limit**
 
-#### GET /projects/:projectId/recentBuilds/:number
+Maximum number of results to return. Do not include this field to search all builds you have access to.
 
-Returns a list of up to the specified number of recent builds
+```Example: ?limit=100```
 
-Response
+**skip**
 
-A list of [/builds/:buildId](#buildid) objects
+How many entries to skip before returning the query, usually used with limit for paging.
+
+```Example: ?limit=50&skip=350 this will skip the first 350 builds and return the next 50 after that```
 
 ### /workflow
-
-While `/projects/*` is used for retrieving info, `/workflow/*` is for
-initiating multi step processes, such as triggering or enabling a build,
-typically using your projectId as an input parameter.
 
 #### POST /workflow/enableRepoBuild
 
@@ -667,6 +679,77 @@ Response
 
 <https://prod-shippable.s3.amazonaws.com/artifacts/subscriptions/.../tar.gz>
 
+### /subscriptions
+
+#### GET /subscriptions/:subscriptionId/searchBuilds
+
+Used to get builds for a given subscription.
+
+Query options available for the route are listed below:
+
+**sortBy**
+
+Field (or comma separated list of fields) to sort builds by (default: 'createdDate')
+
+```Example: ?sortBy=buildGroupNumber```
+
+**sortOrder**
+
+Order (or comma separated list of orders) to sort. Assigned to sortBy fields in order as they appeared in sortBy. Possible values: asc, desc, ascending, descending, 1, and -1 (default: -1)
+
+```Example: ?sortBy=buildGroupNumber,createdDate&sortOrder=asc,-1```
+```sorts by buildGroupNumber ascending, then createdDate descending```
+
+**status**
+
+Status (or comma separated list of statuses) of what you want to filter by. Do not include this field to search all statuses. Possible values:
+0, waiting (waiting)
+10, queued (queued)
+20, processing (processing)
+30, success (success)
+40, skipped (skipped)
+50, unstable (unstable)
+60, timeout (timeout)
+70, canceled (canceled)
+80, failed (failed)
+idle (equivalent to 0, 10)
+incomplete (equivalent to 0, 10, 20)
+started (equivalent to 10, 20)
+complete (equivalent to 30, 40, 50, 60, 70, 80)
+successful (equivalent to 30, 40)
+unsuccessful (equivalent to 50, 60, 70, 80)
+
+```Example: ?status=20,successful```
+
+**branch**
+
+Name (or comma separated list of names) of branches you want to filter. Do not include this field to search all branches.
+```Example: ?branch=master,beta```
+
+**isPR**
+
+Boolean value for if you want to search for pull request (PR) builds. True means you will only get PR builds, false means you will get only commit builds. Do not include this field to search both PR and commit builds.
+
+```Example: ?isPR=true```
+
+**limit**
+
+Maximum number of results to return. Do not include this field to search all builds you have access to.
+
+```Example: ?limit=100```
+
+**skip**
+
+How many entries to skip before returning the query, usually used with limit for paging.
+
+```Example: ?limit=50&skip=350 this will skip the first 350 builds and return the next 50 after that```
+
+**projectId**
+
+Define a project (or comma separated list of projectIds) to search through. Do not include this field to search for all projects.
+
+```Example: ?projectId=12345 ?projectId=1111,2222,3333```
+
 ### /accounts
 
 #### GET /accounts
@@ -740,6 +823,83 @@ Response
   lastUsedIdentityId  | string  | id of last used identity.
   identities          | list    | A list of this accounts identitiesj
   created             | string  | When the account was created
+
+#### GET /accounts/:accountId/searchBuilds
+
+Used to get builds for an account.
+
+Query options available for the route are listed below:
+
+**sortBy**
+
+Field (or comma separated list of fields) to sort builds by (default: 'createdDate')
+
+```Example: ?sortBy=buildGroupNumber```
+
+**sortOrder**
+
+Order (or comma separated list of orders) to sort. Assigned to sortBy fields in order as they appeared in sortBy. Possible values: asc, desc, ascending, descending, 1, and -1 (default: -1)
+
+```Example: ?sortBy=buildGroupNumber,createdDate&sortOrder=asc,-1```
+```sorts by buildGroupNumber ascending, then createdDate descending```
+
+**status**
+
+Status (or comma separated list of statuses) of what you want to filter by. Do not include this field to search all statuses. Possible values:
+0, waiting (waiting)
+10, queued (queued)
+20, processing (processing)
+30, success (success)
+40, skipped (skipped)
+50, unstable (unstable)
+60, timeout (timeout)
+70, canceled (canceled)
+80, failed (failed)
+idle (equivalent to 0, 10)
+incomplete (equivalent to 0, 10, 20)
+started (equivalent to 10, 20)
+complete (equivalent to 30, 40, 50, 60, 70, 80)
+successful (equivalent to 30, 40)
+unsuccessful (equivalent to 50, 60, 70, 80)
+
+```Example: ?status=20,successful```
+
+**branch**
+
+Name (or comma separated list of names) of branches you want to filter. Do not include this field to search all branches.
+
+```Example: ?branch=master,beta```
+
+**isPR**
+
+Boolean value for if you want to search for pull request (PR) builds. True means you will only get PR builds, false means you will get only commit builds. Do not include this field to search both PR and commit builds.
+
+```Example: ?isPR=true```
+
+**limit**
+
+Maximum number of results to return. Do not include this field to search all builds you have access to.
+
+```Example: ?limit=100```
+
+**skip**
+
+How many entries to skip before returning the query, usually used with limit for paging.
+
+```Example: ?limit=50&skip=350 this will skip the first 350 builds and return the next 50 after that```
+
+**projectId**
+
+Define a project (or comma separated list of projectIds) to search through. Do not include this field to search for all projects.
+
+```Example: ?projectId=12345 ?projectId=1111,2222,3333```
+
+**subscriptionId**
+
+Define a subscription (or comma separated list of subscriptionIds) to search through. Do not include this field to search for
+all subscriptions.
+
+```Example: ?subscriptionId=6789 ?subscriptionId=7777,8888&projectId=1111,2222,3333,4444```
 
 #### DELETE /accounts/:accountId
 
