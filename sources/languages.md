@@ -39,16 +39,16 @@ lein: lein2
 
 ### Test scripts
 
-Use **script** key in shippable.yml file to specify what command to run tests with. The default command to run leiningen test suite is **lein test**:
+Use **script** key in shippable.yml file to specify what command to run tests with. The default command to run leiningen test suite is **lein test2junit**:
 
 ```
-script: lein test
+script: lein test2junit
 ```
 
 ### Build Examples
 
 This sample will help you get started with Shippable. The testing
-framework used here is [Clojure.test](http://richhickey.github.io/clojure/clojure.test-api.html).
+framework used here is [test2junit](https://clojars.org/test2junit).
 
 [Clojure Sample](https://github.com/shippableSamples/sample_clojure)
 
@@ -87,7 +87,7 @@ before_script:
 # Running the test with Leiningen
 script:
   - cd sample
-  - lein test
+  - lein test2junit
 ```
 
 Enable the repo sample_clojure and run it using an Ubuntu minion. Once
@@ -114,7 +114,7 @@ lein:
   - lein2
 
 script:
-  - lein test
+  - lein test2junit
 ```
 
 Refer [sample_ubuntu1204_clojure](https://github.com/shippableSamples/sample_ubuntu1204_clojure) on github for more details.
