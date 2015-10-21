@@ -35,11 +35,11 @@ Go to [Project Dashboard](project_dashboard) to learn how to run a manual build,
 
 ### PR Builds
 
-Go to [PR Builds](pr_builds) to look at the status of any pull request builds.
+Click on the Pull Requests tab under Build History to see a list of PR builds with the chosen filters.
 
 ### Queued Builds
 
-Go to [Queued Builds](queued_builds) to look at builds queued and waiting for a container to be freed up. Remember, the number of parallel builds that can be run depends on the number of containers in your plan.
+Queued Builds are builds waiting for a container to be freed up. Remember, the number of parallel builds that can be run depends on the number of containers in your plan. Whenever a build is in a queued or processing state, the **Processing** and **Queued Builds** panel appears and all the currently queued and processing builds can be found there.
 
 ### Project Settings
 
@@ -48,7 +48,3 @@ Go to [Project Settings](project_settings) to learn about the build configuratio
 ### Build Dashboard
 
 Go to [Build Dashboard](build_dashboard) to learn more about the build detail page, where to look at the console and test/coverage reports
-
-
-
-
