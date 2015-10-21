@@ -39,7 +39,7 @@ Click on the Pull Requests tab under Build History to see a list of PR builds wi
 
 ### Queued Builds
 
-Queued Builds are builds waiting for a container to be freed up. Remember, the number of parallel builds that can be run depends on the number of containers in your plan. Whenever a build is in a queued or processing state, the **Processing** and **Queued Builds** panel appears and all the currently queued and processing builds can be found there.
+Queued Builds are builds waiting for a container to be freed up. Remember, the number of parallel builds that can be run depends on the number of containers in your plan. Whenever a build is in a queued or processing state, the 'Processing and Queued Builds' panel appears and all the currently queued and processing builds can be found there.
 
 ### Project Settings
 
