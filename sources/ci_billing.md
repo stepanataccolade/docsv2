@@ -32,7 +32,7 @@ Before you can add containers, you need atleast one valid payment method in your
 
 ### Upgrade Plan
 
-- Your plan should be set to `Multi-Tenant CI`
+- Your plan is automatically set to `mt-ci`, which is our multi-tenant plan. You can also choose to join our Single Tenant CI Beta by choosing `st-ci-beta`. This plans allows you to attach your own build hosts as opposed to running builds on Shippable's infrastructure.
 - Use the slider to select the number of containers you want for your subscription
 - The total price automatically updates to reflect the price you will pay for the number of containers chosen
 - Enter your payment details
