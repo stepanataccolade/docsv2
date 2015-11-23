@@ -154,7 +154,7 @@ code {
   background: #fff;
 }
 .sub-nav li > a {
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-weight: 600;
   color: #58595b;
   border-radius: 0px;

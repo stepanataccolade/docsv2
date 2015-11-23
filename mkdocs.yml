@@ -11,47 +11,66 @@ google_analytics: ['UA-50610279-1', 'auto']
 
 # Pages
 pages:
-- Getting Started: index.md
-- CI/CD:
-  - Overview: ci_overview.md
-  - CI Subscription Dashboard: ci_dashboard.md
-  - CI Subscription Billing: ci_billing.md
-  - CI Subscription Settings: ci_settings.md
-  - Project Dashboard: project_dashboard.md
-  - Project Settings: project_settings.md
-  - Build Dashboard: build_dashboard.md
-- Formations:
-  - Overview: formations_overview.md
-  - Formations Dashboard: formations_status.md
-  - Formation Settings: formation_settings.md
-  - Formations Billing: formations_billing.md
-- Lighthouse: lighthouse.md
-- Account:
-  - Account Settings: account_settings.md
-  - Integrations: integrations.md
-  - Payment Methods: payment_methods.md
-- How To:
-  - Link GitHub and Bitbucket Accounts: link_gh_and_bb.md
-  - Use CI with Test and Coverage: build_case2.md
-  - Use a Docker Registry: docker_registries.md
-  - Do a Docker Build: docker_build.md
-  - Use Specific Languages for CI: languages.md
-  - Use Slack for Build Notifications: slack_notifications.md
-  - Get Build Badges: build_badge.md
-  - Run Tests in Parallel: parallel_tests.md
-  - Use Shippable CI with Gitlab: using_gitlab.md
-  - Auto Deploy to Elastic Beanstalk: autodeploy-to-ebs.md
-  - Deploy to Heroku: heroku.md
-  - Deploy to AWS OpsWorks: opswork.md
-  - Deploy to Google App Engine: appengine.md
-  - Deploy to Red Hat OpenShift: openshift.md
-  - Deploy to DigitalOcean: digitalocean.md
-  - Deploy to AWS CodeDeploy: codedeploy.md
+- Getting Started:
+  - overview: index.md
+  - concepts: gs_concepts.md
+  - what is supported?: gs_supported.md
+  - choosing the right plan: gs_plans.md
+  - running a sample build: gs_ci_sample.md
+  - deploying sample application: gs_deploy_sample.md  
+- Shippable CI:
+  - overview: ci_overview.md
+  - dashboards: ci_dashboards.md
+  - teams and permissions: ci_teams.md
+  - configuring your build: ci_configure.md
+  - language help: ci_languages.md
+  - build images: ci_images.md
+  - docker support: ci_docker.md
+  - running a sample build: gs_ci_sample.md
+  - faq: ci_faq.md
+  - troubleshooting: ci_troubleshoot.md
+- Shippable Deploy:
+  - overview: d_overview.md
+  - teams and permissions: d_teams.md
+  - dashboards: d_dashboards.md
+  - configuring your services: d_configure.md
+  - dploying and managing applications: d_manage.md
+  - moving across clouds: d_clouds.md
+  - deploy a sample app: gs_deploy_sample.md
+  - faq: d_faq.md
+  - troubleshooting: d_troubleshoot.md
+- integrations: 
+  - source control providers: int_scm.md
+  - docker registries: int_docker_registries.md
+  - container services: int_container_services.md
+  - notification providers: int_notifications.md
+- account:   
+  - settings: acc_settings.md
+  - integrations: acc_integrations.md
+  - cards: acc_cards.md
+- how to:
+  - Link GitHub and Bitbucket Accounts: ht_link_gh_and_bb.md
+  - Use CI with Test and Coverage: ht_test_coverage.md
+  - Use a Docker Registry: ht_docker_registries.md
+  - Do a Docker Build: ht_docker_build.md
+  - Use irc for build notifications: ht_irc_notifications.md
+  - Use Slack for Build Notifications: ht_slack_notifications.md
+  - Get Build Badges: ht_build_badge.md
+  - Run Tests in Parallel: ht_parallel_tests.md
+  - Use Shippable CI with Gitlab: ht_using_gitlab.md
+  - Auto Deploy to Elastic Beanstalk: ht_autodeploy-to-ebs.md
+  - Deploy to Heroku: ht_heroku.md
+  - Deploy to AWS OpsWorks: ht_opsworks.md
+  - Deploy to Google App Engine: ht_appengine.md
+  - Deploy to Red Hat OpenShift: ht_openshift.md
+  - Deploy to DigitalOcean: ht_digitalocean.md
+  - Deploy to AWS CodeDeploy: ht_codedeploy.md
+  - cascade builds: ht_cascade_builds.md
+  - automate functional testing: ht_automate_ft.md
+  - use docker compose: ht_docker_compose.md
 - API: api.md
-- Reference:
-  - FAQ: faq.md
-  - How the Build works: basic_flow.md
-  - YML Reference: yml_reference.md
-  - Supported Languages: supported_services.md
-  - Access and Permissions: permissions.md
-  - Glossary: glossary.md
+- odds and ends:
+  - tips and tricks: oe_tips.md
+  - lighthouse: oe_lighthouse.md
+  - yml Reference: oe_yml_reference.md
+  - glossary: oe_glossary.md
