@@ -1,14 +1,21 @@
-page_title: Setting up your first formation
-page_description: Quick start formations setup documentation
-page_keywords: getting started, formations, quick start, documentation, shippable
+page_title: Running your first sample build
+page_description: Setup up documentation for a sample build
+page_keywords: getting started, build, quick start, documentation, shippable
 
-# Steps in a Formation
+# Running a sample build
+This guide walks through the process of running a sample build with and without using Docker with the help of a demo called **Aye0Aye**.
 
-1. Add Images. These are images from either Docker Hub or GCR. You need to have connected your Shippable Account to the Docker Registry before adding images.
-2. Add Configuration Keys. These are Environment Variables that are used in your application. In the first step, you add the keys, not the values.
-3. Add Environments. These are the names of the environments to which you eventually want to deploy instances of your application.
-4.
 
-This guide walks through the process of creating a Formation and deploying it to an environment with the help of a sample application called **Radar**.
+## Pre-Requisites:
+Sign-up and sign into your GitHub, Shippable and DockerHub (optional) accounts:
 
-Brief Description of the App (called)
+### Sign-up for the following accounts, if you don't already have these accounts
+* Free GitHub account (<https://github.com>)
+* Free Shippable account with free Continuous Integration (CI) subscription (<http://www.shippable.com>)
+* Free DockerHub account (<https://hub.docker.com>). This is optional. The builds can be run with or without docker  
+
+
+## Setup environment
+## Enable Shippable CI
+## Trigger a CI build
+
