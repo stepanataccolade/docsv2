@@ -33,7 +33,7 @@ Go to [Lighthouse Overview](formations_overview.md) to learn more.
 ### e2e pipeline 
 Together, Shippable CI and Deploy give you a unified pipeline from source control to production, integrating with your favorite tools and services along the way.
 
-![e2e pipeline](images/how it works.png)
+<img src="./images/how_it_works.png" alt="e2e pipeline" style="width:800px;"/>
 
 
 *****

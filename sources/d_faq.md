@@ -4,7 +4,29 @@ page_keywords: formations, upgrade containers, add new formation, multi containe
 
 # Overview
 
-This page explains how to upgrade your Formation and/or edit the number of containers for your Formation from the Billing Tab.
+#### How can I upgrade or downgrade my plan?
+
+To purchase containers for a new or existing Shippable Formation:
+
+- Click on **Formations** on the Shippable Landing page
+- Click on **Add a new formation** in the dropdown
+- This will take you to our payment page. Choose `Multi-Tenant Formation` as your plan
+- Use the slider to select the number of containers you want for your formation
+- Enter your payment details and click `Buy`
+- You are ready to start on your new formation
+
+To update containers in an existing Shippable Formation:
+
+- Click on **Formations** on the Shippable Landing page
+- Choose the Formation that you want to update
+- Go to the **Billing** tab
+- In the first section, choose `Multi-Tenant Formation` as your plan
+- Use the slider to select the number of containers you want for your formation
+- Enter your payment details and click `Buy`
+- Your plan is now updated
+
+
+
 
 ## How do you get here?
 

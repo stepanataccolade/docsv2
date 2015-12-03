@@ -11,7 +11,6 @@ This page walks through how to use the rest of the guide in the Shippable Format
 ## How to use the Shippable Formations user guide
 
 The user guide is organized by the different tabs on the product - so you will find a page for each tab under **Shippable Formations**
-
 ## Add a new formation
 
 - Login to [Shippable](http://shippable.com)

@@ -2,39 +2,41 @@ page_title: Learn About What Makes Shippable Great
 page_description: Code examples, FAQs, language & platform support
 page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
-## Overview
 
-### what is Shippable?
+### basic concepts before you start...
 
-Shippable helps Dev, Test, and DevOps teams innovate faster by reducing the time taken for code to be built, tested and deployed to production. Our goal is to simplify DevOps with our unified, automated pipeline from source control to production, without the need for IT automation tools or infrastructure code .
-
-We have 2 flagship products:
-
-##### Shippable CI
-Shippable CI is our Continuous Integration Platform that helps developers find bugs as soon as they are introduced. Every time you commit code or open a pull request, your code will be automatically built and tested and you will receive a notification with build results.  
-
-Shippable CI runs all your builds on minions, which are Docker-based containers. If you're using Docker for development, you can use your own Docker images or even build a Docker image and run builds in the container as part of your CI workflow. For customers who are not using Docker for their development, we provide language specific images that are pre-loaded with popular services and tools.
-
-You can choose to run your builds on our hosted, multi-tenant platform, or take advantage of our single-tenant platform to run builds on your own infrastructure.
-
-Go to [Shippable CI](ci_overview.md) to learn more.
-
-##### Shippable Deploy
-Shippable Deploy gives Test and DevOps teams the ability to automatically deploy containerized applications to Container Services like Amazon's ECS. Your images and services are versioned and can be upgraded or rolled back with a single click. We also support auto-deploying to test environments, which means your functional tests can also be automated to run on every code commit. 
-Most importantly, Shippable Deploy gives you the ability to be cloud agnostic. You can move your applications across Container Services in a few minutes!
-
-Go to [Shippable Deploy](formations_overview.md) to learn more.
-
-In addition, we also have a cool tools called **Lighthouse** that lets you monitor any Docker images you depend on and be notified when they change. This helps avoid situations where your images no longer work due to changing dependencies. 
-
-Go to [Lighthouse Overview](formations_overview.md) to learn more.
+We have several terms we use throughout this documentation, and this section will bring you up to speed with most of those.
 
 
-### e2e pipeline 
-Together, Shippable CI and Deploy give you a unified pipeline from source control to production, integrating with your favorite tools and services along the way.
+##### Minions
 
-![e2e pipeline](images/how it works.png)
+Minions are Docker based containers that run your CI builds. 
 
+When your build is triggered, we determine which Docker image to use in order to spin up your build minion. By default, the minion will container popular versions of the language specified in your yml, as well as popular tools and services used with that language. All this happens under the hood and 'just works'.
+
+If you're a Docker enthusiast and want to spin up your build minion based on your custom Docker image or build an image from Dockerfile, you can do so by following instructions at [TODO ADD LINK]. Please note that this customization will only be available with a Single Tenant CI plan starting Q1 2016 as we refine our plans. 
+
+Your build minions are transient and spin up when a build is triggered and are destroyed when a build completes. 
+ 
+Each minion in our Multi Tenant CI plan has 2 cores, 4GB RAM. If you are on a Single Tenant CI plan, you can change this setting to spin up bigger containers for your builds. 
+
+##### Account
+
+You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to emcompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services. 
+
+
+##### Subscription
+
+A subscription on Shippable corresponds to an organization or personal account on GitHub or Bitbucket. So if you sign in to Shippable with GitHub credentials and your username is *abcfoo* and you're a member of orgs *org1foo* and *org2foo*, you will have 3 subscriptions on Shippable. 
+
+Our billing plans are at a subscription level, so you can upgrade or downgrade each of your subscriptions independently. Also, we mirror permissions from your source control provider, so if someone has access to organizational repositories on GitHub/Bitbucket, they will also have access to view and run builds on Shippable. These permissions are synced automatically and you do not have to do anything to make this work.
+
+
+##### Projects
+
+A project on Shippable corresponds to a repository on your source control provider. As with subscriptions, project permissions are also synced with your source control provider.
+
+Once a project is enabled, we build all commits and pull requests for that project, irrespective of who commits and opens the pull request.
 
 *****
 

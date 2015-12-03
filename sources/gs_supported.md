@@ -13,7 +13,9 @@ We support a multitude of languages, tools, services for your CI workflows. We a
 #### Source control providers
 -  [GitHub](www.github.con)
 -  [GitHub Enterprise](enterprise.github.com)
--  [Bitbucket](www.bitbucket.org)
+-  [Bitbucket](www.bitbucket.org) (git repositores only)
+-   Bitbucket Server (coming soon)
+-   GitLab (coming soon)
 
 #### Languages
 
@@ -95,7 +97,7 @@ We support a multitude of languages, tools, services for your CI workflows. We a
 - Amazon ECR
 - Google Container Registry
 - Quay
-- ANy private registry
+- Any private registry
 
 #### Container Services
 - Amazon ECS

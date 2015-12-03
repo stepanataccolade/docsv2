@@ -2,9 +2,9 @@ page_title: Shippable Build Configuration
 page_description: How to write your Shippable YML and Set up your Build Configuration
 page_keywords: getting started, questions, documentation, shippable, config, yml
 
-# Build Configuration
+## Configure your build
 
-## Build Images
+### Build Images
 
 Our default image, shippable/minv2, comes installed with popular versions of all
 supported languages, tools and services.
@@ -31,7 +31,7 @@ tools, addons or services, then you should use shippable/minv2 image.
 
 Check out our [language help page](languages.md) for language specific info about build images.
 
-## Build matrix
+### Build matrix
 
 This is another powerful feature that Shippable has to offer. You can
 trigger multiple different test passes for a single code push. You might
@@ -61,7 +61,7 @@ env:
 The above example will fire 36 different builds for each push. Whoa!
 Need more minions?
 
-## Environment Variables
+### Environment Variables
 
 #### Standard environment variables
 
@@ -207,7 +207,7 @@ env:
 > security reasons.
 
 
-## Command collections
+### Command collections
  `shippable.yml` supports collections under each tag. This is nothing more than YML functionality and we will run it one command at a time.
 
 ```yaml
@@ -222,7 +222,7 @@ and then run `./minions/do_something-else.sh`. The only requirement is
 that all of these operations return a `0` exit code. Else the build will
 fail.
 
-## Retrying npm install
+### Retrying npm install
 
 Sometimes npm install may fail due to the intermittent network issues
 and affects your build execution. To avoid this, **shippable_retry**
@@ -241,7 +241,7 @@ before_install:
     - shippable_retry sudo apt-get install something
 ```
 
-## Git submodules
+### Git submodules
 
 Shippable supports git submodules. This is a cool functionality of
 breaking your projects down into manageable chunks. We automatically
@@ -271,7 +271,7 @@ git:
  submodules: false
 ```
 
-## Include/Exclude Branches
+### Include/Exclude Branches
 
 By default, Shippable builds all branches for enabled repositories as
 long as they have a shippable.yml at the root.
@@ -304,7 +304,7 @@ branches:
     - prod
 ```
 
-### Exclude a version
+#### Exclude a version
 
 It is also possible to exclude a specific version using exclude tag.
 Configure your yml file as shown below to exclude a specific version.
@@ -315,7 +315,7 @@ matrix:
     - rvm: 1.9.2
 ```
 
-### Include a version
+#### Include a version
 
 You can also configure your yml file to include entries into the matrix
 with include tag.
@@ -328,7 +328,7 @@ matrix:
       env: ISOLATED=false
 ```
 
-## Allow-failures
+### Allow-failures
 
 Allowed failures are items in your build matrix that are allowed to fail
 without causing the entire build to be shown as failed. You can define
@@ -342,9 +342,9 @@ matrix:
 
 ---
 
-## Test and Code Coverage Visualization
+### Test and Code Coverage Visualization
 
-### Test Results
+#### Test Results
 
 To set up test result visualization for a repository.
 
@@ -362,7 +362,7 @@ script:
 Examples for other languages can be found in our
 [Code Samples](languages/).
 
-### Code Coverage
+#### Code Coverage
 
 To set up code coverage result visualization for a repository.
 
@@ -382,7 +382,7 @@ Examples for other languages can be found in our Code Samples.
 
 ---
 
-## Notifications
+### Notifications
 
 Shippable primarily supports email and irc notifications and these can
 can be configured in your yml file. To send Slack notifications, please
@@ -397,7 +397,7 @@ configuring the notifications section of your yml. You can specify the
 email address(es) where you want to receive notification as well as the
 criteria for when you want notifications to be sent.
 
-### Email notifications
+#### Email notifications
 
 To send notifications to specific email addresses, replace the sample
 email addresses below with the recipients' email ids in your
@@ -434,7 +434,7 @@ notifications:
    email: false
 ```
 
-### IRC notifications
+#### IRC notifications
 
 You can also configure yml file to send build notifications to your IRC
 channels.
@@ -481,7 +481,7 @@ notifications:
 ```
 ---
 
-## Services
+### Services
 
 Shippable offers a host of pre-installed services to make it easy to run
 your builds. In addition to these you can install other services also by
@@ -490,7 +490,7 @@ using the `install` tag of `shippable.yml`.
 All the services are turned off by default and can be turned on by using
 the `services:` tag.
 
-### MongoDB
+#### MongoDB
 
 ```yaml
 # Mongo binds to 127.0.0.1 by default
@@ -501,7 +501,7 @@ services:
 Sample PHP code using
 [mongodb](https://github.com/shippableSamples/sample_php_mongo) .
 
-### MySQL
+#### MySQL
 
 ```yaml
 # MySQL binds to 127.0.0.1 by default and is started on boot. Default username is shippable with no password
@@ -514,7 +514,7 @@ before_script:
 Sample javascript code using
 [mysql](https://github.com/shippableSamples/sample_node_mysql).
 
-### SQLite3
+#### SQLite3
 
 SQLite is a software library that implements a self-contained,
 serverless, zero-configuration, transactional SQL database engine. So
@@ -524,7 +524,7 @@ other databases.
 Sample python code using
 [SQLite](https://github.com/shippableSamples/sample_python_sqllite).
 
-### Elastic Search
+#### Elastic Search
 
 ```yaml
 # elastic search is on default port 9200
@@ -534,7 +534,7 @@ services:
 
 Sample python code using [Elastic Search](https://github.com/shippableSamples/sample_python_elasticsearch).
 
-### Memcached
+#### Memcached
 
 ```yaml
 # memcached runs on default port 11211
@@ -545,7 +545,7 @@ services:
 Sample python code using
 [Memcached](https://github.com/shippableSamples/sample_python_memcache) .
 
-### Redis
+#### Redis
 
 ```yaml
 # redis runs on default port 6379
@@ -556,7 +556,7 @@ services:
 Sample python code using
 [Redis](https://github.com/shippableSamples/sample_python_redis).
 
-### Neo4j
+#### Neo4j
 
 ```yaml
 #neo4j runs on default port 7474
@@ -567,7 +567,7 @@ services:
 Sample javascript code using
 [Neo4j](https://github.com/shippableSamples/sample_node_neo4j) .
 
-### Cassandra
+#### Cassandra
 
 ```yaml
 # cassandra binds to the default localhost 127.0.0.1 and is not started on boot.
@@ -578,7 +578,7 @@ services:
 Sample ruby code using
 [Cassandra](https://github.com/shippableSamples/sample_ruby_cassandra) .
 
-### CouchDB
+#### CouchDB
 
 ```yaml
 # couchdb binds to the default localhost 127.0.0.1 and runs on default port 5984. It is not started on boot.
@@ -589,7 +589,7 @@ services:
 Sample ruby code using
 [CouchDB](https://github.com/shippableSamples/sample-ruby-couchdb) .
 
-### RethinkDB
+#### RethinkDB
 
 ```yaml
 # rethinkdb binds to the default localhost 127.0.0.1 and is not started on boot.
@@ -600,7 +600,7 @@ services:
 Sample javascript code using
 [RethinkDB](https://github.com/shippableSamples/sample-node-rethinkdb).
 
-### RabbitMQ
+#### RabbitMQ
 
 ```yaml
 # rabbitmq binds to 127.0.0.1 and is not started on boot. Default vhost "/", username "guest" and password "guest" can be used.
@@ -613,9 +613,9 @@ Sample python code using
 
 ---
 
-## Addons
+### Addons
 
-### Firefox
+#### Firefox
 
 We support different firefox versions like "18.0", "19.0", "20.0",
 "21.0", "22.0", "23.0", "24.0", "25.0", "26.0", "27.0", "28.0", "29.0".
@@ -627,7 +627,7 @@ addons:
    firefox: "21.0"
 ```
 
-### Custom Host Name
+#### Custom Host Name
 
 You can also set up custom hostnames using the **hosts** addons. To set
 up the hostnames in /etc/hosts file, add the following to your
@@ -640,7 +640,7 @@ addons:
     - asdf.com
 ```
 
-### PostgreSQL
+#### PostgreSQL
 
 ```yaml
 # Postgre binds to 127.0.0.1 by default and is started on boot. Default username is "postgres" with no password
@@ -666,7 +666,7 @@ addons:
 PostGIS 2.1 packages are pre-installed in our minions along with the
 PostgreSQL versions 9.1, 9.2 and 9.3.
 
-### Selenium
+#### Selenium
 
 Selenium is not started on boot. You will have to enable it using
 **services** tag and start xvfb (X Virtual Framebuffer) on display port
