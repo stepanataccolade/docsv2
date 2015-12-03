@@ -10,7 +10,7 @@ Fork the following GitHub repository in order to complete the tutorial
 
 - Sample app: <https://github.com/aye0aye/micro-www> 
 
-<img src="./images/aye0aye_fork.png" alt="e2e pipeline" style="width:800px;"/>
+<img src="../images/aye0aye_fork.png" alt="Aye0Aye Fork" style="width:800px;"/>
 
 ## Sign into Shippable
 - Login to [Shippable](<http://www.shippable.com>) using your source code system. For this tutorial GitHub is used. 
@@ -23,13 +23,13 @@ To enable the forked repository for Shippable's CI, activate the re on the ‘Ne
 - Click on the ![key](images/enable_icon.gif) icon to enable the project
 - If micro-www repo is not showing up on the new projects list, click on the **force sync** icon in the Account Settings (top, right corner navigation bar)to sync your source code repo with Shippable.
 
-<img src="./images/aye0aye_new_project.png" alt="e2e pipeline" style="width:800px;"/>
+<img src="../images/aye0aye_new_project.png" alt="Aye0Aye New Project" style="width:800px;"/>
 
 
 ## Run a CI build
 - Your page should look like this
 
-<img src="./images/aye0aye_initiate_build.png" alt="e2e pipeline" style="width:800px;"/>
+<img src="../images/aye0aye_initiate_build.png" alt="e2e pipeline" style="width:800px;"/>
 
 
 - Click on the "Play" icon to trigger your CI build 
@@ -37,4 +37,4 @@ To enable the forked repository for Shippable's CI, activate the re on the ‘Ne
 
 ## Successful CI build
 Congrats, you have successfully run your build. A sample, successful build is shown below
-<img src="./images/aye0aye_success_build.png" alt="e2e pipeline" style="width:800px;"/>
+<img src="../images/aye0aye_success_build.png" alt="e2e pipeline" style="width:800px;"/>
