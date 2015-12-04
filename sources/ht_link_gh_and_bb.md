@@ -2,7 +2,7 @@ page_title: Shippable Account Settings
 page_description: Account Settings, Integratons, Account Tokens, Credit Cards
 page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, Tokens, account settings
 
-# Linking your Bitbucket and GitHub Accounts
+# Link your Bitbucket and GitHub Accounts
 
 You can use Shippable to build both GitHub and Bitbucket repositories, by connecting both the accounts to your Shippable account. This will help you to get a consolidated view of all your projects from the source code systems in one Shippable account.
 
