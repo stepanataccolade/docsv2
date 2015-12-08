@@ -16,11 +16,11 @@ Fork the following GitHub repository in order to complete the tutorial
 - Login to [Shippable](<http://www.shippable.com>) using your source code system. For this tutorial GitHub is used. 
 
 ## Enable a Repo
-To enable the forked repository for Shippable's CI, activate the re on the ‘New Project’ page (Note: if you haven’t enabled any projects previously, you’ll be on the ‘New Project’ page automatically). Select the ‘+’ in the upper right of the Status page):
+To enable the forked repository for Shippable's CI, activate the repo on the ‘New Project’ page (Note: if you haven’t enabled any projects previously, you’ll be on the ‘New Project’ page automatically). Select the ‘+’ in the upper right of the Status page):
 
 - Click on the ![add icon](images/add_icon.gif) icon to the right of the header bar to enable the project/repos.
-- This brings you to the page with the list of projects (**micro-www**) in your repo that are yet to be enabled.
-- Click on the ![key](images/enable_icon.gif) icon to enable the project
+- This brings you to the page with the list of projects in your repo that are yet to be enabled. (**micro-www**)
+- Click on the ![key](images/enable_icon.gif) icon to enable the **micro-www** project
 - If micro-www repo is not showing up on the new projects list, click on the **force sync** icon in the Account Settings (top, right corner navigation bar)to sync your source code repo with Shippable.
 
 <img src="../images/aye0aye_new_project.png" alt="Aye0Aye New Project" style="width:800px;"/>
@@ -29,7 +29,7 @@ To enable the forked repository for Shippable's CI, activate the re on the ‘Ne
 ## Run a CI build
 - Your page should look like this
 
-<img src="../images/aye0aye_initiate_build.png" alt="e2e pipeline" style="width:800px;"/>
+<img src="../images/aye0aye_initiate_build.png" alt="Aye0Aye Initiate Build" style="width:800px;"/>
 
 
 - Click on the "Play" icon to trigger your CI build 
@@ -37,4 +37,4 @@ To enable the forked repository for Shippable's CI, activate the re on the ‘Ne
 
 ## Successful CI build
 Congrats, you have successfully run your build. A sample, successful build is shown below
-<img src="../images/aye0aye_success_build.png" alt="e2e pipeline" style="width:800px;"/>
+<img src="../images/aye0aye_success_build.png" alt="Aye0Aye Successful Build" style="width:800px;"/>
