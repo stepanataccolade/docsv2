@@ -26,4 +26,7 @@ with either of your GitHub/BitBucket credentials going forward.
 > <img src="../images/account_settings_sync.png" alt="Aye0Aye Successful Build" style="width:200px;"/>
 
 
+**Note**
+If you have already logged into Shippable using your GitHub account **AND** BitBucket account separately, you'll be unable to link these accounts within Shippable. To enable the linking, open a support ticket with Shippable to delete one of the accounts within Shippable. Upon deletion, log in to Shippable with the other, existing account & follow the above steps to link your GitHub & BitBucket accounts.
+
 
