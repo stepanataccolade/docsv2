@@ -8,7 +8,7 @@ You can use Shippable to build both GitHub and Bitbucket repositories, by connec
 
 To connect your GitHub/BitBucket accounts:
 
-1. Sign in to [Shippable](<http://www.shippable.com>) with either GitHub or BitBucket account. Choose the one that you want as your primary account.
+1. Log in to [Shippable](<http://www.shippable.com>) with either GitHub or BitBucket account. Choose the one that you want as your primary account.
 
 2. Click on the Account Settings icon on the upper, right navigation bar.
 ![account_settings](images/account_settings.gif)
@@ -21,7 +21,7 @@ with either of your GitHub/BitBucket credentials going forward.
 
 > **Tip**
 >
-> To see the linked account repositories updated immediately, click on the **Sync** button on your [Account Information section](account_settings/#account-information)
+> To see the linked account repositories updated immediately, click on the **Sync** button on your Account Settings section
 > 
 > <img src="../images/account_settings_sync.png" alt="Aye0Aye Successful Build" style="width:200px;"/>
 
