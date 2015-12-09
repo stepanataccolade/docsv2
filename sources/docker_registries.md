@@ -7,6 +7,7 @@ page_keywords: shippable, Docker, Container, docker hub, docker registry, google
 Shippable is the world's only CI/CD platform built natively on Docker. Since all your builds run on Docker containers, it gives us a unique ability to support advanced Docker workflows.
 
 One of the most important decisions when using Docker for development is figuring out where to store and manage your Docker images. You can choose to run your own private registry, or pick from the following hosted options:
+
  * [Docker Hub](https://hub.docker.com/account/signup/)
  * [Google Container Registry](https://cloud.google.com/tools/container-registry/)
  * [Quay.io](https://quay.io/repository/)
