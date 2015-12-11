@@ -6,9 +6,9 @@ page_keywords: irc integration, build notifications, slack, CI/CD, shippable Con
 
 This guide walks through the steps to integrate Shippable with Internet Relay Chat (IRC), to enable all Build related notifications on an IRC Channel.
 
-You can also get your build notifications through [Slack](ht_slack_notifications.md) or [Email](oe_yml_reference/#email-notifications).
+You can also get your Build notifications through [Slack](ht_slack_notifications.md) or [Email](oe_yml_reference/#email-notifications).
 
-Configuration of the YML file is needed to send build notifications to IRC channels. Follow the steps outlined below to enable IRC for build notifications:
+Configuration of the YML file is needed to send Build notifications to IRC channels. Follow the steps outlined below to enable IRC for Build notifications:
 
 ## 1. Configuring a single IRC channel on Shippable for Build Notifications
 
@@ -43,10 +43,10 @@ notifications:
 ```
 
 ## 3. Current capabilities
-- By default, We will always send build notifications to the mentioned
+- By default, the Build notifications will always be sent to the mentioned
   channels in yml. **on_success** and **on_failure** are not yet
   configurable.
-- IRC notifications are turned off by default for pull request builds.
+- IRC notifications are turned off by default for pull request Builds.
   However, you can change the default settings by adding
   **pull_requests: true** tag in your yml as shown below.
 
