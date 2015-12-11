@@ -6,7 +6,7 @@ page_keywords: slack integration, build notifications, CI/CD, shippable Continou
 
 This guide walks through the steps to integrate Shippable with Slack, to enable all Build related notifications on a Slack Channel.
 
-You can also get your build notifications through [IRC](ht_irc_notifications.md) or [Email](yml_reference/#notifications).
+You can also get your build notifications through [IRC](ht_irc_notifications.md) or [Email](oe_yml_reference/#email-notifications).
 
 Follow the three steps outlined below to enable Slack for build notifications:
 

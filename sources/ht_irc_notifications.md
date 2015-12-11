@@ -1,62 +1,61 @@
-page_title: Slack Integration for Build Notifications
-page_description: How to set up Slack Integration for Build Notifications
-page_keywords: slack integration, build notifications, CI/CD, shippable CI, config, project settings, notifications
+page_title: IRC Integration for Build Notifications
+page_description: How to set up IRC Integration for Build Notifications
+page_keywords: irc integration, build notifications, slack, CI/CD, shippable Continous Integration, config, project settings, notifications, internet relay chat
 
-# Slack Integration for Build Notifications
+# IRC Integration for Build Notifications
 
-This guide will walk through how to integrate Shippable with Slack, so you can get all Build related notifications on a Slack Channel.
+This guide walks through the steps to integrate Shippable with Internet Relay Chat (IRC), to enable all Build related notifications on an IRC Channel.
 
-You can also get your build notifications through [Email or IRC](yml_reference/#notifications).
+You can also get your build notifications through [Slack](ht_slack_notifications.md) or [Email](oe_yml_reference/#email-notifications).
 
-Follow the three steps outlined below to enable Slack for build notifications:
+Configuration of the YML file is needed to send build notifications to IRC channels. Follow the steps outlined below to enable IRC for build notifications:
 
-## 1. Create an Incoming Webhook Integration on Slack
+## 1. Configuring a single IRC channel on Shippable for Build Notifications
 
-- First off, visit your Slack domain page here: ```https://your-slack-team-here.slack.com/services/new```. Scroll toward the bottom of the page to see an option for **Incoming Webhooks**. Click on the **View** button against this.
+To specify a single channel, leverage the syntax below to update the yml file..
 
-
-    ![slack_pic1](images/slack_pic1.gif)
-
-
-- Follow the prompts. It does not matter what channel you choose to publish to while setting it up on Slack. We will let you override that from Shippable anyway
-- Note the "Webhook URL" that Slack generates. You will need this in the next step to set up your Slack account integration on Shippable
-
-    ![slack_url](images/slack_url.gif)
+```yaml 
+notifications: 
+   irc: "chat.freenode.net#channel1"
+```
 
 
-## 2. Set up an account integration on Shippable
+## 2. Configuring multiple IRC channels on Shippable for Build Notifications
 
-- Login to Shippable and go to Account Settings
-
-     ![account_settings](images/account_settings.gif)
-
-- Click on Integrations
-- Click the ![add_icon](images/add_icon.gif) on the right to add a new integration
-- Enter a name for your Slack Integration. This is what you will be referring to in the next step - so choose a name that's easy to remember
-- Choose Slack as the Master Integration Type
-- In the Webhook URL box, copy and paste the Webhook URL from your Slack integrations page
-- Channel: Here, you can customize the channel to post notifications to. Channel names must begin with #, so if you want to post to general, be sure to specify #general as the channel name. You can also do direct messages to individuals by entering @username.
-
-    ![slack_acct_int](images/slack_acct_int.gif)
+To specify multiple server channels, leverage the syntax below to update the yml file. The following formats are supported:
 
 
-This step enables you to use this particular Slack Integration across any project you choose.
+```yaml
+notifications:
+  irc:
+    - "chat.freenode.net#channel1"
+    - "chat.freenode.net#channel2"
+    - "server1#channel3"
+```
 
-## 3. Enable the integration on a project
+```yaml
+notifications:
+  irc:
+   channels:
+     - "chat.freenode.net#channel1"
+     - "chat.freenode.net#channel2"
+     - "server1#channel3"
+```
 
-The last step is to enable the notification for your specific project.
+## 3. Current capabilities
+- By default, We will always send build notifications to the mentioned
+  channels in yml. **on_success** and **on_failure** are not yet
+  configurable.
+- IRC notifications are turned off by default for pull request builds.
+  However, you can change the default settings by adding
+  **pull_requests: true** tag in your yml as shown below.
 
-- Go to the Project Page and click on the Settings tab
-- Scroll down to the Project Integrations section
-- Against Notifications Integration, select the name of the integration you created in Step 2. In the example below, ```SlackforShippable``` is used as the integration for my ```sample_php``` project.
-
-    ![slack_proj_int](images/slack_proj_int.gif)
-
-And that's it. You should now get build notifications related to this project on the Slack Channel like the one I got below for the ```sample_php``` project.
-
-![slack_channel](images/slack_channel.gif)
-
-
+```yaml
+notifications:
+  irc:
+   pull_requests: true
+   channels:
+```
 
 
 
