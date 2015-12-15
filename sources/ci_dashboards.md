@@ -2,11 +2,11 @@ page_title: Shippable CI/CD Dashboard
 page_description: Explanation of the CI/CD Dashboard
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml
 
-# CI Subscriptions Dashboard
+## Subscriptions, Projects & Builds
 
-This page walks through the Subscriptions dashboard and the options available from the dashboard.
 
-## How do you get here?
+
+## Subscription Dashboards
 
 - Login to [Shippable](http://shippable.com)
 - Click on **CI** on the Shippable Landing page

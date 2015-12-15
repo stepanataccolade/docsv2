@@ -7,7 +7,7 @@ page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deplo
 
 We offer several plans since there is no one-size-fits-all solution to what customers really need. The following sections explain CI and Deploy plans, the feature differentiation between them, and the pricing for each. All plans offer a Free tier, so you can always try before you buy.
 
-#### CI plans
+### CI plans
 
 The 2 plans for CI are: *Multi tenant CI* and *Single Tenant CI*
 
@@ -54,7 +54,7 @@ We offer a freemium model based on the number of parallel builds you want to run
 As your usage increases, you will either need to run more than 1500 build minutes a month, or find that your free minion is often busy running a build and subsequent builds are queued. Depending on your needs, you can purchase additional minions for $40/month per minion (discounted to $20/mo for the first 6 months). There are no limits on build minutes for paid subscriptions. 
 
 
-#### Deploy plans
+### Deploy plans
 
 With Shippable Deploy, you can automate your deployment of Dockerized applications to your Test and/or Production environments on any Container Service within minutes. When combined with Shippable CI, this gives you a complete pipeline from source control to production that is automated, unified, and cloud agnostic. 
 

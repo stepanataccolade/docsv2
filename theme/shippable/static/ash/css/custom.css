@@ -192,15 +192,18 @@ code {
 }
 .sub-tabs .dropdown-menu > li > a {
   padding: 15px;
+  text-align: left;
 }
 .sub-tabs .dropdown-menu > .active > a,
 .sub-tabs .dropdown-menu > .active > a:hover,
 .sub-tabs .dropdown-menu > .active > a:focus {
   color: #449999;
+  text-align: left;
 }
 .sub-tabs .scrollable-menu {
   height: auto;
   max-height: 500px;
+  min-width: 225px;
   overflow-x: hidden;
 }
 #accordion1 {

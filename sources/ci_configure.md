@@ -6,115 +6,106 @@ page_keywords: getting started, questions, documentation, shippable, config, yml
 
 ### Build Images
 
-Our default image, shippable/minv2, comes installed with popular versions of all
-supported languages, tools and services.
+Our minions are Docker based containers, so we use a standard Docker image to spin up these containers, depending on the language specified in your yml. Our build images are available on Docker Hub under the dry-dock repository and the corresponding Dockerfiles are available in our GitHub repository dry-dock. TODO- enter links
 
-However, you might prefer starting with a small image that only has
-versions of your language installed. To help with this, we have open
-sourced basic images for all supported languages. These images only come
-with popular versions of a language and are NOT pre-installed with any
-tools, addons or services.
+Our standard build images are named as follows:
 
-Our build images are available on Docker Hub in the [shippableImages account]
-(https://registry.hub.docker.com/repos/shippableimages/) . Dockerfiles
-for these images are in our [GitHub repository](https://github.com/shippableImages).
+* The first 3 letters of image name indicate the platform. u14 denotes ubuntu 14.04, u12 denotes ubuntu 12.04
+* The next 3 letters indicate the language. nod for node, sca for scala, pyt for python, gol for golang, rub for ruby, clo for clojure, jav for java, and php for php.
+* The last 3 letters, if present, indicate any additional services that are pre-installed. pls indicates that Cassandra, Elasticsearch, Memcached, MongoDB, MySQL, Neo4j, RabbitMQ, Redis, Selenium, SQLLite are already installed on the build minion. all indicates that in addition to all services available in pls images, CouchDB, Kestrel, RethinkDB, Riak are also installed.
 
-You can choose language specific images for your project under **project settings**:
+Exact details on what is included in each image is available in the github repo for the image, as well as the image description on Docker Hub.
 
-- Go to your Project page
-- Click on the Settings tab
-- Click on the dropdown against `Pull Image from` and choose an appropriate image
+###### Default build image
+By default, we will spin up a build container based on the 'all' version of an image for the language specified in your yml. For example, if you specify ```language: node``` in your yml, we will spin up a build minion based on the u12nodall:prod image. 
 
-As mentioned above, our language specific images do not come with any
-tools, addons, or services pre-installed. If you need pre-installed
-tools, addons or services, then you should use shippable/minv2 image.
+###### Customizing your build image
+You can customize which build image is used by specifying a different image in your yml -
 
-Check out our [language help page](languages.md) for language specific info about build images.
+```
+build_image: drydock/u14nod:prod
+```
+
+Customers on the Multi-tenant CI plan can specify any image from the drydock repository using their build image tag.
+
+If you are on a Single Tenant CI plan, you have much more flexibility and you can choose any build image you want by following instructions at TODO- add link to Docker support section.
+
 
 ### Build matrix
 
-This is another powerful feature that Shippable has to offer. You can
-trigger multiple different test passes for a single code push. You might
-want to test against different versions of ruby, or different aspect
-ratios for your Selenium tests or best yet, just different jdk versions.
-You can do it all with Shippable's matrix build mechanism.
+In most cases, you want to trigger one build for each commit/pull request to your repository. However, there are times, when you might want to trigger multiple builds for a single code change. For example, you might want to test against different versions of ruby or different aspect ratios for your Selenium tests. Another possibility is testing against multiple environment variables.
+
+This scenario is handled by our matrix build feature. In simple terms, the following yml configs will trigger multiple builds -
+
+- specifying more than one language version 
+- specifying more than one variable in the ```env``` section
+- specifying multiple gemfiles for ruby
+
+
 
 ```yaml
 rvm:
-  - 1.8.7 # (current default)
   - 1.9.2
   - 1.9.3
   - rbx
   - jruby
-  - ruby-head
-  - ree
+
 gemfile:
   - gemfiles/Gemfile.rails-2.3.x
   - gemfiles/Gemfile.rails-3.0.x
-  - gemfiles/Gemfile.rails-3.1.x
-  - gemfiles/Gemfile.rails-edge
 env:
   - ISOLATED=true
   - ISOLATED=false
 ```
 
-The above example will fire 36 different builds for each push. Whoa!
-Need more minions?
+The above example will fire 16 different builds for each push. Whoa! Need more minions?
 
 ### Environment Variables
 
-#### Standard environment variables
+#### Standard variables
 
-The following environment variables are available for every build. You
-can use these in your scripts if required:
+The following environment variables are available for every build. You can use these in your scripts if required:
 
-- BRANCH : Name of branch being built
-- BASE_BRANCH : Name of the target branch into which the pull request
-  changes will be merged
-- BUILD_NUMBER : Build number for current build
-- BUILD_URL : Direct URL link to the build output
-- CI : true
-- CONTINUOUS_INTEGRATION : true
-- COMMIT : Commit id that is being built and tested
-- COMPARE_URL : A link to GitHub/BitBucket's comparision view for the
-  push
-- DEBIAN_FRONTEND : noninteractive
-- HEAD_BRANCH: Name of the most recently committed branch
-- JOB_ID : id of job in Shippable
-- LANG : en_US.UTF-8
-- LAST_SUCCESSFUL_BUILD_TIMESTAMP : Timestamp of the last
-  successful build in seconds. This will be set to **false** for the
-  first build or for the build with no prior successful builds
-- LC_ALL : en_US.UTF-8
-- LC_CTYPE : en_US.UTF-8
-- MERB_ENV : test
-- PATH : \$HOME/bin:\$PATH
-- PULL_REQUEST : Pull request number if the job is a pull request. If
-  not, this will be set to **false**
-- RACK_ENV : test
-- RAILS_ENV : test
-- REPO_NAME : Name of the repository currently being built
-- REPOSITORY_URL : URL of your Github or Bitbucket repository
-- SERVICE_SKIP : false
-- SHIPPABLE : true
-- SHIPPABLE_ARCHIVE : true
-- SHIPPABLE_BUILD_ID : id of build in Shippable
-- SHIPPABLE_MYSQL_BINARY : "/usr/bin/mysqld_safe"
-- SHIPPABLE_MYSQL_CMD : "\$SHIPPABLE_MYSQL_BINARY"
-- SHIPPABLE_POSTGRES_VERSION : "9.2"
-- SHIPPABLE_POSTGRES_BINARY :
-  "/usr/lib/postgresql/\$SHIPPABLE_POSTGRES_VERSION/bin/postgres"
-- SHIPPABLE_POSTGRES_CMD : "sudo -u postgres
-  \$SHIPPABLE_POSTGRES_BINARY -c
-  "config_file=/etc/postgresql/\$SHIPPABLE_POSTGRES_VERSION/main/postgresql.conf""
-- SHIPPABLE_VE_DIR : "\$HOME/build_ve/python/2.7"
-- USER : shippable
 
-#### User Specified Environment Variables
+| Env variable        | Description           | 
+| ------------- |-------------| 
+| BASE_BRANCH		 | Name of the target branch into which the pull request changes will be merged|
+| BRANCH		 | Name of branch being built|
+| BUILD_NUMBER		 | Build number for current build|
+| BUILD_URL		 | Direct URL link to the build output|
+| CI		 | true|
+| 	CONTINUOUS_INTEGRATION	 |true |
+| 	COMMIT	 |Commit id that is being built and tested |
+| COMPARE_UR		 |A link to GitHub/BitBucket's comparision view for the push |
+| DEBIAN_FRONTEND		 |noninteractive |
+| HEAD_BRANCH		 | Name of the most recently committed branch|
+| JOB_ID		 | id of job in Shippable|
+| LANG		 |en_US.UTF-8 |
+| LAST_SUCCESSFUL_BUILD_TIMESTAMP		 |Timestamp of the last successful build in seconds. This will be set to **false** for the first build or for the build with no prior successful builds |
+|LC_ALL 		 |en_US.UTF-8 |
+|LC_CTYPE 		 | en_US.UTF-8|
+|MERB_ENV 		 |test |
+| PATH		 | \$HOME/bin:\$PATH|
+| PULL_REQUEST		 |Pull request number if the job is a pull request. If not, this will be set to **false** |
+|RACK_ENV 		 | test|
+| RAILS_ENV		 |test |
+|REPO_NAME 		 | Name of the repository currently being built|
+|REPOSITORY_URL 		 |URL of your Github or Bitbucket repository |
+|SERVICE_SKIP 		 |false |
+| SHIPPABLE		 | true|
+|SHIPPABLE_ARCHIVE 		 | true|
+|SHIPPABLE_BUILD_ID 		 |id of build in Shippable |
+| SHIPPABLE_MYSQL_BINARY		 |"/usr/bin/mysqld_safe" |
+| SHIPPABLE_MYSQL_CMD		 |"\$SHIPPABLE_MYSQL_BINARY" |
+| SHIPPABLE_POSTGRES_VERSION		 | "9.2"|
+| SHIPPABLE_POSTGRES_BINARY		 |"/usr/lib/postgresql/\$SHIPPABLE_POSTGRES_VERSION/bin/postgres" |
+|SHIPPABLE_POSTGRES_CMD 		 | "sudo -u postgres \$SHIPPABLE_POSTGRES_BINARY -c "config_file=/etc/postgresql/\$SHIPPABLE_POSTGRES_VERSION/main/postgresql.conf""|
+| SHIPPABLE_VE_DIR		 | "\$HOME/build_ve/python/2.7"|
+| USER		 | shippable|
 
-You can set your own environment variables in the yml. Every statement
-of this command will trigger a separate build with that specific version
-of the environment variables.
+#### Custom Variables
+
+You can also set your own environment variables in the yml. Each statement under the ```env``` tag will trigger a separate build with that env variable, so specifying multiple environment variables will give you a build matrix for every commit. 
 
 ```yaml
 # environment variable
@@ -123,24 +114,10 @@ env:
  - FOO=bar BAR=foo
 ```
 
-> **Note**
->
-> Env variables can create an exponential number of builds when combined
-> with `jdk` & `rvm , node_js etc.` i.e. it is multiplicative
+Env variables can create an exponential number of builds when combined with `jdk` & `rvm , node_js etc.` i.e. it is multiplicative. For an example, please check out the Build Matrix section above. To avoid a build matrix and kick off a single build with all environments, you can use the global tag as detailed in the 'Combining variables in a single build' section below.
 
-In this setting **4 individual builds** are triggered in a build group
 
-```yaml
-# npm builds
-node_js:
-  - 0.10.24
-  - 0.8.14
-env:
-  - FOO=foo BAR=bar
-  - FOO=bar BAR=foo
-```
-
-#### Secure environment variables
+#### Secure variables
 
 Shippable allows you to encrypt the environment variable definitions and
 keep your configurations private using **secure** tag. Go to the org
@@ -172,8 +149,10 @@ name1="abc" name2="xyz"
 This will give you a single encrypted output that you can embed in your
 yml file.
 
-You can also combine encrypted output and clear text environments using
-**global** tag.
+#### Combining variables into one build
+
+You can combine multiple environment variables in the same build using
+**global** tag. This will prevent a build matrix for being triggered and all your variables will be defined for one build.
 
 ```yaml
 env:
@@ -273,20 +252,9 @@ git:
 
 ### Include/Exclude Branches
 
-By default, Shippable builds all branches for enabled repositories as
-long as they have a shippable.yml at the root.
+By default, Shippable builds all branches for enabled repositories. If a branch does not have a shippable.yml at its root, we will create a build and show an error in the build console. 
 
-You can change this build only specific branches using the include and
-exclude sections in your yml. The specific branch that is being included
-or excluded needs to have this configuration, and not just the master
-branch.
-
-This is because Shippable works as follows - we get a webhook for an
-enabled repository letting us know something has changed in a specific
-branch. We read the shippable.yml from that branch and then trigger a
-build based on that. So if your shippable.yml in the develop branch does
-not contain the exclude section, we will trigger a build irrespective of
-what's in the yml in master branch.
+You can choose to build only specific branches using the include and exclude sections in your yml. The specific branch that is being included or excluded needs to have this configuration, and not just the master branch. This is because when we get a webhook for an enabled repository, we read the shippable.yml from the branch that has changed and trigger a build using that yml. So unless the yml in the branch to be included/excluded has the right settings, we are not aware of it and will trigger a build as expected.  
 
 Here is a sample of the include/exclude config -
 
@@ -384,6 +352,7 @@ Examples for other languages can be found in our Code Samples.
 
 ### Notifications
 
+TODO: Update this section.
 Shippable primarily supports email and irc notifications and these can
 can be configured in your yml file. To send Slack notifications, please
 check out our [blog post](http://blog.shippable.com/devops-chat-a-simple-way-to-use-slack-notifications-with-shippable).
