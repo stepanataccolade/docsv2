@@ -9,8 +9,8 @@ This guide walks through the steps to integrate Shippable with Slack, to enable 
 You can also get your build notifications through [IRC](ht_irc_notifications.md) or [Email](oe_yml_reference/#email-notifications).
 
 Follow the three steps outlined below to enable Slack for build notifications:
-
-## 1. Create an Incoming Webhook Integration on Slack
+## Initial setup
+### Create an Incoming Webhook Integration on Slack
 
 - Visit your Slack domain page here: ```https://your-slack-team-here.slack.com/services/new```. Scroll toward the bottom of the page to see an option for **Incoming Webhooks**. Click on the **View** button against this.
 
@@ -23,8 +23,7 @@ Follow the three steps outlined below to enable Slack for build notifications:
 
     ![slack_url](images/slack_url.gif)
 
-
-## 2. Set up an account integration on Shippable
+### Set up an account integration on Shippable
 
 - Login to Shippable and go to *Account Settings*
 
@@ -44,7 +43,45 @@ Follow the three steps outlined below to enable Slack for build notifications:
 
 This setting enables you to use this particular Slack Integration across any project you choose.
 
-## 3. Enable the integration on a project
+
+>
+> ## **IMPORTANT**
+>
+> **The yml settings will always override the UI settings for Slack**
+> 
+
+## Configuring in the yml File
+
+The yml file can be configured to receive Slack notifications for build status. Once the incoming webhook integration and account integration has been setup, the following capabilities can be enabled through yml configuration. 
+
+- Select account integration
+- Specify the channel(s) to receive notifications
+- Specify when notifications should be sent
+
+The example syntax below should be used as a reference.
+
+```yaml
+notifications:
+    - slack
+        account_integration:
+       #slack channels which will be notified
+        recipients:
+            - customerbriefings
+            - test
+       #send notification when build starts
+        on_start: always | never (default: never)
+       #send notification when build succeeds
+        on_success: always | change | never (default: change)
+       #send notification on build failure. It includes failed, timeout, unstable
+        on_failure: always | change | never (default: always)
+       #send notifications for pull request builds
+        on_pull_request: always | never (default: always)
+```
+
+
+## Configuring in the UI
+
+### Enable the integration on a project
 
 The last step is to enable the notification for a specific project.
 
