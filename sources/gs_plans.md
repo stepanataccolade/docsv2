@@ -27,13 +27,14 @@ Additionally, you can choose to run your builds on your own infrastructure. You 
 
 **Pricing** 
 
-The Free tier for Shippable CI comes with one build minion (1 core, 2GB RAM) and unlimited builds for unlimited repositories and users and is a great way to check out how Shippable CI can greatly simplify your CI workflow. 
+The **Free tier** for Shippable CI comes with one build minion (1 core, 2GB RAM) and unlimited builds for unlimited repositories and users and is a great way to check out how Shippable CI can greatly simplify your CI workflow. 
 
 Please note that if you choose your own build infrastructre, your free minion will not be constrained to 1 core, 2GB RAM and will use all capacity available on your build machine. 
 
 As you enable more repositories or add developers to your team, you might find that your free minion is frequently busy running a build and subsequent builds are queued as a result. Or you might just need bigger minions.
 
-Our paid plan offers build minions with 2 cores, 3.75GB RAM for an introductory price of $10/month per minion. This price will go up to our regular price of $25/month after 6/30/2016 but customers who buy plans before that date will grandfathered into the introductory pricing as long as their subscriptions are active and in good status. 
+Our **paid plan** offers build minions with 2 cores, 3.75GB RAM for an *introductory price* of $10/month per minion until 6/30/2016. Our regular price after 6/30/2016 is $25/month 
+but customers who buy plans before that date will grandfathered into the introductory pricing as long as their subscriptions are active and in good status. 
 
 With our monthly billing cycle, you can scale your CI capacity up or down every month if required!
 
@@ -42,26 +43,24 @@ With our monthly billing cycle, you can scale your CI capacity up or down every 
 
 With Shippable Deploy, you can automate your deployment of Dockerized applications to your Test and/or Production environments on any Container Service within minutes. When combined with Shippable CI, this gives you a complete pipeline from source control to production that is automated, unified, and cloud agnostic. 
 
-Let's focus on that last term - cloud agnostic. This means that you can deploy your applications to **any** container service through Shippable and even move across Container Services in minutes. We currently support Amazon's ECS, with support for Google Container Engine, Microsoft Azure Container Service, and Red Hat Openshift coming up very soon.
+Let's focus on that last term - cloud agnostic. This means that you can deploy your applications to **any** container service through Shippable and even move across Container Services in minutes. We currently support Amazon's ECS and Google Container Engine. Support for Microsoft Azure Container Service and Red Hat Openshift is coming up very soon.
 
 ##### Container Service Deploy
 
-We have just one plan that spans all containerized application deployments. You should try out this plan if you fit the following profile -
+You should sign up for this plan if you fit the following profile -
 
-* Your application is Dockerized
-* You run (or are open to running) your Test and/or Production environments on a Container Service. 
-* You are not running Docker in production but are interested in containerizing your Test environments.  
+* Your application is Dockerized and you run Docker in test environments and Production, or
+* You do not use Docker in production, but run (or are open to running) your Test and/or Production environments on a Container Service, or 
+* You are not using Docker in production but are interested in containerizing your Test environments.  
 * You run (or want to run) functional tests for every code commit
 
 [Contact us](mailto:support@shippable.com) for details and a demo showing how the above can be easily achieved using our Deploy plan.
 
 **Pricing**
 
-**Please note that the Container Service Deploy plan is currently in preview and is completely free while in preview.The following pricing will be effective at launch.** 
-
 Our pricing model is freemium and is based on the amount of RAM you need for your containers. The free tier comes with 2GB RAM which gives you enough resources to run simple applications. 
 
-Additional RAM can be purchased in blocks of 8GB for $20/month.
+Additional RAM can be purchased in blocks of 4GB for $10/month.
 
 *****
 
