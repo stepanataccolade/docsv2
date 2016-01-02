@@ -2,9 +2,9 @@ page_title: Shippable Formations Overview
 page_description: Overview of Shippable Formations
 page_keywords: formations,multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
-# Overview
+## Configuring your Formations
 
-## How do you get here?
+## Creating a Formation
 
 - Login to [Shippable](http://shippable.com)
 

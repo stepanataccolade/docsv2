@@ -40,6 +40,7 @@ pages:
   - FAQ: d_faq.md
   - Troubleshooting: d_troubleshoot.md
 - Integrations: 
+  - Overview: int_overview.md
   - Source control providers: int_scm.md
   - Docker registries: int_docker_registries.md
   - Container services: int_container_services.md

@@ -1,77 +1,23 @@
-page_title: Shippable Lighthouse Image Watcher
-page_description: How to watch images using Shippable's Lighthouse Feature
-page_keywords: lighthouse, shippable ci, documentation, shippable, watch docker images
+page_title: Container Services integration
+page_description: Setting up account integrations on Shippable for popular container services like Amazon ECS
+page_keywords: ecs, amazon, aws, shippable, google, gke, openshift
 
-# Lighthouse: Image Watcher
+## Container Services integration
 
-## Overview
+Shippable Deploy lets you easily deploy your Dockerized applications to popular Container Services like Amazon EC2 Container Service (ECS), Google Container Engine (GKE), or Red Hat OpenShift 3.
 
-Have you ever wasted your time debugging a broken build only to realize a few frustrated hours later that it was due to something that changed in one of the images you depend on?
+You will first ned to configure an account integration with your credentials and/or keys in order to interact with these services using Shippable Deploy.
 
-Lighthouse to your rescue!
+### Amazon ECS
 
-Lighthouse is available to all users of Shippable (yes, for free). Using this feature, you can add any image from any registry that you want to track and get notified via email when there is an update. It is a simple set up and we will be adding more functionality to this feature over time - so keep a watch on our watcher.
+To deploy applications to Amazon ECS, you need to configure an AWS account integration with credentials to access the ECS instance.
 
-Today, we support watching images that are hosted on either Docker Hub or Google Container Registry.
+1. From your [Shippable dashboard](https://app.shipable.com), Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+2. **Integration type:** In the dropdown, select `AWS`
+3. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: `manishas-aws-ecs`
+4. Enter your access and secret keys provided by AWS. [See here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) for info on how to generate them. 
+5. Click `Save`
 
-* * * * *
+You can now use this integration to set up a Shippable Deploy account and manage your ECS clusters.
 
-## How do you get here?
-
-- Login to [Shippable](http://shippable.com)
-- Click on **Lighthouse** on the top nav bar
-
-    ![Lighthouse](images/lighthouse_landing.gif)
-
-## Permissions
-
-Lighthouse is available to all users for Shippable to watch any number of images for free!
-
-## Adding an image to Lighthouse
-
-To add an image to Lighthouse and receive notification when the image is updated in the registry, follow the steps below.
-
-### Step 0: Prequisite: Integrations
-
-Before using Lighthouse, make sure you are set up with the following Account Integrations.
-
-1. Connect your Shippable Account to either Docker Hub or GCR using these [instructions](integrations.md).
-
-2. Set up an email for Lighthouse to receive notifications by turning on a [Notification Integration](integrations/#lighthouse-notification)
-
-### Step 1: Add an image to Lighthouse
-
-- On the Lighthouse page, fill in the details as below:
-  - Image Name: `your_repo_name/image_name` (the image from either DockerHub or GCR)
-  - Integration: The Account Integration Name that you created to connect to the registry
-  - Click on the `Save` Icon
-  - You will see the `Sync Status` getting updated. If we are successfully able to sync, you will see the status changing to `success`
-
-  ![LHSScreenShot](images/lhscrst1.gif)
-
-### Step 2: Configure Notifications for the Lighthouse Image
-
-- Click on the image_name to go to the Image Details Page
-- On the **Notification Integrations** section, you will see the list of notification emails you configured within  your account to receive emails in Step 0
-- Use the toggle button to turn ON the emails that should receive notifications
-
-## Tags
-
-Lighthouse periodically polls the registry and the tags are updated when there is any update to the image in the source registry. You will see the latest tag against the image when the image is synced.
-
-## Updating an Image on Lighthouse
-
-To update an image or change the notification settings:
-
- - Go to the Lighthouse page
- - You will see the list of images being watched on the Lighthouse Dashboard
- - Click on the image_name to update the notification setting
-
-## Deleting an Image on Lighthouse
-
-To delete an image on lighthouse:
-
- - Go to the Lighthouse page
- - You will see the list of images being watched on the Lighthouse Dashboard
- - Click on the ![delete](images/delete_lh_blk.gif) icon at the top of the table
- - Now you can choose the images you want to delete by clicking on the ![delete](images/delete_lh.gif) icon against each of the images and clicking confirm.
+TODO: GKE and Red Hat Openshift 3.

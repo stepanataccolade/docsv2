@@ -31,11 +31,13 @@ Please note that we do not automatically trigger builds if you push a tag. You c
 
 #### Build flow
 
-We need a shippable.yml file at the root of your repository in order to run your builds. This is your config file and tells us what the build should do.
+We need a shippable.yml file at the root of your repository in order to run your builds. This is your config file and tells us what the build should do. For the yml structure and how to configure it, check out the [Configure your build](ci_configure.md)
 
 The yml is somewhat similar to Travis CI's .travis.yml and most commands work as-is on Shippable. Since the formats are very similar, we can also read your config from .travis.yml if we do not find a shippable.yml at the root of your repository.
 
 When a build is triggered, it is executed in the sequence below -
+
+TODO: Update the build flow
 
 - Clone/Pull the project from source control provider.
 - `cd` into the workspace

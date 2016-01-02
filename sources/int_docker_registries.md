@@ -1,77 +1,103 @@
-page_title: Shippable Lighthouse Image Watcher
-page_description: How to watch images using Shippable's Lighthouse Feature
-page_keywords: lighthouse, shippable ci, documentation, shippable, watch docker images
+page_title: Docker registries integrations
+page_description: Setting up Shippable account integrations for Docker registries
+page_keywords: docker hub, amazon, ecs, gcr, google, shippable, quay, coreos, docker, registry
 
-# Lighthouse: Image Watcher
+## Docker registries integrations
 
-## Overview
+You will need a Docker integration if you want to do the following -
 
-Have you ever wasted your time debugging a broken build only to realize a few frustrated hours later that it was due to something that changed in one of the images you depend on?
+- Pull an image from a private repository in any Docker registry
+- Push an image to a Docker registry
 
-Lighthouse to your rescue!
+The process for setting up an account integration for all supported registries is detailed below.
 
-Lighthouse is available to all users of Shippable (yes, for free). Using this feature, you can add any image from any registry that you want to track and get notified via email when there is an update. It is a simple set up and we will be adding more functionality to this feature over time - so keep a watch on our watcher.
+### Docker Hub
 
-Today, we support watching images that are hosted on either Docker Hub or Google Container Registry.
+You will need to configure this integration to pull or push images to Docker Hub as part of building your project.
 
-* * * * *
 
-## How do you get here?
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on `Add Integration`
+2. For **Integration type**, choose `Docker`.
+2. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: ``manishas-docker`
+3. Enter your credentials
+4. Click on `Save`
 
-- Login to [Shippable](http://shippable.com)
-- Click on **Lighthouse** on the top nav bar
+<img src="./images/docker_integration.png" alt="docker integration" style="width:800px;"/>
 
-    ![Lighthouse](images/lighthouse_landing.gif)
+The integration will now be available to all your CI and Deploy workflows.
 
-## Permissions
+--------
 
-Lighthouse is available to all users for Shippable to watch any number of images for free!
+### Amazon EC2 Container Registry (ECR)
 
-## Adding an image to Lighthouse
+You will need to configure this integration to pull or push images to Amazon ECR.
 
-To add an image to Lighthouse and receive notification when the image is updated in the registry, follow the steps below.
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+9. **Integration type:** In the dropdown, select `Amazon ECR`
+2. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: `manishas-ecr`
+11. Enter your aws_access_key_id and aws_secret_access_key. You can follow instructions in [Amazon's guide for Creating and Managing access keys](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)  
+12. Click on `Save`
 
-### Step 0: Prequisite: Integrations
+The integration will now be available to all your CI and Deploy workflows.
 
-Before using Lighthouse, make sure you are set up with the following Account Integrations.
 
-1. Connect your Shippable Account to either Docker Hub or GCR using these [instructions](integrations.md).
+--------
 
-2. Set up an email for Lighthouse to receive notifications by turning on a [Notification Integration](integrations/#lighthouse-notification)
+### Google Container Registry (GCR)
 
-### Step 1: Add an image to Lighthouse
+You will need to configure this integration to pull or push images to Google Container Registry.
 
-- On the Lighthouse page, fill in the details as below:
-  - Image Name: `your_repo_name/image_name` (the image from either DockerHub or GCR)
-  - Integration: The Account Integration Name that you created to connect to the registry
-  - Click on the `Save` Icon
-  - You will see the `Sync Status` getting updated. If we are successfully able to sync, you will see the status changing to `success`
+On the [Google Developers Console](https://console.developers.google.com/):
 
-  ![LHSScreenShot](images/lhscrst1.gif)
+1. In the top navigation bar, select the project you want to integrate with Shippable
+2. Click on the `Products and Services` menu on the top left and select 'Permissions'.
+3. Select `Service Accounts` tab and click on 'Create service account'
+4. Add Service name and ID and then select `Furnish a new private key` and check `JSON`. Click on `Create`. A dialog box appears to save the keys.
+5. Your new Public/Private key pair is generated and downloaded to your machine. Please store this carefully since you will not be able to retrieve this from your GDC account.
 
-### Step 2: Configure Notifications for the Lighthouse Image
+(For more on JSON keys and Service accounts, read [Google's docs](https://cloud.google.com/container-registry/docs/auth#using_a_json_key_file))
 
-- Click on the image_name to go to the Image Details Page
-- On the **Notification Integrations** section, you will see the list of notification emails you configured within  your account to receive emails in Step 0
-- Use the toggle button to turn ON the emails that should receive notifications
 
-## Tags
+On your [Shippable dashboard](https://shippable.com):
 
-Lighthouse periodically polls the registry and the tags are updated when there is any update to the image in the source registry. You will see the latest tag against the image when the image is synced.
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+9. **Integration type:** In the dropdown, select `GCR`
+2. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: `manishas-gcr`
+11. Enter your JSON key that you saved earlier
+12. Click on `Save`
 
-## Updating an Image on Lighthouse
+<img src="./images/gcr_integration.png" alt="gcr integration" style="width:800px;"/>
 
-To update an image or change the notification settings:
+The integration will now be available to all your CI and Deploy workflows.
 
- - Go to the Lighthouse page
- - You will see the list of images being watched on the Lighthouse Dashboard
- - Click on the image_name to update the notification setting
+--------
 
-## Deleting an Image on Lighthouse
+### Quay.io
 
-To delete an image on lighthouse:
+You will need to configure this integration in order to pull or push images to Quay.io.
 
- - Go to the Lighthouse page
- - You will see the list of images being watched on the Lighthouse Dashboard
- - Click on the ![delete](images/delete_lh_blk.gif) icon at the top of the table
- - Now you can choose the images you want to delete by clicking on the ![delete](images/delete_lh.gif) icon against each of the images and clicking confirm.
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+3. **Integration type:** In the dropdown, select `Quay.io`
+4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:quay-manishas`
+5. Enter your credentials
+6. Click on `Save`
+
+<img src="./images/quay_integration.png" alt="Quay integration" style="width:800px;"/>
+
+The integration will now be available to all your CI and Deploy workflows.
+
+--------
+
+### Private Registry
+
+You will need to configure this integration in order to pull or push images from a private Docker registry. To set up this integration, you will need the URL of your private registry.
+
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+3. **Integration type:** In the dropdown, Choose `Private Docker Registry`
+4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:manishas-myregistry`
+5. Enter the URL of your private registry and your credentials
+6. Click on `Save`
+
+The integration will now be available to all your CI and Deploy workflows.
+
+------------

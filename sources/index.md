@@ -17,7 +17,7 @@ Shippable CI is our Continuous Integration Platform that helps developers find b
 
 Shippable CI runs all your builds on minions, which are Docker-based containers. If you're using Docker for development, you can use your own Docker images or even build a Docker image and run builds in the container as part of your CI workflow. For customers who are not using Docker for their development, we provide language specific images that are pre-loaded with popular services and tools.
 
-You can choose to run your builds on our hosted, multi-tenant platform, or take advantage of our single-tenant platform to run builds on your own infrastructure.
+You can choose to run your builds on our hosted CI platform, or take advantage of BYOM to run builds on your own infrastructure.
 
 Go to [Shippable CI](ci_overview.md) to learn more.
 

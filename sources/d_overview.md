@@ -4,9 +4,30 @@ page_keywords: formations,multi containers, microservices, Continuous Integratio
 
 # Overview
 
-Shippable Formations gives developers an easy way to provision, configure, and deploy multi-container Dev and Test clouds (environments) with zero DevOps code. You can create full-topology environments that can mimic your production environment or represent any combination of software component versions you'd like to deploy.
+Shippable Formations gives developers an easy way to provision, configure, and deploy your Docker applications to  popular container services like Amazon's ECS. Support for GKE and Red Hat Openshift 3 is in the pipeline and planned for a February 2015 release.
 
-This page walks through how to use the rest of the guide in the Shippable Formations section.
+Together with Shippable CI, this gives you a unified E2E pipeline from source control to production
+
+(TODO: Add a picture showing shippable ci + deploy)
+
+
+As seen in the picture above, CI gives you the ability to run unit tests, basic integration tests, and if required, push your tested container image to any Docker registry. Using Formations, you can then deploy this container to your test or productione environments running on any Container Service.
+
+Your Formations dashboard will give you latest status of each environment and 
+
+Advantages of using Formations include
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## How to use the Shippable Formations user guide
 

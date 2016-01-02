@@ -2,76 +2,37 @@ page_title: Shippable Lighthouse Image Watcher
 page_description: How to watch images using Shippable's Lighthouse Feature
 page_keywords: lighthouse, shippable ci, documentation, shippable, watch docker images
 
-# Lighthouse: Image Watcher
+## Notifications
 
-## Overview
+We can notify you aboyt your builds and deployment workflows through Slack, IRC, and Email. HipChat support is next on our list and will be available in Q1 of 2016.
 
-Have you ever wasted your time debugging a broken build only to realize a few frustrated hours later that it was due to something that changed in one of the images you depend on?
+To set up notifications via Slack or private IRC channels, you will need to configure account integrations with your credentials or keys to these services. 
 
-Lighthouse to your rescue!
+Emails are always sent through our Shippable account, so you cannot customize the domain emails are sent from at this time. To request this enhancement, please contact [customer support](mailto:support@shippable.com)
 
-Lighthouse is available to all users of Shippable (yes, for free). Using this feature, you can add any image from any registry that you want to track and get notified via email when there is an update. It is a simple set up and we will be adding more functionality to this feature over time - so keep a watch on our watcher.
+### Slack notifications
+You will need to configure this integration to send notifications to Slack channel(s). Notifications can be sent for build status updates, lighthouse image updates, and deployment updates.
 
-Today, we support watching images that are hosted on either Docker Hub or Google Container Registry.
+**Configuring an incoming webhook on Slack**
+1. Sign in to your Slack account and [go to this link to create an incoming webbook](https://my.slack.com/services/new/incoming-webhook/).
+2. It does not matter which channel you choose while creating the webhook. We will override it when you configure the integration on Shippable.
 
-* * * * *
+**Set up Slack integration on Shippable**
+1. From your Shippable dashboard, click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+2. **Integration type:** In the dropdown, select `Slack`
+3. **Integration Name:** Use a distinctive name that's easy to recall. Example: `manishas-slack`
+4. In the **URL** textbox, paste the webhook URL you created in the Slack UI above.
+5. Click `Save`
 
-## How do you get here?
+You have now configured Slack and can use this integration during your CI and Deploy workflows.
 
-- Login to [Shippable](http://shippable.com)
-- Click on **Lighthouse** on the top nav bar
+### IRC notifications
+You will need to configure this integration to send notifications to private IRC room(s). Public IRC channels can be configured without the need for an account integration.
 
-    ![Lighthouse](images/lighthouse_landing.gif)
+1. From your Shippable dashboard, click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+2. **Integration type:** In the dropdown, select `IRC`
+3. 3. **Integration Name:** Use a distinctive name that's easy to recall. Example: `manishas-irc-shippable`
+4. Enter your channel key and if applicable, username and password.
+5. Click `Save`
 
-## Permissions
-
-Lighthouse is available to all users for Shippable to watch any number of images for free!
-
-## Adding an image to Lighthouse
-
-To add an image to Lighthouse and receive notification when the image is updated in the registry, follow the steps below.
-
-### Step 0: Prequisite: Integrations
-
-Before using Lighthouse, make sure you are set up with the following Account Integrations.
-
-1. Connect your Shippable Account to either Docker Hub or GCR using these [instructions](integrations.md).
-
-2. Set up an email for Lighthouse to receive notifications by turning on a [Notification Integration](integrations/#lighthouse-notification)
-
-### Step 1: Add an image to Lighthouse
-
-- On the Lighthouse page, fill in the details as below:
-  - Image Name: `your_repo_name/image_name` (the image from either DockerHub or GCR)
-  - Integration: The Account Integration Name that you created to connect to the registry
-  - Click on the `Save` Icon
-  - You will see the `Sync Status` getting updated. If we are successfully able to sync, you will see the status changing to `success`
-
-  ![LHSScreenShot](images/lhscrst1.gif)
-
-### Step 2: Configure Notifications for the Lighthouse Image
-
-- Click on the image_name to go to the Image Details Page
-- On the **Notification Integrations** section, you will see the list of notification emails you configured within  your account to receive emails in Step 0
-- Use the toggle button to turn ON the emails that should receive notifications
-
-## Tags
-
-Lighthouse periodically polls the registry and the tags are updated when there is any update to the image in the source registry. You will see the latest tag against the image when the image is synced.
-
-## Updating an Image on Lighthouse
-
-To update an image or change the notification settings:
-
- - Go to the Lighthouse page
- - You will see the list of images being watched on the Lighthouse Dashboard
- - Click on the image_name to update the notification setting
-
-## Deleting an Image on Lighthouse
-
-To delete an image on lighthouse:
-
- - Go to the Lighthouse page
- - You will see the list of images being watched on the Lighthouse Dashboard
- - Click on the ![delete](images/delete_lh_blk.gif) icon at the top of the table
- - Now you can choose the images you want to delete by clicking on the ![delete](images/delete_lh.gif) icon against each of the images and clicking confirm.
+You have now configured your private IRC integration and can use this to send notifications during your CI and Deploy workflows.

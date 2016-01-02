@@ -4,6 +4,12 @@ page_keywords: getting started, questions, documentation, shippable, config, yml
 
 ## Configure your build
 
+All build configuration happens through shippable.yml which should be present at the root of the repository you want to build using Shippable. 
+
+At a high level, the yml structure is as shown below -
+
+
+
 ### Build Images
 
 Our minions are Docker based containers, so we use a standard Docker image to spin up these containers, depending on the language specified in your yml. Our build images are available on Docker Hub under the dry-dock repository and the corresponding Dockerfiles are available in our GitHub repository dry-dock. TODO- enter links
