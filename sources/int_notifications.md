@@ -14,10 +14,12 @@ Emails are always sent through our Shippable account, so you cannot customize th
 You will need to configure this integration to send notifications to Slack channel(s). Notifications can be sent for build status updates, lighthouse image updates, and deployment updates.
 
 **Configuring an incoming webhook on Slack**
+
 1. Sign in to your Slack account and [go to this link to create an incoming webbook](https://my.slack.com/services/new/incoming-webhook/).
 2. It does not matter which channel you choose while creating the webhook. We will override it when you configure the integration on Shippable.
 
 **Set up Slack integration on Shippable**
+
 1. From your Shippable dashboard, click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
 2. **Integration type:** In the dropdown, select `Slack`
 3. **Integration Name:** Use a distinctive name that's easy to recall. Example: `manishas-slack`
