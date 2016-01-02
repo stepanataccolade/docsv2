@@ -3,58 +3,42 @@ page_description: Code examples, FAQs, language & platform support
 page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
 
-## choosing the right plan
+## CI and Deploy plans
 
-We offer several plans since there is no one-size-fits-all solution to what customers really need. The following sections explain CI and Deploy plans, the feature differentiation between them, and the pricing for each. All plans offer a Free tier, so you can always try before you buy.
+The following sections explain CI and Deploy plans and the pricing for each. All plans offer a Free tier, so you can always try before you buy.
 
-### CI plans
+### CI
 
-The 2 plans for CI are: *Multi tenant CI* and *Single Tenant CI*
+We offer Freemium pricing for Shippable CI, so your first build container, aka minion, is always free for [every subscription](gs_concepts.md/#Subscriptions). By default, all your builds run on single tenant machines on Shippable's infrastructure, so you do not run into noisy neighbor or security issues commonly associated with multi-tenant platforms .
 
-##### Multi Tenant CI
+You also have the option of running builds on your own infrastructure. Read below for the benefits of each approach.
 
-Multi Tenant CI is the default plan for all GitHub and Bitbucket subscriptions. 
-
-You should stay with multi tenant CI plan if you fit the following profile -
-* Your source code is on GitHub or Bitbucket
+You should sign up for Shippable CI if you fit the following profile -
+* Your source code is on GitHub, Bitbucket or GitHub Enterprise. (Support for Bitbucker Server and Gitlab will be announced in Q1 2016)
 * You want to avoid the time sink of setting up and managing your own CI system and would rather spend the time writing features for your product   
-* You are comfortable with your CI containers running on a multi-tenant platform 
-* You do not need complete control over your build machines or SSH access. As part of your build details, you will get streaming (and downloadable) build console logs as well as the ability to archive artifacts
-* You are not a Docker user. We will restrict custom Docker images for our multi tenant plan users starting Q1 2016 since we no longer believe that Docker should be used in a multi-tenant environment. 
-* Your builds are not too resource intensive and 2 core, 4GB RAM is sufficient to run them 
+* (optional)You're a Docker user and you want to use your own custom image to run your builds. You can even run Docker compose to spin up environments!
+* Your builds can run in containers with 1 core, 2GB RAM (free) or 2 cores, 4GB RAM (paid).
 
-If one or more of the above points do not resonate, check out our Single Tenant CI plan. 
-
-**Pricing** 
-
-The free tier comes with one build minion and unlimited builds for unlimited repositories and users and is a great way to check out how Shippable CI can greatly simplify your CI workflow. 
-
-As you enable more repositories or add developers to your team, you might find that your free minion is frequently busy running a build and subsequent builds are queued as a result. Depending on your needs, you can add additional minions for $10/month per minion. With our monthly billing cycle, you can scale you CI capacity up or down every month if required!
-
-
-##### Single Tenant CI
-Single Tenant CI is the default plan for GitHub Enterprise, Bitbucket Server(coming soon), and GitLab(coming soon) subscriptions. Under this plan, your build containers run on dedicated machines, either provided by you or provisioned by Shippable for your subscription. 
-
-You should choose the single tenant CI plan if you fit the following profile -
-
-* Your source code is on GitHub Enterprise, Bitbucket Server(coming soon), or GitLab(coming soon)
-* You want to avoid the time sink of setting up and managing your own CI system but do not want your builds to run on a multi-tenant platform   
+Additionally, you can choose to run your builds on your own infrastructure. You should do this if  -
 * You want complete control over your build machines, including SSH access. 
-* You are a Docker user and you want to use your own custom image to run your builds.
 * Your builds are resource intensive and 2 core, 4GB RAM is not sufficient to run them. You need bigger containers! 
-* You want to go beyond CI and run multiple containers with Docker compose for your tests (coming soon)
-
+* You want your build machines to be inside your VPC
+* You want to set up IAM rules and policies for your build workflows 
 
 **Pricing** 
 
-**Please note that the Single Tenant CI plan is currently in preview and is completely free while in preview.The following pricing will be effective at launch.** 
+The Free tier for Shippable CI comes with one build minion (1 core, 2GB RAM) and unlimited builds for unlimited repositories and users and is a great way to check out how Shippable CI can greatly simplify your CI workflow. 
 
-We offer a freemium model based on the number of parallel builds you want to run. The free tier comes with one build minion (which means you can run one build at a time) and is limited to 1500 build minutes a month. There are no limits on number of enabled repositories or on users.
+Please note that if you choose your own build infrastructre, your free minion will not be constrained to 1 core, 2GB RAM and will use all capacity available on your build machine. 
 
-As your usage increases, you will either need to run more than 1500 build minutes a month, or find that your free minion is often busy running a build and subsequent builds are queued. Depending on your needs, you can purchase additional minions for $40/month per minion (discounted to $20/mo for the first 6 months). There are no limits on build minutes for paid subscriptions. 
+As you enable more repositories or add developers to your team, you might find that your free minion is frequently busy running a build and subsequent builds are queued as a result. Or you might just need bigger minions.
+
+Our paid plan offers build minions with 2 cores, 3.75GB RAM for an introductory price of $10/month per minion. This price will go up to our regular price of $25/month after 6/30/2016 but customers who buy plans before that date will grandfathered into the introductory pricing as long as their subscriptions are active and in good status. 
+
+With our monthly billing cycle, you can scale your CI capacity up or down every month if required!
 
 
-### Deploy plans
+### Deploy
 
 With Shippable Deploy, you can automate your deployment of Dockerized applications to your Test and/or Production environments on any Container Service within minutes. When combined with Shippable CI, this gives you a complete pipeline from source control to production that is automated, unified, and cloud agnostic. 
 

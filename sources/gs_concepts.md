@@ -14,11 +14,11 @@ Minions are Docker based containers that run your CI builds.
 
 When your build is triggered, we determine which Docker image to use in order to spin up your build minion. By default, the minion will container popular versions of the language specified in your yml, as well as popular tools and services used with that language. All this happens under the hood and 'just works'.
 
-If you're a Docker enthusiast and want to spin up your build minion based on your custom Docker image or build an image from Dockerfile, you can do so by following instructions at [TODO ADD LINK]. Please note that this customization will only be available with a Single Tenant CI plan starting Q1 2016 as we refine our plans. 
+If you're a Docker enthusiast and want to spin up your build minion based on your custom Docker image or build an image from Dockerfile, you can do so by following instructions at [TODO ADD LINK].
 
 Your build minions are transient and spin up when a build is triggered and are destroyed when a build completes. 
  
-Each minion in our Multi Tenant CI plan has 2 cores, 4GB RAM. If you are on a Single Tenant CI plan, you can change this setting to spin up bigger containers for your builds. 
+Each minion in our free plan has 1 cores, 2GB RAM. Paid plans get minions with 2 cores, 4GB RAM. If you use your own infrastructure to run your builds with BYOH, you can spin up bigger containers for your builds since we do not restrict resources for containers running on customers' infrastructure. 
 
 ### Account
 

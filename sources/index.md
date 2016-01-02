@@ -10,18 +10,17 @@ Our 2 flagship products - Shippable CI and Shippable Deploy - give you a unified
 
 <img src="./images/how_it_works.png" alt="e2e pipeline" style="width:800px;"/>
 
-
-
 ### Shippable CI
 Shippable CI is our Continuous Integration Platform that helps developers find bugs as soon as they are introduced. Every time you commit code or open a pull request, your code will be automatically built and tested and you will receive a notification with build results.  
 
 Shippable CI runs all your builds on minions, which are Docker-based containers. If you're using Docker for development, you can use your own Docker images or even build a Docker image and run builds in the container as part of your CI workflow. For customers who are not using Docker for their development, we provide language specific images that are pre-loaded with popular services and tools.
 
-You can choose to run your builds on our hosted CI platform, or take advantage of BYOM to run builds on your own infrastructure.
+You can choose to run your builds on our hosted CI platform, or choose to run builds on your own infrastructure.
 
 Go to [Shippable CI](ci_overview.md) to learn more.
 
 ### Shippable Deploy
+
 Shippable Deploy gives Test and DevOps teams the ability to automatically deploy containerized applications to Container Services like Amazon's ECS. Your images and services are versioned and can be upgraded or rolled back with a single click. We also support auto-deploying to test environments, which means your functional tests can also be automated to run on every code commit. 
 Most importantly, Shippable Deploy gives you the ability to be cloud agnostic. You can move your applications across Container Services in a few minutes!
 
