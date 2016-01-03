@@ -2,17 +2,17 @@ page_title: Shippable Lighthouse Image Watcher
 page_description: How to watch images using Shippable's Lighthouse Feature
 page_keywords: lighthouse, shippable ci, documentation, shippable, watch docker images
 
-## Source Control Management systems
+# Source Control Management systems
 
 Integrations for GitHub and Bitbucket do not need to be set up manually on Shippable. These are automatically configured for you when you sign in with your credentials for these services, or when you add them in the `Git identity` section of Account Settings. 
 
-### GitHub
+## GitHub
 In order to integrate with your GitHub account, we automatically set up an Account integration when you log in using your GitHub credentials. You do not have to do anything to set this up further.
 
-### Bitbucket
+## Bitbucket
 In order to integrate with your Bitbucket account, we automatically set up an Account integration when you log in using your Bitbucket credentials. You do not have to do anything to set this up further.
 
-### GitHub Enterprise
+## GitHub Enterprise
 We do not support signing in to Shippable directly with your GitHub Enterprise credentials. In order to use Shippable for your GitHub Enterprise repositories, you will need to sign in with GitHub or Bitbucket and then add an account integration as follows :
 
 - Click on the gear icon for Account Settings in the top navigation bar. Select the `Integrations` tab.

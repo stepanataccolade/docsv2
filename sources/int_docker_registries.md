@@ -2,7 +2,7 @@ page_title: Docker registries integrations
 page_description: Setting up Shippable account integrations for Docker registries
 page_keywords: docker hub, amazon, ecs, gcr, google, shippable, quay, coreos, docker, registry
 
-## Docker registries integrations
+# Docker registries integrations
 
 You will need a Docker integration if you want to do the following -
 
@@ -11,7 +11,7 @@ You will need a Docker integration if you want to do the following -
 
 The process for setting up an account integration for all supported registries is detailed below.
 
-### Docker Hub
+## Docker Hub
 
 You will need to configure this integration to pull or push images to Docker Hub as part of building your project.
 
@@ -28,7 +28,7 @@ The integration will now be available to all your CI and Deploy workflows.
 
 --------
 
-### Amazon EC2 Container Registry (ECR)
+## Amazon EC2 Container Registry (ECR)
 
 You will need to configure this integration to pull or push images to Amazon ECR.
 
@@ -43,7 +43,7 @@ The integration will now be available to all your CI and Deploy workflows.
 
 --------
 
-### Google Container Registry (GCR)
+## Google Container Registry (GCR)
 
 You will need to configure this integration to pull or push images to Google Container Registry.
 
@@ -72,7 +72,7 @@ The integration will now be available to all your CI and Deploy workflows.
 
 --------
 
-### Quay.io
+## Quay.io
 
 You will need to configure this integration in order to pull or push images to Quay.io.
 
@@ -88,7 +88,7 @@ The integration will now be available to all your CI and Deploy workflows.
 
 --------
 
-### Private Registry
+## Private Registry
 
 You will need to configure this integration in order to pull or push images from a private Docker registry. To set up this integration, you will need the URL of your private registry.
 

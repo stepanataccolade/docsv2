@@ -2,7 +2,7 @@ page_title: Shippable CI Overview
 page_description: Code examples, FAQs, language & platform support
 page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
-## Third-party integrations
+# Third-party integrations
 
 Shippable integrates with many popular source control providers, notification platforms, container services, and Docker registries. 
 
@@ -12,7 +12,7 @@ For example, to pull an image from or push an image to a Docker Hub, you will ad
 
 To start with, you will always need to add an account integration as described below.
 
-####Adding an account integration 
+###Adding an account integration 
 
 - Click on Settings ()gear icon) in your top navigation bar to navigate to account settings.
 

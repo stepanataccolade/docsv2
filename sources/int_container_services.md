@@ -2,13 +2,13 @@ page_title: Container Services integration
 page_description: Setting up account integrations on Shippable for popular container services like Amazon ECS
 page_keywords: ecs, amazon, aws, shippable, google, gke, openshift
 
-## Container Services integration
+# Container Services integration
 
 Shippable Deploy lets you easily deploy your Dockerized applications to popular Container Services like Amazon EC2 Container Service (ECS), Google Container Engine (GKE), or Red Hat OpenShift 3.
 
 You will first ned to configure an account integration with your credentials and/or keys in order to interact with these services using Shippable Deploy.
 
-### Amazon ECS
+## Amazon ECS
 
 To deploy applications to Amazon ECS, you need to configure an AWS account integration with credentials to access the ECS instance.
 

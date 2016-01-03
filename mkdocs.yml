@@ -20,8 +20,8 @@ pages:
   - Deploying sample application: gs_deploy_sample.md  
 - Shippable CI:
   - Overview: ci_overview.md
-  - Dashboards: ci_dashboards.md
-  - Teams and permissions: ci_teams.md
+  - Subscriptions: ci_subscriptions.md
+  - Projects: ci_projects.md
   - Configuring your build: ci_configure.md
   - Language help: ci_languages.md
   - Build images: ci_images.md

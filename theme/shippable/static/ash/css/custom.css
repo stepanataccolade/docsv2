@@ -12,13 +12,28 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 h1 {
     margin-bottom: 15px;
     letter-spacing: 0;
     text-transform: capitalize;
+    font-size: 32px;
+}
+
+h2{
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+h4{
+  font-size: 15px;
 }
 
 hr {
