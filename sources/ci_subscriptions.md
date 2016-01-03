@@ -16,7 +16,7 @@ The Subscription Dashboard shows you the latest status of all enabled projects. 
 
 <img src="../images/subscription_dashboard.png" alt="Subscription Dashboard" style="width:800px;"/>
 
-The **Summary View** is the default when you navigate to this dashboard. It shows you the latest status for all enabled projects. Latest status is defined as the build status for the latest build on the default branch. If no default branch exists for your project, project status is latest build status for the master branch, and if no master branch exists, then the project status is the build status of latest build across all branches.
+The **Summary View** is the default when you navigate to this dashboard. It shows you the latest status for all enabled projects. Latest status is defined as the build status for the latest commit build on the default branch. If no default branch exists for your project, project status is latest commit build status for the master branch, and if no master branch exists, then the project status is the build status of latest commit build across all branches.
 
 If a build is queued or in progress, you will see at the top of the summary view. 
 
@@ -55,7 +55,7 @@ Once enabled, you can build a project in the following ways -
 You can trigger manual builds for an enabled project by clicking on `Build` for a project in the **Summary View** of the subscription dashboard. To rebuild a previous build, go to the **History view** and click on `Rebuild` for any build listed there. 
 
 ## Settings
-You can perform subscription level actions by clicking on the `Settings` tab on the Subscriptions page.
+You can perform subscription level actions by clicking on the `Settings` tab on the Subscription page.
 
 ### Adding your own build infrastructure (BYOH)
 By default, all your builds run inside build containers hosted on Shippable's infrastructure. However, you can choose to run your builds on your own infrastructure, i.e. you can 'Bring your own hosts (BYOH)'. To understand the advantages of BYOH, check out the [CI Overview section](ci_overview.md).

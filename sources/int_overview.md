@@ -12,7 +12,7 @@ For example, to pull an image from or push an image to a Docker Hub, you will ad
 
 To start with, you will always need to add an account integration as described below.
 
-###Adding an account integration 
+##Adding an account integration 
 
 - Click on Settings ()gear icon) in your top navigation bar to navigate to account settings.
 
@@ -24,30 +24,30 @@ To start with, you will always need to add an account integration as described b
 
 The integration should now show up in your Integrations tab. This integration will be available to all your projects and can be used for your CI or Deploy workflows. Further details and examples of how a specific integration is used is available in the section for each integration.  
 
-### Supported integrations
+## Supported integrations
 
-#### [Source Control Providers](int_scm.md)
+### [Source Control Providers](int_scm.md)
 - GitHub
 - GitHub Enterprise
 - Bitbucket
 
 In addition, we are working on Bitbucket Server and GitLab integrations and will announce these in Q1 of 2016.
 
-#### [Notifications](int_notifications.md)
+### [Notifications](int_notifications.md)
 - Email
 - Slack
 - IRC
 
 Hipchat integration will be available in Q1 of 2016.
 
-#### [Docker Registries](int_docker_registries.md)
+### [Docker Registries](int_docker_registries.md)
 - Docker Hub
 - Google Container Registry (GCR)
 - Amazon Elastic Container Registry (ECR)
 - Quay.io
 - Self-hosted private registries
 
-#### [Container Services](int_container_services.md)
+### [Container Services](int_container_services.md)
 - Amazon Elastic Container Service (ECS)
 - Google Container Engine (GKE)
 - Red Hat Openshift V3

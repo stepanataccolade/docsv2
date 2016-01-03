@@ -2,80 +2,76 @@ page_title: Shippable CI/CD Dashboard
 page_description: Explanation of the CI/CD Dashboard
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml
 
-# Subscriptions, Projects & Builds
+# Projects
+A project on Shippable CI corresponds to a repository in your source control that you have enabled for CI. To learn how to enable a repository, check out the Enable a project section in [Subscriptions doc](ci_subscriptions.md) 
+
+To get to the page for a particular project,
+
+- Login to [Shippable](https://app.shippable.com)
+- Click on the CI dropdown and select the subscription you want to view.
+- This will bring you to Dashboard of the subscription which shows latest status for all your projects. 
+- Click on the project name to view the Project page. This will take you to the project dashboard.
+
+
+## Dashboard
+The Project Dashboard shows you the latest status of all branches of the project. You can also view in progress builds and build history.
+
+The **Summary View** is the default when you navigate to this dashboard. It shows you the latest status for all branches that are built using Shippable. Latest status is defined as the build status for the latest commit build for that branch. 
+
+If a build is queued or in progress, you will see at the top of the summary view. 
+
+NOTE: To view time stamp for a build, hover the mouse over time details
+
+The **History View** shows the build history across all branches in the project. You can filter this view by commit vs pull request builds, build status, and branch name. 
+
+You can also **Delete builds** by clicking on the `Delete builds` button, checking the builds you want to delete, and clicking on `Delete`.
+
+## Settings
+You can perform project level actions by clicking on the `Settings` tab on the Project page.
+
+### Syncing your project
+We sync your account with your source control provider once every 4 hours. However, there are times when you want to force a sync in order to see recently changes that were made in your source control. You can force a sync by clicking on the `Sync` button in the Sync section of the Project settings page.
+This action simply makes sure the permissions and repository changes from your source control are reflected in your Shippable project.
+
+### Enabling integrations
+You can make one or more configured account integrations available to your project in the `Integrations` section. For example, if you want to configure your shippable.yml to send Slack notifications, you will need to first configure an account integration with your Slack information and add the integration in the `Integrations` section of your project settings.
+The same is true for any Docker registry integrations.
+
+Instructions on account integrations are in our [Integrations section](int_overview.md)
+
+### Clearing cache
+You can clear cache for your project by clicking on the `Clear cache` button. This will clean up all cached Docker images from your build hosts and the next build will pull the build image again.
+
+
+### Encrypting your environment variables
+Shippable allows you to encrypt your environment variable definitions and keep your configurations private in your shippable.yml by using the `secure` tag.
+
+To encrypt a variable, enter the environment variable and its values in the text box as shown below and click on `Encrypt`-
+
+```
+name=abc
+```
+To encrypt multiple variables, you can use the following syntax-
+
+```
+var1="abc" var2="xyz"
+```
+You can now use these encrypted variables in your shippable.yml with a secure tag . For example,
+
+```
+env:
+  secure: <encrypted output>
+```
+
+### Resetting the project
+Resetting a project recreates all webhooks and deployment keys for your project. This should only be done if your project is in an inconsistent state and you need to restore it. Please note that you will need to re-encrypt all environment variables for your project after resetting it.
+
+### Deleting the project
+You can celete your project by clicking on the `Delete` button and then clicking on `Confirm`. Please note that deleting a project will delete all build history and delete all webhooks. 
+
+Deleting a project has no effect on the repository in your source control. 
 
 
 
-## Subscription Dashboard
-
-- Login to [Shippable](http://shippable.com)
-- This will bring you to the ***Summary*** page of the CI Subscriptions and Formations Dashboard
 
 
-*****
-
-### Summary View
-
-The summary view when you get to the subscriptions dashboard is a list of your enabled projects. The view includes information at a project level about the following:
-
-- Project Names
-- Active branch of a project
-- Status of the latest build for a project
-- Last build number
-- Time details of the latest build for a project such as Start time, duration and queued time
-
-NOTE: To get time stamps, hover the mouse over time details
-
-<img src="../images/project_dashboard_summary.png" alt="Dashboard Summary Page" style="width:800px;"/>
-
-*****
-
-### In Progress View
-The In Progress view in the subscriptions dashboard is the list of builds that are currently in process and/or queued.
-
-This view includes information at a build level about the following:
-
-- Project Name
-- Comments from the last commit
-- Active branch of a project
-- Status of the latest build for a project
-- Last build number
-- Person who initiated the build
-- Time details of the latest build for a project such as Start time, duration and queued time
-
-NOTE: To get time stamps, hover the mouse over time details
-
-
-<img src="../images/project_dashboard_inprogress.png" alt="Dashboard In Progress Page" style="width:800px;"/>
-
-*****
-
-### History View
-Shippable maintains the build history for all projects. The history view in the subscriptions dashboard displays the entire list of builds for all enabled projects. The view includes similar information described above at a build level.
-
-<img src="../images/project_dashboard_history.png" alt="Dashboard History Page" style="width:800px;"/>
-
-*****
-
-### Enable a New Project
-
-- From the home page, click on **CI** on the Shippable Landing page
-- Click on a subscription from the dropdown
-
-- Click on the ***Enable Project*** button on the right
-
-<img src="../images/project_dashboard_list.png" alt="Dashboard List Page" style="width:800px;"/>
-
-- This brings you to the page with the list of projects in your repo that are yet to be enabled.
-- Click on the ***Enable*** button to enable a particular project. You could also the search function to look for a project.
-
-
-<img src="../images/project_dashboard_enable_project.png" alt="Dashboard Enable Project Page" style="width:800px;"/>
-
-- If you have recently added a project to github/bitbucket, click on the ***Sync*** button to sync your source code repo with Shippable.
-
-*****
-
-### Minion Usage
-
-This indicates the number of minions or containers currently in use. It will also indicate the maximum number of containers available as per your subscription plan.
