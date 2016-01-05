@@ -2,42 +2,96 @@ page_title: Shippable Build Configuration
 page_description: How to write your Shippable YML and Set up your Build Configuration
 page_keywords: getting started, questions, documentation, shippable, config, yml
 
-## Configure your build
+# Configure your build
 
-All build configuration happens through shippable.yml which should be present at the root of the repository you want to build using Shippable. 
+All build configuration happens through shippable.yml which should be present at the root of the repository you want to build using Shippable.  
 
 At a high level, the yml structure is as shown below -
+TODO: Add yml structure picture
 
 
+## Build Image
 
-### Build Images
-
-Our minions are Docker based containers, so we use a standard Docker image to spin up these containers, depending on the language specified in your yml. Our build images are available on Docker Hub under the dry-dock repository and the corresponding Dockerfiles are available in our GitHub repository dry-dock. TODO- enter links
+To run your build, we spin up Docker containers depending on the language specified in your yml. Our build images are available on Docker Hub under the [dry-dock repository](https://hub.docker.com/r/drydock) and the corresponding Dockerfiles are available in our [GitHub repository dry-dock](https://github.com/dry-dock). 
 
 Our standard build images are named as follows:
 
-* The first 3 letters of image name indicate the platform. u14 denotes ubuntu 14.04, u12 denotes ubuntu 12.04
-* The next 3 letters indicate the language. nod for node, sca for scala, pyt for python, gol for golang, rub for ruby, clo for clojure, jav for java, and php for php.
-* The last 3 letters, if present, indicate any additional services that are pre-installed. pls indicates that Cassandra, Elasticsearch, Memcached, MongoDB, MySQL, Neo4j, RabbitMQ, Redis, Selenium, SQLLite are already installed on the build minion. all indicates that in addition to all services available in pls images, CouchDB, Kestrel, RethinkDB, Riak are also installed.
+* The first 3 letters of image name indicate the platform. `u14` denotes ubuntu 14.04, `u12` denotes ubuntu 12.04
+* The next 3 letters indicate the language. `nod` for node.js, `sca` for scala, `pyt` for python, `gol` for golang, `rub` for ruby, `clo` for clojure, `jav` for java, and `php` for php.
+* The last 3 letters, if present, indicate any additional services that are pre-installed. `pls` indicates that Cassandra, Elasticsearch, Memcached, MongoDB, MySQL, Neo4j, RabbitMQ, Redis, Selenium, SQLLite are already installed on the build minion. `all` indicates that in addition to all services available in pls images, CouchDB, Kestrel, RethinkDB, Riak are also installed.
 
 Exact details on what is included in each image is available in the github repo for the image, as well as the image description on Docker Hub.
 
-###### Default build image
-By default, we will spin up a build container based on the 'all' version of an image for the language specified in your yml. For example, if you specify ```language: node``` in your yml, we will spin up a build minion based on the u12nodall:prod image. 
+### Default build image
+By default, we will spin up a build container based on the `all` version of an image for the language specified in your yml. For example, if you specify ```language: python``` in your yml, we will spin up a build minion based on the u12pytall:prod image. 
 
-###### Customizing your build image
-You can customize which build image is used by specifying a different image in your yml -
+### Overriding the default build image
+TODO: Rewrite since after yml is finalized
+
+You can override which Docker image is used for your CI by specifying a different image in your yml -
 
 ```
-build_image: drydock/u14nod:prod
+pre_ci_boot:
+    image_name: manishas/myImage
+    image_tag: tip
+    pull: true
+    envs: FOO=BAR
+    options: --privileged=true
 ```
 
-Customers on the Multi-tenant CI plan can specify any image from the drydock repository using their build image tag.
+The image you specify in this section should be available to Shippable when the build reaches this step. 
 
-If you are on a Single Tenant CI plan, you have much more flexibility and you can choose any build image you want by following instructions at TODO- add link to Docker support section.
+###Building your CI image
+TODO: Rewrite since after yml is finalized
+
+If you want to build your Docker image as part of your workflow for each CI run, you will need to do the followng in your shippable.yml-
+
+```
+pre_ci:
+    docker build myrepo/Dockerfile -t manishas/myImage:tip  
+
+pre_ci_boot:
+    image_name: manishas/myImage
+    image_tag: tip
+    pull: false
+    envs: FOO=BAR
+    options: --privileged=true
+```
+
+This will ensure that manishas/myImage:tip is used to start the CI container with the option `--privileged=true` and with the environment variable FOO=BAR already set within the container.
+
+TODO: Add sample project
+
+####Pulling your CI image froma  Docker registry
+If you want to pull your CI image from a supported Docker registry, you will need to do the following-
+
+1. Create an account integration for your registry ([Instructions here](int_docker_registries.md))
+2. Add the integration to your project settings ([Instructions here](ci_projects.md/#Settings))
+3. Add the following in your shippable.yml:
+
+```
+pre_ci_boot:
+    integration: manishas_dockerhub
+    image_name: manishas/myImage
+    image_tag: tip
+    pull: true
+    envs: FOO=BAR
+    options: --privileged=true
+```
+
+For your specific case:
+
+* The `integration` tag should be set to the name of the account integration you added to your project settings in step 2 
+* `image_name` is in the format (docker registry username)/(docker registry image repo). 
+* In the `env` section, you can enter any environment variables you want to be set inside your CI container. 
+* In the `options` tag, enter any docker options you want to use in the `docker run` command. 
+
+The example yml above will pull the image manishas/myImage:tip using the integration manishas_dockerhub, and run the container with option `--privileged=true` and set env `FOO=BAR` inside the container.  
+
+TODO: Add sample project
 
 
-### Build matrix
+## Build matrix
 
 In most cases, you want to trigger one build for each commit/pull request to your repository. However, there are times, when you might want to trigger multiple builds for a single code change. For example, you might want to test against different versions of ruby or different aspect ratios for your Selenium tests. Another possibility is testing against multiple environment variables.
 
@@ -66,9 +120,9 @@ env:
 
 The above example will fire 16 different builds for each push. Whoa! Need more minions?
 
-### Environment Variables
+## Environment Variables
 
-#### Standard variables
+### Standard variables
 
 The following environment variables are available for every build. You can use these in your scripts if required:
 
@@ -109,7 +163,7 @@ The following environment variables are available for every build. You can use t
 | SHIPPABLE_VE_DIR		 | "\$HOME/build_ve/python/2.7"|
 | USER		 | shippable|
 
-#### Custom Variables
+### Custom Variables
 
 You can also set your own environment variables in the yml. Each statement under the ```env``` tag will trigger a separate build with that env variable, so specifying multiple environment variables will give you a build matrix for every commit. 
 
@@ -123,7 +177,7 @@ env:
 Env variables can create an exponential number of builds when combined with `jdk` & `rvm , node_js etc.` i.e. it is multiplicative. For an example, please check out the Build Matrix section above. To avoid a build matrix and kick off a single build with all environments, you can use the global tag as detailed in the 'Combining variables in a single build' section below.
 
 
-#### Secure variables
+### Secure variables
 
 Shippable allows you to encrypt the environment variable definitions and
 keep your configurations private using **secure** tag. Go to the org
@@ -155,7 +209,7 @@ name1="abc" name2="xyz"
 This will give you a single encrypted output that you can embed in your
 yml file.
 
-#### Combining variables into one build
+### Combining variables into one build
 
 You can combine multiple environment variables in the same build using
 **global** tag. This will prevent a build matrix for being triggered and all your variables will be defined for one build.
@@ -192,7 +246,7 @@ env:
 > security reasons.
 
 
-### Command collections
+## Command collections
  `shippable.yml` supports collections under each tag. This is nothing more than YML functionality and we will run it one command at a time.
 
 ```yaml
@@ -207,7 +261,7 @@ and then run `./minions/do_something-else.sh`. The only requirement is
 that all of these operations return a `0` exit code. Else the build will
 fail.
 
-### Retrying npm install
+## Retrying npm install
 
 Sometimes npm install may fail due to the intermittent network issues
 and affects your build execution. To avoid this, **shippable_retry**
@@ -226,7 +280,7 @@ before_install:
     - shippable_retry sudo apt-get install something
 ```
 
-### Git submodules
+## Git submodules
 
 Shippable supports git submodules. This is a cool functionality of
 breaking your projects down into manageable chunks. We automatically
@@ -256,7 +310,7 @@ git:
  submodules: false
 ```
 
-### Include/Exclude Branches
+## Include/Exclude Branches
 
 By default, Shippable builds all branches for enabled repositories. If a branch does not have a shippable.yml at its root, we will create a build and show an error in the build console. 
 
@@ -278,7 +332,7 @@ branches:
     - prod
 ```
 
-#### Exclude a version
+### Exclude a version
 
 It is also possible to exclude a specific version using exclude tag.
 Configure your yml file as shown below to exclude a specific version.
@@ -289,7 +343,7 @@ matrix:
     - rvm: 1.9.2
 ```
 
-#### Include a version
+### Include a version
 
 You can also configure your yml file to include entries into the matrix
 with include tag.
@@ -302,7 +356,7 @@ matrix:
       env: ISOLATED=false
 ```
 
-### Allow-failures
+## Allow-failures
 
 Allowed failures are items in your build matrix that are allowed to fail
 without causing the entire build to be shown as failed. You can define
@@ -316,9 +370,9 @@ matrix:
 
 ---
 
-### Test and Code Coverage Visualization
+## Test and Code Coverage Visualization
 
-#### Test Results
+### Test Results
 
 To set up test result visualization for a repository.
 
@@ -336,7 +390,7 @@ script:
 Examples for other languages can be found in our
 [Code Samples](languages/).
 
-#### Code Coverage
+### Code Coverage
 
 To set up code coverage result visualization for a repository.
 
@@ -356,7 +410,7 @@ Examples for other languages can be found in our Code Samples.
 
 ---
 
-### Notifications
+## Notifications
 
 TODO: Update this section.
 Shippable primarily supports email and irc notifications and these can
@@ -372,7 +426,7 @@ configuring the notifications section of your yml. You can specify the
 email address(es) where you want to receive notification as well as the
 criteria for when you want notifications to be sent.
 
-#### Email notifications
+### Email notifications
 
 To send notifications to specific email addresses, replace the sample
 email addresses below with the recipients' email ids in your
@@ -409,7 +463,7 @@ notifications:
    email: false
 ```
 
-#### IRC notifications
+### IRC notifications
 
 You can also configure yml file to send build notifications to your IRC
 channels.
@@ -456,7 +510,7 @@ notifications:
 ```
 ---
 
-### Services
+## Services
 
 Shippable offers a host of pre-installed services to make it easy to run
 your builds. In addition to these you can install other services also by
@@ -465,7 +519,7 @@ using the `install` tag of `shippable.yml`.
 All the services are turned off by default and can be turned on by using
 the `services:` tag.
 
-#### MongoDB
+### MongoDB
 
 ```yaml
 # Mongo binds to 127.0.0.1 by default
@@ -476,7 +530,7 @@ services:
 Sample PHP code using
 [mongodb](https://github.com/shippableSamples/sample_php_mongo) .
 
-#### MySQL
+### MySQL
 
 ```yaml
 # MySQL binds to 127.0.0.1 by default and is started on boot. Default username is shippable with no password
@@ -489,7 +543,7 @@ before_script:
 Sample javascript code using
 [mysql](https://github.com/shippableSamples/sample_node_mysql).
 
-#### SQLite3
+### SQLite3
 
 SQLite is a software library that implements a self-contained,
 serverless, zero-configuration, transactional SQL database engine. So
@@ -499,7 +553,7 @@ other databases.
 Sample python code using
 [SQLite](https://github.com/shippableSamples/sample_python_sqllite).
 
-#### Elastic Search
+### Elastic Search
 
 ```yaml
 # elastic search is on default port 9200
@@ -509,7 +563,7 @@ services:
 
 Sample python code using [Elastic Search](https://github.com/shippableSamples/sample_python_elasticsearch).
 
-#### Memcached
+### Memcached
 
 ```yaml
 # memcached runs on default port 11211
@@ -520,7 +574,7 @@ services:
 Sample python code using
 [Memcached](https://github.com/shippableSamples/sample_python_memcache) .
 
-#### Redis
+### Redis
 
 ```yaml
 # redis runs on default port 6379
@@ -531,7 +585,7 @@ services:
 Sample python code using
 [Redis](https://github.com/shippableSamples/sample_python_redis).
 
-#### Neo4j
+### Neo4j
 
 ```yaml
 #neo4j runs on default port 7474
@@ -542,7 +596,7 @@ services:
 Sample javascript code using
 [Neo4j](https://github.com/shippableSamples/sample_node_neo4j) .
 
-#### Cassandra
+### Cassandra
 
 ```yaml
 # cassandra binds to the default localhost 127.0.0.1 and is not started on boot.
@@ -553,7 +607,7 @@ services:
 Sample ruby code using
 [Cassandra](https://github.com/shippableSamples/sample_ruby_cassandra) .
 
-#### CouchDB
+### CouchDB
 
 ```yaml
 # couchdb binds to the default localhost 127.0.0.1 and runs on default port 5984. It is not started on boot.
@@ -564,7 +618,7 @@ services:
 Sample ruby code using
 [CouchDB](https://github.com/shippableSamples/sample-ruby-couchdb) .
 
-#### RethinkDB
+### RethinkDB
 
 ```yaml
 # rethinkdb binds to the default localhost 127.0.0.1 and is not started on boot.
@@ -575,7 +629,7 @@ services:
 Sample javascript code using
 [RethinkDB](https://github.com/shippableSamples/sample-node-rethinkdb).
 
-#### RabbitMQ
+### RabbitMQ
 
 ```yaml
 # rabbitmq binds to 127.0.0.1 and is not started on boot. Default vhost "/", username "guest" and password "guest" can be used.
@@ -588,9 +642,9 @@ Sample python code using
 
 ---
 
-### Addons
+## Addons
 
-#### Firefox
+### Firefox
 
 We support different firefox versions like "18.0", "19.0", "20.0",
 "21.0", "22.0", "23.0", "24.0", "25.0", "26.0", "27.0", "28.0", "29.0".
@@ -602,7 +656,7 @@ addons:
    firefox: "21.0"
 ```
 
-#### Custom Host Name
+### Custom Host Name
 
 You can also set up custom hostnames using the **hosts** addons. To set
 up the hostnames in /etc/hosts file, add the following to your
@@ -615,7 +669,7 @@ addons:
     - asdf.com
 ```
 
-#### PostgreSQL
+### PostgreSQL
 
 ```yaml
 # Postgre binds to 127.0.0.1 by default and is started on boot. Default username is "postgres" with no password
@@ -641,7 +695,7 @@ addons:
 PostGIS 2.1 packages are pre-installed in our minions along with the
 PostgreSQL versions 9.1, 9.2 and 9.3.
 
-#### Selenium
+### Selenium
 
 Selenium is not started on boot. You will have to enable it using
 **services** tag and start xvfb (X Virtual Framebuffer) on display port

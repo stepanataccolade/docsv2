@@ -3,11 +3,11 @@ page_description: Code examples, FAQs, language & platform support
 page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
 
-## CI and Deploy plans
+# CI and Deploy plans
 
 The following sections explain CI and Deploy plans and the pricing for each. All plans offer a Free tier, so you can always try before you buy.
 
-### CI
+## CI
 
 We offer Freemium pricing for Shippable CI, so your first build container, aka minion, is always free for [every subscription](gs_concepts.md/#Subscriptions). By default, all your builds run on single tenant machines on Shippable's infrastructure, so you do not run into noisy neighbor or security issues commonly associated with multi-tenant platforms .
 
@@ -39,13 +39,13 @@ but customers who buy plans before that date will grandfathered into the introdu
 With our monthly billing cycle, you can scale your CI capacity up or down every month if required!
 
 
-### Deploy
+## Deploy
 
 With Shippable Deploy, you can automate your deployment of Dockerized applications to your Test and/or Production environments on any Container Service within minutes. When combined with Shippable CI, this gives you a complete pipeline from source control to production that is automated, unified, and cloud agnostic. 
 
 Let's focus on that last term - cloud agnostic. This means that you can deploy your applications to **any** container service through Shippable and even move across Container Services in minutes. We currently support Amazon's ECS and Google Container Engine. Support for Microsoft Azure Container Service and Red Hat Openshift is coming up very soon.
 
-##### Container Service Deploy
+### Container Service Deploy
 
 You should sign up for this plan if you fit the following profile -
 

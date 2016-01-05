@@ -24,7 +24,14 @@ NOTE: To view time stamp for a build, hover the mouse over time details
 
 The **History View** shows the build history across all branches in the project. You can filter this view by commit vs pull request builds, build status, and branch name. 
 
-You can also **Delete builds** by clicking on the `Delete builds` button, checking the builds you want to delete, and clicking on `Delete`.
+### Manually building a branch
+You can trigger manual builds for branch by clicking on `Build` for the branch in the **Summary View** of the project dashboard. If you cannot see the branch you want to build, check the `Show all branches` checkbox which will show all branches irrespective of whether they were ever built previously.
+
+To rebuild a previous build, go to the **History view** and click on `Rebuild` for any build listed there. 
+
+### Deleting builds
+
+You can **Delete builds** by clicking on the `Delete builds` button, checking the builds you want to delete, and clicking on `Delete`.
 
 ## Settings
 You can perform project level actions by clicking on the `Settings` tab on the Project page.
@@ -34,7 +41,9 @@ We sync your account with your source control provider once every 4 hours. Howev
 This action simply makes sure the permissions and repository changes from your source control are reflected in your Shippable project.
 
 ### Enabling integrations
-You can make one or more configured account integrations available to your project in the `Integrations` section. For example, if you want to configure your shippable.yml to send Slack notifications, you will need to first configure an account integration with your Slack information and add the integration in the `Integrations` section of your project settings.
+You can make one or more configured account integrations available to your project in the `Integrations` section. 
+
+For example, if you want to configure your shippable.yml to send Slack notifications, you will need to first configure an account integration with your Slack information and add the integration in the `Integrations` section of your project settings. You can then use this integration in the yml. More details on [yml config here](ci_configure.md)
 The same is true for any Docker registry integrations.
 
 Instructions on account integrations are in our [Integrations section](int_overview.md)

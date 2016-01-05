@@ -25,9 +25,11 @@ Shippable automatically builds and tests your repositories when -
 - we receive a commit webhook 
 - we receive a webhook for a pull request opened for an enabled repository
 
-You can also run a manual build through the UI clicking on the Play button for any build.
+You can also run a manual build through the UI clicking on the `Build` button for any project or branch.
 
 Please note that we do not automatically trigger builds if you push a tag. You can still run a manual build after pushing the tag. 
+
+#### yml config
 
 #### Build flow
 

@@ -42,7 +42,9 @@ You can enable a project for CI by going to the subscription dashboard and click
 
 <img src="../images/project_dashboard_enable_project.png" alt="Dashboard Enable Project Page" style="width:800px;"/>
 
-- If you have recently added a project to github/bitbucket, click on the ***Sync*** button to sync your source code repo with Shippable.
+- If you have recently added a repository to github/bitbucket, click on the `Sync` button and check to see if you can see your new repository.
+
+After enabling a project you will be redirected to the project's page on Shippable. More details on this are in our [Projects section](ci_projects.md)
 
 ### Building a Project
 Once enabled, you can build a project in the following ways -

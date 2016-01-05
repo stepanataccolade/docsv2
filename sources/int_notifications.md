@@ -8,8 +8,6 @@ We can notify you aboyt your builds and deployment workflows through Slack, IRC,
 
 To set up notifications via Slack or private IRC channels, you will need to configure account integrations with your credentials or keys to these services. 
 
-Emails are always sent through our Shippable account, so you cannot customize the domain emails are sent from at this time. To request this enhancement, please contact [customer support](mailto:support@shippable.com)
-
 ## Slack notifications
 You will need to configure this integration to send notifications to Slack channel(s). Notifications can be sent for build status updates, lighthouse image updates, and deployment updates.
 
@@ -33,8 +31,23 @@ You will need to configure this integration to send notifications to private IRC
 
 1. From your Shippable dashboard, click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
 2. **Integration type:** In the dropdown, select `IRC`
-3. 3. **Integration Name:** Use a distinctive name that's easy to recall. Example: `manishas-irc-shippable`
+3. **Integration Name:** Use a distinctive name that's easy to recall. Example: `manishas-irc-shippable`
 4. Enter your channel key and if applicable, username and password.
 5. Click `Save`
 
 You have now configured your private IRC integration and can use this to send notifications during your CI and Deploy workflows.
+
+## Email notifications
+
+Build Emails are always sent through our Shippable account and are configured through shippable.yml. At this time, you cannot customize the domain emails are sent from at this time. To request this enhancement, please contact [customer support](mailto:support@shippable.com)
+
+You can, however, add an Email account integration to receive notifications for monitored images in Lighthouse. To do this,
+
+1. From your Shippable dashboard, click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+2. **Integration type:** In the dropdown, select `Email`
+3. **Integration Name:** Use a distinctive name that's easy to recall. Example: `manishas-email-lhs`
+5. Enter your email address: `janedoe@shippable.com`
+6. Click on `Save`
+
+
+

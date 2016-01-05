@@ -10,9 +10,11 @@ This page explains the levels of access Shippable has to your repos and how perm
 
 We use OAuth authentication. What this means is if you have either a GitHub or Bitbucket account, you do not need to create a separate account on our platform.
 
-## Access to repos
+If you want to build repositories in your GitHub Enterprise instannce, you will still need to sign in with GitHub or Bitbucket and add an account integration for GitHub Enterprise.
 
-When signing up to Shippable, you will be prompted to give Shippable access to your repos. GitHub and Bitbucket auth behave a little differently as follows -
+## Access to repositories
+
+When signing in to Shippable, you will be prompted to give Shippable access to your repos. GitHub and Bitbucket auth behave a little differently as follows -
 
 **GitHub**- By default, we will only ask for access to public repos. If you want to use Shippable to build your private repos, you will need to authorize us for private repositories. This is done from your [Account Settings Page](account_settings.md).
 
@@ -28,17 +30,17 @@ granularity, so we ask for access to all repos on Bitbucket by default.
 
 ## Permissions
 
-We closely mimic GitHub and Bitbucket permissions for Orgs and projects.
+We closely mimic GitHub and Bitbucket permissions for organizations and projects.
 Anyone who has access to an organization or repository in
 GitHub/Bitbucket will also have access to build information and/or
 repository and build actions on Shippable. This happens automatically,
-so if you enable a repository in your Org on Shippable and another team
+so if you enable a repository in your organization on Shippable and another team
 member signs in, they will see the enabled repository and build history
 already present in their account.
 
 We support 2 roles -
 
-**Owner :** Owners have all privileges for an Org or Project. They can
+**Owner :** Owners have all privileges for an organization or Project. They can
 enable, run and delete projects, upgrade pricing plans, and view/run,
 cancel, and delete builds.
 

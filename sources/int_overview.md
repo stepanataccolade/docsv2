@@ -22,7 +22,16 @@ To start with, you will always need to add an account integration as described b
 
 - Enter your information and click on Save.
 
-The integration should now show up in your Integrations tab. This integration will be available to all your projects and can be used for your CI or Deploy workflows. Further details and examples of how a specific integration is used is available in the section for each integration.  
+The integration should now show up in your Integrations tab. This integration will be available to all your projects and can be used for your CI or Deploy workflows. Further details and examples of how a specific integration is used is available in the section for each integration. 
+
+## Deleting an account integration
+
+TODO: Update this
+
+To delete an integration:, simply click on the `Delete` button for the integration you want to delete.
+ 
+Delete will fail if there are any projects actively using the integration, so make sure the integration is not being used in any project before deleting it.
+
 
 ## Supported integrations
 

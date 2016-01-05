@@ -7,6 +7,25 @@ The Shippable platform is natively built on Docker and is ony of the largest dep
 
 While the content in this section is available scattered in various docs depending on the scenario, we thought it would help Docker users to have one place they can go to in order to figure out our Docker support.
 
+##Docker commands in yml
+You can include Docker commands in your shippable.yml in order to set up your CI workflow.
+
+For example, you can build your CI image in the `pre_ci` section of your yml:
+
+```
+build:
+    pre_ci:
+        docker build -t manishas/myImage:tip
+```
+or, you can run CI on the default image and build and push your production container after CI is successful:
+
+```
+build:
+    on_success:
+        docker build -t manishas/prodImage:($BUILD_NUM) 
+        docker push (TODO add credentials) manishas/prodImage:($BUILD_NUM)
+```
+
 ##Docker registries integration
 Shippable integrates with all popular Docker registries such as:
 
@@ -21,9 +40,11 @@ You can push your images to or pull images from any of these registries by confi
 For more on configuring integrations, check out the [Docker registries integration](int_docker_registries.md) docs. For more on how to use the integration in order to push and pull images, check out our [build config docs](ci_configure.md/#Docker) here.
 
 ##Docker compose
-Since all our build containers run in privileged mode, you can spin up a full topology using Docker compose and test your commits against a live application. This is much more powerful than just unit testing wth stubs and is a great way for developers to find functional bugs before their commits travel farther in the delivery pipeline.
+TODO: Update this description and also provide a sample project. Since customer builds now have an 'outside the container' experience, docker compose probably runs in on_success
 
-For an example of hor to use Docker compose for functional tests, check out our sample project here. (TODO: Add sample project and linl) 
+Using Docker compose (TODO: Add link) lets you spin up a full topology and test your commits against a live application. This is much more powerful than just unit testing wth stubs and is a great way for developers to find functional bugs before their commits travel farther in the delivery pipeline.
+
+For an example of how to use Docker compose for functional tests, check out our sample project here. (TODO: Add sample project and linl) 
 
 ##Docker in Test environments and Production
 While Shippable CI provides build related Docker functionality, you need several additional steps before you can deploy an image to your production environment. You might have one or more Test environments where the latest services are fully tested with a functional test suite and some manual testing, followed by beta or prod where you decide on a release candidate, and finally, a production environment which is the final destination for chosen release candidates.

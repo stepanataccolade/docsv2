@@ -4,18 +4,15 @@ page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deplo
 
 # Account Settings
 
-This page will explain the different options available in the Account Settings Page.
+You can get to your account settings by clicking on the gear icon in the top navigation bar when you are logged in to Shippable. 
 
-## How do you get here?
+You will land on the Settings tab.
 
-- Login to [Shippable](http://shippable.com)
-- Click on Account Settings icon on the top nav bar
+TODO: Update all screenshots for settings
 
-      ![account_settings](images/account_settings.gif)
+##Settings
 
------------
-
-## Account Information
+### Account Information
 
 **ID:** This is your account id within Shippable. This is the id that is linked to any access tokens you create or credit cards you add to your account.
 
@@ -23,7 +20,7 @@ This page will explain the different options available in the Account Settings P
 
 ![account_settings_sync](images/account_settings_sync.gif)
 
-## GitHub Identity
+### GitHub Identity
 
 If you are using a GitHub Account to log in, this displays the GitHub user settings.
 
@@ -37,7 +34,7 @@ Read our guide on [linking GitHub and Bitbucket Accounts](link_gh_and_bb) for mo
 
 ![account_info](images/account_info_gh.gif)
 
-## Bitbucket Identity
+### Bitbucket Identity
 
 If you are using a Bitbucket Account to log in, this displays your bitbucket user profile and access settings.
 
@@ -47,13 +44,13 @@ If you are using a GitHub Account to log in, you will see an option to `Link Bit
 
 Read our guide on [linking GitHub and Bitbucket Accounts](link_gh_and_bb) for more details.
 
-## Misc Settings
+### Visibility of private forks
 
 **Show Private Forks:** If you would like to track forks from your repo (you must be an owner of the repo), then set this to ON. This is OFF by default.
 
 ![misc_settings](images/misc_settings.gif)
 
-## API Tokens
+### API Tokens
 
 This is where you generate, view and manage access tokens to use our [API](api.md).
 
@@ -71,9 +68,37 @@ This is where you generate, view and manage access tokens to use our [API](api.m
 > Doing so will compromise the security of your Shippable account. Treat
 > your API token like a password
 
-*****
 
-## Delete Account
+### Delete Account
 
 Clicking on this will delete all account data, project data, build data and formation data from our systems.
+
+--------
+
+## Integrations
+Shippable integrates with many third party services/platforms and you can leverage this by setting up an account integration and then using the integration at any point in your Shippable CI or Deplpy workflows.
+
+Detailed information about supported integrations and how to set things up ins available in the [Integrations section of our docs](int_overview.md)
+
+--------
+## Cards
+
+You need to add your credit card information to your account in order to use the card to pay for a Shippable CI or Deploy subscription.
+
+The Cards tab will show you all the credit cards linked to your account dth:800px;"/>
+
+You can get more information about where the card is being used by clicking on the ... to expand the card widget.
+
+
+<img src="../images/acc_cards_2.png" alt="expand credit card" style="width:300px;"/>
+
+
+### Adding a card
+
+Click on the Add Card button to add a new card and follow instructions to save the card to your account.
+
+You will not be charged until you use a card to upgrade a subscription. 
+
+### Removing a card
+You can click on the 'Delete' button for the card you wish to remove from your account. 
 

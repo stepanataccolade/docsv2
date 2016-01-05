@@ -16,15 +16,16 @@ pages:
   - Concepts: gs_concepts.md
   - What is supported?: gs_supported.md
   - Choosing the right plan: gs_plans.md
+  - Your Shippable Account: acc_overview.md 
   - Running a sample build: gs_ci_sample.md
   - Deploying sample application: gs_deploy_sample.md  
 - Shippable CI:
   - Overview: ci_overview.md
+  - Access and Permissions: ci_permissions.md
   - Subscriptions: ci_subscriptions.md
   - Projects: ci_projects.md
-  - Configuring your build: ci_configure.md
+  - Builds: ci_configure.md
   - Language help: ci_languages.md
-  - Build images: ci_images.md
   - Docker support: ci_docker.md
   - Running a sample build: gs_ci_sample.md
   - FAQ: ci_faq.md
@@ -45,33 +46,10 @@ pages:
   - Docker registries: int_docker_registries.md
   - Container services: int_container_services.md
   - Notification providers: int_notifications.md
-- Account:   
-  - Settings: acc_settings.md
-  - Integrations: acc_integrations.md
-  - Cards: acc_cards.md
-- How to:
-  - Link GitHub and Bitbucket Accounts: ht_link_gh_and_bb.md
-  - Use CI with Test and Coverage: ht_test_coverage.md
-  - Use a Docker Registry: ht_docker_registries.md
-  - Do a Docker Build: ht_docker_build.md
-  - Use irc for build notifications: ht_irc_notifications.md
-  - Use Slack for Build Notifications: ht_slack_notifications.md
-  - Get Build Badges: ht_build_badge.md
-  - Run Tests in Parallel: ht_parallel_tests.md
-  - Use Shippable CI with Gitlab: ht_using_gitlab.md
-  - Auto Deploy to Elastic Beanstalk: ht_autodeploy-to-ebs.md
-  - Deploy to Heroku: ht_heroku.md
-  - Deploy to AWS OpsWorks: ht_opsworks.md
-  - Deploy to Google App Engine: ht_appengine.md
-  - Deploy to Red Hat OpenShift: ht_openshift.md
-  - Deploy to DigitalOcean: ht_digitalocean.md
-  - Deploy to AWS CodeDeploy: ht_codedeploy.md
-  - Cascade builds: ht_cascade_builds.md
-  - Automate functional testing: ht_automate_ft.md
-  - Use docker compose: ht_docker_compose.md
+- How do I...: ht_overview.md
 - API: api.md
+- Lighthouse: oe_lighthouse.md
 - Odds and ends:
   - Tips and tricks: oe_tips.md
-  - Lighthouse: oe_lighthouse.md
   - Yml Reference: oe_yml_reference.md
   - Glossary: oe_glossary.md

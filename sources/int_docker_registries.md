@@ -22,7 +22,7 @@ You will need to configure this integration to pull or push images to Docker Hub
 3. Enter your credentials
 4. Click on `Save`
 
-<img src="./images/docker_integration.png" alt="docker integration" style="width:800px;"/>
+<img src="../images/docker_integration.png" alt="docker integration" style="width:800px;"/>
 
 The integration will now be available to all your CI and Deploy workflows.
 
@@ -66,7 +66,7 @@ On your [Shippable dashboard](https://shippable.com):
 11. Enter your JSON key that you saved earlier
 12. Click on `Save`
 
-<img src="./images/gcr_integration.png" alt="gcr integration" style="width:800px;"/>
+<img src="../images/gcr_integration.png" alt="gcr integration" style="width:800px;"/>
 
 The integration will now be available to all your CI and Deploy workflows.
 
@@ -82,7 +82,7 @@ You will need to configure this integration in order to pull or push images to Q
 5. Enter your credentials
 6. Click on `Save`
 
-<img src="./images/quay_integration.png" alt="Quay integration" style="width:800px;"/>
+<img src="../images/quay_integration.png" alt="Quay integration" style="width:800px;"/>
 
 The integration will now be available to all your CI and Deploy workflows.
 
