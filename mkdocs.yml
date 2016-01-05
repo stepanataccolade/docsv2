@@ -21,7 +21,6 @@ pages:
   - Deploying sample application: gs_deploy_sample.md  
 - Shippable CI:
   - Overview: ci_overview.md
-  - Access and Permissions: ci_permissions.md
   - Subscriptions: ci_subscriptions.md
   - Projects: ci_projects.md
   - Builds: ci_configure.md

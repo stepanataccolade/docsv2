@@ -2,21 +2,21 @@ page_title: Shippable CI Overview
 page_description: Code examples, FAQs, language & platform support
 page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
-## Shippable CI overview
+# Shippable CI overview
 
 Shippable CI is a Continuous Integration platform which helps you automate builds and tests for every code commit. You can also deploy your build to a PaaS like Heroku or to AWS using Code Deploy. For more on Continuous Integration and why you should include it as part of your workflow, read Martin Fowler's article on the [Benefits of Continuous Integration](http://martinfowler.com/articles/continuousIntegration.html#BenefitsOfContinuousIntegration)
 
 Shippable is natively built on Docker, so all your builds run inside Docker containers, which we call Minions.
 
-### What is supported?
+## What is supported?
 
 Go [here](gs_supported.md) to see a list of all supported source control providers, languages, services and platforms on Shippable CI.
 
-### How do builds work?
+## How do builds work?
 
 These are the steps that are executed when we receive a build trigger automatically via a webhook or manually through the UI.
 
-#### Build trigger
+### Build trigger
 
 When a repository is enabled on Shippable, we enable webhooks on that repository and start listening to commit and pull request events. 
 
@@ -29,9 +29,9 @@ You can also run a manual build through the UI clicking on the `Build` button fo
 
 Please note that we do not automatically trigger builds if you push a tag. You can still run a manual build after pushing the tag. 
 
-#### yml config
+### yml config
 
-#### Build flow
+### Build flow
 
 We need a shippable.yml file at the root of your repository in order to run your builds. This is your config file and tells us what the build should do. For the yml structure and how to configure it, check out the [Configure your build](ci_configure.md)
 
@@ -41,19 +41,50 @@ When a build is triggered, it is executed in the sequence below -
 
 TODO: Update the build flow
 
-- Clone/Pull the project from source control provider.
-- `cd` into the workspace
-- Checkout the commit that is being built and parse the yml file
-- Run commands from the `before_install` section of your yml file. This section is typically used to prep your minion and install/update any packages
-- Run commands from the `install` section of your yml file. This section is typically used to install any project specific libraries or packages
-- Run commands from the `before_script` section of your yml file. You can create any folders and unzip files that might be needed for testing. Some users also restore DBs, copy environment variables, etc. here
-- Run commands from the `script` section of your yml file. This runs the build and all your tests
-- Run commands from the `after_success` or `after_failure` sections from your yml file, depending on the result of your build. after_success can be used to deploy your application to any supported cloud provider
-- Run commands from the `after_script` section from your yml file
 
-Build status is determined based on the outcome of the above steps. They need to return an exit code of `0` to be marked as success. Everything else is treated as a failure.
+## Permissions
 
-Any errors in `after_script` will not affect the status of the build.
+### OAuth Authentication
+
+We use OAuth authentication. What this means is if you have either a GitHub or Bitbucket account, you do not need to create a separate account on our platform.
+
+If you want to build repositories in your GitHub Enterprise instannce, you will still need to sign in with GitHub or Bitbucket and add an account integration for GitHub Enterprise.
+
+### Authorizing Shippable
+
+When signing in to Shippable, you will be prompted to give Shippable access to your repos. GitHub and Bitbucket auth behave a little differently as follows -
+
+**GitHub**- By default, we will only ask for access to public repos. If you want to use Shippable to build your private repos, you will need to authorize us for private repositories. This is done from your [Account Settings Page](account_settings.md).
+
+**Bitbucket**- The Bitbucket API does not have public/private
+granularity, so we ask for access to all repos on Bitbucket by default.
+
+> **Note**
+>
+> We realize that most people do not want to give write access to their
+> repo. However, we need write permissions to add deploy keys to your
+> repos for our webhooks to work. We do not touch anything else in the
+> repo.
+
+### Who has access?
+
+We closely mimic GitHub and Bitbucket permissions for organizations and projects.
+Anyone who has access to an organization or repository in
+GitHub/Bitbucket will also have access to build information and/or
+repository and build actions on Shippable. This happens automatically,
+so if you enable a repository in your organization on Shippable and another team
+member signs in, they will see the enabled repository and build history
+already present in their account.
+
+We support 2 roles -
+
+**Owner :** Owners have all privileges for an organization or Project. They can
+enable, run and delete projects, upgrade pricing plans, and view/run,
+cancel, and delete builds.
+
+**Collaborator :** Collaborators can enable projects and view/run builds
+on Shippable. They cannot delete enabled projects or upgrade pricing
+plans.
 
 
 

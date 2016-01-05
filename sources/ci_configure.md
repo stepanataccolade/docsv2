@@ -32,6 +32,7 @@ You can override which Docker image is used for your CI by specifying a differen
 
 ```
 pre_ci_boot:
+    integration: manishas_dockerhub
     image_name: manishas/myImage
     image_tag: tip
     pull: true
@@ -62,7 +63,7 @@ This will ensure that manishas/myImage:tip is used to start the CI container wit
 
 TODO: Add sample project
 
-####Pulling your CI image froma  Docker registry
+###Pulling your CI image froma  Docker registry
 If you want to pull your CI image from a supported Docker registry, you will need to do the following-
 
 1. Create an account integration for your registry ([Instructions here](int_docker_registries.md))
@@ -93,7 +94,7 @@ TODO: Add sample project
 
 ## Build matrix
 
-In most cases, you want to trigger one build for each commit/pull request to your repository. However, there are times, when you might want to trigger multiple builds for a single code change. For example, you might want to test against different versions of ruby or different aspect ratios for your Selenium tests. Another possibility is testing against multiple environment variables.
+In most cases, you want to trigger one build for each commit/pull request to your repository. However, there are times when you might want to trigger multiple builds for a single code change. For example, you might want to test against multiple versions of Ruby, multiple aspect ratios for your Selenium tests, or multiple environment variables.
 
 This scenario is handled by our matrix build feature. In simple terms, the following yml configs will trigger multiple builds -
 
@@ -179,40 +180,21 @@ Env variables can create an exponential number of builds when combined with `jdk
 
 ### Secure variables
 
-Shippable allows you to encrypt the environment variable definitions and
-keep your configurations private using **secure** tag. Go to the org
-dashboard or individual dashboard page from where you have enabled your
-project and click on **ENCRYPT ENV VARIABLE** button on the top right
-corner of the page. Enter the env variable and its value in the text box
-as shown below.
+Shippable allows you to encrypt environment variables and keep your configurations private using `secure` tag. 
+
+To do this,
+
+1. Encrypt your environment variables ([Instructions here](ci_projects.md#encrypt_env_variables))
+2. Copy the encrypted output string and add it to your yml file as shown below:
 
 ```
-name=abc
-```
-
-Click on the encrypt button and copy the encrypted output string and add
-it to your yml file as shown below:
-
-```yaml
 env:
   secure: <encrypted output>
 ```
 
-To encrypt multiple environment variables and use them as part of a
-single build, enter the environment variable definitions in the text box
-as shown below
-
-```
-name1="abc" name2="xyz"
-```
-
-This will give you a single encrypted output that you can embed in your
-yml file.
-
 ### Combining variables into one build
 
-You can combine multiple environment variables in the same build using
-**global** tag. This will prevent a build matrix for being triggered and all your variables will be defined for one build.
+You can combine multiple environment variables in the same build using `global` tag. This will prevent a build matrix for being triggered and all your variables will be defined for one build.
 
 ```yaml
 env:
@@ -224,7 +206,7 @@ env:
 To encrypt multiple environment variables separately, configure your yml
 file as shown below:
 
-```yaml
+```
 env:
   global:
     #encrypted output of first env variable
@@ -249,7 +231,7 @@ env:
 ## Command collections
  `shippable.yml` supports collections under each tag. This is nothing more than YML functionality and we will run it one command at a time.
 
-```yaml
+```
 # collection scripts
 script:
  - ./minions/do_something.sh
@@ -274,7 +256,7 @@ installation commands and it will re-try to install on failure. You can
 also use this functionality for any custom installation from external
 resources. For example:
 
-```yaml
+```
 before_install:
     - shippable_retry sudo apt-get update
     - shippable_retry sudo apt-get install something

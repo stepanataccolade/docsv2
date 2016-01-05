@@ -51,7 +51,7 @@ Instructions on account integrations are in our [Integrations section](int_overv
 ### Clearing cache
 You can clear cache for your project by clicking on the `Clear cache` button. This will clean up all cached Docker images from your build hosts and the next build will pull the build image again.
 
-
+<a name="encrypt_env_variables"></a>
 ### Encrypting your environment variables
 Shippable allows you to encrypt your environment variable definitions and keep your configurations private in your shippable.yml by using the `secure` tag.
 
