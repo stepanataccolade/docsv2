@@ -39,7 +39,7 @@ You have now configured your private IRC integration and can use this to send no
 
 ## Email notifications
 
-Build Emails are always sent through our Shippable account and are configured through shippable.yml. At this time, you cannot customize the domain emails are sent from at this time. To request this enhancement, please contact [customer support](mailto:support@shippable.com)
+Build Emails are always sent through our Shippable account and are configured through shippable.yml. At this time, you cannot customize the domain emails are sent from. To request this enhancement, please contact [customer support](mailto:support@shippable.com)
 
 You can, however, add an Email account integration to receive notifications for monitored images in Lighthouse. To do this,
 

@@ -14,6 +14,7 @@ We offer Freemium pricing for Shippable CI, so your first build container, aka m
 You also have the option of running builds on your own infrastructure. Read below for the benefits of each approach.
 
 You should sign up for Shippable CI if you fit the following profile -
+
 * Your source code is on GitHub, Bitbucket or GitHub Enterprise. (Support for Bitbucker Server and Gitlab will be announced in Q1 2016)
 * You want to avoid the time sink of setting up and managing your own CI system and would rather spend the time writing features for your product   
 * (optional)You're a Docker user and you want to use your own custom image to run your builds. You can even run Docker compose to spin up environments!
@@ -23,7 +24,6 @@ Additionally, you can choose to run your builds on your own infrastructure. You 
 * You want complete control over your build machines, including SSH access. 
 * Your builds are resource intensive and 2 core, 4GB RAM is not sufficient to run them. You need bigger containers! 
 * You want your build machines to be inside your VPC
-* You want to set up IAM rules and policies for your build workflows 
 
 **Pricing** 
 

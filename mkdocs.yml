@@ -23,7 +23,7 @@ pages:
   - Overview: ci_overview.md
   - Subscriptions: ci_subscriptions.md
   - Projects: ci_projects.md
-  - Builds: ci_configure.md
+  - Build config: ci_configure.md
   - Language help: ci_languages.md
   - Docker support: ci_docker.md
   - Running a sample build: gs_ci_sample.md

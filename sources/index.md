@@ -4,18 +4,20 @@ page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deplo
 
 ## What is Shippable?
 
-Shippable helps Dev, Test, and DevOps teams innovate faster by reducing the time taken for code to be built, tested and deployed to production. Our goal is to simplify DevOps with our unified, automated pipeline from source control to production, without the need for IT automation tools or infrastructure code .
+Shippable was founded to simplify software delivery and to help Dev, Test, and DevOps teams innovate faster by reducing the time taken for code to be built, tested and deployed to production. Our unified, automated pipeline takes your code from from source control to production, without the need for IT automation tools or infrastructure code.
+
+If you believe that developers should spend their time writing features and not on managing CI tools and infrastructure, you should check out Shippable today.
 
 Our 2 flagship products - Shippable CI and Shippable Deploy - give you a unified pipeline from source control to production, integrating with your favorite tools and services along the way.
 
 <img src="./images/how_it_works.png" alt="e2e pipeline" style="width:800px;"/>
 
 ### Shippable CI
-Shippable CI is our Continuous Integration Platform that helps developers find bugs as soon as they are introduced. Every time you commit code or open a pull request, your code will be automatically built and tested and you will receive a notification with build results.  
+Shippable CI is our Continuous Integration Platform that helps developers find bugs as soon as they are introduced. Every time you commit code or open a pull request, your code will be automatically built and tested and you will receive a notification with build results. 
 
 Shippable CI runs all your builds on minions, which are Docker-based containers. If you're using Docker for development, you can use your own Docker images or even build a Docker image and run builds in the container as part of your CI workflow. For customers who are not using Docker for their development, we provide language specific images that are pre-loaded with popular services and tools.
 
-You can choose to run your builds on our hosted CI platform, or choose to run builds on your own infrastructure.
+You can choose to run your builds on our hosted CI platform, or choe to run builds on your own infrastructure.
 
 Go to [Shippable CI](ci_overview.md) to learn more.
 

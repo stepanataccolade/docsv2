@@ -14,7 +14,7 @@ Minions are Docker based containers that run your CI builds.
 
 When your build is triggered, we determine which Docker image to use in order to spin up your build minion. By default, the minion will container popular versions of the language specified in your yml, as well as popular tools and services used with that language. All this happens under the hood and 'just works'.
 
-If you're a Docker enthusiast and want to spin up your build minion based on your custom Docker image or build an image from Dockerfile, you can do so by following instructions at [TODO ADD LINK].
+If you're a Docker enthusiast and want to spin up your build minion based on your custom Docker image or build an image from Dockerfile, you can do so by [following instructions here](ci_configure.md#build_images).
 
 Your build minions are transient and spin up when a build is triggered and are destroyed when a build completes. 
  

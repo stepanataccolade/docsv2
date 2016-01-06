@@ -10,7 +10,8 @@ At a high level, the yml structure is as shown below -
 TODO: Add yml structure picture
 
 
-## Build Image
+<a name="build_images"></a>
+## Setting your build image
 
 To run your build, we spin up Docker containers depending on the language specified in your yml. Our build images are available on Docker Hub under the [dry-dock repository](https://hub.docker.com/r/drydock) and the corresponding Dockerfiles are available in our [GitHub repository dry-dock](https://github.com/dry-dock). 
 
@@ -63,11 +64,11 @@ This will ensure that manishas/myImage:tip is used to start the CI container wit
 
 TODO: Add sample project
 
-###Pulling your CI image froma  Docker registry
+###Pulling your CI image from a Docker registry
 If you want to pull your CI image from a supported Docker registry, you will need to do the following-
 
 1. Create an account integration for your registry ([Instructions here](int_docker_registries.md))
-2. Add the integration to your project settings ([Instructions here](ci_projects.md/#Settings))
+2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
 3. Add the following in your shippable.yml:
 
 ```
@@ -92,7 +93,7 @@ The example yml above will pull the image manishas/myImage:tip using the integra
 TODO: Add sample project
 
 
-## Build matrix
+## Running multiple builds per commit
 
 In most cases, you want to trigger one build for each commit/pull request to your repository. However, there are times when you might want to trigger multiple builds for a single code change. For example, you might want to test against multiple versions of Ruby, multiple aspect ratios for your Selenium tests, or multiple environment variables.
 
@@ -121,7 +122,39 @@ env:
 
 The above example will fire 16 different builds for each push. Whoa! Need more minions?
 
-## Environment Variables
+### including/excluding versions
+
+You can also exclude a specific version by configuring your yml with an `exclude` tag: 
+
+```
+matrix:
+  exclude:
+    - rvm: 1.9.2
+```
+
+To include only specific combinations of a matrix build, use the `include` as shown below:
+with include tag.
+
+```
+matrix:
+  include:
+    - rvm: 2.0.0
+      gemfile: gemfiles/Gemfile.rails-3.0.x
+      env: ISOLATED=false
+```
+
+### allowing failures
+
+Allowed failures are items in your build matrix that are allowed to fail without causing the entire build to be shown as failed. You can define allowed failures in the build matrix as follows:
+
+```yaml
+matrix:
+  allow_failures:
+    - rvm: 1.9.3
+```
+
+
+## Using environment variables
 
 ### Standard variables
 
@@ -192,9 +225,9 @@ env:
   secure: <encrypted output>
 ```
 
-### Combining variables into one build
+### Multiple variables per build
 
-You can combine multiple environment variables in the same build using `global` tag. This will prevent a build matrix for being triggered and all your variables will be defined for one build.
+You can combine multiple environment variables in the same build using the `global` tag. This will prevent a build matrix for being triggered and all your variables will be defined for one build.
 
 ```yaml
 env:
@@ -228,8 +261,8 @@ env:
 > security reasons.
 
 
-## Command collections
- `shippable.yml` supports collections under each tag. This is nothing more than YML functionality and we will run it one command at a time.
+## Specifying command collections
+We support collections in every section of the yml and will run it one command at a time.
 
 ```
 # collection scripts
@@ -243,18 +276,12 @@ and then run `./minions/do_something-else.sh`. The only requirement is
 that all of these operations return a `0` exit code. Else the build will
 fail.
 
-## Retrying npm install
+## Retrying a command
 
-Sometimes npm install may fail due to the intermittent network issues
-and affects your build execution. To avoid this, **shippable_retry**
- will try to install the command again. It will check the return
-code of a command and if it is non-zero, then it will re-try to install
-up to three times.
+Sometimes, commands like `npm install` fail due to the intermittent network issues and this affects your build result. To avoid this, you can use `shippable_retry` in the yml to try the command up to 3 times if it returns a non-zero code.
 
-**shippable_retry** functionality is available for all default
-installation commands and it will re-try to install on failure. You can
-also use this functionality for any custom installation from external
-resources. For example:
+`shippable_retry` functionality is available for all default installation commands. You can
+also use it for any custom installation from external resources. For example:
 
 ```
 before_install:
@@ -262,7 +289,7 @@ before_install:
     - shippable_retry sudo apt-get install something
 ```
 
-## Git submodules
+## Using git submodules
 
 Shippable supports git submodules. This is a cool functionality of
 breaking your projects down into manageable chunks. We automatically
@@ -292,63 +319,29 @@ git:
  submodules: false
 ```
 
-## Include/Exclude Branches
+## Including/excluding branches
 
 By default, Shippable builds all branches for enabled repositories. If a branch does not have a shippable.yml at its root, we will create a build and show an error in the build console. 
 
-You can choose to build only specific branches using the include and exclude sections in your yml. The specific branch that is being included or excluded needs to have this configuration, and not just the master branch. This is because when we get a webhook for an enabled repository, we read the shippable.yml from the branch that has changed and trigger a build using that yml. So unless the yml in the branch to be included/excluded has the right settings, we are not aware of it and will trigger a build as expected.  
+You can choose to build specific branches by using the `branches` sections in your yml. The specific branch that is being included or excluded needs to have this configuration, and not just the master branch. When we get a webhook for an enabled repository, we read the shippable.yml from the branch that has changed and trigger a build using that yml. So unless the yml in the branch to be included/excluded has the right settings, we are not aware of it and will trigger a build as expected.  
 
-Here is a sample of the include/exclude config -
+Here are some examples of the include/exclude config -
 
-```yaml
-# exclude
+```
+# this config will build test1 and experiment2 and exclude all other branches
 branches:
   except:
     - test1
     - experiment2
-
-# include
+```
+```
+# this config will only build stage and prod
 branches:
   only:
     - stage
     - prod
 ```
 
-### Exclude a version
-
-It is also possible to exclude a specific version using exclude tag.
-Configure your yml file as shown below to exclude a specific version.
-
-```yaml
-matrix:
-  exclude:
-    - rvm: 1.9.2
-```
-
-### Include a version
-
-You can also configure your yml file to include entries into the matrix
-with include tag.
-
-```yaml
-matrix:
-  include:
-    - rvm: 2.0.0
-      gemfile: gemfiles/Gemfile.rails-3.0.x
-      env: ISOLATED=false
-```
-
-## Allow-failures
-
-Allowed failures are items in your build matrix that are allowed to fail
-without causing the entire build to be shown as failed. You can define
-allowed failures in the build matrix as follows:
-
-```yaml
-matrix:
-  allow_failures:
-    - rvm: 1.9.3
-```
 
 ---
 
@@ -760,14 +753,13 @@ Badges will display the status of your default branch. You can find the build ba
 
 * * * * *
 
-## Build termination
+## Build timeout
 
-Build will be forcefully terminated in the following scenarios:
+Builds will be timed out in the following scenarios:
 
 -   If there has not been any log output or a command hangs for 10 minutes
--   If the build is still running after 60 minutes for Free Plans or 120 minutes for Paid Plans
+-   If the build is still running after 60 minutes for Free minions or 120 minutes for Paid minions
 
-When a build is forcefully terminated, the build status will indicate **timeout**.
 
 * * * * *
 

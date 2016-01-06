@@ -40,6 +40,8 @@ You can perform project level actions by clicking on the `Settings` tab on the P
 We sync your account with your source control provider once every 4 hours. However, there are times when you want to force a sync in order to see recently changes that were made in your source control. You can force a sync by clicking on the `Sync` button in the Sync section of the Project settings page.
 This action simply makes sure the permissions and repository changes from your source control are reflected in your Shippable project.
 
+<a name="enable_integrations"></a>
+
 ### Enabling integrations
 You can make one or more configured account integrations available to your project in the `Integrations` section. 
 
