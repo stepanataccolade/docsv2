@@ -14,6 +14,12 @@ Together with Shippable CI, this gives you a unified E2E pipeline from source co
 
 As seen in the picture above, Shippable CI gives you the ability to run unit tests, basic integration tests, and if required, push your tested container image to any Docker registry. Using Deploy, you can then deploy this container to your test or production environments running on any Container Service. 
 
+You should use Shippable Deploy for the following reasons:
+
+- **Unified delivery pipeline** Shippable CI and Deploy together give you a unified software delivery pipeline from source control to production. You get full visibility of a single commit from source control through CI through several test environments and finally production. No other platform comes close to this level of traceability.
+- **Easy setup** Setup is quick and simple since all configuration is driven through a declarative yml format. Unlike other infrastructure/IT automation tools, you do not need to write any code or scripts to set up your pipeline. Plus, your yml is versioned so you can go back and forth as you wish!
+- **Cloud Portability** We support all popular Container Services and you can move your application environments between these in just a few minutes. The result? No lock in! 
+
 More on the advantages of using Shippable Deploy are described in our marketing material at TODO: Add link
 
 ## Example use case
@@ -47,10 +53,17 @@ A Shippable deploy subscription is required for each environment you want to pro
   
 You do not have any Deploy subscriptions by default when you sign in to Shippable. You will need to add each one as described in the the [Deploy subscriptions section](d_subscriptions.md) . Deploy plans and pricing are explained in the [Plans and Pricing section](gs_plans.md)
 ### Services
-Unit of deployment
+In simple terms, a service is a unit of deployment. Most applications are composed of one or more services, with the extremes being a monolithic application with just one service, and at the other end of the spectrum, an application with tens or hundreds of microservices.
 
-## Configuring your application environments
-You can configure and manage your environments on Shippable Deploy using our declarative yml format. You do not need to write any code or scripts to do this, so setup is a breeze. Plus, our extensive sample deploy configs will help you get started pretty easily!
+A service is defined by:
+
+- Image(s): One or more Docker images that are each spun up in a Docker container. 
+- Environment configuration: Key value pairs that give the service more information about the environment. For example, an API_URL variable can be set to the URL of the API in that environment so that other services can talk to the API. These configurations are very specific to your application.
+
+You can run one or more instances of a service in any given environment. Each instance is called a Replica and will run on a  separate virtual machine. You can add a load balancer to distribute incoming traffic across several replicas of a service.
+
+Since a service is a unit of deployment, all containers in a service instance are always deployed together and on the same machine.
+
 
 ## Permissions
 
