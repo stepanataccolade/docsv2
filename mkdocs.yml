@@ -15,7 +15,7 @@ pages:
   - Overview: index.md
   - Concepts: gs_concepts.md
   - What is supported?: gs_supported.md
-  - Choosing the right plan: gs_plans.md
+  - Plans & Pricing: gs_plans.md
   - Your Shippable Account: acc_overview.md 
   - Running a sample build: gs_ci_sample.md
   - Deploying sample application: gs_deploy_sample.md  
@@ -31,7 +31,7 @@ pages:
   - troubleshooting: ci_troubleshoot.md
 - Shippable Deploy:
   - Overview: d_overview.md
-  - Teams and permissions: d_teams.md
+  - Subscriptions: d_subscriptions.md
   - Dashboards: d_dashboards.md
   - Configuring your services: d_configure.md
   - Deploying and managing applications: d_manage.md
