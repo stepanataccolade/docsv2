@@ -32,7 +32,7 @@ pages:
 - Shippable Deploy:
   - Overview: d_overview.md
   - Subscriptions: d_subscriptions.md
-  - Dashboards: d_dashboards.md
+  - Application infrastructure: d_infrastructure.md  
   - Configuring your services: d_configure.md
   - Deploying and managing applications: d_manage.md
   - Moving across clouds: d_clouds.md

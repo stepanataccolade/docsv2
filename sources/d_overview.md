@@ -2,7 +2,8 @@ page_title: Shippable Deploy Overview
 page_description: Overview of Shippable Deploy
 page_keywords: Deploy,multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
-# Overview
+#Shippable Deploy 
+##Overview
 
 Shippable Deploy gives developers an easy way to provision, configure, and deploy your Dockerized applications to  popular container services like Amazon's EC2 Container Service (ECS) and Google Container Engine (GKE). Support for Red Hat Openshift 3 is in the pipeline and planned for a February 2015 release.
 
@@ -41,10 +42,15 @@ Using Shippable, your pipeline from source control to production will look like 
 - Additional tests, both manual and automated, are performed on **Beta**. This environment is updated several times until one day, everything planned for your next Production update has been tested and approved in **Beta**.
 - Release day! You simply push the *approved* service versions to your **Production** environment. As simple as that! 
 
+## Deploy Subscriptions
+A Shippable deploy subscription is required for each environment you want to provision and manage using Shippable. For example, if you run 2 Test environments, one Beta, and one Production environment, you will need 4 subscriptions. 
+  
+You do not have any Deploy subscriptions by default when you sign in to Shippable. You will need to add each one as described in the the [Deploy subscriptions section](d_subscriptions.md) . Deploy plans and pricing are explained in the [Plans and Pricing section](gs_plans.md)
+### Services
+Unit of deployment
 
-## Configuring your environments
+## Configuring your application environments
 You can configure and manage your environments on Shippable Deploy using our declarative yml format. You do not need to write any code or scripts to do this, so setup is a breeze. Plus, our extensive sample deploy configs will help you get started pretty easily!
-
 
 ## Permissions
 
