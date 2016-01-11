@@ -1,9 +1,9 @@
 page_title: Running your first sample build
 page_description: Setup up documentation for a sample build
-page_keywords: getting started, build, quick start, documentation, shippable, continous integration, MT-CI
+page_keywords: getting started, build, quick start, documentation, shippable, continous integration
 
 # Running a sample CI build
-This guide walks through the process of running a sample build for **Shippable MT-CI (Multi Tenant - Continuous Integration)**. A NodeJs sample application (Aye0Aye) is leveraged
+This guide walks through the process of running a sample build for **Shippable CI (Continuous Integration)**. A NodeJs sample application (Aye0Aye) is leveraged
 
 ## Pre-requisite
 Fork the following GitHub repository in order to complete the tutorial
