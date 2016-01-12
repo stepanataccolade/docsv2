@@ -23,7 +23,7 @@ Post-CI workflow is:
 - If CI passes, build container from Dockerfile at the root of the repo
 - Push container to a registry (Docker Hub, GCR, Quay.io, Private Registry)
 
-To use these workflows, your app must be "Dockerized". Details on this can be found in Docker's official documentation [Docker's official documentation](https://docs.dockerhub.com).
+To use these workflows, your app must be "Dockerized". Details on this can be found in Docker's official documentation [Docker's official documentation](https://docs.docker.com).
 
 ### Sample Project
 
