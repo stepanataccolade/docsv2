@@ -1,6 +1,6 @@
 page_title: Shippable Integrations
 page_description: Integratons with Dockerhub, GCR, lighthouse
-page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, Tokens, account settings, integrations, docker hub, gcr, lighthouse
+page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, Tokens, account settings, integrations, docker hub, gcr, quay.io, private registry,lighthouse
 
 # Integrations
 
@@ -48,8 +48,8 @@ You will need this to pull or push images to Google Container Registry as part o
 
 1. On the [Google Developers Console](https://console.developers.google.com/), select the project you want to integrate with Shippable
 2. In the sidebar on the left, expand 'APIs & auth' and select 'Credentials'
-3. Click 'Create new Client ID' and select 'Service Account' in the pop-up window
-4. Click on 'Create Client ID'. A dialog box appears. To proceed, click 'Okay, got it'
+3. Click `Add Credentials` and select `Service Account` in the pop-up window
+4. Select `JSON` and click on `Create`. A dialog box appears to save the keys.
 5. Your new Public/Private key pair is generated and downloaded to your machine. Please store this carefully since you will not be able to retrieve this from your GDC account.
 6. Now you are ready to integrate with GCR on Shippable. Back to [Shippable](https://shippable.com).
 7. Click on Account Settings in the top navigation bar and select the Integrations tab
@@ -69,12 +69,27 @@ You will need this to pull or push images to Quay.io as part of building your pr
 
 1. Click on Account Settings in the top navigation bar and select the Integrations tab
 2. To add a new integration, click on ![add_icon](images/add_icon.gif)
-3. **Master Integration:** On the dropdown, Choose `quay.io`
+3. **Master Integration:** On the dropdown, Choose `Quay.io`
 4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:quay-myquayusername`
 5. Enter your credentials
 6. Click on `Save`
 
 ![quay_integration](images/quay_integration.gif)
+
+The integration will now be available to all your projects. To learn more about where this integration is used, check out our [Docker Registries Guide](docker_registries).
+
+### Private Registry
+
+Use the following steps to create an integration to a private registry from where you would like to pull or push images. The example below uses Quay.io as an example of a private registry - you can replace it with the URL specific to your private registry.
+
+1. Click on Account Settings in the top navigation bar and select the Integrations tab
+2. To add a new integration, click on ![add_icon](images/add_icon.gif)
+3. **Master Integration:** On the dropdown, Choose `Private Docker Registry`
+4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:MyPrivateRegistry`
+5. Enter your credentials
+6. Click on `Save`
+
+![private_registry_integration](images/private_reg_integration.gif)
 
 The integration will now be available to all your projects. To learn more about where this integration is used, check out our [Docker Registries Guide](docker_registries).
 

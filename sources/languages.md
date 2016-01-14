@@ -39,16 +39,16 @@ lein: lein2
 
 ### Test scripts
 
-Use **script** key in shippable.yml file to specify what command to run tests with. The default command to run leiningen test suite is **lein test**:
+Use **script** key in shippable.yml file to specify what command to run tests with. The default command to run leiningen test suite is **lein test2junit**:
 
 ```
-script: lein test
+script: lein test2junit
 ```
 
 ### Build Examples
 
 This sample will help you get started with Shippable. The testing
-framework used here is [Clojure.test](http://richhickey.github.io/clojure/clojure.test-api.html).
+framework used here is [test2junit](https://clojars.org/test2junit).
 
 [Clojure Sample](https://github.com/shippableSamples/sample_clojure)
 
@@ -87,7 +87,7 @@ before_script:
 # Running the test with Leiningen
 script:
   - cd sample
-  - lein test
+  - lein test2junit
 ```
 
 Enable the repo sample_clojure and run it using an Ubuntu minion. Once
@@ -114,7 +114,7 @@ lein:
   - lein2
 
 script:
-  - lein test
+  - lein test2junit
 ```
 
 Refer [sample_ubuntu1204_clojure](https://github.com/shippableSamples/sample_ubuntu1204_clojure) on github for more details.
@@ -364,18 +364,18 @@ language: java
 jdk:
    - openjdk7
    - oraclejdk7
-       - openjdk6
-       - oraclejdk8
+   - openjdk6
+   - oraclejdk8
 
-    after_success:
-       - mvn clean cobertura:cobertura
-       - mvn test
+after_success:
+   - mvn clean cobertura:cobertura
+   - mvn test
 
-    notifications:
-      email:
-          recipients:
-         - exampleone@org.com
-         - exampletwo@org.com
+notifications:
+  email:
+    recipients:
+      - exampleone@org.com
+      - exampletwo@org.com
 ```
 
 Create a project by enabling the repo sample_java and run it using an
@@ -401,9 +401,9 @@ Go to your **Project Page**, click on **Settings** and choose the following imag
 
 `Pull Image from : shippableimages/ubuntu1204_java`
 
-Activate jdk in before_script section to run your build against the correct version.
+IMPORTANT: When you are using this custom image, we don't automatically switch JDKs during the build. You will need to do it explicitly within your YML file. Use the environment variable $SHIPPABLE_JDK_VERSION in before_script section to run your build against the correct version.
 
-A sample yml that helps you getting started with java image:
+A sample yml that helps you getting started with java image. Note the before_script section.
 
 ```yaml
 language: java

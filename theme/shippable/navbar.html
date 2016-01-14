@@ -9,7 +9,7 @@
               {% for first_item in section.children[:1] %}
               <a href="/{{ first_item.url }}" class="dropdown-toggle" data-toggle="dropdown">{{ section.title }} <b class="caret"></b></a>
               {% endfor %}
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu scrollable-menu">
                 {% for section in section.children %}
                 {% include "navbar_sub.html" %}
                 {% endfor %}
@@ -17,7 +17,7 @@
             </li>
             {% else %}
             <li {% if section.active %}class="active"{% endif %}>
-              <a href="/{{ section.url }}">{{ section.title }}</a>
+              <a href="{{ section.url }}">{{ section.title }}</a>
             </li>
             {% endif %}
             {% endfor %}

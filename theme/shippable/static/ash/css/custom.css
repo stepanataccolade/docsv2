@@ -176,9 +176,9 @@ code {
 .sub-tabs .open > a,
 .sub-tabs .open > a:hover,
 .sub-tabs .open > a:focus {
-    background-color: #f3f3f4;
-    border: inherit;
-    border-bottom: 2px solid #449999;
+  background-color: #f3f3f4;
+  border: inherit;
+  border-bottom: 2px solid #449999;
 }
 
 .sub-tabs .caret {
@@ -186,8 +186,8 @@ code {
   border-bottom-color: #449999;
 }
 .sub-tabs .dropdown-menu {
-    background-color: #fff;
-    padding: 0px;
+  background-color: #fff;
+  padding: 0px;
 }
 .sub-tabs .dropdown-menu > li > a {
   padding: 15px;
@@ -195,7 +195,12 @@ code {
 .sub-tabs .dropdown-menu > .active > a,
 .sub-tabs .dropdown-menu > .active > a:hover,
 .sub-tabs .dropdown-menu > .active > a:focus {
-    color: #449999;
+  color: #449999;
+}
+.sub-tabs .scrollable-menu {
+  height: auto;
+  max-height: 500px;
+  overflow-x: hidden;
 }
 #accordion1 {
   display: none;
@@ -286,6 +291,8 @@ code {
   padding: 10px;
   padding-right: 0px;
   z-index: 10;
+  max-height: 50%;
+  overflow-y: scroll;
 }
 
 #sidebar .tocbar.stick {
@@ -329,6 +336,11 @@ code {
         z-index: 10;
         top: 120px;
     }
+}
+
+/* tocbar accordion */
+#side-nav li ul {
+  display: none;
 }
 
 /* Mainbar */

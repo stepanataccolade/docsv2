@@ -15,14 +15,13 @@ This page will explain the different options available in the Account Settings P
 
 -----------
 
-![account_info](images/account_info.gif)
-
-
 ## Account Information
 
 **ID:** This is your account id within Shippable. This is the id that is linked to any access tokens you create or credit cards you add to your account.
 
 **Force Sync:** We periodically sync account info with GitHub and Bitbucket. Use this button to sync your account if you would like to see any changes made upstream immediately. Example: You have been added to a new subscription as an owner/collaborator; you have new repos in github and want to see it immediately; you linked your bitbucket account to this account and want to see your bitbucket repositories right away.
+
+![account_settings_sync](images/account_settings_sync.gif)
 
 ## GitHub Identity
 
@@ -36,6 +35,8 @@ If you are using a Bitbucket Account to log in, you will see an option to `Link 
 
 Read our guide on [linking GitHub and Bitbucket Accounts](link_gh_and_bb) for more details.
 
+![account_info](images/account_info_gh.gif)
+
 ## Bitbucket Identity
 
 If you are using a Bitbucket Account to log in, this displays your bitbucket user profile and access settings.
@@ -46,19 +47,23 @@ If you are using a GitHub Account to log in, you will see an option to `Link Bit
 
 Read our guide on [linking GitHub and Bitbucket Accounts](link_gh_and_bb) for more details.
 
-
 ## Misc Settings
 
 **Show Private Forks:** If you would like to track forks from your repo (you must be an owner of the repo), then set this to ON. This is OFF by default.
+
+![misc_settings](images/misc_settings.gif)
 
 ## API Tokens
 
 This is where you generate, view and manage access tokens to use our [API](api.md).
 
+- Click on the ![add_icon](images/add_icon.gif) to create a new token.
 - Enter a name for your token
-- Click `Generate Token`
+- Click `Confirm`
 - Remember to copy the token. For security reasons, the token will never be displayed again.
 - To delete a token, click on the _delete_ icon next to your token name
+
+![api_tokens](images/api_tokens.gif)
 
 > **Note**
 >

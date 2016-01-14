@@ -64,7 +64,7 @@ If nothing is specified in this section, we will attempt to install dependencies
 The install section lets you install packages and dependencies that are specific to your project. This is useful if your project uses non standard tools.
 
 ```
-# npm is installed by default. shown here for illustrative purposes
+# 'npm install' is executed by default in Shippable - shown here for illustrative purposes
 install:
   -npm install
 ```

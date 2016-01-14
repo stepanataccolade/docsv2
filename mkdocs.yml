@@ -36,10 +36,12 @@ pages:
   - Use a Docker Registry: docker_registries.md
   - Do a Docker Build: docker_build.md
   - Use Specific Languages for CI: languages.md
+  - Use Slack for Build Notifications: slack_notifications.md
   - Get Build Badges: build_badge.md
+  - Run Tests in Parallel: parallel_tests.md
   - Use Shippable CI with Gitlab: using_gitlab.md
+  - Auto Deploy to Elastic Beanstalk: autodeploy-to-ebs.md
   - Deploy to Heroku: heroku.md
-  - Deploy to Amazon Elastic Beanstalk: beanstalk.md
   - Deploy to AWS OpsWorks: opswork.md
   - Deploy to Google App Engine: appengine.md
   - Deploy to Red Hat OpenShift: openshift.md
