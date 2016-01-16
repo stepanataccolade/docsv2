@@ -3,12 +3,8 @@ page_description: Setup up documentation for a sample build
 page_keywords: getting started, build, quick start, documentation, shippable, continous integration
 
 # Running a sample CI build
-<<<<<<< HEAD
 
 This guide walks through the process of running a sample build for Shippable CI. A NodeJs sample application (Aye0Aye) is leveraged for this sample.
-=======
-This guide walks through the process of running a sample build for **Shippable CI (Continuous Integration)**. A NodeJs sample application (Aye0Aye) is leveraged
->>>>>>> 574bef1b618e95ceeaaf29baa7ac21bdb4826892
 
 ## Pre-requisite
 Fork the following GitHub repository in order to complete the tutorial:
@@ -21,11 +17,8 @@ Fork the following GitHub repository in order to complete the tutorial:
 - Login to [Shippable](<http://www.shippable.com>) using your source code system. For this tutorial GitHub is used. 
 
 ## Enable a Repo
-<<<<<<< HEAD
-To enable the forked repository for CI, activate the repo on the ‘New Project’ page (Note: if you haven’t enabled any projects previously, you’ll be on the ‘New Project’ page automatically). Select the ‘Enable project’ in the upper right of the Status page):
-=======
-To enable the forked repository (repo) for Shippable's CI, activate the repo on the ‘New Project’ page (Note: if you haven’t enabled any projects previously, you’ll be on the ‘New Project’ page automatically). Select the ‘+’ in the upper right of the Status page):
->>>>>>> 574bef1b618e95ceeaaf29baa7ac21bdb4826892
+
+To enable the forked repository for CI, activate the repo on the ‘New Project’ page (Note: if you haven’t enabled any projects previously, you’ll be on the ‘New Project’ page automatically). Select the ‘Enable project’ in the upper right of the Status page:
 
 - Select your subscription for Shippable's Continuous Integration (CI). The example shown below has a demo subscription. 
 <img src="../images/account_settings_subscription.png" alt="Account Settings Subscription" style="width:800px;"/>

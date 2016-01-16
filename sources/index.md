@@ -4,11 +4,7 @@ page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deplo
 
 ## What is Shippable?
 
-<<<<<<< HEAD
 Shippable was founded to simplify software delivery and to help Dev, Test, and DevOps teams innovate faster by reducing the time taken for code to be built, tested and deployed to production. Our unified, automated pipeline takes your code from from source control to production, without the need for configuration management/IT automation tools or infrastructure code.
-=======
-Shippable was founded to simplify software delivery and to help Dev, Test, and DevOps teams innovate faster by reducing the time taken for code to be built, tested and deployed to production. Our unified, automated pipeline takes your code from source control to production, without the need for IT automation tools or infrastructure code.
->>>>>>> 574bef1b618e95ceeaaf29baa7ac21bdb4826892
 
 If you believe that developers should spend their time writing features and not on managing CI tools and infrastructure, you should check out Shippable today.
 
