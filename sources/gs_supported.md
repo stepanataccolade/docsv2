@@ -4,7 +4,7 @@ page_keywords: containers, languages, services, platforms, lxc, docker, Continuo
 
 ## What is supported?
 
-We support a multitude of languages, tools, services for your CI workflows. We also integrate with all popular source control providers, docker registries, container services, and notification providers.
+We support a multitude of languages, tools, services, as well as all popular source control providers, docker registries, container services, and notification providers.
 
 
 [TODO: Graphic showing e2e pipeline with all integrations and supported languages/services/tools]

@@ -76,14 +76,14 @@ Clicking on this will delete all account data, project data, build data and form
 --------
 
 ## Integrations
-Shippable integrates with many third party services/platforms and you can leverage this by setting up an account integration and then using the integration at any point in your Shippable CI or Deplpy workflows.
+Shippable integrates with many third party services/platforms and you can leverage this by setting up an account integration and then using the integration at any point in your Shippable CI or Flow workflows.
 
 Detailed information about supported integrations and how to set things up ins available in the [Integrations section of our docs](int_overview.md)
 
 --------
 ## Cards
 
-You need to add your credit card information to your account in order to use the card to pay for a Shippable CI or Deploy subscription.
+You need to add your credit card information to your account in order to use the card to pay for a Shippable CI or Flow subscription.
 
 The Cards tab will show you all the credit cards linked to your account dth:800px;"/>
 

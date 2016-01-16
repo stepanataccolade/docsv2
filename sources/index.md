@@ -4,11 +4,17 @@ page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deplo
 
 ## What is Shippable?
 
-Shippable was founded to simplify software delivery and to help Dev, Test, and DevOps teams innovate faster by reducing the time taken for code to be built, tested and deployed to production. Our unified, automated pipeline takes your code from from source control to production, without the need for IT automation tools or infrastructure code.
+Shippable was founded to simplify software delivery and to help Dev, Test, and DevOps teams innovate faster by reducing the time taken for code to be built, tested and deployed to production. Our unified, automated pipeline takes your code from from source control to production, without the need for configuration management/IT automation tools or infrastructure code.
 
 If you believe that developers should spend their time writing features and not on managing CI tools and infrastructure, you should check out Shippable today.
 
-Our 2 flagship products - Shippable CI and Shippable Deploy - give you a unified pipeline from source control to production, integrating with your favorite tools and services along the way.
+We have 2 flagship products - Shippable CI and Shippable Flow. 
+
+**Shippable CI** is a powerful Continuous Integration platform natively built on Docker. 
+
+**Shippable Flow** is focused on automating the flow of your application from source control to production by letting you create and manage delivery pipelines for your applications. Test and DevOps teams can easily deploy containerized applications to Container Services like Amazon's ECS and Google Container Engine. 
+
+Both CI and Flow integrate with your favorite tools and services, such as build/test tools,  source control providers, docker registries, cloud providers, and container services.
 
 <img src="./images/how_it_works.png" alt="e2e pipeline" style="width:800px;"/>
 
@@ -21,12 +27,13 @@ You can choose to run your builds on our hosted CI platform, or choe to run buil
 
 Go to [Shippable CI](ci_overview.md) to learn more.
 
-### Shippable Deploy
+### Shippable Flow
 
-Shippable Deploy gives Test and DevOps teams the ability to automatically deploy containerized applications to Container Services like Amazon's ECS. Your images and services are versioned and can be upgraded or rolled back with a single click. We also support auto-deploying to test environments, which means your functional tests can also be automated to run on every code commit. 
-Most importantly, Shippable Deploy gives you the ability to be cloud agnostic. You can move your applications across Container Services in a few minutes!
+Shippable Flow gives Test and DevOps teams the ability to automatically deploy containerized applications to Container Services like Amazon's ECS. Your application components like images and services are versioned and can be upgraded or rolled back with a single click. We also support auto-deploying to test environments, which means your functional tests can be automated to run on every code commit.
+ 
+Most importantly, Shippable Flow gives you the ability to be cloud agnostic. You can move your applications across Container Services in a few minutes!
 
-Go to [Shippable Deploy](formations_overview.md) to learn more.
+Go to [Shippable Flow](flow_overview.md) to learn more.
 
 In addition, we also have a cool tools called **Lighthouse** that lets you monitor any Docker images you depend on and be notified when they change. This helps avoid situations where your images no longer work due to changing dependencies. 
 

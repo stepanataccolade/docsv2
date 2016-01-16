@@ -1,12 +1,13 @@
 page_title: Running your first sample build
 page_description: Setup up documentation for a sample build
-page_keywords: getting started, build, quick start, documentation, shippable, continous integration, MT-CI
+page_keywords: getting started, build, quick start, documentation, shippable, continous integration
 
 # Running a sample CI build
-This guide walks through the process of running a sample build for **Shippable MT-CI (Multi Tenant - Continuous Integration)**. A NodeJs sample application (Aye0Aye) is leveraged
+
+This guide walks through the process of running a sample build for Shippable CI. A NodeJs sample application (Aye0Aye) is leveraged for this sample.
 
 ## Pre-requisite
-Fork the following GitHub repository in order to complete the tutorial
+Fork the following GitHub repository in order to complete the tutorial:
 
 - Sample app: <https://github.com/aye0aye/micro-www> 
 
@@ -16,7 +17,7 @@ Fork the following GitHub repository in order to complete the tutorial
 - Login to [Shippable](<http://www.shippable.com>) using your source code system. For this tutorial GitHub is used. 
 
 ## Enable a Repo
-To enable the forked repository for Shippable's CI, activate the repo on the ‘New Project’ page (Note: if you haven’t enabled any projects previously, you’ll be on the ‘New Project’ page automatically). Select the ‘+’ in the upper right of the Status page):
+To enable the forked repository for CI, activate the repo on the ‘New Project’ page (Note: if you haven’t enabled any projects previously, you’ll be on the ‘New Project’ page automatically). Select the ‘Enable project’ in the upper right of the Status page):
 
 - Click on the ![add icon](images/add_icon.gif) icon to the right of the header bar to enable the project/repos.
 - This brings you to the page with the list of projects in your repo that are yet to be enabled. (**micro-www**)

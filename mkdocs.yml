@@ -29,23 +29,23 @@ pages:
   - Running a sample build: gs_ci_sample.md
   - FAQ: ci_faq.md
   - troubleshooting: ci_troubleshoot.md
-- Shippable Deploy:
-  - Overview: d_overview.md
-  - Subscriptions: d_subscriptions.md
-  - Application infrastructure: d_infrastructure.md  
-  - Configuring your services: d_configure.md
-  - Deploying and managing applications: d_manage.md
-  - Moving across clouds: d_clouds.md
+- Shippable Flow:
+  - Overview: flow_overview.md
+  - Subscriptions: flow_subscriptions.md
+  - Application infrastructure: flow_infrastructure.md  
+  - Configuring your services: flow_configure.md
+  - Deploying and managing applications: flow_manage.md
+  - Moving across clouds: flow_clouds.md
   - Deploy a sample app: gs_deploy_sample.md
-  - FAQ: d_faq.md
-  - Troubleshooting: d_troubleshoot.md
+  - FAQ: flow_faq.md
+  - Troubleshooting: flow_troubleshoot.md
 - Integrations: 
   - Overview: int_overview.md
   - Source control providers: int_scm.md
   - Docker registries: int_docker_registries.md
   - Container services: int_container_services.md
   - Notification providers: int_notifications.md
-- How do I...: ht_overview.md
+- Tutorials: ht_overview.md
 - API: api.md
 - Lighthouse: oe_lighthouse.md
 - Odds and ends:
