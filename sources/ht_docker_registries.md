@@ -120,7 +120,7 @@ Check out the [Quay.io documentation](http://docs.quay.io/) to learn more about 
 
 ### Pull images from Quay.io
 
-1. Follow the instructions to [integrate your Quay.io account to Shippable](integrations.md#google-container-registry-gcr).
+1. Follow the instructions to [integrate your Quay.io account to Shippable](http://docs.shippable.com/integrations/#quayio).
 2. Go to your project page and click on the `Settings` tab
 3. Scroll down to **Project Integrations** and click on `Hub`
 4. Choose the integration name from Step 1.
@@ -132,7 +132,7 @@ _The username above should be the same as the Quay.io you entered while creating
 
 ### Push images to Quay.io
 
-1. Follow the instructions to [integrate your Quay.io account to Shippable](integrations.md).
+1. Follow the instructions to [integrate your Quay.io account to Shippable](http://docs.shippable.com/integrations/#quayio).
 2. Go to your project page and click on the `Settings` tab
 3. Scroll down to **Project Integrations** and click on `Hub`
 4. Choose the integration name from Step 1.
