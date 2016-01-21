@@ -48,7 +48,10 @@ You can make one or more configured account integrations available to your proje
 For example, if you want to configure your shippable.yml to send Slack notifications, you will need to first configure an account integration with your Slack information and add the integration in the `Integrations` section of your project settings. You can then use this integration in the yml. More details on [yml config here](ci_configure.md)
 The same is true for any Docker registry integrations.
 
+<img src="../images/ci_integrations.png" alt="Account Settings Subscription" style="width:800px;"/>
+
 Instructions on account integrations are in our [Integrations section](int_overview.md)
+
 
 ### Clearing cache
 You can clear cache for your project by clicking on the `Clear cache` button. This will clean up all cached Docker images from your build hosts and the next build will pull the build image again.

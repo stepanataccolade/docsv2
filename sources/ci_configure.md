@@ -24,7 +24,7 @@ Our standard build images are named as follows:
 Exact details on what is included in each image is available in the github repo for the image, as well as the image description on Docker Hub.
 
 ### Default build image
-By default, we will spin up a build container based on the `all` version of an image for the language specified in your yml. For example, if you specify ```language: python``` in your yml, we will spin up a build minion based on the u12pytall:prod image. 
+By default, we will spin up a build container based on the either the base version or the `all` version of an image for the language specified in your yml. For example, if you specify ```language: python``` in your yml, we will spin up a build minion based on either the u14pyt:prod or the u14pytall:prod images. 
 
 ### Overriding the default build image
 TODO: Rewrite since after yml is finalized
@@ -33,15 +33,14 @@ You can override which Docker image is used for your CI by specifying a differen
 
 ```
 pre_ci_boot:
-    integration: manishas_dockerhub
     image_name: manishas/myImage
-    image_tag: tip
+    image_tag: latest
     pull: true
     envs: FOO=BAR
     options: --privileged=true
 ```
 
-The image you specify in this section should be available to Shippable when the build reaches this step. 
+The image you specify in this section should be available to Shippable when the build reaches this step. To learn how to build your CI image from a Dockerfile or pull from a registry, check out the sections below.
 
 ###Building your CI image
 TODO: Rewrite since after yml is finalized
@@ -54,7 +53,7 @@ pre_ci:
 
 pre_ci_boot:
     image_name: manishas/myImage
-    image_tag: tip
+    image_tag: latest
     pull: false
     envs: FOO=BAR
     options: --privileged=true
@@ -73,9 +72,8 @@ If you want to pull your CI image from a supported Docker registry, you will nee
 
 ```
 pre_ci_boot:
-    integration: manishas_dockerhub
     image_name: manishas/myImage
-    image_tag: tip
+    image_tag: latest
     pull: true
     envs: FOO=BAR
     options: --privileged=true
@@ -83,8 +81,8 @@ pre_ci_boot:
 
 For your specific case:
 
-* The `integration` tag should be set to the name of the account integration you added to your project settings in step 2 
-* `image_name` is in the format (docker registry username)/(docker registry image repo). 
+* `image_name` value is in the format (docker registry username)/(docker registry image repo). 
+* set `pull` to `true` if you want to pull this image from a docker registry.
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container. 
 * In the `options` tag, enter any docker options you want to use in the `docker run` command. 
 

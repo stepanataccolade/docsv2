@@ -47,8 +47,6 @@ pages:
   - Notification providers: int_notifications.md
 - Tutorials: ht_overview.md
 - API: api.md
-- Lighthouse: oe_lighthouse.md
-- Odds and ends:
-  - Tips and tricks: oe_tips.md
-  - Yml Reference: oe_yml_reference.md
-  - Glossary: oe_glossary.md
+- Lighthouse: lighthouse.md
+- YML Reference: yml_reference.md
+
