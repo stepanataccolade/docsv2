@@ -20,121 +20,151 @@ Check out [How To Run a Build](build_case2) for guidance on running a build with
 
 Any settings on the UI applies to all builds for that project.
 
-### Docker Build
+---
 
-This tells us whether you want to do a Docker build for your project ie., run your build on a custom Docker container by building a Docker image. The default CI mode is **OFF**.
+### Docker Options
 
-**Docker Build: OFF**
+This tells us how you'd like to use Docker within your Shippable CI build.  Click 'Edit' at the bottom of the section in order to change the settings.
 
-![project settings db off](images/proj_settings_db_off.gif)
+<img src="../images/docker-options.png" alt="Docker Options" style="width:800px;"/>
 
-**Docker Build: ON**
+#### CI Image:
 
-![project settings db on](images/proj_settings_db_on.gif)
+This setting specifies what Docker image to use for the build.  The options are:  
 
-Read our guides on [How to do a Docker Build](docker_build) to learn more about Docker Build.
+**Use default Shippable Image** (default selection)  
 
-### Docker Build Order
+  - This option will use the default Shippable image ('minv2') as the base image for your build container
+  - Inputs required: **Push Image to Hub, Cache Image, Lighthouse Notifications**
 
-Option shown if Docker Build is **ON**
+**Build from a Dockerfile**  
 
-You can choose between doing the Docker Build **Pre-CI or Post-CI**.
+  - This option will build the image to use for your CI container from a Dockerfile you provide in the root of your repo
+  - Inputs required: **New Image Name, New Image Tag, Source Code Path, Push Image to Hub, Lighthouse Notifications**
 
-Pre-CI workflow is:
+**Pull image from a Registry**  
 
-- Build the image using Dockerfile at the root of your repo
-- Pull code from GitHub/Bitbucket and test code in the container
-- Push container to any [supported registry](docker_registries.md)
+  - This option will use a base image that you specify.  This can be any image including a custom image you've built and stored in a registry or one of the language-specific images Shippable provides in [Docker Hub](https://hub.docker.com/u/shippableimages/).
+  - Inputs required: **Pull Image From, Push Image to Hub, Cache Image, Lighthouse Notifications**
 
-Post-CI workflow is:
+For example, if you select 'Build from a Dockerfile', you should see the following on your screen:  
 
-- Pull image specified from Docker Hub or GCR (default is minv2)
-- Pull code from GitHub/Bitbucket and test in container
-- If CI passes, build container from Dockerfile at the root of the repo
-- Push container to any [supported registry](docker_registries.md)
+<img src="../images/docker-options-build-dockerfile.png" alt="Build from a Dockerfile" style="width:800px;"/>
 
-### Build Image
+Once you've selected a value for 'CI image', you'll need to specify the input values.  Here's what each input represents:
 
-**Pull Image from:** This is a mandatory field at this point if you use Project Settings. This is where you specify the build_image you want Shippable to use as the base image for your project. You can use shippable/minv2 as a default, if you don't have a custom image.
+#### Cache Image:
 
-Example: `dockerhub_username/repo_name: shippableimages/ubuntu1204_nodejs`
+Unless you specify, Shippable does not cache dependencies between builds. Each build will run on a fresh minion and as soon as the build finishes execution, the minion will be deleted. However, we also understand that installing dependencies for each build will take more time and it affects your build speed. Hence the caching feature.
 
-You can pull public or private images from any [supported registry](docker_registries.md). Currently this includes Docker Hub, GCR, Quay.io or any Private Registry. Read our guide on [how to use Docker Registries](docker_registries.md) to learn more about pulling images from any registry.
+By default, Cache is set to OFF.  Turn this ON if you want to save build sessions between builds.  
 
-The default image, shippable/minv2, comes installed with popular versions of all
-supported languages, tools and services. However, you might prefer starting with a small image that only has versions of your language installed (and we highly recommend this). To help with this, we have open sourced basic images for all supported languages. These images only come with popular versions of a language and are NOT pre-installed with any
-tools, addons or services.
+  - Before the build, we will check for the **Cache Image** flag and if it is ON, the entire minion will be cached if the build succeeds and the cached minion will be reused for further builds.
+  - Caching is done per build host, so it might take a few builds for all our hosts to get the cached minion. Additional details on caching can be found on our [blog](http://blog.shippable.com/container-caching).
 
-Check out our [language help page](languages.md) for language specific info about build images.
+#### Lighthouse Notifications:
 
-Our build images are available on Docker Hub in the [shippableImages account]
-(https://registry.hub.docker.com/repos/shippableimages/) . Dockerfiles
-for these images are in our [GitHub repository](https://github.com/shippableImages).
+You will see an option to turn ON Lighthouse for an image that you push to the registry. If you set this to ON, you will be notified every time the image gets updated in the registry.
 
-> **Note**
->
-> Don't forget to set your HUB Integration to the correct registry if you are pulling a private repo from any supported registry. Read the [Project Integrations section](project_settings/#project-integrations) to learn how.
->
-
-### Push Build Image
-
-**Push Build:** Set this to **Yes** if you would like to push your image to a registry after the CI build is complete. We support [multiple registry options](docker_registries.md)
-
-_Please note: Pull Request Builds are not pushed to the registry. Only Commit Builds are pushed to the registry_
-
-**Push image to:** Provide the full path of the registry location where you would like to push the build output.
-
-Examples:
-`docker_hub_username/image_name`
-`gcr.io/gcr_project_id/image_name`
-`quay.io/quay_repo/quay_image_name`
-
-**Push image tag:**  Click on the dropdown and choose the appropriate setting. You can choose between `default`, `commitsha` or `custom` as your tag. For example, you can set your `custom` tag to `latest`.
-
-By default, we use build numbers as tags. Check out our [blog](http://blog.shippable.com/immutable-containers-with-version-tags-on-docker-hub) on immutable containers to know why
-
-More details [here](docker_registries.md).
-
-### Source Code Location
-
-Option shown only if **Docker Build is ON** and **Docker Build Order is Pre-CI**.
-
-This is where you specify the location in your source code where the tests will be run. For example, in our [sample docker build project](https://github.com/shippableSamples/docker-build-nodejs), it is `/src`
-
-### Lighthouse
-
-You will see an option to turn ON Lighthouse for an image that you push to the registry. (Push Build = YES). If you set this to ON, you will be notified everytime the image gets updated in the registry.
-
-When you turn ON the lighthouse option, remember to select the notification integration for the project. Scroll down to Project Integrations and select the appropriate Notification Integration.
+When you turn ON the Lighthouse option, remember to select the notification integration for the project. Scroll down to Project Integrations and select the appropriate Notification Integration.
 
 See our [Lighthouse Page](lighthouse.md) for details on how to use the feature.
 
 Read [how to set up a Notification Integration](integrations.md)
 
+#### New Image Name:
 
-### Cache Container
+Provide the full path of the registry location where you would like to push the build output.
 
-By default, Cache is set to OFF. Turn this on if you want to save build sessions between builds.
+Required format for **Push Image Name**:
 
-Shippable does not cache dependencies between builds by default. Each build will run on a fresh minion and as soon as the build finishes execution, the minion will be deleted. However, we also understand that installing dependencies for each build will take more time and it affects your build speed. Hence the caching feature.
+Amazon EC2 Container Registry: **AWS ACCOUNT ID.dkr.ecr.us-east-1.amazonaws.com/OPTIONAL NAMESPACE/IMAGE NAME**
 
-Before the build, we will check for the **cache** flag and if it is ON, the entire minion will be cached if the build succeeds and the cached minion will be reused for further builds.
+  - Example: `999999999999.dkr.ecr.us-east-1.amazonaws.com/aye0aye/micro-api`
 
-Caching is done per build host, so it might take a few builds for all
-our hosts to get the cached minion. Additional details on caching can be
-found on our [blog](http://blog.shippable.com/container-caching) .
+Docker Hub: **REPOSITORY NAME/IMAGE NAME**
 
-#### Reset Cache
+  - Example: `aye0aye/micro-api`
 
-You can use the ```[reset_minion]``` tag in your commit message to reset the minion. We will clear all the cached dependencies and packages, when we see a [reset_minion] tag and your build will run on a fresh minion. Once this build finishes execution, we will cache the minion once again so that further builds can run using the cached minion.
+Google Container Registry: **gcr.io/YOUR GOOGLE PROJECT ID>/IMAGE NAME**
+
+  - Example: `gcr.io/aye0aye/micro-api`
+  - You can also use region-specific hostnames, e.g. us.gcr.io, eu.gcr.io, etc. (see [Google's documentation](https://cloud.google.com/container-registry/docs/#pushing_to_the_registry) for more)
+
+Quay: **quay.io/REPOSITORY NAME/IMAGE NAME**
+
+  - Example: `quay.io/aye0aye/micro-api`
+
+#### New Image Tag:
+
+Click on the dropdown and choose the appropriate value to use to tag your images. You can choose between:  
+
+- **default:**  This is the default selection and will tag your images with <branch>.<build number>
+- **commitsha:** This will tag your images with the commitsha from your source code repo
+- **custom:**  This will tag your images with a custom tag that you specify, e.g. 'latest'
+
+By default, we use build numbers as tags. Check out our [blog](http://blog.shippable.com/immutable-containers-with-version-tags-on-docker-hub) on immutable containers to know why. More details can be found [here](docker_registries.md).
+
+#### Pull Image From:
+
+This will be required only if you've chosen 'Pull image from a Registry'. This is where you specify a particular image that you want Shippable to use as the base image for your project.
+
+Example: `shippableimages/ubuntu1204_nodejs`
+
+You can pull any public image or private image to which you have access. Read our guide on [how to use Docker Registries](docker_registries.md) to learn more about pulling images from various registries.
+
+The default image, shippable/minv2, comes installed with popular versions of all supported languages, tools and services. However, you might prefer starting with a small image that only has versions of your language installed (we highly recommend this as minv2 is quite large!). To help with this, we have open sourced basic images for all supported languages. These images only come with popular versions of a language and are NOT pre-installed with any tools, add-ons or services.
+
+Check out our [language help page](languages.md) for language-specific info about build images.
+
+Our build images are available on Docker Hub in the [shippableImages account](https://registry.hub.docker.com/repos/shippableimages/) . Dockerfiles
+for these images are in our [GitHub repository](https://github.com/shippableImages).
+
+> **Note**
+>
+> Don't forget to set your Hub Integration to the correct registry if you are pulling a private repo from Docker Hub, Amazon ECR, GCR, or Quay. Read the [Project Integrations section](project_settings/#project-integrations) to learn how.
+>
+
+#### Push Image to Hub:
+
+If you select 'Yes', Shippable will push a Docker image to the registry you specify at the conclusion of a successful build.
+
+If you have chosen 'Use default Shippable Image' or 'Pull image from Registry', you'll have the option to either push the image used to perform your CI build (select 'Push') or specify that Shippable should build a new image based on a Dockerfile in the root of your directory and push that image (select 'New Build').  If you have chosen 'Build from Dockerfile', we used the Dockerfile in the root of your directory to build an image to use to perform your CI build and we will push that image.
+
+You'll be required to provide the full path of the registry location where you would like to push the build output.
+
+Required format for **Push Image Name**:
+
+Amazon EC2 Container Registry: **AWS ACCOUNT ID.dkr.ecr.us-east-1.amazonaws.com/OPTIONAL NAMESPACE/IMAGE NAME**
+
+  - Example: `999999999999.dkr.ecr.us-east-1.amazonaws.com/aye0aye/micro-api`
+
+Docker Hub: **REPOSITORY NAME/IMAGE NAME**
+
+  - Example: `aye0aye/micro-api`
+
+Google Container Registry: **gcr.io/YOUR GOOGLE PROJECT ID>/IMAGE NAME**
+
+  - Example: `gcr.io/aye0aye/micro-api`
+  - You can also use region-specific hostnames, e.g. us.gcr.io, eu.gcr.io, etc. (see [Google's documentation](https://cloud.google.com/container-registry/docs/#pushing_to_the_registry) for more)
+
+Quay: **quay.io/REPOSITORY NAME/IMAGE NAME**
+
+  - Example: `quay.io/aye0aye/micro-api`
+
+#### Source Code Path:
+
+Option shown only if you've selected 'Build from a Dockerfile'.
+
+This is where you specify the location in your CI build container where the source code should be copied. For example, in our [sample docker build project](https://github.com/shippableSamples/docker-build-nodejs), it is `/src`.
 
 ------
 
 ### Project Integrations
 
-#### Hub Integration
+<img src="../images/project-integrations.png" alt="Project Integrations" style="width:800px;"/>
 
-![hub integration](images/hub_integration.gif)
+#### Hub Integration
 
 You will need this if you are pulling from or pushing to a docker registry, such as Docker Hub or Google Container Registry.
 
@@ -142,7 +172,7 @@ PRE-REQUISITE: Before setting an integration at the project level, you need to c
 
 When you click on the Hub Button, you will see the list of integrations that are available for you to use. This may also include integrations created by owners in other subscriptions you belong to.
 
-Choose the appropriate integration name to connect to the registry of your choice.
+Choose the appropriate integration name to connect to the registry of your choice or select 'Create Integration' to create a new one.
 
 #### Notification Integration
 
@@ -150,12 +180,23 @@ This integration is currently used to tell the project the notification integrat
 
 The [Integrations guide](integrations.md) will tell you how to create the notification integration at the account level.
 
->**Note:
+>**Note**
+>
 >If there are no integrations created at the account level, you will not see any options when clicking the dropdown on either HUB or NOTIFICATION
 
 ---
 
+### Deployments
+
+Select from the dropdown to enable integrations to deploy to third party services.
+
+<img src="../images/deployment-integrations.png" alt="Deployment Integrations" style="width:800px;"/>
+
+---
+
 ### Encrypt Environment Variables
+
+<img src="../images/encrypt.png" alt="Encrypt Variables" style="width:800px;"/>
 
 Shippable allows you to encrypt the environment variable definitions and
 keep your configurations private using **secure** tag.
@@ -870,4 +911,3 @@ Sample javascript code using
 ## Run a Build
 
 Read our guide on [how to run a build](build_case2) to learn how to use these settings within the context of running a build.
-
