@@ -449,7 +449,7 @@ In the example above, the container will be cached after `some_command` and befo
 ### Clearing cache
 You can clear cache in one of 2 ways:
 
-* Including [reset minion] in your commit message. 
+* Including [reset minion] or [reset_minion] in your commit message. 
 * Clicking on the `Clear cache` in your Project settings UI.
 
 In both cases, your cached image will be deleted. If cache is still set to true in your yml, the build will generate a new cache which will be used for subsequent builds. This method is the best way to update your cache if required.
