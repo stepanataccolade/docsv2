@@ -521,8 +521,6 @@ Examples for other languages can be found in our Code Samples.
 
 ## Notifications
 
-TODO: Update this section.
-
 Shippable supports email, Slack, and IRC notifications and these can
 can be configured in your yml file. 
 
@@ -533,14 +531,18 @@ build fails, or the status changes from failed to passed.
 
 You can change the notification settings by configuring the integrations section of your yml. Details for each supported provider are below.
 
+
 ### Email notifications
 
-The shippable.yml section for sending email notifications is shown below:
+By default, we send email notifications to the last committer when a build fails, or the status changes from failed to passed.
+
+To customize email notifications, use the yml structure below: 
 
 ```yaml
 integrations:
     notifications:
-        - type: email
+        - integrationName: email
+          type: email
           recipients
             - exampleone@org.com
             - exampletwo@org.com
@@ -552,21 +554,38 @@ integrations:
 ```
 Email integrations do not need an integration name since you do not configure emails in account integrations or project settings.
 
-To send notifications to specific email addresses, replace the sample email addresses above with the email addresses you want to notify.
+* `integrationName` is always `email`.
+* `type` is `email` 
+* `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project' owner. 
+* [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches.
+* [optional]You can set the following options for the `on_success`, `on_failure` tags :
+    - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
+    - `always` means that you will always receive a notification for that build status
+    - `never` means that you will never receive a notification for that build status
+   By default, `on_success` is set to `change` and `on_failure` is set to `always`.
+* [optional] You can set the following options for the `on_start`, `on_pull_request` tags :
+    - `always` means that you will always receive a notification for build start/pull request
+    - `never` means that you will never receive a notification for that build start/pull request
+  By default, `on_start` is set to `never` and `on_pull_request` is set to `always`.     
 
-You can specify when you want to get notified by setting the values for on_success and on_failure keys to change|always|never. Change means you want to be notified only when the build status changes on the given branch. Always and never mean you want to be notified always or never respectively.
-
-TODO: Update this.
 If you do not want to get notified for any reason, you can configure email notifications to false.
 
 ```yaml
 notifications:
-   email: false
+        - integrationName: email
+          type: email
+          on_success: never
+          on_failure: never 
 ```
 
 ### Slack notifications
 
-The shippable.yml section for sending Slack notifications is shown below:
+To send Slack notifications, you will need to do the following:
+
+1. Create an account integration for your Slack service ([Instructions here](int_notifications.md))
+2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
+3. Add the following in your shippable.yml:
+
 
 ```yaml
 integrations:
@@ -582,16 +601,39 @@ integrations:
           on_success: never
           on_failure: always 
 ```
+* `integrationName` value is the name of the account integration you added to project settings.
+* `type` is slack 
+* `recipients` specifies the channels you want to send the notification to. Please note that this overrides any channels you select while setting up the account integration.
+* [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches.
+* [optional] You can set the following options for the `on_success`, `on_failure` tags :
+    - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
+    - `always` means that you will always receive a notification for that build status
+    - `never` means that you will never receive a notification for that build status
+  By default, `on_success` is set to `change` and `on_failure` is set to `always` if Slack is configured in the yml but you do not specify these tags.
+* [optional] You can set the following options for the `on_start`, `on_pull_request` tags :
+    - `always` means that you will always receive a notification for build start/pull request
+    - `never` means that you will never receive a notification for that build start/pull request
+  By default, `on_start` is set to `never` and `on_pull_request` is set to `always` if Slack is configured in the yml but you do not specify these tags.     
+
 
 
 ### IRC notifications
 
-The shippable.yml section for sending IRC notifications is shown below:
+You can send notifications to public and private IRC rooms using Shippable. 
+
+To send notifications to private IRC channels, you will need to first do the following:
+1. Create an account integration for your IRC channel ([Instructions here](int_notifications.md))
+2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
+
+To send notifications to public IRC channels, you can skip the two steps above.
+
+Use the following yml structure to send IRC notifications:
 
 ```yaml
 integrations:
     notifications:
-        - type: irc
+        - integrationName:
+          type: irc
           recipients
             - "chat.freenode.net#channel1"
             - "chat.freenode.net#channel2"
@@ -602,7 +644,20 @@ integrations:
           on_failure: always 
 ```
 
-The configuration above works for public irc channels. To send notifications to private channels, simply 
+* `integrationName` value is the name of the account integration you added to project settings. For public channels, skip this tag or just use `irc`.
+* `type` is `irc` 
+* `recipients` specifies the rooms you want to send the notification to. 
+* [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches.
+* [optional] You can set the following options for the `on_success`, `on_failure` tags :
+    - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
+    - `always` means that you will always receive a notification for that build status
+    - `never` means that you will never receive a notification for that build status
+  By default, `on_success` is set to `change` and `on_failure` is set to `always` if IRC is configured in the yml but you do not specify these tags.
+* [optional] You can set the following options for the `on_start`, `on_pull_request` tags :
+    - `always` means that you will always receive a notification for build start/pull request
+    - `never` means that you will never receive a notification for that build start/pull request
+  By default, `on_start` is set to `never` and `on_pull_request` is set to `always` if IRC is configured in the yml but you do not specify these tags.     
+
 
 ---
 
@@ -632,7 +687,9 @@ Sample PHP code using
 # MySQL binds to 127.0.0.1 by default. Default username is shippable with no password
 # Create a DB as part of before script to use it
 
-before_script:
+services:
+    - mysql
+ci:
     - mysql -e 'create database myapp_test;'
 ```
 
@@ -768,10 +825,13 @@ addons:
 ### PostgreSQL
 
 ```yaml
-# Postgre binds to 127.0.0.1 by default and is started on boot. Default username is "postgres" with no password
+# Postgre binds to 127.0.0.1 by default. Default username is "postgres" with no password
 # Create a DB as part of before script to use it
 
-before_script:
+services:
+    - mysql
+    
+ci:
   - psql -c 'create database myapp_test;' -U postgres
 ```
 
@@ -806,7 +866,7 @@ addons:
 services:
   - selenium
 
-before_script:
+ci:
   - "export DISPLAY=:99.0"
   - "/etc/init.d/xvfb start"
 ```
@@ -845,7 +905,7 @@ addons:
 services:
   - selenium
 
-before_script:
+ci:
   - "export DISPLAY=:99.0"
   - "/etc/init.d/xvfb start"
 ```
