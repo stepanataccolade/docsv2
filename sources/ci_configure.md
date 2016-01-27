@@ -4,10 +4,91 @@ page_keywords: getting started, questions, documentation, shippable, config, yml
 
 # Configure your build
 
-All build configuration happens through shippable.yml which should be present at the root of the repository you want to build using Shippable.  
+All build configuration happens through shippable.yml which should be present at the root of the repository you want to build using Shippable. The following sections describe the overall structure of the shippable.yml file, as well as detailed descriptions of every section in it.
 
-At a high level, the yml structure is as shown below -
-TODO: Add yml structure picture
+##shippable.yml structure
+
+At a high level, the yml structure for CI is as shown below, along with an explanation of what belongs in each section. 
+<img src="../images/ci_yml_structure.png" alt="Account Settings Subscription" style="width:800px;"/>
+
+To get started, you can copy the following structure into your shippable.yml and then customize it based on instructions in the sections below.
+
+```
+#set your language below
+language: python
+
+#set language version
+python:
+    - 2.7
+
+services:
+    
+env:
+
+matrix:
+
+build:
+    pre_ci: 
+    pre_ci_boot:
+        image_name:
+        image_tag:
+        pull:
+        env:
+        options:
+    ci:
+    post_ci:
+    smoke_tests:
+    on_success:
+    on_failure:
+
+integrations:
+    notifications:
+        - integrationName:
+          type:
+          recipients:
+          branches:
+          on_start:
+          on_success:
+          on_failure:
+          on_changed:
+    hub:
+        - integrationName:
+          type:
+          branches:
+```
+
+Details on what can be set in each section are in 
+
+## Specifying language and runtime
+
+The following language tags are supported at this time:
+
+```clojure```
+
+```go```
+
+```java```
+
+```node_js```
+
+```php```
+
+```python```
+
+```ruby```
+
+```scala```
+
+You can set the language and runtime as shown below for Node.js projects
+
+```
+language: node_js
+
+node_js:
+  - 0.12
+```
+
+Specific examples for each language are in our [Language guide](ci_languages.md)
 
 
 <a name="build_images"></a>
@@ -24,10 +105,9 @@ Our standard build images are named as follows:
 Exact details on what is included in each image is available in the github repo for the image, as well as the image description on Docker Hub.
 
 ### Default build image
-By default, we will spin up a build container based on the either the base version or the `all` version of an image for the language specified in your yml. For example, if you specify ```language: python``` in your yml, we will spin up a build minion based on either the u14pyt:prod or the u14pytall:prod images. 
+By default, we will spin up a build container based on the either the base version or the `all` version of an image for the language specified in your yml. For example, if you specify ```language: python``` in your yml, we will spin up a build minion based on u14pyt:prod. If your build also starts any services using the `services` tag in the yml, we will spin up a build minion based on  u14pytall:prod images. 
 
 ### Overriding the default build image
-TODO: Rewrite since after yml is finalized
 
 You can override which Docker image is used for your CI by specifying a different image in your yml -
 
@@ -43,28 +123,38 @@ pre_ci_boot:
 The image you specify in this section should be available to Shippable when the build reaches this step. To learn how to build your CI image from a Dockerfile or pull from a registry, check out the sections below.
 
 ###Building your CI image
-TODO: Rewrite since after yml is finalized
 
 If you want to build your Docker image as part of your workflow for each CI run, you will need to do the followng in your shippable.yml-
 
 ```
 pre_ci:
-    docker build myrepo/Dockerfile -t manishas/myImage:tip  
+    docker build -t myImage:tip .
 
 pre_ci_boot:
-    image_name: manishas/myImage
-    image_tag: latest
+    image_name: myImage
+    image_tag: tip
     pull: false
     envs: FOO=BAR
     options: --privileged=true
 ```
+For your specific case:
 
-This will ensure that manishas/myImage:tip is used to start the CI container with the option `--privileged=true` and with the environment variable FOO=BAR already set within the container.
+* `image_name` value is the name of the image that was built in the `pre_ci` step. 
+*  `image_tag` is the tag for the image that was built in the `pre_ci` step.  
+* set `pull` to `false` if you want to use the image you built during the `pre_ci` step instead of pulling from a docker registry.
+* In the `env` section, you can enter any environment variables you want to be set inside your CI container. 
+* In the `options` tag, enter any docker options you want to use in the `docker run` command. 
+
+The example yml above will ensure that manishas/myImage:tip is used to start the CI container with the option `--privileged=true` and with the environment variable FOO=BAR already set within the container.
 
 TODO: Add sample project
 
 ###Pulling your CI image from a Docker registry
-If you want to pull your CI image from a supported Docker registry, you will need to do the following-
+
+You can pull any image you have access to from a Docker registry and use that to spin up your CI build container. 
+
+
+To pull a private image from a registry, you will need to do the following-
 
 1. Create an account integration for your registry ([Instructions here](int_docker_registries.md))
 2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
@@ -77,18 +167,76 @@ pre_ci_boot:
     pull: true
     envs: FOO=BAR
     options: --privileged=true
+
+integrations:
+    - integrationName: manishasDockerHub
+      type: docker
+      branches:
+          only:
+              - master
+
 ```
 
 For your specific case:
 
 * `image_name` value is in the format (docker registry username)/(docker registry image repo). 
+* `image_tag` is the tag for the image that you want to pull.  
 * set `pull` to `true` if you want to pull this image from a docker registry.
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container. 
 * In the `options` tag, enter any docker options you want to use in the `docker run` command. 
+* For `integrationName` tag, enter the name of the account integration you have added to your project settings. This account should have permissions to pull the the build image specified in the `image_name` setting.
+* In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google container registry`, `quay` for Quay.io, `aws` for Amazon EC2 Container registry, and `private` for a self hosted private registry.
+* [optional]Using the `branches` section, specify the branches this account integration is applicable to. You can skip this if you want your integration to be applicable for all branches.
 
 The example yml above will pull the image manishas/myImage:tip using the integration manishas_dockerhub, and run the container with option `--privileged=true` and set env `FOO=BAR` inside the container.  
 
 TODO: Add sample project
+
+## The `ci` section 
+
+
+## Pushing an image to a registry 
+
+After CI is complete, you might want to push your build image to a Docker registry and tag it appropriately. Or you might want to build a new 'production' image without any of your CI artifacts and push that to your Docker registry account.
+
+You should do this in the `post_ci` section of your shippable.yml.
+
+To push your CI build container image to a registry:
+
+1. Create an account integration for your registry ([Instructions here](int_docker_registries.md))
+2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
+3. Add the following in your shippable.yml:
+
+```
+build:
+    post_ci:
+        - docker push manishas/sample-node:tip
+   
+integrations:
+    - integrationName: manishasDockerHub
+      type: docker
+      branches:
+          only:
+              - master
+    
+```
+
+To build a new production image and then push to a registry, 
+
+```
+build:
+    post_ci:
+        - docker build -t manishas/sample-node-prod .
+        - docker push manishas/sample-node-prod
+   
+integrations:
+    - integrationName: manishasDockerHub
+      type: docker
+      branches:
+          only:
+              - master
+    
+```
 
 
 ## Running multiple builds per commit
@@ -259,21 +407,6 @@ env:
 > security reasons.
 
 
-## Specifying command collections
-We support collections in every section of the yml and will run it one command at a time.
-
-```
-# collection scripts
-script:
- - ./minions/do_something.sh
- - ./minions/do_something_else.sh
-```
-
-In the example above, our minions will run `./minions/do_something.sh`
-and then run `./minions/do_something-else.sh`. The only requirement is
-that all of these operations return a `0` exit code. Else the build will
-fail.
-
 ## Retrying a command
 
 Sometimes, commands like `npm install` fail due to the intermittent network issues and this affects your build result. To avoid this, you can use `shippable_retry` in the yml to try the command up to 3 times if it returns a non-zero code.
@@ -288,6 +421,8 @@ before_install:
 ```
 
 ## Using git submodules
+
+TODO: rewrite
 
 Shippable supports git submodules. This is a cool functionality of
 breaking your projects down into manageable chunks. We automatically
@@ -373,8 +508,9 @@ To set up code coverage result visualization for a repository.
 For example, here is the .yml file for a Python repo -
 
 ```yaml
-before_script: mkdir -p shippable/codecoverage
-script:
+ci: 
+  - mkdir -p shippable/codecoverage
+#build and test commands
   - coverage run --branch python/sample.py
   - coverage xml -o shippable/codecoverage/coverage.xml python/sample.py
 ```
@@ -386,101 +522,88 @@ Examples for other languages can be found in our Code Samples.
 ## Notifications
 
 TODO: Update this section.
-Shippable primarily supports email and irc notifications and these can
-can be configured in your yml file. To send Slack notifications, please
-check out our [blog post](http://blog.shippable.com/devops-chat-a-simple-way-to-use-slack-notifications-with-shippable).
+
+Shippable supports email, Slack, and IRC notifications and these can
+can be configured in your yml file. 
+
 To send HipChat notifications, check out our [sample project for hipchat notifications](https://github.com/shippableSamples/sample-hipchat-notifications).
 
 By default, we send email notifications to the last committer when a
 build fails, or the status changes from failed to passed.
 
-You can change the default settings for email notifications by
-configuring the notifications section of your yml. You can specify the
-email address(es) where you want to receive notification as well as the
-criteria for when you want notifications to be sent.
+You can change the notification settings by configuring the integrations section of your yml. Details for each supported provider are below.
 
 ### Email notifications
 
-To send notifications to specific email addresses, replace the sample
-email addresses below with the recipients' email ids in your
-`shippable.yml` file.
+The shippable.yml section for sending email notifications is shown below:
 
 ```yaml
-notifications:
-    email:
-        - exampleone@org.com
-        - exampletwo@org.com
+integrations:
+    notifications:
+        - type: email
+          recipients
+            - exampleone@org.com
+            - exampletwo@org.com
+          branches:
+            - master
+            - dev
+          on_success: always
+          on_failure: always 
 ```
+Email integrations do not need an integration name since you do not configure emails in account integrations or project settings.
 
-You can also specify when you want to get notified by setting the values
-for on_success and on_failure keys to change|always|never. Change
-means you want to be notified only when the build status changes on the
-given branch. Always and never mean you want to be notified always or
-never respectively.
+To send notifications to specific email addresses, replace the sample email addresses above with the email addresses you want to notify.
 
-```yaml
-notifications:
-     email:
-         recipients:
-             - exampleone@org.com
-             - exampletwo@org.com
-         on_success: change
-         on_failure: always
-```
+You can specify when you want to get notified by setting the values for on_success and on_failure keys to change|always|never. Change means you want to be notified only when the build status changes on the given branch. Always and never mean you want to be notified always or never respectively.
 
-If you do not want to get notified for any reason, you can configure
-email notifications to false.
+TODO: Update this.
+If you do not want to get notified for any reason, you can configure email notifications to false.
 
 ```yaml
 notifications:
    email: false
 ```
 
+### Slack notifications
+
+The shippable.yml section for sending Slack notifications is shown below:
+
+```yaml
+integrations:
+    notifications:
+        - integrationName: my_slack_integration
+          type: slack
+          recipients
+            - channelOne
+            - channelTwo
+          branches:
+            - master
+            - dev
+          on_success: never
+          on_failure: always 
+```
+
+
 ### IRC notifications
 
-You can also configure yml file to send build notifications to your IRC
-channels.
-
-- To specify single channel
+The shippable.yml section for sending IRC notifications is shown below:
 
 ```yaml
-notifications:
-   irc:  "chat.freenode.net#channel1"
+integrations:
+    notifications:
+        - type: irc
+          recipients
+            - "chat.freenode.net#channel1"
+            - "chat.freenode.net#channel2"
+          branches:
+            - master
+            - test
+          on_success: never
+          on_failure: always 
 ```
 
-- You can also specify multiple server channels in yml file. The
-  following formats are supported:
+The configuration above works for public irc channels. To send notifications to private channels, simply 
 
-```yaml
-notifications:
-  irc:
-    - "chat.freenode.net#channel1"
-    - "chat.freenode.net#channel2"
-    - "server1#channel3"
-```
-
-```yaml
-notifications:
-  irc:
-   channels:
-     - "chat.freenode.net#channel1"
-     - "chat.freenode.net#channel2"
-     - "server1#channel3"
-```
-
-- By default, We will always send build notifications to the mentioned
-  channels in yml. **on_success** and **on_failure** are not yet
-  configurable.
-- IRC notifications are turned off by default for pull request builds.
-  However, you can change the default settings by adding
-  **pull_requests: true** tag in your yml as shown below.
-
-```yaml
-notifications:
-  irc:
-   pull_requests: true
-   channels:
-```
 ---
 
 ## Services
@@ -506,7 +629,7 @@ Sample PHP code using
 ### MySQL
 
 ```yaml
-# MySQL binds to 127.0.0.1 by default and is started on boot. Default username is shippable with no password
+# MySQL binds to 127.0.0.1 by default. Default username is shippable with no password
 # Create a DB as part of before script to use it
 
 before_script:
@@ -747,17 +870,18 @@ Request tab and then click on the **Build this Pull Request** button.
 
 ## Build badge
 
-Badges will display the status of your default branch. You can find the build badges on the project's page. Click on the **Badge** button and copy the markdown to your README file to display the status of most recent build on your Github or Bitbucket repo page.
+TODO: how do we do badges?
 
 * * * * *
 
 ## Build timeout
 
-Builds will be timed out in the following scenarios:
+Your builds will time out in the following scenarios:
 
 -   If there has not been any log output or a command hangs for 10 minutes
 -   If the build is still running after 60 minutes for Free minions or 120 minutes for Paid minions
 
+Please let us now if you belueve a build is timing out when it shouldn't do so and we will take a look. 
 
 * * * * *
 
@@ -770,5 +894,21 @@ then add **[ci skip]** or **[skip ci]** to your commit message.
 Our webhook processor will look for the string **[ci skip]** or **[skip
 ci]** in the commit message and if it exists, then that particular
 webhook build will not be executed.
+
+## Specifying command collections
+We support collections in every section of the yml and will run it one command at a time.
+
+```
+# collection scripts
+script:
+ - ./minions/do_something.sh
+ - ./minions/do_something_else.sh
+```
+
+In the example above, our minions will run `./minions/do_something.sh`
+and then run `./minions/do_something-else.sh`. The only requirement is
+that all of these operations return a `0` exit code. Else the build will
+fail.
+
 
 
