@@ -421,6 +421,38 @@ env:
 > secured variables are also not displayed in the script tab for
 > security reasons.
 
+## Caching your container
+
+We support two levels of caching for your build containers. You can either choose to cache your entire build container at the end of the build or use the command `shippable_cache_container` to cache your container at any point during the build. The latter allows you to avoid caching everything and only cache dependencies that are required for every build.
+
+Please note that your container image will be cached the first time after cache is turned on and that subsequent builds do not update the cache. This is because Docker allows only 127 aufs layers in an image. Each time a container is cached, it adds a layer. This means if we cache each time, the first 127 builds will be successful but the 128th build will fail because the `docker run` command will fail for a container with 127+ layers. To get around this, we decided to cache only the first time since most people don’t change their sections very often. You can update your cached image by clearing your cache and running a new build.
+
+To cache your build container at the end of the build step, include the line below in your yml:
+
+```
+cache: true
+```
+
+To cache your build container at any point during your build, you can do the following:
+
+```
+cache: true
+build:
+    ci:
+       - some_command
+       - shippable_cache_container
+       - another_command
+```
+In the example above, the container will be cached after `some_command` and before `another_command`.
+
+
+### Clearing cache
+You can clear cache in one of 2 ways:
+
+* Including [reset minion] in your commit message. 
+* Clicking on the `Clear cache` in your Project settings UI.
+
+In both cases, your cached image will be deleted. If cache is still set to true in your yml, the build will generate a new cache which will be used for subsequent builds. This method is the best way to update your cache if required.
 
 ## Retrying a command
 
