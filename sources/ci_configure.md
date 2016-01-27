@@ -147,7 +147,6 @@ For your specific case:
 
 The example yml above will ensure that manishas/myImage:tip is used to start the CI container with the option `--privileged=true` and with the environment variable FOO=BAR already set within the container.
 
-TODO: Add sample project
 
 ###Pulling your CI image from a Docker registry
 
@@ -190,9 +189,21 @@ For your specific case:
 
 The example yml above will pull the image manishas/myImage:tip using the integration manishas_dockerhub, and run the container with option `--privileged=true` and set env `FOO=BAR` inside the container.  
 
-TODO: Add sample project
-
 ## The `ci` section 
+
+The `ci` section of your yml is where the bulk of your build commands should be included. All commands in this section are executed inside your build container in the order they appear in your yml.
+
+In general, follow the guidelines below to write the `ci` section:
+
+* First, install or update any required dependencies or packages. Commands like `npm installl` or `sudo apt-get update` should be at the top of this section.
+* Next, create any databases or folders you need. For example, you could create a mysql database with a `- mysql -e 'create database myapp_test;'` or create folders for test results with the command `- mkdir -p shippable/testresults`
+* Next, include commands for your builds and tests. This could be something like `- nosetests python/sample.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml` for a python project.
+
+Depending on the whether your `ci` section is successful or not, the `on_success` or `on_failure` sections will be executed. You can include post build actions depending on your build result in these sections.
+
+A sample ci section is shown below:
+
+TODO: Complete this with a real world example
 
 
 ## Pushing an image to a registry 
