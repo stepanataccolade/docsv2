@@ -238,6 +238,21 @@ integrations:
     
 ```
 
+### Pushing multiple tags
+In most cases, you will push your image to a Docker registry with one tag. However, there are times when you need to add multiple tags. For example, you might want to tag a container with `tip` as well as the build number.
+
+Here is an example of how to set this up in your yml:
+
+```
+build:
+    post_ci:
+       - docker tag -f manishas/sample-node:latest manishas/sample-node:tip
+       - docker tag -f manishas/sample-node:latest manishas/sample-node:$BUILD_NUM
+       - docker push manishas/sample-node:tip
+       - docker push manishas/sample-node:$BUILD_NUM
+```
+In the above example, replace the repo/image name with your image name and the tags with the ones you need for your image. 
+
 
 ## Running multiple builds per commit
 
