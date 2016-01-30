@@ -23,12 +23,12 @@ pages:
   - Overview: ci_overview.md
   - Subscriptions: ci_subscriptions.md
   - Projects: ci_projects.md
-  - Build config: ci_configure.md
+  - Builds: ci_builds.md
+  - Configuring your build: ci_configure.md
   - Language help: ci_languages.md
   - Docker support: ci_docker.md
   - Running a sample build: gs_ci_sample.md
   - FAQ: ci_faq.md
-  - troubleshooting: ci_troubleshoot.md
 - Shippable Flow:
   - Overview: flow_overview.md
   - Subscriptions: flow_subscriptions.md

@@ -37,10 +37,9 @@ build:
         options:
     ci:
     post_ci:
-    smoke_tests:
     on_success:
     on_failure:
-
+      
 integrations:
     notifications:
         - integrationName:
@@ -48,9 +47,10 @@ integrations:
           recipients:
           branches:
           on_start:
-          on_success:
+          on_success
           on_failure:
-          on_changed:
+          on_changed:   
+          
     hub:
         - integrationName:
           type:
@@ -605,8 +605,9 @@ integrations:
             - exampleone@org.com
             - exampletwo@org.com
           branches:
-            - master
-            - dev
+            only:
+                - master
+                - dev
           on_success: always
           on_failure: always 
 ```
@@ -654,8 +655,9 @@ integrations:
             - channelOne
             - channelTwo
           branches:
-            - master
-            - dev
+              only:
+                - master
+                - dev
           on_success: never
           on_failure: always 
 ```
@@ -680,6 +682,7 @@ integrations:
 You can send notifications to public and private IRC rooms using Shippable. 
 
 To send notifications to private IRC channels, you will need to first do the following:
+
 1. Create an account integration for your IRC channel ([Instructions here](int_notifications.md))
 2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
 
@@ -696,8 +699,9 @@ integrations:
             - "chat.freenode.net#channel1"
             - "chat.freenode.net#channel2"
           branches:
-            - master
-            - test
+            only:
+                - master
+                - test
           on_success: never
           on_failure: always 
 ```

@@ -22,16 +22,19 @@ here, contact our [support alias](mailto:support@shippable.com) or open a suppor
 ## Clojure
 
 ### Standard build image(s)
-By default, we will run your Clojure build using our standard ubuntu 14.04 Clojure image pre-installed with all supported tools and services. The image is called u14cloall and the Dockerfile is in our [GitHub dry-dock repository](https://github.com/dry-dock/u14cloall). The Docker image will be pulled from our [drydock repo on Docker Hub](https://hub.docker.com/r/drydock/u14cloall/)
+By default, we will run your Clojure build using one of our standard ubuntu 14.04 Clojure images, depending on whether you need any services pre-installed in your container. If you do not need services, we will spin up a container with our u14clo image. If you've specified any services using the `services` key in your yml, your build container will be spun up using our u14cloall image.  
 
-The default build image for Go has the following versions installed:
+The Dockerfile for u14clo is [here](https://github.com/dry-dock/u14clo) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14clo/).
+The Dockerfile for u14cloall is [here](https://github.com/dry-dock/u14cloall) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14cloall/)
+
+The default build images for Clojure have the following versions installed:
 
 * 1.3.0
 * 1.4.0
 * 1.5.1
 * 1.6.0
 
-In addition we have the following additional standard Clojure images:
+We have the following additional standard Clojure images available for you:
 
 * u12clo    
     * [GitHub](https://github.com/dry-dock/u12clo)    
@@ -48,24 +51,37 @@ In addition we have the following additional standard Clojure images:
 * u12cloall    
     * [GitHub](https://github.com/dry-dock/u12cloall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12cloall/)
+* u14cloall    
+    * [GitHub](https://github.com/dry-dock/u14cloall)    
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14cloall/)
 
-You can use a custom build image for your project by following instructions in our [yml configuration section](ci_configure.md).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
 
 
 ### yml config
 
-You can use the `install` key to install the required dependencies for your project:
+Specify the language and runtime with the following tags in your yml:
 
 ```
+language: clojure 
+
+lein:
+    - lein2
+```
+
+You can use the `install` key to install the required dependencies for your project:
+
+```    
 install: lein protobuf install
 ```
 
 ### Test scripts
 
-Use `script` key in shippable.yml file to specify what command to run tests with. The default command to run leiningen test suite is `lein test2junit`:
+Use the `ci` section in shippable.yml file to specify what command to run tests with. The default command to run leiningen test suite is `lein test2junit`:
 
 ```
-script: lein test2junit
+ci: 
+    - lein test2junit
 ```
 
 ### Build Matrix
@@ -83,24 +99,28 @@ jdk:
 ```
 
 ### Build Examples
+TODO: Add sample clojure project
+
 
 
 
 ## Go
 
 ### Standard build image(s)
-By default, we will run your Go build using our standard ubuntu 14.04 Go image pre-installed with all supported tools and services. The image is called u14golall and the Dockerfile is in our [GitHub dry-dock repository](https://github.com/dry-dock/u14golall). The Docker image will be pulled from our [drydock repo on Docker Hub](https://hub.docker.com/r/drydock/u14golall/)
+By default, we will run your Go build using one of our standard ubuntu 14.04 Go images, depending on whether you need any services pre-installed in your container. If you do not need services, we will spin up a container with our u14gol image. If you've specified any services using the `services` key in your yml, your build container will be spun up using our u14golall image.  
 
-The default build image for Go has the following versions installed:
+The Dockerfile for u14gol is [here](https://github.com/dry-dock/u14gol) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14gol/).
+The Dockerfile for u14golall is [here](https://github.com/dry-dock/u14golall) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14golall/)
+
+The default build images for Go have the following versions installed:
 
 * 1.1
 * 1.2
 * 1.3
 * 1.4
 * 1.5
-* tip
 
-In addition we have the following additional standard Go images:
+We have the following additional standard Go images available for you:
 
 * u12gol    
     * [GitHub](https://github.com/dry-dock/u12gol)    
@@ -117,35 +137,38 @@ In addition we have the following additional standard Go images:
 * u12golall    
     * [GitHub](https://github.com/dry-dock/u12golall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12golall/)
+* u14golall    
+    * [GitHub](https://github.com/dry-dock/u14golall)    
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14golall/)
 
-You can use a custom build image for your project by following instructions in our [yml configuration section](ci_configure.md).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
 
 ### yml config
 
-You can use any tagged version(s) of Go or use ```tip``` to get the latest version.
+You can use any tagged version(s) of Go with the folllowing config in your yml:
 ```
 language: go
 
 go:
   - 1.3
-  - tip
 ```
 
-You can install dependencies for your project using the **install** key:
+You can install dependencies for your project in the `ci` section:
 
 ```
-install:
+ci:
 - go get github.com/onsi/gomega
 - go get github.com/onsi/ginkgo
 ```
 
 ### Test scripts
 
-Use the **script** key in the shippable.yml file to specify what command to run tests with:
+You can run your tests in the `ci` section as follows :
 
 ```
 # command to run tests
-script: go test -v ./...
+ci: 
+    - go test -v ./...
 ```
 
 ### Build Examples
@@ -156,9 +179,12 @@ script: go test -v ./...
 ## Java
 
 ### Standard build image(s)
-By default, we will run your Java build using our standard ubuntu 14.04 Java image pre-installed with all supported tools and services. The image is called u14javall and the Dockerfile is in our [GitHub dry-dock repository](https://github.com/dry-dock/u14javall). The Docker image will be pulled from our [drydock repo on Docker Hub](https://hub.docker.com/r/drydock/u14javall/)
+By default, we will run your Java build using one of our standard ubuntu 14.04 Java images, depending on whether you need any services pre-installed in your container. If you do not need services, we will spin up a container with our u14jav image. If you've specified any services using the `services` key in your yml, your build container will be spun up using our u14javall image.  
 
-The default build image for Java has the following versions installed:
+The Dockerfile for u14jav is [here](https://github.com/dry-dock/u14jav) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14jav/).
+The Dockerfile for u14javall is [here](https://github.com/dry-dock/u14javall) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14javall/)
+
+The default build images for Java have the following versions installed:
 
 * openjdk6
 * openjdk7
@@ -182,8 +208,11 @@ In addition we have the following additional standard Java images:
 * u12javall    
     * [GitHub](https://github.com/dry-dock/u12javall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12javall/)
+* u14javall    
+    * [GitHub](https://github.com/dry-dock/u14javall)    
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14javall/)
 
-You can use a custom build image for your project by following instructions in our [yml configuration section](ci_configure.md).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
 
 ### yml config
 
@@ -223,11 +252,11 @@ gradle assemble
 #### Ant
 
 - If your repository root does not have gradle or maven files, then our Java builder will use Ant to build it. By default it will use `Ant test` to run the test suite.
-- Since there is no standard way to install Ant dependencies, you will need to specify the `install:` key to install your project dependencies with Ant.
+- Since there is no standard way to install Ant dependencies, you will need to install your project dependencies with Ant in the `ci` section.
 
 ```
 language: java
-install: ant deps
+ci: ant deps
 ```
 
 Save the test output in shippable/testresults and the codecoverage output in shippable/codecoverage folder to get the reports parsed. If the test and codecoverage output is not saved as specified, you will not find the reports in our CI.
@@ -281,9 +310,12 @@ for details.
 ## Nodejs
 
 ### Standard build image(s)
-By default, we will run your Node.js build using our standard ubuntu 14.04 Node.js image pre-installed with all supported tools and services. The image is called u14nodall and the Dockerfile is in our [GitHub dry-dock repository](https://github.com/dry-dock/u14nodall). The Docker image will be pulled from our [drydock repo on Docker Hub](https://hub.docker.com/r/drydock/u14nodall/)
+By default, we will run your Node.js build using one of our standard ubuntu 14.04 Node.js images, depending on whether you need any services pre-installed in your container. If you do not need services, we will spin up a container with our u14nod image. If you've specified any services using the `services` key in your yml, your build container will be spun up using our u14nodall image.  
 
-The default build image for Node.js has the following versions installed:
+The Dockerfile for u14nod is [here](https://github.com/dry-dock/u14nod) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14nod/).
+The Dockerfile for u14nodall is [here](https://github.com/dry-dock/u14nodall) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14nodall/)
+
+The default build images for Node.js have the following versions installed:
 
 * 0.10
 * 0.12
@@ -308,8 +340,15 @@ In addition we have the following additional standard Node.js images:
 * u12nodall    
     * [GitHub](https://github.com/dry-dock/u12nodall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12nodall/)
+* u14nodall    
+    * [GitHub](https://github.com/dry-dock/u14nodall)    
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14nodall/)    
 
-You can use a custom build image for your project by following instructions in our [yml configuration section](ci_configure.md). TODO: Add exact link
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
+
+### yml config
+
+You can set the language and runtime for Node.js builds in your yml as shown below:
 
 ```
 # language setting
@@ -327,10 +366,11 @@ node_js:
 
 ### Test scripts
 
--   To run your test suites using NPM, specify it using script key.
+-   To run your test suites using NPM, include the following in the `ci` section of your yml.
 
 ```
-script: npm test
+ci: 
+    - npm test
 ```
 
 -   You can also add testing frameworks like Vows, Expresso in the
@@ -356,7 +396,8 @@ script: npm test
 ```
 node_js:
   - "0.10"
-before_install: npm install -g grunt-cli
+ci: 
+    - npm install -g grunt-cli
 ```
 
 -   If you want to build a project with node versions like 0.6, 0.8, 0.10, and 0.11 and want to use the same package.json, add the following line to your yml file, which will upgrade the npm to v.1.4 for node versions 0.6 and 0.8.
@@ -378,15 +419,17 @@ if [[ $SHIPPABLE_NODE_VERSION =~ [0].[6-8] ]]; then npm install -g npm@~1.4.6; f
 ## PHP
 
 ### Standard build image(s)
-By default, we will run your PHP build using our standard ubuntu 14.04 PHP image pre-installed with latest versions of all supported tools and services. The image is called u14PHPall and the Dockerfile is in our [GitHub dry-dock repository](https://github.com/dry-dock/u14phpall). The Docker image will be pulled from our [drydock repo on Docker Hub](https://hub.docker.com/r/drydock/u14phpall/)
+By default, we will run your PHP build using one of our standard ubuntu 14.04 PHP images, depending on whether you need any services pre-installed in your container. If you do not need services, we will spin up a container with our u14php image. If you've specified any services using the `services` key in your yml, your build container will be spun up using our u14phpall image.  
 
-The default build image for PHP has the following versions installed:
+The Dockerfile for u14php is [here](https://github.com/dry-dock/u14php) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14php/).
+The Dockerfile for u14phpall is [here](https://github.com/dry-dock/u14phpall) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14phpall/)
 
-* 5.3
+The default build images for PHP have the following versions installed:
+
 * 5.4
 * 5.5
 * 5.6
-* 
+* 7.0
 
 In addition we have the following additional standard PHP images:
 
@@ -405,16 +448,20 @@ In addition we have the following additional standard PHP images:
 * u12phpall    
     * [GitHub](https://github.com/dry-dock/u12phpall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12phpall/)
+* u14phpall    
+    * [GitHub](https://github.com/dry-dock/u14phpall)    
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14phpall/)
 
-You can use any custom build image for your project by following instructions in our [yml configuration section](ci_configure.md).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
 
 
 ### Test scripts
 
--   Use the script key in shippable.yml file to specify what command to run tests with.
+-   Use the `ci` section in your yml to specify what command to run tests with.
 
 ```
-script: phpunit UnitTest
+ci: 
+    - phpunit UnitTest
 ```
 
 > **Note**
@@ -429,9 +476,12 @@ TODO - update section
 ## Python
 
 ### Standard build image(s)
-By default, we will run your Python build using our standard ubuntu 14.04 Python image pre-installed with latest versions of all supported tools and services. The image is called u14pytall and the Dockerfile is in our [GitHub dry-dock repository](https://github.com/dry-dock/u14pytall). The Docker image will be pulled from our [drydock repo on Docker Hub](https://hub.docker.com/r/drydock/u14pytall/)
+By default, we will run your Python build using one of our standard ubuntu 14.04 Python images, depending on whether you need any services pre-installed in your container. If you do not need services, we will spin up a container with our u14pyt image. If you've specified any services using the `services` key in your yml, your build container will be spun up using our u14pytall image.  
 
-The default build image for Python has the following versions installed:
+The Dockerfile for u14pyt is [here](https://github.com/dry-dock/u14pyt) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14pyt/).
+The Dockerfile for u14pytall is [here](https://github.com/dry-dock/u14pytall) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14pytall/)
+
+The default build images for Python have the following versions installed:
 
 * 2,7
 * 2.7
@@ -458,11 +508,16 @@ In addition we have the following additional standard Python images:
 * u12pytall    
     * [GitHub](https://github.com/dry-dock/u12pytall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12pytall/)
+* u14pytall    
+    * [GitHub](https://github.com/dry-dock/u14pytall)    
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14pytall/)
+    
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
 
-You can use any custom build image for your project by following instructions in our [yml configuration section](ci_configure.md).
 
 ### yml config
 
+Use the following to configure language and runtime in your yml:
 
 ```
 # language setting
@@ -476,24 +531,24 @@ python:
   - "pypy"
 ```
 
-- We support different versions of python like 2.6, 2.7, 3.2, 3.3, 3.4
-  and pypy.
-- Install dependencies for your project using the `install` key.
+You can nstall dependencies for your project in the `ci` section.
 
 ```
-install: "pip install -r requirements.txt --use-mirrors"
+ci: 
+    - "pip install -r requirements.txt --use-mirrors"
 ```
 
 ### Test scripts
 
-Use the `script` key in the shippable.yml file to specify what command to run tests with.
+Use the `ci` section in the shippable.yml file to specify what command to run tests with.
 
 ```
 # command to run tests
-script: nosetests
+ci: 
+    - nosetests
 ```
 
--   Test against multiple versions of Django by setting the **env** key and then install the required dependencies for it using the install key.
+-   Test against multiple versions of Django by setting the `env` key and then install the required dependencies for it in the `ci` section.
 
 ```
 env:
@@ -503,9 +558,9 @@ env:
 - DJANGO_VERSION=1.5.5
 - DJANGO_VERSION=1.6
 
-install:
-- pip install -q mock==0.8 Django==$DJANGO_VERSION
-- pip install . --use-mirrors
+ci:
+    - pip install -q mock==0.8 Django==$DJANGO_VERSION
+    - pip install . --use-mirrors
 ```
 
 > **Note**
@@ -520,9 +575,12 @@ install:
 ## Ruby
 
 ### Standard build image(s)
-By default, we will run your Ruby build using our standard ubuntu 14.04 Ruby image pre-installed with latest versions of all supported tools and services. The image is called u14ruball and the Dockerfile is in our [GitHub dry-dock repository](https://github.com/dry-dock/u14ruball). The Docker image will be pulled from our [drydock repo on Docker Hub](https://hub.docker.com/r/drydock/u14ruball/)
+By default, we will run your Ruby build using one of our standard ubuntu 14.04 Ruby images, depending on whether you need any services pre-installed in your container. If you do not need services, we will spin up a container with our u14rub image. If you've specified any services using the `services` key in your yml, your build container will be spun up using our u14ruball image.  
 
-The default build image for Ruby has the following versions installed:
+The Dockerfile for u14rub is [here](https://github.com/dry-dock/u14rub) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14rub/).
+The Dockerfile for u14ruball is [here](https://github.com/dry-dock/u14ruball) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14ruball/)
+
+The default build images for Ruby have the following versions installed:
 
 * 1.8,7
 * 1.9.2
@@ -548,10 +606,15 @@ In addition we have the following additional standard Ruby images:
 * u12ruball    
     * [GitHub](https://github.com/dry-dock/u12ruball)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12ruball/)
+* u14ruball    
+    * [GitHub](https://github.com/dry-dock/u14ruball)    
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14ruball/)
 
-You can use any custom build image for your project by following instructions in our [yml configuration section](ci_configure.md).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
 
 ### yml config
+
+Use the following config in your yml to set language and runtime:
 
 ```
 # language setting
@@ -578,7 +641,7 @@ rvm:
 >
 > Since multiple versions of Ruby are specified in the above example, a single push to the repository will trigger multiple builds.
 
--  Though we pre-install only a few versions of Ruby, all versions of Ruby are supported. As long as they are available as a binary for Ubuntu 12.04, you can specify custom patchlevels.
+Though we pre-install only a few versions of Ruby, all versions of Ruby are supported. As long as they are available as a binary for Ubuntu 12.04, you can specify custom patchlevels.
 
 ```
 language: ruby
@@ -593,7 +656,7 @@ We are using Bundler, `bundle install` to install all your gems. We also
 use `rake` by default to run your build and hence you need to specify it
 in your gemfile
 
-- If you are using a custom gemfile thats not in default location you can specify it with the `gemfile` tag
+If you are using a custom gemfile thats not in default location you can specify it with the `gemfile` tag
 
 ```
 # gemfile tag
@@ -604,21 +667,14 @@ gemfile: gemfiles/Gemfile.ci
 >
 > If you specify multiple gemfiles in the above tag, a matrix build is triggered for every version of the gemfile.
 
--  Additional arguments can be added to `bundle install` command and we will append them to the default command
+Additional arguments can be added to `bundle install` command and we will append them to the default command
 
 ```
 # bundle_args
 bundler_args: --binstubs
 ```
 
-- If you want to run some other commands before install you can do this
-
-```
-# before_install tag
-before_install: gem install bundler --pre
-```
-
--   You can also set multiple environment variables and test against multiple different versions by using the env variable in your code. This will fire 3 different builds, one for each env variable
+You can also set multiple environment variables and test against multiple different versions by using the env variable in your code. This will fire 3 different builds, one for each env variable
 
 ```
 # env tag
@@ -628,7 +684,7 @@ env:
 - CHEF_VERSION=0.10.4
 ```
 
--   You can also test against multiple `jdk` versions
+You can also test against multiple `jdk` versions
 
 ```
 # jdk tag
@@ -638,10 +694,10 @@ jdk:
   - openjdk6
 ```
 
--   You can also update the versions on your minion by running a simple command or even downgrade if you choose to. The script below demonstrates an upgrade and downgrade - .. code-block:: python
+You can also update the versions on your minion by running a simple command or even downgrade if you choose to. The script below demonstrates an upgrade and downgrade - .. code-block:: python
 
 ```
-before_install:
+ci:
 - gem update --system
 - gem --version
 - gem update --system 2.1.11
@@ -656,9 +712,12 @@ before_install:
 ## Scala
 
 ### Standard build image(s)
-By default, we will run your Scala build using our standard ubuntu 14.04 Scala image pre-installed with latest versions of all supported tools and services. The image is called u14scaall and the Dockerfile is in our [GitHub dry-dock repository](https://github.com/dry-dock/u14scaall). The Docker image will be pulled from our [drydock repo on Docker Hub](https://hub.docker.com/r/drydock/u14scaall/)
+By default, we will run your Scala build using one of our standard ubuntu 14.04 Scala images, depending on whether you need any services pre-installed in your container. If you do not need services, we will spin up a container with our u14sca image. If you've specified any services using the `services` key in your yml, your build container will be spun up using our u14scaall image.  
 
-The default build image for Scala has the following versions installed:
+The Dockerfile for u14sca is [here](https://github.com/dry-dock/u14sca) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14sca/).
+The Dockerfile for u14scaall is [here](https://github.com/dry-dock/u14scaall) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14scaall/)
+
+The default build images for Scala have the following versions installed:
 
 * 2.9.x
 * 2.10.x
@@ -681,8 +740,11 @@ In addition we have the following additional standard Scala images:
 * u12scaall    
     * [GitHub](https://github.com/dry-dock/u12scaall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12scaall/)
+* u14scaall    
+    * [GitHub](https://github.com/dry-dock/u14scaall)    
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14scaall/)
 
-You can use any custom build image for your project by following instructions in our [yml configuration section](ci_configure.md).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
 
 The Scala builder assumes dependency management based on projects like Maven, Gradle or SBT and it will pull down project dependencies automatically before running tests. To test against multiple JDKs, use jdk tags. For example, to test against the oraclejdk8, oraclejdk7, openjdk6 and openjdk7
 

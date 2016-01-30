@@ -1,0 +1,92 @@
+page_title: Shippable CI/CD Dashboard
+page_description: Explanation of the CI/CD Dashboard
+page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml
+
+# Builds
+A project on Shippable CI corresponds to a repository in your source control that you have enabled for CI. To learn how to enable a repository, check out the Enable a project section in [Subscriptions doc](ci_subscriptions.md) 
+
+To get to the page for a particular project,
+
+- Login to [Shippable](https://app.shippable.com)
+- Click on the CI dropdown and select the subscription you want to view.
+- This will bring you to Dashboard of the subscription which shows latest status for all your projects. 
+- Click on the project name to view the Project page. This will take you to the project dashboard.
+- Click on any build number in the Summary or History tabs to get to the Build page
+
+
+## Dashboard
+The Project Dashboard shows you the latest status of all branches of the project. You can also view in progress builds and build history.
+
+The **Summary View** is the default when you navigate to this dashboard. It shows you the latest status for all branches that are built using Shippable. Latest status is defined as the build status for the latest commit build for that branch. 
+
+If a build is queued or in progress, you will see at the top of the summary view. 
+
+NOTE: To view time stamp for a build, hover the mouse over time details
+
+The **History View** shows the build history across all branches in the project. You can filter this view by commit vs pull request builds, build status, and branch name. 
+
+### Manually building a branch
+You can trigger manual builds for branch by clicking on `Build` for the branch in the **Summary View** of the project dashboard. If you cannot see the branch you want to build, check the `Show all branches` checkbox which will show all branches irrespective of whether they were ever built previously.
+
+To rebuild a previous build, go to the **History view** and click on `Rebuild` for any build listed there. 
+
+### Deleting builds
+
+You can **Delete builds** by clicking on the `Delete builds` button, checking the builds you want to delete, and clicking on `Delete`.
+
+## Settings
+You can perform project level actions by clicking on the `Settings` tab on the Project page.
+
+### Syncing your project
+We sync your account with your source control provider once every 4 hours. However, there are times when you want to force a sync in order to see recently changes that were made in your source control. You can force a sync by clicking on the `Sync` button in the Sync section of the Project settings page.
+This action simply makes sure the permissions and repository changes from your source control are reflected in your Shippable project.
+
+<a name="enable_integrations"></a>
+
+### Enabling integrations
+You can make one or more configured account integrations available to your project in the `Integrations` section. 
+
+For example, if you want to configure your shippable.yml to send Slack notifications, you will need to first configure an account integration with your Slack information and add the integration in the `Integrations` section of your project settings. You can then use this integration in the yml. More details on [yml config here](ci_configure.md)
+The same is true for any Docker registry integrations.
+
+<img src="../images/ci_integrations.png" alt="Account Settings Subscription" style="width:800px;"/>
+
+Instructions on account integrations are in our [Integrations section](int_overview.md)
+
+
+### Clearing cache
+You can clear cache for your project by clicking on the `Clear cache` button. This will clean up all cached Docker images from your build hosts and the next build will pull the build image again.
+
+<a name="encrypt_env_variables"></a>
+### Encrypting your environment variables
+Shippable allows you to encrypt your environment variable definitions and keep your configurations private in your shippable.yml by using the `secure` tag.
+
+To encrypt a variable, enter the environment variable and its values in the text box as shown below and click on `Encrypt`-
+
+```
+name=abc
+```
+To encrypt multiple variables, you can use the following syntax-
+
+```
+var1="abc" var2="xyz"
+```
+You can now use these encrypted variables in your shippable.yml with a secure tag . For example,
+
+```
+env:
+  secure: <encrypted output>
+```
+
+### Resetting the project
+Resetting a project recreates all webhooks and deployment keys for your project. This should only be done if your project is in an inconsistent state and you need to restore it. Please note that you will need to re-encrypt all environment variables for your project after resetting it.
+
+### Deleting the project
+You can celete your project by clicking on the `Delete` button and then clicking on `Confirm`. Please note that deleting a project will delete all build history and delete all webhooks. 
+
+Deleting a project has no effect on the repository in your source control. 
+
+
+
+
+
