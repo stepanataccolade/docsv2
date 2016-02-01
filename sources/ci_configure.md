@@ -536,44 +536,56 @@ branches:
 
 ---
 
-## Test and Code Coverage Visualization
+## Test and Code Coverage Reports
+
+Shippable can show you test and code coverage results in a consumable format where you can drill down further and find out which tests failed or which sections of your code were not covered by your tests. 
+
+Your tests results data needs to be in junit format and your code coverage results need to be in cobertura format in order to see these visualizations. 
 
 ### Test Results
 
-To set up test result visualization for a repository.
+To set up test result visualization for a repository, do the following:
 
-- Output test results to shippable/testresults folder.
+- Run tests as part of your CI workflow using shippable.yml
 - Make sure test results are in junit format.
+- Output test results to shippable/testresults folder.
 
-For example, here is the .yml file for a Python repo -
+For example, here is a sample configuration for a Python project -
 
 ```yaml
-before_script: mkdir -p shippable/testresults
-script:
-  - nosetests python/sample.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
+ci: 
+    - mkdir -p shippable/testresults
+    - nosetests python/sample.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
 ```
 
-Examples for other languages can be found in our
-[Code Samples](languages/).
+Examples for other languages can be found in our [Code Samples](languages/).
+
+Once you have set this up, you can view your test results in the `Test` tab on your build page.
+
+TODO: Add screenshot for test tab
 
 ### Code Coverage
 
-To set up code coverage result visualization for a repository.
+To set up code coverage result visualization for a repository, do the following:
 
-- Output code coverage output to shippable/codecoverage folder.
+- Run your code coverage command(s) as part of your CI workflow using shippable.yml
 - Make sure code coverage output is in cobertura xml format.
+- Output code coverage output to shippable/codecoverage folder.
 
-For example, here is the .yml file for a Python repo -
+For example, here is a sample configuration for a Python project -
 
 ```yaml
 ci: 
   - mkdir -p shippable/codecoverage
-#build and test commands
   - coverage run --branch python/sample.py
   - coverage xml -o shippable/codecoverage/coverage.xml python/sample.py
 ```
 
-Examples for other languages can be found in our Code Samples.
+Examples for other languages can be found in our [Code Samples](languages/).
+
+Once you have set this up, you can view your code coverage results in the `Code coverage` tab on your build page.
+
+TODO: Add screenshot for code coverage tab
 
 ---
 
@@ -614,8 +626,8 @@ integrations:
 
 * `integrationName` is always `email` since you do not configure emails in account integrations or project settings.
 * `type` is `email` 
-* `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project' owner. 
-* [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches.
+* `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project owner(s)'. To specify 'last committer' and 'project owner(s)' as part of this list, you can use `--lastcommitter` and `--owners`.
+* [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional]You can set the following options for the `on_success`, `on_failure` tags :
     - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
     - `always` means that you will always receive a notification for that build status
@@ -664,7 +676,7 @@ integrations:
 * `integrationName` value is the name of the account integration you added to project settings.
 * `type` is slack 
 * `recipients` specifies the channels you want to send the notification to. Please note that this overrides any channels you select while setting up the account integration.
-* [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches.
+* [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional] You can set the following options for the `on_success`, `on_failure` tags :
     - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
     - `always` means that you will always receive a notification for that build status
@@ -709,7 +721,7 @@ integrations:
 * `integrationName` value is the name of the account integration you added to project settings. For public channels, just use `irc`.
 * `type` is `irc` 
 * `recipients` specifies the rooms you want to send the notification to. 
-* [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches.
+* [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional] You can set the following options for the `on_success`, `on_failure` tags :
     - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
     - `always` means that you will always receive a notification for that build status
@@ -747,7 +759,7 @@ Sample PHP code using
 
 ```yaml
 # MySQL binds to 127.0.0.1 by default. Default username is shippable with no password
-# Create a DB as part of before script to use it
+# Create a DB as part of the ci section before you use it
 
 services:
     - mysql
@@ -888,7 +900,7 @@ addons:
 
 ```yaml
 # Postgre binds to 127.0.0.1 by default. Default username is "postgres" with no password
-# Create a DB as part of before script to use it
+# Create a DB as part of the ci section before using it
 
 services:
     - mysql
@@ -1022,7 +1034,7 @@ We support collections in every section of the yml and will run it one command a
 
 ```
 # collection scripts
-script:
+ci:
  - ./minions/do_something.sh
  - ./minions/do_something_else.sh
 ```
