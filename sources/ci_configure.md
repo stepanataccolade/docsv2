@@ -611,9 +611,8 @@ integrations:
           on_success: always
           on_failure: always 
 ```
-Email integrations do not need an integration name since you do not configure emails in account integrations or project settings.
 
-* `integrationName` is always `email`.
+* `integrationName` is always `email` since you do not configure emails in account integrations or project settings.
 * `type` is `email` 
 * `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project' owner. 
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches.
@@ -627,7 +626,7 @@ Email integrations do not need an integration name since you do not configure em
     - `never` means that you will never receive a notification for that build start/pull request
   By default, `on_start` is set to `never` and `on_pull_request` is set to `always`.     
 
-If you do not want to get notified for any reason, you can configure email notifications to false.
+If you do not want to get notified for any reason, you can turn off email notifications with the following in your yml:
 
 ```yaml
 notifications:
@@ -635,6 +634,7 @@ notifications:
           type: email
           on_success: never
           on_failure: never 
+          on_pull_request: never
 ```
 
 ### Slack notifications
@@ -706,7 +706,7 @@ integrations:
           on_failure: always 
 ```
 
-* `integrationName` value is the name of the account integration you added to project settings. For public channels, skip this tag or just use `irc`.
+* `integrationName` value is the name of the account integration you added to project settings. For public channels, just use `irc`.
 * `type` is `irc` 
 * `recipients` specifies the rooms you want to send the notification to. 
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches.
