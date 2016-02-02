@@ -2,15 +2,15 @@ page_title: Shippable CI Overview
 page_description: Code examples, FAQs, language & platform support
 page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
-# Shippable CI overview
+# Continuous Integration overview
 
-Shippable CI is a Continuous Integration platform which helps you automate builds and tests for every code commit. You can also deploy your build to a PaaS like Heroku or to AWS using Code Deploy. For more on Continuous Integration and why you should include it as part of your workflow, read Martin Fowler's article on the [Benefits of Continuous Integration](http://martinfowler.com/articles/continuousIntegration.html#BenefitsOfContinuousIntegration)
+Shippable's Continuous Integration platform helps you automate builds and tests for every code commit and pull request. You can also deploy your build to a PaaS like Heroku or to AWS using Code Deploy. For more on Continuous Integration and why you should include it as part of your workflow, read Martin Fowler's article on the [Benefits of Continuous Integration](http://martinfowler.com/articles/continuousIntegration.html#BenefitsOfContinuousIntegration)
 
 Shippable is natively built on Docker, so all your builds run inside Docker containers, which we call Minions.
 
 ## What is supported?
 
-Go [here](gs_supported.md) to see a list of all supported source control providers, languages, services and platforms on Shippable CI.
+Go [here](gs_supported.md) to see a list of all supported source control providers, languages, services and platforms.
 
 ## How do builds work?
 

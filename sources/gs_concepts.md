@@ -18,7 +18,7 @@ If you're a Docker enthusiast and want to spin up your build minion based on you
 
 Your build minions are transient and spin up when a build is triggered and are destroyed when a build completes. 
  
-Each minion in our free plan has 1 cores, 2GB RAM. Paid plans get minions with 2 cores, 4GB RAM. If you use your own infrastructure to run your builds with BYOH, you can spin up bigger containers for your builds since we do not restrict resources for containers running on customers' infrastructure. 
+Each minion has 2 cores and 4GB RAM. If you use your own infrastructure to run your builds with BYOH, you can spin up bigger containers for your builds since we do not restrict resources for containers running on customers' infrastructure. 
 
 ### Account
 
@@ -37,6 +37,9 @@ Our billing plans are at a subscription level, so you can upgrade or downgrade e
 A project on Shippable corresponds to a repository on your source control provider. As with subscriptions, project permissions are also synced with your source control provider.
 
 Once a project is enabled, we build all commits and pull requests for that project, irrespective of who commits and opens the pull request.
+
+
+### Cells
 
 *****
 

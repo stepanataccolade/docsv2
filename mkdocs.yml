@@ -15,11 +15,11 @@ pages:
   - Overview: index.md
   - Concepts: gs_concepts.md
   - What is supported?: gs_supported.md
-  - Plans & Pricing: gs_plans.md
+  - Pricing: gs_plans.md
   - Your Shippable Account: acc_overview.md 
   - Running a sample build: gs_ci_sample.md
   - Deploying sample application: gs_deploy_sample.md  
-- Shippable CI:
+- C I:
   - Overview: ci_overview.md
   - Subscriptions: ci_subscriptions.md
   - Projects: ci_projects.md
@@ -29,7 +29,7 @@ pages:
   - Docker support: ci_docker.md
   - Running a sample build: gs_ci_sample.md
   - FAQ: ci_faq.md
-- Shippable Flow:
+- CD Pipelines:
   - Overview: flow_overview.md
   - Subscriptions: flow_subscriptions.md
   - Application infrastructure: flow_infrastructure.md  

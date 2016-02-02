@@ -438,17 +438,18 @@ We support two levels of caching for your build containers. You can either choos
 
 Please note that your container image will be cached the first time after cache is turned on and that subsequent builds do not update the cache. This is because Docker allows only 127 aufs layers in an image. Each time a container is cached, it adds a layer. This means if we cache each time, the first 127 builds will be successful but the 128th build will fail because the `docker run` command will fail for a container with 127+ layers. To get around this, we decided to cache only the first time since most people don’t change their sections very often. You can update your cached image by clearing your cache and running a new build.
 
-To cache your build container at the end of the build step, include the line below in your yml:
+To cache your build container at the end of the build step, include the line below in the build section of your yml:
 
 ```
-cache: true
+build:
+  cache: true
 ```
 
 To cache your build container at any point during your build, you can do the following:
 
 ```
-cache: true
 build:
+    cache: true
     ci:
        - some_command
        - shippable_cache_container

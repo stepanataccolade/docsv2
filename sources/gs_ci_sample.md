@@ -2,9 +2,9 @@ page_title: Running your first sample build
 page_description: Setup up documentation for a sample build
 page_keywords: getting started, build, quick start, documentation, shippable, continous integration
 
-# Running a sample CI build
+# Running a sample Continuous Integration build
 
-This guide walks through the process of running a sample build for Shippable CI. A NodeJs sample application (Aye0Aye) is leveraged for this sample.
+This guide walks through the process of running a sample build using Shippable's continuous integration. A NodeJs sample application (Aye0Aye) is leveraged for this sample.
 
 ## Pre-requisite
 Fork the following GitHub repository in order to complete the tutorial:
@@ -31,7 +31,7 @@ To enable the forked repository for CI, activate the repo on the â€˜New Projectâ
 <img src="../images/account_settings_sync2.png" alt="Force Sync" style="width:800px;"/>
 
 
-## Run a CI build
+## Run a build
 - Upon successfully enabling the **micro-www** project, your page should look like this. The URL shows the **Project ID** for this project.
 
 <img src="../images/aye0aye_initiate_build.png" alt="Aye0Aye Initiate Build" style="width:800px;"/>
@@ -39,6 +39,6 @@ To enable the forked repository for CI, activate the repo on the â€˜New Projectâ
 
 - Click ***Build*** to trigger your CI build 
 
-## Successful CI build
+## View build status
 Congrats, you have successfully run your build. A sample, successful build is shown below. The URL shows the **Build ID** for this build within the **micro-www** project.
 <img src="../images/aye0aye_success_build.png" alt="Aye0Aye Successful Build" style="width:800px;"/>
