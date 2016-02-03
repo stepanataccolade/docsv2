@@ -59,6 +59,7 @@ You can trigger manual builds for an enabled project by clicking on `Build` for 
 ## Settings
 You can perform subscription level actions by clicking on the `Settings` tab on the Subscription page.
 
+<a name="ci_byoh"></a>
 ### Adding your own build infrastructure (BYOH)
 By default, all your builds run inside build containers hosted on Shippable's infrastructure. However, you can choose to run your builds on your own infrastructure, i.e. you can 'Bring your own hosts (BYOH)'. To understand the advantages of BYOH, check out the [CI Overview section](ci_overview.md).
 

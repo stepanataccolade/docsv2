@@ -12,6 +12,8 @@ The Builds page shows you information about a specific build(s) in a project. To
 - Click on the project name to view the Project page. This will take you to the project dashboard.
 - Click on any build number in the Summary or History tabs to get to the Build page
 
+Addiitonal information about what is shown on this page is given below. To learn how to configure your build, check out our [Build configuration section](ci_configure.md).
+
 ## Build information
 The build page shows all relevant information like status, branch name, commit message, committer, etc.
 
