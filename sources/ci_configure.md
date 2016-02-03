@@ -85,8 +85,10 @@ You can set the language and runtime as shown below for Node.js projects
 language: node_js
 
 node_js:
-  - 0.12
+  - "0.10"
 ```
+
+Please note that you can specify language versions as number or string, i.e. as `0.10` or as `"0.10"`. In most cases the format is entirely interchangeable. However, in cases where the version number ends with a 0, such as `5.10`, it is safer to use a string to avoid the yml parser from transating the version to `5.1`.
 
 Specific examples for each language are in our [Language guide](ci_languages.md)
 
@@ -184,14 +186,14 @@ For your specific case:
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container. 
 * In the `options` tag, enter any docker options you want to use in the `docker run` command. 
 * For `integrationName` tag, enter the name of the account integration you have added to your project settings. This account should have permissions to pull the the build image specified in the `image_name` setting.
-* In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google container registry`, `quay` for Quay.io, `aws` for Amazon EC2 Container registry, and `private` for a self hosted private registry.
+* In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google container registry, `quay` for Quay.io, `aws` for Amazon EC2 Container registry, and `private` for a self hosted private registry.
 * [optional]Using the `branches` section, specify the branches this account integration is applicable to. You can skip this if you want your integration to be applicable for all branches.
 
 The example yml above will pull the image manishas/myImage:tip using the integration manishas_dockerhub, and run the container with option `--privileged=true` and set env `FOO=BAR` inside the container.  
 
 ## The `ci` section 
 
-The `ci` section of your yml is where the bulk of your build commands should be included. All commands in this section are executed inside your build container in the order they appear in your yml.
+The `ci` section of your yml is where the bulk of your build commands should be included. All commands in this section are executed sequentially inside your build container in the order they appear in your yml.
 
 In general, follow the guidelines below to write the `ci` section:
 
@@ -264,12 +266,12 @@ build:
 ```
 In the above example, replace the repo/image name with your image name and the tags with the ones you need for your image. 
 
-
+<a name="matrix_builds"></a>
 ## Running multiple builds per commit
 
 In most cases, you want to trigger one build for each commit/pull request to your repository. However, there are times when you might want to trigger multiple builds for a single code change. For example, you might want to test against multiple versions of Ruby, multiple aspect ratios for your Selenium tests, or multiple environment variables.
 
-This scenario is handled by our matrix build feature. In simple terms, the following yml configs will trigger multiple builds -
+This scenario is handled by our matrix build feature, so the following yml configs will trigger multiple builds -
 
 - specifying more than one language version 
 - specifying more than one variable in the ```env``` section
@@ -324,6 +326,8 @@ matrix:
   allow_failures:
     - rvm: 1.9.3
 ```
+
+Please note that you can specify language versions as number or string, i.e. as `0.10` or as `"0.10"`. In most cases the format is entirely interchangeable. However, in cases where the version number ends with a 0, such as `5.10`, it is safer to use a string to avoid the yml parser from transating the version to `5.1`.
 
 
 ## Using environment variables
@@ -537,6 +541,7 @@ branches:
 
 ---
 
+<a name="test_code_coverage"></a>
 ## Test and Code Coverage Reports
 
 Shippable can show you test and code coverage results in a consumable format where you can drill down further and find out which tests failed or which sections of your code were not covered by your tests. 
@@ -614,7 +619,7 @@ integrations:
     notifications:
         - integrationName: email
           type: email
-          recipients
+          recipients:
             - exampleone@org.com
             - exampletwo@org.com
           branches:
@@ -627,7 +632,9 @@ integrations:
 
 * `integrationName` is always `email` since you do not configure emails in account integrations or project settings.
 * `type` is `email` 
-* `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project owner(s)'. To specify 'last committer' and 'project owner(s)' as part of this list, you can use `--lastcommitter` and `--owners`.
+* `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project owner(s)'. 
+    - To specify 'last committer' and 'project owner(s)' as part of this list, you can use `--lastcommitter` and `--owners`. 
+    - If there is a single recipient, you can use the format `recipients: example@org.com`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional]You can set the following options for the `on_success`, `on_failure` tags :
     - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
@@ -664,7 +671,7 @@ integrations:
     notifications:
         - integrationName: my_slack_integration
           type: slack
-          recipients
+          recipients:
             - channelOne
             - channelTwo
           branches:
@@ -677,6 +684,7 @@ integrations:
 * `integrationName` value is the name of the account integration you added to project settings.
 * `type` is slack 
 * `recipients` specifies the channels you want to send the notification to. Please note that this overrides any channels you select while setting up the account integration.
+    - If there is a single recipient, you can use the format `recipients: channelOne`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional] You can set the following options for the `on_success`, `on_failure` tags :
     - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
@@ -708,7 +716,7 @@ integrations:
     notifications:
         - integrationName:
           type: irc
-          recipients
+          recipients:
             - "chat.freenode.net#channel1"
             - "chat.freenode.net#channel2"
           branches:
@@ -722,6 +730,7 @@ integrations:
 * `integrationName` value is the name of the account integration you added to project settings. For public channels, just use `irc`.
 * `type` is `irc` 
 * `recipients` specifies the rooms you want to send the notification to. 
+    - If there is a single recipient, you can use the format `recipients: "chat.freenode.net#channel2"`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional] You can set the following options for the `on_success`, `on_failure` tags :
     - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
@@ -992,15 +1001,15 @@ Sample javascript code using
 
 ## Pull requests
 
-Shippable will integrate with github to show your pull request status on
-CI. Whenever a pull request is opened for your repo, we will run the
-build for the respective pull request and notify you about the status.
-You can decide whether to merge the request or not, based on the status
-shown. If you accept the pull request, Shippable will run one more build
-for the merged repo and will send email notifications for the merged
-repo. To rerun a pull request build, go to your project's page -\> Pull
-Request tab and then click on the **Build this Pull Request** button.
+Shippable integrates with github to build your pull requests and show status inline on your GitHub page for the PR. 
 
+Whenever a pull request is opened for a project that is enabled on Shippable, we will run a build for the respective pull request and send you a build status notification. You can also see this status on your GitHub page as shown below:
+
+<img src="../images/ci_pr_status.png" alt="e2e pipeline" style="width:600px;"/>
+
+You can then merge the PR confidently if the build passes, or fix any issues that cause a failed build. Each time your pull request is updated, we will kick off a new build and update status. 
+
+After you accept the pull request, Shippable will run one more build for the merged repo and will send email notifications for the merged repo.  
 * * * * *
 
 ## Build badge

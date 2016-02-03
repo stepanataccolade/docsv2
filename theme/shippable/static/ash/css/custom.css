@@ -42,10 +42,11 @@ hr {
 
 a:link, a:visited {
   font-family: ProximaNova-Regular, "proxima-nova", "Maven Pro", sans-serif;
+  color: #15c;
 }
 
 a:hover, a:focus, a:active {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 blockquote {
@@ -68,7 +69,10 @@ blockquote::after {
 }
 
 code {
-    font-size: 0.9em !important;
+    font-size: 0.8em !important;
+    border: 1px solid #ddd;
+    color: #333;
+    background-color: #F5F5F5;
 }
 
 /* Bootstrap */

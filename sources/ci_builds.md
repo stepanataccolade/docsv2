@@ -3,9 +3,8 @@ page_description: Explanation of the CI/CD Dashboard
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml
 
 # Builds
-A project on Shippable CI corresponds to a repository in your source control that you have enabled for CI. To learn how to enable a repository, check out the Enable a project section in [Subscriptions doc](ci_subscriptions.md) 
 
-To get to the page for a particular project,
+The Builds page shows you information about a specific build(s) in a project. To get to a specific build page, 
 
 - Login to [Shippable](https://app.shippable.com)
 - Click on the CI dropdown and select the subscription you want to view.
@@ -13,78 +12,75 @@ To get to the page for a particular project,
 - Click on the project name to view the Project page. This will take you to the project dashboard.
 - Click on any build number in the Summary or History tabs to get to the Build page
 
+## Build information
+The build page shows all relevant information like status, branch name, commit message, committer, etc.
 
-## Dashboard
-The Project Dashboard shows you the latest status of all branches of the project. You can also view in progress builds and build history.
+A build on Shippable can actually consist of one or more individual build items, depending on your yml configuration. Configurations resulting in a [matrix build](ci_configure.md#matrix_builds) will have more than one build items as part of the build.
 
-The **Summary View** is the default when you navigate to this dashboard. It shows you the latest status for all branches that are built using Shippable. Latest status is defined as the build status for the latest commit build for that branch. 
+The build status widget for the overall build looks like this:
 
-If a build is queued or in progress, you will see at the top of the summary view. 
+<img src="../images/ci_build_status.png" alt="Build status" style="width:800px;"/>
 
-NOTE: To view time stamp for a build, hover the mouse over time details
+The breadcrumb shows you the account name, project name, and branch name. The actual widget provides the following information:
 
-The **History View** shows the build history across all branches in the project. You can filter this view by commit vs pull request builds, build status, and branch name. 
+* A circle indicating build status, explained in detail below
+* Build number
+* Commit message (Update shippable.yml in the screenshot above)
+* Commit SHA from Github. You can go to the commit page on Github by clicking on the SHA.
+* Builder indicated who committed the code change that triggered this build.
+* When the build was started, how long it took for the build to complete, and how long it was in the queue waiting for an available minion.
 
-### Manually building a branch
-You can trigger manual builds for branch by clicking on `Build` for the branch in the **Summary View** of the project dashboard. If you cannot see the branch you want to build, check the `Show all branches` checkbox which will show all branches irrespective of whether they were ever built previously.
+### Build status 
 
-To rebuild a previous build, go to the **History view** and click on `Rebuild` for any build listed there. 
+The circle at the left of the widget shows a color coded status with the following values:
 
-### Deleting builds
+- Grey for a build that is still queued and waiting for an available minion    
+- Dark Blue for a build that is still in progress 
+- Green for a successful build
+- Red for a failed build
+- Orange for an unstable build
+- Purple for a timed out build
+- Lighter blue for a build that was canceled
 
-You can **Delete builds** by clicking on the `Delete builds` button, checking the builds you want to delete, and clicking on `Delete`.
+The white icon inside the circle shows whether the a commit or a pull request triggered it:
+    
+- ![add_icon](images/ci_build_commit.png) for a build triggered by a commit
+- ![add_icon](images/ci_build_pr.png) for a build triggered by a pull request
 
-## Settings
-You can perform project level actions by clicking on the `Settings` tab on the Project page.
+### Build number
+To the right of the status circle is the build number. Build number starts at 1 for the first build of the project and increase by 1 for every build. 
 
-### Syncing your project
-We sync your account with your source control provider once every 4 hours. However, there are times when you want to force a sync in order to see recently changes that were made in your source control. You can force a sync by clicking on the `Sync` button in the Sync section of the Project settings page.
-This action simply makes sure the permissions and repository changes from your source control are reflected in your Shippable project.
+For matrix builds, the overall build is still numbered with a whole number and individual build items under it are numbered using decimals like 11.1, 11.2, etc. 
 
-<a name="enable_integrations"></a>
+## Build item details
 
-### Enabling integrations
-You can make one or more configured account integrations available to your project in the `Integrations` section. 
+For each build item in a build, we provide the following:
 
-For example, if you want to configure your shippable.yml to send Slack notifications, you will need to first configure an account integration with your Slack information and add the integration in the `Integrations` section of your project settings. You can then use this integration in the yml. More details on [yml config here](ci_configure.md)
-The same is true for any Docker registry integrations.
+* Matrix values
+* Build item console
+* Test and code coverage visualization
+* The Script that was run for the build item
+* Download for console logs and, if configured, artifacts
 
-<img src="../images/ci_integrations.png" alt="Account Settings Subscription" style="width:800px;"/>
+<img src="../images/ci_build_item.png" alt="Build status" style="width:800px;"/>
 
-Instructions on account integrations are in our [Integrations section](int_overview.md)
+### Matrix values
+Matrix values show what combination of the yml configuration is being used for the build item. For example, if your yml specifies several versions of a language, the language version for this specific build item is shown.
 
+### Build item console
+The build item console shows the actual console output for your build. Sections have a `+` to the left of them and can be collapsed or expanded as desired.You can also copy text from the console log.
 
-### Clearing cache
-You can clear cache for your project by clicking on the `Clear cache` button. This will clean up all cached Docker images from your build hosts and the next build will pull the build image again.
+### Test & code coverage tabs
+If you have set up your yml to [show test and code coverage results](ci_configure.md#test_code_coverage), you will the visualizations in the `Test` and `Code coverage` tabs.
 
-<a name="encrypt_env_variables"></a>
-### Encrypting your environment variables
-Shippable allows you to encrypt your environment variable definitions and keep your configurations private in your shippable.yml by using the `secure` tag.
+TODO: Add picture
 
-To encrypt a variable, enter the environment variable and its values in the text box as shown below and click on `Encrypt`-
+### Script
+The script section shows you exactly what scripts and commands were run for your build. In case of a build failure or other issues, you can copy the script and run it locally to see if your build works locally. This helps tremendously while debugging build problems.
 
-```
-name=abc
-```
-To encrypt multiple variables, you can use the following syntax-
-
-```
-var1="abc" var2="xyz"
-```
-You can now use these encrypted variables in your shippable.yml with a secure tag . For example,
-
-```
-env:
-  secure: <encrypted output>
-```
-
-### Resetting the project
-Resetting a project recreates all webhooks and deployment keys for your project. This should only be done if your project is in an inconsistent state and you need to restore it. Please note that you will need to re-encrypt all environment variables for your project after resetting it.
-
-### Deleting the project
-You can celete your project by clicking on the `Delete` button and then clicking on `Confirm`. Please note that deleting a project will delete all build history and delete all webhooks. 
-
-Deleting a project has no effect on the repository in your source control. 
+### Downloading console logs and artifacts
+The `Download` dropdown on the right of the build item console lets you download console logs to your machine.
+If you have configured your yml to also store artifacts with an `artifacts: true`, you can download those as well.
 
 
 
