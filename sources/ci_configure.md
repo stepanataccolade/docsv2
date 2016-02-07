@@ -260,9 +260,9 @@ Here is an example of how to set this up in your yml:
 build:
     post_ci:
        - docker tag -f manishas/sample-node:latest manishas/sample-node:tip
-       - docker tag -f manishas/sample-node:latest manishas/sample-node:$BUILD_NUM
+       - docker tag -f manishas/sample-node:latest manishas/sample-node:$BUILD_NUMBER
        - docker push manishas/sample-node:tip
-       - docker push manishas/sample-node:$BUILD_NUM
+       - docker push manishas/sample-node:$BUILD_NUMBER
 ```
 In the above example, replace the repo/image name with your image name and the tags with the ones you need for your image. 
 
