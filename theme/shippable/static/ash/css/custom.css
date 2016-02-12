@@ -302,6 +302,10 @@ code {
 }
 
 /* Article */
+/* adjust for fixed navbar in anchors */
+h2:target, h3:target {
+  padding-top: 20px;
+}
 #article {
   margin-top: 100px;
   /*max-width: 1000px;*/
@@ -309,7 +313,7 @@ code {
 }
 /* Mainbar */
 #mainbar {
-  padding: 20px 0px;
+  padding: 20px 10px 0px 0px;
 }
 
 /* Sidebar */
