@@ -40,6 +40,10 @@ hr {
     margin: 1.5em 0;
 }
 
+a {
+  color: #449999;
+}
+
 a:link, a:visited {
   font-family: ProximaNova-Regular, "proxima-nova", "Maven Pro", sans-serif;
   color: #15c;
@@ -47,6 +51,7 @@ a:link, a:visited {
 
 a:hover, a:focus, a:active {
   text-decoration: underline;
+  color: #49B7E2;
 }
 
 blockquote {
@@ -291,12 +296,20 @@ code {
     /*max-width: 1000px;*/
     /*  margin-left: 245px;*/
 }
+#search input {
+  border-radius: 28px;
+  width: 100%;
+  padding:  5px 10px;
+}
+#mkdocs-search-results {
+  margin-top: 30px;
+}
 
 /* Sidebar */
 
 #sidebar {
     padding-top: 30px;
-    padding-left: 0px;
+    padding-right: 0px;
 }
 
 #sidebar a {
@@ -307,20 +320,12 @@ code {
 }
 
 #sidebar .tocbar {
-  position: fixed;
   border: solid 1px #dbdde0;
   border-radius: 4px;
   background-color: #fff;
   padding: 10px;
-  padding-right: 0px;
   z-index: 10;
   max-height: 50%;
-  overflow-y: scroll;
-}
-
-#sidebar .tocbar.stick {
-  position: absolute;
-  bottom: 0px;
 }
 
 #sidebar .tocbar a:hover {
@@ -329,7 +334,7 @@ code {
 
 #sidebar .tocbar a {
     padding: 7px 14px;
-    color: #b7410e;
+    color: #2e2e2c;
     font-weight: 600;
 }
 
@@ -361,68 +366,11 @@ code {
     }
 }
 
-/* tocbar accordion */
-#side-nav li ul {
-  display: none;
-}
-
 /* Mainbar */
 
 #mainbar {
   padding-top: 26px;
   padding-right: 0px !important;
-}
-
-#mainbar .searchbar {
-    margin-bottom: 17px;
-}
-
-#mainbar .searchbar #gsc-iw-id1 {
-    height: 28px;
-}
-
-#mainbar .searchbar input#gsc-i-id1,
-#mainbar .searchbar input#gsc-i-id1:hover,
-#mainbar .searchbar input#gsc-i-id1:focus {
-    color: #777 !important;
-}
-
-#mainbar .searchbar input.gsc-search-button,
-#mainbar .searchbar input.gsc-search-button:hover,
-#mainbar .searchbar input.gsc-search-button:focus {
-    border-color: #F3F3F4;
-    background-color: #449999;
-    background-image: inherit;
-    box-sizing: content-box;
-}
-
-#mainbar .searchbar td.gsc-search-button {
-    padding-top: 3px;
-}
-
-#mainbar .searchbar .gsc-branding {
-  display: none !important;
-}
-
-#mainbar .gsc-result-info {
-    margin-top: 14px;
-    margin-bottom: 8px
-}
-
-#mainbar .gsc-thumbnail-inside {
-  padding-left: 0px !important;
-}
-
-#mainbar .gsc-url-top {
-  padding-left: 0px !important;
-}
-
-#mainbar .gsc-selected-option-container {
-  padding-right: 62px !important;
-}
-
-#mainbar .gsc-result-info {
-  padding-left: 0px !important;
 }
 
 /* Content */
