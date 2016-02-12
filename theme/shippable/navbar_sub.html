@@ -1,16 +1,14 @@
-<div class="container">
-  {% if not section.children %}
-  <li {% if section.active %}class="active"{% endif %}>
-      <a href="{{ section.url }}">{{ section.title }}</a>
-  </li>
-  {% else %}
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">{{ section.title }}</a>
-    <ul class="dropdown-menu">
-      {% for section in section.children %}
-      {% include "navbar_sub.html" %}
-      {% endfor %}
-    </ul>
-  </li>
-  {% endif %}
-</div>
+{% if not section.children %}
+<li {% if section.active %}class="active"{% endif %}>
+    <a href="{{ section.url }}">{{ section.title }}</a>
+</li>
+{% else %}
+<li class="dropdown-submenu">
+  <a tabindex="-1" href="">{{ section.title }}</a>
+  <ul class="dropdown-menu">
+    {% for section in section.children %}
+    {% include "navbar_sub.html" %}
+    {% endfor %}
+  </ul>
+</li>
+{% endif %}
