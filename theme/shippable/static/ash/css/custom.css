@@ -1,5 +1,10 @@
 /* Elements */
 
+@media (min-width: 1200px) {
+  .container {
+    max-width: 980px;
+  }
+}
 body {
     color: #58595b;
     font-size: 15px;
@@ -297,6 +302,10 @@ code {
 }
 
 /* Article */
+/* adjust for fixed navbar in anchors */
+h2:target, h3:target {
+  padding-top: 20px;
+}
 #article {
   margin-top: 100px;
   /*max-width: 1000px;*/
@@ -304,12 +313,12 @@ code {
 }
 /* Mainbar */
 #mainbar {
-  padding-top: 10px;
+  padding: 20px 10px 0px 0px;
 }
 
 /* Sidebar */
 #sidebar {
-  padding-right: 0px;
+  padding: 0px;
 }
 #sidebar a {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -324,6 +333,7 @@ code {
   border-radius: 4px;
   background-color: #fff;
   padding: 10px;
+  padding-top: 20px;
   z-index: 10;
   max-height: 50%;
 }
