@@ -9,7 +9,7 @@ All build configuration happens through shippable.yml which should be present at
 ##shippable.yml structure
 
 At a high level, the yml structure for CI is as shown below, along with an explanation of what belongs in each section. 
-<img src="../images/ci_yml_structure.png" alt="Account Settings Subscription" style="width:800px;"/>
+<img src="../images/ci_yml_structure.png" alt="Account Settings Subscription" style="width:700px;"/>
 
 To get started, you can copy the following structure into your shippable.yml and then customize it based on instructions in the sections below.
 
