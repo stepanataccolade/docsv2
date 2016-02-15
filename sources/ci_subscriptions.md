@@ -2,17 +2,17 @@ page_title: Shippable CI/CD Dashboard
 page_description: Explanation of the CI/CD Dashboard
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml
 
-#Subscriptions
+#CI dashboard	
 A subscription on Shippable corresponds to an individual or organizational subscription on GitHub/Bitbucket. Your pricing plans are enforced at this level, so you need to determine your minion needs for each subscription.
 
-To get to the Subscription page,
+To get to the CI dashboard,
 
 - Login to [Shippable](https://app.shippable.com)
-- Click on the CI dropdown and select the subscription you want to view.
-- This will bring you to Dashboard of the subscription.
+- Click on the `Subscriptions` dropdown and select the subscription you want to view.
+- This will bring you to the CI tab which shows you the latest status for your projects.
 
-## Dashboard
-The Subscription Dashboard shows you the latest status of all enabled projects. You can also view in progress builds and build history.
+## Status
+The `CI` tab of your Subscription page shows you the latest status of all enabled projects. You can also view in progress builds and build history.
 
 <img src="../images/subscription_dashboard.png" alt="Subscription Dashboard" style="width:800px;"/>
 
@@ -29,11 +29,11 @@ You can also see how many minions are being used at the current time by looking 
 
 ## Project actions
 
-You can enable projects and trigger manual builds from the subscription dashboard.
+You can enable projects and trigger manual builds from the CI tab of the Subscription page.
 
 ###Enabling a project
 
-You can enable a project for CI by going to the subscription dashboard and clicking on the `Enable Project` button on the right. 
+You can enable a project for CI by going to the clicking on the `Enable Project` button. 
 
 <img src="../images/project_dashboard_list.png" alt="Dashboard List Page" style="width:800px;"/>
 
@@ -104,22 +104,7 @@ The Deployment key section shows the SSH public key associated with your Shippab
 
 Our How To guides provide instructions on how to enable continuous deployment to different providers.
 
-### Resetting your subscription
+### Resetting your CI projects
 Resetting a subscription recreates all webhooks and deployment keys for your subscription. This should only be done if your subscription is in an inconsistent state and you need to restore it. Please note that you will need to re-encrypt all environment variables for your subscription after resetting it.
 
 
-## Billing
-You can view and manage your pricing plan and number of minions by clicking on the `Billing` tab on the Subscriptions page.
-
-### Upgrade your plan
-You should upgrade your subscription for the following 2 reasons:
- 
- * Your builds need bigger minions than the one in your free plan. All paid minions come with 2 cores, 3.75GB RAM (as opposed to 1 core, 2GB RAM with the free plan)
- * Your team is growing and your builds are frequently queued as a result, which means your developers wait longer to get build results. Buying more minions will enable parallel execution of builds and reduce queuing time.  
-
-To buy more build minions, simply slide the slider to the number of minions you need. Choose a credit card, or Enter your credit card and click on `Buy`.
-
-We will charge your credit card immediately and send you an invoice. You can also view past invoices on this page.
-
-### Downgrade your plan
-You can downgrade your plan at any time by moving the slider to the number of minions you need. Please note that any minion count changes due to your plan downgrade will be effective immediately and you will not receive a partial or prorated refund if you make this change in the middle of a billing cycle. Your new price will be reflected in your next invoice.

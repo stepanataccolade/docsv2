@@ -51,6 +51,33 @@ After you have a cluster on GKE, follow the steps below to create your environme
 
 You have created your environment and you're now ready to start creating your pipelines. 
 
+### Creating an environment using an Amazon ECS cluster
+
+To create an environment on Shippable, you must first create a cluster using your AWS Management Console or supplying us with a configuration file in a supported format.
+
+Instructions for creating a cluster on Amazon's ECS can be found in their documentation. Some useful links to get started are: 
+[Amazon EC2 Container Service overview](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)
+[Amazon ECS clusters](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_clusters.html)
+
+After you have a cluster, follow the steps below to create your environment:
+
+* Create an account integration: Follow our [instructions on how to add an Amazon ECS account integration](int_container_services.md#ecs-integration). This will save your access ID and secret keys in your account integrations on Shippable. 
+
+* Go to your Subscription page on Shippable where you want to set up your deployment pipelines. You can get to your Subscription by going to the [Shippable home page](https://app.shippable.com), clicking on the `Subscriptions` dropdown and selecting your subscription.
+
+* On your Subscription page, click on the `Pipelines` tab and then click on `Add environment`
+
+* Name your environment. In the `Deployment integration` dropdown, choose the cluster you just created and click on `Confirm`.
+
+* In the `Cluster Source` section that shows up, select the `Choose an existing cluster` radio button. 
+
+* In the `Cluster` section, select your ECS cluster from the dropdown. If you cannot see your cluster, you can click on `Sync` and check the dropdown again. 
+
+* Click on `Confirm`.
+
+* Click on `Done`. This will return you to your Pipelines status page.
+
+You have created your environment and you're now ready to start creating your pipelines. 
 
 
 ## Creating a Pipeline

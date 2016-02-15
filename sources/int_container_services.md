@@ -8,7 +8,8 @@ Shippable Deploy lets you easily deploy your Dockerized applications to popular 
 
 You will first ned to configure an account integration with your credentials and/or keys in order to interact with these services using Shippable Deploy.
 
-## Amazon ECS
+<a name="ecs-integration"></a>
+## Amazon E2 Container Service
 
 To deploy applications to Amazon ECS, you need to configure an AWS account integration with credentials to access the ECS instance.
 

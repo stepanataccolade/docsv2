@@ -6,72 +6,73 @@ page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deplo
 
 You can get to your account settings by clicking on the gear icon in the top navigation bar when you are logged in to Shippable. 
 
-You will land on the Settings tab.
+You will land on the Accounts tab.
 
-TODO: Update all screenshots for settings
 
 ##Settings
 
 ### Account Information
 
-**ID:** This is your account id within Shippable. This is the id that is linked to any access tokens you create or credit cards you add to your account.
+**ID:** This is your Shippable account id. 
 
-**Force Sync:** We periodically sync account info with GitHub and Bitbucket. Use this button to sync your account if you would like to see any changes made upstream immediately. Example: You have been added to a new subscription as an owner/collaborator; you have new repos in github and want to see it immediately; you linked your bitbucket account to this account and want to see your bitbucket repositories right away.
+**Synchronize** We periodically sync your Shippable account with your source control provider. This section will show you the last time your account was synced.
 
-![account_settings_sync](images/account_settings_sync.gif)
+You can use the `Sync` button to sync your account at any time if you want to see any changes immediately. Example: You are added to an organization on GitHub as an owner/collaborator, or  you have new repos in GitHub and want to see them immediately, or you linked your Bitbucket account to this account and want to see your Bitbucket repositories right away.
 
-### GitHub Identity
+<img src="../images/account_settings_account_info.png" alt="Github and Bitbucket identities" style="width:400px; margin:0px auto; display:block"/>
 
-If you are using a GitHub Account to log in, this displays the GitHub user settings.
 
-**Public On:** This indicates that we have access to your Public Repos in GitHub. This is turned on by default, since signing into Shippable requires you to authorize this access on GitHub.
+### Default email address
+This is the default email address where we sent build status and deployment pipeline status notifications. When you sign up, we set to the primary email address of the source control provider account you use to sign in to Shippable.
 
-**Private On/Off:** This indicates whether Shippable has access to your Private Repos. This is a **one-way** toggle button. This needs to be turned on for Shippable to run any builds on repos that are private on GitHub. Once you turn it on, it is not possible to turn OFF access to Private repos.
+You can override this default by clicking on the `Edit` button and entering a new email address. You will start receiving all subsequent notifications at the address you configured. 
+Please note that once you change this, you cannot undo this action. 
 
-If you are using a Bitbucket Account to log in, you will see an option to `Link GitHub` here. You can use this to connect both your accounts to get a consolidated view of all your projects in one Shippable Account.
+### Git Identities
 
-Read our guide on [linking GitHub and Bitbucket Accounts](link_gh_and_bb) for more details.
+This sections hows you which source control identities are connected to your Shippable account. You can connect both GitHub and Bitbucket accounts to one Shippable account and get a consolidated view of all your projects.
 
-![account_info](images/account_info_gh.gif)
+<img src="../images/account_settings_git_identities.png" alt="Github and Bitbucket identities" style="width:400px; margin:0px auto; display:block"/>
 
-### Bitbucket Identity
+**GitHub**
 
-If you are using a Bitbucket Account to log in, this displays your bitbucket user profile and access settings.
+If you signed in using your GitHub account, your GitHub identity will either be: (public) or (public and private)
 
-**All Repos ON:** Bitbucket does not separate public and private repo access, so this is turned on by default when you sign in and authorize Shippable to access Bitbucket.
+(public) means that we have permissions to your public Repos but not your private repos. This is the default setting since signing in to Shippable requires you to authorize this access on GitHub.
 
-If you are using a GitHub Account to log in, you will see an option to `Link Bitbucket` here. You can use this to connect both your accounts to get a consolidated view of all your projects in one Shippable Account.
+(public and private) means that Shippable has access to your public and private repos. You need to enable this if you want to build private repositories.
 
-Read our guide on [linking GitHub and Bitbucket Accounts](link_gh_and_bb) for more details.
+The `Enable` button is a one way toggle - once you enable private repository permissions, you cannot revert back to just public repository permissions using the Shippable UI. 
 
-### Visibility of private forks
+Even if you use Bitbucket credentials to sign in, you can click the `Enable` button for your GitHub identity to connect your GitHub account. This will give you a consolidated Shippable account where you can build projects from both source control providers and also set up deployment pipelines.
 
-**Show Private Forks:** If you would like to track forks from your repo (you must be an owner of the repo), then set this to ON. This is OFF by default.
+**Bitbucket**
 
-![misc_settings](images/misc_settings.gif)
+If you signed in using your Bitbucket Account, your Bitbucket identity will be shown in this section. Bitbucket does not support granular permissions to public and private repo access, so access for both is turned on by default when you sign in and authorize Shippable to access Bitbucket.
+
+Even if you use GitHub credentials to sign in, you can click the `Enable` button for your Bitbucket identity to connect your Bitbucket account. This will give you a consolidated Shippable account where you can build projects from both source control providers and also set up deployment pipelines.
+
 
 ### API Tokens
 
 This is where you generate, view and manage access tokens to use our [API](api.md).
 
-- Click on the ![add_icon](images/add_icon.gif) to create a new token.
-- Enter a name for your token
-- Click `Confirm`
-- Remember to copy the token. For security reasons, the token will never be displayed again.
-- To delete a token, click on the _delete_ icon next to your token name
+Enter a token name and click on `Add` to create a new token. Remember to copy the token. For security reasons, the token will never be displayed again.
 
-![api_tokens](images/api_tokens.gif)
+To delete a token, click on the `Delete` button next for the token you want to delete.
 
-> **Note**
->
-> NEVER commit code containing your API token to a public repository.
-> Doing so will compromise the security of your Shippable account. Treat
-> your API token like a password
+<img src="../images/account_settings_api_token.png" alt="Github and Bitbucket identities" style="width:700px;"/>
+
+**Please remember to keep your token safe and do not share it with anyone.** If anyone gets access to your token, they will be able to make API calls on your behalf and compromise the security of your Shippable account. Treat your API token like a password.
 
 
 ### Delete Account
 
-Clicking on this will delete all account data, project data, build data and formation data from our systems.
+The `Delete` button lets you delete your Shippable account. You will need to confirm that you want to delete all dependencies like enabled projects, account integrations, etc.
+
+Your account will be deleted immediately if you choose to complete this action. 
+
+Please note that deleting your account does not delete Organization subscriptions since these are shared by multiple users. If you sign in to Shippable again at a future time, you will still see projects and builds for organizational subscriptions. If you want to stop using Shippable for organizations, you can always revoke access in your GitHub account settings.
 
 --------
 

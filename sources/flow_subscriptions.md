@@ -2,29 +2,14 @@ page_title: Shippable CI Billing
 page_description: How to update Subscription CI Plan and add more containers
 page_keywords: ci billing, add containers, subscription settings, CI/CD, shippable CI, documentation, shippable, config, yml
 
-# Flow Subscriptions
+# Subscriptions
 
-A Shippable Flow subscription is required for each environment you want to provisiona nd manage using Shippable. For example, if you run 2 Test environments, one Beta, and one Production environment, you will need 4 subscriptions.   
+A Shippable Flow subscription is required for each environment you want to provision and manage using Shippable. For example, if you run 2 Test environments, one Beta, and one Production environment, you will need 4 subscriptions.   
 
 You do not have any Flow subscriptions by default. You will need to add each one as described in the sections below. Flow plans and pricing are explained in the [Plans and Pricing section](gs_plans.md)
 
 
-##Adding a new subscription
-You can add a new Flow subscription as follows:
- 
-- Login to [Shippable](https://app.shippable.com)
-- Click on the `Flow` dropdown and select `Add subscription`
-- This will take you to the Subscription Plan page.
-    - Choose a name for your subscription. Ideally, the name should make it obvious what environment will be configured in this subscription. For example, `Test1`, `Test2`, `Beta` are good names.
-    - Choose the amount of memory you need for your environment. This will be a total of all memory you need across all services in your application. Please note our free plan gives you 2GB and you will need a credit card for any memory you choose to buy beyond that.
-- If you choose more than 2GB memory, you will need to choose an existing credit card or enter a new one.
-- Enter your billing email address.
-- Click on `Start your 30 day free trial`.   
-
-You will now be redirected to your `Settings` page for the subscription. Further instructions are in our [Flow configuration section](flow_configure.md)
-
-
-##Subscription dashboard
+##Pipelines dashboard
 You can view the status of all services in your application environment on the subscription dashboard. Your can navigate to your dashboard by clicking on the `Status` tab of your Flow subscription.
 
 The top of your `Status` page shows you how much RAM is currently being used in your subscription. As you add services or scale existing services, you will need more RAM at some point. You can add RAM to your subscription by following instructions in the section below on [Upgrading your plan](#Billing).
@@ -58,25 +43,5 @@ We will charge your credit card immediately and send you an invoice.
 ### Downgrade your plan
 You can downgrade your plan at any time by moving the slider to the amount of RAM you need. Please note that any RAM changes due to your plan downgrade will be effective immediately and you will not receive a partial or prorated refund if you make this change in the middle of a billing cycle. Your new price will be reflected in your next invoice.
 
-## Teams and access
-Since Flow subscriptions aren't tightly coupled with your source control, you need to set up teams and grant access to your subscriptions from the Shippable UI.
 
-We support 2 roles:
 
-- **owner** can perform all possible actions for a subscription such as upgrade/downgrade plan, adding/removing team members, and adding/managing/deploying services.
-- **collaborator** can only deploy services and view provisioning and deployment history.
-
-To grant someone access to your subscription, you should:
-
-   - Click on the `Teams` tab on the Subscription dashboard
-   - In the `User search` box, enter the GitHub or Bitbucket username of the person you wish to add and click on `Find`
-   - You can choose which role you want to assign to the person by selecting `owner` or `collaborator` in the dropdown. They will be added to the team immediately and they will now see the Flow subscription in the dropdown on their Shippable landing page.
-   
-   <img src="../images/flow_permissions.png" alt="Subscription Dashboard" style="width:800px;"/>
-   
-To remove access to your subscription, you can select `none` from the dropdown for the user and they will be removed from your team.
-
-## Deleting your subscription
-You can go to the `Billing` tab at any time and click on `Delete` in the `Delete subscription` section at the bottom. You will be asked to confirm the action before we go ahead and delete all your subscription data.
-
-This action is not reversible, so please make sure you really want to delete your Flow subscription.
