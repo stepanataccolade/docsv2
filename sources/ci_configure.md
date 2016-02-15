@@ -17,10 +17,11 @@ To get started, you can copy the following structure into your shippable.yml and
 #set your language below
 language: python
 
-#set language version
+#set language version. This is only required if you use the default Shippable image for your build
 python:
     - 2.7
 
+#specify which services you need. This is only valid if you use the default Shippable image for your build
 services:
     
 env:
@@ -79,7 +80,7 @@ The following language tags are supported at this time:
 
 ```scala```
 
-You can set the language and runtime as shown below for Node.js projects
+You can set the language and runtime as shown below. Example is for node.js projects.
 
 ```
 language: node_js
@@ -92,6 +93,8 @@ Please note that you can specify language versions as number or string, i.e. as 
 
 Specific examples for each language are in our [Language guide](ci_languages.md)
 
+## Preparing your environment
+The `pre_ci` section lets you prepare your environment before your CI container is booted up. This could include building the docker image you want to use for CI, installing dependencies that your container needs, etc.
 
 <a name="build_images"></a>
 ## Setting your build image
@@ -130,7 +133,7 @@ If you want to build your Docker image as part of your workflow for each CI run,
 
 ```
 pre_ci:
-    docker build -t myImage:tip .
+    - docker build -t myImage:tip .
 
 pre_ci_boot:
     image_name: myImage
@@ -202,8 +205,6 @@ In general, follow the guidelines below to write the `ci` section:
 * Next, include commands for your builds and tests. This could be something like `- nosetests python/sample.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml` for a python project.
 
 Depending on the whether your `ci` section is successful or not, the `on_success` or `on_failure` sections will be executed. You can include post build actions depending on your build result in these sections.
-
-A sample ci section is shown below:
 
 TODO: Complete this with a real world example
 

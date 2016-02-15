@@ -18,6 +18,17 @@ To deploy applications to Amazon ECS, you need to configure an AWS account integ
 4. Enter your access and secret keys provided by AWS. [See here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) for info on how to generate them. 
 5. Click `Save`
 
-You can now use this integration to set up a Shippable Deploy account and manage your ECS clusters.
+You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters. For more information on this, please check out our [Deployment pipelines section](flow_overview.md)
 
-TODO: GKE and Red Hat Openshift 3.
+<a name="gke-integration"></a>
+## Google Container Engine (GKE)
+
+To deploy applications to GKE, you need to configure an account integration with credentials to access your GKE account.
+
+* Go to your Google Cloud Platform (GCP) Console. Create a new Service account by following the instructions in Google's documentation for [Generating a service account credential](https://cloud.google.com/storage/docs/authentication#service_accounts) and generate a private key in JSON format. 
+* Copy the JSON key you generated for your Service account.  
+* Sign in to Shippable and go to your [Account Settings](https://app.shippable.com/accountSettings). Click on the `Integrations` tab.
+* Click on `Add Integration`. Choose `Google Container Engine`, name your integration, and paste your JSON key. 
+* Click `Save`
+
+You can now use this integration to set up your Environment and Deployment Pipelines on your GKE clusters. For more information on this, please check out our [Deployment pipelines section](flow_overview.md)

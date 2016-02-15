@@ -33,7 +33,6 @@ pages:
 - CD Pipelines:
   - Overview: flow_overview.md
   - Subscriptions: flow_subscriptions.md
-  - Application infrastructure: flow_infrastructure.md  
   - Configuring your services: flow_configure.md
   - Deploying and managing applications: flow_manage.md
   - Moving across clouds: flow_clouds.md
