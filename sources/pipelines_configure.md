@@ -47,7 +47,7 @@ After you have a cluster on GKE, follow the steps below to create your environme
 * Click on `Done`. This will return you to your Pipelines status page.
 
 
-<img src="../images/pipelines_add_gke_env.png" alt="Adding a GKE cluster to Shippable" style="width:800px; margin:0px auto; display:block"/>
+<img src="../images/pipelines_add_gke_env.png" alt="Adding a GKE cluster to Shippable" style="width:700px; margin:0px auto; display:block"/>
 
 You have created your environment and you're now ready to start creating your pipelines. 
 

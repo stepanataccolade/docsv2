@@ -9,7 +9,7 @@ Shippable Deploy lets you easily deploy your Dockerized applications to popular 
 You will first ned to configure an account integration with your credentials and/or keys in order to interact with these services using Shippable Deploy.
 
 <a name="ecs-integration"></a>
-## Amazon E2 Container Service
+## Amazon EC2 Container Service
 
 To deploy applications to Amazon ECS, you need to configure an AWS account integration with credentials to access the ECS instance.
 
@@ -19,7 +19,7 @@ To deploy applications to Amazon ECS, you need to configure an AWS account integ
 4. Enter your access and secret keys provided by AWS. [See here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) for info on how to generate them. 
 5. Click `Save`
 
-You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters. For more information on this, please check out our [Deployment pipelines section](flow_overview.md)
+You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters. For more information on this, please check out our [Deployment pipelines section](pipelines_overview.md)
 
 <a name="gke-integration"></a>
 ## Google Container Engine (GKE)
@@ -32,4 +32,4 @@ To deploy applications to GKE, you need to configure an account integration with
 * Click on `Add Integration`. Choose `Google Container Engine`, name your integration, and paste your JSON key. 
 * Click `Save`
 
-You can now use this integration to set up your Environment and Deployment Pipelines on your GKE clusters. For more information on this, please check out our [Deployment pipelines section](flow_overview.md)
+You can now use this integration to set up your Environment and Deployment Pipelines on your GKE clusters. For more information on this, please check out our [Deployment pipelines section](pipelines_overview.md)

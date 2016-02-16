@@ -24,7 +24,7 @@ You will need to configure this integration to pull or push images to Docker Hub
 
 <img src="../images/docker_integration.png" alt="docker integration" style="width:800px;"/>
 
-The integration will now be available to all your CI and Deploy workflows.
+The integration will now be available to all your continuous integration and deployment workflows.
 
 --------
 
@@ -38,7 +38,7 @@ You will need to configure this integration to pull or push images to Amazon ECR
 11. Enter your aws_access_key_id and aws_secret_access_key. You can follow instructions in [Amazon's guide for Creating and Managing access keys](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)  
 12. Click on `Save`
 
-The integration will now be available to all your CI and Deploy workflows.
+The integration will now be available to all your continuous integration and deployment workflows.
 
 
 --------
@@ -68,7 +68,7 @@ On your [Shippable dashboard](https://shippable.com):
 
 <img src="../images/gcr_integration.png" alt="gcr integration" style="width:800px;"/>
 
-The integration will now be available to all your CI and Deploy workflows.
+The integration will now be available to all your continuous integration and deployment workflows.
 
 --------
 
@@ -84,7 +84,7 @@ You will need to configure this integration in order to pull or push images to Q
 
 <img src="../images/quay_integration.png" alt="Quay integration" style="width:800px;"/>
 
-The integration will now be available to all your CI and Deploy workflows.
+The integration will now be available to all your continuous integration and deployment workflows.
 
 --------
 
@@ -98,6 +98,6 @@ You will need to configure this integration in order to pull or push images from
 5. Enter the URL of your private registry and your credentials
 6. Click on `Save`
 
-The integration will now be available to all your CI and Deploy workflows.
+The integration will now be available to all your continuous integration and deployment workflows.
 
 ------------

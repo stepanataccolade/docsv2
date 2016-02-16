@@ -61,7 +61,7 @@ You should Shippable to set up your Continuous Delivery pipelines if you fit the
 * You are not using Docker in production but are interested in containerizing your Test environments.  
 * You run (or want to run) functional tests for every code commit
 
-Go to [the CD Pipelines section](flow_overview.md) to learn more.
+Go to [the CD Pipelines section](pipelines_overview.md) to learn more.
 
 In addition, we also have a cool tool called **Lighthouse** that lets you monitor any Docker images you depend on and be notified when they change. This helps avoid situations where your images no longer work due to changing dependencies. 
 
