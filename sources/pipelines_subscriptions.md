@@ -2,46 +2,49 @@ page_title: Shippable CI Billing
 page_description: How to update Subscription CI Plan and add more containers
 page_keywords: ci billing, add containers, subscription settings, CI/CD, shippable CI, documentation, shippable, config, yml
 
-# Subscriptions
+# Pipelines
+A pipeline is the lifecycle for a unit of deployment, aka 'cell'. The `Pipelines` tab on your Subscription page is the entry point to view and manage your pipelines.
 
-A Shippable Flow subscription is required for each environment you want to provision and manage using Shippable. For example, if you run 2 Test environments, one Beta, and one Production environment, you will need 4 subscriptions.   
+##Pipelines status
 
-You do not have any Flow subscriptions by default. You will need to add each one as described in the sections below. Flow plans and pricing are explained in the [Plans and Pricing section](gs_plans.md)
+You can view the status of all your pipelines for a Subscription by clicking on the `Pipelines` tab of your subscription page. 
 
+<img src="../images/pipelines_status.png" alt="Subscription Dashboard" style="width:700px;"/>
 
-##Pipelines dashboard
-You can view the status of all services in your application environment on the subscription dashboard. Your can navigate to your dashboard by clicking on the `Status` tab of your Flow subscription.
+The top of your Pipelines Status page shows you how many pipelines you're using and how many are available in your subscription plan. As you get closer to your plan limit, the text color will change to red so you are aware that it's time to add pipelines to our plan.
 
-The top of your `Status` page shows you how much RAM is currently being used in your subscription. As you add services or scale existing services, you will need more RAM at some point. You can add RAM to your subscription by following instructions in the section below on [Upgrading your plan](#Billing).
+You will also see a visual status of all pipelines for your application in the `Pipeline Status` section, which shows the information described in the sections below. 
 
-You will also see the status of all services in your application environment. For each service, you'll see-
+### Projects
+The **Projects** that trigger your pipeline are shown on the left. If you enable these projects for Continuous Integration, you will see the latest build number. On hovering over this element, you see the following additional information:
+- Latest build number
+- Date/Time the last build was completed
+- The Builder whose commit triggered the build
+- the commit message for the build. 
 
-- The service name, version, and status. Status can be `Running` denoted by green, or `Stopped` denoted by grey. The `Starting` status is shown by blue.
-- Date and time when service was last started and by whom. For environments that are set to auto-deploy, you will see the string 'Started by Auto Deploy'
-- Number of images, replicas, and configs in the service. 
-    - A service can include one or more images. Since a service is the unit of deployment, all images in a service are deployed together on the same machine when any one of them changes.    
-    - Replicas provide a way of scaling a service up and down by running any number of instances as desired.
-    - Service config includes environment configuration. Typically, these are URLs, tokens, and other key value pairs that are required for the application.
-- On clicking on the `...` for a service, the widget will expand to show you additional information about images and environment configuration as shown below.
+Clicking on the project name takes you to the project page.
 
-<img src="../images/service_widget.png" alt="Subscription Dashboard" style="width:800px;"/>    
+### Pipeline
+The **Pipeline** column shows you the pipeline name and latest cell version available for deployment. On hover, you'll see the following additional information:
+- Date/Time this cell version was created
+- The images and tags that are part of this cell version. If you're tagging your images with the recommended tags of $BRANCH.$BUILD_NUMBER, your image and tag will look something like manishas/api:master:45
+
+Clicking on the pipeline name will take you to the `Settings` page for the pipeline.
+
+### Environment
+The next column is your **environment name** and the status of your cell deployed in that environment. This includes:
+- An indicator that shows the current status of the cell deployed to that environment. This can be `Green` to indicate that the cell is deployed, `Red` to indicate that the cell couldn't be deployed due to errors, `Yellow` to indicate that the cell was stopped, and `Gray` to indicate that the cell was never deployed.   
+- The cell version deployed. This gives you an immediate idea of how far behind your deployment is compared to the latest cell version.
+    
+On hover, you see the following additional information:
+- The number of replicas of the cell running in the environment
+- Date/Time of current deployment
+- Number of environment configurations
+- Images and tags that are part of this deployment, along with number of ports and mounts for each.
+
+Clicking on the environment name takes you to the `Settings` page for that environment. Clicking on the cell name takes you to the `Status` page of the cell deployed to the environment. This is described in more detail in TODO: Add link.
   
-You can stop a service by clicking on the `Stop` button for it.
+##List of Pipelines 
+Under the `Pipeline Status` section is the list of pipelines configured in your subscription. You can select any of them and the corresponding pipeline in the section above will be highlighted so you can easily see the status.
 
-## Billing
-
-You can view and manage your plan by clicking on the `Billing` tab on the Subscriptions page. 
-
-### Upgrade your plan
-
-You should upgrade your subscription if you need more memory to run your application. 
- 
-To buy more RAM, simply slide the slider to the amount of RAM you need. Choose a credit card, or Enter your credit card and click on `Buy`.
-
-We will charge your credit card immediately and send you an invoice.
-
-### Downgrade your plan
-You can downgrade your plan at any time by moving the slider to the amount of RAM you need. Please note that any RAM changes due to your plan downgrade will be effective immediately and you will not receive a partial or prorated refund if you make this change in the middle of a billing cycle. Your new price will be reflected in your next invoice.
-
-
-
+You can also click on the `Settings` button for a pipeline to go to the Settings for the pipeline. 

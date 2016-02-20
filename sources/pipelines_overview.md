@@ -20,9 +20,9 @@ As seen in the picture above, Continuous Integration gives you the ability to ru
 
 You should use Shippable Deployment pipelines for the following reasons:
 
-**Unified delivery pipeline** You get a unified software delivery pipeline from source control to production with full visibility of a single commit from source control through CI through several test environments and finally production. No other platform comes close to this level of traceability.
-
 **Easy setup** Setup is quick and simple since all configuration is driven through a declarative yml format. Unlike other infrastructure/IT automation tools, you do not need to write any code or scripts to set up your pipeline. Plus, your yml is versioned so you can go back and forth as you wish!
+
+**Unified delivery pipeline** You get a unified software delivery pipeline from source control to production with full visibility of a single commit from source control through CI through several test environments and finally production. No other platform comes close to this level of traceability.
 
 **Cloud Portability** We support all popular Container Services and you can move your application environments between these in just a few minutes. The result? No lock in! 
 
@@ -40,7 +40,7 @@ Your **Beta** environment is a better representation of your production environm
 
 The **Production** environment is your user facing environment and your application is now live to everyone who uses it.
 
-<img src="../images/flow_subscriptions.png" alt="Subscription Dashboard" style="width:800px;"/>
+<img src="../images/flow_subscriptions.png" alt="Subscription Dashboard" style="width:700px;"/>
 
 Using Shippable, your workflow from source control to production will look like this -
 
@@ -55,14 +55,20 @@ Using Shippable, your workflow from source control to production will look like 
 - Release day! You simply push the *approved* service versions to your **Production** environment. As simple as that! 
 
 ## Subscriptions
-Deployment pipelines are available as part of your organizational or personal subscription on Shippable. For every subscription you have, you will see a 'Pipelines' tab on your Subscription page which will let you add and manage your deployment pipelines.
-  
+
+Deployment pipelines are available as part of your organizational or personal subscription on Shippable. Every Subscription will have 'Pipelines' tab on your Subscription page which will let you add and manage your deployment pipelines.
+ 
+You are limited to configuring one environment per subscription today. For example, if you run 2 Test environments, one Beta, and one Production environment, you will need 4 subscriptions. This limitation of one environment per subscription will be removed in the next few weeks and you will be able to create multiple environments in a single subscription.  
+
+By default, you get one free pipeline per subscription. You can add more pipelines as explained in the [Plans and Pricing section](gs_plans.md)
 
 ### What is a Pipeline?
 
-In simple terms, a pipeline is the lifecycle for a unit of deployment. A unit of deployment is always deployed at one time and on the same node. What constitutes a unit of deployment is unique to your case. It can be a microservice, a service, or even your entire application.
+In simple terms, a pipeline is the lifecycle for a unit of deployment, aka 'cell'. A cell is always deployed at one time and on the same node. What constitutes a cell is unique to your case. It can be a microservice, a service, or even your entire application.
 
 A monolithic application is likely to need just one pipeline while a microservices based application might need tens or hundreds of pipelines. Most real world applications lie somewhere in the middle of this spectrum.
+
+<img src="../images/pipeline_status.png" alt="Subscription Dashboard" style="width:700px;"/>
 
 A pipeline is defined by:
 
@@ -72,7 +78,7 @@ A pipeline is defined by:
 - Routing information: If your pipeline needs to be accessible to other internal or external components, it will need some routing information. This includes load balancer, ports, etc.
 - Deployment endpoints or environments: These are the environments you want to deploy this pipeline to. We currently support one deployment endpoint per pipeline, but we're adding support for a series of deployment endpoints very soon. 
 
-Since a pipeline is the lifecycle unit of deployment, all containers configured for a pipeline are always deployed together and on the same machine.
+Since a pipeline is the lifecycle for a cell, all containers configured for the cell are always deployed together and on the same machine.
 
 
 ## Permissions

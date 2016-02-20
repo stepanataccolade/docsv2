@@ -32,10 +32,9 @@ pages:
   - FAQ: ci_faq.md
 - CD Pipelines:
   - Overview: pipelines_overview.md
-  - Subscriptions: pipelines_subscriptions.md
+  - Pipeline Status: pipelines_subscriptions.md
   - Configuring your application: pipelines_configure.md
   - Deploying and managing applications: pipelines_manage.md
-  - Moving across clouds: pipelines_clouds.md
   - Deploy a sample app: gs_deploy_sample.md
   - FAQ: pipelines_faq.md
   - Troubleshooting: pipelines_troubleshoot.md
@@ -45,6 +44,7 @@ pages:
   - Docker registries: int_docker_registries.md
   - Container services: int_container_services.md
   - Notification providers: int_notifications.md
+  - Keys: int_keys.md
 - Tutorials: ht_overview.md
 - API: api.md
 - Lighthouse: lighthouse.md
