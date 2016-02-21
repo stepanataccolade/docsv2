@@ -99,9 +99,9 @@ jdk:
 ```
 
 ### Build Examples
-TODO: Add sample clojure project
+We have a simple Clojure project that you can fork and enable on Shippable to help you get started:
 
-
+[sample_clojure](https://github.com/shippableSamples/sample_clojure)
 
 
 ## Go
@@ -172,9 +172,9 @@ ci:
 ```
 
 ### Build Examples
+We have a simple Go project that you can fork and enable on Shippable to help you get started:
 
-
-
+[sample_go](https://github.com/shippableSamples/sample_go)
 
 ## Java
 
@@ -262,6 +262,9 @@ ci: ant deps
 Save the test output in shippable/testresults and the codecoverage output in shippable/codecoverage folder to get the reports parsed. If the test and codecoverage output is not saved as specified, you will not find the reports in our CI.
 
 ### Build Examples
+We have a simple Java project that you can fork and enable on Shippable to help you get started:
+
+[sample_java](https://github.com/shippableSamples/sample_java)
 
 
 ### Multi-module Maven builds
@@ -415,6 +418,9 @@ if [[ $SHIPPABLE_NODE_VERSION =~ [0].[6-8] ]]; then npm install -g npm@~1.4.6; f
     coverage reports.
 
 ### Build Examples
+We have a simple Node.js project that you can fork and enable on Shippable to help you get started:
+
+[sample_node](https://github.com/shippableSamples/sample_node)
 
 ## PHP
 
@@ -469,8 +475,9 @@ ci:
 > Runs the tests that are provided by the class UnitTest. This class is expected to be declared in the UnitTest.php sourcefile.
 
 ### Sample projects
+We have a simple PHP project that you can fork and enable on Shippable to help you get started:
 
-TODO - update section
+[sample_php](https://github.com/shippableSamples/sample_php)
 
 
 ## Python
@@ -568,7 +575,9 @@ ci:
 > We are setting multiple versions here which means a single push to repo will trigger multiple builds.
 
 ### Sample projects
+We have a simple Python project that you can fork and enable on Shippable to help you get started:
 
+[sample_python](https://github.com/shippableSamples/sample_python)
 
 
 
@@ -705,8 +714,9 @@ ci:
 ```
 
 ### Sample projects
+We have a simple Ruby project that you can fork and enable on Shippable to help you get started:
 
-
+[sample_ruby](https://github.com/shippableSamples/sample_ruby)
 
 
 ## Scala
@@ -765,4 +775,6 @@ sbt ++$SHIPPABLE_SCALA_VERSION test
 ```
 
 ### Sample projects
+We have a simple Scala project that you can fork and enable on Shippable to help you get started:
 
+[sample_scala](https://github.com/shippableSamples/sample_scala)

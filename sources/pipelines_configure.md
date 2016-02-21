@@ -6,6 +6,8 @@ page_keywords: deploy, multi containers, microservices, Continuous Integration, 
 
 This section walks you through the workflow for configuring your application pipelines. We think of pipelines as the flow of your application from source control->ci->image registry->packaging into a deployable unit aka 'cell'->deploy the cell into an environment.
 
+<img src="../images/pipeline_basic_flow.png" alt="Pipelines flow" style="width:700px;"/>
+
 At a high level, you need to follow the steps below:
 
 **Create your environment** You can choose an existing cluster on a supported deployment endpoint or create a new one using a config file in Terraform format.
@@ -20,7 +22,7 @@ An environment on Shippable is a group of machines on which your application wil
 
 Please note that you can currently limited to creating one environment per Subscription.  
 
-### Creating an environment using an existing GKE cluster
+### Using an existing GKE cluster
 
 To create an environment on Shippable, you must first create a cluster using your Google Cloud Platform Console. Instructions for this are given in the Google Container Engine documentation for [Creating a Container Cluster](https://cloud.google.com/container-engine/docs/clusters/operations#creating_a_container_cluster)
 
@@ -47,7 +49,7 @@ After you have a cluster on GKE, follow the steps below to create your environme
 
 You have created your environment and you're now ready to start creating your pipelines. 
 
-### Creating an environment using an existing Amazon ECS cluster
+### Using an existing Amazon ECS cluster
 
 To create an environment on Shippable, you must first create a cluster using your AWS Management Console or supplying us with a configuration file in a supported format.
 
@@ -115,7 +117,7 @@ As an example, here are a couple of screenshots for setting up the [api service 
 
 
 
-## Deploying to a supported endpoint
+## Deploy your Cell
 
 If you have created an environment and a pipeline as described in the sections above, your Pipelines tab on the Subscription page should look like this:
 

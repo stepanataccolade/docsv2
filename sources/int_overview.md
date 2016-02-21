@@ -14,19 +14,17 @@ To start with, you will always need to add an account integration as described b
 
 ##Adding an account integration 
 
-- Click on Settings ()gear icon) in your top navigation bar to navigate to account settings.
+- Click on Settings(gear icon) in your top navigation bar to navigate to account settings.
 
-- Click on the Integrations tab and click on 'Add Integration'
+- Click on the `Integrations` tab and click on 'Add Integration'
 
 - From the dropdown, choose the type of integration you want to add. The relevant fields for that integration will appear below the dropdown
 
-- Enter your information and click on Save.
+- Enter your information and click on `Save`.
 
-The integration should now show up in your Integrations tab. This integration will be available to all your projects and can be used for your CI or Deploy workflows. Further details and examples of how a specific integration is used is available in the section for each integration. 
+The integration should now show up in your 1Integrations1 tab. This integration will be available to all your projects and can be used for your workflows. Further details and examples of how a specific integration is used is available in the section for each integration. 
 
 ## Deleting an account integration
-
-TODO: Update this
 
 To delete an integration:, simply click on the `Delete` button for the integration you want to delete.
  

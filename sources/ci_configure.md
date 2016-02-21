@@ -91,6 +91,8 @@ node_js:
 
 Please note that you can specify language versions as number or string, i.e. as `0.10` or as `"0.10"`. In most cases the format is entirely interchangeable. However, in cases where the version number ends with a 0, such as `5.10`, it is safer to use a string to avoid the yml parser from transating the version to `5.1`.
 
+Setting the runtime only works if you are using our default build images or an image pulled from our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/).
+
 Specific examples for each language are in our [Language guide](ci_languages.md)
 
 ## Preparing your environment
@@ -206,8 +208,16 @@ In general, follow the guidelines below to write the `ci` section:
 
 Depending on the whether your `ci` section is successful or not, the `on_success` or `on_failure` sections will be executed. You can include post build actions depending on your build result in these sections.
 
-TODO: Complete this with a real world example
-
+An example is shown below:
+```
+  ci:
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
+    - npm install
+    - grunt
+    - npm test
+    - mysql -e 'create database if not exists test;'
+```
 
 ## Pushing an image to a registry 
 
@@ -484,29 +494,24 @@ before_install:
 
 ## Using git submodules
 
-TODO: rewrite
-
-Shippable supports git submodules. This is a cool functionality of
-breaking your projects down into manageable chunks. We automatically
-initialize the `.gitmodules` file in the root of the repo.
+Shippable supports git submodules. For big projects, you can break your projects down into manageable chunks and use git submodules to make everything work. We automatically initialize the `.gitmodules` file in the root of the repo.
 
 > **Note**
 >
-> If you are using private repos, add the deploy keys so that our minion
-> ssh keys are allowed to pull from the repo. This can be done via
-> shippable.com
+> If you are using private repos, you will need to add the deploy keys so that our minion
+> ssh keys are allowed to pull from the repo. 
 
-If its your own public repos then do this
+If your submodules are in your own public repos then the following will work:
 
 ```python
 # for public modules use
-git://github.com/someuser/somelibrary.git
+https://github.com/someuser/somelibrary.git
 
 # for private modules use
 git@github.com:someuser/somelibrary.git
 ```
 
-If you would like to turn submodules off completely -
+If you want to turn off submodules completely:
 
 ```yaml
 # for public modules use
@@ -567,7 +572,6 @@ Examples for other languages can be found in our [Code Samples](languages/).
 
 Once you have set this up, you can view your test results in the `Test` tab on your build page.
 
-TODO: Add screenshot for test tab
 
 ### Code Coverage
 
@@ -589,8 +593,6 @@ ci:
 Examples for other languages can be found in our [Code Samples](languages/).
 
 Once you have set this up, you can view your code coverage results in the `Code coverage` tab on your build page.
-
-TODO: Add screenshot for code coverage tab
 
 ---
 
@@ -746,12 +748,9 @@ integrations:
 
 ## Services
 
-Shippable offers a host of pre-installed services to make it easy to run
-your builds. In addition to these you can install other services also by
-using the `install` tag of `shippable.yml`.
+Shippable offers a host of pre-installed services to make it easy to run your builds. In addition to these you can install other services also by using the `install` tag of `shippable.yml`.
 
-All the services are turned off by default and can be turned on by using
-the `services:` tag.
+All the services are turned off by default and can be turned on by using the `services:` tag. Please note that the `services` tag only works if you are using the default image for your builds, or if you're pulling an official image from our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/).
 
 ### MongoDB
 
@@ -1013,7 +1012,7 @@ After you accept the pull request, Shippable will run one more build for the mer
 
 ## Build badge
 
-TODO: how do we do badges?
+This feature is coming soon. You will have the ability to add build badges for your projects on a per branch basis.
 
 * * * * *
 

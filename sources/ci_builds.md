@@ -64,7 +64,7 @@ For each build item in a build, we provide the following:
 * The Script that was run for the build item
 * Download for console logs and, if configured, artifacts
 
-<img src="../images/ci_build_item.png" alt="Build status" style="width:800px;"/>
+<img src="../images/ci_build_item.png" alt="Build status" style="width:700px;"/>
 
 ### Matrix values
 Matrix values show what combination of the yml configuration is being used for the build item. For example, if your yml specifies several versions of a language, the language version for this specific build item is shown.
@@ -75,7 +75,8 @@ The build item console shows the actual console output for your build. Sections 
 ### Test & code coverage tabs
 If you have set up your yml to [show test and code coverage results](ci_configure.md#test_code_coverage), you will the visualizations in the `Test` and `Code coverage` tabs.
 
-TODO: Add picture
+<img src="../images/ci_test_results.png" alt="Build status" style="width:700px;"/>
+
 
 ### Script
 The script section shows you exactly what scripts and commands were run for your build. In case of a build failure or other issues, you can copy the script and run it locally to see if your build works locally. This helps tremendously while debugging build problems.

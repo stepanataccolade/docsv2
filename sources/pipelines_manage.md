@@ -2,21 +2,34 @@ page_title: Shippable Formations Overview
 page_description: Overview of Shippable Formations
 page_keywords: formations,multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
-# Overview
+# Configuring and managing your deployments
+This page will walk you through the different parts of the pipeline and what is configured and managed in each part. It will also explain how you can go back to an earlier or later version of your deployment in one click.
 
-## How do you get here?
+The main parts of deployments are:
 
-- Login to [Shippable](http://shippable.com)
-- On the Landing page, click on **Formations**
-- Select your Formation
+**The Pipeline**
 
-## Formation Status
+**The Cell**
 
-If you are new to Formation, you will get here after you have purchased a Formation plan and you will see this.
+**The Environment**
 
-![formation add](images/add_formation_status.gif)
+##Pipelines
 
-The next step for a new Formation is to add components by going to the [Settings](formation_settings.md)
+###Cell Manifest
 
-If you have existing formations, this is where you can see the status of all the Services Instances deployed by environment.
+###Auto-increment 
+
+###Project triggers
+
+
+##Environments
+
+###Provisioning
+
+
+##Cells
+
+###Cell config
+###Routing
+###Notifications
 

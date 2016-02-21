@@ -39,7 +39,6 @@ The yml is somewhat similar to Travis CI's .travis.yml and most commands work as
 
 When a build is triggered, it is executed in the sequence below -
 
-TODO: Update the build flow
 
 
 ## Permissions

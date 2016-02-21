@@ -22,8 +22,13 @@ or, you can run CI on the default image and build and push your production conta
 ```
 build:
     on_success:
-        docker build -t manishas/prodImage:($BUILD_NUM) 
-        docker push (TODO add credentials) manishas/prodImage:($BUILD_NUM)
+        docker build -t manishas/prodImage:$BRANCH.$BUILD_NUMBER 
+        docker push manishas/prodImage:$BRANCH.$BUILD_NUMBER
+       
+integrations:
+    hub:
+      - integrationName: manishasDockerHub
+        type: docker  
 ```
 
 ##Docker registries integration
@@ -40,15 +45,21 @@ You can push your images to or pull images from any of these registries by confi
 For more on configuring integrations, check out the [Docker registries integration](int_docker_registries.md) docs. For more on how to use the integration in order to push and pull images, check out our [build config docs](ci_configure.md/#Docker) here.
 
 ##Docker compose
-TODO: Update this description and also provide a sample project. Since customer builds now have an 'outside the container' experience, docker compose probably runs in on_success
+Using [Docker compose](https://docs.docker.com/v1.5/compose/) lets you spin up a full topology and test your commits against a live application. This is much more powerful than just unit testing wth stubs and is a great way for developers to find functional bugs before their commits travel farther in the delivery pipeline.
 
-Using Docker compose (TODO: Add link) lets you spin up a full topology and test your commits against a live application. This is much more powerful than just unit testing wth stubs and is a great way for developers to find functional bugs before their commits travel farther in the delivery pipeline.
+You can include a docker-compose.yml in your repository and then use it to spin up your application in any section of the yml. You will need to install `docker compose` on your minion as follows:
+```
+build:
+    post_ci:
+      - sudo pip install -U docker-compose
+      - docker-compose up -d
+      - docker ps
+```
+Please remember to use the `-d` option so that the containers are started in the background and the command exits correctly. Running `docker compose` without the `-d` option will hang your build.
+The `docker ps` command will show you the containers running on your minion. You can now include tests that run against this application.
 
-For an example of how to use Docker compose for functional tests, check out our sample project here. (TODO: Add sample project and linl) 
 
 ##Docker in Test environments and Production
-While Shippable CI provides build related Docker functionality, you need several additional steps before you can deploy an image to your production environment. You might have one or more Test environments where the latest services are fully tested with a functional test suite and some manual testing, followed by beta or prod where you decide on a release candidate, and finally, a production environment which is the final destination for chosen release candidates.
+Shippable provides build related Docker functionality as well as continuous delivery pipelines that you can use to deploy your application to test environments. 
 
-Shippable Deploy gives you an easy way to set up and manage all these environments. Together with Shippable CI, it creates an E2E pipeline for your commits to flow from source control to production.
-
-Check out [Shippable Deploy](d_overview.md) and get started on a free trial!
+Check out our [CD pipelines to learn more](pipeline_overview.md)

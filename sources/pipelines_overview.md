@@ -8,25 +8,20 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 In addition to Continuous Integration, Shippable gives you an easy way to provision, configure, and deploy Dockerized applications to  popular container services like Amazon's EC2 Container Service (ECS) and Google Container Engine (GKE). Support for Microsoft Azure and Red Hat Openshift 3 is in the pipeline and planned for a April 2016 release.
 
-Together with Continuous Integration, this gives you an end to end workflow from source control to production.
-
+With CI and CD Pipelines, you can set up an end to end workflow from source control to production.
 
 <img src="../images/shippable_pipelines.png" alt="Subscription Dashboard" style="width:700px;"/>
-
-
-Note: Support for Microsoft Azure/Red Hat Openshift deployments and GitLab for source control coming up soon. Please send an email to [support@shippable.com](mailto:support@shippable.com) to get more details.
  
-As seen in the picture above, Continuous Integration gives you the ability to run unit tests, basic integration tests, and if required, push your tested container image to any Docker registry. Using our Deployment pipelines, you can then define your Deployable unit and deploy it to your test or production environments running on any Container Service. 
+As seen in the picture above, Continuous Integration gives you the ability to run unit tests, basic integration tests, and if required, push your tested container image to any Docker registry. Using our Deployment pipelines, you can then define your unit of deployment (aka Cell) and deploy it to your test or production environments running on any Container Service. 
 
 You should use Shippable Deployment pipelines for the following reasons:
 
-**Easy setup** Setup is quick and simple since all configuration is driven through a declarative yml format. Unlike other infrastructure/IT automation tools, you do not need to write any code or scripts to set up your pipeline. Plus, your yml is versioned so you can go back and forth as you wish!
+**Easy setup** Setup is quick and simple since all configuration is driven through a simple UI. Unlike other infrastructure/IT automation tools, you do not need to write any code or scripts to set up your pipeline. 
 
 **Unified delivery pipeline** You get a unified software delivery pipeline from source control to production with full visibility of a single commit from source control through CI through several test environments and finally production. No other platform comes close to this level of traceability.
 
 **Cloud Portability** We support all popular Container Services and you can move your application environments between these in just a few minutes. The result? No lock in! 
 
-More on the advantages of using Shippable for deployment are described in our marketing material at TODO: Add link
 
 ## Example use case
 
@@ -58,13 +53,13 @@ Using Shippable, your workflow from source control to production will look like 
 
 Deployment pipelines are available as part of your organizational or personal subscription on Shippable. Every Subscription will have 'Pipelines' tab on your Subscription page which will let you add and manage your deployment pipelines.
  
-You are limited to configuring one environment per subscription today. For example, if you run 2 Test environments, one Beta, and one Production environment, you will need 4 subscriptions. This limitation of one environment per subscription will be removed in the next few weeks and you will be able to create multiple environments in a single subscription.  
+**You are limited to configuring one environment per subscription today.** For example, if you run 2 Test environments, one Beta, and one Production environment, you will need 4 subscriptions. This limitation of one environment per subscription will be removed in the next few weeks and you will be able to create multiple environments in a single subscription.  
 
 By default, you get one free pipeline per subscription. You can add more pipelines as explained in the [Plans and Pricing section](gs_plans.md)
 
 ### What is a Pipeline?
 
-In simple terms, a pipeline is the lifecycle for a unit of deployment, aka 'cell'. A cell is always deployed at one time and on the same node. What constitutes a cell is unique to your case. It can be a microservice, a service, or even your entire application.
+In simple terms, a pipeline is the lifecycle for a unit of deployment, aka 'Cell'. A Cell is always deployed at one time and on the same node. What constitutes a cell is unique to your case. It can be a microservice, a service, or even your entire application.
 
 A monolithic application is likely to need just one pipeline while a microservices based application might need tens or hundreds of pipelines. Most real world applications lie somewhere in the middle of this spectrum.
 

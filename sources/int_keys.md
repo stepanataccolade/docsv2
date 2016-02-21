@@ -18,7 +18,7 @@ To create an account integration for an SSH key, do the following:
 - Enter a name for your key and then click on the `Generate keys` button. This will generate an SSH key for your account.
 - `Save` the generated key.
 
-You will need to add this key to the Settings of every project you want to use it in. Your SSH key will then be availale as an environment variable during your builds. TODO: Add env variable name
+You will need to add this key to the Settings of every project you want to use it in. Your SSH key will then be available in your build minion and you can use ssh commands in your shippable.yml.
 
 ## PEM
 
@@ -30,5 +30,5 @@ To create an account integration for a PEM key, do the following:
 - Enter a name for your key and then paste your key into the textbox labeled `key`.
 - `Save` your key.
 
-You will need to add this key to the Settings of every project you want to use it in. Your PEM key will then be availale as an environment variable during your builds. TODO: Add env variable name
+You will need to add this key to the Settings of every project you want to use it in. Your PEM key will then be available on your build minion and you can use ssh commands in your shippable.yml. 
 

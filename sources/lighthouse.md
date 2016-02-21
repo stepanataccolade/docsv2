@@ -23,20 +23,19 @@ You can check out Lighthouse bu signing in to [Shippab;e](https://app.shippable.
 
 To add an image to Lighthouse and receive notification when the image is updated in the registry, follow the steps below.
 
-TODO: Update all this
-
 1. Create an account integration for the Docker registry where the image is to be monitored. ([Instructions here](int_docker_registries.md))
 2. Create an account integration for the type of notification you want to receive when the image changes. You can set up Slack, IRC, or Email notification. ([Instructions here](int_notifications.md))
 3. Go to your [Lighthouse page](https://app.shippable.com/lighthouse)
 4. Click on `Add image` and complete the following
     * Image Name: `your_repo_name/image_name` (the image from either DockerHub or GCR)  
-    - Integration: The Account Integration Name that you created to connect to the registry  
-    - Click on the `Save` Icon
-    - You will see the `Sync Status` getting updated. If we are successfully able to sync, you will see the status changing to `success`
+    - Hub Integration: The Docker registry integration that has permissions to access this image. You can create a new one if you don't have one already configured in your Account Settings.  
+    - Click on the `Save Image` button
+    - Next, enter the type of notification you want to receive each time the image changes. This can be email, Slack, or IRC. Enter the account integration details.
+    - Click on `Ok`
+    - You will be redirected to the Lighthouse page where you will start seeing status of the image. A `green` indicator shows that we could successfully sync the image and will be able to send notifications when the image changes.
+    
+Images are 'watched' every 20 mins, so your notification will be sent 20 mins after the image is updated, in the worst case.
 
-5. Click on the image_name to go to the Image Details Page
-6. On the **Notification Integrations** section, you will see the list of notification emails you configured within  your account to receive emails in Step 0
-7. Use the toggle button to turn ON the emails that should receive notifications
 
 ## Tags
 
