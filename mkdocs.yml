@@ -17,8 +17,8 @@ pages:
   - What is supported?: gs_supported.md
   - Pricing: gs_plans.md
   - Your Shippable Account: acc_overview.md 
-  - Running a sample build: gs_ci_sample.md
-  - Deploying sample application: gs_deploy_sample.md  
+  - Run a sample CI build: gs_ci_sample.md
+  - Deploy a sample application: gs_deploy_sample.md  
 - C I:
   - Overview: ci_overview.md
   - Subscriptions: ci_subscriptions.md
@@ -33,8 +33,7 @@ pages:
 - CD Pipelines:
   - Overview: pipelines_overview.md
   - Pipeline Status: pipelines_subscriptions.md
-  - Configuring your application: pipelines_configure.md
-  - Deploying and managing applications: pipelines_manage.md
+  - Configuring and managing pipelines: pipelines_configure.md
   - Deploy a sample app: gs_deploy_sample.md
   - FAQ: pipelines_faq.md
   - Troubleshooting: pipelines_troubleshoot.md

@@ -2,43 +2,39 @@ page_title: Running your first sample build
 page_description: Setup up documentation for a sample build
 page_keywords: getting started, build, quick start, documentation, shippable, continous integration
 
-# Running a sample Continuous Integration build
+# Run a sample CI build 
 
-This guide walks through the process of running a sample build using Shippable's continuous integration. A NodeJs sample application (Aye0Aye) is leveraged for this sample.
+This tutorial walks through the process of running a sample build using Shippable's continuous integration. A Node.js sample application is leveraged for this sample.
 
-## Pre-requisite
-Fork the following GitHub repository in order to complete the tutorial:
+You need a GitHub account to complete this tutorial.
 
-- Sample app: <https://github.com/aye0aye/micro-www> 
+## Fork our sample project
 
-<img src="../images/aye0aye_fork.png" alt="Aye0Aye Fork" style="width:800px;"/>
+Fork the following GitHub repositories in order to complete the tutorial:
 
-## Sign into Shippable
-- Login to [Shippable](<http://www.shippable.com>) using your source code system. For this tutorial GitHub is used. 
+<https://github.com/shippableSamples/sample_node> 
 
-## Enable a Repo
+## Sign in
+Login to [Shippable](http://www.shippable.com) using your GitHub credentials. 
 
-To enable the forked repository for CI, activate the repo on the ‘New Project’ page (Note: if you haven’t enabled any projects previously, you’ll be on the ‘New Project’ page automatically). Select the ‘Enable project’ in the upper right of the Status page:
+## Enable a project
 
-- Select your subscription for Shippable's Continuous Integration (CI). The example shown below has a demo subscription. 
-<img src="../images/account_settings_subscription.png" alt="Account Settings Subscription" style="width:800px;"/>
+The first step is to enable continuous integration for your forked repository.
 
-- Click on the ***Enable Project*** which brings you to the page with the list of projects in your repo that are yet to be enabled. ***Enable*** the **micro-www** project.
-<img src="../images/project_dashboard_enable_project.png" alt="Enable Project" style="width:800px;"/>
+- On the [Shippable landing page](http://www.shippable.com) , select your subscription from the `Subscriptions` dropdown. This should be the subscription where you forked the repository.
 
-- If **micro-www** repo is not showing up in the list, click on the ***Sync*** icon in the Settings tab to sync your source code repo with your Shippable subscription. This step is not needed if you were able to successfully enable the project.
-
-<img src="../images/account_settings_sync2.png" alt="Force Sync" style="width:800px;"/>
-
+- On the subscription page, click on the `Enable Project` button. If you have not enabled any projects on Shippable, you will be directly be taken to a page with a list of your repositories.
+-  Find the sample-node project and click on the `Enable` button.
+- If sample-node repo is not shown  in the list, click on the `Sync` button next to the Search box. This syncs your Shippable subscription with your source control account. Find the sample-node project and enable it.
 
 ## Run a build
-- Upon successfully enabling the **micro-www** project, your page should look like this. The URL shows the **Project ID** for this project.
+Your sample project already has a config file 	`shippable.yml` at the root of the repository.
+ 
+- After enabling the project, you will be redirected to the Project page for sample-node.
 
-<img src="../images/aye0aye_initiate_build.png" alt="Aye0Aye Initiate Build" style="width:800px;"/>
-
-
-- Click ***Build*** to trigger your CI build 
+- Click the `Build` button to trigger your build.
+ 
 
 ## View build status
-Congrats, you have successfully run your build. A sample, successful build is shown below. The URL shows the **Build ID** for this build within the **micro-www** project.
-<img src="../images/aye0aye_success_build.png" alt="Aye0Aye Successful Build" style="width:800px;"/>
+Congratulations! You have successfully run your first build on Shippable. 
+

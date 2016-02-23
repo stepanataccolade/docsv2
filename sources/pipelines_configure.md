@@ -2,7 +2,7 @@ page_title: Configuring services with Shippable Flow
 page_description: This page describes how users can configure and manage services in their dockerized applications
 page_keywords: deploy, multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
-# Configuring your application
+# Configuring and managing your deployments
 
 This section walks you through the workflow for configuring your application pipelines. We think of pipelines as the flow of your application from source control->ci->image registry->packaging into a deployable unit aka 'cell'->deploy the cell into an environment.
 
@@ -14,15 +14,19 @@ At a high level, you need to follow the steps below:
 
 **Create your pipelines** Configure your cell manifest, tag patterns that increment available cell manifest versions, and the projects that trigger your pipeline. 
 
-**Deploy your application** Configure how a cell is deployed to an environment and deploy it.
+**Deploy your Cell** Configure how a cell is deployed to an environment and deploy it.
 
+Detailed explanations for Environments, Pipelines, and Cells are provided below.
 
-##Creating an environment
+##Environments
 An environment on Shippable is a group of machines on which your application will be deployed. An environment is created by either provisioning a new cluster or pointing to an existing cluster on supported Container Services, i.e. Amazon's ECS and Google Container Engine (GKE). Your application will be deployed to the cluster associated with your environment.
 
-Please note that you can currently limited to creating one environment per Subscription.  
+Please note that you can currently limited to creating one environment per Subscription. 
 
-### Using an existing GKE cluster
+###Creating an environment
+
+<a name="gke_cluster"></a>
+####Using an existing GKE cluster
 
 To create an environment on Shippable, you must first create a cluster using your Google Cloud Platform Console. Instructions for this are given in the Google Container Engine documentation for [Creating a Container Cluster](https://cloud.google.com/container-engine/docs/clusters/operations#creating_a_container_cluster)
 
@@ -49,7 +53,7 @@ After you have a cluster on GKE, follow the steps below to create your environme
 
 You have created your environment and you're now ready to start creating your pipelines. 
 
-### Using an existing Amazon ECS cluster
+#### Using an existing Amazon ECS cluster
 
 To create an environment on Shippable, you must first create a cluster using your AWS Management Console or supplying us with a configuration file in a supported format.
 
@@ -77,11 +81,24 @@ After you have a cluster, follow the steps below to create your environment:
 
 You have created your environment and you're now ready to start creating your pipelines. 
 
+#### Using a config file in Terraform format
+Coming soon....
 
-## Creating a Pipeline
+###Updating an environment
+TODO
+
+###Deleting an environment
+You can delete an environment by going to the environment `Settings` page and clicking on `Delete. Please note that you will first need to delete all pipelines before you delete the environment.
+
+## Pipelines
 A pipeline defines the flow of a 'Unit of Deployment', which we call 'Cell', from source control or image registry to your Environment. A Cell is deployed at one time and on the same node. It is specific to each application and can be a micro-service, a service, an application tier, or even the entire application.
 
-To create a pipeline, follow the steps below:
+TODO - Define the following - cell manifest, auto-increment, pipeline triggers
+
+
+###Creating a pipeline
+
+You can create your pipeline by following the steps below:
 
 * From the `Pipelines` tab on your Subscription page, click on `Add pipeline`
  
@@ -115,10 +132,17 @@ As an example, here are a couple of screenshots for setting up the [api service 
 **Add pipeline page:**
 <img src="../images/pipelines_add.png" alt="Adding a GKE cluster to Shippable" style="width:700px; margin:0px auto; display:block"/>
 
+###Update a pipeline
+TODO
+
+###Delete a pipeline
+You can delete a pipeline by going to the Pipeline `Settings` page and clicking on `Delete`. Please note that you will need to `Stop` the corresponding Cell in all environments before being allowed to delete a pipeline.
 
 
-## Deploy your Cell
+## Cells
 
+
+###Deploy a Cell
 If you have created an environment and a pipeline as described in the sections above, your Pipelines tab on the Subscription page should look like this:
 
 <img src="../images/pipelines_status.png" alt="Adding a GKE cluster to Shippable" style="width:700px; margin:0px auto; display:block"/>
@@ -141,4 +165,25 @@ That's it! You have deployed your first service! Go back to the `Pipelines` tab 
 
 <img src="../images/pipelines_deployed.png" alt="Adding a GKE cluster to Shippable" style="width:700px; margin:0px auto; display:block"/>
 
+###Stopping a Cell
+You can Stop a Cell at any time by following the steps:
+
+- From the Pipelines Status page, click on the Cell name. You will be taken to the Cell's Status page. The Status page shows the deployed Cell information at the top, followed by a list of past cellManifest versions, History of Events, etc.
+- Click on `Stop` for the Cell.
+
+<img src="../images/cell_status.png" alt="Adding a GKE cluster to Shippable" style="width:700px; margin:0px auto; display:block"/>
+
+###Upgrade/rollback to a different version
+You can Upgrade or Rollback to a different Cell Manifest version at any time by going to the Cell Status page and clicking on the `Deploy` button for the version you need.
+
+Please note that this only deploys a different version of the images in your cell, and changes the environment keys if needed. Routing and values for environment variables will not be rolled back or upgraded and whatever is currently configured for the cell will be respected.
+
+###Updating a Cell
+
+You can make updates to a Cell and redeploy it at any time. Please note that Cells as a whole are not versioned, so if you're changing Routing or values of environment variables, these changes will be used for the new deployment and you will lose previous data.
+
+- From the Pipelines Status page, click on the Cell name.
+- Go to the `Settings` tab and make the changes you need.
+- Near the `Deploy` button at the bottom of the page, you will see a list of changes you've made compared to what is actually deployed. Make sure the changes look good.
+- Click on `Deploy` if you want to deploy the updated Cell.
 
