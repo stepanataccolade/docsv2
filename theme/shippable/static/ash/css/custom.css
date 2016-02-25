@@ -6,9 +6,16 @@
   }
 }
 body {
-    color: #58595b;
-    font-size: 15px;
-    font-family: ProximaNova-Regular, "proxima-nova", "Maven Pro", sans-serif;
+  color: #58595b;
+  font-size: 15px;
+  font-family: ProximaNova-Regular, "proxima-nova", "Maven Pro", sans-serif;
+  /* Teal to white gradient background */
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f4ffff+0,ffffff+52 */
+  background: #f4ffff; /* Old browsers */
+  background: -moz-linear-gradient(top, #f4ffff 0%, #ffffff 52%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f4ffff 0%,#ffffff 52%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f4ffff 0%,#ffffff 52%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4ffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
 
 p {
@@ -46,12 +53,12 @@ hr {
 }
 
 a {
-  color: #449999;
+  color: #009999;
 }
 
 a:link, a:visited {
   font-family: ProximaNova-Regular, "proxima-nova", "Maven Pro", sans-serif;
-  color: #15c;
+  color: #009999;
 }
 
 a:hover, a:focus, a:active {
@@ -106,7 +113,7 @@ code {
   height: auto;
 }
 .navbar-inverse {
-  background-color: #58595b;
+  background-color: #003535;
 }
 .navbar-nav {
   padding: 0.5% 0%;
@@ -155,8 +162,8 @@ code {
 #search input {
   text-align: center;
   border-radius: 28px;
-  margin: .5% 15px;
-  padding:  5px 10px;
+  margin: 1.25% 15px;
+  padding: 0px 10px;
 }
 @media (max-width: 767px) {
   .dropdown {
@@ -180,6 +187,8 @@ code {
   top: 50px;
   width: 100%;
   z-index: 1000;
+  background: #f3f3f4;
+  border-bottom: solid 1px #dbdde0;
 }
 .sub-nav .sub-tabs {
   border-bottom: none;
@@ -187,7 +196,6 @@ code {
 }
 .sub-tabs > li {
   width: 12.5%;
-  background: #fff;
 }
 .sub-nav li > a {
   /*text-transform: uppercase;*/
@@ -203,9 +211,6 @@ code {
 .sub-nav li:hover > a {
   color: #449999;
   border-bottom: 2px solid;
-}
-#full-nav {
-  border-bottom: solid 1px #dbdde0;
 }
 .sub-tabs > li {
   float: left;
@@ -331,7 +336,6 @@ h2:target, h3:target {
 #sidebar .tocbar {
   border-left: solid 1px #dbdde0;
   border-radius: 4px;
-  background-color: #fff;
   padding: 10px;
   padding-top: 20px;
   z-index: 10;
@@ -392,68 +396,41 @@ h2:target, h3:target {
     background-color: #eee;
 }
 
-/******* Footer *******/
-#footer {
-  line-height: 1.42857;
+/******* Footer Hitchock Launch*******/
+.footer {
+  background: #ffffff;
 }
-#footer.bg {
-  margin-top: 60px;
-  padding: 40px 0px 0px;
-  background: #58595b;
-}
-#footer .col-sm-3 > h3 {
-  color: #fff;
-  text-transform: uppercase;
+.site-footer {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 40px;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 4px;
-  margin-top: 0px;
+  line-height: 1.5;
+  border-top: 1px solid #eee;
 }
-#footer .col-sm-3 > ul {
-  margin-top: 30px;
-  font-size: 13px;
-  list-style-type: none;
-  padding: 0;
+.footer .right {
+  float: right;
 }
-#footer .col-sm-3 > ul > li {
-  margin-bottom: 9px;
+.site-footer-links {
+  margin: 0;
+  list-style: none;
 }
-#footer a {
-  color: #fff;
-  transition: all 0.2s linear 0s;
+ul.site-footer-links {
+  padding: 0px;
 }
-#footer a:hover,
-#footer a:active,
-#footer a:focus {
-  color: #449999;
+.site-footer-links li {
+  display: inline-block;
+  line-height: 16px;
 }
-.hiring {
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 700;
-  border-radius:5px;
-  background-color: #449999;
-  padding: 3px 8px;
+.site-footer-links li+li {
+  margin-left: 10px;
 }
-@media (max-width: 767px) {
-  #footer {
-    text-align: center;
-  }
-  #footer.bg {
-    padding-top: 30px;
-  }
-  #footer .col-sm-3 {
-    margin-top: 30px;
-  }
-  .col-sm-3 > ul {
-    margin-top: 10px;
-  }
-}
-
-/******* Copyright *******/
-.copyright {
-  text-align: center;
-  color: #a1aab6;
-  font-size: 13px;
-  margin: 50px 0px 30px;
+.site-footer .shipicon-yoga-aa-silh {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  margin-left: -12px;
+  font-size: 24px;
+  color: #ccc;
 }
