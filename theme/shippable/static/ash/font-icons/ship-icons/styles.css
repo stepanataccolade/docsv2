@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "shippable";
+  src:url("fonts/shippable.eot");
+  src:url("fonts/shippable.eot?#iefix") format("embedded-opentype"),
+    url("fonts/shippable.woff") format("woff"),
+    url("fonts/shippable.ttf") format("truetype"),
+    url("fonts/shippable.svg#shippable") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "shippable" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="shipicon-"]:before,
+[class*="shipicon-"]:before {
+  font-family: "shippable" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.shipicon-go:before {
+  content: "f";
+}
+.shipicon-yoga-aa:before {
+  content: "a";
+}
+.shipicon-yoga-aa-eyes:before {
+  content: "b";
+}
+.shipicon-yoga-aa-inverse:before {
+  content: "c";
+}
+.shipicon-yoga-aa-lines:before {
+  content: "d";
+}
+.shipicon-yoga-aa-silh:before {
+  content: "e";
+}
+.shipicon-esb:before {
+  content: "g";
+}
