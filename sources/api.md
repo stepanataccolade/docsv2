@@ -57,8 +57,8 @@ GET /runs
 | QueryParameter| maxRunNumber| Returns all runs with run number that is <= maxRunNumber.| no | string | |
 | QueryParameter| status| Get runs with one or more statuses.| no | string | |
 
-
-```  {
+``` 
+{
     "id": "56cfeb866718d820008fa246",
     "runNumber": 2,
     "projectId": "56cfe9f4c77dae78a8eaa748",
@@ -93,11 +93,13 @@ GET /runs
     "runLengthInMS": 2000,
     "isRun": true
   }
-  ```
+}
+```
 
 
 
 ### Get a specific run
+
 
 ```
 GET /runs/:id

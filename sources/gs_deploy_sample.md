@@ -106,7 +106,7 @@ Now that you have a cluster ready to go, let's create your pipeline. Since you h
 
 To create your pipeline, go to your Subscription's `Pipelines` tab and click on `Add Pipeline`. 
 On the New Pipeline page, name your pipeline, say 'demo-app
-    <img src="../images/pipeline_create_name.png" alt="Name your pipeline" style="width:600px;"/>
+    <img src="../images/pipeline_create_name.png" alt="Name your pipeline" style="width:400px;"/>
     
 Next, follow steps below:
 
@@ -114,7 +114,7 @@ Next, follow steps below:
 
 - In the Cell Manifest section, click on `Add image`. You will be taken to the Add image page.
 - In the `Select image` dropdown, select `Create image`. Enter the name <registry_username>/micro-api. Enter the account integration that has access to this image. 
-    <img src="../images/pipeline_create_image.png" alt="Name your pipeline" style="width:600px;"/>
+    <img src="../images/pipeline_create_image.png" alt="Name your pipeline" style="width:400px;"/>
 You will be taken back to the Add Image page. Select the tag you want to deploy (master.1)
 - Enter port number for your container - 3001.
 Click on `Save image`. This will take you back to the add pipelines page.
@@ -141,7 +141,7 @@ Click on the `Settings` tab and enter the following information:
 - The auto-deploy section allows you to configure whether you want this cell to be automatically deployed each time a new cell manifest version is detected. For the demo, check this box.
 - Enter the values for environment variables as shown below:
 
-    <img src="../images/pipeline_cell_env_config.png" alt="Name your pipeline" style="width:600px;"/>
+    <img src="../images/pipeline_cell_env_config.png" alt="Name your pipeline" style="width:700px;"/>
 
 -Leave number of Replicas to 1. This indicates we want one instance of this Cell running in the environment. We also do not need Volumes for the demo, so skip that section.
 - In the `Routing` section, click on the Load Balancer dropdown and select `Create Load Balancer`. Check the `Load Balanced` checkbox for Container port 80. This means that we are externally exposing the port for www.
