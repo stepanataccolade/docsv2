@@ -957,7 +957,7 @@ GET /subscriptions
 | 200| OK| Query was successful and all subscripti0ns will be returned.|
 
 ```
-  {
+{
     "providerId": "561f7fe7a120200d00ac0725",
     "avatarUrl": "https://avatars.githubusercontent.com/u/17489387?v=3",
     "type": "scm",
@@ -966,8 +966,8 @@ GET /subscriptions
     "createdAt": "2016-02-26T06:18:14.194Z",
     "isOrgSubscription": false,
     "id": "56cfe9f3c77dae78a8eaa746"
-  }
-  ```
+}
+```
 
 
 ### Get a specific subscription
@@ -1011,6 +1011,7 @@ GET/subscriptions/:id
     "isOrgSubscription": false,
     "id": "56cfe9f3c77dae78a8eaa746"
 }
+
 ```
 ### Get number of active minions in a subscriptions
 This route will tell you how many minions in a subscriptions are currently 'active', i.e. processing builds.
