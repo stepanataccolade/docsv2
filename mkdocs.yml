@@ -35,8 +35,6 @@ pages:
   - Pipeline Status: pipelines_subscriptions.md
   - Configuring and managing pipelines: pipelines_configure.md
   - Deploy a sample app: gs_deploy_sample.md
-  - FAQ: pipelines_faq.md
-  - Troubleshooting: pipelines_troubleshoot.md
 - Integrations: 
   - Overview: int_overview.md
   - Source control providers: int_scm.md
