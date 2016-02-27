@@ -62,4 +62,4 @@ The `docker ps` command will show you the containers running on your minion. You
 ##Docker in Test environments and Production
 Shippable provides build related Docker functionality as well as continuous delivery pipelines that you can use to deploy your application to test environments. 
 
-Check out our [CD pipelines to learn more](pipeline_overview.md)
+Check out our [CD pipelines to learn more](pipelines_overview.md)

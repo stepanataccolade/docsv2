@@ -10,22 +10,22 @@ We support a multitude of languages, tools, services, as well as all popular sou
 
 
 #### Source control providers
--  [GitHub](www.github.con)
--  [GitHub Enterprise](enterprise.github.com)
--  [Bitbucket](www.bitbucket.org) (git repositores only)
+-  <a href="http://www.github.com" target="_blank">GitHub</a>
+-  <a href="http://enterprise.github.com" target="_blank">GitHub Enterprise</a>
+-  <a href="http://www.bitbucket.org" target="_blank">Bitbucket</a>
 -   Bitbucket Server (coming soon)
 -   GitLab (coming soon)
 
 #### Languages
 
--  [Clojure](languages/#clojure)
--  [GO](languages/#go)
--  [Java](languages/#java)
--  [Node.js](languages/#node)
--  [PHP](languages/#php)
--  [Python](languages/#python)
--  [Ruby](languages/#ruby)
--  [Scala](languages/#scala)
+-  [Clojure](ci_languages/#clojure)
+-  [GO](ci_languages/#go)
+-  [Java](ci_languages/#java)
+-  [Node.js](ci_languages/#node)
+-  [PHP](ci_languages/#php)
+-  [Python](ci_languages/#python)
+-  [Ruby](ci_languages/#ruby)
+-  [Scala](ci_languages/#scala)
 
 ####Platforms
 -  Ubuntu 12.04 LTS
@@ -46,7 +46,7 @@ We support a multitude of languages, tools, services, as well as all popular sou
 -  Redis 3.0.0
 -  RethinkDB 2.0.1
 -  Riak 2.0.5
--  Selenium 2.45
+-  Selenium 2.52
 -  SqlLite 3
 
 #### Tools

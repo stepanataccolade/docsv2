@@ -2,7 +2,7 @@ page_title: Shippable Pipelines Overview
 page_description: Overview of Shippable Pipelines
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
-#Deployment pipelines
+#Continuous Delivery pipelines
  
 ##Overview
 

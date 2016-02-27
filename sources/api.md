@@ -39,39 +39,100 @@ Detailed documentation for API routes is provided below.
 
 ## Runs
 
-### Schema
+###Get all runs
 
-The Runs schema contains all information about the Run. Depending on whether the Run was a build, or a deployment, or infrastructure provisioning, different sections of the Schema become relevant.  
+```
+GET /runs
+```
 
-The Run schema is as follows:
+####Response
+
+|Type      |    Name     |    Description    |     Required    |    Schema    |  Default    |
+|----------|-------------|-------------------|----------------|--------------|-------------|
+| QueryParameter| runIds| Filter by one or more runIds.| no | string | |
+| QueryParameter| projectIds| Get runs for one or more projects.| no | string | |
+| QueryParameter| subscriptionIds| Get runs for one or more subscriptions.| no | string | |
+| QueryParameter| branch| Get runs for one or more branch names.| no | string | |
+| QueryParameter| isPullRequest| When set to true, returns all runs that were triggered by pull requests. When set to false, returns runs that were triggered by commits.| no | boolean | |
+| QueryParameter| maxRunNumber| Returns all runs with run number that is <= maxRunNumber.| no | string | |
+| QueryParameter| status| Get runs with one or more statuses.| no | string | |
+
+
+```  {
+    "id": "56cfeb866718d820008fa246",
+    "runNumber": 2,
+    "projectId": "56cfe9f4c77dae78a8eaa748",
+    "projectName": "sample_node",
+    "subscriptionOrgName": "shippableapi",
+    "subscriptionId": "56cfe9f3c77dae78a8eaa746",
+    "isPrivate": false,
+    "lastCommitShortDescription": "Update shippable.yml",
+    "commitSha": "392eee0b6e27865135d0b14ee2ecb46abdb28ae7",
+    "triggeredBy": {
+      "avatarUrl": "https://avatars.githubusercontent.com/u/17489387?v=3",
+      "email": "",
+      "displayName": null,
+      "login": "shippableapi"
+    },
+    "statusCode": 20,
+    "startedAt": "2016-02-26T06:07:03.789Z",
+    "createdAt": "2016-02-26T06:07:02.121Z",
+    "endedAt": null,
+    "branchName": "master",
+    "isPullRequest": false,
+    "pullRequestNumber": null,
+    "projectHtmlUrl": "https://github.com/shippableapi/sample_node",
+    "providerName": "GITHUB",
+    "commitUrl": "https://github.com/shippableapi/sample_node/commit/392eee0b6e27865135d0b14ee2ecb46abdb28ae7",
+    "committer": {
+      "avatarUrl": "https://avatars.githubusercontent.com/u/17489387?v=3",
+      "email": "shippableapi@gmail.com",
+      "displayName": "shippableapi",
+      "login": "shippableapi"
+    },
+    "runLengthInMS": 2000,
+    "isRun": true
+  }
+  ```
+
+
+
+### Get a specific run
+
+```
+GET /runs/:id
+```
+
+####Response
 
 ```
 {
-    "runNumber": 1,
+    "runNumber": 2,
     "branchName": "master",
     "lastCommitShortDescription": "Update shippable.yml",
-    "commitSha": "18458f0473dbaf25589570313f447ad9590d477c",
-    "statusCode": 30,
-    "statusMessage": "SUCCESS",
-    "startedAt": "2016-02-05T04:59:04.307Z",
-    "endedAt": "2016-02-05T05:04:36.179Z",
-    "runLengthInMS": 326755,
+    "commitSha": "392eee0b6e27865135d0b14ee2ecb46abdb28ae7",
+    "statusCode": 20,
+    "statusMessage": "PROCESSING",
+    "startedAt": "2016-02-26T06:07:03.789Z",
+    "endedAt": null,
+    "runLengthInMS": 2000,
     "timeoutMS": 5400000,
     "providerId": "561f7fe7a120200d00ac0725",
     "providerName": "GITHUB",
     "providerUrl": "https://api.github.com",
     "providerDomain": "github.com",
-    "projectId": "56b42bc7d78fc6fc598f953b",
-    "projectName": "sample_python",
-    "projectURL": "https://api.github.com/repos/theamerlyn/sample_python",
-    "scmURL": "https://github.com/theamerlyn/sample_python.git",
-    "subscriptionId": "56b42bc6d78fc6fc598f9539",
-    "subscriptionOrgName": "theamerlyn",
-    "beforeCommitSha": "96c647549b9ec8523c5437177ee8bafc8bd73bcc",
-    "commitRange": "96c647549b9ec8523c5437177ee8bafc8bd73bcc...18458f0473dbaf25589570313f447ad9590d477c",
+    "projectId": "56cfe9f4c77dae78a8eaa748",
+    "projectName": "sample_node",
+    "projectURL": "https://api.github.com/repos/shippableapi/sample_node",
+    "projectHtmlUrl": "https://github.com/shippableapi/sample_node",
+    "scmURL": "https://github.com/shippableapi/sample_node.git",
+    "subscriptionId": "56cfe9f3c77dae78a8eaa746",
+    "subscriptionOrgName": "shippableapi",
+    "beforeCommitSha": "b6286d8d5ed5800467800a3934c1af252cab7e35",
+    "commitRange": "b6286d8d5ed5800467800a3934c1af252cab7e35...392eee0b6e27865135d0b14ee2ecb46abdb28ae7",
     "commitMessage": "Update shippable.yml",
-    "commitUrl": "https://github.com/theamerlyn/sample_python/commit/18458f0473dbaf25589570313f447ad9590d477c",
-    "compareUrl": "https://github.com/theamerlyn/sample_python/compare/96c647549b9ec8523c5437177ee8bafc8bd73bcc...18458f0473dbaf25589570313f447ad9590d477c",
+    "commitUrl": "https://github.com/shippableapi/sample_node/commit/392eee0b6e27865135d0b14ee2ecb46abdb28ae7",
+    "compareUrl": "https://github.com/shippableapi/sample_node/compare/b6286d8d5ed5800467800a3934c1af252cab7e35...392eee0b6e27865135d0b14ee2ecb46abdb28ae7",
     "baseCommitRef": "",
     "isFork": true,
     "isPrivate": false,
@@ -82,114 +143,11 @@ The Run schema is as follows:
     "pullRequestBaseBranch": null,
     "reRunBatchId": null,
     "skipDecryption": false,
-    "cleanRunYml": {
-        "language": "python",
-        "services": [],
-        "integrations": {
-            "hub": [],
-            "deploy": [],
-            "key": [],
-            "notifications": [
-                {
-                    "recipients": [
-                        "manisha@shippable.com"
-                    ],
-                    "integrationName": "email",
-                    "type": "email",
-                    "on_success": "change",
-                    "on_failure": "always",
-                    "on_pull_request": "always",
-                    "on_start": "never",
-                    "isValid": true
-                }
-            ]
-        },
-        "git": {
-            "submodules": true
-        },
-        "branches": {
-            "except": [],
-            "only": []
-        },
-        "skip": false,
-        "env": [],
-        "jdk": [],
-        "gemfile": [],
-        "node_js": [],
-        "bundler_args": [],
-        "python": [],
-        "lein": [],
-        "go": [],
-        "scala": [],
-        "php": [],
-        "rvm": [],
-        "addons": [],
-        "matrix": {
-            "include": [],
-            "exclude": [],
-            "allow_failures": []
-        },
-        "infra": {
-            "pre_prov": [],
-            "pre_prov_boot": [],
-            "prov": [],
-            "post_prov": [],
-            "post_prov_boot": [],
-            "smoke_test": [],
-            "on_success": [],
-            "on_failure": []
-        },
-        "build": {
-            "pre_ci": [],
-            "pre_ci_boot": {
-                "image_name": "drydock/u14pyt",
-                "image_tag": "prod",
-                "pull": true,
-                "options": "--privileged=true --net=bridge",
-                "envs": "",
-                "isOfficialImage": true
-            },
-            "ci": [
-                "pip install -r requirements.txt",
-                "mkdir -p shippable/testresults",
-                "mkdir -p shippable/codecoverage",
-                "which python",
-                "coverage run `which nosetests` test.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml",
-                "coverage xml -o shippable/codecoverage/coverage.xml"
-            ],
-            "post_ci": [],
-            "post_ci_boot": {
-                "image_name": "drydock/u14pyt",
-                "image_tag": "prod",
-                "pull": true,
-                "options": "--privileged=true --net=bridge",
-                "envs": "",
-                "isOfficialImage": true
-            },
-            "smoke_test": [],
-            "on_success": [],
-            "on_failure": [],
-            "cache": false
-        },
-        "deploy": {
-            "pre_ci": [],
-            "pre_start_boot": [],
-            "start": [],
-            "post_start": [],
-            "post_start_boot": [],
-            "smoke_test": [],
-            "on_success": [],
-            "on_failure": []
-        },
-        "versions": [
-            "3.4",
-            "2.7"
-        ]
-    },
-    "postCallerId": "56b42b965d77641100004d14",
-    "createdBy": "56b42b965d77641100004d14",
-    "updatedAt": "2016-02-05T05:04:36.179Z",
-    "createdAt": "2016-02-05T04:57:19.207Z",
+    "cleanRunYml": null,
+    "postCallerId": "56cfe9b668147b1300df0c69",
+    "createdBy": "56cfe9b668147b1300df0c69",
+    "updatedAt": "2016-02-26T06:31:05.479Z",
+    "createdAt": "2016-02-26T06:07:02.121Z",
     "warnMsgs": [],
     "errorMsgs": [],
     "branchCoveragePercent": 0,
@@ -198,47 +156,39 @@ The Run schema is as follows:
     "testsPassed": 0,
     "testsFailed": 0,
     "totalTests": 0,
+    "parallelizedTest": false,
     "triggeredBy": {
-        "login": "theamerlyn",
+        "login": "shippableapi",
         "displayName": null,
         "email": "",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/17077788?v=3"
+        "avatarUrl": "https://avatars.githubusercontent.com/u/17489387?v=3"
     },
     "lastAuthor": {
-        "login": "manishas",
-        "displayName": "Manisha",
-        "email": "manisha@shippable.com",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2983749?v=3"
+        "login": "shippableapi",
+        "displayName": "shippableapi",
+        "email": "shippableapi@gmail.com",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/17489387?v=3"
     },
     "committer": {
-        "login": "manishas",
-        "displayName": "Manisha",
-        "email": "manisha@shippable.com",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2983749?v=3"
+        "login": "shippableapi",
+        "displayName": "shippableapi",
+        "email": "shippableapi@gmail.com",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/17489387?v=3"
     },
     "isReRun": false,
-    "isComplete": true,
     "isReady": false,
-    "id": "56b42baff5aaa11100bcd12e"
+    "id": "56cfeb866718d820008fa246"
 }
-
 ```
 
-### Get a run
 
-```
-GET /runs/:id
-```
-
-**Response**
-The GET call returns the entire schema for Run and the relevant fields are filled out for the ```build``` section. 
  
 ### Delete a run
 
 ```
 DELETE /runs/:id
 ``` 
-**Response**
+####Response
 Delete returns the entire schema for Run and the relevant fields for the Run being deleted are filled out. 
 
 ### Get a list of jobs for a run
@@ -246,7 +196,9 @@ Delete returns the entire schema for Run and the relevant fields for the Run bei
 ```
 GET /runs/:id/jobs
 ```
-**Response**
+
+####Response
+
 Returns a list of all Job objects associated with the Run.
 
 ```
@@ -746,251 +698,326 @@ This will return the entire Job object that is being deleted. The schema is the 
 
 The Projects endpoint will provide you with information about your projects.
 
+
 ###Schema
 
 
-### GET /projects
+### Get a list of all projects
 
 Will a return a list projects, and some info about the projects
 
-Response
-
-```javascript
-[
-  {
-    "mostRecentBuild": {
-      "createdDate": "2015-02-22T02:52:00.526Z",
-      "buildGroupNumber": 1,
-      "id": "54e9444fac096311007dccd7",
-      "status": 80,
-      "durationCumulative": "29930",
-      "commitSha": "39d50403945fb5a1d591b5ee2a549806ad80819a",
-      "branch": "master"
-    },
-    "id": "54e80f5d91426fd6a78f6280",
-    "language": "ruby",
-    "autoBuild": true,
-    "fullName": "user/example1",
-    "name": "example1",
-    "repositoryProvider": "github",
-    "branches": [
-      "master"
-    ],
-    "sourceDefaultBranch": "master"
-  },
-  {
-    "mostRecentBuild": null,
-    "branches": [],
-    "repositoryProvider": "github",
-    "name": "example2",
-    "fullName": "user/example2",
-    "autoBuild": false,
-    "id": "54e3c35391426fd6a78cfd41"
-  }
-]
+```
+GET /projects
 ```
 
-  Name               |  Type    | Description
-  -------------------|----------|---------------------------------------------------------------------------
-  mostRecentBuild    |  object  | An object of information about your most recent build, if available
-  id                 |  string  | This project's unique id
-  language           |  string  | The langauge of the project, as specified by the repo provider
-  autoBuild          |  boolean | States if the project will be auto built on pushes to the containing repo
-  fullName           |  string  | The full name of the project, such as org/projectname
-  name               |  string  | A more succinct version of the fullName
-  repositoryProvider |  string  | The source providing the repo, such as Github or BitBucket
-  branches           |  list    | A list of branches available to build from the repo
+####Parameters
 
-### GET /projects/:projectId
+|Type      |    Name     |    Description    |     Required    |    Schema    |  Default    |
+|----------|-------------|-------------------|----------------|--------------|-------------|
+| QueryParameter| projectIds| Filter by one or more project ids.| no | string | |
+| QueryParameter| subscriptionIds| Filter by subscription.| no | string | |
+| QueryParameter| autoBuild| If set to true, returns all projects enabled on Shippable. If set to false, returns all projects not enabled on Shippable.| no | boolean | |
+| QueryParameter| isPrivateRepository| If set to true, returns all private repositories. If set to false, returns all public repositories. | no | boolean | |
+| QueryParameter| isFork| If set to true, returns all repositories that are forked from another repo. If set to false, will return repositories that are not forks.| no | boolean | |
+| SortParameter| enabledDate| When combined with autoBuild=true, sort=enabledDate will sort all enabled repositories by when they were enabled on Shippable.| no | string | |
 
-Will return more in-depth information about the specified project.
 
-Response
+####Response
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
 
-```javascript
-{
-  "id": "54af3b7ld46123jfacaef00c",
-  "branches": [
-    "master",
-    "feature1",
-    "test"
-  ],
-  "autoBuild": true,
-  "deployKey": {
-    "public": "ssh-rsa SECRETE Shippable\n"
-  },
-  "settings": {
-    "imageOptions": {
-      "mounts": [],
-      "ports": []
+```
+   {
+    "repositoryProvider": "github",
+    "providerId": "561f7fe7a120200d00ac0725",
+    "sourceRepoOwner": {
+      "login": "shippableapi",
+      "id": 17489387,
+      "avatar_url": "https://avatars.githubusercontent.com/u/17489387?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/shippableapi",
+      "html_url": "https://github.com/shippableapi",
+      "followers_url": "https://api.github.com/users/shippableapi/followers",
+      "following_url": "https://api.github.com/users/shippableapi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/shippableapi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/shippableapi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/shippableapi/subscriptions",
+      "organizations_url": "https://api.github.com/users/shippableapi/orgs",
+      "repos_url": "https://api.github.com/users/shippableapi/repos",
+      "events_url": "https://api.github.com/users/shippableapi/events{/privacy}",
+      "type": "User",
+      "site_admin": false
     },
-    "environmentVariables": []
-  },
-  "created": "2015-01-09T02:23:49.586Z",
-  "isEnabled": true,
-  "enabledDate": "2015-02-09T06:40:25.463Z",
-  "name": "project",
-  "sourcePushed": "2015-03-17T15:22:00.000Z",
-  "sourceCreated": "2015-01-06T05:05:22.000Z",
-  "sourceUpdated": "2015-03-11T15:33:38.000Z",
-  "language": "ruby",
-  "updatedDate": "2015-03-18T23:29:19.334Z",
-  "subscriptionId": "54af3b77d46935d5fbc1e00d",
-  "sourceId": "28847632",
-  "repositoryProvider": "github",
-  "sourceRepoOwner": {
-    "login": "owner",
-    "starred_url": "https://api.github.com/users/owner/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/owner/subscriptions",
-    "organizations_url": "https://api.github.com/users/owner/orgs",
-    "repos_url": "https://api.github.com/users/owner/repos",
-    "events_url": "https://api.github.com/users/owner/events{/privacy}",
-    "received_events_url": null,
-    "type": "User",
-    "site_admin": false,
-    "gists_url": "https://api.github.com/users/owner/gists{/gist_id}",
-    "following_url": "https://api.github.com/users/owner/following{/other_user}",
-    "followers_url": "https://api.github.com/users/owner/followers",
-    "html_url": "https://github.com/owner",
-    "url": "https://api.github.com/users/owner",
-    "gravatar_id": "",
-    "avatar_url": "https://avatars.githubusercontent.com/u/184391?v=3",
-    "id": 184391
-  },
-  "isFork": false,
-  "isPrivateRepository": true,
-  "sourceDefaultBranch": "master",
-  "repositorySshUrl": "git@github.com:owner/project.git",
-  "repositoryUrl": "https://api.github.com/repos/owner/project",
-  "sourceDescription": "",
-  "fullName": "owner/project"
+    "sourcePushed": "2016-02-26T00:08:34.000Z",
+    "repositoryHtmlUrl": "https://github.com/shippableapi/sample_node",
+    "isFork": true,
+    "isPrivateRepository": false,
+    "sourceDescription": "",
+    "language": "JavaScript",
+    "repositoryUrl": "https://api.github.com/repos/shippableapi/sample_node",
+    "fullName": "shippableapi/sample_node",
+    "name": "sample_node",
+    "subscriptionId": "56cfe9f3c77dae78a8eaa746",
+    "isPaused": false,
+    "created": "2016-02-26T05:59:20.980Z",
+    "autoBuild": false,
+    "isOrg": false,
+    "branches": [],
+    "id": "56cfe9f4c77dae78a8eaa748"
+  }
+```
+
+
+
+### Get a specific project
+
+This route returns in-depth information about the specified project.
+
+```
+GET /projects/:projectId
+```
+
+####Response
+
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+
+```
+{
+    "repositoryProvider": "github",
+    "sourceId": "52582289",
+    "providerId": "561f7fe7a120200d00ac0725",
+    "updatedDate": "2016-02-26T05:59:20.977Z",
+    "sourceRepoOwner": {
+        "login": "shippableapi",
+        "id": 17489387,
+        "avatar_url": "https://avatars.githubusercontent.com/u/17489387?v=3",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/shippableapi",
+        "html_url": "https://github.com/shippableapi",
+        "followers_url": "https://api.github.com/users/shippableapi/followers",
+        "following_url": "https://api.github.com/users/shippableapi/following{/other_user}",
+        "gists_url": "https://api.github.com/users/shippableapi/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/shippableapi/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/shippableapi/subscriptions",
+        "organizations_url": "https://api.github.com/users/shippableapi/orgs",
+        "repos_url": "https://api.github.com/users/shippableapi/repos",
+        "events_url": "https://api.github.com/users/shippableapi/events{/privacy}",
+        "received_events_url": null,
+        "type": "User",
+        "site_admin": false
+    },
+    "sourceUpdated": "2016-02-26T05:58:58.000Z",
+    "sourceCreated": "2016-02-26T05:58:57.000Z",
+    "sourcePushed": "2016-02-26T00:08:34.000Z",
+    "repositorySshUrl": "git@github.com:shippableapi/sample_node.git",
+    "repositoryHtmlUrl": "https://github.com/shippableapi/sample_node",
+    "isFork": true,
+    "isPrivateRepository": false,
+    "sourceDescription": "",
+    "language": "JavaScript",
+    "repositoryUrl": "https://api.github.com/repos/shippableapi/sample_node",
+    "fullName": "shippableapi/sample_node",
+    "name": "sample_node",
+    "subscriptionId": "56cfe9f3c77dae78a8eaa746",
+    "providerLastSyncStartDate": "2016-02-26T06:04:21.458Z",
+    "sourceDefaultBranch": "master",
+    "isPaused": false,
+    "cacheTag": 0,
+    "projectAuthorizationLastSyncEndDate": "1970-01-01T00:00:00.000Z",
+    "providerLastSyncEndDate": "2016-02-26T06:04:23.337Z",
+    "created": "2016-02-26T05:59:20.980Z",
+    "settings": {
+        "environmentVariables": [],
+        "imageOptions": {
+            "ports": [],
+            "mounts": []
+        }
+    },
+    "autoBuild": false,
+    "sourceSize": 30,
+    "sourceWatchersCount": 0,
+    "sourceStargazersCount": 0,
+    "sourceForksCount": 0,
+    "isOrg": false,
+    "branches": [
+        "dockerpush",
+        "master",
+        "test",
+        "testdockerbuildrepo"
+    ],
+    "id": "56cfe9f4c77dae78a8eaa748"
 }
 ```
 
-  Name                 | Type    | Description
-  ---------------------|---------|--------------------------------------------------------------------------
-  id                   | string  | This project's unique id
-  branches             | list    | A list of branches available to build from the repo
-  autoBuild            | boolean | States if the project will be auto built on pushes to the containing repo
-  deployKey            | string  | The ssh key used by shippable for deployments
-  settings             | object  | Settings info for project, such as images and environment variables
-  created              | string  | When the project was created
-  isEnabled
-  enabledDate          |         | The date the project was enabled on shippable for auto builds
-  name                 | string  | A more succinct version of the fullName
-  sourcePushed
-  sourceCreated
-  sourceUpdated
-  language             | string  | The langauge of the project, as specified by the repo provider
-  updatedDate          | string
-  subscriptionId       | string  | The subscription id connected to this account
-  sourceId
-  repositoryProvider   | string  | The source providing the repo, such as Github or BitBucket
-  sourceRepoOwner      | string  | The owner/org that holds this repo
-  isFork               | boolean
-  isPrivateRepository  | boolean | Specifies if the project is private or public
-  sourceDefaultBranch  | string  | Specifies the default branch for the projec
-  repositorySshUrl     | string  | The ssh url for the repo
-  repositoryUrl        | string  | The web url for the project
-  sourceDescription
-  fullName             | string  | The full name of the project, such as org/projectname
+###Get latest run for a branch of an enabled project
+
+```
+/projects/:projectId/branchRunStatus
+```
+
+####Response
+
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|  |
+|500|Internal Server Error| This indicates that the projectID was invalid. Message: "getProjects for query: projectIds=2345"  |
+
+```
+    {
+        "id": "56cfe31f388a4f2d00382db1",
+        "runNumber": 26,
+        "projectId": "56a9b50ad78fc6fc596b61e5",
+        "projectName": "micro-sample",
+        "subscriptionOrgName": "manishas",
+        "subscriptionId": "564eb6dfd78fc6fc5965369a",
+        "isPrivate": false,
+        "lastCommitShortDescription": "Update shippable.yml",
+        "commitSha": "f8d84e86e40b4ae8dc8a6ff83d6cc3f6772838bb",
+        "triggeredBy": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/2983749?v=3",
+            "email": "",
+            "displayName": "Manisha",
+            "login": "manishas"
+        },
+        "statusCode": 30,
+        "startedAt": "2016-02-26T05:31:12.886Z",
+        "createdAt": "2016-02-26T05:31:11.085Z",
+        "endedAt": "2016-02-26T05:32:11.442Z",
+        "branchName": "master",
+        "isPullRequest": false,
+        "pullRequestNumber": null,
+        "projectHtmlUrl": "https://github.com/manishas/micro-sample",
+        "providerName": "GITHUB",
+        "commitUrl": "https://github.com/manishas/micro-sample/commit/f8d84e86e40b4ae8dc8a6ff83d6cc3f6772838bb",
+        "committer": {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/2983749?v=3",
+            "email": "manisha@shippable.com",
+            "displayName": "Manisha",
+            "login": "manishas"
+        },
+        "runLengthInMS": 58556,
+        "isRun": true
+    }
+```
+
+### Trigger a new run
+
+This route triggers a new build for the default branch of a project.
+
+```
+POST /projects/:projectId/newBuild
+``
+
+####Parameters
+
+|Type      |    Name     |    Description    |     Required    |    Schema    |  Default    |
+|----------|-------------|-------------------|----------------|--------------|-------------|
+| QueryParameter| projectIds| Filter by one or more project ids.| no | string | |
 
 
-### GET /projects/:projectId/searchBuilds
+####Response
 
-Used to get builds for a specified project. There are similar routes for accounts and subscriptions as well.
+|HTTP code      |    Status     |    Description    |  
+|----------|-------------|-------------------|
+| 200| OK| New build was successfully triggered| 
+| 500| Internal Server Error| This happens when the project ID is invalid. Error message: "Internal API error: getProjectById"| 
 
-Query options available for the route are listed below:
-
-**sortBy**
-
-Field (or comma separated list of fields) to sort builds by (default: 'createdDate')
-
-```Example: ?sortBy=buildGroupNumber```
-
-**sortOrder**
-
-Order (or comma separated list of orders) to sort. Assigned to sortBy fields in order as they appeared in sortBy. Possible values: asc, desc, ascending, descending, 1, and -1 (default: -1)
-
-```Example: ?sortBy=buildGroupNumber,createdDate&sortOrder=asc,-1```
-```sorts by buildGroupNumber ascending, then createdDate descending```
-
-**status**
-
-Status (or comma separated list of statuses) of what you want to filter by. Do not include this field to search all statuses. Possible values:
-0, waiting (waiting)
-10, queued (queued)
-20, processing (processing)
-30, success (success)
-40, skipped (skipped)
-50, unstable (unstable)
-60, timeout (timeout)
-70, canceled (canceled)
-80, failed (failed)
-idle (equivalent to 0, 10)
-incomplete (equivalent to 0, 10, 20)
-started (equivalent to 10, 20)
-complete (equivalent to 30, 40, 50, 60, 70, 80)
-successful (equivalent to 30, 40)
-unsuccessful (equivalent to 50, 60, 70, 80)
-
-```Example: ?status=20,successful```
-
-**branch**
-
-Name (or comma separated list of names) of branches you want to filter. Do not include this field to search all branches.
-
-```Example: ?branch=master,beta```
-
-**isPR**
-
-Boolean value for if you want to search for pull request (PR) builds. True means you will only get PR builds, false means you will get only commit builds. Do not include this field to search both PR and commit builds.
-
-```Example: ?isPR=true```
-
-**limit**
-
-Maximum number of results to return. Do not include this field to search all builds you have access to.
-
-```Example: ?limit=100```
-
-**skip**
-
-How many entries to skip before returning the query, usually used with limit for paging.
-
-```Example: ?limit=50&skip=350 this will skip the first 350 builds and return the next 50 after that```
-
-
+111
+{
+  "runId": "56cfe31f388a4f2d00382db1"
+}
+```
 
 ## Subscriptions
 
-### i. Get a subscription
+###Get all subscriptions
+
+```
+GET /subscriptions
+```
+
+####Optional parameters
+
+|Type      |    Name     |    Description    |     Required    |    Schema    |  Default    |
+|----------|-------------|-------------------|----------------|--------------|-------------|
+| QueryParameter| projectIds| Filter by one or more project ids.| no | string | |
+| QueryParameter| isOrgSubscription| When set to true, returns all organizational subscriptions . When set to false, returns all personal subscriptions.| no | string | |
+
+
+####Response
+
+
+|HTTP code      |    Status     |    Description    |      
+|----------|-------------|-------------------|
+| 200| OK| Query was successful and all subscripti0ns will be returned.|
+
+```
+  {
+    "providerId": "561f7fe7a120200d00ac0725",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/17489387?v=3",
+    "type": "scm",
+    "orgName": "shippableapi",
+    "updatedAt": "2016-02-26T06:10:19.161Z",
+    "createdAt": "2016-02-26T06:18:14.194Z",
+    "isOrgSubscription": false,
+    "id": "56cfe9f3c77dae78a8eaa746"
+  }
+  ```
+
+
+### Get a specific subscription
+
+This route returns in depth information about a single subscription
 
 ```
 GET/subscriptions/:id
 ```
 `id` is the guid for the subscription.
 
-**Response**
+####Response
+
+|HTTP code      |    Status     |    Description    |      
+|----------|-------------|-------------------|
+| 200| OK| Query was successful and subscription details will be returned.|
+| 500| Internal Server Error| Query was successful and subscription details will be returned.|
+
+
 ```
 {
-    "id": "564eb6dfd78fc6fc5965369a",
+    "orgId": "17489387",
     "provider": "github",
-    "avatarUrl": "https://avatars.githubusercontent.com/u/2983749?v=3",
-    "orgName": "manishas",
+    "providerId": "561f7fe7a120200d00ac0725",
+    "updatedBy": "56cfe9b668147b1300df0c69",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/17489387?v=3",
+    "type": "scm",
+    "orgName": "shippableapi",
+    "processQueue": "56cfe9f3c77dae78a8eaa746.process",
+    "isUsingCustomHost": false,
+    "lastDeployNumber": 0,
+    "disableDeployWebhook": false,
+    "updatedAt": "2016-02-26T06:10:19.161Z",
+    "createdAt": "2016-02-26T06:19:36.980Z",
+    "providerLastSyncStartDate": "2016-02-26T06:10:19.161Z",
+    "providerLastSyncEndDate": "2016-02-26T06:10:21.064Z",
+    "syncInterval": 3600,
+    "sshKey": {
+        "public": "ssh-rsa AAAAB3NzaC1yc2E8eaa746\n"
+    },
     "isOrgSubscription": false,
-    "type": "scm"
+    "id": "56cfe9f3c77dae78a8eaa746"
 }
 ```
-
-### ii. Get number of active minions in a subscriptions
+### Get number of active minions in a subscriptions
 This route will tell you how many minions in a subscriptions are currently 'active', i.e. processing builds.
 
 ```
 GET/subscriptions/:id/activeMinions
 ```
 
-**Response**
+####Response
 
 ```
 {
@@ -1076,6 +1103,8 @@ Define a project (or comma separated list of projectIds) to search through. Do n
 ```Example: ?projectId=12345 ?projectId=1111,2222,3333```
 
 ## Accounts
+
+[![Run in Postman](https://run.pstmn.io/button.png)](https://www.getpostman.com/run-collection/4452529ae0631668c776)
 
 ### GET your account id
 

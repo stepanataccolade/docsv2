@@ -7,7 +7,7 @@ page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deplo
 This page provides pricing information and instructions on how to upgrade or downgrade your plan. 
 
 ## Plan description
-We offer Freemium pricing, so your first build container, aka minion, and your first pipeline is always free for [every subscription](gs_concepts.md/#Subscriptions). 
+We offer Freemium pricing, so your first build container, aka minion, and your first pipeline is always free for [every subscription](gs_concepts.md/#Subscription). 
 
 You can buy additional build containers and run parallel CI builds, and/or buy more pipelines depending on how many deployable units (cells) you need for your application. 
 

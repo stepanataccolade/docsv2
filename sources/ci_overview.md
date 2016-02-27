@@ -4,7 +4,7 @@ page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deplo
 
 # Continuous Integration overview
 
-Shippable's Continuous Integration platform helps you automate builds and tests for every code commit and pull request. You can also deploy your build to a PaaS like Heroku or to AWS using Code Deploy. For more on Continuous Integration and why you should include it as part of your workflow, read Martin Fowler's article on the [Benefits of Continuous Integration](http://martinfowler.com/articles/continuousIntegration.html#BenefitsOfContinuousIntegration)
+Shippable's Continuous Integration platform helps you automate builds and tests for every code commit and pull request. You can also deploy your build to a PaaS like Heroku or to AWS using Code Deploy. For more on Continuous Integration and why you should include it as part of your workflow, read Martin Fowler's article on the <a href="http://martinfowler.com/articles/continuousIntegration.html#BenefitsOfContinuousIntegration" target="_blank">Benefits of Continuous Integration</a>
 
 Shippable is natively built on Docker, so all your builds run inside Docker containers, which we call Minions.
 
@@ -39,7 +39,10 @@ The yml is somewhat similar to Travis CI's .travis.yml and most commands work as
 
 When a build is triggered, it is executed in the sequence below -
 
-
+- Commands in the `pre_ci` section are executed first on your build machine
+- The next step is booting your CI container. This will use our default Docker images if nothing is configured in the `pre_ci_boot` section of your yml. If that section is configured, it overrides the default image and boots up the CI container specified.
+- All commands in the `ci` section are executed in sequence
+- Commands in the `post_ci` section are executed last
 
 ## Permissions
 

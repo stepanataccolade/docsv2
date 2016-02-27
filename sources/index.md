@@ -64,7 +64,7 @@ Go to [the CD Pipelines section](pipelines_overview.md) to learn more.
 
 In addition, we also have a cool tool called **Lighthouse** that lets you monitor any Docker images you depend on and be notified when they change. This helps avoid situations where your images no longer work due to changing dependencies. 
 
-Go to [Lighthouse Overview](formations_overview.md) to learn more.
+Go to [Lighthouse Overview](lighthouse.md) to learn more.
 
 *****
 
