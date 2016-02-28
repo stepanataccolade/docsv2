@@ -1,4 +1,4 @@
-page_title: Learn About What Makes Shippable Great
+page_title: Basic concepts
 page_description: Code examples, FAQs, language & platform support
 page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
@@ -38,8 +38,6 @@ A project on Shippable corresponds to a repository on your source control provid
 
 Once a project is enabled, we build all commits and pull requests for that project, irrespective of who commits and opens the pull request.
 
-
-### Cells
 
 *****
 

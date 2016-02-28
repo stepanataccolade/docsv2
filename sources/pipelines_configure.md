@@ -1,4 +1,4 @@
-page_title: Configuring services with Shippable Flow
+page_title: Configuring and managing pipelines 
 page_description: This page describes how users can configure and manage services in their dockerized applications
 page_keywords: deploy, multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 

@@ -1,4 +1,4 @@
-page_title: Shippable Lighthouse Image Watcher
+page_title: Notification provider integration
 page_description: How to watch images using Shippable's Lighthouse Feature
 page_keywords: lighthouse, shippable ci, documentation, shippable, watch docker images
 

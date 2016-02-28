@@ -1,4 +1,4 @@
-page_title: Shippable Formations Overview
+page_title: Tutorials
 page_description: Overview of Shippable Formations
 page_keywords: formations,multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
@@ -9,3 +9,12 @@ Shippable is a tremendously flexible platform and you can do almost anything wit
 In the meantime, we have realized that it is almost impossible to document every scenario that can be accomplished with our platform. In our bid to die trying, we have a weekly blog series that addresses a specific scenario and walks you through a sample project. 
 
 This will start being populated weekly starting March 2016.
+
+
+[How to use GitLab with Shippable](ht_using_gitlab.md)
+
+[Link my GitHub and Bitbucket accounts](ht_link_gh_and_bb.md)
+
+[Deploy to Heroku](ht_heroku.md)
+
+[Deploy to Amazon EC2 using Code Deploy](ht_codedeploy.md)

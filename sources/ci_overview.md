@@ -56,7 +56,7 @@ If you want to build repositories in your GitHub Enterprise instannce, you will 
 
 When signing in to Shippable, you will be prompted to give Shippable access to your repos. GitHub and Bitbucket auth behave a little differently as follows -
 
-**GitHub**- By default, we will only ask for access to public repos. If you want to use Shippable to build your private repos, you will need to authorize us for private repositories. This is done from your [Account Settings Page](account_settings.md).
+**GitHub**- By default, we will only ask for access to public repos. If you want to use Shippable to build your private repos, you will need to authorize us for private repositories. This is done from your [Account Settings Page](acc_overview.md).
 
 **Bitbucket**- The Bitbucket API does not have public/private
 granularity, so we ask for access to all repos on Bitbucket by default.

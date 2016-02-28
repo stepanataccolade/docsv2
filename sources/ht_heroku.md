@@ -23,14 +23,14 @@ installed on your workstation.
 - Go to your app's settings page.
 - In the application info pane (that is also displayed at the end of
   the application creation process) you will see 'Git URL'.
-- Just use it to push the code in `after_success` step of Shippable build:
+- Just use it to push the code in `on_success` step of Shippable build:
 
 ```yml
 env:
   global:
     - APP_NAME=shroudd-headland-1758
 
-after_success :
+on_success :
   - git push -f git@heroku.com:$APP_NAME.git master
 ```
 
@@ -68,21 +68,21 @@ env:
 > is supplied, Heroku toolbelt will switch to an interactive mode,
 > prompting for the username and causing the build to 'hang'.
 
-Then, install the toolbelt in `before_install` step (`which heroku` is
+Then, install the toolbelt in `ci` step (`which heroku` is
 for skipping this step if the tools are already installed):
 
 ```yaml
-before_install:
+ci:
   - which heroku || wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 ```
 
 Next, create your Heroku application using Web GUI or `heroku` command
-installed on your workstation. Then, add the following `after_success`
+installed on your workstation. Then, add the following `on_success`
 step to your Shippable build:
 
 ```yaml
-after_success:
-  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
+on_success:
+  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
   - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
   - git push -f heroku master
 ```
@@ -164,10 +164,10 @@ On Shippable, Postgres in version 9.3 is started by default during
 minion boot. To use different version of Postgres, please refer to the
 dedicated section on PostgreSQL configuration.
 
-All we need to do is to create a database in the `before_script` step:
+All we need to do is to create a database in the `ci` step:
 
 ```yaml
-before_script:
+ci:
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
   - psql -c 'create database "sample-rubyonrails-postgres-heroku_test";' -U postgres
@@ -267,7 +267,7 @@ Shippable minion, as is explained in the documentation on PHP
 extensions:
 
 ```yaml
-before_script:
+ci:
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
   - echo "extension=mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
@@ -382,13 +382,13 @@ require 'mongoid'
 Mongoid.load!('mongoid.yml', :production)
 ```
 
-You can also execute Rake tasks in your `after_success` step using
+You can also execute Rake tasks in your `on_success` step using
 Heroku toolbelt. For example, to run database migrations at the end of
 the build:
 
 ```yaml
-after_success:
-  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
+on_success:
+  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
   - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
   - git push -f heroku $BRANCH:master
   - heroku run rake db:migrate

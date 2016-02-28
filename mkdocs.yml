@@ -44,6 +44,10 @@ pages:
   - Keys: int_keys.md
 - Lighthouse: lighthouse.md
 - API: api.md
-- Tutorials: ht_overview.md
-
+- Tutorials: 
+  - Overview: ht_overview.md
+  - Using GitLab with Shippable: ht_using_gitlab.md
+  - Linking GitHub and Bitbucket accounts: ht_link_gh_and_bb.md 
+  - Deploy to Heroku: ht_heroku.md
+  - Deploy to Amazon EC2: ht_codedeploy.md
 

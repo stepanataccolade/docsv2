@@ -18,7 +18,7 @@ Plan upgrades are effective immediately and your bill will be pro-rated for the 
 
 This happens due to one of the following reasons:
 
-- You haven't enabled private repositories in your Shippable account. Go to [Account Settings](account_settings.md) and in the **GitHub Identity** section, click on the **Private Repos OFF** icon. This is a one-way toggle button to turn on Private Repos for your GitHub account.
+- You haven't enabled private repositories in your Shippable account. Go to [Account Settings](acc_overview.md) and in the **GitHub Identity** section, click on the **Private Repos OFF** icon. This is a one-way toggle button to turn on Private Repos for your GitHub account.
 - Your account hasn't yet been synced with the latest permissions from GitHub. To force sync your account, go to your Account Settings and click on the `Force Sync` icon next to your Account Id.
 -  You're a Bitbucket user and you have mercurial repositories. We do not support mercurial at this time, so you will need to convert them to git or use another platform for CI/CD.
 
@@ -65,7 +65,7 @@ restrictions' Under the 'Third-party application access policy' section.
 
 ## How do I link my GitHub and Bitbucket accounts?
 
-Please read our documentation on [linking GitHub and Bitbucket accounts](link_gh_and_bb.md).
+Please read our documentation on [linking GitHub and Bitbucket accounts](ht_link_gh_and_bb.md).
 
 ## Why am I not able to see Bitbucket org repos after deleting and recreating my account on Shippable?
 
@@ -103,9 +103,6 @@ webhook build will not be executed.
 
 **PR Build with multiple commits:** If the original commit did not include the skip flags and subsequent commits do, the PR build will _not_ skip a build.
 
-## Why is my build still not getting pushed to the registry, even though I have set *Push Build* to *Yes* under my Project Settings?
-
-We only push _commit builds_ to the registry and not _PR builds_. Please confirm this is not the case. If your build is a commit build and still not getting pushed to the registry, make sure your registry login details are correctly specified under your [integration settings](integrations.md). If the login details are correct and push is failing for a commit build, go ahead and [file a support issue](https://github.com/Shippable/support/issues/new) and we will take a look.
 
 ## Why is my project showing up as "empty" after I enable it? It is certainly not empty in github!
 

@@ -68,10 +68,10 @@ env:
     - CD_APP_NAME=ShippableCodeDeploy CD_DEPLOYMENT_GROUP=DemoFleet
 ```
 
-Finally, we can install AWS CLI tools in `before_install` step:
+Finally, we can install AWS CLI tools in `ci` step:
 
 ```yaml
-before_install:
+ci:
   - pip install awscli
 ```
 
@@ -155,7 +155,7 @@ pointing to the relevant bucket and key. The bundle type is `zip`, as
 this is the format used by `aws deploy push` command.
 
 ```yaml
-after_success:
+on_success:
   - aws deploy push --application-name $CD_APP_NAME --s3-location s3://$CD_BUCKET/$CD_KEY --ignore-hidden-files
   - aws deploy create-deployment --application-name $CD_APP_NAME --s3-location bucket=$CD_BUCKET,key=$CD_KEY,bundleType=zip --deployment-group-name $CD_DEPLOYMENT_GROUP
 ```
@@ -178,7 +178,7 @@ details are available as automatic environment variables in the
 Shippable build:
 
 ```yaml
-after_success:
+on_success:
   - aws deploy create-deployment --application-name $CD_APP_NAME --github-location repository=$REPO_NAME,commitId=$COMMIT --deployment-group-name $CD_DEPLOYMENT_GROUP
 ```
 
@@ -199,7 +199,7 @@ Its usage is very straightforward. Just pipe the result of the
 `aws deploy create-deployment` command into it:
 
 ```yaml
-after_success:
+on_success:
   - aws deploy push --application-name $CD_APP_NAME --s3-location s3://$CD_BUCKET/$CD_KEY --ignore-hidden-files
   - aws deploy create-deployment --application-name $CD_APP_NAME --s3-location bucket=$CD_BUCKET,key=$CD_KEY,bundleType=zip --deployment-group-name $CD_DEPLOYMENT_GROUP | python scripts/wait_for_completion.py
 ```
