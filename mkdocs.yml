@@ -42,8 +42,8 @@ pages:
   - Container services: int_container_services.md
   - Notification providers: int_notifications.md
   - Keys: int_keys.md
-- Tutorials: ht_overview.md
-- API: api.md
 - Lighthouse: lighthouse.md
-- Glossary: glossary.md
+- API: api.md
+- Tutorials: ht_overview.md
+
 

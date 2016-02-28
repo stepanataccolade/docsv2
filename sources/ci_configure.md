@@ -1010,12 +1010,6 @@ You can then merge the PR confidently if the build passes, or fix any issues tha
 After you accept the pull request, Shippable will run one more build for the merged repo and will send email notifications for the merged repo.  
 * * * * *
 
-## Build badge
-
-This feature is coming soon. You will have the ability to add build badges for your projects on a per branch basis.
-
-* * * * *
-
 ## Build timeout
 
 Your builds will time out in the following scenarios:

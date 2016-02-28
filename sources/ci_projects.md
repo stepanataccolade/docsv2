@@ -76,6 +76,12 @@ You can now use these encrypted variables in your shippable.yml with a secure ta
 env:
   secure: <encrypted output>
 ```
+### Build status badges
+You can get embeddable build status badges for your project. These provide a visual indication of project status.
+
+Select the branch you want the status for and also whether you want the image URL or markdown. Copy the embed code.
+
+You can use this code anywhere you want to display the badge. For example, many customers  display this badge in the README.md of their project so anyone who goes to the project page on Github/Bitbucket can see it and know the project's status.  
 
 ### Resetting the project
 Resetting a project recreates all webhooks and deployment keys for your project. This should only be done if your project is in an inconsistent state and you need to restore it. Please note that you will need to re-encrypt all environment variables for your project after resetting it.
