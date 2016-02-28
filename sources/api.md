@@ -45,8 +45,7 @@ Detailed documentation for API routes is provided below.
 GET /runs
 ```
 
-####Response
-
+####Query parameters
 |Type      |    Name     |    Description    |     Required    |    Schema    |  Default    |
 |----------|-------------|-------------------|----------------|--------------|-------------|
 | QueryParameter| runIds| Filter by one or more runIds.| no | string | |
@@ -56,6 +55,12 @@ GET /runs
 | QueryParameter| isPullRequest| When set to true, returns all runs that were triggered by pull requests. When set to false, returns runs that were triggered by commits.| no | boolean | |
 | QueryParameter| maxRunNumber| Returns all runs with run number that is <= maxRunNumber.| no | string | |
 | QueryParameter| status| Get runs with one or more statuses.| no | string | |
+
+####Response
+
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
 
 ``` 
 {
@@ -106,6 +111,12 @@ GET /runs/:id
 ```
 
 ####Response
+
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+|500|Internal Server Error. Check run id.|  
+
 
 ```
 {
@@ -190,6 +201,12 @@ POST /runs/:id/cancel
 ```
 
 ####Response
+
+
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+|500|Internal server error. Check run id|
 
 ```
 {
@@ -414,6 +431,13 @@ POST /runs/:id/cancel
 DELETE /runs/:id
 ``` 
 ####Response
+
+
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+|500|Internal Server Error. Check run id.|
+
 
 ```
 {
@@ -644,6 +668,11 @@ GET /runs
 
 ####Response
 
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+
+
 ```
 {
     "version": "0.12",
@@ -694,6 +723,11 @@ GET /jobs/:id
 ```
 
 ####Response
+
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+|500|Internal Server Error. Check job id.|
 
 ```
 Status 200 OK
@@ -893,7 +927,10 @@ GET /jobs/:id/consoles/download
 
 ####Response
 
-```Status: 200 OK```
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+|500|Internal Server Error. Check job id.|
 
 Response will contain the console log for the job.
 
@@ -904,6 +941,11 @@ GET /jobs/:jobId/jobCoverageReports
 ```
 
 ####Response
+
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+|500|Internal Server Error. Check job id.|
 
 ```
 {
@@ -950,6 +992,11 @@ GET /jobs/:id/jobTestReports
 
 ####Response
 
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+|500|Internal Server Error. Check job id.|
+
 ```
 
 {
@@ -975,6 +1022,11 @@ DELETE /jobs/:id
 ```
 ####Response
 
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+|500|Internal Server Error. Check job id.|
+
 This will return the entire Job object that is being deleted. The schema is the same as the one for GET /jobs/:id.
 
 ## Projects
@@ -989,7 +1041,7 @@ Will a return a list projects, and some info about the projects
 GET /projects
 ```
 
-####Parameters
+####Query parameters
 
 |Type      |    Name     |    Description    |     Required    |    Schema    |  Default    |
 |----------|-------------|-------------------|----------------|--------------|-------------|
@@ -1062,6 +1114,7 @@ GET /projects/:projectId
 |HTTP Code      |    Description     |
 |---------------|--------------------|
 |200|success|
+|500|Internal Server Error. Check job id.|
 
 ```
 {
@@ -1142,7 +1195,7 @@ GET /projects/:projectId
 |HTTP Code      |    Description     |
 |---------------|--------------------|
 |200|success|  |
-|500|Internal Server Error| This indicates that the projectID was invalid. Message: "getProjects for query: projectIds=2345"  |
+|500|Internal Server Error| Check project id.|
 
 ```
     {
@@ -1190,7 +1243,7 @@ This route triggers a new build for the default branch of a project.
 POST /projects/:projectId/newBuild
 ``
 
-####Parameters
+####Query parameters
 
 |Type      |    Name     |    Description    |     Required    |    Schema    |  Default    |
 |----------|-------------|-------------------|----------------|--------------|-------------|
@@ -1202,7 +1255,7 @@ POST /projects/:projectId/newBuild
 |HTTP code      |    Status     |    Description    |  
 |----------|-------------|-------------------|
 | 200| OK| New build was successfully triggered| 
-| 500| Internal Server Error| This happens when the project ID is invalid. Error message: "Internal API error: getProjectById"| 
+| 500| Internal Server Error| Check project id| 
 
 111
 {
@@ -1218,7 +1271,7 @@ POST /projects/:projectId/newBuild
 GET /subscriptions
 ```
 
-####Optional parameters
+####Query parameters
 
 |Type      |    Name     |    Description    |     Required    |    Schema    |  Default    |
 |----------|-------------|-------------------|----------------|--------------|-------------|
@@ -1254,6 +1307,7 @@ This route returns in depth information about a single subscription
 ```
 GET/subscriptions/:id
 ```
+
 `id` is the guid for the subscription.
 
 ####Response
@@ -1299,6 +1353,11 @@ GET/subscriptions/:id/activeMinions
 
 ####Response
 
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+|500|Internal Server Error. Check subscription id.|
+
 ```
 {
     "count": 0
@@ -1311,7 +1370,6 @@ This route lets you delete your subscription. Please note that all projects, job
 ```
 DELETE /subscriptions/:id
 ```
-
 
 
 ## Accounts
@@ -1335,10 +1393,16 @@ GET /accounts
 ### Get account information
 
 ```
-GET /accounts/:accountId
+GET /accounts/:id
 ```
 
 ####Response
+
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+|500|Internal Server Error. Check account id.|
+
 
 ```
 {
@@ -1399,10 +1463,15 @@ GET /accounts/:accountId
 This route returns the latest run status for all enabled projects across all subscriptions.
 
 ```
-GET /accounts/:accountId/runStatus
+GET /accounts/:id/runStatus
 ```
 
 ####Response
+
+|HTTP Code      |    Description     |
+|---------------|--------------------|
+|200|success|
+|500|Internal Server Error. Check account id.|
 
 ```
 {
@@ -1667,7 +1736,7 @@ GET /accounts/:id/dependencies
 ### Delete an account
 
 ```
-DELETE /accounts/:accountId
+DELETE /accounts/:id
 ```
 
 Deletes the specified account

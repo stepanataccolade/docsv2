@@ -44,8 +44,7 @@ In addition, we are working on Bitbucket Server and GitLab integrations and will
 - Email
 - Slack
 - IRC
-
-Hipchat integration will be available in Q1 of 2016.
+- Hipchat (coming soon)
 
 ### [Docker Registries](int_docker_registries.md)
 - Docker Hub
@@ -57,7 +56,8 @@ Hipchat integration will be available in Q1 of 2016.
 ### [Container Services](int_container_services.md)
 - Amazon Elastic Container Service (ECS)
 - Google Container Engine (GKE)
-- Red Hat Openshift V3
+- Red Hat Openshift V3 (coming soon)
+- Microsoft Azure (coming soon)
 
 ### [Keys](int_keys.md)
 - SSH keys
