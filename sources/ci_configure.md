@@ -40,6 +40,7 @@ build:
     post_ci:
     on_success:
     on_failure:
+    cache:
       
 integrations:
     notifications:
@@ -123,7 +124,7 @@ pre_ci_boot:
     image_name: manishas/myImage
     image_tag: latest
     pull: true
-    envs: FOO=BAR
+    env: FOO=BAR
     options: --privileged=true
 ```
 
@@ -141,7 +142,7 @@ pre_ci_boot:
     image_name: myImage
     image_tag: tip
     pull: false
-    envs: FOO=BAR
+    env: FOO=BAR
     options: --privileged=true
 ```
 For your specific case:
@@ -171,7 +172,7 @@ pre_ci_boot:
     image_name: manishas/myImage
     image_tag: latest
     pull: true
-    envs: FOO=BAR
+    env: FOO=BAR
     options: --privileged=true
 
 integrations:
