@@ -82,11 +82,11 @@ on your desktop:
 gem install capistrano
 ```
 
-And add the following `before_install` block to the `shippable.yml`
+And add the following `ci` block to the `shippable.yml`
 file:
 
 ```yaml
-before_install:
+ci:
   - gem install capistrano
 ```
 
@@ -183,11 +183,11 @@ production:
   secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 ```
 
-Finally, we can add `after_success` step to the `shippable.yml`,
+Finally, we can add `on_success` step to the `shippable.yml`,
 ordering deployment to the production after successful build:
 
 ```yaml
-after_success:
+on_success:
   - cap production deploy
 ```
 
@@ -210,7 +210,7 @@ Next, we need to launch SSH agent and add Shippable key, so it can be
 forwarded and used by the git command on the droplet:
 
 ```yaml
-after_success:
+on_success:
   - eval `ssh-agent -s`
   - ssh-add
   - cap production deploy
@@ -259,7 +259,7 @@ language: node_js
 node_js:
   - 0.10.33
 
-after_success:
+on_success:
   - if [ "$BRANCH" == "master" ]; then git remote add dokku dokku@<droplet-hostname>:<droplet-name>; fi
   - if [ "$BRANCH" == "master" ]; then git push dokku master; fi
 
@@ -273,7 +273,7 @@ dokku@45.55.161.207:demo
 ```
 If you setup DNS for your app, this app name section will instead specify the subdomain at which you'll access your app. More information on app naming and subdomains can be found in the [Dokku docs](http://progrium.viewdocs.io/dokku/dns/).
 
-After making sure that the app builds property, you can find the URL by looking in the logs for `after_success` section
+After making sure that the app builds property, you can find the URL by looking in the logs for `on_success` section
 
 ![after_success Dokku](images/dokku_after_success.gif)
 

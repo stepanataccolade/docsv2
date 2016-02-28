@@ -18,3 +18,5 @@ This will start being populated weekly starting March 2016.
 [Deploy to Heroku](ht_heroku.md)
 
 [Deploy to Amazon EC2 using Code Deploy](ht_codedeploy.md)
+
+[Deploy to Digital Ocean](ht_digitalocean.md)

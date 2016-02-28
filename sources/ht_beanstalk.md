@@ -235,7 +235,7 @@ is an example for `sbt` (please note copying the coverage results, as
 allow customizing the path via options):
 
 ```
-script:
+ci:
   - mkdir -p .elasticbeanstalk
   - cp config.yml .elasticbeanstalk/
   - sbt -DRDS_PORT=3306 -DRDS_DB_NAME=test -DRDS_HOSTNAME=localhost -DRDS_PASSWORD= -DRDS_USERNAME=shippable scoverage:test
@@ -248,7 +248,7 @@ root of the repository, so we need to copy and commit its contents as
 the final build step, prior to the deployment:
 
 ```
-after_success:
+on_success:
   - sbt package
   - unzip "target/scala-2.10/*.war" -d ./
   - git add -f META-INF WEB-INF
