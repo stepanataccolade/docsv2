@@ -1241,14 +1241,7 @@ This route triggers a new build for the default branch of a project.
 
 ```
 POST /projects/:projectId/newBuild
-``
-
-####Query parameters
-
-|Type      |    Name     |    Description    |     Required    |    Schema    |  Default    |
-|----------|-------------|-------------------|----------------|--------------|-------------|
-| QueryParameter| projectIds| Filter by one or more project ids.| no | string | |
-
+```
 
 ####Response
 
@@ -1257,7 +1250,7 @@ POST /projects/:projectId/newBuild
 | 200| OK| New build was successfully triggered| 
 | 500| Internal Server Error| Check project id| 
 
-111
+```
 {
   "runId": "56cfe31f388a4f2d00382db1"
 }
