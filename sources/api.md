@@ -1522,7 +1522,7 @@ GET /accounts/:id/runStatus
 
 ###Get dependencies
 
-This route returns account dependencies, including aubacriptions, enabled projects, credit cards, and account integrations. These must be deleted before you delete the account.
+This route returns account dependencies, including subscriptions, enabled projects, credit cards, and account integrations. These must be deleted before you delete the account.
 
 ```
 GET /accounts/:id/dependencies
