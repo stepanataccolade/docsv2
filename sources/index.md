@@ -1,199 +1,70 @@
-page_title: Learn About What Makes Shippable Great
+page_title: What is Shippable?
 page_description: Code examples, FAQs, language & platform support
 page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
-# Overview
+# What is Shippable?
 
-## What is Shippable?
+Shippable was founded so that software development teams could accelerate their release cycles by automating the build, test and deployment of applications. Our Continuous Delivery pipeline takes your code from from source control to production, without the need for configuration management/IT automation tools or infrastructure code.
 
-Shippable is a SaaS platform for developers and DevOps teams that significantly reduces the time taken for code to be built, tested and deployed to production.
+We integrate with the tools and technologies you use today and will need tomorrow, like GitHub, Bitbucket and on-prem repositories, offer seamless deployment to private clouds as well as leading cloud providers including Amazon and Google, and support all application architectures from enterprise grade multi-tier to containerized micro services. 
 
-Shippable is comprised of two products that enable you to ship code faster:
+If you believe that your team should focus on product innovation instead of building complex deployment pipelines, you should sign up for Shippable today.
 
-**Shippable CI/CD:**
-Shippable CI/CD is our Continuous Integration and Deployment Platform. It uses **Build Minions**, which are Docker-based containers to run your workloads. After building and testing your code, you can have Shippable create a Docker image from your Build Minion and push it to Docker Hub or Google Container Registry (private registry support coming soon!).
+The Shippable platform consists of 2 parts: 
 
-Go to [Shippable CI/CD Overview](ci_overview.md) to learn more.
+**Continuous Integration (CI)**, which enables teams to build and test their repositories for every code commit or pull request and get instant feedback. 
 
-**Shippable Formations**
-Shippable Formations gives developers an easy way to provision, configure, and deploy multi-container Dev and Test clouds (environments) with zero DevOps code. It is fully integrated with the updated Shippable CI/CD platform, and together, they create an automated, frictionless pipeline from source control to full-topology environments that can mimic your production environment or represent any combination of software component versions you'd like to deploy.
+**Continuous delivery pipelines** which automate the flow of your application from source control to production. Using these deployment pipelines, you can easily deploy containerized applications to Container Services like Amazon's ECS and Google Container Engine. 
 
-Go to [Shippable Formations Overview](formations_overview.md) to learn more.
+Shippable integrates with all popular tools and services, such as build/test tools,  source control providers, docker registries, cloud providers, and container services.
 
-*****
+<img src="./images/pipeline_basic_flow.png" alt="e2e pipeline" style="width:700px;"/>
 
-## Quick Start: Run a build
+## Continuous Integration
+Our Continuous Integration platform helps developers find bugs as soon as they are introduced. Every time you commit code or open a pull request, your code will be automatically built and tested and you will receive a notification with build results. 
 
-![Run a Build](images/build_flow.gif)
+We run all your builds on **minions**, which are Docker-based containers. If you're using Docker for development, you can use your own Docker images or even build a Docker image and run builds in the container as part of your CI workflow. For customers who are not using Docker for their development, we provide a variety of images for each language that are pre-loaded with popular services and tools.
 
-### Step 0: Prerequisite
+You should use Shippable for Continuous Integration if you fit the following profile -
 
-Shippable uses either your [GitHub](https://github.com) or [Bitbucket](https://bitbucket.org) account to authenticate. You must have your source code in one of these two repos to sign up for Shippable.
+* Your source code is on GitHub, Bitbucket or GitHub Enterprise. (Support for Bitbucket Server and Gitlab will be announced in Q1 2016)
+* You want to avoid the time sink of setting up and managing your own CI system and would rather spend the time writing features for your product   
+* (optional)You're a Docker user and you want to use your own custom image to run your builds. You can even run Docker compose to spin up environments!
 
-### Step 1: Sign in to Shippable
+Some customers are not comfortable or for some reason cannot run builds on our hosted infrastructure. To address this, we offer an additional feature called BYOH where you can run builds on your own infrastructure.
 
-To sign in, visit the [Shippable website](http://shippable.com)
-click **Login**, and choose between GitHub or Bitbucket auth. This will take you to either the GitHub or Bitbucket sign-in page, where you enter your credentials.
+###Bring your own hosts (BYOH)
+For customers who want complete control over their build hosts, we offer a novel approach called **Bring your own hosts (BYOH)**. 
 
-Click `Authorize Application` on GitHub or `Grant access` on Bitbucket to allow access to repos. If you are a GitHub user, this initial flow only grants us access to public repositories. To grant permissions for private repositories, see the [access policy](permissions.md) page for more details.
+BYOH lets you run builds on your own infrastructure, so you can attach your machines to your Shippable subscription and all your builds are routed to those machines. This is a powerful hybrid approach that gives you the benefit of using a SaaS service for CI orchestration, while still giving you full control over the infrastructure and security of your build machines.
+
+You should take advantage of BYOH if:  
+
+* You want complete control over your build machines. 
+* Your builds are resource intensive and 2 core, 4GB RAM is not sufficient to run them. You need bigger containers! 
+* You want your build machines to be inside your VPC and/or behind your firewall, which also gives you the ability to configure access, IAM, etc.
 
 
-### Step 2: Create YML file
+Go to [the Continuous Integration section](ci_overview.md) to learn more.
 
-Create a shippable.yml file at the root of the repository you want to build with Shippable.
+## Continuous Delivery pipelines
 
-Your yml needs a couple of entries at the very minimum - the language and the version(s) of the language you want to test against. For this Quick Start, we will use defaults for the other settings.  See our [Language Specific Help](languages.md) page for a list of valid `language:` values.
+Our powerful deployment pipelines give software development teams the ability to automate the flow of their Docker based applications from CI to a versioned deployment unit which can then be easily and automatically deployed to Container Services like Amazon's ECS or Google Container Engine. Your application components are versioned and individual deployment units, which we call Cells, can be upgraded or rolled back with a single click. We also support auto-deploying to test environments, which means your functional tests can be automated to run on every code commit.
+ 
+Most importantly, our deployment pipelines give you the ability to be cloud agnostic. You can move your applications across Container Services in a few minutes!
 
-```
-# language setting
-language: node_js
+You should Shippable to set up your Continuous Delivery pipelines if you fit the following profile -
 
-# version numbers, testing against two versions of node
-node_js:
-    - 0.10.25
-    - 0.11
-```
+* Your application is Dockerized and you run Docker in test environments and Production, or
+* You do not use Docker in production, but run (or are open to running) your Test and/or Production environments on a Container Service, or 
+* You are not using Docker in production but are interested in containerizing your Test environments.  
+* You run (or want to run) functional tests for every code commit
 
-Validate your YML has no errors with a [validator](http://yaml-online-parser.appspot.com)
+Go to [the CD Pipelines section](pipelines_overview.md) to learn more.
 
-### Step 3: Enable CI/CD for repos
+In addition, we also have a cool tool called **Lighthouse** that lets you monitor any Docker images you depend on and be notified when they change. This helps avoid situations where your images no longer work due to changing dependencies. 
 
-To enable a repository for CI/CD:
-
-- On the Shippable landing page, click on **CI**
-
-![CI](images/landing_widget.gif)
-
-- Find your subscription from the dropdown and go to your Subscriptions page
-- Click on the ![add](images/add_icon.gif) to enable a new project
-- Find the repo you want to enable and click on the ![enable](images/enable_icon.gif) icon
-- This will bring you back to the project dashboard and you can see your enabled project there
-
-### Step 4: Run the build
-
-- On the Project Page, click on the ![Run Build](images/play_icon.gif) icon to run a manual build
-- You can view the build status on the console in the build page
-- The status is updated as soon as the build completes
-
->This is a very basic version of a build. Learn how to [customize your build further](build_case2.md)
+Go to [Lighthouse Overview](lighthouse.md) to learn more.
 
 *****
-
-## Quick Start: Create a Formation
-
-![Create a Formation](images/quick_formation.gif)
-
-### Step 0: Prerequisite
-
-Shippable uses either your [GitHub](https://github.com) or [Bitbucket](https://bitbucket.org) account to authenticate. You must have one of these two accounts to sign into Shippable.
-
-### Step 1: Sign in to Shippable
-
-To sign in, visit the [Shippable website](http://shippable.com),
-click **Login**, and choose between GitHub or Bitbucket auth. This will take you to either the GitHub or Bitbucket Sign In page, where you enter your credentials.
-
-Click `Authorize Application` on GitHub or `Grant access` on Bitbucket to allow access to repos. The [access policy](permissions.md) page has more details on Shippable's access policies.
-
-### Step 2: Add a new Formation Subscription
-
-- Add a Payment Method: Click on Account Settings Icon on the top nav bar. Select the **Cards** tab and add a payment method
-- Connect your Docker Registry to Shippable: Click on the **Integrations** tab under Account Settings and add Docker Hub or GCR credentials that allow us to connect to the registry. Read the [instructions](integrations.md) on how to integrate
-
-Now you are ready to add a Formation Subscription:
-
-- On the Shippable Landing page, click on **Formations**
-
-    ![Formations Landing](images/formations_landing.gif)
-
-- Choose **Add Formation**
-- Enter a name for your formation in the textbox
-- Use the slider to select the number of containers for your plan
-- Enter your billing address and billing email
-- Select a payment method.
-- Click Buy
-- This will bring you to the [Formation Status page](formations_status.md)
-
-
-### Step 3: Add Components
-
-- Start by adding different components to your formation by clicking on the **Settings** tab and selecting the **Components** tab
-- Add images to your formation by clicking on the ![add icon](images/add_icon.gif).
-- Create an environment by entering the name in the **Environments** section. We only need the name at this point
-- Add the keys of your Config Variables against **Configurations**. The actual values will be entered when you are configuring an instance of your application.
-
-### Step 4: Create and Configure Service(s)
-
-- Go to the **Services** tab under **Settings** to create and configure your service
-- Start by naming your service and clicking **Save**
-- Add the images that are part of the service by clicking on ![green add](images/green_add.gif)
-- Add the config keys by clicking on ![green add](images/green_add.gif) in the **Add Configs** section
-- Select the environment you want to deploy this service to by clicking on ![green add](images/green_add.gif) in the **Deploy** section
-- You have now configured your Service.
-
-
-### Step 5: Deploy Service(s)
-
-- In the previous step, you configured your Service. Click on the icon next to the environment to configure and deploy an instance of your service to the environment
-- Add the tags/versions of the images
-- Add values for your Config Keys
-- Select if you want to expose any port externally
-- If you want multiple replicas of your instance, set the count in **replicas** appropriately
-- Save and hit Deploy
-- Verify you are deploying the correct image versions and click **Deploy Service**. Your service is now live!
-- You can see the status of your service as **active** and live logs will stream to the console for all images in your services. On the status page, you can also see the IP address and port you can use to connect to your service
-
-*****
-
-
-## FAQ
-
-### How can I update my Shippable plan?
-
-Shippable CI/CD and Shippable Formations are 2 different subscriptions under your account. These need to be purchased separately.
-
-First make sure you have a valid payment method on Shippable.
-
-- Click on the Account Settings icon on the top nav bar
-- Click on the **Cards** tab
-- Add a new payment method by clicking on the ![add icon](images/add_icon.gif)
-
-To purchase additional containers for Shippable CI:
-
-- Click on **CI** on the Shippable Landing page
-- Click on your **CI Subscription** in the dropdown
-- Go to the **Billing** tab
-- Make sure your plan is set to `Multi-Tenant CI`
-- Use the slider to select the number of containers you want for your subscription.
-- Enter your payment details and click `Buy`
-- Your CI Plan is now updated
-
-To purchase containers for a new or existing Shippable Formation:
-
-- Click on **Formations** on the Shippable Landing page
-- Click on **Add a new formation** in the dropdown
-- This will take you to our payment page. Choose `Multi-Tenant Formation` as your plan
-- Use the slider to select the number of containers you want for your formation
-- Enter your payment details and click `Buy`
-- You are ready to start on your new formation
-
-To update containers in an existing Shippable Formation:
-
-- Click on **Formations** on the Shippable Landing page
-- Choose the Formation that you want to update
-- Go to the **Billing** tab
-- In the first section, choose `Multi-Tenant Formation` as your plan
-- Use the slider to select the number of containers you want for your formation
-- Enter your payment details and click `Buy`
-- Your plan is now updated
-
-
-### Why can't I see some of my repositories in my Shippable account?
-
-This happens due to one of the following reasons:
-
-- You haven't enabled private repositories in your Shippable account. Go to [Account Settings](account_settings.md) and in the **GitHub Identity** section, click on the **Private Repos OFF** icon. This is a one-way toggle button to turn on Private Repos for your GitHub account.
-- Your account hasn't yet been synced with the latest permissions from GitHub. To force sync your account, go to your Account Settings and click on the `Force Sync` icon next to your Account Id.
--  You're a Bitbucket user and you have mercurial repositories. We do not support mercurial at this time, so you will need to convert them to git or use another platform for CI/CD.
-
-Visit our [FAQ Page](faq.md) for answers to more frequently asked questions.
 

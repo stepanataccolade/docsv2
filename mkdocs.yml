@@ -11,47 +11,43 @@ google_analytics: ['UA-50610279-1', 'auto']
 
 # Pages
 pages:
-- Getting Started: index.md
-- CI/CD:
+- Getting Started:
+  - Overview: index.md
+  - Concepts: gs_concepts.md
+  - What is supported?: gs_supported.md
+  - Pricing: gs_plans.md
+  - Your Shippable Account: acc_overview.md 
+  - Run a sample CI build: gs_ci_sample.md
+  - Deploy a sample application: gs_deploy_sample.md  
+- C I:
   - Overview: ci_overview.md
-  - CI Subscription Dashboard: ci_dashboard.md
-  - CI Subscription Billing: ci_billing.md
-  - CI Subscription Settings: ci_settings.md
-  - Project Dashboard: project_dashboard.md
-  - Project Settings: project_settings.md
-  - Build Dashboard: build_dashboard.md
-- Formations:
-  - Overview: formations_overview.md
-  - Formations Dashboard: formations_status.md
-  - Formation Settings: formation_settings.md
-  - Formations Billing: formations_billing.md
+  - Subscriptions: ci_subscriptions.md
+  - Projects: ci_projects.md
+  - Builds: ci_builds.md
+  - Configuring your build: ci_configure.md
+  - Language help: ci_languages.md
+  - Docker support: ci_docker.md
+  - Running builds on your machines: ci_byoh.md
+  - Running a sample build: gs_ci_sample.md
+  - FAQ: ci_faq.md
+- CD Pipelines:
+  - Overview: pipelines_overview.md
+  - Pipeline Status: pipelines_subscriptions.md
+  - Configuring and managing pipelines: pipelines_configure.md
+  - Deploy a sample app: gs_deploy_sample.md
+- Integrations: 
+  - Overview: int_overview.md
+  - Source control providers: int_scm.md
+  - Docker registries: int_docker_registries.md
+  - Container services: int_container_services.md
+  - Notification providers: int_notifications.md
+  - Keys: int_keys.md
 - Lighthouse: lighthouse.md
-- Account:
-  - Account Settings: account_settings.md
-  - Integrations: integrations.md
-  - Payment Methods: payment_methods.md
-- How To:
-  - Link GitHub and Bitbucket Accounts: link_gh_and_bb.md
-  - Use CI with Test and Coverage: build_case2.md
-  - Use a Docker Registry: docker_registries.md
-  - Do a Docker Build: docker_build.md
-  - Use Specific Languages for CI: languages.md
-  - Use Slack for Build Notifications: slack_notifications.md
-  - Get Build Badges: build_badge.md
-  - Run Tests in Parallel: parallel_tests.md
-  - Use Shippable CI with Gitlab: using_gitlab.md
-  - Auto Deploy to Elastic Beanstalk: autodeploy-to-ebs.md
-  - Deploy to Heroku: heroku.md
-  - Deploy to AWS OpsWorks: opswork.md
-  - Deploy to Google App Engine: appengine.md
-  - Deploy to Red Hat OpenShift: openshift.md
-  - Deploy to DigitalOcean: digitalocean.md
-  - Deploy to AWS CodeDeploy: codedeploy.md
 - API: api.md
-- Reference:
-  - FAQ: faq.md
-  - How the Build works: basic_flow.md
-  - YML Reference: yml_reference.md
-  - Supported Languages: supported_services.md
-  - Access and Permissions: permissions.md
-  - Glossary: glossary.md
+- Tutorials: 
+  - Overview: ht_overview.md
+  - Using GitLab with Shippable: ht_using_gitlab.md
+  - Linking GitHub and Bitbucket accounts: ht_link_gh_and_bb.md 
+  - Deploy to Heroku: ht_heroku.md
+  - Deploy to Amazon EC2: ht_codedeploy.md
+  - Deploy to Digital Ocean: ht_digitalocean.md
