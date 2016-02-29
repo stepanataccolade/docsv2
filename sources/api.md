@@ -41,7 +41,7 @@ Detailed documentation for API routes is provided below.
 
 The old `builds` have now been replaced by `runs`. 
 
-Any builds started before 3/1/2016 can be retrieved by replacing `runs` with `builds` for the APIs in tis section. E,g, GET /builds, GET /builds/:buildID, etc
+Any builds started before 3/1/2016 can be retrieved by replacing `runs` with `builds` for the APIs in this section. E,g, GET /builds, GET /builds/:buildID, etc
 
 For all runs started after 3/1/2016, please use /runs as shown in the routes below.
 

@@ -281,7 +281,7 @@ build:
 In the above example, replace the repo/image name with your image name and the tags with the ones you need for your image. 
 
 ### Pushing to GCR/ECR with custom images
-All standard images in our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) have the required CLIs preinstalled, so you can run a docker build or push wit no effort.
+All standard images in our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) have the required CLIs preinstalled, so you can run a docker build or push with no effort.
 
 If you are using a custom image for your build and you want to do a docker build or push to Google Container Registry or Amazon's ECR in your `post_ci` or `on_success` sections, you will need to install the necessary CLI in your custom image.
 
