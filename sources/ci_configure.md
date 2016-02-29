@@ -176,11 +176,12 @@ pre_ci_boot:
     options: --privileged=true
 
 integrations:
-    - integrationName: manishasDockerHub
-      type: docker
-      branches:
+    hub:
+      - integrationName: manishasDockerHub
+        type: docker
+        branches:
           only:
-              - master
+            - master
 
 ```
 
@@ -240,13 +241,16 @@ build:
         - docker push manishas/sample-node:tip
    
 integrations:
-    - integrationName: manishasDockerHub
-      type: docker
-      branches:
+    hub:
+      - integrationName: your_integration_name
+        type: docker
+        branches:
           only:
-              - master
+            - master
     
 ```
+
+Please note that `type` will be `docker` for Docker Hub, `gcr` for Google Container Registry, `quay` for Quay.io, `aws` for Amazon EC2 Container registry, and `private` for a self hosted private registry.
 
 To build a new production image and then push to a registry, 
 
@@ -257,11 +261,12 @@ build:
         - docker push manishas/sample-node-prod
    
 integrations:
-    - integrationName: manishasDockerHub
-      type: docker
-      branches:
+    hub:
+      - integrationName: your_integration_name
+        type: docker
+        branches:
           only:
-              - master
+            - master
     
 ```
 
