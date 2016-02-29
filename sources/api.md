@@ -663,7 +663,7 @@ Jobs are individual builds in a Run. For example, a matrix build will have multi
 This route returns all jobs across projects and subscriptions and runs.
 
 ```
-GET /runs
+GET /jobs
 ```
 
 ####Response
