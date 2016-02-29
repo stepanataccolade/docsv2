@@ -226,6 +226,8 @@ After CI is complete, you might want to push your build image to a Docker regist
 
 You should do this in the `post_ci` section of your shippable.yml.
 
+**Please note that if you are using your own custom image for CI and want to push your Docker image to Google Container Registry or Amazon's ECR, you will need to have the appropriate cli installed on your custom image.**
+
 To push your CI build container image to a registry:
 
 1. Create an account integration for your registry ([Instructions here](int_docker_registries.md))
@@ -277,6 +279,30 @@ build:
        - docker push manishas/sample-node:$BUILD_NUMBER
 ```
 In the above example, replace the repo/image name with your image name and the tags with the ones you need for your image. 
+
+### Pushing to GCR/ECR with custom images
+All standard images in our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) have the required CLIs preinstalled, so you can run a docker build or push wit no effort.
+
+If you are using a custom image for your build and you want to do a docker build or push to Google Container Registry or Amazon's ECR in your `post_ci` or `on_success` sections, you will need to install the necessary CLI in your custom image.
+
+####gcloud SDK
+This is required if you want to pull from or push to GCR. Include the following in your Dockerfile to install the gcloud SDK:
+
+```
+echo "================= Adding gclould binaries ============"
+CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+sudo apt-get update && sudo apt-get install google-cloud-sdk
+```
+ 
+####AWS CLI
+ 
+This is required if you want to pull from or push to Amazon's ECR. Include the following in your Dockerfile to install the aws cli:
+
+```
+sudo pip install awscli
+```
 
 <a name="matrix_builds"></a>
 ## Running multiple builds per commit
@@ -751,7 +777,9 @@ integrations:
 
 Shippable offers a host of pre-installed services to make it easy to run your builds. In addition to these you can install other services also by using the `install` tag of `shippable.yml`.
 
-All the services are turned off by default and can be turned on by using the `services:` tag. Please note that the `services` tag only works if you are using the default image for your builds, or if you're pulling an official image from our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/).
+All the services are turned off by default and can be turned on by using the `services:` tag. 
+
+**Please note that the `services` tag only works if you are using the default image for your builds, or if you're pulling an official image from our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/).**
 
 ### MongoDB
 
