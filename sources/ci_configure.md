@@ -728,14 +728,7 @@ integrations:
 
 ### IRC notifications
 
-You can send notifications to public and private IRC rooms using Shippable. 
-
-To send notifications to private IRC channels, you will need to first do the following:
-
-1. Create an account integration for your IRC channel ([Instructions here](int_notifications.md))
-2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
-
-To send notifications to public IRC channels, you can skip the two steps above.
+You can send notifications to public IRC rooms using Shippable. Private IRC support is coming up soon.
 
 Use the following yml structure to send IRC notifications:
 
@@ -755,7 +748,7 @@ integrations:
           on_failure: always 
 ```
 
-* `integrationName` value is the name of the account integration you added to project settings. For public channels, just use `irc`.
+* `integrationName` for public channels is `irc`.
 * `type` is `irc` 
 * `recipients` specifies the rooms you want to send the notification to. 
     - If there is a single recipient, you can use the format `recipients: "chat.freenode.net#channel2"`
