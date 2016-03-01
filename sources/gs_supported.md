@@ -33,7 +33,6 @@ We support a multitude of languages, tools, services, as well as all popular sou
 -  Ubuntu 14.04
 
 #### Services
--  Cassandra 2.1
 -  CouchDB 1.6.1
 -  Elastic Search 1.5.1
 -  Kestrel 

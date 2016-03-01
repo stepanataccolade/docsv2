@@ -62,7 +62,7 @@ For each build item in a build, we provide the following:
 * Build item console
 * Test and code coverage visualization
 * The Script that was run for the build item
-* Download for console logs and, if configured, artifacts
+* Download for console logs
 
 <img src="../images/ci_build_item.png" alt="Build status" style="width:700px;"/>
 
@@ -81,9 +81,9 @@ If you have set up your yml to [show test and code coverage results](ci_configur
 ### Script
 The script section shows you exactly what scripts and commands were run for your build. In case of a build failure or other issues, you can copy the script and run it locally to see if your build works locally. This helps tremendously while debugging build problems.
 
-### Downloading console logs and artifacts
+### Downloading console logs
 The `Download` dropdown on the right of the build item console lets you download console logs to your machine.
-If you have configured your yml to also store artifacts with an `artifacts: true`, you can download those as well.
+
 
 
 
