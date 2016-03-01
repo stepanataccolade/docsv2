@@ -26,6 +26,8 @@ The minimum requirements for a build machine that can be attached to Shippable a
 * 20GB SSD
 * Ubuntu 14.04 OS
 
+Please note that you will need to attach one build machine per parallel build.
+
 We have tested this extensively using machines on Amazon EC2 and Digital Ocean. We expect machines from other providers to work without issues as long as they satisfy the above requirements. If you run into any issues, drop an email to our [support alias](mailto:support@shippable.com)
 
 
