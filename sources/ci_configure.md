@@ -8,7 +8,7 @@ All build configuration happens through shippable.yml which should be present at
 
 ##shippable.yml structure
 
-At a high level, the yml structure for CI is as shown below, along with an explanation of what belongs in each section. 
+At a high level, the yml structure for CI is as shown below, along with an explanation of what belongs in each section.
 <img src="../images/ci_yml_structure.png" alt="Account Settings Subscription" style="width:700px;"/>
 
 To get started, you can copy the following structure into your shippable.yml and then customize it based on instructions in the sections below.
@@ -23,13 +23,13 @@ python:
 
 #specify which services you need. This is only valid if you use the default Shippable image for your build
 services:
-    
+
 env:
 
 matrix:
 
 build:
-    pre_ci: 
+    pre_ci:
     pre_ci_boot:
         image_name:
         image_tag:
@@ -41,7 +41,7 @@ build:
     on_success:
     on_failure:
     cache:
-      
+
 integrations:
     notifications:
         - integrationName:
@@ -52,14 +52,14 @@ integrations:
           on_success
           on_failure:
           on_changed:   
-          
+
     hub:
         - integrationName:
           type:
           branches:
 ```
 
-Details on what can be set in each section are in 
+Details on what can be set in each section are in
 
 ## Specifying language and runtime
 
@@ -102,7 +102,7 @@ The `pre_ci` section lets you prepare your environment before your CI container 
 <a name="build_images"></a>
 ## Setting your build image
 
-To run your build, we spin up Docker containers depending on the language specified in your yml. Our build images are available on Docker Hub under the [dry-dock repository](https://hub.docker.com/r/drydock) and the corresponding Dockerfiles are available in our [GitHub repository dry-dock](https://github.com/dry-dock). 
+To run your build, we spin up Docker containers depending on the language specified in your yml. Our build images are available on Docker Hub under the [dry-dock repository](https://hub.docker.com/r/drydock) and the corresponding Dockerfiles are available in our [GitHub repository dry-dock](https://github.com/dry-dock).
 
 Our standard build images are named as follows:
 
@@ -113,7 +113,7 @@ Our standard build images are named as follows:
 Exact details on what is included in each image is available in the github repo for the image, as well as the image description on Docker Hub.
 
 ### Default build image
-By default, we will spin up a build container based on the either the base version or the `all` version of an image for the language specified in your yml. For example, if you specify ```language: python``` in your yml, we will spin up a build minion based on u14pyt:prod. If your build also starts any services using the `services` tag in the yml, we will spin up a build minion based on  u14pytall:prod images. 
+By default, we will spin up a build container based on the either the base version or the `all` version of an image for the language specified in your yml. For example, if you specify ```language: python``` in your yml, we will spin up a build minion based on u14pyt:prod. If your build also starts any services using the `services` tag in the yml, we will spin up a build minion based on  u14pytall:prod images.
 
 ### Overriding the default build image
 
@@ -147,18 +147,18 @@ pre_ci_boot:
 ```
 For your specific case:
 
-* `image_name` value is the name of the image that was built in the `pre_ci` step. 
+* `image_name` value is the name of the image that was built in the `pre_ci` step.
 *  `image_tag` is the tag for the image that was built in the `pre_ci` step.  
 * set `pull` to `false` if you want to use the image you built during the `pre_ci` step instead of pulling from a docker registry.
-* In the `env` section, you can enter any environment variables you want to be set inside your CI container. 
-* In the `options` tag, enter any docker options you want to use in the `docker run` command. 
+* In the `env` section, you can enter any environment variables you want to be set inside your CI container.
+* In the `options` tag, enter any docker options you want to use in the `docker run` command.
 
 The example yml above will ensure that manishas/myImage:tip is used to start the CI container with the option `--privileged=true` and with the environment variable FOO=BAR already set within the container.
 
 
 ###Pulling your CI image from a Docker registry
 
-You can pull any image you have access to from a Docker registry and use that to spin up your CI build container. 
+You can pull any image you have access to from a Docker registry and use that to spin up your CI build container.
 
 
 To pull a private image from a registry, you will need to do the following-
@@ -187,18 +187,18 @@ integrations:
 
 For your specific case:
 
-* `image_name` value is in the format (docker registry username)/(docker registry image repo). 
+* `image_name` value is in the format (docker registry username)/(docker registry image repo).
 * `image_tag` is the tag for the image that you want to pull.  
 * set `pull` to `true` if you want to pull this image from a docker registry.
-* In the `env` section, you can enter any environment variables you want to be set inside your CI container. 
-* In the `options` tag, enter any docker options you want to use in the `docker run` command. 
+* In the `env` section, you can enter any environment variables you want to be set inside your CI container.
+* In the `options` tag, enter any docker options you want to use in the `docker run` command.
 * For `integrationName` tag, enter the name of the account integration you have added to your project settings. This account should have permissions to pull the the build image specified in the `image_name` setting.
-* In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google container registry, `quay` for Quay.io, `aws` for Amazon EC2 Container registry, and `private` for a self hosted private registry.
+* In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google Container Registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container Registry, and `private` for a self hosted private registry.
 * [optional]Using the `branches` section, specify the branches this account integration is applicable to. You can skip this if you want your integration to be applicable for all branches.
 
 The example yml above will pull the image manishas/myImage:tip using the integration manishas_dockerhub, and run the container with option `--privileged=true` and set env `FOO=BAR` inside the container.  
 
-## The `ci` section 
+## The `ci` section
 
 The `ci` section of your yml is where the bulk of your build commands should be included. All commands in this section are executed sequentially inside your build container in the order they appear in your yml.
 
@@ -221,13 +221,13 @@ An example is shown below:
     - mysql -e 'create database if not exists test;'
 ```
 
-## Pushing an image to a registry 
+## Pushing an image to a registry
 
 After CI is complete, you might want to push your build image to a Docker registry and tag it appropriately. Or you might want to build a new 'production' image without any of your CI artifacts and push that to your Docker registry account.
 
 You should do this in the `post_ci` section of your shippable.yml.
 
-**Please note that if you are using your own custom image for CI and want to push your Docker image to Google Container Registry or Amazon's ECR, you will need to have the appropriate cli installed on your custom image.**
+**Please note that if you are using your own custom image for CI and want to push your Docker image to Google Container Registry or Amazon ECR, you will need to have the appropriate cli installed on your custom image.**
 
 To push your CI build container image to a registry:
 
@@ -239,7 +239,7 @@ To push your CI build container image to a registry:
 build:
     post_ci:
         - docker push manishas/sample-node:tip
-   
+
 integrations:
     hub:
       - integrationName: your_integration_name
@@ -247,19 +247,19 @@ integrations:
         branches:
           only:
             - master
-    
+
 ```
 
-Please note that `type` will be `docker` for Docker Hub, `gcr` for Google Container Registry, `quay` for Quay.io, `aws` for Amazon EC2 Container registry, and `private` for a self hosted private registry.
+Please note that `type` will be `docker` for Docker Hub, `gcr` for Google Container Registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container registry, and `private` for a self hosted private registry.
 
-To build a new production image and then push to a registry, 
+To build a new production image and then push to a registry,
 
 ```
 build:
     post_ci:
         - docker build -t manishas/sample-node-prod .
         - docker push manishas/sample-node-prod
-   
+
 integrations:
     hub:
       - integrationName: your_integration_name
@@ -267,7 +267,7 @@ integrations:
         branches:
           only:
             - master
-    
+
 ```
 
 ### Pushing multiple tags
@@ -283,7 +283,7 @@ build:
        - docker push manishas/sample-node:tip
        - docker push manishas/sample-node:$BUILD_NUMBER
 ```
-In the above example, replace the repo/image name with your image name and the tags with the ones you need for your image. 
+In the above example, replace the repo/image name with your image name and the tags with the ones you need for your image.
 
 ### Pushing to GCR/ECR with custom images
 All standard images in our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) have the required CLIs preinstalled, so you can run a docker build or push with no effort.
@@ -300,9 +300,9 @@ echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee 
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 sudo apt-get update && sudo apt-get install google-cloud-sdk
 ```
- 
+
 ####AWS CLI
- 
+
 This is required if you want to pull from or push to Amazon's ECR. Include the following in your Dockerfile to install the aws cli:
 
 ```
@@ -316,7 +316,7 @@ In most cases, you want to trigger one build for each commit/pull request to you
 
 This scenario is handled by our matrix build feature, so the following yml configs will trigger multiple builds -
 
-- specifying more than one language version 
+- specifying more than one language version
 - specifying more than one variable in the ```env``` section
 - specifying multiple gemfiles for ruby
 
@@ -341,7 +341,7 @@ The above example will fire 16 different builds for each push. Whoa! Need more m
 
 ### including/excluding versions
 
-You can also exclude a specific version by configuring your yml with an `exclude` tag: 
+You can also exclude a specific version by configuring your yml with an `exclude` tag:
 
 ```
 matrix:
@@ -380,8 +380,8 @@ Please note that you can specify language versions as number or string, i.e. as 
 The following environment variables are available for every build. You can use these in your scripts if required:
 
 
-| Env variable        | Description           | 
-| ------------- |-------------| 
+| Env variable        | Description           |
+| ------------- |-------------|
 | BASE_BRANCH		 | Name of the target branch into which the pull request changes will be merged|
 | BRANCH		 | Name of branch being built|
 | BUILD_NUMBER		 | Build number for current build|
@@ -418,7 +418,7 @@ The following environment variables are available for every build. You can use t
 
 ### Custom Variables
 
-You can also set your own environment variables in the yml. Each statement under the ```env``` tag will trigger a separate build with that env variable, so specifying multiple environment variables will give you a build matrix for every commit. 
+You can also set your own environment variables in the yml. Each statement under the ```env``` tag will trigger a separate build with that env variable, so specifying multiple environment variables will give you a build matrix for every commit.
 
 ```yaml
 # environment variable
@@ -432,7 +432,7 @@ Env variables can create an exponential number of builds when combined with `jdk
 
 ### Secure variables
 
-Shippable allows you to encrypt environment variables and keep your configurations private using `secure` tag. 
+Shippable allows you to encrypt environment variables and keep your configurations private using `secure` tag.
 
 To do this,
 
@@ -506,7 +506,7 @@ In the example above, the container will be cached after `some_command` and befo
 ### Clearing cache
 You can clear cache in one of 2 ways:
 
-* Including [reset minion] or [reset_minion] in your commit message. 
+* Including [reset minion] or [reset_minion] in your commit message.
 * Clicking on the `Clear cache` in your Project settings UI.
 
 In both cases, your cached image will be deleted. If cache is still set to true in your yml, the build will generate a new cache which will be used for subsequent builds. This method is the best way to update your cache if required.
@@ -531,7 +531,7 @@ Shippable supports git submodules. For big projects, you can break your projects
 > **Note**
 >
 > If you are using private repos, you will need to add the deploy keys so that our minion
-> ssh keys are allowed to pull from the repo. 
+> ssh keys are allowed to pull from the repo.
 
 If your submodules are in your own public repos then the following will work:
 
@@ -553,7 +553,7 @@ git:
 
 ## Including/excluding branches
 
-By default, Shippable builds all branches for enabled repositories. If a branch does not have a shippable.yml at its root, we will create a build and show an error in the build console. 
+By default, Shippable builds all branches for enabled repositories. If a branch does not have a shippable.yml at its root, we will create a build and show an error in the build console.
 
 You can choose to build specific branches by using the `branches` sections in your yml. The specific branch that is being included or excluded needs to have this configuration, and not just the master branch. When we get a webhook for an enabled repository, we read the shippable.yml from the branch that has changed and trigger a build using that yml. So unless the yml in the branch to be included/excluded has the right settings, we are not aware of it and will trigger a build as expected.  
 
@@ -580,9 +580,9 @@ branches:
 <a name="test_code_coverage"></a>
 ## Test and Code Coverage Reports
 
-Shippable can show you test and code coverage results in a consumable format where you can drill down further and find out which tests failed or which sections of your code were not covered by your tests. 
+Shippable can show you test and code coverage results in a consumable format where you can drill down further and find out which tests failed or which sections of your code were not covered by your tests.
 
-Your tests results data needs to be in junit format and your code coverage results need to be in cobertura format in order to see these visualizations. 
+Your tests results data needs to be in junit format and your code coverage results need to be in cobertura format in order to see these visualizations.
 
 ### Test Results
 
@@ -595,7 +595,7 @@ To set up test result visualization for a repository, do the following:
 For example, here is a sample configuration for a Python project -
 
 ```yaml
-ci: 
+ci:
     - mkdir -p shippable/testresults
     - nosetests python/sample.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
 ```
@@ -616,7 +616,7 @@ To set up code coverage result visualization for a repository, do the following:
 For example, here is a sample configuration for a Python project -
 
 ```yaml
-ci: 
+ci:
   - mkdir -p shippable/codecoverage
   - coverage run --branch python/sample.py
   - coverage xml -o shippable/codecoverage/coverage.xml python/sample.py
@@ -631,7 +631,7 @@ Once you have set this up, you can view your code coverage results in the `Code 
 ## Notifications
 
 Shippable supports email, Slack, and IRC notifications and these can
-can be configured in your yml file. 
+can be configured in your yml file.
 
 To send HipChat notifications, check out our [sample project for hipchat notifications](https://github.com/shippableSamples/sample-hipchat-notifications).
 
@@ -645,7 +645,7 @@ You can change the notification settings by configuring the integrations section
 
 By default, we send email notifications to the last committer when a build fails, or the status changes from failed to passed.
 
-To customize email notifications, use the yml structure below: 
+To customize email notifications, use the yml structure below:
 
 ```yaml
 integrations:
@@ -660,13 +660,13 @@ integrations:
                 - master
                 - dev
           on_success: always
-          on_failure: always 
+          on_failure: always
 ```
 
 * `integrationName` is always `email` since you do not configure emails in account integrations or project settings.
-* `type` is `email` 
-* `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project owner(s)'. 
-    - To specify 'last committer' and 'project owner(s)' as part of this list, you can use `--lastcommitter` and `--owners`. 
+* `type` is `email`
+* `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project owner(s)'.
+    - To specify 'last committer' and 'project owner(s)' as part of this list, you can use `--lastcommitter` and `--owners`.
     - If there is a single recipient, you can use the format `recipients: example@org.com`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional]You can set the following options for the `on_success`, `on_failure` tags :
@@ -686,7 +686,7 @@ notifications:
         - integrationName: email
           type: email
           on_success: never
-          on_failure: never 
+          on_failure: never
           on_pull_request: never
 ```
 
@@ -712,10 +712,10 @@ integrations:
                 - master
                 - dev
           on_success: never
-          on_failure: always 
+          on_failure: always
 ```
 * `integrationName` value is the name of the account integration you added to project settings.
-* `type` is slack 
+* `type` is slack
 * `recipients` specifies the channels you want to send the notification to. Please note that this overrides any channels you select while setting up the account integration.
     - If there is a single recipient, you can use the format `recipients: channelOne`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
@@ -750,12 +750,12 @@ integrations:
                 - master
                 - test
           on_success: never
-          on_failure: always 
+          on_failure: always
 ```
 
 * `integrationName` for public channels is `irc`.
-* `type` is `irc` 
-* `recipients` specifies the rooms you want to send the notification to. 
+* `type` is `irc`
+* `recipients` specifies the rooms you want to send the notification to.
     - If there is a single recipient, you can use the format `recipients: "chat.freenode.net#channel2"`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional] You can set the following options for the `on_success`, `on_failure` tags :
@@ -775,7 +775,7 @@ integrations:
 
 Shippable offers a host of pre-installed services to make it easy to run your builds. In addition to these you can install other services also by using the `install` tag of `shippable.yml`.
 
-All the services are turned off by default and can be turned on by using the `services:` tag. 
+All the services are turned off by default and can be turned on by using the `services:` tag.
 
 **Please note that the `services` tag only works if you are using the default image for your builds, or if you're pulling an official image from our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/).**
 
@@ -939,7 +939,7 @@ addons:
 
 services:
     - mysql
-    
+
 ci:
   - psql -c 'create database myapp_test;' -U postgres
 ```
@@ -1026,13 +1026,13 @@ Sample javascript code using
 
 ## Pull requests
 
-Shippable integrates with github to build your pull requests and show status inline on your GitHub page for the PR. 
+Shippable integrates with github to build your pull requests and show status inline on your GitHub page for the PR.
 
 Whenever a pull request is opened for a project that is enabled on Shippable, we will run a build for the respective pull request and send you a build status notification. You can also see this status on your GitHub page as shown below:
 
 <img src="../images/ci_pr_status.png" alt="e2e pipeline" style="width:600px;"/>
 
-You can then merge the PR confidently if the build passes, or fix any issues that cause a failed build. Each time your pull request is updated, we will kick off a new build and update status. 
+You can then merge the PR confidently if the build passes, or fix any issues that cause a failed build. Each time your pull request is updated, we will kick off a new build and update status.
 
 After you accept the pull request, Shippable will run one more build for the merged repo and will send email notifications for the merged repo.  
 * * * * *
@@ -1044,7 +1044,7 @@ Your builds will time out in the following scenarios:
 -   If there has not been any log output or a command hangs for 10 minutes
 -   If the build is still running after 60 minutes for Free minions or 120 minutes for Paid minions
 
-Please let us now if you belueve a build is timing out when it shouldn't do so and we will take a look. 
+Please let us now if you belueve a build is timing out when it shouldn't do so and we will take a look.
 
 * * * * *
 
@@ -1072,6 +1072,3 @@ In the example above, our minions will run `./minions/do_something.sh`
 and then run `./minions/do_something-else.sh`. The only requirement is
 that all of these operations return a `0` exit code. Else the build will
 fail.
-
-
-
