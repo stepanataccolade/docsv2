@@ -1044,7 +1044,7 @@ Your builds will time out in the following scenarios:
 -   If there has not been any log output or a command hangs for 10 minutes
 -   If the build is still running after 60 minutes for Free minions or 120 minutes for Paid minions
 
-Please let us now if you belueve a build is timing out when it shouldn't do so and we will take a look.
+Please let us now if you believe a build is timing out when it shouldn't do so and we will take a look.
 
 * * * * *
 
