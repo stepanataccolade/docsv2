@@ -20,3 +20,5 @@ This will start being populated weekly starting March 2016.
 [Deploy to Amazon EC2 using Code Deploy](ht_codedeploy.md)
 
 [Deploy to Digital Ocean](ht_digitalocean.md)
+
+[Deploy to Amazon Opsworks](ht_opsworks.md)
