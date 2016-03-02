@@ -89,7 +89,7 @@ Please note that you need to add one build node per parallel build, up to a maxi
 Once you add your first build node, all subsequent builds for that subscription will run on your machines.
     
 #### Editing a build node
-You can click on the `Edit` button for a build node to edit node name and in the case of your own build infrastructure, the SSH port number.
+You can click on the `Edit` button for a build node to edit the node name. Nothing else can be edited for a node.
 
 #### Re-initializing a build node
 You can reinitialize a node by clicking on the `Reinitialize` button. This will reset the node and initialize/install everything from scratch. You can only reinitialize nodes provisioned on Shippable's infrastructure. If you have added your own build nodes, you will need to redownload the initialization script and run it on your node.

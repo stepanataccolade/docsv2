@@ -193,7 +193,7 @@ For your specific case:
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container.
 * In the `options` tag, enter any docker options you want to use in the `docker run` command.
 * For `integrationName` tag, enter the name of the account integration you have added to your project settings. This account should have permissions to pull the the build image specified in the `image_name` setting.
-* In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google Container Registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container Registry, and `private` for a self hosted private registry.
+* In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google container registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container registry, and `private docker registry` for a self hosted private registry.
 * [optional]Using the `branches` section, specify the branches this account integration is applicable to. You can skip this if you want your integration to be applicable for all branches.
 
 The example yml above will pull the image manishas/myImage:tip using the integration manishas_dockerhub, and run the container with option `--privileged=true` and set env `FOO=BAR` inside the container.  
@@ -249,8 +249,7 @@ integrations:
             - master
 
 ```
-
-Please note that `type` will be `docker` for Docker Hub, `gcr` for Google Container Registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container registry, and `private` for a self hosted private registry.
+Please note that `type` will be `docker` for Docker Hub, `gcr` for Google Container Registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container registry, and `private docker registry` for a self hosted private registry.
 
 To build a new production image and then push to a registry,
 

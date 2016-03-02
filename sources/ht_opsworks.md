@@ -65,7 +65,7 @@ env:
 ```
 
 Finally, we can install and invoke AWS CLI tools to invoke deployment
-command in `after_success` step (application configuration settings were
+command in `on_success` step (application configuration settings were
 extracted to environment variables for readability):
 
 ```
@@ -75,7 +75,7 @@ env:
     - AWS_ACCESS_KEY_ID=AKIAJSZ63DTL3Z7KLVEQ
     - secure: KRaEGMHtRkYxCmWfvHIEkyfoA/+9EWHcoi1CIoIqXrvsF/ILmVVr0jC7X8u7FdfAiXTqn3jYGtLc5mgo5KXe/8zSLtygCr9U1SKJfwCgsw1INENlJiUraHCQqnnty0b3rsTfoetBnnY0yFIl2g+FUm3A57VnGXH/sTcpDZSqHfjCXivptWrSzE9s4W7+pu4vP+9xLh0sTC9IQNcqQ15L7evM2RPeNNv8dQ+DMdf48915M91rnPkxGjxfebAIbIx1SIhR1ur4rEk2pV4LOHo4ny3sasWyqvA49p1xItnGnpQMWGUAzkr24ggOiy3J5FnL8A9oIkf49RtfK1Z2F0EryA==
 
-after_success:
+on_success:
   - virtualenv ve && source ve/bin/activate && pip install awscli
   - aws opsworks create-deployment --stack-id $AWS_STACK --app-id $AWS_APP_ID --command '{"Name":"deploy"}'
 ```
@@ -133,11 +133,11 @@ class OpsWorksDb {
 // https://github.com/shippableSamples/sample-php-mysql-opsworks/blob/master/test-config/opsworks.php
 ```
 
-Then, in `before_script` step of your build, copy this file to the
+Then, in `ci` step of your build, copy this file to the
 location required by your application code:
 
 ```
-before_script:
+ci:
   - cp test-config/opsworks.php .
 ```
 
@@ -207,11 +207,11 @@ env:
     - DYNAMODB_LOCAL_DIR=/tmp/dynamodb-local
     - secure: KRaEGMHtRkYxCmWfvHIEkyfoA/+9EWHcoi1CIoIqXrvsF/ILmVVr0jC7X8u7FdfAiXTqn3jYGtLc5mgo5KXe/8zSLtygCr9U1SKJfwCgsw1INENlJiUraHCQqnnty0b3rsTfoetBnnY0yFIl2g+FUm3A57VnGXH/sTcpDZSqHfjCXivptWrSzE9s4W7+pu4vP+9xLh0sTC9IQNcqQ15L7evM2RPeNNv8dQ+DMdf48915M91rnPkxGjxfebAIbIx1SIhR1ur4rEk2pV4LOHo4ny3sasWyqvA49p1xItnGnpQMWGUAzkr24ggOiy3J5FnL8A9oIkf49RtfK1Z2F0EryA==
 
-before_install:
+ci:
   - test -e $DYNAMODB_LOCAL_DIR || (mkdir -p $DYNAMODB_LOCAL_DIR && wget http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest -qO- | tar xz -C $DYNAMODB_LOCAL_DIR)
 ```
 
-Then, in the `before_install` step, we download the latest version of
+Then, in the `ci` step, we download the latest version of
 DynamoDB Local and extract it to a temporary location. In `script` step
 we first kill any outstanding instances of the database, then launch the
 mock database in the background, saving the process pid in a variable.
@@ -220,7 +220,7 @@ any data to disk. Next, the actual tests are run and we complete the
 step by shutting down the database instance.
 
 ```yaml
-script:
+ci:
   - ps -ef | grep [D]ynamoDBLocal | awk '{print $2}' | xargs --no-run-if-empty kill
   - java -Djava.library.path=$DYNAMODB_LOCAL_DIR/DynamoDBLocal_lib -jar $DYNAMODB_LOCAL_DIR/DynamoDBLocal.jar -inMemory &
   - DYNAMODB_PID=$!
@@ -287,7 +287,7 @@ hook above expects. The special syntax with `>` sign is used here to
 prevent YAML parser from interpreting colons in the JSON definition.
 
 ```yaml
-after_success:
+on_success:
   - >
     DEPLOY_JSON=$(printf '{"dynamodb": {"aws_key": "%s", "aws_secret": "%s", "region": "%s"}}' $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY $AWS_REAL_REGION)
   - virtualenv ve && source ve/bin/activate && pip install awscli
@@ -314,7 +314,7 @@ Composer will be already available on Shippable minion. Install the
 dependencies during `before_script` step as follows:
 
 ```yaml
-before_script:
+on_success:
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
   - composer install

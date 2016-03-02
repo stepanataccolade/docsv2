@@ -51,3 +51,4 @@ pages:
   - Deploy to Heroku: ht_heroku.md
   - Deploy to Amazon EC2: ht_codedeploy.md
   - Deploy to Digital Ocean: ht_digitalocean.md
+  - Deploy to Amazon Opsworks: ht_opsworks.md
