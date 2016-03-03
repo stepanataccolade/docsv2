@@ -118,8 +118,8 @@ You probably have a command in your yml that looks something like this:
 - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
 ```
 
-You will need to replace the `~/.ssh/id_rsa` to `/tmp/ssh/sub` since that is the new location for keys. Your command will now look like this:
+You will need to replace the `~/.ssh/id_rsa` to `/tmp/ssh/00_sub` since that is the new location for keys. Your command will now look like this:
 ```
-- test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
+- test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/00_sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
 ```
 Your push to Heroku should succeed with this change. 		
