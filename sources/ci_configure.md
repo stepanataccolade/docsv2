@@ -187,7 +187,9 @@ integrations:
 
 For your specific case:
 
-* `image_name` value is in the format (docker registry username)/(docker registry image repo).
+* `image_name` value is in the format (docker-registry-username)/(docker-registry-image-repo). For GCR and ECR, you will to specify image_name in the right format:
+    *  GCR: gcr.io/(docker-registry-username)/(docker-registry-image-repo)
+    *  ECR: aws_account_id.dkr.ecr.us-east-1.amazonaws.com/repo-name
 * `image_tag` is the tag for the image that you want to pull.  
 * set `pull` to `true` if you want to pull this image from a docker registry.
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container.
