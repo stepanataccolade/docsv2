@@ -82,7 +82,7 @@ step to your Shippable build:
 
 ```yaml
 on_success:
-  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
+  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/00_sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
   - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
   - git push -f heroku master
 ```
@@ -388,7 +388,7 @@ the build:
 
 ```yaml
 on_success:
-  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
+  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/00_sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
   - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
   - git push -f heroku $BRANCH:master
   - heroku run rake db:migrate
