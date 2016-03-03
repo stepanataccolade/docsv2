@@ -86,7 +86,7 @@ Detailed information about supported integrations and how to set things up ins a
 
 You need to add your credit card information to your account in order to use the card to pay for a Shippable subscription.
 
-The Cards tab will show you all the credit cards linked to your account dth:800px;"/>
+The Cards tab will show you all the credit cards linked to your account.
 
 You can get more information about where the card is being used by clicking on the ... to expand the card widget.
 
