@@ -270,6 +270,32 @@ integrations:
             - master
 
 ```
+### Pushing to multiple registries
+
+An image can be pushed to multiple registries by tagging it and specifying the required hub integration in the `hub` section.
+
+Here, the image `manishas/sample-node-prod` is built and tagged as `gcr.io/manishas/sample-node-prod` and then pushed to the Google Cloud Registry using an integration of type `gcr`.
+```
+build:
+    post_ci:
+        - docker build -t manishas/sample-node-prod .
+        - docker push manishas/sample-node-prod
+        - docker build --rm -t=gcr.io/manishas/sample-node-prod .
+        - docker push gcr.io/manishas/sample-node-prod
+
+integrations:
+    hub:
+      - integrationName: docker_integration_name_one
+        type: docker
+      - integrationName: docker_integration_name_two
+        type: docker
+      - integrationName: gcr_integration_name
+        type: gcr
+
+```
+**Please note that if you specify multiple hub integrations for a registry, the last one will be used to push the image.**
+
+In the example above, there are two `docker` integrations specified along with one `gcr` integration. In this case, only `docker_integration_name_two` and `gcr_integration_name` will be used to push the image to the respective registries.
 
 ### Pushing multiple tags
 In most cases, you will push your image to a Docker registry with one tag. However, there are times when you need to add multiple tags. For example, you might want to tag a container with `tip` as well as the build number.
