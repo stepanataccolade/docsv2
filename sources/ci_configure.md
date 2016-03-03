@@ -804,6 +804,20 @@ ci:
 Sample javascript code using
 [mysql](https://github.com/shippableSamples/sample_node_mysql).
 
+
+###Postgres
+
+```yaml
+# Postgres binds to 127.0.0.1 by default. Default username is "postgres" with no password
+# Create a DB as part of the ci section before using it
+
+services:
+    - postgres
+
+ci:
+  - psql -c 'create database myapp_test;' -U postgres
+```
+
 ### SQLite3
 
 SQLite is a software library that implements a self-contained,
@@ -856,17 +870,6 @@ services:
 
 Sample javascript code using
 [Neo4j](https://github.com/shippableSamples/sample_node_neo4j) .
-
-### Cassandra
-
-```yaml
-# cassandra binds to the default localhost 127.0.0.1 and is not started on boot.
-services:
-  - cassandra
-```
-
-Sample ruby code using
-[Cassandra](https://github.com/shippableSamples/sample_ruby_cassandra) .
 
 ### CouchDB
 
@@ -929,35 +932,6 @@ addons:
     - google.com
     - asdf.com
 ```
-
-### PostgreSQL
-
-```yaml
-# Postgre binds to 127.0.0.1 by default. Default username is "postgres" with no password
-# Create a DB as part of the ci section before using it
-
-services:
-    - mysql
-
-ci:
-  - psql -c 'create database myapp_test;' -U postgres
-```
-
-Sample java code using
-[PostgreSQL](https://github.com/shippableSamples/sample_java_postgres).
-
-We support PostgreSQL 9.1, 9.2 and 9.3 versions and by default, version
-9.2 is installed on our minions. Configure your yml file using
-**PostgreSQL** addons to select different versions. Add the following to
-your yml file to select the version 9.3.
-
-```yaml
-addons:
- postgresql : "9.3"
-```
-
-PostGIS 2.1 packages are pre-installed in our minions along with the
-PostgreSQL versions 9.1, 9.2 and 9.3.
 
 ### Selenium
 
