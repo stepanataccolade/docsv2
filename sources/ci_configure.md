@@ -227,9 +227,9 @@ An example is shown below:
 
 After CI is complete, you might want to push your build image to a Docker registry and tag it appropriately. Or you might want to build a new 'production' image without any of your CI artifacts and push that to your Docker registry account.
 
-You should do this in the `post_ci` section of your shippable.yml.
+You can do this in the `post_ci` or `push` sections of your shippable.yml.
 
-**Please note that if you are using your own custom image for CI and want to push your Docker image to Google Container Registry or Amazon ECR, you will need to have the appropriate cli installed on your custom image.**
+**Please note that if you are using your own custom image for CI and want to push your Docker image to Google Container Registry or Amazon ECR in the post_ci section, you will need to have the appropriate cli installed on your custom image.**
 
 To push your CI build container image to a registry:
 
@@ -239,7 +239,9 @@ To push your CI build container image to a registry:
 
 ```
 build:
-    post_ci:
+    push:
+        #Do the commit command only if you want to push the container with all the artifacts from the CI step
+        - 
         - docker push manishas/sample-node:tip
 
 integrations:
@@ -257,7 +259,7 @@ To build a new production image and then push to a registry,
 
 ```
 build:
-    post_ci:
+    push:
         - docker build -t manishas/sample-node-prod .
         - docker push manishas/sample-node-prod
 
@@ -277,7 +279,7 @@ An image can be pushed to multiple registries by tagging it and specifying the r
 Here, the image `manishas/sample-node-prod` is built and tagged as `gcr.io/manishas/sample-node-prod` and then pushed to the Google Cloud Registry using an integration of type `gcr`.
 ```
 build:
-    post_ci:
+    push:
         - docker build -t manishas/sample-node-prod .
         - docker push manishas/sample-node-prod
         - docker build --rm -t=gcr.io/manishas/sample-node-prod .
@@ -304,7 +306,7 @@ Here is an example of how to set this up in your yml:
 
 ```
 build:
-    post_ci:
+    push:
        - docker tag -f manishas/sample-node:latest manishas/sample-node:tip
        - docker tag -f manishas/sample-node:latest manishas/sample-node:$BUILD_NUMBER
        - docker push manishas/sample-node:tip
@@ -313,12 +315,12 @@ build:
 In the above example, replace the repo/image name with your image name and the tags with the ones you need for your image.
 
 ### Pushing to GCR/ECR with custom images
-All standard images in our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) have the required CLIs preinstalled, so you can run a docker build or push with no effort.
+All standard images in our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) have the required CLIs preinstalled, so you can run a docker build or push in any section of your yml with no effort.
 
-If you are using a custom image for your build and you want to do a docker build or push to Google Container Registry or Amazon's ECR in your `post_ci` or `on_success` sections, you will need to install the necessary CLI in your custom image.
+If you are using a custom image for your build and you want to do a docker build or push to Google Container Registry or Amazon's ECR in your `post_ci` or `on_success` sections, you will need to install the necessary CLI in your custom image. **This is not a requirement if you are pushing the image in the `push` section.**
 
 ####gcloud SDK
-This is required if you want to pull from or push to GCR. Include the following in your Dockerfile to install the gcloud SDK:
+This is required if you want to pull from or push to GCR in your `ci`, `post_ci`, `on_success` or `on_failure` sections. Include the following in your Dockerfile to install the gcloud SDK:
 
 ```
 echo "================= Adding gclould binaries ============"
@@ -330,7 +332,7 @@ sudo apt-get update && sudo apt-get install google-cloud-sdk
 
 ####AWS CLI
 
-This is required if you want to pull from or push to Amazon's ECR. Include the following in your Dockerfile to install the aws cli:
+This is required if you want to pull from or push to Amazon's ECR in your `ci`, `post_ci`, `on_success` or `on_failure` sections.. Include the following in your Dockerfile to install the aws cli:
 
 ```
 sudo pip install awscli
@@ -732,8 +734,8 @@ integrations:
         - integrationName: my_slack_integration
           type: slack
           recipients:
-            - channelOne
-            - channelTwo
+            - "#channelOne"
+            - "#channelTwo"
           branches:
               only:
                 - master
@@ -744,7 +746,7 @@ integrations:
 * `integrationName` value is the name of the account integration you added to project settings.
 * `type` is slack
 * `recipients` specifies the channels you want to send the notification to. Please note that this overrides any channels you select while setting up the account integration.
-    - If there is a single recipient, you can use the format `recipients: channelOne`
+    - If there is a single recipient, you can use the format `recipients: "#channelOne"`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional] You can set the following options for the `on_success`, `on_failure` tags :
     - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
