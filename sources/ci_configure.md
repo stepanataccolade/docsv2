@@ -40,6 +40,7 @@ build:
     post_ci:
     on_success:
     on_failure:
+    push:
     cache:
 
 integrations:
@@ -56,6 +57,7 @@ integrations:
     hub:
         - integrationName:
           type:
+          agent_only:
           branches:
 ```
 
@@ -130,6 +132,21 @@ pre_ci_boot:
 
 The image you specify in this section should be available to Shippable when the build reaches this step. To learn how to build your CI image from a Dockerfile or pull from a registry, check out the sections below.
 
+<a name="add_project_integrations"></a>
+###Adding a hub integration to project settings
+
+You need to add a hub integration to your project settings if you want to do the following:
+
+- Pull an image from a private Docker repository
+- Build a Docker image which has a `FROM` that pulls an image from a private Docker repository
+- Push to a Docker repository
+
+You can add a Hub integration to project settings by going to your Project Settings UI and navigating to the `Integrations` section. Click on the `Hub integration` dropdown to select an existing integration or create a new one.  
+
+<img src="../images/project_settings_hub_integration.png" alt="Account Settings Subscription" style="width:400px;"/>
+
+Once you have a Hub integration configured in your Project Settings, you can use it in your shippable.yml for the project.
+
 ###Building your CI image
 
 If you want to build your Docker image as part of your workflow for each CI run, you will need to do the followng in your shippable.yml-
@@ -155,17 +172,26 @@ For your specific case:
 
 The example yml above will ensure that manishas/myImage:tip is used to start the CI container with the option `--privileged=true` and with the environment variable FOO=BAR already set within the container.
 
+**Please note that if your Dockerfile has a `FROM` which pulls a private image from a registry, you will also need to specify a hub integration in project settings (see section above) and have the following in your yml.**
+
+```
+integrations:
+    hub:
+      - integrationName: "my integration name"
+        type: docker
+
+```
+
+The `type` field should be `docker` for Docker Hub, `gcr` for Google container registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container registry, and `private docker registry` for a self hosted private registry.
 
 ###Pulling your CI image from a Docker registry
 
 You can pull any image you have access to from a Docker registry and use that to spin up your CI build container.
 
+To pull a image from a registry, you will need to do the following-
 
-To pull a private image from a registry, you will need to do the following-
-
-1. Create an account integration for your registry ([Instructions here](int_docker_registries.md))
-2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
-3. Add the following in your shippable.yml:
+1. [Skip if you are pulling an image from a public repo] Add a hub integration to your project settings ([Instructions here](#add_project_integrations))
+2. Add the following in your shippable.yml:
 
 ```
 pre_ci_boot:
@@ -173,7 +199,7 @@ pre_ci_boot:
     image_tag: latest
     pull: true
     env: FOO=BAR
-    options: --privileged=true
+    options: <any options you need for your CI container>
 
 integrations:
     hub:
@@ -227,22 +253,19 @@ An example is shown below:
 
 After CI is complete, you might want to push your build image to a Docker registry and tag it appropriately. Or you might want to build a new 'production' image without any of your CI artifacts and push that to your Docker registry account.
 
-You can do this in the `post_ci` or `push` sections of your shippable.yml.
-
-**Please note that if you are using your own custom image for CI and want to push your Docker image to Google Container Registry or Amazon ECR in the post_ci section, you will need to have the appropriate cli installed on your custom image.**
+You can do this in the `post_ci` or `push` sections of your shippable.yml. The main difference is that the `post_ci`section runs inside your CI build container, so **if you want to push to Google Container Registry or Amazon ECR AND you're using a custom image for your build, your custom image would need to have the appropriate cli installed.** More on what is required [here](#gcr_ecr_push). The `push` section runs on the build machine, i.e. outside the build container, so you do not need these CLIs installed on your custom image.
 
 To push your CI build container image to a registry:
 
-1. Create an account integration for your registry ([Instructions here](int_docker_registries.md))
-2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
+1. Add a Hub integration to your project settings ([Instructions here](#add_project_integrations))
 3. Add the following in your shippable.yml:
 
 ```
 build:
-    push:
-        #Do the commit command only if you want to push the container with all the artifacts from the CI step
-        - 
-        - docker push manishas/sample-node:tip
+    post_ci:
+        #Commit the container only if you want all the artifacts from the CI step
+        - docker commit $SHIPPABLE_CONTAINER_NAME manishas/sample-node:tag
+        - docker push manishas/sample-node:tag
 
 integrations:
     hub:
@@ -259,7 +282,7 @@ To build a new production image and then push to a registry,
 
 ```
 build:
-    push:
+    post_ci:
         - docker build -t manishas/sample-node-prod .
         - docker push manishas/sample-node-prod
 
@@ -279,7 +302,7 @@ An image can be pushed to multiple registries by tagging it and specifying the r
 Here, the image `manishas/sample-node-prod` is built and tagged as `gcr.io/manishas/sample-node-prod` and then pushed to the Google Cloud Registry using an integration of type `gcr`.
 ```
 build:
-    push:
+    post_ci:
         - docker build -t manishas/sample-node-prod .
         - docker push manishas/sample-node-prod
         - docker build --rm -t=gcr.io/manishas/sample-node-prod .
@@ -306,7 +329,7 @@ Here is an example of how to set this up in your yml:
 
 ```
 build:
-    push:
+    post_ci:
        - docker tag -f manishas/sample-node:latest manishas/sample-node:tip
        - docker tag -f manishas/sample-node:latest manishas/sample-node:$BUILD_NUMBER
        - docker push manishas/sample-node:tip
@@ -314,10 +337,34 @@ build:
 ```
 In the above example, replace the repo/image name with your image name and the tags with the ones you need for your image.
 
-### Pushing to GCR/ECR with custom images
-All standard images in our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) have the required CLIs preinstalled, so you can run a docker build or push in any section of your yml with no effort.
+<a name="gcr_ecr_push"></a>
+### GCR/ECR and custom images
+All standard images in our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) have the required CLIs preinstalled for integration with GCR and ECR, so you can run a docker build or push in any section of your yml with no effort. **This section is relevant only if you're using a custom image for your build.**
 
-If you are using a custom image for your build and you want to do a docker build or push to Google Container Registry or Amazon's ECR in your `post_ci` or `on_success` sections, you will need to install the necessary CLI in your custom image. **This is not a requirement if you are pushing the image in the `push` section.**
+However, if you are using a custom image, the story is a little different. If you specify a `gcr` or `ecr` integration in your yml, we will try to login to the registry on your behalf from inside your CI build container. This means that for custom images, you would need the gcloud SDK or aws cli installed inside your custom image if you want this to succeed, else you will get a `gcloud not found` or `aws: command not found` errors. 
+
+You can get around this requirement by setting `agent_only: true` for your hub integration. 
+
+```
+integrations:
+    hub:
+      - integrationName: gcr_int_name
+        type: gcr
+        agent_only: true
+```
+      
+This will ensure that we will not attempt to login to the registry from inside your CI build container. However, this also means that you will not be able to pull from or push to GCR/ECR in the `ci`, `post_ci`, `on_success` and `on_failure` sections. 
+
+You can always choose to push your image to GCR/ECR in the `push` section which runs at the end of the build on the build machine, i.e. outside your CI container-
+
+```
+build:
+    push:
+      - docker push manishas/sample-node:$BRANCH.$BUILD_NUMBER
+```
+
+If you do want to use docker commands to interact with GCR or ECR in your CI container, check out the sections below explaining how to install gcloud SDK or aws CLI as required.
+
 
 ####gcloud SDK
 This is required if you want to pull from or push to GCR in your `ci`, `post_ci`, `on_success` or `on_failure` sections. Include the following in your Dockerfile to install the gcloud SDK:
