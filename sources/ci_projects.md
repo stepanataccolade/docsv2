@@ -87,7 +87,7 @@ You can use this code anywhere you want to display the badge. For example, many 
 Resetting a project recreates all webhooks and deployment keys for your project. This should only be done if your project is in an inconsistent state and you need to restore it. Please note that you will need to re-encrypt all environment variables for your project after resetting it.
 
 ### Deleting the project
-You can celete your project by clicking on the `Delete` button and then clicking on `Confirm`. Please note that deleting a project will delete all build history and delete all webhooks. 
+You can delete your project by clicking on the `Delete` button and then clicking on `Confirm`. Please note that deleting a project will delete all build history and delete all webhooks. 
 
 Deleting a project has no effect on the repository in your source control. 
 
