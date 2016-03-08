@@ -54,10 +54,10 @@ GET /runs
 ####Query parameters
 |Type      |    Name     |    Description    |     Required    |    Schema    |  Default    |
 |----------|-------------|-------------------|----------------|--------------|-------------|
-| QueryParameter| runIds| Filter by one or more runIds.| no | string | |
-| QueryParameter| projectIds| Get runs for one or more projects.| no | string | |
-| QueryParameter| subscriptionIds| Get runs for one or more subscriptions.| no | string | |
-| QueryParameter| branch| Get runs for one or more branch names.| no | string | |
+| QueryParameter| runIds| Filter by one or more runIds. runIds should be separated by commas, for example, GET /runs?runIds=456,58,34| no | string | |
+| QueryParameter| projectIds| Get runs for one or more projects. Multiple projectIds should be separated by commas.| no | string | |
+| QueryParameter| subscriptionIds| Get runs for one or more subscriptions. Multiple subscriptionIds should be separated by commas.| no | string | |
+| QueryParameter| branch| Get runs for one or more branch names. Multiple branch values should be separated by commas.| no | string | |
 | QueryParameter| isPullRequest| When set to true, returns all runs that were triggered by pull requests. When set to false, returns runs that were triggered by commits.| no | boolean | |
 | QueryParameter| maxRunNumber| Returns all runs with run number that is <= maxRunNumber.| no | string | |
 | QueryParameter| status| Get runs with one or more statuses.| no | string | |
@@ -1274,7 +1274,7 @@ GET /subscriptions
 
 |Type      |    Name     |    Description    |     Required    |    Schema    |  Default    |
 |----------|-------------|-------------------|----------------|--------------|-------------|
-| QueryParameter| projectIds| Filter by one or more project ids.| no | string | |
+| QueryParameter| projectIds| Filter by one or more project ids. Multiple projectIds should be separated by commas.| no | string | |
 | QueryParameter| isOrgSubscription| When set to true, returns all organizational subscriptions . When set to false, returns all personal subscriptions.| no | string | |
 
 
