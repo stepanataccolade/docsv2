@@ -24,10 +24,7 @@ This happens due to one of the following reasons:
 
 ## Why do I get an error when I try to enable a project that is listed on my dashboard?
 
-This usually happens if you are a collaborator on a project and the
-owner of the project has not given Shippable access to the project. You
-can verify this by confirming that the owner of the project can see the
-project on their Shippable dashboard.
+This usually happens if you are a collaborator on a project and the owner of the project has not given Shippable access to the project. You can verify this by confirming that the owner of the project can see the project on their Shippable dashboard.
 
 ## How can I validate my shippable YML?
 
@@ -122,4 +119,8 @@ You will need to replace the `~/.ssh/id_rsa` to `/tmp/ssh/00_sub` since that is 
 ```
 - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/00_sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
 ```
-Your push to Heroku should succeed with this change. 		
+Your push to Heroku should succeed with this change. 
+
+## I cannot start a manual build for my Bitbucket project. Why is it not working?
+
+Check your branch name to see if it contains a ```/```. The Bitbucket API currently does not support branch names with a ```/``` in them. We opened a support issue with them - [Get commit/{revision} API does not accept branch names with "/"](https://bitbucket.org/site/master/issues/9969/get-commit-revision-api-does-not-accept) over 1 year ago and there is still no resolution for this. This is not a Shippable bug and while we understand that this affects everyone who uses Gitflow+Shippable+Bitbucket, we cannot fix this at our end. 	
