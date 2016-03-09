@@ -34,7 +34,6 @@ build:
         image_name:
         image_tag:
         pull:
-        env:
         options:
     ci:
     post_ci:
@@ -126,8 +125,7 @@ pre_ci_boot:
     image_name: manishas/myImage
     image_tag: latest
     pull: true
-    env: FOO=BAR
-    options: --privileged=true
+    options: --env MYVAR1=foo
 ```
 
 The image you specify in this section should be available to Shippable when the build reaches this step. To learn how to build your CI image from a Dockerfile or pull from a registry, check out the sections below.
@@ -159,8 +157,7 @@ pre_ci_boot:
     image_name: myImage
     image_tag: tip
     pull: false
-    env: FOO=BAR
-    options: --privileged=true
+    options: --env MYVAR1=foo
 ```
 For your specific case:
 
@@ -198,7 +195,6 @@ pre_ci_boot:
     image_name: manishas/myImage
     image_tag: latest
     pull: true
-    env: FOO=BAR
     options: <any options you need for your CI container>
 
 integrations:
