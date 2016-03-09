@@ -359,7 +359,7 @@ build:
       - docker push manishas/sample-node:$BRANCH.$BUILD_NUMBER
 ```
 
-If you do want to use docker commands to interact with GCR or ECR in your CI container, check out the sections below explaining how to install gcloud SDK or aws CLI as required.
+If you do want to use docker commands to interact with GCR or ECR in your `ci`, `post_ci`, `after_success` or `after_failure` sections, check out the sections below explaining how to install gcloud SDK or aws CLI as required.
 
 
 ####gcloud SDK
