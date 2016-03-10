@@ -721,7 +721,7 @@ build:
 ```
 
 Similarly, you can copy contents of any folder with `$SHIPPABLE_BUILD_DIR/folder_name` depending on where the artifacts are for your build.
-If you need help defining secure variables, you can check out [our instructions](ci_projects.md/#encrypt_env_variables) 
+If you need help defining secure variables, you can check out [our instructions](ci_projects/#encrypting-your-environment-variables) 
 
 
 ---
