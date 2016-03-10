@@ -698,10 +698,10 @@ Examples for other languages can be found in our [Code Samples](languages/).
 
 Once you have set this up, you can view your code coverage results in the `Code coverage` tab on your build page.
 
-### Downloading console logs
+## Downloading console logs
 You can download your console logs by going to the build's page on Shippable, clicking on the `Download` dropdown that's on the right of the console pane, and selecting your logs. 
 
-### Build artifacts
+## Build artifacts
 Shippable does not store artifacts for your builds. You will need to handle uploading artifacts as part of your configuration in your shippable.yml.
 
 For example, the sample snippet below copies the entire build directory to an AWS S3 bucket which is in the region us-east-1:
