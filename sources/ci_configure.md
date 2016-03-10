@@ -553,26 +553,9 @@ env:
 
 ## Caching your container
 
-We support two levels of caching for your build containers. You can either choose to cache your entire build container at the end of the build or use the command `shippable_cache_container` to cache your container at any point during the build. The latter allows you to avoid caching everything and only cache dependencies that are required for every build.
+**Caching is currently disabled for all customers on the Continuous Delivery plan. We discovered some issues that are slowing builds down when caching is turned on and we're working to address this with folder level caching.**
 
-To cache your build container at the end of your build, include the line below in the build section of your yml:
-
-```
-build:
-  cache: true
-```
-
-To cache your build container at any point during your build, you can do the following:
-
-```
-build:
-    cache: true
-    ci:
-       - some_command
-       - shippable_cache_container
-       - another_command
-```
-In the example above, the container will be cached after `some_command` and before `another_command`.
+**This section will be updated when folder level caching is available. ETA is 3/18**
 
 
 ### Clearing cache
