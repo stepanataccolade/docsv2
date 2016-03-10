@@ -471,6 +471,7 @@ The following environment variables are available for every build. You can use t
 |LC_CTYPE 		 | en_US.UTF-8|
 |MERB_ENV 		 |test |
 | PATH		 | \$HOME/bin:\$PATH|
+| IS_PULL_REQUEST     |Set to **true** if the job is a pull request. If not, this will be set to **false** |
 | PULL_REQUEST		 |Pull request number if the job is a pull request. If not, this will be set to **false** |
 |RACK_ENV 		 | test|
 | RAILS_ENV		 |test |
