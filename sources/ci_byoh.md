@@ -22,11 +22,12 @@ BYOH is a feature for Continuous Integration and is not priced separately. The n
 ## Minimum requirements 
 The minimum requirements for a build machine that can be attached to Shippable are:
 
-* 2 cores, 4GB RAM
-* 20GB SSD
+* 1.8GB RAM
+* 30GB SSD
 * Ubuntu 14.04 OS
+* 64-bit architecture
 
-Please note that you will need to attach one build machine per parallel build.
+**Please note that you will need to attach one build machine per parallel build.**
 
 We have tested this extensively using machines on Amazon EC2 and Digital Ocean. We expect machines from other providers to work without issues as long as they satisfy the above requirements. If you run into any issues, drop an email to our [support alias](mailto:support@shippable.com)
 
