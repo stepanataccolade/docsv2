@@ -125,7 +125,7 @@ pre_ci_boot:
     image_name: manishas/myImage
     image_tag: latest
     pull: true
-    options: --env MYVAR1=foo
+    options: "-e HOME=/root"
 ```
 
 The image you specify in this section should be available to Shippable when the build reaches this step. To learn how to build your CI image from a Dockerfile or pull from a registry, check out the sections below.
@@ -157,7 +157,7 @@ pre_ci_boot:
     image_name: myImage
     image_tag: tip
     pull: false
-    options: --env MYVAR1=foo
+    options: "-e HOME=/root"
 ```
 For your specific case:
 
@@ -165,7 +165,7 @@ For your specific case:
 *  `image_tag` is the tag for the image that was built in the `pre_ci` step.  
 * set `pull` to `false` if you want to use the image you built during the `pre_ci` step instead of pulling from a docker registry.
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container.
-* In the `options` tag, enter any docker options you want to use in the `docker run` command.
+* In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown. 
 
 The example yml above will ensure that manishas/myImage:tip is used to start the CI container with the option `--privileged=true` and with the environment variable FOO=BAR already set within the container.
 
@@ -195,7 +195,7 @@ pre_ci_boot:
     image_name: manishas/myImage
     image_tag: latest
     pull: true
-    options: <any options you need for your CI container>
+    options: "-e HOME=/root" 
 
 integrations:
     hub:
@@ -215,7 +215,7 @@ For your specific case:
 * `image_tag` is the tag for the image that you want to pull.  
 * set `pull` to `true` if you want to pull this image from a docker registry.
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container.
-* In the `options` tag, enter any docker options you want to use in the `docker run` command.
+* In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown. 
 * For `integrationName` tag, enter the name of the account integration you have added to your project settings. This account should have permissions to pull the the build image specified in the `image_name` setting.
 * In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google container registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container registry, and `private docker registry` for a self hosted private registry.
 * [optional]Using the `branches` section, specify the branches this account integration is applicable to. You can skip this if you want your integration to be applicable for all branches.
