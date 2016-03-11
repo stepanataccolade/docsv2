@@ -4,12 +4,13 @@ page_keywords: getting started, formations, quick start, documentation, shippabl
 
 # Deploy a sample application
 
-This tutoroal walks you through how you can deploy a sample application to Google Container Engine. You can follow similar steps to deploy to Amazon's ECS.
+This tutorial walks you through how you can deploy a sample application to Google Container Engine. You can follow similar steps to deploy to Amazon's ECS.
 
 Our sample application has a UI tier and an API tier which are deployed as separate [Cells](glossary.md/#cell). The UI shows a page with response time from an API ping.
 
 ##Prerequisites
  You need the following in order to walk through this tutorial:
+ 
  - GitHub account
  - Docker Hub account
  
@@ -28,7 +29,7 @@ Fork the following GitHub repository:
 - In the `Subscriptions` dropdown, select the subscription you forked the sample repository into.
 - Click the `Enable Project` button to go to the Enable Projects page. If this if the first project you are enabling, you will directly land there.
 - Find the micro-sample project and click on the `Enable` button.
-- If you cannot find micr-sample in the list, click on the `Sync` button next to the Search box. This syncs your Shippable subscription with your source control account. Find micro-sample and enable it.
+- If you cannot find micro-sample in the list, click on the `Sync` button next to the Search box. This syncs your Shippable subscription with your source control account. Find micro-sample and enable it.
 
 ### Update config
 In order to use deployment pipelines, your project's CI workflow must push the resultant Docker image(s) to a registry, from where they will be deployed into your pipeline. Our sample code uses Docker Hub, but you can follow the same instructions to push to another registry.
@@ -89,8 +90,8 @@ The changes to shippable.yml should trigger a build run for the project. If not,
 
 This should create 2 Docker images in your Docker registry:
 
-<registry_username>/micro-api:master.1
-<registry_username>/micro-www:master.1
+- *registry_username*/micro-api:master.1
+- *registry_username*/micro-www:master.1
 
 If you see these images in your registry, you have successfully completed the first stage of setting up CI for the demo projects!
 
@@ -113,13 +114,21 @@ Next, follow steps below:
 ###Add Cell manifest
 
 - In the Cell Manifest section, click on `Add image`. You will be taken to the Add image page.
-- In the `Select image` dropdown, select `Create image`. Enter the name <registry_username>/micro-api. Enter the account integration that has access to this image. 
+- In the `Select image` dropdown, select `Create image`. Enter the name *registry_username*/micro-api. Enter the account integration that has access to this image
+
     <img src="../images/pipeline_create_image.png" alt="Name your pipeline" style="width:400px;"/>
+    
 You will be taken back to the Add Image page. Select the tag you want to deploy (master.1)
-- Enter port number for your container - 3001.
-Click on `Save image`. This will take you back to the add pipelines page.
+
+- Enter port number for your container - 3001
+- NOTE: GKE restricts host ports to a certain range - 30000 to 32767. Hence if you are using a GKE cluster, then you'll need to select the host port from that range as shown in the picture below
+
+    <img src="../images/pipeline_create_image_gke_port.png" alt="Name your pipeline" style="width:400px;"/>
+
+- Click on `Save image`. This will take you back to the add pipelines page.
 - Repeat the above steps for the image micro-www. For micro-www port number, enter 80.
-- Add configuration keys for the demo application: `API_PORT`, `API_URL`, `WWW_PORT`, `LOG_LEVEL`, `SHUD_LOG_TO_FILE` The values for these keys will be entered later when we deploy the cell.
+- Remember to use the range for ports for GKE clusters
+- Add the following configuration keys for the demo application by clicking `Add Variable` under *Environment Variables*: `API_PORT`, `API_URL`, `WWW_PORT`, `LOG_LEVEL`, `SHUD_LOG_TO_FILE` The values for these keys will be entered later when we deploy the cell.
 
 ###Auto-increment
 The auto-increment feature automatically creates new cell manifest versions when new tags are detected for images in your pipeline. Let us enable this for our demo. Check the box for `Auto-increment`. For both images, enter the tag pattern `master.*`. This means cell manifest version will be auto incremented only when an image is pushed due to a build for `master` branch.
@@ -135,7 +144,7 @@ You will be redirected back to the `Pipelines` tab of your subscription. You sho
 
 To configure and deploy your Cell, click on your Cell. This is the `demo-app` widget in the last column, under the environment name. You will be taken to the `demo-app` Status page which shows that the Cell is not deployed.
 
-Click on the `Settings` tab and enter the following information:
+Click on the `Configuration` tab and enter the following information:
 
 - The top section shows the current cell manifest that is being used to create this Cell. You should see Version 1 being used. 
 - The auto-deploy section allows you to configure whether you want this cell to be automatically deployed each time a new cell manifest version is detected. For the demo, check this box.
@@ -143,8 +152,8 @@ Click on the `Settings` tab and enter the following information:
 
     <img src="../images/pipeline_cell_env_config.png" alt="Name your pipeline" style="width:700px;"/>
 
--Leave number of Replicas to 1. This indicates we want one instance of this Cell running in the environment. We also do not need Volumes for the demo, so skip that section.
-- In the `Routing` section, click on the Load Balancer dropdown and select `Create Load Balancer`. Check the `Load Balanced` checkbox for Container port 80. This means that we are externally exposing the port for www.
+- Leave number of Replicas to 1. This indicates we want one instance of this Cell running in the environment. We also do not need Volumes for the demo, so skip that section
+- In the `Routing` section, click on the Load Balancer dropdown and select `Create Load Balancer`. Check the `Load Balanced` checkbox for Container port 80. This means that we are externally exposing the port for www
 
 That's it! Click on `Deploy`. It will take a few minutes to provision a load balancer on GKE, but your Cell should be deployed ina  couple of minutes.
 
@@ -158,12 +167,13 @@ Also, it should show a link in the cell. Click the link to view the page you jus
 
 Now, go to micro-sample/blob/master/micro-www/public/views/home.html on GitHub. Make a simple edit, for example, change line 18 to "This is the best demo application!!". Commit your change.
 
-Here is what will happen -
-- The CI workflow will be triggered for micro-sample. This will create new Docker images and push them to your registry.
-- Your Cell Manifest version will be automatically incremented as a result of detecting new image tags.
-- This triggers an auto deployment for your pipeline and demo-app is deployed with latest cell manifest version.
-- You will see your Cell in Pipeline Status section show - Deployed version : 2.
-- Click on the Cell link. You should see the text update in your deployed application.
+Here is what will happen: 
+
+- The CI workflow will be triggered for micro-sample. This will create new Docker images and push them to your registry
+- Your Cell Manifest version will be automatically incremented as a result of detecting new image tags
+- This triggers an auto deployment for your pipeline and demo-app is deployed with latest cell manifest version
+- You will see your Cell in Pipeline Status section show - *Deployed version : 2*
+- Click on the Cell link. You should see the text update in your deployed application
 
 
 
