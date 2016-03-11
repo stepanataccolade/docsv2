@@ -155,7 +155,7 @@ Click on the `Configuration` tab and enter the following information:
 - Leave number of Replicas to 1. This indicates we want one instance of this Cell running in the environment. We also do not need Volumes for the demo, so skip that section
 - In the `Routing` section, click on the Load Balancer dropdown and select `Create Load Balancer`. Check the `Load Balanced` checkbox for Container port 80. This means that we are externally exposing the port for www
 
-That's it! Click on `Deploy`. It will take a few minutes to provision a load balancer on GKE, but your Cell should be deployed ina  couple of minutes.
+That's it! Go back to `Configuration` tab and click on `Deploy`at the bottom of the page. It will take a few minutes to provision a load balancer on GKE, but your Cell should be deployed ina  couple of minutes.
 
 ##View the application
 Now that you've deployed the application, go back to the `Pipelines` tab of your Subscription. The Pipeline Status graphic should show that the Cell is now deployed (green check).
