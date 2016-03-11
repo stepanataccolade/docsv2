@@ -475,7 +475,9 @@ The following environment variables are available for every build. You can use t
 | PULL_REQUEST		 |Pull request number if the job is a pull request. If not, this will be set to **false** |
 |RACK_ENV 		 | test|
 | RAILS_ENV		 |test |
-|REPO_NAME 		 | Name of the repository currently being built|
+|ORG_NAME     | Name of the organization/user that owns the repository currently being built (eg. This will be set to `Shippable` if the full name is `Shippable/support`)|
+|REPO_NAME 		 | Name of the repository currently being built (eg. This will be set to `support` if the full name is `Shippable/support`)|
+|REPO_FULL_NAME     | Full name of the repository currently being built (eg. `Shippable/support`)|
 |REPOSITORY_URL 		 |URL of your Github or Bitbucket repository |
 |SERVICE_SKIP 		 |false |
 | SHIPPABLE		 | true|
