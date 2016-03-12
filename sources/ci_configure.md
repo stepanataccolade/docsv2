@@ -463,7 +463,7 @@ The following environment variables are available for every build. You can use t
 | 	COMMIT	 |Commit id that is being built and tested |
 | COMPARE_UR		 |A link to GitHub/BitBucket's comparision view for the push |
 | DEBIAN_FRONTEND		 |noninteractive |
-| HEAD_BRANCH		 | Name of the most recently committed branch|
+| HEAD_BRANCH		 | This is only set for pull requests and is the name of the branch the pull request was opened from|
 | JOB_ID		 | id of job in Shippable|
 | LANG		 |en_US.UTF-8 |
 | LAST_SUCCESSFUL_BUILD_TIMESTAMP		 |Timestamp of the last successful build in seconds. This will be set to **false** for the first build or for the build with no prior successful builds |

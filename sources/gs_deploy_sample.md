@@ -90,8 +90,8 @@ The changes to shippable.yml should trigger a build run for the project. If not,
 
 This should create 2 Docker images in your Docker registry:
 
-- *registry_username*/micro-api:master.1
-- *registry_username*/micro-www:master.1
+- registry_username/micro-api:master.1
+- registry_username/micro-www:master.1
 
 If you see these images in your registry, you have successfully completed the first stage of setting up CI for the demo projects!
 
@@ -106,7 +106,8 @@ The easiest way to do this is to provision a cluster on Google Container Engine 
 Now that you have a cluster ready to go, let's create your pipeline. Since you have one free pipeline, we're going to use that to deploy your application to GKE. If you have 2 pipelines in your plan, you can create 2 pipelines - one for API and one for UI - to run this application.
 
 To create your pipeline, go to your Subscription's `Pipelines` tab and click on `Add Pipeline`. 
-On the New Pipeline page, name your pipeline, say 'demo-app
+On the New Pipeline page, name your pipeline, say 'demo-app'
+
     <img src="../images/pipeline_create_name.png" alt="Name your pipeline" style="width:400px;"/>
     
 Next, follow steps below:
@@ -114,7 +115,7 @@ Next, follow steps below:
 ###Add Cell manifest
 
 - In the Cell Manifest section, click on `Add image`. You will be taken to the Add image page.
-- In the `Select image` dropdown, select `Create image`. Enter the name *registry_username*/micro-api. Enter the account integration that has access to this image
+- In the `Select image` dropdown, select `Create image`. Enter the name registry_username/micro-api. Enter the account integration that has access to this image
 
     <img src="../images/pipeline_create_image.png" alt="Name your pipeline" style="width:400px;"/>
     
@@ -128,7 +129,7 @@ You will be taken back to the Add Image page. Select the tag you want to deploy 
 - Click on `Save image`. This will take you back to the add pipelines page.
 - Repeat the above steps for the image micro-www. For micro-www port number, enter 80.
 - Remember to use the range for ports for GKE clusters
-- Add the following configuration keys for the demo application by clicking `Add Variable` under *Environment Variables*: `API_PORT`, `API_URL`, `WWW_PORT`, `LOG_LEVEL`, `SHUD_LOG_TO_FILE` The values for these keys will be entered later when we deploy the cell.
+- Add the following configuration keys for the demo application by clicking `Add Variable` under Environment Variables section: `API_PORT`, `API_URL`, `WWW_PORT`, `LOG_LEVEL`, `SHUD_LOG_TO_FILE` The values for these keys will be entered later when we deploy the cell.
 
 ###Auto-increment
 The auto-increment feature automatically creates new cell manifest versions when new tags are detected for images in your pipeline. Let us enable this for our demo. Check the box for `Auto-increment`. For both images, enter the tag pattern `master.*`. This means cell manifest version will be auto incremented only when an image is pushed due to a build for `master` branch.
@@ -172,7 +173,7 @@ Here is what will happen:
 - The CI workflow will be triggered for micro-sample. This will create new Docker images and push them to your registry
 - Your Cell Manifest version will be automatically incremented as a result of detecting new image tags
 - This triggers an auto deployment for your pipeline and demo-app is deployed with latest cell manifest version
-- You will see your Cell in Pipeline Status section show - *Deployed version : 2*
+- You will see your Cell in Pipeline Status section show - `Deployed version : 2`
 - Click on the Cell link. You should see the text update in your deployed application
 
 
