@@ -40,12 +40,6 @@ Delete will fail if there are any projects actively using the integration, so ma
 
 In addition, we are working on Bitbucket Server and GitLab integrations and will announce these in Q1 of 2016.
 
-### [Notifications](int_notifications.md)
-- Email
-- Slack
-- IRC
-- Hipchat (coming soon)
-
 ### [Docker Registries](int_docker_registries.md)
 - Docker Hub
 - Google Container Registry (GCR)
@@ -58,6 +52,17 @@ In addition, we are working on Bitbucket Server and GitLab integrations and will
 - Google Container Engine (GKE)
 - Red Hat Openshift V3 (coming soon)
 - Microsoft Azure (coming soon)
+
+### [PaaS/IaaS Providers](int_paas_iaas_providers.md)
+- Amazon Elastic Beanstalk (EB)
+- Heroku (coming soon)
+- Red Hat Openshift (coming soon)
+
+### [Notifications](int_notifications.md)
+- Email
+- Slack
+- IRC
+- Hipchat (coming soon)
 
 ### [Keys](int_keys.md)
 - SSH keys

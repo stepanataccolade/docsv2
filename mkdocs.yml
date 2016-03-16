@@ -40,6 +40,7 @@ pages:
   - Source control providers: int_scm.md
   - Docker registries: int_docker_registries.md
   - Container services: int_container_services.md
+  - PaaS/IaaS providers: int_paas_iaas_providers.md
   - Notification providers: int_notifications.md
   - Keys: int_keys.md
 - Lighthouse: lighthouse.md
