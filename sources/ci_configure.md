@@ -452,8 +452,8 @@ Having configured CI for your builds, here are the steps to deploy your code to 
 ### Amazon Elastic Beanstalk
 Our updated platform enables you to deploy your source code to Amazon's Elastic Beanstalk. To do so, there are 2 steps you need to take.
 
-1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb <img src="../images/project_settings_deploy_integration_aws.png" alt="Account Settings Subscription" style="width:400px;"/>
-
+1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration with Shippable can be found [here](int_paas_iaas_providers.md)
+<img src="../images/project_settings_deploy_integration_aws.png" alt="Account Settings Subscription" style="width:400px;"/>
 2. **Configure shippable.yml**: Update the `shippable.yml` with the new collection for deployments. A sample form for doing a source code deployment to Elastic Beanstalk is shown:
 
 ```yaml
