@@ -382,6 +382,7 @@ sudo pip install awscli
 ```
 
 <a name="matrix_builds"></a>
+
 ## Running multiple builds per commit
 
 In most cases, you want to trigger one build for each commit/pull request to your repository. However, there are times when you might want to trigger multiple builds for a single code change. For example, you might want to test against multiple versions of Ruby, multiple aspect ratios for your Selenium tests, or multiple environment variables.
@@ -443,6 +444,37 @@ matrix:
 ```
 
 Please note that you can specify language versions as number or string, i.e. as `0.10` or as `"0.10"`. In most cases the format is entirely interchangeable. However, in cases where the version number ends with a 0, such as `5.10`, it is safer to use a string to avoid the yml parser from transating the version to `5.1`.
+
+
+## Configuring deployments to PaaS/IaaS
+Having configured CI for your builds, here are the steps to deploy your code to various PaaS/IaaS providers.
+
+### Amazon Elastic Beanstalk
+Our updated platform enables you to deploy your source code to Amazon's Elastic Beanstalk. To do so, there are 2 steps you need to take.
+
+1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb <img src="../images/project_settings_deploy_integration_aws.png" alt="Account Settings Subscription" style="width:400px;"/>
+
+2. **Configure shippable.yml**: Update the `shippable.yml` with the new collection for deployments. A sample form for doing a source code deployment to Elastic Beanstalk is shown:
+
+```yaml
+integrations:
+deploy:
+  - integrationName: "AWS - ttrahan"
+    type: aws
+    target: ebs_paas
+    platform: "Node.js"
+    application_name: expressapp
+    env_name: expressapp-dev
+    region: us-east-1
+```
+Replace in the above form, with your values as follows:
+
+- **integrationName**: replace 'AWS - ttrahan' with your Account Integration set up for AWS (keep the double quotes)
+- **platform**: replace 'Node.js' with your platform (available options can be found [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html))
+- **application_name**: replace with your Elastic Beanstalk application name
+- **env_name**: replace with your Elastic Beanstalk environment name
+
+Once the above 2 steps are complete, make a change to your code, commit & push it to your source control. The push will trigger a CI run on Shippable and execute the updated instructions on `shippable.yml`. Upon a successul run, the new version of the app will be deployed to Amazon's Elastic Beanstalk.
 
 
 ## Using environment variables

@@ -90,8 +90,8 @@ The changes to shippable.yml should trigger a build run for the project. If not,
 
 This should create 2 Docker images in your Docker registry:
 
-- registry_username/micro-api:master.1
-- registry_username/micro-www:master.1
+- registry_username/micro-api
+- registry_username/micro-www
 
 If you see these images in your registry, you have successfully completed the first stage of setting up CI for the demo projects!
 
@@ -108,7 +108,7 @@ Now that you have a cluster ready to go, let's create your pipeline. Since you h
 To create your pipeline, go to your Subscription's `Pipelines` tab and click on `Add Pipeline`. 
 On the New Pipeline page, name your pipeline, say 'demo-app'
 
-    <img src="../images/pipeline_create_name.png" alt="Name your pipeline" style="width:400px;"/>
+<img src="../images/pipeline_create_name.png" alt="Name your pipeline" style="width:400px;"/>
     
 Next, follow steps below:
 
