@@ -520,9 +520,9 @@ The following environment variables are available for every build. You can use t
 | SHIPPABLE_POSTGRES_VERSION		 | "9.2"|
 | SHIPPABLE_POSTGRES_BINARY		 |"/usr/lib/postgresql/\$SHIPPABLE_POSTGRES_VERSION/bin/postgres" |
 |SHIPPABLE_POSTGRES_CMD 		 | "sudo -u postgres \$SHIPPABLE_POSTGRES_BINARY -c "config_file=/etc/postgresql/\$SHIPPABLE_POSTGRES_VERSION/main/postgresql.conf""|
+| SHIPPABLE_PYTHON_VERSION | Python version on which current build is running (available in official images only) |
 | SHIPPABLE_VE_DIR		 | "\$HOME/build_ve/python/2.7"|
 | USER		 | shippable|
-
 ### Custom Variables
 
 You can also set your own environment variables in the yml. Each statement under the ```env``` tag will trigger a separate build with that env variable, so specifying multiple environment variables will give you a build matrix for every commit.
