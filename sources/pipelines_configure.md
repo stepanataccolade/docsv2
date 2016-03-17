@@ -40,8 +40,6 @@ After you have a cluster on GKE, follow the steps below to create your environme
 
 * Name your environment. In the `Deployment integration` dropdown, choose the cluster you just created and click on `Confirm`.
 
-* In the `Cluster Source` section that shows up, select the `Choose an existing cluster` radio button. 
-
 * In the `Cluster` section, select your GKE cluster from the dropdown. If you cannot see your cluster, you can click on `Sync` and check the dropdown again. 
 
 * Click on `Confirm`.
