@@ -4,7 +4,7 @@ page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deplo
 
 # What is Shippable?
 
-Shippable was founded so that software development teams could accelerate their release cycles by automating the build, test and deployment of applications. Our Continuous Delivery pipeline takes your code from from source control to production, without the need for configuration management/IT automation tools or infrastructure code.
+Shippable was founded so that software development teams could accelerate their release cycles by automating the build, test and deployment of applications. Our Continuous Delivery pipeline takes your code from source control to production, without the need for configuration management/IT automation tools or infrastructure code.
 
 We integrate with the tools and technologies you use today and will need tomorrow, like GitHub, Bitbucket and on-prem repositories, offer seamless deployment to private clouds as well as leading cloud providers including Amazon and Google, and support all application architectures from enterprise grade multi-tier to containerized micro services. 
 
@@ -53,7 +53,7 @@ Our powerful deployment pipelines give software development teams the ability to
  
 Most importantly, our deployment pipelines give you the ability to be cloud agnostic. You can move your applications across Container Services in a few minutes!
 
-You should Shippable to set up your Continuous Delivery pipelines if you fit the following profile -
+You should use Shippable to set up your Continuous Delivery pipelines if you fit the following profile -
 
 * Your application is Dockerized and you run Docker in test environments and Production, or
 * You do not use Docker in production, but run (or are open to running) your Test and/or Production environments on a Container Service, or 
