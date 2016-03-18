@@ -453,7 +453,7 @@ Having configured CI for your builds, here are the steps to deploy your code to 
 Our updated platform enables you to deploy your code to AWS Elastic Beanstalk (EB)
 in two ways - Source Code Deployment and Docker Deployment. Let's look at both and the way Shippable helps you in having a successful deployment to EB.
 
-####**SOURCE CODE DEPLOYMENT TO AWS ELASTIC BEANSTALK**
+####**Source code deployment to AWS Elastic Beanstalk**
 
 Shippable performs the following steps for you, to deploy your source code on EB:
 
@@ -490,7 +490,7 @@ With this configured, upon a successful CI run you will see the above steps exec
 
 For reference, here is a [sample Node.js application](https://github.com/shippableSamples/sample_node_eb_paas) that successfully performs source code deployment to Elastic Beanstalk.
 
-####**DOCKER DEPLOYMENT TO AWS ELASTIC BEANSTALK**
+####**Docker deployment to AWS Elastic Beanstalk**
 
 Shippable performs the following steps for you to deploy Docker on EB, after all the steps in `shippable.yml` that run inside the container are complete:
 
