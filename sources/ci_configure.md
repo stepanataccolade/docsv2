@@ -449,32 +449,100 @@ Please note that you can specify language versions as number or string, i.e. as 
 ## Configuring deployments to PaaS/IaaS
 Having configured CI for your builds, here are the steps to deploy your code to various PaaS/IaaS providers.
 
-### Amazon Elastic Beanstalk
-Our updated platform enables you to deploy your source code to Amazon's Elastic Beanstalk. To do so, there are 2 steps you need to take.
+### AWS Elastic Beanstalk
+Our updated platform enables you to deploy your code to AWS Elastic Beanstalk (EB)
+in two ways - Source Code Deployment and Docker Deployment. Let's look at both and the way Shippable helps you in having a successful deployment to EB.
 
-1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration with Shippable can be found [here](int_paas_iaas_providers.md)
+####**SOURCE CODE DEPLOYMENT TO AWS ELASTIC BEANSTALK**
+
+Shippable performs the following steps for you, to deploy your source code on EB:
+
+- Installs EB Command Line Interface (CLI)
+- Authenticates into EB console using the right credentials
+- Issues the Deploy command on EB from the right directory
+
+To enable Shippable to perform these steps, you will need to configure the following two steps for a successful deployment to EB. 
+
+1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down and add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration in Shippable can be found [here](int_paas_iaas_providers.md)
 <img src="../images/project_settings_deploy_integration_aws.png" alt="Account Settings Subscription" style="width:400px;"/>
 2. **Configure shippable.yml**: Update the `shippable.yml` with the new collection for deployments. A sample form for doing a source code deployment to Elastic Beanstalk is shown:
 
 ```yaml
 integrations:
-deploy:
-  - integrationName: "AWS - ttrahan"
-    type: aws
-    target: ebs_paas
-    platform: "Node.js"
-    application_name: expressapp
-    env_name: expressapp-dev
-    region: us-east-1
+  deploy:
+    - integrationName: "aws-test"
+      type: aws
+      target: eb_paas
+      platform: "Node.js"
+      application_name: sample-node-eb-paas-app
+      env_name: sample-node-eb-paas-env
+      region: us-east-1
 ```
 Replace in the above form, with your values as follows:
 
-- **integrationName**: replace 'AWS - ttrahan' with your Account Integration set up for AWS (keep the double quotes)
+- **integrationName**: replace 'aws-test' with your Account Integration in Shippable, set up for AWS (keep the double quotes)
 - **platform**: replace 'Node.js' with your platform (available options can be found [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html))
 - **application_name**: replace with your Elastic Beanstalk application name
 - **env_name**: replace with your Elastic Beanstalk environment name
+- **region**: replace with your EB region name
 
-Once the above 2 steps are complete, make a change to your code, commit & push it to your source control. The push will trigger a CI run on Shippable and execute the updated instructions on `shippable.yml`. Upon a successul run, the new version of the app will be deployed to Amazon's Elastic Beanstalk.
+With this configured, upon a successful CI run you will see the above steps executed within your CI run console and you should be able to verify within EB that a deployment was triggered.
+
+For reference, here is a [sample Node.js application](https://github.com/shippableSamples/sample_node_eb_paas) that successfully performs source code deployment to Elastic Beanstalk.
+
+####**DOCKER DEPLOYMENT TO AWS ELASTIC BEANSTALK**
+
+Shippable performs the following steps for you to deploy Docker on EB, after all the steps in `shippable.yml` that run inside the container are complete:
+
+- Logs into EB
+- Updates your Dockerrun.aws.json file with the IMAGE_NAME & TAG 
+- Uploads the artifacts to S3
+- Updates the application version
+- Issues the command to update the EB environment
+
+Upon completion of the above, EB updates your environment based on the uploaded application version, independent of Shippable.
+
+**NOTE**: Click for instructions [to pull an image from a private repository hosted by an online registry](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker.html) and/or for [multicontainer docker environments](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.html)
+
+To enable Shippable perform the above steps, you will need to configure the following three steps for a successful deployment to EB.
+
+1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down and add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration with Shippable can be found [here](int_paas_iaas_providers.md)
+2. **Ensure you have a dockerrun.aws.json file** in the root of your source code directory. The relevant section to Shippable is given below and must follow this format:
+```yaml
+  "Image": {
+    "Name": "<IMAGE_NAME>:<TAG>",
+    "Update": "true"
+  }  
+```
+
+3. **Configure shippable.yml**: Update the `shippable.yml` with the deploy integration collection. A sample form for doing a Docker deployment to Elastic Beanstalk is shown:
+
+```yaml
+integrations:
+  deploy:
+    - integrationName: "aws-test"
+      type: aws
+      target: eb_docker
+      application_name: "sample-node-eb-docker-app"
+      env_name: "docker-env"
+      bucket_name: "elasticbeanstalk-us-east-1-480971114143"
+      region: "us-east-1"
+      image_name: "harryi3t/sample_node_eb_docker"
+      image_tag: "$BRANCH.$BUILD_NUMBER"
+```
+Replace in the above form, with your values as follows:
+
+- **integrationName**: replace 'aws-test' with your Account Integration in Shippable, set up for AWS (keep the double quotes)
+- **application_name**: replace with your EB application name
+- **env_name**: replace with your EB environment name
+- **bucket_name**: replace with your EB bucket name
+- **region**: replace with your EB region name
+- **image_name**: replace with your Docker image name
+- **image_tab**: replace with your Docker image tag
+
+With this configured, upon a successful CI run you will see the above steps executed within your CI run console and you should be able to verify within EB that a deployment was triggered.
+
+For reference, here is a [sample Node.js application](https://github.com/shippableSamples/sample_node_eb_docker) that successfully performs Docker deployment to Elastic Beanstalk.
 
 
 ## Using environment variables
