@@ -35,14 +35,17 @@ Please note that we do not automatically trigger builds if you push a tag. You c
 
 We need a shippable.yml file at the root of your repository in order to run your builds. This is your config file and tells us what the build should do. For the yml structure and how to configure it, check out the [Configure your build](ci_configure.md)
 
-The yml is somewhat similar to Travis CI's .travis.yml and most commands work as-is on Shippable. Since the formats are very similar, we can also read your config from .travis.yml if we do not find a shippable.yml at the root of your repository.
-
 When a build is triggered, it is executed in the sequence below -
 
-- Commands in the `pre_ci` section are executed first on your build machine
+- First, commands in the `pre_ci` section are executed on your build machine and not in your build container.
 - The next step is booting your CI container. This will use our default Docker images if nothing is configured in the `pre_ci_boot` section of your yml. If that section is configured, it overrides the default image and boots up the CI container specified.
-- All commands in the `ci` section are executed in sequence
-- Commands in the `post_ci` section are executed last
+- All commands in the `ci` section are executed in sequence.
+- Commands in the `post_ci` section are executed next.
+- If the `ci` and `post_ci` sections were successful, we will execute commands in the `on_success` section.
+- - If the `ci` and/or `post_ci` were failed, we will execute commands in the `on_failure` section.
+
+We also support the travis.yml format for most cases since we've built a translator that accepts travis.yml format and converts it to shippable.yml. To make it easy for Travis customers to try out Shippable, we will even read the .travis.yml in your repo without requiring you to add a shippable.yml. 
+
 
 ## Permissions
 
