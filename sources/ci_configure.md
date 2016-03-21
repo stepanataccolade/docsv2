@@ -564,15 +564,15 @@ build:
   cache: true
 ```
   
-You can also choose to cache specific folders instead of the entire build directory by using the `cache_dir_list` tag. Please note that you still need the `cache: true` in your yml: 
+You can also choose to cache specific folders instead of the entire build directory by using the `cache_dir_list` tag. The cache_dir_list is an array of **absolute path** of the folders that needs to be cached. Please note that you still need the `cache: true` in your yml: 
 
 ```
 build:
   cache: true
   cache_dir_list: 
-    - dir1
-    - dir2
-    - dir3
+    - absolute path of dir1
+    - absolute path of dir2
+    - absolute path of dir3
 ```
 
 For example, to cache node modules and the .git folder, you would specify the following:
