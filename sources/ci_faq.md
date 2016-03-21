@@ -124,3 +124,10 @@ Your push to Heroku should succeed with this change.
 ## I cannot start a manual build for my Bitbucket project. Why is it not working?
 
 Check your branch name to see if it contains a ```/```. The Bitbucket API currently does not support branch names with a ```/``` in them. We opened a support issue with them - [Get commit/{revision} API does not accept branch names with "/"](https://bitbucket.org/site/master/issues/9969/get-commit-revision-api-does-not-accept) over 1 year ago and there is still no resolution for this. This is not a Shippable bug and while we understand that this affects everyone who uses Gitflow+Shippable+Bitbucket, we cannot fix this at our end. 	
+## I am using PHP 7.0 and am unable to install extensions as part of my yml config.
+
+We use pickle to install extensions for PHP. This works for all versions of PHP except 7.0.
+
+Pickle requires `php$ver-dev` environment (which has development modules) to compile extensions. At this time, there is no official php7-dev environment, so pickle is unable to find dependent modules and cannot compile extensions like intl, redis, and gettext.
+
+We will watch for updates and as soon as `php7-dev` is available, the next image update will address this.
