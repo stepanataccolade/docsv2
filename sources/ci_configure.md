@@ -121,7 +121,8 @@ By default, we will spin up a build container based on the either the base versi
 You can override which Docker image is used for your CI by specifying a different image in your yml -
 
 ```
-pre_ci_boot:
+build:
+  pre_ci_boot:
     image_name: manishas/myImage
     image_tag: latest
     pull: true
@@ -150,10 +151,11 @@ Once you have a Hub integration configured in your Project Settings, you can use
 If you want to build your Docker image as part of your workflow for each CI run, you will need to do the followng in your shippable.yml-
 
 ```
-pre_ci:
+build:
+  pre_ci:
     - docker build -t myImage:tip .
 
-pre_ci_boot:
+  pre_ci_boot:
     image_name: myImage
     image_tag: tip
     pull: false
@@ -236,6 +238,7 @@ Depending on the whether your `ci` section is successful or not, the `on_success
 
 An example is shown below:
 ```
+build:
   ci:
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
@@ -603,7 +606,8 @@ Sometimes, commands like `npm install` fail due to the intermittent network issu
 also use it for any custom installation from external resources. For example:
 
 ```
-before_install:
+build:
+  ci:
     - shippable_retry sudo apt-get update
     - shippable_retry sudo apt-get install something
 ```
@@ -679,7 +683,8 @@ To set up test result visualization for a repository, do the following:
 For example, here is a sample configuration for a Python project -
 
 ```yaml
-ci:
+build:
+  ci:
     - mkdir -p shippable/testresults
     - nosetests python/sample.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
 ```
@@ -700,10 +705,11 @@ To set up code coverage result visualization for a repository, do the following:
 For example, here is a sample configuration for a Python project -
 
 ```yaml
-ci:
-  - mkdir -p shippable/codecoverage
-  - coverage run --branch python/sample.py
-  - coverage xml -o shippable/codecoverage/coverage.xml python/sample.py
+build:
+  ci:
+    - mkdir -p shippable/codecoverage
+    - coverage run --branch python/sample.py
+    - coverage xml -o shippable/codecoverage/coverage.xml python/sample.py
 ```
 
 Examples for other languages can be found in our [Code Samples](languages/).
@@ -1003,12 +1009,14 @@ Sample PHP code using
 ### MySQL
 
 ```yaml
-# MySQL binds to 127.0.0.1 by default. Default username is shippable with no password
-# Create a DB as part of the ci section before you use it
+# MySQL binds to 127.0.0.1 by default. 
+# Create a user and DB as part of the ci section before you use it
 
 services:
     - mysql
-ci:
+build:
+  ci:
+    - mysql -e "GRANT ALL ON *.* TO shippable@localhost IDENTIFIED BY ''; FLUSH PRIVILEGES;"
     - mysql -e 'create database myapp_test;'
 ```
 
@@ -1019,14 +1027,16 @@ Sample javascript code using
 ###Postgres
 
 ```yaml
-# Postgres binds to 127.0.0.1 by default. Default username is "postgres" with no password
-# Create a DB as part of the ci section before using it
+# Postgres binds to 127.0.0.1 by default. 
+# Create a user and DB as part of the ci section before using it
 
 services:
     - postgres
 
-ci:
-  - psql -c 'create database myapp_test;' -U postgres
+build:
+  ci:
+    - psql -c 'createuser -s --username=postgres shippable'
+    - psql -c 'create database myapp_test;' -U postgres
 ```
 
 ### SQLite3
@@ -1159,9 +1169,10 @@ addons:
 services:
   - selenium
 
-ci:
-  - "export DISPLAY=:99.0"
-  - "/etc/init.d/xvfb start"
+build:
+  ci:
+    - "export DISPLAY=:99.0"
+    - "/etc/init.d/xvfb start"
 ```
 
 Selenium **2.40** is started by default. You can also select a different
@@ -1198,9 +1209,10 @@ addons:
 services:
   - selenium
 
-ci:
-  - "export DISPLAY=:99.0"
-  - "/etc/init.d/xvfb start"
+build:
+  ci:
+    - "export DISPLAY=:99.0"
+    - "/etc/init.d/xvfb start"
 ```
 
 Sample javascript code using
@@ -1247,9 +1259,10 @@ We support collections in every section of the yml and will run it one command a
 
 ```
 # collection scripts
-ci:
- - ./minions/do_something.sh
- - ./minions/do_something_else.sh
+build:
+  ci:
+    - ./minions/do_something.sh
+    - ./minions/do_something_else.sh
 ```
 
 In the example above, our minions will run `./minions/do_something.sh`
