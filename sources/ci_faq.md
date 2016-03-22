@@ -37,7 +37,7 @@ You can use either of the tools below to validate if your YML is valid:
 
 A couple of reasons why this could happen:
 
-(1) Missing YML in the branch you are building
+(1) Missing YML in the branch you are building. Create a `shippable.yml` file in the root of your repository. Here is a [reference/example](http://docs.shippable.com/ci_configure/#shippableyml-structure) of a `shippable.yml` file
 
 (2) Shippable YML is invalid. Please validate your YML using either of the links below:
 
