@@ -777,4 +777,4 @@ sbt ++$SHIPPABLE_SCALA_VERSION test
 ### Sample projects
 We have a simple Scala project that you can fork and enable on Shippable to help you get started:
 
-[sample_scala](https://github.com/shippableSamples/sample_scala)
+[sample_scala](https://github.com/shippableSamples/sampleSca)
