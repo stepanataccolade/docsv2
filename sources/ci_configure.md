@@ -943,8 +943,6 @@ Shippable performs the following steps for you to deploy Docker on EB, after all
 
 Upon completion of the above, EB updates your environment based on the uploaded application version, independent of Shippable.
 
-**NOTE**: Click for instructions [to pull an image from a private repository hosted by an online registry](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker.html) and/or for [multicontainer docker environments](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.html)
-
 To enable Shippable perform the above steps, you will need to configure the following three steps for a successful deployment to EB.
 
 1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down and add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration with Shippable can be found [here](int_paas_iaas_providers.md)
@@ -983,7 +981,13 @@ Replace in the above form, with your values as follows:
 
 With this configured, upon a successful CI run you will see the above steps executed within your CI run console and you should be able to verify within EB that a deployment was triggered.
 
-For reference, here is a [sample Node.js application](https://github.com/shippableSamples/sample_node_eb_docker) that successfully performs Docker deployment to Elastic Beanstalk.
+For reference, here is a [sample Node.js application](https://github.com/shippableSamples/sample_node_eb_docker) that successfully performs Docker deployment to Elastic Beanstalk
+
+
+**NOTE**: 
+While the above scenario includes pulling a public Docker image, you may have other scenarios such as wanting to pull an image from a private registry in your workflow. This is totally possible. Authenticating and pulling private third party images occurs outside of Shippable actions. You will have to be configure these settings within Elastic Beanstalk as Shippable is not responsible for these actions. 
+
+Click for instructions [to pull an image from a private repository hosted by an online registry](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker.html) and/or for [multicontainer docker environments](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.html)
 
 ---
 
