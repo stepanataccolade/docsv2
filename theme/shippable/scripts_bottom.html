@@ -2,17 +2,7 @@
 <script type="text/javascript" src="/static/ash/js/custom.js"></script>
 <script type="text/javascript" src="/static/ash/js/sticky.js"></script>
 <!-- Search -->
-<!-- <script type="text/javascript" src="/static/ash/js/search-redirect.js"></script> -->
-<script>
-  $('#mkdocs-search-query').keypress(function(e) {
-    if(e.which == 13) {
-      var q = $('#mkdocs-search-query').val();
-      window.location.href = "http://docs.shippable.com/search.html?q=" + q;
-      alert("Searched " + q);
-      return false;
-    }
-  });
-</script>
+<script type="text/javascript" src="/static/ash/js/search-redirect.js"></script>
 <script>var base_url = '{{ base_url }}';</script>
 <script data-main="{{ base_url }}/mkdocs/js/search.js" src="{{ base_url }}/mkdocs/js/require.js"></script>
 
