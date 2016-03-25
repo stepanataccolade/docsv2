@@ -101,7 +101,7 @@ jdk:
 ### Build Examples
 We have a simple Clojure project that you can fork and enable on Shippable to help you get started:
 
-[sample_clojure](https://github.com/shippableSamples/sample_clojure)
+[sample_clojure](https://github.com/shippableSamples/sampleClo)
 
 
 ## Go
@@ -174,7 +174,7 @@ ci:
 ### Build Examples
 We have a simple Go project that you can fork and enable on Shippable to help you get started:
 
-[sample_go](https://github.com/shippableSamples/sample_go)
+[sample_go](https://github.com/shippableSamples/sampleGol)
 
 ## Java
 
@@ -264,7 +264,7 @@ Save the test output in shippable/testresults and the codecoverage output in shi
 ### Build Examples
 We have a simple Java project that you can fork and enable on Shippable to help you get started:
 
-[sample_java](https://github.com/shippableSamples/sample_java)
+[sample_java](https://github.com/shippableSamples/sampleJav)
 
 
 ### Multi-module Maven builds
@@ -420,7 +420,7 @@ if [[ $SHIPPABLE_NODE_VERSION =~ [0].[6-8] ]]; then npm install -g npm@~1.4.6; f
 ### Build Examples
 We have a simple Node.js project that you can fork and enable on Shippable to help you get started:
 
-[sample_node](https://github.com/shippableSamples/sample_node)
+[sample_node](https://github.com/shippableSamples/sampleNod)
 
 ## PHP
 
@@ -577,7 +577,7 @@ ci:
 ### Sample projects
 We have a simple Python project that you can fork and enable on Shippable to help you get started:
 
-[sample_python](https://github.com/shippableSamples/sample_python)
+[sample_python](https://github.com/shippableSamples/samplePyt)
 
 
 
@@ -716,7 +716,7 @@ ci:
 ### Sample projects
 We have a simple Ruby project that you can fork and enable on Shippable to help you get started:
 
-[sample_ruby](https://github.com/shippableSamples/sample_ruby)
+[sample_ruby](https://github.com/shippableSamples/sampleRub)
 
 
 ## Scala
