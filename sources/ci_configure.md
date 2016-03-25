@@ -82,6 +82,8 @@ The following language tags are supported at this time:
 
 ```scala```
 
+```none```
+
 You can set the language and runtime as shown below. Example is for node.js projects.
 
 ```
@@ -96,6 +98,9 @@ Please note that you can specify language versions as number or string, i.e. as 
 Setting the runtime only works if you are using our default build images or an image pulled from our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/).
 
 Specific examples for each language are in our [Language guide](ci_languages.md)
+
+Specifying ```language: none``` in your yml skips any default language specific processing and will require you to specify a custom image for your build. Details are in the [Building unsupported languages](#unsupported_languages) section.
+
 
 ## Preparing your environment
 The `pre_ci` section lets you prepare your environment before your CI container is booted up. This could include building the docker image you want to use for CI, installing dependencies that your container needs, etc.
@@ -1258,18 +1263,13 @@ Our webhook processor will look for the string **[ci skip]** or **[skip
 ci]** in the commit message and if it exists, then that particular
 webhook build will not be executed.
 
-## Specifying command collections
-We support collections in every section of the yml and will run it one command at a time.
+<a name="unsupported_languages"></a>
+## Building unsupported languages
+We support many popular languages with official build images for each one as listed on the [What is supported?](http://docs.shippable.com/gs_supported/) page.
 
-```
-# collection scripts
-build:
-  ci:
-    - ./minions/do_something.sh
-    - ./minions/do_something_else.sh
-```
+However, you can run builds for any language you want using Shippable. You will need to provide a custom image for your build as explained in the [Overriding default build image](http://docs.shippable.com/ci_configure/#overriding-the-default-build-image) section and use the `language: none` tag in your shippable.yml. Setting the language to none means that we skip any default processing for each section in your yml. You will need to configure everything you need in the yml and your builds should work as expected.
 
-In the example above, our minions will run `./minions/do_something.sh`
-and then run `./minions/do_something-else.sh`. The only requirement is
-that all of these operations return a `0` exit code. Else the build will
-fail.
+
+
+
+
