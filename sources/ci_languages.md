@@ -477,7 +477,7 @@ ci:
 ### Sample projects
 We have a simple PHP project that you can fork and enable on Shippable to help you get started:
 
-[sample_php](https://github.com/shippableSamples/sample_php)
+[sample_php](https://github.com/shippableSamples/samplePhp)
 
 
 ## Python
