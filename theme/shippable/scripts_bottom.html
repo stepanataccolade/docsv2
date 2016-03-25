@@ -4,11 +4,12 @@
 <!-- Search -->
 <!-- <script type="text/javascript" src="/static/ash/js/search-redirect.js"></script> -->
 <script>
-  $('#mkdocs-search-query').on('submit', function(e) {
-    e.preventDefault();
-    var q = $('#mkdocs-search-query').val();
-    alert("Searched " + q);
-    window.location.href = "http://docs.shippable.com/search.html?q=" + q;
+  $('#mkdocs-search-query').keypress(function(e) {
+    if(e.which == 13) {
+      var q = $('#mkdocs-search-query').val();
+      alert("Searched " + q);
+      window.location.href = "http://docs.shippable.com/search.html?q=" + q;
+    }
   });
 </script>
 <script>var base_url = '{{ base_url }}';</script>
