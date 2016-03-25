@@ -1,8 +1,9 @@
 $(document).ready(function() {
-  $('#mkdocs-search-query').on('submit', function(e) {
-    e.preventDefault();
-    var q = $('#mkdocs-search-query').val();
-    alert("Searched " + q);
-    window.location.href = "http://docs.shippable.com/search.html?q=" + q;
-  })
+  $('#mkdocs-search-query').keypress(function(e) {
+    if(e.which == 13) {
+      var q = $('#mkdocs-search-query').val();
+      window.location.href = "http://docs.shippable.com/search.html?q=" + q;
+      return false;
+    }
+  });
 });
