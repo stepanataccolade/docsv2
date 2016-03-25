@@ -92,23 +92,23 @@ We support a multitude of languages, tools, services, as well as all popular sou
 
 #### Docker registries
 - Docker Hub
-- Amazon ECR
+- Amazon EC2 Container Registry (ECR)
 - Google Container Registry
 - Quay
 - Any private registry
 
 #### Container Services
-- Amazon ECS
+- Amazon EC2 Container Service (ECS)
 - Microsoft Azure (coming soon)
-- GKE (coming soon)
+- Google Container Engine (GKE)
 
 #### IaaS
 - AWS EC2 (using CodeDeploy)
 - Digital Ocean
 
 #### PaaS
-- Amazon Beanstalk
-- Amazon Opsworks
+- AWS Elastic Beanstalk
+- AWS Opsworks
 - Heroku
 - Red Hat Openshift
 
