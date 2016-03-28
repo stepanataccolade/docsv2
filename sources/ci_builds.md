@@ -4,11 +4,11 @@ page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, d
 
 # Builds
 
-The Builds page shows you information about a specific build(s) in a project. To get to a specific build page, 
+The Builds page shows you information about a specific build(s) in a project. To get to a specific build page,
 
 - Login to [Shippable](https://app.shippable.com)
 - Click on the CI dropdown and select the subscription you want to view.
-- This will bring you to Dashboard of the subscription which shows latest status for all your projects. 
+- This will bring you to Dashboard of the subscription which shows latest status for all your projects.
 - Click on the project name to view the Project page. This will take you to the project dashboard.
 - Click on any build number in the Summary or History tabs to get to the Build page
 
@@ -32,27 +32,36 @@ The breadcrumb shows you the account name, project name, and branch name. The ac
 * Builder indicated who committed the code change that triggered this build.
 * When the build was started, how long it took for the build to complete, and how long it was in the queue waiting for an available minion.
 
-### Build status 
+### Build status
 
-The circle at the left of the widget shows a color coded status with the following values:
+The circle at the left of the widget shows a color coded status with the following values when you hover the mouse on it:
 
-- Grey for a build that is still queued and waiting for an available minion    
-- Dark Blue for a build that is still in progress 
-- Green for a successful build
-- Red for a failed build
-- Orange for an unstable build
-- Purple for a timed out build
-- Lighter blue for a build that was canceled
+#### Build status definitions:
+Complete States
+
+- **success**: The build has successfully completed with no failed tests in a build or in any job in a matrix build. It is represented by green color.
+- **skipped**: State when **[ci skip]** or **[skip ci]** is added in the commit message to prevent the automatic triggering of a build. 
+- **unstable**: State when a job ends successfully (meaning it returned an exit code of 0), but there are one or more failed tests. If at least one job in a matrix is unstable and all the other jobs are successful, the build will be marked as unstable. It is represented by orange color.
+- **timeout**: The build has timed out prior to executing all the jobs. This occurs  when there is no log output or a command hangs for over 10 minutes. It also occurs if your build is running for over 60 minutes (for free minions) or over 120 minutes (for paid minions). It is represented by purple.
+- **canceled**: State when a build has been manually canceled, from the Shippable portal. It is represented by light blue color.
+- **failed**: State when there is at least a single failure in a build or a single job in a matrix build that fails. The errors in the build causing it to fail are listed in the console logs for the exact step it failed. It is represented by red color.
+
+Incomplete States:
+
+- **waiting**: A build that is waiting for an available minion. The most probable reason you'll see this state is when you have exceeded the number of concurrent builds your subscription is eligible for. It is represented by color grey.  
+- **processing**: A build that is still in progress and is executing the steps defined in shippable.yml file. It is represented by dark blue color.
+
 
 The white icon inside the circle shows whether the a commit or a pull request triggered it:
-    
+
 - ![add_icon](images/ci_build_commit.png) for a build triggered by a commit
 - ![add_icon](images/ci_build_pr.png) for a build triggered by a pull request
 
-### Build number
-To the right of the status circle is the build number. Build number starts at 1 for the first build of the project and increase by 1 for every build. 
 
-For matrix builds, the overall build is still numbered with a whole number and individual build items under it are numbered using decimals like 11.1, 11.2, etc. 
+### Build number
+To the right of the status circle is the build number. Build number starts at 1 for the first build of the project and increase by 1 for every build.
+
+For matrix builds, the overall build is still numbered with a whole number and individual build items under it are numbered using decimals like 11.1, 11.2, etc.
 
 ## Build item details
 
@@ -83,9 +92,3 @@ The script section shows you exactly what scripts and commands were run for your
 
 ### Downloading console logs
 The `Download` dropdown on the right of the build item console lets you download console logs to your machine.
-
-
-
-
-
-
