@@ -1,4 +1,4 @@
-page_title: Shippable Build Configuration
+  page_title: Shippable Build Configuration
 page_description: How to write your Shippable YML and Set up your Build Configuration
 page_keywords: getting started, questions, documentation, shippable, config, yml
 
@@ -172,7 +172,7 @@ For your specific case:
 *  `image_tag` is the tag for the image that was built in the `pre_ci` step.  
 * set `pull` to `false` if you want to use the image you built during the `pre_ci` step instead of pulling from a docker registry.
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container.
-* In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown if it is not already set in your Dockerfile. 
+* In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown if it is not already set in your Dockerfile.
 
 The example yml above will ensure that manishas/myImage:tip is used to start the CI container with the option `--privileged=true` and with the environment variable FOO=BAR already set within the container.
 
@@ -202,7 +202,7 @@ pre_ci_boot:
     image_name: manishas/myImage
     image_tag: latest
     pull: true
-    options: "-e HOME=/root" 
+    options: "-e HOME=/root"
 
 integrations:
     hub:
@@ -222,7 +222,7 @@ For your specific case:
 * `image_tag` is the tag for the image that you want to pull.  
 * set `pull` to `true` if you want to pull this image from a docker registry.
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container.
-* In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown if it is not already set in your image. 
+* In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown if it is not already set in your image.
 * For `integrationName` tag, enter the name of the account integration you have added to your project settings. This account should have permissions to pull the the build image specified in the `image_name` setting.
 * In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google container registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container registry, and `private docker registry` for a self hosted private registry.
 * [optional]Using the `branches` section, specify the branches this account integration is applicable to. You can skip this if you want your integration to be applicable for all branches.
@@ -345,9 +345,9 @@ In the above example, replace the repo/image name with your image name and the t
 ### GCR/ECR and custom images
 All standard images in our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) have the required CLIs preinstalled for integration with GCR and ECR, so you can run a docker build or push in any section of your yml with no effort. **This section is relevant only if you're using a custom image for your build.**
 
-However, if you are using a custom image, the story is a little different. If you specify a `gcr` or `ecr` integration in your yml, we will try to login to the registry on your behalf from inside your CI build container. This means that for custom images, you would need the gcloud SDK or aws cli installed inside your custom image if you want this to succeed, else you will get a `gcloud not found` or `aws: command not found` errors. 
+However, if you are using a custom image, the story is a little different. If you specify a `gcr` or `ecr` integration in your yml, we will try to login to the registry on your behalf from inside your CI build container. This means that for custom images, you would need the gcloud SDK or aws cli installed inside your custom image if you want this to succeed, else you will get a `gcloud not found` or `aws: command not found` errors.
 
-You can get around this requirement by setting `agent_only: true` for your hub integration. 
+You can get around this requirement by setting `agent_only: true` for your hub integration.
 
 ```
 integrations:
@@ -356,8 +356,8 @@ integrations:
         type: gcr
         agent_only: true
 ```
-      
-This will ensure that we will not attempt to login to the registry from inside your CI build container. However, this also means that you will not be able to pull from or push to GCR/ECR in the `ci`, `post_ci`, `on_success` and `on_failure` sections. 
+
+This will ensure that we will not attempt to login to the registry from inside your CI build container. However, this also means that you will not be able to pull from or push to GCR/ECR in the `ci`, `post_ci`, `on_success` and `on_failure` sections.
 
 You can always choose to push your image to GCR/ECR in the `push` section which runs at the end of the build on the build machine, i.e. outside your CI container-
 
@@ -463,45 +463,95 @@ The following environment variables are available for every build. You can use t
 
 | Env variable        | Description           |
 | ------------- |-------------|
-| BASE_BRANCH		 | Name of the target branch into which the pull request changes will be merged|
-| BRANCH		 | Name of branch being built|
-| BUILD_NUMBER		 | Build number for current build|
-| BUILD_URL		 | Direct URL link to the build output|
+| BASE_BRANCH		 | Name of the target branch into which the pull request changes will be merged.|
+| BRANCH		 | Name of branch being built.|
+| BUILD_NUMBER		 | Build number for current build.|
+| BUILD_URL		 | Direct URL link to the build output.|
+| CACHE_CONTAINER    | false |
+| CACHE_DIR    |  If cache is true in the build section of `shippable.yml`, then **true**.  Otherwise **false**.  |
 | CI		 | true|
 | 	CONTINUOUS_INTEGRATION	 |true |
-| 	COMMIT	 |Commit id that is being built and tested |
-| COMPARE_UR		 |A link to GitHub/BitBucket's comparision view for the push |
+| 	COMMIT	 |Commit id that is being built and tested. |
+| COMPARE_URL		 |A link to GitHub/Bitbucket's comparision view for the push. |
 | DEBIAN_FRONTEND		 |noninteractive |
-| HEAD_BRANCH		 | This is only set for pull requests and is the name of the branch the pull request was opened from|
-| JOB_ID		 | id of job in Shippable|
+| HEAD_BRANCH		 | This is only set for pull requests and is the name of the branch the pull request was opened from.|
+| JOB_ID		 | ID of job in Shippable.|
+| JOB_NUMBER | Number of the job in Shippable.|
 | LANG		 |en_US.UTF-8 |
-| LAST_SUCCESSFUL_BUILD_TIMESTAMP		 |Timestamp of the last successful build in seconds. This will be set to **false** for the first build or for the build with no prior successful builds |
+| LAST_SUCCESSFUL_BUILD_TIMESTAMP		 |Timestamp of the last successful build in seconds. This will be set to **false** for the first build or for the build with no prior successful builds. |
 |LC_ALL 		 |en_US.UTF-8 |
 |LC_CTYPE 		 | en_US.UTF-8|
 |MERB_ENV 		 |test |
-| PATH		 | \$HOME/bin:\$PATH|
-| IS_PULL_REQUEST     |Set to **true** if the job is a pull request. If not, this will be set to **false** |
-| PULL_REQUEST		 |Pull request number if the job is a pull request. If not, this will be set to **false** |
+| PATH		 | $HOME/bin:$PATH:$HOME/usr/local/bin|
+| PROJECT_ID | ID of the Shippable Project. |
+| IS_PULL_REQUEST     |Set to **true** if the job is a pull request. If not, this will be set to **false**. |
+| PULL_REQUEST		 |Pull request number if the job is a pull request. If not, this will be set to **false**. |
 |RACK_ENV 		 | test|
 | RAILS_ENV		 |test |
-|ORG_NAME     | Name of the organization/user that owns the repository currently being built (eg. This will be set to `Shippable` if the full name is `Shippable/support`)|
-|REPO_NAME 		 | Name of the repository currently being built (eg. This will be set to `support` if the full name is `Shippable/support`)|
-|REPO_FULL_NAME     | Full name of the repository currently being built (eg. `Shippable/support`)|
-|REPOSITORY_URL 		 |URL of your Github or Bitbucket repository |
+|ORG_NAME     | Name of the organization/user that owns the repository currently being built (eg. This will be set to `Shippable` if the full name is `Shippable/support`).|
+|REPO_NAME 		 | Name of the repository currently being built (eg. This will be set to `support` if the full name is `Shippable/support`).|
+|REPO_FULL_NAME     | Full name of the repository currently being built (eg. `Shippable/support`).|
+|REPOSITORY_URL 		 |URL of your Github or Bitbucket repository. |
 |SERVICE_SKIP 		 |false |
 | SHIPPABLE		 | true|
 |SHIPPABLE_ARCHIVE 		 | true|
-|SHIPPABLE_BUILD_ID 		 |id of build in Shippable |
+|SHIPPABLE_BUILD_ID 		 |ID of build in Shippable. |
+|SHIPPABLE_BUNDLER_ARGS  | The value of bundler_args in the build section of `shippable.yml`. |
+|SHIPPABLE_COMMIT_RANGE  | Parent commit… current commit being built.  |
+| SHIPPABLE_GEMFILE | The gemfile specified for the job in the `shippable.yml`. |
+| SHIPPABLE_JDK_VERSION | The jdk for the job in the `shippable.yml`. |
 | SHIPPABLE_MYSQL_BINARY		 |"/usr/bin/mysqld_safe" |
 | SHIPPABLE_MYSQL_CMD		 |"\$SHIPPABLE_MYSQL_BINARY" |
 | SHIPPABLE_POSTGRES_VERSION		 | "9.2"|
 | SHIPPABLE_POSTGRES_BINARY		 |"/usr/lib/postgresql/\$SHIPPABLE_POSTGRES_VERSION/bin/postgres" |
 |SHIPPABLE_POSTGRES_CMD 		 | "sudo -u postgres \$SHIPPABLE_POSTGRES_BINARY -c "config_file=/etc/postgresql/\$SHIPPABLE_POSTGRES_VERSION/main/postgresql.conf""|
-| SHIPPABLE_PYTHON_VERSION | Python version on which current build is running (available in official images only) |
+|SHIPPABLE_REPO_DIR | The directory where builds run. |
+|SHIPPABLE_REPO_SLUG | Full name of the repository being built (e.g. `Shippable/support`). |
+| SHIPPABLE_SELENIUM_PORT | 4444|
+| SHIPPABLE_SELENIUM_BINARY |Location of selenium binary. It is set only if selenium is in the addons or services in the `shippable.yml`. |
+|SHIPPABLE_SUBMODULE_ENABLED | Whether or not submodules in the repository will be updated. |
 | SHIPPABLE_VE_DIR		 | "\$HOME/build_ve/python/2.7"|
-| USER		 | shippable|
-### Custom Variables
+|SUBSCRIPTION_ID | ID of the Subscription. |
 
+#### Language based:
+Based on the language used, the following environment variables should be used.
+
+| Env variable        | Description           |
+| ------------- |-------------|
+| SHIPPABLE_LEIN_VERSION		 | Clojure version specified for the job.|
+| SHIPPABLE_GO_VERSION | GO version specified for the job. |
+| SHIPPABLE_GOPATH | PATH set to $HOME |
+| SHIPPABLE_NODE_VERSION | NodeJS version specified for the job. |
+| SHIPPABLE_PHP_VERSION | PHP version specified for the job. |
+| SHIPPABLE_PYTHON_VERSION | Python version specified for the job. |
+| SHIPPABLE_RUBY | Ruby version version specified for the job. |
+| SHIPPABLE_SCALA_VERSION | Scala version specified for the job. |
+
+#### Travis compatible Variables:
+Given below are the variables, supported by Shippable.
+
+| Env variable        | Description           |
+| ------------- |-------------|
+| TRAVIS		 | true|
+| TRAVIS_OS_NAME | linux|
+| TRAVIS_BUILD_DIR | |
+| TRAVIS_REPO_SLUG | |
+| TRAVIS_COMMIT_RANGE | |
+| TRAVIS_BUILD_NUMBER | |
+| TRAVIS_JOB_NUMBER | |
+| TRAVIS_BUILD_ID | |
+| TRAVIS_JOB_ID | |
+| TRAVIS_BRANCH | |
+| TRAVIS_COMMIT | |
+| TRAVIS_PULL_REQUEST | |
+| TRAVIS_NODE_VERSION | |
+| TRAVIS_PHP_VERSION | |
+| TRAVIS_PYTHON_VERSION | |
+| TRAVIS_RUBY_VERSION | |
+| TRAVIS_SCALA_VERSION | |
+
+
+### Custom Variables
 You can also set your own environment variables in the yml. Each statement under the ```env``` tag will trigger a separate build with that env variable, so specifying multiple environment variables will give you a build matrix for every commit.
 
 ```yaml
@@ -571,13 +621,13 @@ You can turn on caching for your builds by including `cache: true` in the `build
 build:
   cache: true
 ```
-  
-You can also choose to cache specific folders instead of the entire build directory by using the `cache_dir_list` tag. The cache_dir_list is an array of **absolute path** of the folders that needs to be cached. Please note that you still need the `cache: true` in your yml: 
+
+You can also choose to cache specific folders instead of the entire build directory by using the `cache_dir_list` tag. The cache_dir_list is an array of **absolute path** of the folders that needs to be cached. Please note that you still need the `cache: true` in your yml:
 
 ```
 build:
   cache: true
-  cache_dir_list: 
+  cache_dir_list:
     - absolute path of dir1
     - absolute path of dir2
     - absolute path of dir3
@@ -588,7 +638,7 @@ For example, to cache node modules and the .git folder, you would specify the fo
 ```
 build:
   cache: true
-  cache_dir_list: 
+  cache_dir_list:
     - $SHIPPABLE_BUILD_DIR/node_modules
     - $SHIPPABLE_BUILD_DIR/.git
 ```
@@ -722,7 +772,7 @@ Examples for other languages can be found in our [Code Samples](languages/).
 Once you have set this up, you can view your code coverage results in the `Code coverage` tab on your build page.
 
 ## Downloading console logs
-You can download your console logs by going to the build's page on Shippable, clicking on the `Download` dropdown that's on the right of the console pane, and selecting your logs. 
+You can download your console logs by going to the build's page on Shippable, clicking on the `Download` dropdown that's on the right of the console pane, and selecting your logs.
 
 ## Build artifacts
 Shippable does not store artifacts for your builds. You will need to handle uploading artifacts as part of your configuration in your shippable.yml.
@@ -736,7 +786,7 @@ env:
     - secure: HKwYujx/qmsyQQdHvR2myu8HLUDtcLeDyYV149YJuxIV4J7Hk3SxeY8X3D6aTlR8mvMnd/ZFY+tGNUh4G0xtLLjjZcPsBgvFlB
 
 build:
-  
+
   on_success:
     - aws s3 sync $SHIPPABLE_BUILD_DIR "s3://bucket_name" --region "us-east-1"
 
@@ -744,7 +794,7 @@ build:
 ```
 
 Similarly, you can copy contents of any folder with `$SHIPPABLE_BUILD_DIR/folder_name` depending on where the artifacts are for your build.
-If you need help defining secure variables, you can check out [our instructions](ci_projects/#encrypting-your-environment-variables) 
+If you need help defining secure variables, you can check out [our instructions](ci_projects/#encrypting-your-environment-variables)
 
 
 ---
@@ -907,7 +957,7 @@ Shippable performs the following steps for you, to deploy your source code on EB
 - Authenticates into EB console using the right credentials
 - Issues the Deploy command on EB from the right directory
 
-To enable Shippable to perform these steps, you will need to configure the following two steps for a successful deployment to EB. 
+To enable Shippable to perform these steps, you will need to configure the following two steps for a successful deployment to EB.
 
 1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down and add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration in Shippable can be found [here](int_paas_iaas_providers.md)
 <img src="../images/project_settings_deploy_integration_aws.png" alt="Account Settings Subscription" style="width:400px;"/>
@@ -941,7 +991,7 @@ For reference, here is a [sample Node.js application](https://github.com/shippab
 Shippable performs the following steps for you to deploy Docker on EB, after all the steps in `shippable.yml` that run inside the container are complete:
 
 - Logs into EB
-- Updates your Dockerrun.aws.json file with the IMAGE_NAME & TAG 
+- Updates your Dockerrun.aws.json file with the IMAGE_NAME & TAG
 - Uploads the artifacts to S3
 - Updates the application version
 - Issues the command to update the EB environment
@@ -989,8 +1039,8 @@ With this configured, upon a successful CI run you will see the above steps exec
 For reference, here is a [sample Node.js application](https://github.com/shippableSamples/sample_node_eb_docker) that successfully performs Docker deployment to Elastic Beanstalk
 
 
-**NOTE**: 
-While the above scenario includes pulling a public Docker image, you may have other scenarios such as wanting to pull an image from a private registry in your workflow. This is totally possible. Authenticating and pulling private third party images occurs outside of Shippable actions. You will have to be configure these settings within Elastic Beanstalk as Shippable is not responsible for these actions. 
+**NOTE**:
+While the above scenario includes pulling a public Docker image, you may have other scenarios such as wanting to pull an image from a private registry in your workflow. This is totally possible. Authenticating and pulling private third party images occurs outside of Shippable actions. You will have to be configure these settings within Elastic Beanstalk as Shippable is not responsible for these actions.
 
 Click for instructions [to pull an image from a private repository hosted by an online registry](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker.html) and/or for [multicontainer docker environments](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.html)
 
@@ -1018,7 +1068,7 @@ Sample PHP code using
 ### MySQL
 
 ```yaml
-# MySQL binds to 127.0.0.1 by default. 
+# MySQL binds to 127.0.0.1 by default.
 # Create a user and DB as part of the ci section before you use it
 
 services:
@@ -1036,7 +1086,7 @@ Sample javascript code using
 ###Postgres
 
 ```yaml
-# Postgres binds to 127.0.0.1 by default. 
+# Postgres binds to 127.0.0.1 by default.
 # Create a user and DB as part of the ci section before using it
 
 services:
@@ -1268,8 +1318,3 @@ webhook build will not be executed.
 We support many popular languages with official build images for each one as listed on the [What is supported?](http://docs.shippable.com/gs_supported/) page.
 
 However, you can run builds for any language you want using Shippable. You will need to provide a custom image for your build as explained in the [Overriding default build image](http://docs.shippable.com/ci_configure/#overriding-the-default-build-image) section and use the `language: none` tag in your shippable.yml. Setting the language to none means that we skip any default processing for each section in your yml. You will need to configure everything you need in the yml and your builds should work as expected.
-
-
-
-
-
