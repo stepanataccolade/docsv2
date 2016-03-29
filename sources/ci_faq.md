@@ -108,7 +108,7 @@ A project is empty in Shippable if there are zero builds associated with it. A n
 ## My builds are failing at git_sync with error "Could not read from remote repository". Why?
 In the updated Shippable platform, you will see this error below, in two scenarios:
 ```
-Permission denied (publickey).
+Host key verification failed.
 fatal: Could not read from remote repository.
 
 Please make sure you have the correct access rights
