@@ -11,7 +11,7 @@ Upgrading or downgrading your CI plan simply means increasing or decreasing the 
 
 You can do this by going to the **Billing** Tab on your Subscription Dashboard and using the slider to indicate the number of minions you want. Click on the *Save* button when you are done.
 
-Plan upgrades are effective immediately and your bill will be pro-rated for the current month. Plan downgrades are effective immediately, however we do not issue refunds for minions that were already paid for during the current month. 
+Plan upgrades are effective immediately and your bill will be pro-rated for the current month. Plan downgrades are effective immediately, however we do not issue refunds for minions that were already paid for during the current month.
 
 
 ## Why can't I see some of my repositories in my Shippable account?
@@ -105,6 +105,27 @@ webhook build will not be executed.
 
 A project is empty in Shippable if there are zero builds associated with it. A new project that you have just enabled shows up as an empty project. To avoid cluttering the project page with projects that are never built, the projects page doesn't show projects that have no builds unless you explicitly use the check box to let us know you want to see all projects. An exception to this is if you have just enabled a project; we do check this box during the enable process, so you are able to see your new project. We are continuously iterating on the user experience, so please write to us at support@shippable.com if you have any feedback on the feature.
 
+## My builds are failing at git_sync with error "Could not read from remote repository". Why?
+In the updated Shippable platform, you will see this error below, in two scenarios:
+```
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+1. If you are using a custom image & the $HOME environment variable is not set. When we update your ~/.ssh/config file to insert `StrictHostKeyChecking` to `no`, it throws up the error. To fix this error, you can either update your Dockerfile to set the $HOME environment variable, or you can set it in the `pre_ci_boot` section in the options tag within `shippable.yml` as shown.
+```
+build:
+  pre_ci_boot:
+    image_name: your/image
+    image_tag: your_tag
+    options: "-e HOME=/root"
+```
+2. If you are using an image from **shippableimages** repo. We have deprecated support for those images and our official images are now in the [drydock repo on Docker Hub] (https://hub.docker.com/u/drydock/). The naming convention for these images is [explained here] (http://docs.shippable.com/ci_configure/#setting-your-build-image). Start using one of the new, official images to avoid running into this error. Switching to the new yml format automatically selects one of the new, official images for your build, by default.
+
+For more information, view the [migration guide] (http://blog.shippable.com/migrating-to-the-new-build-platform) and the [Top 5 tips for a successful migration] (http://blog.shippable.com/5-tips-for-a-successful-migration).
+
 ## I am pushing to heroku as part of my build. Why is this suddenly failing?
 
 We have made a change as to where your keys are stored on your minion.
@@ -119,7 +140,7 @@ You will need to replace the `~/.ssh/id_rsa` to `/tmp/ssh/00_sub` since that is 
 ```
 - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/00_sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
 ```
-Your push to Heroku should succeed with this change. 
+Your push to Heroku should succeed with this change.
 
 ## I cannot start a manual build for my Bitbucket project. Why is it not working?
 
