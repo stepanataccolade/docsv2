@@ -1094,7 +1094,7 @@ services:
 
 build:
   ci:
-    - psql -c 'createuser -s --username=postgres shippable'
+    - psql -c 'create role shippable with superuser;' -U postgres
     - psql -c 'create database myapp_test;' -U postgres
 ```
 
