@@ -122,9 +122,9 @@ build:
     image_tag: your_tag
     options: "-e HOME=/root"
 ```
-2. If you are using an image from **shippableimages** repo. We have deprecated support for those images and our official images are now in the [drydock repo on Docker Hub] (https://hub.docker.com/u/drydock/). The naming convention for these images is [explained here] (http://docs.shippable.com/ci_configure/#setting-your-build-image). Start using one of the new, official images to avoid running into this error. Switching to the new yml format automatically selects one of the new, official images for your build, by default.
+2. If you are using an image from **shippableimages** repo. We have deprecated support for those images and our official images are now in the [drydock repo on Docker Hub](https://hub.docker.com/u/drydock/). The naming convention for these images is [explained here](http://docs.shippable.com/ci_configure/#setting-your-build-image). Start using one of the new, official images to avoid running into this error. Switching to the new yml format automatically selects one of the new, official images for your build, by default.
 
-For more information, view the [migration guide] (http://blog.shippable.com/migrating-to-the-new-build-platform) and the [Top 5 tips for a successful migration] (http://blog.shippable.com/5-tips-for-a-successful-migration).
+For more information, view the [migration guide](http://blog.shippable.com/migrating-to-the-new-build-platform) and the [Top 5 tips for a successful migration](http://blog.shippable.com/5-tips-for-a-successful-migration).
 
 ## I am pushing to heroku as part of my build. Why is this suddenly failing?
 
@@ -144,7 +144,7 @@ Your push to Heroku should succeed with this change.
 
 ## I cannot start a manual build for my Bitbucket project. Why is it not working?
 
-Check your branch name to see if it contains a ```/```. The Bitbucket API currently does not support branch names with a ```/``` in them. We opened a support issue with them - [Get commit/{revision} API does not accept branch names with "/"](https://bitbucket.org/site/master/issues/9969/get-commit-revision-api-does-not-accept) over 1 year ago and there is still no resolution for this. This is not a Shippable bug and while we understand that this affects everyone who uses Gitflow+Shippable+Bitbucket, we cannot fix this at our end. 	
+Check your branch name to see if it contains a ```/```. The Bitbucket API currently does not support branch names with a ```/``` in them. We opened a support issue with them - [Get commit/{revision} API does not accept branch names with "/"](https://bitbucket.org/site/master/issues/9969/get-commit-revision-api-does-not-accept) over 1 year ago and there is still no resolution for this. This is not a Shippable bug and while we understand that this affects everyone who uses Gitflow+Shippable+Bitbucket, we cannot fix this at our end.
 ## I am using PHP 7.0 and am unable to install extensions as part of my yml config.
 
 We use pickle to install extensions for PHP. This works for all versions of PHP except 7.0.
@@ -152,3 +152,19 @@ We use pickle to install extensions for PHP. This works for all versions of PHP 
 Pickle requires `php$ver-dev` environment (which has development modules) to compile extensions. At this time, there is no official php7-dev environment, so pickle is unable to find dependent modules and cannot compile extensions like intl, redis, and gettext.
 
 We will watch for updates and as soon as `php7-dev` is available, the next image update will address this.
+
+## How do I use Ruby in a build with another language?
+
+Specify your [language](http://docs.shippable.com/ci_configure/#specifying-language-and-runtime) as usual. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](http://docs.shippable.com/ci_configure/#setting-your-build-image) for that language.
+
+All [official Shippable images](https://hub.docker.com/u/drydock/) have rvm installed, with a default version of Ruby. However, the rvm location is not added to the $PATH environment variable, so you will need to `source` rvm in your YML. This will give you access to both `ruby` and `rvm`. Your YML will look something like this:
+```
+language: node_js
+
+node_js:
+  - desired Node.js version(s)
+
+build:
+  ci:
+    - source /usr/local/rvm/scripts/rvm
+```
