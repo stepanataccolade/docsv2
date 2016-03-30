@@ -1303,11 +1303,8 @@ To enable it, go to Bitbucket Project Settings > Webhooks > Edit > Choose from a
 <img src="../images/ci_bitbucket_webhook_triggers.png" alt="Bitbucket Webhook Triggers" style="width:350px;">
 
 A few things to note here:
-
 - The YML is always picked from the destination(base) branch.
-- If the pull request comes from a private fork of the project and the subscription key is not added as a deploy key for the fork, the pull request build will fail at the `git_sync` CI step. This is due to the way Bitbucket handles permissions on private forks. To fix this,
-  1. Copy the subscription deploy key from Shippable Subscription > Settings > Deployment Keys
-  2. Add it as a deploy key for the private fork: Bitbucket Project Settings > Deploy Key > Add
+- If the pull request comes from a private fork of the project and the subscription key is not added as a deploy key for the fork, the pull request build will fail at the `git_sync` CI step. This is due to the way Bitbucket handles permissions on private forks. To fix this - first, copy the subscription deploy key from Shippable Subscription > Settings > Deployment Keys. Next, add it as a deploy key for the private fork: Bitbucket Project Settings > Deploy Key > Add.
 
 * * * * *
 
