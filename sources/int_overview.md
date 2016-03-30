@@ -4,15 +4,15 @@ page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deplo
 
 # Third-party integrations
 
-Shippable integrates with many popular source control providers, notification platforms, container services, and Docker registries. 
+Shippable integrates with many popular source control providers, notification platforms, container services, and Docker registries.
 
-In order to interact with these services on your behalf, you need to provide your credentials or keys. To protect this private information, we do not ask you to enter this in the yml config, and instead provide an easy way to set this information in the Shippable UI. 
+In order to interact with these services on your behalf, you need to provide your credentials or keys. To protect this private information, we do not ask you to enter this in the yml config, and instead provide an easy way to set this information in the Shippable UI.
 
 For example, to pull an image from or push an image to a Docker Hub, you will add a Docker integration which will ask for your credentials and you can then use that integration during your build process.
 
 To start with, you will always need to add an account integration as described below.
 
-##Adding an account integration 
+##Adding an account integration
 
 - Click on Settings(gear icon) in your top navigation bar to navigate to account settings.
 
@@ -22,12 +22,12 @@ To start with, you will always need to add an account integration as described b
 
 - Enter your information and click on `Save`.
 
-The integration should now show up in your 1Integrations1 tab. This integration will be available to all your projects and can be used for your workflows. Further details and examples of how a specific integration is used is available in the section for each integration. 
+The integration should now show up in your 1Integrations1 tab. This integration will be available to all your projects and can be used for your workflows. Further details and examples of how a specific integration is used is available in the section for each integration.
 
 ## Deleting an account integration
 
 To delete an integration:, simply click on the `Delete` button for the integration you want to delete.
- 
+
 Delete will fail if there are any projects actively using the integration, so make sure the integration is not being used in any project before deleting it.
 
 
@@ -62,7 +62,7 @@ In addition, we are working on Bitbucket Server and GitLab integrations and will
 - Email
 - Slack
 - IRC
-- Hipchat (coming soon)
+- Hipchat
 
 ### [Keys](int_keys.md)
 - SSH keys

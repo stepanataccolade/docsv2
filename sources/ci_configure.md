@@ -801,10 +801,8 @@ If you need help defining secure variables, you can check out [our instructions]
 
 ## Notifications
 
-Shippable supports email, Slack, and IRC notifications and these can
+Shippable supports email, Slack, HipChat and IRC notifications and these can
 can be configured in your yml file.
-
-To send HipChat notifications, check out our [sample project for hipchat notifications](https://github.com/shippableSamples/sample-hipchat-notifications).
 
 By default, we send email notifications to the last committer when a
 build fails, or the status changes from failed to passed.
@@ -899,6 +897,49 @@ integrations:
     - `always` means that you will always receive a notification for build start/pull request
     - `never` means that you will never receive a notification for that build start/pull request
   By default, `on_start` is set to `never` and `on_pull_request` is set to `always` if Slack is configured in the yml but you do not specify these tags.     
+
+
+
+### HipChat notifications
+
+To send HipChat notifications, you will need to do the following:
+
+1. Create an account integration for your HipChat service ([Instructions here](int_notifications.md))
+2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
+3. Add the following in your shippable.yml:
+
+
+```yaml
+integrations:
+    notifications:
+        - integrationName: my_hipchat_integration
+          type: hipchat
+          recipients:
+            - "#roomOne"
+            - "#roomTwo"
+            - "@userOne"
+          branches:
+              only:
+                - master
+                - dev
+          on_success: never
+          on_failure: always
+```
+* `integrationName` value is the name of the account integration you added to project settings.
+* `type` is hipchat
+* `recipients` specifies the rooms and/or users you want to send the notification to.
+    - If there is a single recipient and it is a room, you can use the format `recipients: "#channelOne"`
+    - If there is a single recipient and it is a user, you can use the format `recipients: "@userOne"`
+* [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
+* [optional] You can set the following options for the `on_success`, `on_failure` tags :
+    - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
+    - `always` means that you will always receive a notification for that build status
+    - `never` means that you will never receive a notification for that build status
+  By default, `on_success` is set to `change` and `on_failure` is set to `always` if HipChat is configured in the yml but you do not specify these tags.
+* [optional] You can set the following options for the `on_start`, `on_pull_request` tags :
+    - `always` means that you will always receive a notification for build start/pull request
+    - `never` means that you will never receive a notification for that build start/pull request
+  By default, `on_start` is set to `never` and `on_pull_request` is set to `always` if HipChat is configured in the yml but you do not specify these tags.     
 
 
 

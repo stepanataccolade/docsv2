@@ -35,7 +35,7 @@ We support a multitude of languages, tools, services, as well as all popular sou
 #### Services
 -  CouchDB 1.6.1
 -  Elastic Search 1.5.1
--  Kestrel 
+-  Kestrel
 -  Memcached 1.4.23
 -  MongoDB 3.0
 -  MySQL 5.6.23
@@ -86,7 +86,7 @@ We support a multitude of languages, tools, services, as well as all popular sou
 
 #### Notification Providers
 - Email
-- Hipchat (coming soon)
+- Hipchat
 - IRC
 - Slack
 
