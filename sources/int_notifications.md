@@ -6,7 +6,7 @@ page_keywords: lighthouse, shippable ci, documentation, shippable, watch docker 
 
 We can notify you aboyt your builds and deployment workflows through Slack, IRC, and Email. HipChat support is next on our list and will be available in Q1 of 2016.
 
-To set up notifications via Slack or private IRC channels, you will need to configure account integrations with your credentials or keys to these services. 
+To set up notifications via Slack, HipChat or private IRC channels, you will need to configure account integrations with your credentials or keys to these services.
 
 ## Slack notifications
 You will need to configure this integration to send notifications to Slack channel(s). Notifications can be sent for build status updates, lighthouse image updates, and deployment updates.
@@ -49,5 +49,20 @@ You can, however, add an Email account integration to receive notifications for 
 5. Enter your email address: `janedoe@shippable.com`
 6. Click on `Save`
 
+## HipChat notifications
+You will need to configure this integration to send notifications to HipChat room(s) and user(s). Notifications can be sent for build status updates, lighthouse image updates, and deployment updates.
 
+**Generate a TOKEN for API access**
 
+1. Sign in to your HipChat account using [this link to generate a token](https://www.hipchat.com/account/api).
+2. Create a token with `Send Message` and `Send Notification` scopes.
+
+**Set up HipChat integration on Shippable**
+
+1. From your Shippable dashboard, click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+2. **Integration type:** In the dropdown, select `HipChat`
+3. **Integration Name:** Use a distinctive name that's easy to recall. Example: `manishas-hipchat`
+4. In the **token** textbox, paste the token you created in the Hipchat UI above.
+5. Click `Save`
+
+You have now configured HipChat and can use this integration during your CI and Deploy workflows.

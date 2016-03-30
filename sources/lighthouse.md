@@ -10,9 +10,9 @@ Have you ever wasted your time debugging a broken build only to realize a few fr
 
 Lighthouse to your rescue!
 
-Lighthouse lets you monitor any Docker image from any registry and be notified if the image changes. This is very powerful since you can now set up Shippable to automatically build all dependent projects when an upstream image is updated. 
+Lighthouse lets you monitor any Docker image from any registry and be notified if the image changes. This is very powerful since you can now set up Shippable to automatically build all dependent projects when an upstream image is updated.
 
-Lighthouse is available to all Shippable users for free. You can monitor any number of images at no cost. 
+Lighthouse is available to all Shippable users for free. You can monitor any number of images at no cost.
 
 We're actively expanding Lighthouse functionality to include monitor dependencies that go beyond just Docker images, so stay tuned!
 
@@ -24,16 +24,16 @@ You can check out Lighthouse bu signing in to [Shippab;e](https://app.shippable.
 To add an image to Lighthouse and receive notification when the image is updated in the registry, follow the steps below.
 
 1. Create an account integration for the Docker registry where the image is to be monitored. ([Instructions here](int_docker_registries.md))
-2. Create an account integration for the type of notification you want to receive when the image changes. You can set up Slack, IRC, or Email notification. ([Instructions here](int_notifications.md))
+2. Create an account integration for the type of notification you want to receive when the image changes. You can set up Slack, HipChat, IRC, or Email notification. ([Instructions here](int_notifications.md))
 3. Go to your [Lighthouse page](https://app.shippable.com/lighthouse)
 4. Click on `Add image` and complete the following
     * Image Name: `your_repo_name/image_name` (the image from either DockerHub or GCR)  
     - Hub Integration: The Docker registry integration that has permissions to access this image. You can create a new one if you don't have one already configured in your Account Settings.  
     - Click on the `Save Image` button
-    - Next, enter the type of notification you want to receive each time the image changes. This can be email, Slack, or IRC. Enter the account integration details.
+    - Next, enter the type of notification you want to receive each time the image changes. This can be email, Slack, HipChat or IRC. Enter the account integration details.
     - Click on `Ok`
     - You will be redirected to the Lighthouse page where you will start seeing status of the image. A `green` indicator shows that we could successfully sync the image and will be able to send notifications when the image changes.
-    
+
 Images are 'watched' every 20 mins, so your notification will be sent 20 mins after the image is updated, in the worst case.
 
 

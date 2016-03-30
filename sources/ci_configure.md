@@ -172,7 +172,7 @@ For your specific case:
 *  `image_tag` is the tag for the image that was built in the `pre_ci` step.  
 * set `pull` to `false` if you want to use the image you built during the `pre_ci` step instead of pulling from a docker registry.
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container.
-* In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown if it is not already set in your Dockerfile. 
+* In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown if it is not already set in your Dockerfile.
 
 The example yml above will ensure that manishas/myImage:tip is used to start the CI container with the option `--privileged=true` and with the environment variable FOO=BAR already set within the container.
 
@@ -202,7 +202,7 @@ pre_ci_boot:
     image_name: manishas/myImage
     image_tag: latest
     pull: true
-    options: "-e HOME=/root" 
+    options: "-e HOME=/root"
 
 integrations:
     hub:
@@ -222,7 +222,7 @@ For your specific case:
 * `image_tag` is the tag for the image that you want to pull.  
 * set `pull` to `true` if you want to pull this image from a docker registry.
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container.
-* In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown if it is not already set in your image. 
+* In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown if it is not already set in your image.
 * For `integrationName` tag, enter the name of the account integration you have added to your project settings. This account should have permissions to pull the the build image specified in the `image_name` setting.
 * In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google container registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container registry, and `private docker registry` for a self hosted private registry.
 * [optional]Using the `branches` section, specify the branches this account integration is applicable to. You can skip this if you want your integration to be applicable for all branches.
@@ -345,9 +345,9 @@ In the above example, replace the repo/image name with your image name and the t
 ### GCR/ECR and custom images
 All standard images in our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) have the required CLIs preinstalled for integration with GCR and ECR, so you can run a docker build or push in any section of your yml with no effort. **This section is relevant only if you're using a custom image for your build.**
 
-However, if you are using a custom image, the story is a little different. If you specify a `gcr` or `ecr` integration in your yml, we will try to login to the registry on your behalf from inside your CI build container. This means that for custom images, you would need the gcloud SDK or aws cli installed inside your custom image if you want this to succeed, else you will get a `gcloud not found` or `aws: command not found` errors. 
+However, if you are using a custom image, the story is a little different. If you specify a `gcr` or `ecr` integration in your yml, we will try to login to the registry on your behalf from inside your CI build container. This means that for custom images, you would need the gcloud SDK or aws cli installed inside your custom image if you want this to succeed, else you will get a `gcloud not found` or `aws: command not found` errors.
 
-You can get around this requirement by setting `agent_only: true` for your hub integration. 
+You can get around this requirement by setting `agent_only: true` for your hub integration.
 
 ```
 integrations:
@@ -356,8 +356,8 @@ integrations:
         type: gcr
         agent_only: true
 ```
-      
-This will ensure that we will not attempt to login to the registry from inside your CI build container. However, this also means that you will not be able to pull from or push to GCR/ECR in the `ci`, `post_ci`, `on_success` and `on_failure` sections. 
+
+This will ensure that we will not attempt to login to the registry from inside your CI build container. However, this also means that you will not be able to pull from or push to GCR/ECR in the `ci`, `post_ci`, `on_success` and `on_failure` sections.
 
 You can always choose to push your image to GCR/ECR in the `push` section which runs at the end of the build on the build machine, i.e. outside your CI container-
 
@@ -571,13 +571,13 @@ You can turn on caching for your builds by including `cache: true` in the `build
 build:
   cache: true
 ```
-  
-You can also choose to cache specific folders instead of the entire build directory by using the `cache_dir_list` tag. The cache_dir_list is an array of **absolute path** of the folders that needs to be cached. Please note that you still need the `cache: true` in your yml: 
+
+You can also choose to cache specific folders instead of the entire build directory by using the `cache_dir_list` tag. The cache_dir_list is an array of **absolute path** of the folders that needs to be cached. Please note that you still need the `cache: true` in your yml:
 
 ```
 build:
   cache: true
-  cache_dir_list: 
+  cache_dir_list:
     - absolute path of dir1
     - absolute path of dir2
     - absolute path of dir3
@@ -588,7 +588,7 @@ For example, to cache node modules and the .git folder, you would specify the fo
 ```
 build:
   cache: true
-  cache_dir_list: 
+  cache_dir_list:
     - $SHIPPABLE_BUILD_DIR/node_modules
     - $SHIPPABLE_BUILD_DIR/.git
 ```
@@ -722,7 +722,7 @@ Examples for other languages can be found in our [Code Samples](languages/).
 Once you have set this up, you can view your code coverage results in the `Code coverage` tab on your build page.
 
 ## Downloading console logs
-You can download your console logs by going to the build's page on Shippable, clicking on the `Download` dropdown that's on the right of the console pane, and selecting your logs. 
+You can download your console logs by going to the build's page on Shippable, clicking on the `Download` dropdown that's on the right of the console pane, and selecting your logs.
 
 ## Build artifacts
 Shippable does not store artifacts for your builds. You will need to handle uploading artifacts as part of your configuration in your shippable.yml.
@@ -736,7 +736,7 @@ env:
     - secure: HKwYujx/qmsyQQdHvR2myu8HLUDtcLeDyYV149YJuxIV4J7Hk3SxeY8X3D6aTlR8mvMnd/ZFY+tGNUh4G0xtLLjjZcPsBgvFlB
 
 build:
-  
+
   on_success:
     - aws s3 sync $SHIPPABLE_BUILD_DIR "s3://bucket_name" --region "us-east-1"
 
@@ -744,17 +744,15 @@ build:
 ```
 
 Similarly, you can copy contents of any folder with `$SHIPPABLE_BUILD_DIR/folder_name` depending on where the artifacts are for your build.
-If you need help defining secure variables, you can check out [our instructions](ci_projects/#encrypting-your-environment-variables) 
+If you need help defining secure variables, you can check out [our instructions](ci_projects/#encrypting-your-environment-variables)
 
 
 ---
 
 ## Notifications
 
-Shippable supports email, Slack, and IRC notifications and these can
+Shippable supports email, Slack, HipChat and IRC notifications and these can
 can be configured in your yml file.
-
-To send HipChat notifications, check out our [sample project for hipchat notifications](https://github.com/shippableSamples/sample-hipchat-notifications).
 
 By default, we send email notifications to the last committer when a
 build fails, or the status changes from failed to passed.
@@ -852,6 +850,49 @@ integrations:
 
 
 
+### HipChat notifications
+
+To send HipChat notifications, you will need to do the following:
+
+1. Create an account integration for your HipChat service ([Instructions here](int_notifications.md))
+2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
+3. Add the following in your shippable.yml:
+
+
+```yaml
+integrations:
+    notifications:
+        - integrationName: my_hipchat_integration
+          type: hipchat
+          recipients:
+            - "#roomOne"
+            - "#roomTwo"
+            - "@userOne"
+          branches:
+              only:
+                - master
+                - dev
+          on_success: never
+          on_failure: always
+```
+* `integrationName` value is the name of the account integration you added to project settings.
+* `type` is hipchat
+* `recipients` specifies the rooms and/or users you want to send the notification to.
+    - If there is a single recipient and it is a room, you can use the format `recipients: "#channelOne"`
+    - If there is a single recipient and it is a user, you can use the format `recipients: "@userOne"`
+* [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
+* [optional] You can set the following options for the `on_success`, `on_failure` tags :
+    - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
+    - `always` means that you will always receive a notification for that build status
+    - `never` means that you will never receive a notification for that build status
+  By default, `on_success` is set to `change` and `on_failure` is set to `always` if HipChat is configured in the yml but you do not specify these tags.
+* [optional] You can set the following options for the `on_start`, `on_pull_request` tags :
+    - `always` means that you will always receive a notification for build start/pull request
+    - `never` means that you will never receive a notification for that build start/pull request
+  By default, `on_start` is set to `never` and `on_pull_request` is set to `always` if HipChat is configured in the yml but you do not specify these tags.     
+
+
+
 ### IRC notifications
 
 You can send notifications to public IRC rooms using Shippable. Private IRC support is coming up soon.
@@ -907,7 +948,7 @@ Shippable performs the following steps for you, to deploy your source code on EB
 - Authenticates into EB console using the right credentials
 - Issues the Deploy command on EB from the right directory
 
-To enable Shippable to perform these steps, you will need to configure the following two steps for a successful deployment to EB. 
+To enable Shippable to perform these steps, you will need to configure the following two steps for a successful deployment to EB.
 
 1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down and add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration in Shippable can be found [here](int_paas_iaas_providers.md)
 <img src="../images/project_settings_deploy_integration_aws.png" alt="Account Settings Subscription" style="width:400px;"/>
@@ -941,7 +982,7 @@ For reference, here is a [sample Node.js application](https://github.com/shippab
 Shippable performs the following steps for you to deploy Docker on EB, after all the steps in `shippable.yml` that run inside the container are complete:
 
 - Logs into EB
-- Updates your Dockerrun.aws.json file with the IMAGE_NAME & TAG 
+- Updates your Dockerrun.aws.json file with the IMAGE_NAME & TAG
 - Uploads the artifacts to S3
 - Updates the application version
 - Issues the command to update the EB environment
@@ -989,8 +1030,8 @@ With this configured, upon a successful CI run you will see the above steps exec
 For reference, here is a [sample Node.js application](https://github.com/shippableSamples/sample_node_eb_docker) that successfully performs Docker deployment to Elastic Beanstalk
 
 
-**NOTE**: 
-While the above scenario includes pulling a public Docker image, you may have other scenarios such as wanting to pull an image from a private registry in your workflow. This is totally possible. Authenticating and pulling private third party images occurs outside of Shippable actions. You will have to be configure these settings within Elastic Beanstalk as Shippable is not responsible for these actions. 
+**NOTE**:
+While the above scenario includes pulling a public Docker image, you may have other scenarios such as wanting to pull an image from a private registry in your workflow. This is totally possible. Authenticating and pulling private third party images occurs outside of Shippable actions. You will have to be configure these settings within Elastic Beanstalk as Shippable is not responsible for these actions.
 
 Click for instructions [to pull an image from a private repository hosted by an online registry](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker.html) and/or for [multicontainer docker environments](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.html)
 
@@ -1018,7 +1059,7 @@ Sample PHP code using
 ### MySQL
 
 ```yaml
-# MySQL binds to 127.0.0.1 by default. 
+# MySQL binds to 127.0.0.1 by default.
 # Create a user and DB as part of the ci section before you use it
 
 services:
@@ -1036,7 +1077,7 @@ Sample javascript code using
 ###Postgres
 
 ```yaml
-# Postgres binds to 127.0.0.1 by default. 
+# Postgres binds to 127.0.0.1 by default.
 # Create a user and DB as part of the ci section before using it
 
 services:
@@ -1268,8 +1309,3 @@ webhook build will not be executed.
 We support many popular languages with official build images for each one as listed on the [What is supported?](http://docs.shippable.com/gs_supported/) page.
 
 However, you can run builds for any language you want using Shippable. You will need to provide a custom image for your build as explained in the [Overriding default build image](http://docs.shippable.com/ci_configure/#overriding-the-default-build-image) section and use the `language: none` tag in your shippable.yml. Setting the language to none means that we skip any default processing for each section in your yml. You will need to configure everything you need in the yml and your builds should work as expected.
-
-
-
-
-
