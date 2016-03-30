@@ -105,7 +105,7 @@ webhook build will not be executed.
 
 A project is empty in Shippable if there are zero builds associated with it. A new project that you have just enabled shows up as an empty project. To avoid cluttering the project page with projects that are never built, the projects page doesn't show projects that have no builds unless you explicitly use the check box to let us know you want to see all projects. An exception to this is if you have just enabled a project; we do check this box during the enable process, so you are able to see your new project. We are continuously iterating on the user experience, so please write to us at support@shippable.com if you have any feedback on the feature.
 
-## My builds are failing at git_sync with error "Could not read from remote repository". Why?
+## My builds are failing at git_sync with error "Host key verification failed". Why?
 In the updated Shippable platform, you will see this error below, in two scenarios:
 ```
 Host key verification failed.
