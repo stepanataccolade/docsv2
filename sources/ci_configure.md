@@ -654,7 +654,7 @@ You can clear cache in one of two ways:
 In both cases, your cached image will be deleted. If cache is still set to true in your yml, the build will generate a new cache which will be used for subsequent builds. This method is the best way to update your cache if required.
 
 ### Removing unwanted files when caching is enabled
-When caching is enabled, the entire cloned git repository including artifacts is cached. This may include unwanted files. Unless these unwanted files are removed, your tests could fail during the CI build, as Shippable updates the cached directory with the new commits. Remove the unwanted files in one of the two ways:
+When caching is enabled, the entire build directory including artifacts (when `cache: true` is used) or the entire folder contents (if configured for specific folders) is cached. This may include unwanted files. Unless these unwanted files are removed, your tests could fail during the CI build, as Shippable updates the cached directory with the new commits. Remove the unwanted files in one of the two ways:
 
 * Use the `git clean` command: In your `shippable.yml` add the `git clean` in the `ci` section using the following format:
     - `git clean -f` removes all untracked files not ignored by `.gitignore`.
