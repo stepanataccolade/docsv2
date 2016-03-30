@@ -51,7 +51,7 @@ Incomplete States:
 - ![add_icon](images/ci_build_icon_processing.png) **processing**: A build that is still in progress and is executing the steps defined in shippable.yml file.
 
 
-The white icon inside the circle shows whether the a commit or a pull request triggered it:
+The white icon inside the circle shows whether a commit or a pull request triggered the build:
 
 - ![add_icon](images/ci_build_icon_commit.png) for a build triggered by a commit
 - ![add_icon](images/ci_build_icon_pr.png) for a build triggered by a pull request
