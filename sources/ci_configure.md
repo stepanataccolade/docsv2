@@ -1281,15 +1281,32 @@ Sample javascript code using
 
 ## Pull requests
 
+### Github
 Shippable integrates with github to build your pull requests and show status inline on your GitHub page for the PR.
 
 Whenever a pull request is opened for a project that is enabled on Shippable, we will run a build for the respective pull request and send you a build status notification. You can also see this status on your GitHub page as shown below:
 
-<img src="../images/ci_pr_status.png" alt="e2e pipeline" style="width:600px;"/>
+<img src="../images/ci_pr_status.png" alt="Github PR Status" style="width:600px;"/>
 
 You can then merge the PR confidently if the build passes, or fix any issues that cause a failed build. Each time your pull request is updated, we will kick off a new build and update status.
 
 After you accept the pull request, Shippable will run one more build for the merged repo and will send email notifications for the merged repo.  
+
+### Bitbucket
+Shippable also integrates with Bitbucket to build pull requests.
+
+<img src="../images/bitbucket_pr_status.png" alt="Bitbucket PR Status" style="width:600px;"/>
+
+The pull request build can be enabled or disabled by editing the webhook in Bitbucket.
+To enable it, go to Bitbucket Project Settings > Webhooks > Edit > Choose from a full list of triggers and check Pull Request Created and Updated. To disable, uncheck the two options.
+<img src="../images/ci_bitbucket_webhook_triggers.png" alt="Bitbucket Webhook Triggers" style="width:600px;">
+
+A few things to note here:
+- The YML is always picked from the destination(base) branch.
+- If the pull request comes from a private fork of the project and the subscription key is not added as a deploy key for the fork, the pull request build will fail at the `git_sync` CI step. This is due to the way Bitbucket handles permissions on private forks. To fix this,
+  1. Copy the subscription deploy key from Shippable Subscription > Settings > Deployment Keys
+  2. Add it as a deploy key for the private fork: Bitbucket Project Settings > Deploy Key > Add
+
 * * * * *
 
 ## Build timeout
