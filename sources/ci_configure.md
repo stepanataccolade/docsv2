@@ -1295,13 +1295,15 @@ After you accept the pull request, Shippable will run one more build for the mer
 ### Bitbucket
 Shippable also integrates with Bitbucket to build pull requests.
 
-<img src="../images/bitbucket_pr_status.png" alt="Bitbucket PR Status" style="width:600px;"/>
+<img src="../images/bitbucket_pr_status.png" alt="Bitbucket PR Status" style="width:700px;"/>
 
 The pull request build can be enabled or disabled by editing the webhook in Bitbucket.
 To enable it, go to Bitbucket Project Settings > Webhooks > Edit > Choose from a full list of triggers and check Pull Request Created and Updated. To disable, uncheck the two options.
-<img src="../images/ci_bitbucket_webhook_triggers.png" alt="Bitbucket Webhook Triggers" style="width:600px;">
+
+<img src="../images/ci_bitbucket_webhook_triggers.png" alt="Bitbucket Webhook Triggers" style="width:350px;">
 
 A few things to note here:
+
 - The YML is always picked from the destination(base) branch.
 - If the pull request comes from a private fork of the project and the subscription key is not added as a deploy key for the fork, the pull request build will fail at the `git_sync` CI step. This is due to the way Bitbucket handles permissions on private forks. To fix this,
   1. Copy the subscription deploy key from Shippable Subscription > Settings > Deployment Keys
