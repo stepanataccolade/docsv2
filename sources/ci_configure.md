@@ -716,7 +716,7 @@ Wildcard entries for branches and git-flow branches, are supported.
 Here are some examples of the include/exclude config -
 
 ```
-# this config will build test1, experiment2, all branches beginning with "dev", all git-flow branches in the "feature" branch and exclude all other branches
+# this config will build all branches and exclude the following: build test1, experiment2, all branches beginning with "dev" and all git-flow branches in the "feature" branch
 branches:
   except:
     - test1
@@ -725,7 +725,7 @@ branches:
     - feature/*
 ```
 ```
-# this config will only build stage,  prod, all branches beginning with "beta" and all git-flow branches in the "release" branch
+# this config will only build the following branches: stage,  prod, all branches beginning with "beta" and all git-flow branches in the "release" branch
 branches:
   only:
     - stage
