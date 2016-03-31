@@ -485,6 +485,7 @@ The following environment variables are available for every build. You can use t
 | PATH		 | $HOME/bin:$PATH:$HOME/usr/local/bin|
 | PROJECT_ID | ID of the Shippable Project. |
 | IS_PULL_REQUEST     |Set to **true** if the job is a pull request. If not, this will be set to **false**. |
+| IS_FORK    |Set to **true** if the job belongs to a forked project. If not, this will be set to **false**. |
 | PULL_REQUEST		 |Pull request number if the job is a pull request. If not, this will be set to **false**. |
 |RACK_ENV 		 | test|
 | RAILS_ENV		 |test |
