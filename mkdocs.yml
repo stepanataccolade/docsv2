@@ -16,9 +16,9 @@ pages:
   - Concepts: gs_concepts.md
   - What is supported?: gs_supported.md
   - Pricing: gs_plans.md
-  - Your Shippable Account: acc_overview.md 
+  - Your Shippable Account: acc_overview.md
   - Run a sample CI build: gs_ci_sample.md
-  - Deploy a sample application: gs_deploy_sample.md  
+  - Deploy a sample application: gs_deploy_sample.md
 - C I:
   - Overview: ci_overview.md
   - Subscriptions: ci_subscriptions.md
@@ -29,13 +29,14 @@ pages:
   - Docker support: ci_docker.md
   - Running builds on your machines: ci_byoh.md
   - Running a sample build: gs_ci_sample.md
-  - FAQ: ci_faq.md
+  - CI FAQ: ci_faq.md
 - Pipelines:
   - Overview: pipelines_overview.md
   - Pipeline Status: pipelines_subscriptions.md
   - Configuring and managing pipelines: pipelines_configure.md
   - Deploy a sample app: gs_deploy_sample.md
-- Integrations: 
+  - Pipelines FAQ: pipelines_faq.md
+- Integrations:
   - Overview: int_overview.md
   - Source control providers: int_scm.md
   - Docker registries: int_docker_registries.md
@@ -45,10 +46,10 @@ pages:
   - Keys: int_keys.md
 - Lighthouse: lighthouse.md
 - API: api.md
-- Tutorials: 
+- Tutorials:
   - Overview: ht_overview.md
   - Using GitLab with Shippable: ht_using_gitlab.md
-  - Linking GitHub and Bitbucket accounts: ht_link_gh_and_bb.md 
+  - Linking GitHub and Bitbucket accounts: ht_link_gh_and_bb.md
   - Deploy to Heroku: ht_heroku.md
   - Deploy to Amazon EC2: ht_codedeploy.md
   - Deploy to Digital Ocean: ht_digitalocean.md
