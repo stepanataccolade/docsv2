@@ -1262,6 +1262,18 @@ POST /projects/:projectId/newBuild
 }
 ```
 
+####Injecting Global Env Variables
+You can also inject global environment variables into the new build by specifying key-value pairs in the request body of the `POST`. These key-value pairs have to be set in the `globalEnv` property.
+
+```
+{
+  "globalEnv": {
+    "FOO": "bar",
+    "FIZZ": "buzz"
+  }
+}
+```
+
 ## Subscriptions
 
 ###Get all subscriptions
