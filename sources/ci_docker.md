@@ -3,7 +3,7 @@ page_description: Explanation of the CI/CD Dashboard
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml
 
 # Docker support
-The Shippable platform is natively built on Docker and is ony of the largest deployments of Docker in production. As early adopters of Docker, we take great pride in providing an excellent feature set for Docker users to help them easiy build, test, and deploy their Dockerized applications.
+The Shippable platform is natively built on Docker and is one of the largest deployments of Docker in production. As early adopters of Docker, we take great pride in providing an excellent feature set for Docker users to help them easiy build, test, and deploy their Dockerized applications.
 
 While the content in this section is available scattered in various docs depending on the scenario, we thought it would help Docker users to have one place they can go to in order to figure out our Docker support.
 
