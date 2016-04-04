@@ -16,7 +16,7 @@ Lighthouse is available to all Shippable users for free. You can monitor any num
 
 We're actively expanding Lighthouse functionality to include monitor dependencies that go beyond just Docker images, so stay tuned!
 
-You can check out Lighthouse bu signing in to [Shippab;e](https://app.shippable.com) and clicking on `Lighthouse` on the landing page.
+You can check out Lighthouse bu signing in to [Shippable](https://app.shippable.com) and clicking on `Lighthouse` on the landing page.
 
 
 ## Adding an image
