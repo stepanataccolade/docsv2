@@ -460,7 +460,6 @@ In addition we have the following additional standard PHP images:
 
 You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
 
-
 ### Test scripts
 
 -   Use the `ci` section in your yml to specify what command to run tests with.
@@ -479,6 +478,40 @@ We have a simple PHP project that you can fork and enable on Shippable to help y
 
 [sample_php](https://github.com/shippableSamples/samplePhp)
 
+### Running builds with PHP7
+
+Our official PHP images cannot connect to the services when using PHP7. To get your builds running with PHP7 you can use our `u14php7pls` image. PHP version on this image defaults to `PHP 7.0.5` and no other PHP versions are installed on this image. We have pre-installed all the services in this image similar to all our other official images.
+
+Since this is not an official image and only specific to PHP7, you will have to explicitly start the services you need. You can do so by specifying the start command in the `ci` section of your yml.
+
+### yml config
+
+Use the following to configure image, language and services in your yml:
+
+```
+# specifying build image
+build_image: drydock/u14php7pls:prod
+
+# language setting
+language: php
+
+# specifying runtime
+php:
+   '7.0'
+   
+# specifying services
+services: mysql
+
+# version numbers
+build:
+   ci:
+      - $cmd to start a service
+      
+```
+### Sample projects
+We have a simple PHP project that you can fork and enable on Shippable to help you get started with this PHP7 image:
+
+[sample_php_memcached](https://github.com/chetantarale/sample_php_memcached)
 
 ## Python
 
@@ -538,7 +571,7 @@ python:
   - "pypy"
 ```
 
-You can nstall dependencies for your project in the `ci` section.
+You can install dependencies for your project in the `ci` section.
 
 ```
 ci: 
