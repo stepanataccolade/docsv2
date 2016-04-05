@@ -480,7 +480,7 @@ We have a simple PHP project that you can fork and enable on Shippable to help y
 
 ### Running builds with PHP7
 
-Our official PHP images cannot connect to the services when using PHP7. To get your builds running with PHP7 you can use our `u14php7pls` image. PHP version on this image defaults to `PHP 7.0.5` and no other PHP versions are installed on this image. We have pre-installed all the services in this image similar to all our other official images.
+Our official PHP images cannot connect to the services when using PHP7. To get your builds running with PHP7 you can use our `u14php7all` image. PHP version on this image defaults to `PHP 7.0.5` and no other PHP versions are installed on this image. We have pre-installed all the services in this image similar to all our other official images.
 
 Since this is not an official image and only specific to PHP7, you will have to explicitly start the services you need. You can do so by specifying the start command in the `ci` section of your yml.
 
@@ -490,7 +490,7 @@ Use the following to configure image, language and services in your yml:
 
 ```
 # specifying build image
-build_image: drydock/u14php7pls:prod
+build_image: drydock/u14php7all:tip
 
 # language setting
 language: php
