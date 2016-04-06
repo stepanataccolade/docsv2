@@ -3,31 +3,31 @@ page_description: Explanation of the CI/CD Dashboard
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml
 
 # Projects
-A project on Shippable CI corresponds to a repository in your source control that you have enabled for CI. To learn how to enable a repository, check out the Enable a project section in [Subscriptions doc](ci_subscriptions.md) 
+A project on Shippable CI corresponds to a repository in your source control that you have enabled for CI. To learn how to enable a repository, check out the Enable a project section in [Subscriptions doc](ci_subscriptions.md)
 
 To get to the page for a particular project,
 
 - Login to [Shippable](https://app.shippable.com)
 - Click on the CI dropdown and select the subscription you want to view.
-- This will bring you to Dashboard of the subscription which shows latest status for all your projects. 
+- This will bring you to Dashboard of the subscription which shows latest status for all your projects.
 - Click on the project name to view the Project page. This will take you to the project dashboard.
 
 
 ## Dashboard
 The Project Dashboard shows you the latest status of all branches of the project. You can also view in progress builds and build history.
 
-The **Summary View** is the default when you navigate to this dashboard. It shows you the latest status for all branches that are built using Shippable. Latest status is defined as the build status for the latest commit build for that branch. 
+The **Summary View** is the default when you navigate to this dashboard. It shows you the latest status for all branches that are built using Shippable. Latest status is defined as the build status for the latest commit build for that branch.
 
-If a build is queued or in progress, you will see at the top of the summary view. 
+If a build is queued or in progress, you will see at the top of the summary view.
 
 NOTE: To view time stamp for a build, hover the mouse over time details
 
-The **History View** shows the build history across all branches in the project. You can filter this view by commit vs pull request builds, build status, and branch name. 
+The **History View** shows the build history across all branches in the project. You can filter this view by commit vs pull request builds, build status, and branch name.
 
 ### Manually building a branch
 You can trigger manual builds for branch by clicking on `Build` for the branch in the **Summary View** of the project dashboard. If you cannot see the branch you want to build, check the `Show all branches` checkbox which will show all branches irrespective of whether they were ever built previously.
 
-To rebuild a previous build, go to the **History view** and click on `Rebuild` for any build listed there. 
+To rebuild a previous build, go to the **History view** and click on `Rebuild` for any build listed there.
 
 ### Deleting builds
 
@@ -43,7 +43,7 @@ This action simply makes sure the permissions and repository changes from your s
 <a name="enable_integrations"></a>
 
 ### Enabling integrations
-You can make one or more configured account integrations available to your project in the `Integrations` section. 
+You can make one or more configured account integrations available to your project in the `Integrations` section.
 
 For example, if you want to configure your shippable.yml to send Slack notifications, you will need to first configure an account integration with your Slack information and add the integration in the `Integrations` section of your project settings. You can then use this integration in the yml. More details on [yml config here](ci_configure.md)
 The same is true for any Docker registry integrations.
@@ -79,19 +79,22 @@ env:
 ### Build status badges
 You can get embeddable build status badges for your project. These provide a visual indication of project status.
 
-Select the branch you want the status for and also whether you want the image URL or markdown. Copy the embed code.
+Select the branch you want the status for and also whether you want the 'Image URL' or 'Markdown' options. Copy the embedded code.
 
 You can use this code anywhere you want to display the badge. For example, many customers  display this badge in the README.md of their project so anyone who goes to the project page on Github/Bitbucket can see it and know the project's status.  
+
+### Code coverage badges
+Similar to the build status badge, you can get embedded code coverage badges for your project, to provide visualization of the code coverage status for a repository.
+
+Select the branch you want the status for and pick between the 'Image URL' or 'Markdown' options. Copy the embedded code.
+
+You can use this code to display your code coverage report after code coverage runs. The badge displays appropriate colors depending on the code coverage configuration in the `shippable.yml`. Refer the  [documentation](http://docs.shippable.com/ci_configure/#test_code_coverage) on how to configure code coverage reports.
+
 
 ### Resetting the project
 Resetting a project recreates all webhooks and deployment keys for your project. This should only be done if your project is in an inconsistent state and you need to restore it. Please note that you will need to re-encrypt all environment variables for your project after resetting it.
 
 ### Deleting the project
-You can delete your project by clicking on the `Delete` button and then clicking on `Confirm`. Please note that deleting a project will delete all build history and delete all webhooks. 
+You can delete your project by clicking on the `Delete` button and then clicking on `Confirm`. Please note that deleting a project will delete all build history and delete all webhooks.
 
-Deleting a project has no effect on the repository in your source control. 
-
-
-
-
-
+Deleting a project has no effect on the repository in your source control.
