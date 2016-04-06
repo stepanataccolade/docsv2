@@ -4,7 +4,7 @@ page_keywords: deploy, multi containers, microservices, Continuous Integration, 
 
 # Configuring and managing your deployments
 
-This section walks you through the workflow for configuring your application pipelines. We think of pipelines as the flow of your application from source control->ci->image registry->packaging into a deployable unit aka 'cell'->deploy the cell into an environment.
+This section walks you through the workflow for configuring your application pipelines. We think of pipelines as the flow of your application from your build environment->ci->deployable units with different versions->deploy into single or multiple environments.
 
 <img src="../images/pipeline_basic_flow.png" alt="Pipelines flow" style="width:700px;"/>
 
@@ -14,7 +14,7 @@ At a high level, you need to follow the steps below:
 
 **Create your pipelines** Configure your cell manifest, tag patterns that increment available cell manifest versions, and the projects that trigger your pipeline.
 
-**Deploy your Cell** Configure how a cell is deployed to an environment and deploy it.
+**Deploy your Cell** Configure how a cell (aka deployable unit) is deployed to an environment and deploy it.
 
 Detailed explanations for Environments, Pipelines, and Cells are provided below.
 
