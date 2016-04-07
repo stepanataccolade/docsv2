@@ -14,6 +14,7 @@ We support the following languages on Shippable CI:
 -  [python](#python)
 -  [ruby](#ruby)
 -  [scala](#scala)
+-  [c](#c)
 
 
 This list keeps growing so if you need something that you don't see
@@ -47,7 +48,7 @@ We have the following additional standard Clojure images available for you:
     * [Docker Hub](https://hub.docker.com/r/drydock/u12clopls/)
 * u14clopls    
     * [GitHub](https://github.com/dry-dock/u14clopls)    
-    * [Docker Hub](https://hub.docker.com/r/drydock/u14clopls/) 
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14clopls/)
 * u12cloall    
     * [GitHub](https://github.com/dry-dock/u12cloall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12cloall/)
@@ -63,7 +64,7 @@ You can override the default build image for your project by following instructi
 Specify the language and runtime with the following tags in your yml:
 
 ```
-language: clojure 
+language: clojure
 
 lein:
     - lein2
@@ -80,7 +81,7 @@ install: lein protobuf install
 Use the `ci` section in shippable.yml file to specify what command to run tests with. The default command to run leiningen test suite is `lein test2junit`:
 
 ```
-ci: 
+ci:
     - lein test2junit
 ```
 
@@ -133,7 +134,7 @@ We have the following additional standard Go images available for you:
     * [Docker Hub](https://hub.docker.com/r/drydock/u12golpls/)
 * u14golpls    
     * [GitHub](https://github.com/dry-dock/u14golpls)    
-    * [Docker Hub](https://hub.docker.com/r/drydock/u14golpls/) 
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14golpls/)
 * u12golall    
     * [GitHub](https://github.com/dry-dock/u12golall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12golall/)
@@ -167,7 +168,7 @@ You can run your tests in the `ci` section as follows :
 
 ```
 # command to run tests
-ci: 
+ci:
     - go test -v ./...
 ```
 
@@ -204,7 +205,7 @@ In addition we have the following additional standard Java images:
     * [Docker Hub](https://hub.docker.com/r/drydock/u12javpls/)
 * u14javpls    
     * [GitHub](https://github.com/dry-dock/u14javpls)    
-    * [Docker Hub](https://hub.docker.com/r/drydock/u14javpls/) 
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14javpls/)
 * u12javall    
     * [GitHub](https://github.com/dry-dock/u12javall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12javall/)
@@ -339,7 +340,7 @@ In addition we have the following additional standard Node.js images:
     * [Docker Hub](https://hub.docker.com/r/drydock/u12javpls/)
 * u14nodpls    
     * [GitHub](https://github.com/dry-dock/u14nodpls)    
-    * [Docker Hub](https://hub.docker.com/r/drydock/u14nodpls/) 
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14nodpls/)
 * u12nodall    
     * [GitHub](https://github.com/dry-dock/u12nodall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12nodall/)
@@ -372,7 +373,7 @@ node_js:
 -   To run your test suites using NPM, include the following in the `ci` section of your yml.
 
 ```
-ci: 
+ci:
     - npm test
 ```
 
@@ -399,7 +400,7 @@ ci:
 ```
 node_js:
   - "0.10"
-ci: 
+ci:
     - npm install -g grunt-cli
 ```
 
@@ -450,7 +451,7 @@ In addition we have the following additional standard PHP images:
     * [Docker Hub](https://hub.docker.com/r/drydock/u12phppls/)
 * u14phppls    
     * [GitHub](https://github.com/dry-dock/u14phppls)    
-    * [Docker Hub](https://hub.docker.com/r/drydock/u14phppls/) 
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14phppls/)
 * u12phpall    
     * [GitHub](https://github.com/dry-dock/u12phpall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12phpall/)
@@ -465,7 +466,7 @@ You can override the default build image for your project by following instructi
 -   Use the `ci` section in your yml to specify what command to run tests with.
 
 ```
-ci: 
+ci:
     - phpunit UnitTest
 ```
 
@@ -498,7 +499,7 @@ language: php
 # specifying runtime
 php:
    '7.0'
-   
+
 # specifying services
 services: mysql
 
@@ -506,7 +507,7 @@ services: mysql
 build:
    ci:
       - $cmd to start a service
-      
+
 ```
 ### Sample projects
 We have a simple PHP project that you can fork and enable on Shippable to help you get started with this PHP7 image:
@@ -544,14 +545,14 @@ In addition we have the following additional standard Python images:
     * [Docker Hub](https://hub.docker.com/r/drydock/u12pytpls/)
 * u14pytpls    
     * [GitHub](https://github.com/dry-dock/u14pytpls)    
-    * [Docker Hub](https://hub.docker.com/r/drydock/u14pytpls/) 
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14pytpls/)
 * u12pytall    
     * [GitHub](https://github.com/dry-dock/u12pytall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12pytall/)
 * u14pytall    
     * [GitHub](https://github.com/dry-dock/u14pytall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u14pytall/)
-    
+
 You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
 
 
@@ -574,7 +575,7 @@ python:
 You can install dependencies for your project in the `ci` section.
 
 ```
-ci: 
+ci:
     - "pip install -r requirements.txt --use-mirrors"
 ```
 
@@ -584,7 +585,7 @@ Use the `ci` section in the shippable.yml file to specify what command to run te
 
 ```
 # command to run tests
-ci: 
+ci:
     - nosetests
 ```
 
@@ -644,7 +645,7 @@ In addition we have the following additional standard Ruby images:
     * [Docker Hub](https://hub.docker.com/r/drydock/u12rubpls/)
 * u14rubpls    
     * [GitHub](https://github.com/dry-dock/u14rubpls)    
-    * [Docker Hub](https://hub.docker.com/r/drydock/u14rubpls/) 
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14rubpls/)
 * u12ruball    
     * [GitHub](https://github.com/dry-dock/u12ruball)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12ruball/)
@@ -751,7 +752,6 @@ We have a simple Ruby project that you can fork and enable on Shippable to help 
 
 [sample_ruby](https://github.com/shippableSamples/sampleRub)
 
-
 ## Scala
 
 ### Standard build image(s)
@@ -779,7 +779,7 @@ In addition we have the following additional standard Scala images:
     * [Docker Hub](https://hub.docker.com/r/drydock/u12scapls/)
 * u14scapls    
     * [GitHub](https://github.com/dry-dock/u14scapls)    
-    * [Docker Hub](https://hub.docker.com/r/drydock/u14scapls/) 
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14scapls/)
 * u12scaall    
     * [GitHub](https://github.com/dry-dock/u12scaall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u12scaall/)
@@ -811,3 +811,54 @@ sbt ++$SHIPPABLE_SCALA_VERSION test
 We have a simple Scala project that you can fork and enable on Shippable to help you get started:
 
 [sample_scala](https://github.com/shippableSamples/sampleSca)
+
+## C
+
+### Standard build image(s)
+By default, we will run your C build using our standard ubuntu 14.04 C image u14cpp. This image has gcc and clang C compilers.
+
+The Dockerfile for u14cpp is [here](https://github.com/dry-dock/u14cpp) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14cpp/).
+
+we have the following standard C images:
+
+* u12cpp
+    * compilers:
+        * gcc: v5.2.1
+        * clang: v3.4.2
+    * [GitHub](https://github.com/dry-dock/u12cpp)
+    * [Docker Hub](https://hub.docker.com/r/drydock/u12cpp/)
+* u14cpp
+    * compilers:
+        * gcc: v5.3.0
+        * clang: v3.8.0
+    * [GitHub](https://github.com/dry-dock/u14cpp)
+    * [Docker Hub](https://hub.docker.com/r/drydock/u14cpp/)
+
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
+
+The default compiler for C builder is gcc. To test against different compiler(s), use compiler tags. For example, to test against clang compiler.
+
+```
+compiler:
+  - clang
+```
+
+You can also test against multiple compilers. For example, to test against gcc and clang compilers.
+```
+compiler:
+  - gcc
+  - clang
+```
+
+### Test
+
+-   If your shippable.yml file does not have a `ci` section, we will run the default test command.
+
+```
+./configure && make && make test
+```
+
+### Sample projects
+We have a simple C project that you can fork and enable on Shippable to help you get started, for u12cpp image fork `u12cpp` branch of this project.
+
+[sample_c](https://github.com/shippableSamples/sample_c)

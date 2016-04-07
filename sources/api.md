@@ -39,7 +39,7 @@ Detailed documentation for API routes is provided below.
 
 ## Runs
 
-The old `builds` have now been replaced by `runs`. 
+The old `builds` have now been replaced by `runs`.
 
 Any builds started before 3/1/2016 can be retrieved by replacing `runs` with `builds` for the APIs in this section. E,g, GET /builds, GET /builds/:buildID, etc
 
@@ -68,7 +68,7 @@ GET /runs
 |---------------|--------------------|
 |200|success|
 
-``` 
+```
 {
     "id": "56cfeb866718d820008fa246",
     "runNumber": 2,
@@ -291,6 +291,7 @@ POST /runs/:id/cancel
         },
         "jdk": [],
         "gemfile": [],
+        "compiler": [],
         "node_js": [],
         "bundler_args": [],
         "python": [],
@@ -430,12 +431,12 @@ POST /runs/:id/cancel
     "id": "56d28c4e42bc2e11001ed507"
 }
 ```
- 
+
 ### Delete a run
 
 ```
 DELETE /runs/:id
-``` 
+```
 ####Response
 
 
@@ -522,6 +523,7 @@ DELETE /runs/:id
         },
         "jdk": [],
         "gemfile": [],
+        "compiler": [],
         "node_js": [],
         "bundler_args": [],
         "python": [],
@@ -661,7 +663,7 @@ DELETE /runs/:id
     "id": "56d28ad80dc2d81300a279b9"
 }
 ```
- 
+
 ## Jobs
 Jobs are individual builds in a Run. For example, a matrix build will have multiple Jobs that are a part of the Build Run, one for each value in the matrix. For more on matrix builds, [check out our documentation on build config](ci_configure.md#matrix_builds)
 
@@ -831,6 +833,7 @@ Status 200 OK
     "submoduleEnabled": true,
     "jdk": "",
     "gemfile": "",
+    "compiler": "",
     "jobNumber": 1,
     "runNumber": 5,
     "runId": "56d28c4e42bc2e11001ed507",
@@ -1190,7 +1193,7 @@ GET /projects/:projectId
 }
 ```
 
-###Get latest run for a branch 
+###Get latest run for a branch
 
 ```
 /projects/:projectId/branchRunStatus
@@ -1253,8 +1256,8 @@ POST /projects/:projectId/newBuild
 
 |HTTP code      |    Status     |    Description    |  
 |----------|-------------|-------------------|
-| 200| OK| New build was successfully triggered| 
-| 500| Internal Server Error| Check project id| 
+| 200| OK| New build was successfully triggered|
+| 500| Internal Server Error| Check project id|
 
 ```
 {
@@ -1756,5 +1759,3 @@ Deletes the specified account
 ```Status 200 OK```
 
 The accounts schema described in GET /accounts/:id is returned.
-
-

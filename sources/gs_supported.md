@@ -26,6 +26,7 @@ We support a multitude of languages, tools, services, as well as all popular sou
 -  [Python](ci_languages/#python)
 -  [Ruby](ci_languages/#ruby)
 -  [Scala](ci_languages/#scala)
+-  [C](ci_languages/#c)
 
 ####Platforms
 -  Ubuntu 12.04 LTS
