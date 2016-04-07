@@ -1110,7 +1110,7 @@ Replace in the above form, with your values as follows:
 - **bucket_name**: replace with your EB bucket name
 - **region**: replace with your EB region name
 - **image_name**: replace with your Docker image name
-- **image_tab**: replace with your Docker image tag
+- **image_tag**: replace with your Docker image tag
 
 With this configured, upon a successful CI run you will see the above steps executed within your CI run console and you should be able to verify within EB that a deployment was triggered.
 
