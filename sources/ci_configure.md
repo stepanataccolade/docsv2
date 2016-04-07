@@ -84,6 +84,8 @@ The following language tags are supported at this time:
 
 ```none```
 
+```c```
+
 You can set the language and runtime as shown below. Example is for node.js projects.
 
 ```
@@ -113,7 +115,7 @@ To run your build, we spin up Docker containers depending on the language specif
 Our standard build images are named as follows:
 
 * The first 3 letters of image name indicate the platform. `u14` denotes ubuntu 14.04, `u12` denotes ubuntu 12.04
-* The next 3 letters indicate the language. `nod` for node.js, `sca` for scala, `pyt` for python, `gol` for golang, `rub` for ruby, `clo` for clojure, `jav` for java, and `php` for php.
+* The next 3 letters indicate the language. `nod` for node.js, `sca` for scala, `pyt` for python, `gol` for golang, `rub` for ruby, `clo` for clojure, `jav` for java, `php` for php and `cpp` for c
 * The last 3 letters, if present, indicate any additional services that are pre-installed. `pls` indicates that Cassandra, Elasticsearch, Memcached, MongoDB, MySQL, Neo4j, RabbitMQ, Redis, Selenium, SQLLite are already installed on the build minion. `all` indicates that in addition to all services available in pls images, CouchDB, Kestrel, RethinkDB, Riak are also installed.
 
 Exact details on what is included in each image is available in the github repo for the image, as well as the image description on Docker Hub.
