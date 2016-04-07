@@ -819,7 +819,7 @@ By default, we will run your C build using our standard ubuntu 14.04 C image u14
 
 The Dockerfile for u14cpp is [here](https://github.com/dry-dock/u14cpp) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14cpp/).
 
-we have the following standard C images:
+We have the following standard C images:
 
 * u12cpp
     * compilers:
