@@ -87,7 +87,7 @@ We support a multitude of languages, tools, services, as well as all popular sou
 
 #### Notification Providers
 - Email
-- Hipchat
+- HipChat
 - IRC
 - Slack
 

@@ -4,17 +4,19 @@ page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deplo
 
 
 #Pricing
-This page provides pricing information and instructions on how to upgrade or downgrade your plan. 
+This page provides pricing information and instructions on how to upgrade or downgrade your plan.
+
+<img src="../images/shippable_pricing.png" alt="Subscription Dashboard" style="width:700px;"/>
 
 ## Plan description
-We offer Freemium pricing, so your first build container, aka minion, and your first pipeline is always free for [every subscription](gs_concepts.md/#Subscription). 
+We offer Freemium pricing, so your first build container, aka minion, and your first pipeline is always free for [every subscription](gs_concepts.md/#Subscription).
 
-You can buy additional build containers and run parallel CI builds, and/or buy more pipelines depending on how many deployable units (cells) you need for your application. 
+You can buy additional build containers and run parallel CI builds, and/or buy more pipelines depending on how many deployable units (cells) you need for your application.
 
 ###Free plan  
-You get **one build minion** (2 core, 3.75GB RAM) for Continuous Integration, along with unlimited builds for unlimited repositories and users. 
+You get **one build minion** (2 core, 3.75GB RAM) for Continuous Integration, along with unlimited builds for unlimited repositories and users.
 
-As you enable more repositories or add developers to your team, you might find that your free minion is frequently busy running a build and subsequent builds are queued as a result. Or you might just need bigger minions. Check out the section below describing how you can buy additional build containers. 
+As you enable more repositories or add developers to your team, you might find that your free minion is frequently busy running a build and subsequent builds are queued as a result. Or you might just need bigger minions. Check out the section below describing how you can buy additional build containers.
 
 By default, all your builds run on single tenant machines on Shippable's infrastructure, so you do not run into noisy neighbor or security issues commonly associated with multi-tenant platforms. You also have the option of running builds on your own infrastructure as described in the [Continuous Integration overview section](ci_overview.md).
 
@@ -41,7 +43,7 @@ To get to the Subscription Billing page,
 
 ### Upgrade your plan
 You should buy more build minions if:
- 
+
  * Your builds need bigger minions than the one in your free plan. All paid minions come with 2 cores, 3.75GB RAM (as opposed to 1 core, 2GB RAM with the free plan)
  * Your team is growing and your builds are frequently queued as a result, which means your developers wait longer to get build results. Buying more minions will enable parallel execution of builds and reduce queuing time.  
 
@@ -53,6 +55,3 @@ We will charge your credit card immediately and send you an invoice. You can als
 
 ### Downgrade your plan
 You can downgrade your plan at any time by moving the slider to the number of minions and/or pipelines you need. Please note that any minion count changes due to your plan downgrade will be effective immediately and you will not receive a partial or prorated refund if you make this change in the middle of a billing cycle. Your new price will be reflected in your next invoice.
-
-
-
