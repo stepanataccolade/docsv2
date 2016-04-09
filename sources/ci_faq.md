@@ -126,6 +126,22 @@ build:
 
 For more information, view the [migration guide](http://blog.shippable.com/migrating-to-the-new-build-platform) and the [Top 5 tips for a successful migration](http://blog.shippable.com/5-tips-for-a-successful-migration).
 
+## My builds are failing at git_sync with error "Permission denied (publickey)". How do I resolve it?
+To resolve the error shown below, go into the 'Settings' tab of your project. Scroll all the way down & click the 'Reset' button. This will reset the webhook & deploy the necessary key for the project.
+```
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
+## In my total build time, provisioning a node takes the longest time. How can I reduce the node provisioning time?
+When you trigger a build, we spin up a build machine and run your build. This provisioning takes approximately 2-3 minutes.
+
+If you want your builds to start immediately and avoid the node provisioning time, you can use our feature that lets you run builds on your own infrastructure. You can buy a machine from AWS or Digital Ocean or Linode and attach it to your Shippable subscription. We will run all your builds on your attached machines, and since your machines are always up, we will not need to provision nodes and this will save ~3 mins per build. You can read more about [Bringing Your Own Host - BYOH](http://docs.shippable.com/ci_byoh/). Once you BYOH, [read the instructions](http://docs.shippable.com/ci_subscriptions/#adding-your-own-build-infrastructure-byoh) for attaching your build infrastructure to Shippable.
+
+
 ## I am pushing to heroku as part of my build. Why is this suddenly failing?
 
 We have made a change as to where your keys are stored on your minion.

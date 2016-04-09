@@ -30,19 +30,23 @@ matrix:
 
 build:
     pre_ci:
+    #commands in this section run on your build machine and not inside your CI container.
     pre_ci_boot:
         image_name:
         image_tag:
         pull:
         options:
     ci:
+    #commands in this section run inside your CI container.
     post_ci:
     on_success:
     on_failure:
     push:
+    #commands in this section run on your build machine and not inside your CI container.
     cache:
 
 integrations:
+#if you are using integrations, you'll need to set it up in three places. Account settings, Project settings & here in this section of the yml.
     notifications:
         - integrationName:
           type:
@@ -369,7 +373,7 @@ build:
       - docker push manishas/sample-node:$BRANCH.$BUILD_NUMBER
 ```
 
-If you do want to use docker commands to interact with GCR or ECR in your `ci`, `post_ci`, `after_success` or `after_failure` sections, check out the sections below explaining how to install gcloud SDK or aws CLI as required.
+If you do want to use docker commands to interact with GCR or ECR in your `ci`, `post_ci`, `on_success` or `on_failure` sections, check out the sections below explaining how to install gcloud SDK or aws CLI as required.
 
 
 ####gcloud SDK
