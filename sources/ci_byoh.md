@@ -17,6 +17,8 @@ BYOH lets you run builds on your own infrastructure, so you can attach your mach
 
 **Bigger containers**: We do not constrain container size in terms of cores and RAM while spinning up build containers on your infrastructure. This means your container uses all available capacity of your build machine, which is especially great if your builds are resource intensive. The result? Faster builds!
 
+**Docker caching**: If you use Docker for your build workflows like pulling Docker images from a registry or building Docker images, your build machines will already have these images and this will speed up your builds.
+
 ## Pricing 
 BYOH is a feature for Continuous Integration and is not priced separately. The number of minions in your pricing plan determines how many parallel builds we run at a time.
 
