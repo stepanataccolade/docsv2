@@ -29,24 +29,28 @@ env:
 matrix:
 
 build:
-    pre_ci:
     #commands in this section run on your build machine and not inside your CI container.
+    pre_ci:
+
     pre_ci_boot:
         image_name:
         image_tag:
         pull:
         options:
+    #commands in this section run inside your CI container. In addition, any commands such as ls, in this section can be used to skip default processing for CI.
     ci:
-    #commands in this section run inside your CI container.
+
     post_ci:
     on_success:
     on_failure:
-    push:
-    #commands in this section run on your build machine and not inside your CI container.
     cache:
+    #commands in this section run on your build machine and not inside your CI container.
+    push:
+
+
 
 integrations:
-#if you are using integrations, you'll need to set it up in three places. Account settings, Project settings & here in this section of the yml.
+#if you are using integrations, you'll need to set it up in two places. Project settings & here in this section of the yml.
     notifications:
         - integrationName:
           type:
