@@ -55,8 +55,8 @@ You have created your environment and you're now ready to start creating your pi
 
 To create an environment on Shippable, you must first create a cluster using your AWS Management Console or supplying us with a configuration file in a supported format.
 
-Instructions for creating a cluster on Amazon's ECS can be found in their documentation. Some useful links to get started are:
-[Amazon EC2 Container Service overview](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)
+Instructions for creating a cluster on Amazon's ECS can be found in their documentation. Some useful links to get started are:  
+[Amazon EC2 Container Service overview](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)  
 [Amazon ECS clusters](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_clusters.html)
 
 After you have a cluster, follow the steps below to create your environment:
