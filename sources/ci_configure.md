@@ -1270,6 +1270,38 @@ services:
 Sample python code using
 [RabbitMQ](https://github.com/shippableSamples/sample_python_rabbitmq) .
 
+
+### Custom startup commands for services
+
+You can give custom commands to startup services by defining SHIPPABLE_*_CMD environment variable in your yml.
+Replace * by the name of service.
+
+For example, defining SHIPPABLE_POSTGRES_CMD in yml will override the default startup command for postgres:
+```
+env:
+  global:
+    - SHIPPABLE_POSTGRES_VERSION="9.4"
+    - SHIPPABLE_POSTGRES_BINARY="/usr/lib/postgresql/$SHIPPABLE_POSTGRES_VERSION/bin/postgres"
+    - SHIPPABLE_POSTGRES_CMD="sudo -u postgres $SHIPPABLE_POSTGRES_BINARY -c \"config_file=/etc/postgresql/$SHIPPABLE_POSTGRES_VERSION/main/postgresql.conf\" -c \"fsync=off\" -c \"synchronous_commit=off\""
+
+ ```
+
+ List of names of environment variables for corresponding services:
+
+| Service        | Env variable           |
+| ------------- |-------------|
+| MongoDB | SHIPPABLE_MONGODB_CMD|
+| MySQL | SHIPPABLE_MYSQL_CMD |
+| Postgres | SHIPPABLE_POSTGRES_CMD |
+| Elastic Search | SHIPPABLE_ES_CMD |
+| Memcached | SHIPPABLE_MEMCACHED_CMD |
+| Redis | SHIPPABLE_REDIS_CMD |
+| Neo4j | SHIPPABLE_NEO4J_CMD |
+| CouchDB | SHIPPABLE_COUCHDB_CMD |
+| RethinkDB | SHIPPABLE_RETHINKDB_CMD |
+| RabbitMQ | SHIPPABLE_RABBITMQ_CMD |
+| Selenium | SHIPPABLE_SELENIUM_CMD |
+
 ---
 
 ## Addons
