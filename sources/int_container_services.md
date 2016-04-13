@@ -13,10 +13,10 @@ You will first need to configure an account integration with your credentials an
 
 To deploy applications to Amazon ECS, you need to configure an AWS account integration with credentials to access the ECS instance.
 
-1. From your [Shippable dashboard](https://app.shipable.com), Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+1. From your [Shippable dashboard](https://app.shippable.com), Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
 2. **Integration type:** In the dropdown, select `AWS`
 3. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: `manishas-aws-ecs`
-4. Enter your access and secret keys provided by AWS. [See here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) for info on how to generate them. 
+4. Enter your access and secret keys provided by AWS. [See here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) for info on how to generate them.
 5. Click `Save`
 
 You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters. For more information on this, please check out our [Deployment pipelines section](pipelines_overview.md)
@@ -24,11 +24,11 @@ You can now use this integration to set up your Environment and Deployment Pipel
 <a name="ecs-integration-iam"></a>
 ## Amazon EC2 Container Service using Cross Account IAM Roles
 
-This is another(recommended) way of giving AWS account access to Shippable without sharing your AWS Secret and Access Keys. [AWS Cross Account account IAM Roles documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) provides technical details on how Shippable internall implements this. To put simply, Shippable uses its own AWS account keys to assume a Role on user's behalf and then perform actions on user's AWS account. 
+This is another(recommended) way of giving AWS account access to Shippable without sharing your AWS Secret and Access Keys. [AWS Cross Account account IAM Roles documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) provides technical details on how Shippable internall implements this. To put simply, Shippable uses its own AWS account keys to assume a Role on user's behalf and then perform actions on user's AWS account.
 
 This requires two additional steps to be performed by the user
 
-  1. Create Role: 
+  1. Create Role:
   on IAM console do following  
   **New Role** ->  
   Role Name: `shippable-role-to-allow-ecs-access` ->  
@@ -94,10 +94,10 @@ You can now use this integration to set up your Environment and Deployment Pipel
 
 To deploy applications to GKE, you need to configure an account integration with credentials to access your GKE account.
 
-* Go to your Google Cloud Platform (GCP) Console. Create a new Service account by following the instructions in Google's documentation for [Generating a service account credential](https://cloud.google.com/storage/docs/authentication#service_accounts) and generate a private key in JSON format. 
+* Go to your Google Cloud Platform (GCP) Console. Create a new Service account by following the instructions in Google's documentation for [Generating a service account credential](https://cloud.google.com/storage/docs/authentication#service_accounts) and generate a private key in JSON format.
 * Copy the JSON key you generated for your Service account.  
 * Sign in to Shippable and go to your [Account Settings](https://app.shippable.com/accountSettings). Click on the `Integrations` tab.
-* Click on `Add Integration`. Choose `Google Container Engine`, name your integration, and paste your JSON key. 
+* Click on `Add Integration`. Choose `Google Container Engine`, name your integration, and paste your JSON key.
 * Click `Save`
 
 You can now use this integration to set up your Environment and Deployment Pipelines on your GKE clusters. For more information on this, please check out our [Deployment pipelines section](pipelines_overview.md)
