@@ -26,9 +26,9 @@ You can now use this integration to set up your Environment and Deployment Pipel
 
 This is another(recommended) way of giving AWS account access to Shippable without sharing your AWS Secret and Access Keys. [AWS Cross Account account IAM Roles documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) provides technical details on how Shippable internall implements this. To put simply, Shippable uses its own AWS account keys to assume a Role on user's behalf and then perform actions on user's AWS account.
 
-This requires two additional steps to be performed by the user
+This requires four additional steps to be performed by the user
 
-  1. Create Role:
+#### Create a Role that Shippable will assume:
   on IAM console do following  
   **New Role** ->  
   Role Name: `shippable-role-to-allow-ecs-access` ->  
@@ -38,19 +38,22 @@ This requires two additional steps to be performed by the user
   **Next Step** ->  
   **Create Role**  
 
-2. Add policy to role:  
+#### Add policy to role to access ECS entities:  
    select the role `shippable-role-to-allow-ecs-access`  
   **Permissions** ->  
   **Inline Policies** ->  
   **Custom Policy**. Name the policy as `shippable-policy-to-access-ecs` and add following policy document  
 
-    ```
+```
 {
     "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
             "Action": [
+                "elasticloadbalancing:DeregisterInstancesFromLoadBalancer",
+                "elasticloadbalancing:Describe*",
+                "elasticloadbalancing:RegisterInstancesWithLoadBalancer",
                 "elasticloadbalancing:ConfigureHealthCheck",
                 "elasticloadbalancing:DescribeLoadBalancers",
                 "elasticloadbalancing:DeleteLoadBalancerListeners",
@@ -58,6 +61,8 @@ This requires two additional steps to be performed by the user
                 "iam:ListServerCertificates",
                 "iam:ListRoles",
                 "iam:PassRole",
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:Describe*",
                 "ec2:DescribeRegions",
                 "ec2:DescribeInstances",
                 "ecs:DescribeClusters",
@@ -77,15 +82,63 @@ This requires two additional steps to be performed by the user
         }
     ]
 }
-    ```
+```
 
-Now configure Shippable to use this role to access the account
+#### Update the `Trust Relationship` of the Role
+  navigate to the Role `shippable-role-to-allow-ecs-access` from IAM console ->  
+  **Edit Trust Relationship** ->  
+  Add the following entity to the `Statement` array of the Policy Document
+```
+{
+    "Sid": "",
+    "Effect": "Allow",
+    "Principal": {
+      "Service": "ecs.amazonaws.com"
+    },
+    "Action": "sts:AssumeRole"
+}
 
-1. From your [Shippable dashboard](https://app.shipable.com), Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
-2. **Integration type:** In the dropdown, select `AWS (IAM)`
-3. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: `manishas-aws-iam`
-4. Enter the ARN for the role `shippable-role-to-allow-ecs-access`. This will be a string with format like this `arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access`
-5. Click `Save`
+```
+
+  The complete Policy Document should look something like this
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::<shippable aws account id> :root"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "sts:ExternalId": "<users shippable account id>"
+        }
+      }
+    },
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ecs.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+  click **Update Trust Policy**
+
+
+#### Configure Shippable to use this role to access the account
+
+  1. From your [Shippable dashboard](https://app.shipable.com), Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+  2. **Integration type:** In the dropdown, select `AWS (IAM)`
+  3. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: `manishas-aws-iam`
+  4. Enter the ARN for the role `shippable-role-to-allow-ecs-access`. This will be a string with format like this `arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access`
+  5. Click `Save`
 
 You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters. For more information on this, please check out our [Deployment pipelines section](pipelines_overview.md)
 
