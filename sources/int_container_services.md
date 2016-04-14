@@ -28,7 +28,7 @@ This is another(recommended) way of giving AWS account access to Shippable witho
 
 This requires four additional steps to be performed by the user
 
-### Create a Role that Shippable will assume:
+#### Create a Role that Shippable will assume:
   on IAM console do following  
   **New Role** ->  
   Role Name: `shippable-role-to-allow-ecs-access` ->  
@@ -38,7 +38,7 @@ This requires four additional steps to be performed by the user
   **Next Step** ->  
   **Create Role**  
 
-### Add policy to role to access ECS entities:  
+#### Add policy to role to access ECS entities:  
    select the role `shippable-role-to-allow-ecs-access`  
   **Permissions** ->  
   **Inline Policies** ->  
@@ -84,7 +84,7 @@ This requires four additional steps to be performed by the user
 }
 ```
 
-### Update the `Trust Relationship` of the Role
+#### Update the `Trust Relationship` of the Role
   navigate to the Role `shippable-role-to-allow-ecs-access` from IAM console ->  
   **Edit Trust Relationship** ->  
   Add the following entity to the `Statement` array of the Policy Document
@@ -132,7 +132,7 @@ This requires four additional steps to be performed by the user
   click **Update Trust Policy**
 
 
-### configure Shippable to use this role to access the account
+#### Configure Shippable to use this role to access the account
 
   1. From your [Shippable dashboard](https://app.shipable.com), Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
   2. **Integration type:** In the dropdown, select `AWS (IAM)`
