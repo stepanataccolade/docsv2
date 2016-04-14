@@ -85,8 +85,8 @@ This requires four additional steps to be performed by the user
 ```
 
 3. Update the `Trust Relationship` of the Role
-  navigate to the Role `shippable-role-to-allow-ecs-access` from IAM console ->
-  **Edit Trust Relationship** ->
+  navigate to the Role `shippable-role-to-allow-ecs-access` from IAM console ->  
+  **Edit Trust Relationship** ->  
   Add the following entity to the `Statement` array of the Policy Document
 ```
 {
