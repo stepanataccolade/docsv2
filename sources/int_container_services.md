@@ -44,7 +44,7 @@ This requires two additional steps to be performed by the user
   **Inline Policies** ->  
   **Custom Policy**. Name the policy as `shippable-policy-to-access-ecs` and add following policy document  
 
-    ```
+```
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -77,7 +77,7 @@ This requires two additional steps to be performed by the user
         }
     ]
 }
-    ```
+```
 
 Now configure Shippable to use this role to access the account
 
