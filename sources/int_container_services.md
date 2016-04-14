@@ -129,16 +129,16 @@ This requires four additional steps to be performed by the user
   ]
 }
 ```
-  **Update Trust Policy**
+  click **Update Trust Policy**
 
 
 4. configure Shippable to use this role to access the account
 
-1. From your [Shippable dashboard](https://app.shipable.com), Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
-2. **Integration type:** In the dropdown, select `AWS (IAM)`
-3. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: `manishas-aws-iam`
-4. Enter the ARN for the role `shippable-role-to-allow-ecs-access`. This will be a string with format like this `arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access`
-5. Click `Save`
+  1. From your [Shippable dashboard](https://app.shipable.com), Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+  2. **Integration type:** In the dropdown, select `AWS (IAM)`
+  3. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: `manishas-aws-iam`
+  4. Enter the ARN for the role `shippable-role-to-allow-ecs-access`. This will be a string with format like this `arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access`
+  5. Click `Save`
 
 You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters. For more information on this, please check out our [Deployment pipelines section](pipelines_overview.md)
 
