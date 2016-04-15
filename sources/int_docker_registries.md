@@ -100,4 +100,18 @@ You will need to configure this integration in order to pull or push images from
 
 The integration will now be available to all your continuous integration and deployment workflows.
 
+--------
+
+## Docker Trusted Registry
+
+You will need to configure this integration in order to pull or push images from a Docker Trusted Registry. To set up this integration, you will need the URL of your Docker trusted registry.
+
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+3. **Integration type:** In the dropdown, Choose `Docker Trusted Registry`
+4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. `Example:docker-trusted-registry`
+5. Enter the URL of your trusted registry and your credentials
+6. Click on `Save`
+
+The integration will now be available to all your continuous integration and deployment workflows.
+
 ------------

@@ -96,6 +96,7 @@ We support a multitude of languages, tools, services, as well as all popular sou
 - Amazon EC2 Container Registry (ECR)
 - Google Container Registry
 - Quay
+- Docker Trusted Registry
 - Any private registry
 
 #### Container Services
