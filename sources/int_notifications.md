@@ -4,7 +4,7 @@ page_keywords: lighthouse, shippable ci, documentation, shippable, watch docker 
 
 # Notifications
 
-We can notify you aboyt your builds and deployment workflows through Slack, IRC, and Email. HipChat support is next on our list and will be available in Q1 of 2016.
+We can notify you about your builds and deployment workflows through Slack, IRC, and Email. HipChat support is next on our list and will be available in Q1 of 2016.
 
 To set up notifications via Slack, HipChat or private IRC channels, you will need to configure account integrations with your credentials or keys to these services.
 
