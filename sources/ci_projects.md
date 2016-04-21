@@ -43,15 +43,20 @@ This action simply makes sure the permissions and repository changes from your s
 <a name="enable_integrations"></a>
 
 ### Enabling integrations
-You can make one or more configured account integrations available to your project in the `Integrations` section.
+You can view all the configured integrations for your subscription by going to the 'Account Settings' for your subscription & clicking the 'Integration' tab. It will display a list of all integrations that are configured & available for your projects. 
 
-For example, if you want to configure your shippable.yml to send Slack notifications, you will need to first configure an account integration with your Slack information and add the integration in the `Integrations` section of your project settings. You can then use this integration in the yml. More details on [yml config here](ci_configure.md)
-The same is true for any Docker registry integrations.
+There are two ways you can enable an integration in the UI. When you use either of them, the enabled integration will be available for all your projects within your subsricption.
 
-<img src="../images/ci_integrations.png" alt="Account Settings Subscription" style="width:800px;"/>
+1. Through **Project Settings**: You can create an integration for the first time through the 'Settings' tab of your project. In the 'Settings' tab of your project, select the required integration dropdown & click 'Create Integration' as shown below.
+<img src="../images/project_settings_integration.png" alt="Select Account Integration" style="width:800px;"/>
+Proceed with the configuration of a specific integration. Once you create this integration, it'll be available for all projects in your subscription.
 
-Instructions on account integrations are in our [Integrations section](int_overview.md)
+2. Through **Account Settings**: Alternatively, you can enable an integration by following the [instructions here](int_overview.md#adding-an-account-integration).
 
+
+**IMPORTANT**: After creating the 'Integrations' in the UI, you'll need to configure the same in the `shippable.yml` file. More details on [yml config here](ci_configure.md). The same is true for any Docker registry integrations.
+
+Instructions on specific account integrations are in our [Integrations section](int_overview.md)
 
 ### Clearing cache
 You can clear cache for your project by clicking on the `Clear cache` button. This will clean up all cached Docker images from your build hosts and the next build will pull the build image again.

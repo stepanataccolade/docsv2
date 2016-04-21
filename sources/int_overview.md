@@ -14,15 +14,21 @@ To start with, you will always need to add an account integration as described b
 
 ##Adding an account integration
 
-- Click on Settings(gear icon) in your top navigation bar to navigate to account settings.
+- Click on the 'Account Settings' icon on the top right hand corner of Shippable portal.
 
-- Click on the `Integrations` tab and click on 'Add Integration'
+<img src="../images/account_settings_icon.png" alt="Account Settings" style="width:200px;"/>
 
-- From the dropdown, choose the type of integration you want to add. The relevant fields for that integration will appear below the dropdown
+- Click the 'Integrations' tab and then click 'Add Integration'
+<img src="../images/add_account_integration.png" alt="Add Account Integration" style="width:800px;"/>
 
-- Enter your information and click on `Save`.
+- Use the dropdown to select the desired integration and proceed with the configuration of that specific integration.
 
-The integration should now show up in your 1Integrations1 tab. This integration will be available to all your projects and can be used for your workflows. Further details and examples of how a specific integration is used is available in the section for each integration.
+<img src="../images/add_integration_select.png" alt="Select Account Integration" style="width:800px;"/>
+
+- Click on `Save`.
+
+The integration should now show up in your `Integrations` tab. This integration will be available to all your projects and can be used for your workflows. Further details and examples of how a specific integration is used is available in the section for each integration.
+
 
 ## Deleting an account integration
 

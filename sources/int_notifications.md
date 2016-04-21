@@ -24,7 +24,7 @@ You will need to configure this integration to send notifications to Slack chann
 4. In the **URL** textbox, paste the webhook URL you created in the Slack UI above.
 5. Click `Save`
 
-You have now configured Slack and can use this integration during your CI and Deploy workflows.
+You have now configured Slack and can use this integration during your CI and Pipelines settings.
 
 ## IRC notifications
 You will need to configure this integration to send notifications to private IRC room(s). Public IRC channels can be configured without the need for an account integration.
@@ -35,7 +35,7 @@ You will need to configure this integration to send notifications to private IRC
 4. Enter your channel key and if applicable, username and password.
 5. Click `Save`
 
-You have now configured your private IRC integration and can use this to send notifications during your CI and Deploy workflows.
+You have now configured your private IRC integration and can use this to send notifications during your CI and Pipelines settings.
 
 ## Email notifications
 

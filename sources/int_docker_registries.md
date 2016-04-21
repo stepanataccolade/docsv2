@@ -24,7 +24,7 @@ You will need to configure this integration to pull or push images to Docker Hub
 
 <img src="../images/docker_integration.png" alt="docker integration" style="width:800px;"/>
 
-The integration will now be available to all your continuous integration and deployment workflows.
+The integration will now be available to all your Continuous Integration and Pipelines settings within the Shippable portal.
 
 --------
 
