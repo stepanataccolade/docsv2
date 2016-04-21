@@ -744,7 +744,7 @@ Wildcard entries for branches and git-flow branches, are supported.
 Here are some examples of the include/exclude config -
 
 ```
-# this config will build all branches and exclude the following: build test1, experiment2, all branches beginning with "dev" and all git-flow branches in the "feature" branch
+# this config will build all branches and exclude the following: test1, experiment2, all branches beginning with "dev" and all git-flow branches in the "feature" branch
 branches:
   except:
     - test1
@@ -846,11 +846,9 @@ If you need help defining secure variables, you can check out [our instructions]
 
 ## Notifications
 
-Shippable supports email, Slack, HipChat and IRC notifications and these can
-can be configured in your yml file.
+Shippable supports email, Slack, HipChat and IRC notifications and these can be configured in your yml file.
 
-By default, we send email notifications to the last committer when a
-build fails, or the status changes from failed to passed.
+By default, we send email notifications to the last committer when a build fails, or the status changes from failed to passed.
 
 You can change the notification settings by configuring the integrations section of your yml. Details for each supported provider are below.
 
@@ -908,10 +906,16 @@ notifications:
 
 To send Slack notifications, you will need to do the following:
 
-1. Create an account integration for your Slack service ([Instructions here](int_notifications.md))
-2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
-3. Add the following in your shippable.yml:
+1. **Configure Slack Integration**: Go to the 'Settings' tab of your project & under the Integrations section, click the 'Select notification integration' dropdown. If you have created the Slack integration before, it'll show up as an option in the dropdown. Select the Slack integration and go directly to step 2. 
+    - If this is the first time, click the 'Create Integration' option. 
+    - In the 'New Notification Integration' section, select 'Slack' from the 'Master Integration' dropdown. 
+    - Give a name to your Slack integration.
+    - Put the webhook URL that you get from Slack.
+    - Input the channel or the username where the notifications should be sent
+    - Click 'Save Integration'.
+    - If you want to view the list of all integrations configured for your subscription, [access instructions here](ci_projects.md#enabling-integrations).
 
+2. **Add the following in your shippable.yml**:
 
 ```yaml
 integrations:
@@ -928,7 +932,7 @@ integrations:
           on_success: never
           on_failure: always
 ```
-* `integrationName` value is the name of the account integration you added to project settings.
+* `integrationName` value is the name of the account integration you added to the project settings.
 * `type` is slack
 * `recipients` specifies the channels you want to send the notification to. Please note that this overrides any channels you select while setting up the account integration.
     - If there is a single recipient, you can use the format `recipients: "#channelOne"`
@@ -949,9 +953,15 @@ integrations:
 
 To send HipChat notifications, you will need to do the following:
 
-1. Create an account integration for your HipChat service ([Instructions here](int_notifications.md))
-2. Add the integration to your project settings ([Instructions here](ci_projects.md#enable_integrations))
-3. Add the following in your shippable.yml:
+1. **Configure HipChat Integration**: Go to the 'Settings' tab of your project & under the Integrations section, click the 'Select notification integration' dropdown. If you have created the HipChat integration before, it'll show up as an option in the dropdown. Select the HipChat integration and go directly to step 2. 
+    - If this is the first time, click the 'Create Integration' option. 
+    - In the 'New Notification Integration' section, select 'HipChat' from the 'Master Integration' dropdown. 
+    - Give a name to your HipChat integration.
+    - Provide a HipChat API access token.
+    - Click 'Save Integration'.
+    - If you want to view the list of all integrations configured for your subscription, [access instructions here](ci_projects.md#enabling-integrations).
+
+2. **Add the following in your shippable.yml**:
 
 
 ```yaml

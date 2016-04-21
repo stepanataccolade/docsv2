@@ -22,7 +22,10 @@ We do not support signing in to Shippable directly with your GitHub Enterprise c
 - You will need to add a token from your GitHub Enterprise account with the right permissions. To do this -
     - Go to your GitHub Enterprise account settings and in the left menu, select 
    `Personal access tokens`.
-    - Click on `Generate token` and on the Generate Token page, select the following permissions.
+    - Click on `Generate token` and on the Generate Token page, select the following permissions as shown below:
+    
+    <img src="../images/int_github_enterprise_permissions.png" alt="GitHub Enterprise Permissions" style="width:700px;"/>
+    
     - Click on `Generate token`, and copy the generated token immediately. This is important since you will not see the token once you navigate away from this page.
     - Paste the token in your Integration on Shippable and click on `Save`.   
 - After adding a GitHub Enterprise integration, you should go to the Account Settings tab and `Sync` your account.
