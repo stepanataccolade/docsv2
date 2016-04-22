@@ -243,6 +243,8 @@ The example yml above will pull the image manishas/myImage:tip using the integra
 
 The `ci` section of your yml is where the bulk of your build commands should be included. All commands in this section are executed sequentially inside your build container in the order they appear in your yml.
 
+NOTE: If the `ci` section is blank, then default commands are executed, depending on the language. For more information, [refer the 'Default Commands' section for each language](ci_languages.md).
+
 In general, follow the guidelines below to write the `ci` section:
 
 * First, install or update any required dependencies or packages. Commands like `npm installl` or `sudo apt-get update` should be at the top of this section.
