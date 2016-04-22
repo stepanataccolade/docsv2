@@ -76,13 +76,13 @@ You can use the `install` key to install the required dependencies for your proj
 install: lein protobuf install
 ```
 
-### Test scripts
+### Default Commands
 
-Use the `ci` section in shippable.yml file to specify what command to run tests with. The default command to run leiningen test suite is `lein test2junit`:
+Use the `ci` section in shippable.yml file to specify commands to run tests with. If this section is blank, then the default command run is `lein test`:
 
 ```
 ci:
-    - lein test2junit
+    - lein test 
 ```
 
 ### Build Matrix
@@ -162,13 +162,13 @@ ci:
 - go get github.com/onsi/ginkgo
 ```
 
-### Test scripts
+### Default Commands
 
-You can run your tests in the `ci` section as follows :
+Use the `ci` section in shippable.yml file to specify commands to run tests with. If this section is blank, then the default command run is shown below:
 
 ```
-# command to run tests
 ci:
+    - go get -d -v ./... && go build -v ./...
     - go test -v ./...
 ```
 
@@ -230,34 +230,45 @@ jdk:
 - oraclejdk8
 ```
 
-### Test Scripts
+### Default Commands
 
-#### Maven
-
-- If your repository root has pom.xml file, then our Java builder will use Maven 3 to build it. By default it will run the test using `mvn test`.
-- Java builder will execute the below line to install project dependencies with Maven before it starts running tests.
-
-```
-mvn install -DskipTests=true
-```
-
-#### Gradle
-
-- If your repository root has "build.gradle", then our Java builder will use gradle to build it. By default it will use `gradle check` to run the test.
-- Java builder will execute the below line to install the project dependencies with gradle.
-
-```
-gradle assemble
-```
+Use the `ci` section in shippable.yml file to specify commands to run tests with. If this section is blank, then the default command is shown below is executed:
 
 #### Ant
 
-- If your repository root does not have gradle or maven files, then our Java builder will use Ant to build it. By default it will use `Ant test` to run the test suite.
+- If your repository root does not have gradle or maven files, then our Java builder will use Ant to build it. By default, if the `ci` section is blank, it will use `Ant test` to run the test suite.
+
+```
+ci:
+    - ant test
+```
+
+
 - Since there is no standard way to install Ant dependencies, you will need to install your project dependencies with Ant in the `ci` section.
 
 ```
 language: java
 ci: ant deps
+```
+
+#### Maven
+
+- If your repository root has pom.xml file, then our Java builder will use Maven 3 to build it. By default, if the `ci` section is blank, it will use the default command, shown below.
+- Java builder will execute the below line to install project dependencies with Maven before it starts running tests.
+
+```
+ci:
+   - mvn install -DskipTests=true
+```
+
+#### Gradle
+
+- If your repository root has "build.gradle", then our Java builder will use gradle to build it. By default, if the `ci` section is blank, it will use `gradle assemble` to run the test suite.
+- Java builder will execute the below line to install the project dependencies with gradle.
+
+```
+ci:
+   - gradle assemble
 ```
 
 Save the test output in shippable/testresults and the codecoverage output in shippable/codecoverage folder to get the reports parsed. If the test and codecoverage output is not saved as specified, you will not find the reports in our CI.
@@ -368,13 +379,13 @@ node_js:
 >
 > Since multiple versions of node.js are specified in the sample config above, a single push to the repository will trigger multiple builds on Shippable.
 
-### Test scripts
+### Default Commands
 
--   To run your test suites using NPM, include the following in the `ci` section of your yml.
+Use the `ci` section in shippable.yml file to specify commands to run tests with. If this section is blank, then the default command run is `npm install`:
 
 ```
 ci:
-    - npm test
+    - npm install
 ```
 
 -   You can also add testing frameworks like Vows, Expresso in the
@@ -461,13 +472,13 @@ In addition we have the following additional standard PHP images:
 
 You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
 
-### Test scripts
+### Default Commands
 
--   Use the `ci` section in your yml to specify what command to run tests with.
+Use the `ci` section in shippable.yml file to specify commands to run tests with. If this section is blank, then the default command run is `phpunit`:
 
 ```
 ci:
-    - phpunit UnitTest
+    - phpunit
 ```
 
 > **Note**
@@ -579,14 +590,13 @@ ci:
     - "pip install -r requirements.txt --use-mirrors"
 ```
 
-### Test scripts
+### Default Commands
 
-Use the `ci` section in the shippable.yml file to specify what command to run tests with.
+Use the `ci` section in shippable.yml file to specify commands to run tests with. If this section is blank, then the default command shown below is executed:
 
 ```
-# command to run tests
 ci:
-    - nosetests
+    - if [ -f $SHIPPABLE_BUILD_DIR/requirements.txt ]; then pip install -r $SHIPPABLE_BUILD_DIR/requirements.txt; fi
 ```
 
 -   Test against multiple versions of Django by setting the `env` key and then install the required dependencies for it in the `ci` section.
@@ -747,6 +757,16 @@ ci:
 - gem --version
 ```
 
+### Default Commands
+
+Use the `ci` section in shippable.yml file to specify commands to run tests with. If this section is blank, then the default command shown below is executed:
+
+```
+ci:
+    - bundle install --gemfile=$SHIPPABLE_GEMFILE $SHIPPABLE_BUNDLER_ARGS
+```
+
+
 ### Sample projects
 We have a simple Ruby project that you can fork and enable on Shippable to help you get started:
 
@@ -799,12 +819,13 @@ jdk:
 - openjdk7
 ```
 
-### Test Scripts
+### Default Commands
 
--   If your repository root has **Project** directory or build.sbt file, then our scala builder will run the test suite using
+Use the `ci` section in shippable.yml file to specify commands to run tests with. If this section is blank, then the default command shown below, is executed:
 
 ```
-sbt ++$SHIPPABLE_SCALA_VERSION test
+ci:
+   - sbt ++$SHIPPABLE_SCALA_VERSION test
 ```
 
 ### Sample projects
@@ -850,12 +871,13 @@ compiler:
   - clang
 ```
 
-### Test
+### Default Commands
 
--   If your shippable.yml file does not have a `ci` section, we will run the default test command.
+Use the `ci` section in shippable.yml file to specify commands to run tests with. If this section is blank, then the default command shown below, is executed:
 
 ```
-./configure && make && make test
+ci:
+   - ./configure && make && make test
 ```
 
 ### Sample projects
