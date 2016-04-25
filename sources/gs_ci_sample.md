@@ -12,7 +12,7 @@ You need a GitHub account to complete this tutorial.
 
 Fork the following GitHub repositories in order to complete the tutorial:
 
-<https://github.com/shippableSamples/sample_node> 
+<https://github.com/shippableSamples/sampleNod> 
 
 ## Sign in
 Login to [Shippable](http://www.shippable.com) using your GitHub credentials. 
@@ -24,13 +24,13 @@ The first step is to enable continuous integration for your forked repository.
 - On the [Shippable landing page](http://www.shippable.com) , select your subscription from the `Subscriptions` dropdown. This should be the subscription where you forked the repository.
 
 - On the subscription page, click on the `Enable Project` button. If you have not enabled any projects on Shippable, you will be directly be taken to a page with a list of your repositories.
--  Find the sample-node project and click on the `Enable` button.
-- If sample-node repo is not shown  in the list, click on the `Sync` button next to the Search box. This syncs your Shippable subscription with your source control account. Find the sample-node project and enable it.
+-  Find the samplenod project and click on the `Enable` button.
+- If samplenod repo is not shown  in the list, click on the `Sync` button next to the Search box. This syncs your Shippable subscription with your source control account. Find the samplenod project and enable it.
 
 ## Run a build
 Your sample project already has a config file 	`shippable.yml` at the root of the repository.
  
-- After enabling the project, you will be redirected to the Project page for sample-node.
+- After enabling the project, you will be redirected to the Project page for samplenod.
 
 - Click the `Build` button to trigger your build.
  
