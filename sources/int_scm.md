@@ -4,7 +4,7 @@ page_keywords: lighthouse, shippable ci, documentation, shippable, watch docker 
 
 # Source Control Management systems
 
-Integrations for GitHub and Bitbucket do not need to be set up manually on Shippable. These are automatically configured for you when you sign in with your credentials for these services, or when you add them in the `Git identity` section of Account Settings. 
+Integrations for GitHub and Bitbucket do not need to be set up manually on Shippable. These are automatically configured for you when you sign in with your credentials for these services, or when you add them in the `Git identity` section of Account Settings.
 
 ## GitHub
 In order to integrate with your GitHub account, we automatically set up an Account integration when you log in using your GitHub credentials. You do not have to do anything to set this up further.
@@ -20,15 +20,30 @@ We do not support signing in to Shippable directly with your GitHub Enterprise c
 - Enter a name for this integration in the **Integration name** textbox.
 - Enter the URL for your GitHub Enterprise instance. The URL should be in the format https://(git hub enterprise URL)/api/v3
 - You will need to add a token from your GitHub Enterprise account with the right permissions. To do this -
-    - Go to your GitHub Enterprise account settings and in the left menu, select 
+    - Go to your GitHub Enterprise account settings and in the left menu, select
    `Personal access tokens`.
     - Click on `Generate token` and on the Generate Token page, select the following permissions as shown below:
-    
+
     <img src="../images/int_github_enterprise_permissions.png" alt="GitHub Enterprise Permissions" style="width:700px;"/>
-    
+
     - Click on `Generate token`, and copy the generated token immediately. This is important since you will not see the token once you navigate away from this page.
     - Paste the token in your Integration on Shippable and click on `Save`.   
 - After adding a GitHub Enterprise integration, you should go to the Account Settings tab and `Sync` your account.
 - Go to your Shippable dashboard and check to make sure you have your GitHub Enterprise subscriptions in the CI dropdown.
 
 You can now enable projects, run CI, etc just like with GitHub or Bitbucket subscriptions.
+
+## GitLab
+In order to integrate with GitLab, you need to sign up to Shippable using your GitHub/Bitbucket account and then add GitLab as an account integration as follows:
+
+- Click on the gear icon for Account Settings in the top navigation bar. Select the `Integrations` tab.
+- Click on `Add Integration` and from the dropdown for **Integration type**, select `GitLab`
+- Enter a name for this integration in the **Integration name** textbox.
+- Enter the URL for your GitLab instance. The URL should be in the format https://(GitLab URL)/api/v3. For example, if you're using gitlab.com, this will `https://gitlab.com/api/v3`
+- You will need to add a private token from your GitLab account. To do this -
+    - Go to your GitLab profile settings and in the left menu, select
+    `Account`
+    - Copy the private token provided
+    - Paste the token in your integration on Shippable and click on `Save`.
+- After adding the GitLab integration, you should go to the Account Settings tab and `Sync` your Account.
+- Go to your Shippable dashboard and check to make sure your GitLab subscriptions are available in the CI dropdown.

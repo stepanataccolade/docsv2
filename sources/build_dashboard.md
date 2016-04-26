@@ -52,7 +52,7 @@ This is the build script that is being run. This will show anyone interested the
 
 ## Build Badges
 
-You can use Build Badges to display the status of your most recent build on your Github or Bitbucket repo page using the API routes below:
+You can use Build Badges to display the status of your most recent build on your GitHub or Bitbucket repo page using the API routes below:
 
 - Go to your project page on Shippable and retrieve your project id as shown below
 

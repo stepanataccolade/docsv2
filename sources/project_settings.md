@@ -331,7 +331,7 @@ can use these in your scripts if required:
 - RACK_ENV : test
 - RAILS_ENV : test
 - REPO_NAME : Name of the repository currently being built
-- REPOSITORY_URL : URL of your Github or Bitbucket repository
+- REPOSITORY_URL : URL of your GitHub or Bitbucket repository
 - SERVICE_SKIP : false
 - SHIPPABLE : true
 - SHIPPABLE_ARCHIVE : true

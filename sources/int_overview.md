@@ -43,8 +43,9 @@ Delete will fail if there are any projects actively using the integration, so ma
 - GitHub
 - GitHub Enterprise
 - Bitbucket
+- GitLab
 
-In addition, we are working on Bitbucket Server and GitLab integrations and will announce these in Q1 of 2016.
+In addition, we are working on Bitbucket Server integration and will announce this in Q2 of 2016.
 
 ### [Docker Registries](int_docker_registries.md)
 - Docker Hub

@@ -6,7 +6,7 @@ page_keywords: build badge, build dashboard, CI/CD, shippable CI, documentation
 
 ## Using Shippable API
 
-You can use Build Badges to display the status of your most recent build on your Github or Bitbucket repo page using the API routes below:
+You can use Build Badges to display the status of your most recent build on your GitHub or Bitbucket repo page using the API routes below:
 
 - Go to your [Project dashboard](project_dashboard.md) on Shippable and retrieve your Project id as shown below
 

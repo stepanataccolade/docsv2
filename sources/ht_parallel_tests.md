@@ -64,4 +64,4 @@ specs_to_run.each do |file|
 end
 ```
 
-Now you can run multiple tests for your project at the same time! With a little bit of imagination and know how, you could apply the above to other stacks such as nodejs and python. The sample code for today is over on [Github](https://github.com/shippableSamples/sample-rubyonrails-parallel-matrix-rspec).
+Now you can run multiple tests for your project at the same time! With a little bit of imagination and know how, you could apply the above to other stacks such as nodejs and python. The sample code for today is over on [GitHub](https://github.com/shippableSamples/sample-rubyonrails-parallel-matrix-rspec).

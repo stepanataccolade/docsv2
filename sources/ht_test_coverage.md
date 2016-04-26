@@ -6,7 +6,7 @@ page_keywords: how-to, questions, documentation, shippable, Continuous Integrati
 
 This guide will walk you through the basic sections of the YML as well project settings you need to run a build with test reports and coverage visualization included.
 
-This assumes you have already signed into Shippable through Github or Bitbucket. Read our [Getting Started page](index.md) if this is your first time to Shippable.
+This assumes you have already signed into Shippable through GitHub or Bitbucket. Read our [Getting Started page](index.md) if this is your first time to Shippable.
 
 You will learn how to -
 

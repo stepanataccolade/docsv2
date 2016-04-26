@@ -13,8 +13,8 @@ We support a multitude of languages, tools, services, as well as all popular sou
 -  <a href="http://www.github.com" target="_blank">GitHub</a>
 -  <a href="http://enterprise.github.com" target="_blank">GitHub Enterprise</a>
 -  <a href="http://www.bitbucket.org" target="_blank">Bitbucket</a>
+-  <a href="http://www.gitlab.com" target="_blank">GitLab</a>
 -   Bitbucket Server (coming soon)
--   GitLab (coming soon)
 
 #### Languages
 

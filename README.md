@@ -10,7 +10,7 @@ The HTML files are built and hosted on [Amazon S3](http://aws.amazon.com/s3/), a
 
 ## Contributing
 
-### Using Github web interface
+### Using GitHub web interface
 
 For small changes and typos you might want to use
 GitHub's built in file editor. It allows you to preview your changes
