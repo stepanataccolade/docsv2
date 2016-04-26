@@ -56,7 +56,7 @@ We have the following additional standard Clojure images available for you:
     * [GitHub](https://github.com/dry-dock/u14cloall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u14cloall/)
 
-You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure/#setting-your-build-image).
 
 
 ### yml config
@@ -142,7 +142,7 @@ We have the following additional standard Go images available for you:
     * [GitHub](https://github.com/dry-dock/u14golall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u14golall/)
 
-You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure/#setting-your-build-image).
 
 ### yml config
 
@@ -213,7 +213,7 @@ In addition we have the following additional standard Java images:
     * [GitHub](https://github.com/dry-dock/u14javall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u14javall/)
 
-You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure/#setting-your-build-image).
 
 ### yml config
 
@@ -359,7 +359,7 @@ In addition we have the following additional standard Node.js images:
     * [GitHub](https://github.com/dry-dock/u14nodall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u14nodall/)    
 
-You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure/#setting-your-build-image).
 
 ### yml config
 
@@ -470,7 +470,7 @@ In addition we have the following additional standard PHP images:
     * [GitHub](https://github.com/dry-dock/u14phpall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u14phpall/)
 
-You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure/#setting-your-build-image).
 
 ### Default Commands
 
@@ -564,7 +564,7 @@ In addition we have the following additional standard Python images:
     * [GitHub](https://github.com/dry-dock/u14pytall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u14pytall/)
 
-You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure/#setting-your-build-image).
 
 
 ### yml config
@@ -663,7 +663,7 @@ In addition we have the following additional standard Ruby images:
     * [GitHub](https://github.com/dry-dock/u14ruball)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u14ruball/)
 
-You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure/#setting-your-build-image).
 
 ### yml config
 
@@ -807,7 +807,7 @@ In addition we have the following additional standard Scala images:
     * [GitHub](https://github.com/dry-dock/u14scaall)    
     * [Docker Hub](https://hub.docker.com/r/drydock/u14scaall/)
 
-You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure/#setting-your-build-image).
 
 The Scala builder assumes dependency management based on projects like Maven, Gradle or SBT and it will pull down project dependencies automatically before running tests. To test against multiple JDKs, use jdk tags. For example, to test against the oraclejdk8, oraclejdk7, openjdk6 and openjdk7
 
@@ -855,7 +855,7 @@ We have the following standard C images:
     * [GitHub](https://github.com/dry-dock/u14cpp)
     * [Docker Hub](https://hub.docker.com/r/drydock/u14cpp/)
 
-You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure.md/#setting-your-build-image).
+You can override the default build image for your project by following instructions in our [yml configuration section](ci_configure/#setting-your-build-image).
 
 The default compiler for C builder is gcc. To test against different compiler(s), use compiler tags. For example, to test against clang compiler.
 
