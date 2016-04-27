@@ -56,6 +56,8 @@ In addition, we are working on Bitbucket Server and GitLab integrations and will
 ### [Container Services](int_container_services.md)
 - Amazon Elastic Container Service (ECS)
 - Google Container Engine (GKE)
+- Docker Cloud
+- Docker Datacenter
 - Red Hat Openshift V3 (coming soon)
 - Microsoft Azure (coming soon)
 

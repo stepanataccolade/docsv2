@@ -6,7 +6,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 ##Overview
 
-In addition to Continuous Integration, Shippable gives you an easy way to provision, configure, and deploy Dockerized applications to  popular container services like Amazon's EC2 Container Service (ECS) and Google Container Engine (GKE). Support for Microsoft Azure and Red Hat Openshift 3 is in the pipeline and planned for a April 2016 release.
+In addition to Continuous Integration, Shippable gives you an easy way to provision, configure, and deploy Dockerized applications to  popular container services like Amazon's EC2 Container Service (ECS), Google Container Engine (GKE), Docker Cloud and Docker Datacenter. Support for Microsoft Azure and Red Hat Openshift 3 is in the pipeline and planned for a Q2 release.
 
 With CI and CD Pipelines, you can set up an end to end workflow from your source control to CaaS/PaaS/IaaS providers.
 
