@@ -250,3 +250,23 @@ To deploy applications to GKE, you need to configure an account integration with
 * Click `Save`
 
 You can now use this integration to set up your Environment and Deployment Pipelines on your GKE clusters. For more information on this, please check out our [Deployment pipelines section](pipelines_overview.md)
+
+<a name="dcl-integration"></a>
+## Docker Cloud
+To deploy containers to Docker Cloud, you need to configure an account integration with credentials to access your Docker Cloud account.
+
+* [Generate an API key](https://cloud.docker.com/account/#container-api-key) in your Docker Cloud account to use with Shippable.
+* Copy the generated API key.
+* Sign in to Shippable and go to your [Account Settings](https://app.shippable.com/accountSettings). Click on the `Integrations` tab.
+* Click on `Add Integration`. Choose `Docker Cloud`, name your integration, and paste your API key.
+* Click `Save`.
+
+<a name="ddc-integration"></a>
+## Docker Datacenter
+To deploy containers to Docker Datacenter, you need to configure an account integration with credentials to access your Docker Cloud account.
+
+* You can use your own credentials or decide to create a new user with appropriate user permissions to deploy from Shippable.
+* To create a new user, login to Universal Control Plane (UCP) and go to `Users & Teams` tab and click `Create User`.
+* Sign in to Shippable and go to your [Account Settings](https://app.shippable.com/accountSettings). Click on the `Integrations` tab.
+* Click on `Add Integration`. Choose `Docker Datacenter`, name your integration and provide the username, password and URL to access the Universal Control Plane.
+* Click `Save`.
