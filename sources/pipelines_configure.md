@@ -77,6 +77,42 @@ After you have a cluster, follow the steps below to create your environment:
 
 * Click on `Done`. This will return you to your Pipelines status page.
 
+#### Using an existing Docker Cloud Cluster
+
+To create an environment on Shippable, you should have already created [node clusters in Docker Cloud](https://cloud.docker.com/node/cluster/list/).
+
+* Create an account integration: Follow our [instructions on how to add an Docker Cloud account integration](int_container_services.md#docker-cloud). This will save your username and API token in your account integrations on Shippable.
+
+* Go to your Subscription page on Shippable where you want to set up your deployment pipelines. You can get to your Subscription by going to the [Shippable home page](https://app.shippable.com), clicking on the `Subscriptions` dropdown and selecting your subscription.
+
+* On your Subscription page, click on the `Pipelines` tab and then click on `Add environment`
+
+* Name your environment. In the `Deployment integration` dropdown, choose the integration that you just created and click on `Confirm`.
+
+* In the `Cluster` section, select the desired cluster from the dropdown. If you cannot see your cluster, you can click on `Sync` and check the dropdown again.
+
+* Click on `Confirm`.
+
+* Click on `Done`. This will return you to your Pipelines status page.
+
+#### Using an existing Docker Datacenter
+
+To create an environment on Shippable, you should have installed the Universal Control Plane of Docker Datacenter and have valid credentials to provide during this process.
+
+* Create an account integration: Follow our [instructions on how to add an Docker Datacenter account integration](int_container_services.md#docker-datacenter). This will save your username, password and UCP URL in your account integrations on Shippable.
+
+* Go to your Subscription page on Shippable where you want to set up your deployment pipelines. You can get to your Subscription by going to the [Shippable home page](https://app.shippable.com), clicking on the `Subscriptions` dropdown and selecting your subscription.
+
+* On your Subscription page, click on the `Pipelines` tab and then click on `Add environment`
+
+* Name your environment. In the `Deployment integration` dropdown, choose the integration that you just created and click on `Confirm`.
+
+* In the `Cluster` section, select the default cluster from the dropdown. If you cannot see your cluster, you can click on `Sync` and check the dropdown again.
+
+* Click on `Confirm`.
+
+* Click on `Done`. This will return you to your Pipelines status page.
+
 You have created your environment and you're now ready to start creating your pipelines.
 
 #### Using a config file in Terraform format
