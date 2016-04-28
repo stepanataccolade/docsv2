@@ -3,17 +3,17 @@ page_description: How to deploy your application to Docker Datacenter
 page_keywords: docker datacenter, continuous deployment, CI/CD
 
 ## Docker Datacenter
-Docker Datacenter CaaS (Containers-as-a-Service) enables enterprises to deploy Containers on-premise and on their virtual private cloud (VPC). We will see Shippable CI/CD workflow, that involves the following components of Docker Datacenter.
+Docker Datacenter CaaS (Containers-as-a-Service) enables enterprises to deploy Containers on-premises and on their virtual private cloud (VPC). We will see the Shippable CI/CD workflow, involving the following components of Docker Datacenter.
 
-- __Docker Trusted Registry__ (DTR) - Pull and push Images to your Docker Datacenter.
+- __Docker Trusted Registry__ (DTR) - Pull and push images to your Docker Datacenter.
 - __Universal Control Plane__ (UCP) - Deploy and manage containers on your Docker Datacenter.
 
 ### Continuous Integration
-Throughout the demo, We will be using a [sample node.js application](https://github.com/shippable/sample_node_ddc) to demonstrate the workflow.
+Throughout the demo, we will use a [sample node.js application](https://github.com/shippable/sample_node_ddc) to demonstrate the workflow.
 
-To enable your project to use Shippable CI, it should be having a `shippable.yml` file that has instructions run your tests and push your docker images to a registry. To know more about the CI workflow, please check the [CI overview](ci_overview).
+Once you enable your project, it is critical to have a `shippable.yml` file to use Shippable CI. The `shippable.yml` file includes instructions to run your tests and push your docker images to a registry. To know more about the CI workflow, please check the [CI overview](ci_overview).
 
-Lets take the `shippable.yml` file of the sample application.
+Lets review the `shippable.yml` file of the sample application.
 ```yaml
 language: node_js
 
@@ -37,14 +37,14 @@ integrations:
     - integrationName : "Shippable-DTR"
       type : Docker Trusted Registry
 ```
-In this `ci` section, we issue commands to run our tests and once the tests complete, we will be pushing the docker image to a registry. ( Check the [supported registries](gs_supported.md) ).
+In the ci section shown above, we issue commands to run tests. Once the tests are complete, the docker image is pushed to a registry. ( Check the [supported registries](gs_supported.md) ).
 
-In our sample application, we will be pushing the docker images to Docker Trusted Registry using the integration named `Shippable-DTR` ( Check [how to create integration for a docker registry in Shippable](int_docker_registries.md))
+In the sample application, we will push the docker images to the Docker Trusted Registry using the integration named `Shippable-DTR` ( Check [how to create integration for a docker registry in Shippable](int_docker_registries.md))
 
 ### Continuous Delivery
-After we push our images to Docker Trusted Registry, we will automatically deploy the latest image to Docker Datacenter. Shippable Pipelines allows us to deploy containers to Docker Datacenter both manually and automatically, whenever the project build finishes.
+After we push the images to Docker Trusted Registry, the latest image automatically deploys to Docker Datacenter. Shippable Pipelines provides the choice of deploying containers to Docker Datacenter, manually & automatically, once the project build is complete.
 
-Configuring your deployment process involves two steps.
+Configuring the deployment process involves two steps.
 
 * __Environment Creation__ - Specify the infrastructure to be used to deploy ( in our case, it is the default swarm cluster of  Universal Control Plane )
 * __Pipeline Creation__ - Specify the image, tag pattern and other configurations like port mapping, environment variables etc. for deployment.
@@ -54,7 +54,7 @@ You can follow the instructions [here](pipelines_configure#using-an-existing-doc
 <img src="../images/ddc_environment_creation.png" alt="Environment Creation" style="width:800px;"/>
 
 #### Pipeline Creation
-After Creating an Environment, Click on "Add Pipeline" you will be redirected to Pipeline creation page.
+After Creating an Environment, Click on "Add Pipeline" and you will be redirected to Pipeline creation page.
 
 * Give a __Pipeline Name__. This name will be used in naming the containers created on Docker Datacenter. Containers will be named by the pattern *PipelineName-PipelineId-ImageNumber-ReplicaNumber*
 
