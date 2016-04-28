@@ -4,7 +4,7 @@ page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deplo
 
 # Account Settings
 
-You can get to your account settings by clicking on the gear icon in the top navigation bar when you are logged in to Shippable. 
+You can get to your account settings by clicking on the gear icon in the top navigation bar when you are logged in to Shippable.
 
 You will land on the Accounts tab.
 
@@ -13,26 +13,26 @@ You will land on the Accounts tab.
 
 ### Account Information
 
-**ID:** This is your Shippable account id. 
+**ID:** This is your Shippable account id.
 
 **Synchronize** We periodically sync your Shippable account with your source control provider. This section will show you the last time your account was synced.
 
 You can use the `Sync` button to sync your account at any time if you want to see any changes immediately. Example: You are added to an organization on GitHub as an owner/collaborator, or  you have new repos in GitHub and want to see them immediately, or you linked your Bitbucket account to this account and want to see your Bitbucket repositories right away.
 
-<img src="../images/account_settings_account_info.png" alt="Github and Bitbucket identities" style="width:400px; margin:0px auto; display:block"/>
+<img src="../images/account_settings_account_info.png" alt="GitHub and Bitbucket identities" style="width:400px; margin:0px auto; display:block"/>
 
 
 ### Default email address
 This is the default email address where we sent build status and deployment pipeline status notifications. When you sign up, we set to the primary email address of the source control provider account you use to sign in to Shippable.
 
-You can override this default by clicking on the `Edit` button and entering a new email address. You will start receiving all subsequent notifications at the address you configured. 
-Please note that once you change this, you cannot undo this action. 
+You can override this default by clicking on the `Edit` button and entering a new email address. You will start receiving all subsequent notifications at the address you configured.
+Please note that once you change this, you cannot undo this action.
 
 ### Git Identities
 
 This sections hows you which source control identities are connected to your Shippable account. You can connect both GitHub and Bitbucket accounts to one Shippable account and get a consolidated view of all your projects.
 
-<img src="../images/account_settings_git_identities.png" alt="Github and Bitbucket identities" style="width:400px; margin:0px auto; display:block"/>
+<img src="../images/account_settings_git_identities.png" alt="GitHub and Bitbucket identities" style="width:400px; margin:0px auto; display:block"/>
 
 **GitHub**
 
@@ -42,7 +42,7 @@ If you signed in using your GitHub account, your GitHub identity will either be:
 
 (public and private) means that Shippable has access to your public and private repos. You need to enable this if you want to build private repositories.
 
-The `Enable` button is a one way toggle - once you enable private repository permissions, you cannot revert back to just public repository permissions using the Shippable UI. 
+The `Enable` button is a one way toggle - once you enable private repository permissions, you cannot revert back to just public repository permissions using the Shippable UI.
 
 Even if you use Bitbucket credentials to sign in, you can click the `Enable` button for your GitHub identity to connect your GitHub account. This will give you a consolidated Shippable account where you can build projects from both source control providers and also set up deployment pipelines.
 
@@ -61,7 +61,7 @@ Enter a token name and click on `Add` to create a new token. Remember to copy th
 
 To delete a token, click on the `Delete` button next for the token you want to delete.
 
-<img src="../images/account_settings_api_token.png" alt="Github and Bitbucket identities" style="width:700px;"/>
+<img src="../images/account_settings_api_token.png" alt="GitHub and Bitbucket identities" style="width:700px;"/>
 
 **Please remember to keep your token safe and do not share it with anyone.** If anyone gets access to your token, they will be able to make API calls on your behalf and compromise the security of your Shippable account. Treat your API token like a password.
 
@@ -70,7 +70,7 @@ To delete a token, click on the `Delete` button next for the token you want to d
 
 The `Delete` button lets you delete your Shippable account. You will need to confirm that you want to delete all dependencies like enabled projects, account integrations, etc.
 
-Your account will be deleted immediately if you choose to complete this action. 
+Your account will be deleted immediately if you choose to complete this action.
 
 Please note that deleting your account does not delete Organization subscriptions since these are shared by multiple users. If you sign in to Shippable again at a future time, you will still see projects and builds for organizational subscriptions. If you want to stop using Shippable for organizations, you can always revoke access in your GitHub account settings.
 
@@ -98,8 +98,7 @@ You can get more information about where the card is being used by clicking on t
 
 Click on the Add Card button to add a new card and follow instructions to save the card to your account.
 
-You will not be charged until you use a card to upgrade a subscription. 
+You will not be charged until you use a card to upgrade a subscription.
 
 ### Removing a card
-You can click on the 'Delete' button for the card you wish to remove from your account. 
-
+You can click on the 'Delete' button for the card you wish to remove from your account.

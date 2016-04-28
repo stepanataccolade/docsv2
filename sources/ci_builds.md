@@ -28,7 +28,7 @@ The breadcrumb shows you the account name, project name, and branch name. The ac
 * A circle indicating build status, explained in detail below
 * Build number
 * Commit message (Update shippable.yml in the screenshot above)
-* Commit SHA from Github. You can go to the commit page on Github by clicking on the SHA.
+* Commit SHA from GitHub. You can go to the commit page on GitHub by clicking on the SHA.
 * Builder indicated who committed the code change that triggered this build.
 * When the build was started, how long it took for the build to complete, and how long it was in the queue waiting for an available minion.
 

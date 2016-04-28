@@ -239,7 +239,7 @@ after_success:
 > here. Please refer to [the GAE documentation](https://developers.google.com/cloud/devtools/repo/push-to-deploy)
 > to track its progress.
 
-Full sample of Python+Datastore application can be found on [our Github
+Full sample of Python+Datastore application can be found on [our GitHub
 account](https://github.com/shippableSamples/sample-python-datastore-appengine).
 
 ## Using Cloud SQL from Python

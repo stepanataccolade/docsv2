@@ -43,7 +43,7 @@ This action simply makes sure the permissions and repository changes from your s
 <a name="enable_integrations"></a>
 
 ### Enabling integrations
-You can view all the configured integrations for your subscription by going to the 'Account Settings' for your subscription & clicking the 'Integration' tab. It will display a list of all integrations that are configured & available for your projects. 
+You can view all the configured integrations for your subscription by going to the 'Account Settings' for your subscription & clicking the 'Integration' tab. It will display a list of all integrations that are configured & available for your projects.
 
 There are two ways you can enable an integration in the UI. When you use either of them, the enabled integration will be available for all your projects within your subsricption.
 
@@ -86,7 +86,7 @@ You can get embeddable build status badges for your project. These provide a vis
 
 Select the branch you want the status for and also whether you want the 'Image URL' or 'Markdown' options. Copy the embedded code.
 
-You can use this code anywhere you want to display the badge. For example, many customers  display this badge in the README.md of their project so anyone who goes to the project page on Github/Bitbucket can see it and know the project's status.  
+You can use this code anywhere you want to display the badge. For example, many customers  display this badge in the README.md of their project so anyone who goes to the project page on GitHub/Bitbucket can see it and know the project's status.  
 
 ### Code coverage badges
 Similar to the build status badge, you can get embedded code coverage badges for your project, to provide visualization of the code coverage status for a repository.

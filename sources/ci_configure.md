@@ -505,7 +505,7 @@ The following environment variables are available for every build. You can use t
 |RAILS_ENV		 |test |
 |REPO_FULL_NAME     | Full name of the repository currently being built (eg. `Shippable/support`).|
 |REPO_NAME 		 | Name of the repository currently being built (eg. This will be set to `support` if the full name is `Shippable/support`).|
-|REPOSITORY_URL 		 |URL of your Github or Bitbucket repository. |
+|REPOSITORY_URL 		 |URL of your GitHub or Bitbucket repository. |
 |SERVICE_SKIP 		 |false |
 |SHIPPABLE		 | true|
 |SHIPPABLE_ARCHIVE 		 | true|
@@ -908,9 +908,9 @@ notifications:
 
 To send Slack notifications, you will need to do the following:
 
-1. **Configure Slack Integration**: Go to the 'Settings' tab of your project & under the Integrations section, click the 'Select notification integration' dropdown. If you have created the Slack integration before, it'll show up as an option in the dropdown. Select the Slack integration and go directly to step 2. 
-    - If this is the first time, click the 'Create Integration' option. 
-    - In the 'New Notification Integration' section, select 'Slack' from the 'Master Integration' dropdown. 
+1. **Configure Slack Integration**: Go to the 'Settings' tab of your project & under the Integrations section, click the 'Select notification integration' dropdown. If you have created the Slack integration before, it'll show up as an option in the dropdown. Select the Slack integration and go directly to step 2.
+    - If this is the first time, click the 'Create Integration' option.
+    - In the 'New Notification Integration' section, select 'Slack' from the 'Master Integration' dropdown.
     - Give a name to your Slack integration.
     - Put the webhook URL that you get from Slack.
     - Input the channel or the username where the notifications should be sent
@@ -955,9 +955,9 @@ integrations:
 
 To send HipChat notifications, you will need to do the following:
 
-1. **Configure HipChat Integration**: Go to the 'Settings' tab of your project & under the Integrations section, click the 'Select notification integration' dropdown. If you have created the HipChat integration before, it'll show up as an option in the dropdown. Select the HipChat integration and go directly to step 2. 
-    - If this is the first time, click the 'Create Integration' option. 
-    - In the 'New Notification Integration' section, select 'HipChat' from the 'Master Integration' dropdown. 
+1. **Configure HipChat Integration**: Go to the 'Settings' tab of your project & under the Integrations section, click the 'Select notification integration' dropdown. If you have created the HipChat integration before, it'll show up as an option in the dropdown. Select the HipChat integration and go directly to step 2.
+    - If this is the first time, click the 'Create Integration' option.
+    - In the 'New Notification Integration' section, select 'HipChat' from the 'Master Integration' dropdown.
     - Give a name to your HipChat integration.
     - Provide a HipChat API access token.
     - Click 'Save Integration'.
@@ -1411,12 +1411,12 @@ Sample javascript code using
 
 ## Pull requests
 
-### Github
+### GitHub
 Shippable integrates with github to build your pull requests and show status inline on your GitHub page for the PR.
 
 Whenever a pull request is opened for a project that is enabled on Shippable, we will run a build for the respective pull request and send you a build status notification. You can also see this status on your GitHub page as shown below:
 
-<img src="../images/ci_pr_status.png" alt="Github PR Status" style="width:600px;"/>
+<img src="../images/ci_pr_status.png" alt="GitHub PR Status" style="width:600px;"/>
 
 You can then merge the PR confidently if the build passes, or fix any issues that cause a failed build. Each time your pull request is updated, we will kick off a new build and update status.
 
