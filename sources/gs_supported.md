@@ -103,6 +103,8 @@ We support a multitude of languages, tools, services, as well as all popular sou
 - Amazon EC2 Container Service (ECS)
 - Microsoft Azure (coming soon)
 - Google Container Engine (GKE)
+- Docker Cloud
+- Docker Datacenter
 
 #### IaaS
 - AWS EC2 (using CodeDeploy)
