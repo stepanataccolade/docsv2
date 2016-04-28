@@ -7,7 +7,14 @@ page_keywords: lighthouse, shippable ci, documentation, shippable, watch docker 
 Integrations for GitHub and Bitbucket do not need to be set up manually on Shippable. These are automatically configured for you when you sign in with your credentials for these services, or when you add them in the `Git identity` section of Account Settings. 
 
 ## GitHub
-In order to integrate with your GitHub account, we automatically set up an Account integration when you log in using your GitHub credentials. You do not have to do anything to set this up further.
+Both public & private repositories are supported on Shippable. In order to integrate with your GitHub account, we automatically set up an Account integration when you log in using your GitHub credentials. 
+
+- For public repositories, you do not have to do anything to set this up further. You should be able to see all your public repos. Click the 'Sync' button if you don't see your public repo.
+- For private repositories, you need to authorize Shippable to access them. You can do this by following the outlined steps:
+
+  - Click on the Account settings (gear icon on the top right hand navigation bar)
+  - In the 'Accounts' tab and under 'Git Identities' section, click 'Enable' under 'GitHub' 'Click to enable private access'. 
+  
 
 ## Bitbucket
 In order to integrate with your Bitbucket account, we automatically set up an Account integration when you log in using your Bitbucket credentials. You do not have to do anything to set this up further.
