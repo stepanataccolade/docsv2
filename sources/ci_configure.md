@@ -271,10 +271,12 @@ After CI is complete, you might want to push your build image to a Docker regist
 
 You can do this in the `post_ci` or `push` sections of your shippable.yml. The main difference is that the `post_ci`section runs inside your CI build container, so **if you want to push to Google Container Registry or Amazon ECR AND you're using a custom image for your build, your custom image would need to have the appropriate cli installed.** More on what is required [here](#gcr_ecr_push). The `push` section runs on the build machine, i.e. outside the build container, so you do not need these CLIs installed on your custom image.
 
-To push your CI build container image to a registry:
+To push your CI build container image to a registry: 
 
 1. Add a Hub integration to your project settings ([Instructions here](#add_project_integrations))
-3. Add the following in your shippable.yml:
+2. Add the following in your shippable.yml:
+
+**Docker Hub**
 
 ```
 build:
@@ -292,9 +294,97 @@ integrations:
             - master
 
 ```
-Please note that `type` will be `docker` for Docker Hub, `gcr` for Google Container Registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container registry, and `private docker registry` for a self hosted private registry.
 
-To build a new production image and then push to a registry,
+The `branches` tag is optional and if it is skipped, the integration is used for all branches.
+
+**GCR**
+
+```
+build:
+    post_ci:
+        #Commit the container only if you want all the artifacts from the CI step
+        - docker commit $SHIPPABLE_CONTAINER_NAME gcr.io/manishas/sample-node:tag
+        - docker push gcr.io/manishas/sample-node:tag
+
+integrations:
+    hub:
+      - integrationName: your_integration_name
+        type: gcr
+        branches:
+          only:
+            - master
+
+```
+The `branches` tag is optional and if it is skipped, the integration is used for all branches.
+
+**Amazon ECR**
+
+```
+build:
+    post_ci:
+        #Commit the container only if you want all the artifacts from the CI step
+        - docker commit $SHIPPABLE_CONTAINER_NAME 1234567890.dkr.ecr.us-west-2.amazonaws.com/sample-node:tag
+        - docker push 1234567890.dkr.ecr.us-west-2.amazonaws.com/sample-node:tag
+
+integrations:
+    hub:
+      - integrationName: your_integration_name
+        type: ecr
+        region: us-west-2
+        branches:
+          only:
+            - master
+
+```
+
+The `branches` tag is optional and if it is skipped, the integration is used for all branches.
+The `region` field is set to `us-east-1` by default. You can override it in the yml as shown above.
+
+**Quay**
+
+```
+build:
+    post_ci:
+        #Commit the container only if you want all the artifacts from the CI step
+        - docker commit $SHIPPABLE_CONTAINER_NAME manishas/sample-node:tag
+        - docker push manishas/sample-node:tag
+
+integrations:
+    hub:
+      - integrationName: your_integration_name
+        type: quay.io
+        branches:
+          only:
+            - master
+
+```
+
+The `branches` tag is optional and if it is skipped, the integration is used for all branches.
+
+**Docker private registry**
+
+```
+build:
+    post_ci:
+        #Commit the container only if you want all the artifacts from the CI step
+        - docker commit $SHIPPABLE_CONTAINER_NAME your_registry_URL/sample-node:tag
+        - docker push your_registry_URL/sample-node:tag
+
+integrations:
+    hub:
+      - integrationName: your_integration_name
+        type: "private docker registry"
+        branches:
+          only:
+            - master
+
+```
+
+The `branches` tag is optional and if it is skipped, the integration is used for all branches.
+
+### Building and pushing a new production image after CI
+
+If you want to run your CI on one image and after successful CI, build a new 'production ready' image and push to a docker registry, you can do so in the `post_ci` section: 
 
 ```
 build:
@@ -355,9 +445,9 @@ In the above example, replace the repo/image name with your image name and the t
 
 <a name="gcr_ecr_push"></a>
 ### GCR/ECR and custom images
-All standard images in our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) have the required CLIs preinstalled for integration with GCR and ECR, so you can run a docker build or push in any section of your yml with no effort. **This section is relevant only if you're using a custom image for your build.**
+All standard images in our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) have the required CLIs preinstalled for integration with GCR and ECR, so you can run a docker build or push in any section of your yml with no effort. **This section is relevant only if you're using a custom image for your build and pushing to GCR or ECR.**
 
-However, if you are using a custom image, the story is a little different. If you specify a `gcr` or `ecr` integration in your yml, we will try to login to the registry on your behalf from inside your CI build container. This means that for custom images, you would need the gcloud SDK or aws cli installed inside your custom image if you want this to succeed, else you will get a `gcloud not found` or `aws: command not found` errors.
+If you are using a custom image, the story is a little different. If you specify a `gcr` or `ecr` integration in your yml, we will try to login to the registry on your behalf from inside your CI build container. This means that for custom images, you would need the gcloud SDK or aws cli installed inside your custom image if you want this to succeed, else you will get a `gcloud not found` or `aws: command not found` errors.
 
 You can get around this requirement by setting `agent_only: true` for your hub integration.
 
