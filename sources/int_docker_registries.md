@@ -40,6 +40,8 @@ You will need to configure this integration to pull or push images to Amazon ECR
 
 The integration will now be available to all your continuous integration and deployment workflows.
 
+NOTE: By default, the ECR region is set to `us-east-1`. To override and specify a desired region, you'll need to configure it in the `shippable.yml`. [See an example](http://docs.shippable.com/ci_faq/#how-do-i-specify-a-region-while-setting-up-amazon-ec2-container-registry-ecr-integration), for reference.
+
 
 --------
 
@@ -81,7 +83,7 @@ Shippable will need your `username`, `password` and your `accesstoken`. `Usernam
 
 A new application can be created under an Organization. To create an Organization click on the + icon in the menu and select `New Organization` then, fill in the details and hit create application.
 
-You can see your organiztaion listed under Users and Organizations on your dashboard. Click on your Organistaion that you just created, click on the applictions tab which is present at the bottom of the Organization view just above Organization settings.
+You can see your organization listed under Users and Organizations on your dashboard. Click on your Organization that you just created, click on the applications tab which is present at the bottom of the Organization view just above Organization settings.
 
 Create a new Application and an it should be listed under OAuth Applications. Click on the application you created, and then on Generate Token under the menu options. Shippable will require read permission.Finally click on authorize application and Quay will provide you with an access token.
 
