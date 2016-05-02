@@ -94,6 +94,7 @@ Create a new Application and an it should be listed under OAuth Applications. Cl
 5. Enter your credentials
 6. Click on `Save`
 
+<img src="../images/quay_integration.png" alt="Quay integration" style="width:800px;"/>
 
 The integration will now be available to all your continuous integration and deployment workflows.
 
