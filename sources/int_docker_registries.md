@@ -73,8 +73,20 @@ The integration will now be available to all your continuous integration and dep
 --------
 
 ## Quay.io
+You will need to configure this integration in order to pull or push images to Quay.io. 
 
-You will need to configure this integration in order to pull or push images to Quay.io.
+**Getting your quay.io accesstoken**
+
+Shippable will need your `username`, `password` and your `accesstoken`. `Username` and `Password` are same as your quay login credentials but to get your `accesstoken` you will need to create an quay `application` and `authorize` the application.
+
+A new application can be created under an Organization. To create an Organization click on the + icon in the menu and select `New Organization` then, fill in the details and hit create application.
+
+You can see your organiztaion listed under Users and Organizations on your dashboard. Click on your Organistaion that you just created, click on the applictions tab which is present at the bottom of the Organization view just above Organization settings.
+
+Create a new Application and an it should be listed under OAuth Applications. Click on the application you created, and then on Generate Token under the menu options. Shippable will require read permission.Finally click on authorize application and Quay will provide you with an access token.
+
+
+**Configuring Quay.io Integration**
 
 1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
 3. **Integration type:** In the dropdown, select `Quay.io`
@@ -82,7 +94,6 @@ You will need to configure this integration in order to pull or push images to Q
 5. Enter your credentials
 6. Click on `Save`
 
-<img src="../images/quay_integration.png" alt="Quay integration" style="width:800px;"/>
 
 The integration will now be available to all your continuous integration and deployment workflows.
 
