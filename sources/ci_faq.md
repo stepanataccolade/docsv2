@@ -168,6 +168,16 @@ We use pickle to install extensions for PHP. This works for all versions of PHP 
 Pickle requires `php$ver-dev` environment (which has development modules) to compile extensions. At this time, there is no official php7-dev environment, so pickle is unable to find dependent modules and cannot compile extensions like intl, redis, and gettext.
 
 We will watch for updates and as soon as `php7-dev` is available, the next image update will address this.
+## How do I specify a region while setting up Amazon EC2 Container Registry (ECR) Integration?
+When you set up the [Amazon ECR integration](http://docs.shippable.com/int_docker_registries/#amazon-ec2-container-registry-ecr), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
+
+```
+integrations:
+	hub:
+	  - integrationName: your_integration_name
+	  type: ecr
+	  region: us-west-2
+```
 
 ## How do I use Ruby in a build with another language?
 

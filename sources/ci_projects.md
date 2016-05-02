@@ -53,7 +53,6 @@ Proceed with the configuration of a specific integration. Once you create this i
 
 2. Through **Account Settings**: Alternatively, you can enable an integration by following the [instructions here](int_overview.md#adding-an-account-integration).
 
-
 **IMPORTANT**: After creating the 'Integrations' in the UI, you'll need to configure the same in the `shippable.yml` file. More details on [yml config here](ci_configure.md). The same is true for any Docker registry integrations.
 
 Instructions on specific account integrations are in our [Integrations section](int_overview.md)
