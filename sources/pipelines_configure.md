@@ -19,9 +19,7 @@ At a high level, you need to follow the steps below:
 Detailed explanations for Environments, Pipelines, and Cells are provided below.
 
 ##Environments
-An environment on Shippable is a group of machines on which your application will be deployed. An environment is created by either provisioning a new cluster or pointing to an existing cluster on supported Container Services, i.e. Amazon's ECS and Google Container Engine (GKE). Your application will be deployed to the cluster associated with your environment.
-
-Please note that you can currently limited to creating one environment per Subscription.
+An environment on Shippable is a group of machines on which your application will be deployed. An environment is created by either provisioning a new cluster or pointing to an existing cluster on supported Container Services, i.e. Amazon's ECS, Google Container Engine (GKE), Docker Cloud or Docker Datacenter. Your application will be deployed to the cluster associated with your environment.
 
 ###Creating an environment
 
@@ -36,7 +34,7 @@ After you have a cluster on GKE, follow the steps below to create your environme
 
 * Go to your Subscription page on Shippable where you want to set up your deployment pipelines. You can get to your Subscription by going to the [Shippable home page](https://app.shippable.com), clicking on the `Subscriptions` dropdown and selecting your subscription.
 
-* On your Subscription page, click on the `Pipelines` tab and then click on `Add environment`
+* On your Subscription page, click on the `Pipelines` tab, select `Environments` tab and then click on `Add environment`
 
 * Name your environment. In the `Deployment integration` dropdown, choose the cluster you just created and click on `Confirm`.
 
@@ -65,7 +63,7 @@ After you have a cluster, follow the steps below to create your environment:
 
 * Go to your Subscription page on Shippable where you want to set up your deployment pipelines. You can get to your Subscription by going to the [Shippable home page](https://app.shippable.com), clicking on the `Subscriptions` dropdown and selecting your subscription.
 
-* On your Subscription page, click on the `Pipelines` tab and then click on `Add environment`
+* On your Subscription page, click on the `Pipelines` tab, select `Environments` tab and then click on `Add environment`
 
 * Name your environment. In the `Deployment integration` dropdown, choose the cluster you just created and click on `Confirm`.
 
@@ -85,7 +83,7 @@ To create an environment on Shippable, you should have already created [node clu
 
 * Go to your Subscription page on Shippable where you want to set up your deployment pipelines. You can get to your Subscription by going to the [Shippable home page](https://app.shippable.com), clicking on the `Subscriptions` dropdown and selecting your subscription.
 
-* On your Subscription page, click on the `Pipelines` tab and then click on `Add environment`
+* On your Subscription page, click on the `Pipelines` tab, select `Environments` tab and then click on `Add environment`
 
 * Name your environment. In the `Deployment integration` dropdown, choose the integration that you just created and click on `Confirm`.
 
@@ -103,7 +101,7 @@ To create an environment on Shippable, you should have installed the Universal C
 
 * Go to your Subscription page on Shippable where you want to set up your deployment pipelines. You can get to your Subscription by going to the [Shippable home page](https://app.shippable.com), clicking on the `Subscriptions` dropdown and selecting your subscription.
 
-* On your Subscription page, click on the `Pipelines` tab and then click on `Add environment`
+* On your Subscription page, click on the `Pipelines` tab, select `Environments` tab and then click on `Add environment`
 
 * Name your environment. In the `Deployment integration` dropdown, choose the integration that you just created and click on `Confirm`.
 
@@ -122,7 +120,7 @@ Coming soon....
 TODO
 
 ###Deleting an environment
-You can delete an environment by going to the environment `Settings` page and clicking on `Delete. Please note that you will first need to delete all pipelines before you delete the environment.
+You can delete an environment by going to the environment `Settings` page and clicking on `Delete`. Please note that you will first need to delete all pipelines before you delete the environment.
 
 ## Pipelines
 A pipeline defines the flow of a 'Unit of Deployment', which we call 'Cell', from source control or image registry to your Environment. A Cell is deployed at one time and on the same node. It is specific to each application and can be a micro-service, a service, an application tier, or even the entire application.
@@ -138,6 +136,8 @@ You can create your pipeline by following the steps below:
 
 * Name your pipeline.
 
+* The `Environments` section lets you configure associated environments for the pipeline. Pipelines can be deployed to all connected environments.
+
 * The `Cell manifest` section includes all components that change the version of your cell manifest. This includes images and a list of environment variables. Click on `Add image`.   
 
 * On the `Add image` page:
@@ -149,7 +149,7 @@ You can create your pipeline by following the steps below:
     * Add Volume mounts for your container, if required.
     * Click on `Save image` This will take you back to the `New pipeline` page.
 
-* In the `Environment configuration name list`, enter a list of environment variables you will need for this Cell. You should not enter actual values for the variables, but only the variable names at this point. eg: API_URL, LOG_LEVEL
+* In the `Environment Variables`, enter a list of environment variables you will need for this Cell. You should not enter actual values for the variables, but only the variable names at this point. eg: API_URL, LOG_LEVEL
 
 * In the `Auto increment` section, check the `Auto increment` checkbox if you want your Pipeline version to be automatically incremented each time a new image tag is detected for the images in your pipeline. If you check this box, you also need to enter a tag pattern that will increment the version, e.g. master.* if you're using $BRANCH.$BUILD_NUMBER as recommended to tag your images.
 
@@ -177,11 +177,15 @@ You can delete a pipeline by going to the Pipeline `Settings` page and clicking 
 
 
 ###Deploy a Cell
-If you have created an environment and a pipeline as described in the sections above, your Pipelines tab on the Subscription page should look like this:
+If you have created an environment and associated it with a pipeline as described in the sections above, your Pipelines tab on the Subscription page should look like this:
 
-<img src="../images/pipelines_status.png" alt="Adding a GKE cluster to Shippable" style="width:700px; margin:0px auto; display:block"/>
+<img src="../images/pipelines_status_pipelines.png" alt="Shippable Pipelines status" style="width:700px; margin:0px auto; display:block"/>
 
-The first column shows your pipeline trigger(s), the second one shows the latest version of your Cell Manifest, and the third shows the status of your service in an environment (ayeayeDemo in the picture above).
+The first column shows your pipeline trigger(s), the second one shows the latest version of your Cell Manifest, and the third shows the status of your service in associated environments (ayeayeDemo in the picture above).
+
+If you have multiple environments associated with the pipeline, then your Pipelines tab should look like:
+
+<img src="../images/pipelines_status_pipelines_multiple.png" alt="Shippable Pipelines status" style="width:700px; margin:0px auto; display:block"/>
 
 To deploy:
 
@@ -197,7 +201,7 @@ To deploy:
 
 That's it! You have deployed your first service! Go back to the `Pipelines` tab of your Subscription page and you will see your deployment.
 
-<img src="../images/pipelines_deployed.png" alt="Adding a GKE cluster to Shippable" style="width:700px; margin:0px auto; display:block"/>
+<img src="../images/pipelines_deployed.png" alt="Shippable Pipeline visualizer" style="width:700px; margin:0px auto; display:block"/>
 
 ###Stopping a Cell
 You can Stop a Cell at any time by following the steps:
