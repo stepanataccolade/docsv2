@@ -43,13 +43,13 @@ This action simply makes sure the permissions and repository changes from your s
 <a name="enable_integrations"></a>
 
 ### Enabling integrations
-You can view all the configured integrations for your subscription by going to the 'Account Settings' for your subscription & clicking the 'Integration' tab. It will display a list of all integrations that are configured & available for your projects.
+You can view all the configured integrations for your account by going to the 'Account Settings' & clicking the 'Integration' tab. It will display a list of all integrations that are configured & available for your projects.
 
-There are two ways you can enable an integration in the UI. When you use either of them, the enabled integration will be available for all your projects within your subsricption.
+There are two ways you can enable an integration in the UI. When you use either of them, the enabled integration will be available for all your projects.
 
 1. Through **Project Settings**: You can create an integration for the first time through the 'Settings' tab of your project. In the 'Settings' tab of your project, select the required integration dropdown & click 'Create Integration' as shown below.
 <img src="../images/project_settings_integration.png" alt="Select Account Integration" style="width:800px;"/>
-Proceed with the configuration of a specific integration. Once you create this integration, it'll be available for all projects in your subscription.
+Proceed with the configuration of a specific integration. Once you create this integration, it'll be available for your projects.
 
 2. Through **Account Settings**: Alternatively, you can enable an integration by following the [instructions here](int_overview.md#adding-an-account-integration).
 
