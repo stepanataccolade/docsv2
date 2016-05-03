@@ -620,6 +620,11 @@ The following environment variables are available for every build. You can use t
 |SHIPPABLE_SUBMODULE_ENABLED | Whether or not submodules in the repository will be updated. |
 |SHIPPABLE_VE_DIR		 | "\$HOME/build_ve/python/2.7"|
 |SUBSCRIPTION_ID | ID of the Subscription. |
+|IS_GIT_TAG | Set to **true** if the build is triggered by a git tag push webhook. If not, this will be set to **false**. |
+|GIT_TAG_NAME | The git tag name if the build is triggered by a git tag push webhook or a release webhook. |
+|IS_RELEASE | Set to **true** if the build is triggered by a release webhook. If not, this will be set to **false**. |
+|IS_PRERELEASE | Set to **true** if the release is marked pre-release when it was published. If not, this will be set to **false** |
+|RELEASED_AT | The timestamp when the release was published. |
 
 #### Language based:
 Based on the language used, the following environment variables should be used.

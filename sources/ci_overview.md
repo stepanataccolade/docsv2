@@ -24,6 +24,8 @@ Shippable automatically builds and tests your repositories when -
 
 - we receive a commit webhook 
 - we receive a webhook for a pull request opened for an enabled repository
+- we receive a webhook for a git tag push event (currently only supported on GitHub)
+- we receive a webhook for a GitHub release event
 
 You can also run a manual build through the UI clicking on the `Build` button for any project or branch.
 
