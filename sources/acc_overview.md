@@ -102,3 +102,5 @@ You will not be charged until you use a card to upgrade a subscription.
 
 ### Removing a card
 You can click on the 'Delete' button for the card you wish to remove from your account.
+
+

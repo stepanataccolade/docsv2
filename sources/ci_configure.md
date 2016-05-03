@@ -1554,3 +1554,9 @@ webhook build will not be executed.
 We support many popular languages with official build images for each one as listed on the [What is supported?](http://docs.shippable.com/gs_supported/) page.
 
 However, you can run builds for any language you want using Shippable. You will need to provide a custom image for your build as explained in the [Overriding default build image](http://docs.shippable.com/ci_configure/#overriding-the-default-build-image) section and use the `language: none` tag in your shippable.yml. Setting the language to none means that we skip any default processing for each section in your yml. You will need to configure everything you need in the yml and your builds should work as expected.
+
+## Service Status
+
+You can get the current status of the Shippable UI and API by going to our [Service Status page](http://status.shippable.com). Our status page also shows the status of some of our third party integrations like Amazon EC2, Quay.io, Digital Ocean, as well the response time of our API.
+
+The service status page can be viewed from our product UI by going to the heart ekg icon in your top navbar.
