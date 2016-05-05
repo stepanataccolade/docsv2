@@ -83,7 +83,11 @@ A new application can be created under an Organization. To create an Organizatio
 
 You can see your organiztaion listed under Users and Organizations on your dashboard. Click on your Organistaion that you just created, click on the applictions tab which is present at the bottom of the Organization view just above Organization settings.
 
+<img src="../images/quay_new_application.png" alt="Quay create new application" style="width:800px;"/>
+
 Create a new Application and an it should be listed under OAuth Applications. Click on the application you created, and then on Generate Token under the menu options. Shippable will require read permission.Finally click on authorize application and Quay will provide you with an access token.
+
+<img src="../images/quay_generate_token.png" alt="Quay create new application" style="width:800px;"/>
 
 **Configuring Quay.io Integration**
 
