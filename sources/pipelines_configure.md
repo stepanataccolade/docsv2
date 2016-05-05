@@ -113,8 +113,53 @@ To create an environment on Shippable, you should have installed the Universal C
 
 You have created your environment and you're now ready to start creating your pipelines.
 
-#### Using a config file in Terraform format
-Coming soon....
+### Provisioning infrastructure using Terraform
+You can provision infrastructure using terraform by following the steps below:
+
+* Create a terraform project with required infrastructure configurations. you can check our [sample terraform project](https://github.com/shippableSamples/sample_infra_terraform/) to get you started.
+* On your subscriptions page goto `Infra` tab, on top-right corner click on `Enable Project`. A list of unenabled projects will come up, you can enable required project and enable it.
+* After enabling you project will show up in `Infra` tab. you can provision infrastructure by clicking on provision.
+
+* sample shippable.yml file
+
+```
+language: none
+
+addons:
+   hosts:
+    - google.com
+    - aws.amazon.com
+
+env:
+  global:
+    - FOO=foo
+    - URL=url
+
+infra:
+  pre_prov:
+    - terraform plan
+
+  prov:
+    - terraform apply -state=/shippableci/shippable/provision/terraform.tfstate
+
+  post_prov:
+    - yes yes 2>/dev/null | terraform destroy -state=/shippableci/shippable/provision/terraform.tfstate
+
+  on_success:
+  on_failure:
+
+integrations:
+  deply:
+  hub:
+  notifications:
+  key:
+```
+* If `prov` section of `infra` tag is empty, default command `terraform apply` will be executed.
+* Your state files are saved at `/shippableci/shippable/provision` directory before provisioning, in terraform commands you can specify path to state files as shown in the above shippable.yml file. 
+* Please note that your shippable.yml file should not contain tags which adds to multiple job creation. Multiple jobs will result in provisioning of multiple infrastructures.
+
+
+
 
 ###Updating an environment
 TODO
