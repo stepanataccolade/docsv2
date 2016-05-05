@@ -128,7 +128,7 @@ language: none
 env:
   global:
     - FOO=”bar”
-   -  secure: <encrypted output>
+    - secure: <encrypted output>
 
 infra:
   pre_prov:
