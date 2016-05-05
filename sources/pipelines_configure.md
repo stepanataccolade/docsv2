@@ -149,7 +149,7 @@ infra:
   on_failure:
 
 integrations:
-  deply:
+  deploy:
   hub:
   notifications:
   key:
