@@ -116,9 +116,9 @@ You have created your environment and you're now ready to start creating your pi
 ### Provisioning infrastructure using Terraform
 You can provision infrastructure using terraform by following the steps below:
 
-* Create a terraform project with required infrastructure configurations. you can check our [sample terraform project](https://github.com/shippableSamples/sample_infra_terraform/) to get you started.
-* On your subscriptions page goto `Infra` tab, on top-right corner click on `Enable Project`. A list of unenabled projects will come up, you can enable required project and enable it.
-* After enabling you project will show up in `Infra` tab. you can provision infrastructure by clicking on provision.
+* Create a terraform project with the required infrastructure configuration. You can check our [sample terraform project](https://github.com/shippableSamples/sample_infra_terraform/) to get started.
+* On your subscriptions page go to the `Infra` tab and click on `Enable Project` in the top-right corner. Find your terraform project in the list and click on the `Enable` button.
+* Your project will now show up in the `Infra` tab. Click on the `Provision` button to start provisioning your infrastructure.
 
 * sample shippable.yml file
 
@@ -154,9 +154,8 @@ integrations:
   notifications:
   key:
 ```
-* If `prov` section of `infra` tag is empty, default command `terraform apply` will be executed.
-* Your state files are saved at `/shippableci/shippable/provision` directory before provisioning, in terraform commands you can specify path to state files as shown in the above shippable.yml file. 
-* Please note that your shippable.yml file should not contain tags which adds to multiple job creation. Multiple jobs will result in provisioning of multiple infrastructures.
+* If the `prov` section of the `infra` tag is empty, `terraform apply` will be executed by default.
+* The state files of previous provision are saved at `/shippableci/shippable/provision`. You can specify state file path to terraform as done in above sample shippable.yml.
 
 
 
