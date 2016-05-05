@@ -87,7 +87,7 @@ You can see your organiztaion listed under Users and Organizations on your dashb
 
 Create a new Application and an it should be listed under OAuth Applications. Click on the application you created, and then on Generate Token under the menu options. Shippable will require read permission.Finally click on authorize application and Quay will provide you with an access token.
 
-<img src="../images/quay_generate_token.png" alt="Quay create new application" style="width:800px;"/>
+<img src="../images/quay_generate_token.png" alt="Quay generate token" style="width:800px;"/>
 
 **Configuring Quay.io Integration**
 
