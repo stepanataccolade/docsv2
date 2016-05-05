@@ -113,8 +113,51 @@ To create an environment on Shippable, you should have installed the Universal C
 
 You have created your environment and you're now ready to start creating your pipelines.
 
-#### Using a config file in Terraform format
-Coming soon....
+### Provisioning infrastructure using Terraform
+You can provision infrastructure using terraform by following the steps below:
+
+* Create a terraform project with the required infrastructure configuration. You can check our [sample terraform project](https://github.com/shippableSamples/sample_infra_terraform/) to get started.
+* On your subscriptions page go to the `Infra` tab and click on `Enable Project` in the top-right corner. Find your terraform project in the list and click on the `Enable` button.
+* Your project will now show up in the `Infra` tab. Click on the `Provision` button to start provisioning your infrastructure.
+
+* sample shippable.yml file
+
+```
+language: none
+
+env:
+  global:
+    - FOO=”bar”
+    - secure: <encrypted output>
+
+infra:
+  pre_prov:
+    - cp -vr /shippableci/shippable/provision/terraform.tfstate .
+
+  prov:
+    - terraform apply
+
+  post_prov:
+
+  on_success:
+    - cp -fvr terraform.tfstate /shippableci/shippable/provision
+
+  on_failure:
+
+
+integrations:
+  deploy:
+  hub:
+  notifications:
+  key:
+```
+* You can encrypt your secure environment variables and use them in env tag. ([Instructions here](http://docs.shippable.com/ci_configure/#secure-variables))
+* If the `prov` section of the `infra` tag is empty, `terraform apply` will be executed by default.
+* `/shippableci/shippable/provision` is a generic folder to save and restore all files. You should put new files back in this folder to be saved for next provision in the `on_success` section of the `infra` tag.
+
+
+
+
 
 ###Updating an environment
 TODO
