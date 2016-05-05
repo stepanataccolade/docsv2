@@ -125,28 +125,25 @@ You can provision infrastructure using terraform by following the steps below:
 ```
 language: none
 
-addons:
-   hosts:
-    - google.com
-    - aws.amazon.com
-
 env:
   global:
-    - FOO=foo
-    - URL=url
+    - FOO=”bar”
+   -  secure: <encrypted output>
 
 infra:
   pre_prov:
-    - terraform plan
+    - cp -vr /shippableci/shippable/provision/terraform.tfstate .
 
   prov:
-    - terraform apply -state=/shippableci/shippable/provision/terraform.tfstate
+    - terraform apply
 
   post_prov:
-    - yes yes 2>/dev/null | terraform destroy -state=/shippableci/shippable/provision/terraform.tfstate
 
   on_success:
+    - cp -fvr terraform.tfstate /shippableci/shippable/provision
+
   on_failure:
+
 
 integrations:
   deploy:
@@ -154,8 +151,10 @@ integrations:
   notifications:
   key:
 ```
+* You can encrypt your secure environment variables and use them in env tag. ([Instructions here](http://docs.shippable.com/ci_configure/#secure-variables))
 * If the `prov` section of the `infra` tag is empty, `terraform apply` will be executed by default.
-* The state files of previous provision are saved at `/shippableci/shippable/provision`. You can specify state file path to terraform as done in above sample shippable.yml.
+* `/shippableci/shippable/provision` is a generic folder to save and restore all files. You should put new files back in this folder to be saved for next provision in the `on_success` section of the `infra` tag.
+
 
 
 
