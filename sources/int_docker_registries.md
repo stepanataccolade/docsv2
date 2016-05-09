@@ -117,7 +117,7 @@ You will need to configure this integration in order to pull or push images from
 
 The integration will now be available to all your continuous integration and deployment workflows.
 
-Note: For fetching the tags we use token based authentication using Docker API V2. So you need to have an auth-server setup for your private registry. For more information read the [official Docker's docs][v2-link].
+Note: For fetching image tags we use token based authentication using Docker API V2. This is used only in pipelines. So you need to have an auth-server setup for your private registry. For more information read the [official Docker's docs][v2-link].
 
 [v2-link]:https://docs.docker.com/registry/spec/auth/token/
 
