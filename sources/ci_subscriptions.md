@@ -16,9 +16,9 @@ The `CI` tab of your Subscription page shows you the latest status of all enable
 
 <img src="../images/subscription_dashboard.png" alt="Subscription Dashboard" style="width:800px;"/>
 
-The **Summary View** is the default when you navigate to this dashboard. It shows you the latest status for all enabled projects. Latest status is defined as the build status for the latest commit build on the default branch. If no default branch exists for your project, project status is latest commit build status for the master branch, and if no master branch exists, then the project status is the build status of latest commit build across all branches.
+The **Summary View** is the default view when you navigate to this dashboard. It shows you the latest status for all enabled projects. By default, the latest status for a project is the build status for the latest commit for the default branch configured in your source control account. You can customize the branch(es) shown on this page and also configure this view to include status for pull request builds. More details on this in the [Dashboard Settings for Projects](ci_projects/#dashboard-settings). 
 
-If a build is queued or in progress, you will see at the top of the summary view. 
+If a build is queued or in progress, you will see at the top of the 'Summary' view. 
 
 NOTE: To view time stamp for a build, hover the mouse over time details
 
