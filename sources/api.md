@@ -1266,7 +1266,7 @@ POST /projects/:projectId/newBuild
 ```
 
 ####Trigger a run for a specific branch
-You can specify the branch for which you want to trigger a run by specifying a `branchName` in the JSON payload in the reqiest body of the `POST`.
+You can specify the branch for which you want to trigger a run by specifying a `branchName` in the JSON payload in the request body of the `POST`.
 
 {
   "branchName": "xyzFeature"
