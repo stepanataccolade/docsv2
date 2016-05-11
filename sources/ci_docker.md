@@ -35,10 +35,11 @@ integrations:
 Shippable integrates with all popular Docker registries such as:
 
 * Docker Hub
-* Amazon ECR
+* Amazon EC2 Container Registry (ECR)
 * Google Container Registry (GCR)
 * Quay.io
 * Any private registry
+* Docker Trusted Registry
 
 You can push your images to or pull images from any of these registries by configuring your credentials in Shippable and using them to connect with these registries in your config file.
 
