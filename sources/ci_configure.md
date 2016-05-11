@@ -400,7 +400,7 @@ integrations:
             - master
 ```
 
-In the above example: `ship-dtr-in/sdemo/sample_app` is the Docker Trusted Registry URL and `$BUILD.$BUILD_NUMBER` is the tag.
+In the above example: `ship-dtr.in` is the Docker Trusted Registry URL, `sdemo` is the username, `sample_app` is the image and `$BUILD.$BUILD_NUMBER` is the tag for the image.
 
 The `branches` tag is optional and if it is skipped, the integration is used for all branches.
 
