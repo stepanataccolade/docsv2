@@ -234,7 +234,7 @@ For your specific case:
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container.
 * In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown if it is not already set in your image.
 * For `integrationName` tag, enter the name of the account integration you have added to your project settings. This account should have permissions to pull the the build image specified in the `image_name` setting.
-* In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google container registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container registry, and `private docker registry` for a self hosted private registry.
+* In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google container registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container registry, `private docker registry` for a self hosted private registry and `Docker Trusted Registry` for Docker Trusted Registry.
 * [optional]Using the `branches` section, specify the branches this account integration is applicable to. You can skip this if you want your integration to be applicable for all branches.
 
 The example yml above will pull the image manishas/myImage:tip using the integration manishas_dockerhub, and run the container with option `--privileged=true` and set env `FOO=BAR` inside the container.  
@@ -280,18 +280,18 @@ To push your CI build container image to a registry:
 
 ```
 build:
-    post_ci:
-        #Commit the container only if you want all the artifacts from the CI step
-        - docker commit $SHIPPABLE_CONTAINER_NAME manishas/sample-node:tag
-        - docker push manishas/sample-node:tag
+  post_ci:
+    #Commit the container only if you want all the artifacts from the CI step
+    - docker commit $SHIPPABLE_CONTAINER_NAME manishas/sample-node:tag
+    - docker push manishas/sample-node:tag
 
 integrations:
-    hub:
-      - integrationName: your_integration_name
-        type: docker
-        branches:
-          only:
-            - master
+  hub:
+    - integrationName: your_integration_name
+      type: docker
+      branches:
+        only:
+          - master
 
 ```
 
@@ -301,39 +301,40 @@ The `branches` tag is optional and if it is skipped, the integration is used for
 
 ```
 build:
-    post_ci:
-        #Commit the container only if you want all the artifacts from the CI step
-        - docker commit $SHIPPABLE_CONTAINER_NAME gcr.io/manishas/sample-node:tag
-        - docker push gcr.io/manishas/sample-node:tag
+  post_ci:
+    #Commit the container only if you want all the artifacts from the CI step
+    - docker commit $SHIPPABLE_CONTAINER_NAME gcr.io/manishas/sample-node:tag
+    - docker push gcr.io/manishas/sample-node:tag
 
 integrations:
-    hub:
-      - integrationName: your_integration_name
-        type: gcr
-        branches:
-          only:
-            - master
+  hub:
+    - integrationName: your_integration_name
+      type: gcr
+      branches:
+        only:
+          - master
 
 ```
+
 The `branches` tag is optional and if it is skipped, the integration is used for all branches.
 
 **Amazon ECR**
 
 ```
 build:
-    post_ci:
-        #Commit the container only if you want all the artifacts from the CI step
-        - docker commit $SHIPPABLE_CONTAINER_NAME 1234567890.dkr.ecr.us-west-2.amazonaws.com/sample-node:tag
-        - docker push 1234567890.dkr.ecr.us-west-2.amazonaws.com/sample-node:tag
+  post_ci:
+    #Commit the container only if you want all the artifacts from the CI step
+    - docker commit $SHIPPABLE_CONTAINER_NAME 1234567890.dkr.ecr.us-west-2.amazonaws.com/sample-node:tag
+    - docker push 1234567890.dkr.ecr.us-west-2.amazonaws.com/sample-node:tag
 
 integrations:
-    hub:
-      - integrationName: your_integration_name
-        type: ecr
-        region: us-west-2
-        branches:
-          only:
-            - master
+  hub:
+    - integrationName: your_integration_name
+      type: ecr
+      region: us-west-2
+      branches:
+        only:
+          - master
 
 ```
 
@@ -344,43 +345,67 @@ The `region` field is set to `us-east-1` by default. You can override it in the 
 
 ```
 build:
-    post_ci:
-        #Commit the container only if you want all the artifacts from the CI step
-        - docker commit $SHIPPABLE_CONTAINER_NAME manishas/sample-node:tag
-        - docker push manishas/sample-node:tag
+  post_ci:
+    #Commit the container only if you want all the artifacts from the CI step
+    - docker commit $SHIPPABLE_CONTAINER_NAME manishas/sample-node:tag
+    - docker push manishas/sample-node:tag
 
 integrations:
-    hub:
-      - integrationName: your_integration_name
-        type: quay.io
-        branches:
-          only:
-            - master
+  hub:
+    - integrationName: your_integration_name
+      type: quay.io
+      branches:
+        only:
+          - master
 
 ```
 
 The `branches` tag is optional and if it is skipped, the integration is used for all branches.
 
-**Docker private registry**
+**Private Docker Registry**
 
 ```
 build:
-    post_ci:
-        #Commit the container only if you want all the artifacts from the CI step
-        - docker commit $SHIPPABLE_CONTAINER_NAME your_registry_URL/sample-node:tag
-        - docker push your_registry_URL/sample-node:tag
+  post_ci:
+    #Commit the container only if you want all the artifacts from the CI step
+    - docker commit $SHIPPABLE_CONTAINER_NAME your_registry_URL/sample-node:tag
+    - docker push your_registry_URL/sample-node:tag
 
 integrations:
-    hub:
-      - integrationName: your_integration_name
-        type: "private docker registry"
-        branches:
-          only:
-            - master
+  hub:
+    - integrationName: your_integration_name
+      type: "private docker registry"
+      branches
+        only:
+          - master
 
 ```
 
 The `branches` tag is optional and if it is skipped, the integration is used for all branches.
+
+**Docker Trusted Registry**
+
+```
+build:
+  post_ci:
+    #Commit the container only if you want all the artifacts from the CI step
+    - docker commit $SHIPPABLE_CONTAINER_NAME ship-dtr.in/sdemo/sample_app:$BRANCH.$BUILD_NUMBER
+    - docker push ship-dtr.in/sdemo/sample_app:$BRANCH.$BUILD_NUMBER
+
+integrations:
+  hub:
+    - integrationName: "ship-ddc-dtr"
+      type: "Docker Trusted Registry"
+      branches:
+        only:
+          - master
+
+```
+
+In the above example: `ship-dtr.in` is the Docker Trusted Registry URL, `sdemo` is the username, `sample_app` is the image and `$BUILD.$BUILD_NUMBER` is the tag for the image.
+
+The `branches` tag is optional and if it is skipped, the integration is used for all branches.
+
 
 ### Building and pushing a new production image after CI
 
@@ -388,17 +413,17 @@ If you want to run your CI on one image and after successful CI, build a new 'pr
 
 ```
 build:
-    post_ci:
-        - docker build -t manishas/sample-node-prod .
-        - docker push manishas/sample-node-prod
+  post_ci:
+    - docker build -t manishas/sample-node-prod .
+    - docker push manishas/sample-node-prod
 
 integrations:
-    hub:
-      - integrationName: your_integration_name
-        type: docker
-        branches:
-          only:
-            - master
+  hub:
+    - integrationName: your_integration_name
+      type: docker
+      branches:
+        only:
+          - master
 
 ```
 ### Pushing to multiple registries
@@ -408,20 +433,20 @@ An image can be pushed to multiple registries by tagging it and specifying the r
 Here, the image `manishas/sample-node-prod` is built and tagged as `gcr.io/manishas/sample-node-prod` and then pushed to the Google Cloud Registry using an integration of type `gcr`.
 ```
 build:
-    post_ci:
-        - docker build -t manishas/sample-node-prod .
-        - docker push manishas/sample-node-prod
-        - docker build --rm -t=gcr.io/manishas/sample-node-prod .
-        - docker push gcr.io/manishas/sample-node-prod
+  post_ci:
+    - docker build -t manishas/sample-node-prod .
+    - docker push manishas/sample-node-prod
+    - docker build --rm -t=gcr.io/manishas/sample-node-prod .
+    - docker push gcr.io/manishas/sample-node-prod
 
 integrations:
-    hub:
-      - integrationName: docker_integration_name_one
-        type: docker
-      - integrationName: docker_integration_name_two
-        type: docker
-      - integrationName: gcr_integration_name
-        type: gcr
+  hub:
+    - integrationName: docker_integration_name_one
+      type: docker
+    - integrationName: docker_integration_name_two
+      type: docker
+    - integrationName: gcr_integration_name
+      type: gcr
 
 ```
 **Please note that if you specify multiple hub integrations for a registry, the last one will be used to push the image.**
@@ -435,11 +460,11 @@ Here is an example of how to set this up in your yml:
 
 ```
 build:
-    post_ci:
-       - docker tag -f manishas/sample-node:latest manishas/sample-node:tip
-       - docker tag -f manishas/sample-node:latest manishas/sample-node:$BUILD_NUMBER
-       - docker push manishas/sample-node:tip
-       - docker push manishas/sample-node:$BUILD_NUMBER
+  post_ci:
+    - docker tag -f manishas/sample-node:latest manishas/sample-node:tip
+    - docker tag -f manishas/sample-node:latest manishas/sample-node:$BUILD_NUMBER
+    - docker push manishas/sample-node:tip
+    - docker push manishas/sample-node:$BUILD_NUMBER
 ```
 In the above example, replace the repo/image name with your image name and the tags with the ones you need for your image.
 
@@ -453,10 +478,10 @@ You can get around this requirement by setting `agent_only: true` for your hub i
 
 ```
 integrations:
-    hub:
-      - integrationName: gcr_int_name
-        type: gcr
-        agent_only: true
+  hub:
+    - integrationName: gcr_int_name
+      type: gcr
+      agent_only: true
 ```
 
 This will ensure that we will not attempt to login to the registry from inside your CI build container. However, this also means that you will not be able to pull from or push to GCR/ECR in the `ci`, `post_ci`, `on_success` and `on_failure` sections.
@@ -465,8 +490,8 @@ You can always choose to push your image to GCR/ECR in the `push` section which 
 
 ```
 build:
-    push:
-      - docker push manishas/sample-node:$BRANCH.$BUILD_NUMBER
+  push:
+    - docker push manishas/sample-node:$BRANCH.$BUILD_NUMBER
 ```
 
 If you do want to use docker commands to interact with GCR or ECR in your `ci`, `post_ci`, `on_success` or `on_failure` sections, check out the sections below explaining how to install gcloud SDK or aws CLI as required.
@@ -859,7 +884,6 @@ branches:
     - release/*
 ```
 
-
 ---
 
 <a name="test_code_coverage"></a>
@@ -958,16 +982,16 @@ To customize email notifications, use the yml structure below:
 
 ```yaml
 integrations:
-    notifications:
-        - integrationName: email
-          type: email
-          recipients:
-            - exampleone@org.com
-            - exampletwo@org.com
+  notifications:
+    - integrationName: email
+      type: email
+      recipients:
+        - exampleone@org.com
+        - exampletwo@org.com
           branches:
             only:
-                - master
-                - dev
+              - master
+              - dev
           on_success: always
           on_failure: always
 ```
@@ -992,11 +1016,11 @@ If you do not want to get notified for any reason, you can turn off email notifi
 
 ```yaml
 notifications:
-        - integrationName: email
-          type: email
-          on_success: never
-          on_failure: never
-          on_pull_request: never
+  - integrationName: email
+    type: email
+    on_success: never
+    on_failure: never
+    on_pull_request: never
 ```
 
 ### Slack notifications
@@ -1016,18 +1040,18 @@ To send Slack notifications, you will need to do the following:
 
 ```yaml
 integrations:
-    notifications:
-        - integrationName: my_slack_integration
-          type: slack
-          recipients:
-            - "#channelOne"
-            - "#channelTwo"
-          branches:
-              only:
-                - master
-                - dev
-          on_success: never
-          on_failure: always
+  notifications:
+    - integrationName: my_slack_integration
+      type: slack
+      recipients:
+        - "#channelOne"
+        - "#channelTwo"
+      branches:
+        only:
+          - master
+          - dev
+      on_success: never
+      on_failure: always
 ```
 * `integrationName` value is the name of the account integration you added to the project settings.
 * `type` is slack
@@ -1063,19 +1087,19 @@ To send HipChat notifications, you will need to do the following:
 
 ```yaml
 integrations:
-    notifications:
-        - integrationName: my_hipchat_integration
-          type: hipchat
-          recipients:
-            - "#roomOne"
-            - "#roomTwo"
-            - "@userOne"
-          branches:
-              only:
-                - master
-                - dev
-          on_success: never
-          on_failure: always
+  notifications:
+    - integrationName: my_hipchat_integration
+      type: hipchat
+      recipients:
+        - "#roomOne"
+        - "#roomTwo"
+        - "@userOne"
+      branches:
+        only:
+          - master
+          - dev
+      on_success: never
+      on_failure: always
 ```
 * `integrationName` value is the name of the account integration you added to project settings.
 * `type` is hipchat
@@ -1103,18 +1127,18 @@ Use the following yml structure to send IRC notifications:
 
 ```yaml
 integrations:
-    notifications:
-        - integrationName: irc
-          type: irc
-          recipients:
-            - "chat.freenode.net#channel1"
-            - "chat.freenode.net#channel2"
-          branches:
-            only:
-                - master
-                - test
-          on_success: never
-          on_failure: always
+  notifications:
+    - integrationName: irc
+      type: irc
+      recipients:
+        - "chat.freenode.net#channel1"
+        - "chat.freenode.net#channel2"
+      branches:
+        only:
+          - master
+          - test
+      on_success: never
+      on_failure: always
 ```
 
 * `integrationName` for public channels is `irc`.
@@ -1265,7 +1289,7 @@ Sample PHP code using
 # Create a user and DB as part of the ci section before you use it
 
 services:
-    - mysql
+  - mysql
 build:
   ci:
     - mysql -e "GRANT ALL ON *.* TO shippable@localhost IDENTIFIED BY ''; FLUSH PRIVILEGES;"
@@ -1283,7 +1307,7 @@ Sample javascript code using
 # Create a user and DB as part of the ci section before using it
 
 services:
-    - postgres
+  - postgres
 
 build:
   ci:
@@ -1306,7 +1330,7 @@ Sample python code using
 ```yaml
 # elastic search is on default port 9200
 services:
-    - elasticsearch
+  - elasticsearch
 ```
 
 Sample python code using [Elastic Search](https://github.com/shippableSamples/sample_python_elasticsearch).
@@ -1316,7 +1340,7 @@ Sample python code using [Elastic Search](https://github.com/shippableSamples/sa
 ```yaml
 # memcached runs on default port 11211
 services:
-    - memcached
+  - memcached
 ```
 
 Sample python code using
@@ -1327,7 +1351,7 @@ Sample python code using
 ```yaml
 # redis runs on default port 6379
 services:
-    - redis
+  - redis
 ```
 
 Sample python code using
@@ -1338,7 +1362,7 @@ Sample python code using
 ```yaml
 #neo4j runs on default port 7474
 services:
- - neo4j
+  - neo4j
 ```
 
 Sample javascript code using
@@ -1422,7 +1446,7 @@ shippable.yml file.
 
 ```yaml
 addons:
-   firefox: "21.0"
+  firefox: "21.0"
 ```
 
 ### Custom Host Name
@@ -1433,7 +1457,7 @@ shippable.yml file.
 
 ```yaml
 addons:
-   hosts:
+  hosts:
     - google.com
     - asdf.com
 ```
