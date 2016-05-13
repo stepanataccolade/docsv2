@@ -9,7 +9,7 @@ Docker Datacenter CaaS (Containers-as-a-Service) enables enterprises to deploy C
 - __Universal Control Plane__ (UCP) - Deploy and manage containers on your Docker Datacenter.
 
 ### Continuous Integration
-Throughout the demo, we will use a [sample node.js application](https://github.com/shippable/sample_node_ddc) to demonstrate the workflow.
+Throughout the demo, we will use a [sample node.js application](https://github.com/shippablesamples/sample_node_ddc) to demonstrate the workflow.
 
 Once you enable your project, it is critical to have a `shippable.yml` file to use Shippable CI. The `shippable.yml` file includes instructions to run your tests and push your docker images to a registry. To know more about the CI workflow, please check the [CI overview](ci_overview).
 
