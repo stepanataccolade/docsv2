@@ -213,7 +213,7 @@ As an example, here are a couple of screenshots for setting up the [api service 
 TODO
 
 ###Delete a pipeline
-You can delete a pipeline by going to the Pipeline `Settings` page and clicking on `Delete`. Please note that you will need to `Stop` the corresponding Cell in all environments before being allowed to delete a pipeline.
+You can delete a pipeline by going to the Pipeline `Settings` page and clicking on `Delete`. Please note that you will need to change the `Scale` value to 0 for the corresponding Cell in all environments before being allowed to delete a pipeline.
 
 
 ## Cells
@@ -250,7 +250,7 @@ That's it! You have deployed your first service! Go back to the `Pipelines` tab 
 You can Stop a Cell at any time by following the steps:
 
 - From the Pipelines Status page, click on the Cell name. You will be taken to the Cell's Status page. The Status page shows the deployed Cell information at the top, followed by a list of past cellManifest versions, History of Events, etc.
-- Click on `Stop` for the Cell.
+- Change the `Scale` value to 0 to stop the cell.
 
 <img src="../images/cell_status.png" alt="Adding a GKE cluster to Shippable" style="width:700px; margin:0px auto; display:block"/>
 
