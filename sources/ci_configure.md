@@ -1115,7 +1115,7 @@ integrations:
 * [optional] You can set the following options for the `on_start`, `on_pull_request` tags :
     - `always` means that you will always receive a notification for build start/pull request
     - `never` means that you will never receive a notification for that build start/pull request
-  By default, `on_start` is set to `never` and `on_pull_request` is set to `always` if HipChat is configured in the yml but you do not specify these tags.     
+  By default, `on_start` is set to `never` and `on_pull_request` is set to `always` if HipChat is configured in the yml but you do not specify these tags.
 
 
 
@@ -1158,7 +1158,64 @@ integrations:
 
 
 ---
+## Event Triggers
+Shippable supports triggers on user-specified webhook URLs or other enabled projects.
 
+By default, configured triggers are hit only if a commit build succeeds. You can configure the integration in the yml according to your scenarios.
+
+This can be done by following the steps below:
+
+1. **Configure `Event Trigger` Integration**: Go to the 'Settings' tab of your project & under the Integrations section, click the 'Select notification integration' dropdown. If you have created the `Event Trigger` integration before, it'll show up as an option in the dropdown. Select the Event Trigger integration and go directly to step 2.
+
+    - If this is the first time, click the 'Create Integration' option.
+    - In the 'New Notification Integration' section, select 'Event Trigger' from the 'Master Integration' dropdown.
+    - Give a name to your Event Trigger integration.
+    - From the dropdown under **What would you like to trigger?**, you can select either **`Project`** or **`Generic Webhook`**.
+    - On selecting **`Project`**, you can choose a project to trigger a run for from the `Project` dropdown. In the `Authorization` field, you need to specify your Shippable [API token](acc_overview/#api-tokens).
+    - On selecting **`Generic Webhook`** you can specify a webhook URL you want to trigger in the `WebhookURL` field. In the `Authorization` field, you need to specify the **HTTP Authorization Header** required to hit the specified webhook URL. If no authorization is required, this field can be left blank.
+    - Click 'Save Integration'.
+    - If you want to view the list of all integrations configured for your subscription, [access instructions here](ci_projects.md#enabling-integrations).
+
+2. **Add the following in your shippable.yml**:
+
+```yaml
+integrations:
+  notifications:
+    - integrationName: my_webhook_integration
+      type: webhook
+      payload:
+        - isPRBuild=$IS_PULL_REQUEST
+        - branchName=$BRANCH
+        - message=Shippable Run $BUILD_NUMBER ($BUILD_URL) succeeded for $COMPARE_URL
+        - FOO=BAR
+        - FIZZ=BUZZ
+      branches:
+        only:
+          - master
+          - dev
+      on_success: always
+      on_failure: never
+      on_pull_request: never
+      on_start: never
+```
+* `integrationName` value is the name of the account integration you added to project settings.
+* `type` is webhook
+* [optional] `payload` You can specify `key=value` pairs where the `value` is a string. The string can contain Shippable [Environment Variables](ci_configure/#using-environment-variables). These variables will be populated by corresponding values from a run for this project.
+* If the `webhook` integration is set up **to trigger an enabled project**: the `payload` will be injected into the next run as a set of global environment variables ([Injecting Global Env Variables](api/#trigger-a-new-run)).
+* If the `webhook` integration is set up **to trigger an external webhook**: the `payload` will be converted to a JSON with `key: value` attributes which will be sent as the body when the specified webhook URL is triggered.
+* [optional] `branches` allows you to choose the branches you want to trigger the configured webhook for. By default, the configured webhook is triggered for all branches. The `only` tag should be used when you want to trigger webhooks for specific branches. You can also use the `except` tag to exclude specific branches.
+* [optional] You can set the following options for the `on_success`, `on_failure` tags :
+    - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively
+    - `always` means that you will always receive a notification for that build status
+    - `never` means that you will never receive a notification for that build status
+    - **By default, `on_success` is set to `always` and `on_failure` is set to `never`** if the integration is configured in the yml but you do not specify these tags.
+* [optional] You can set the following options for the `on_start`, `on_pull_request` tags :
+    - `always` means that you will always receive a notification for build start/pull request
+    - `never` means that you will never receive a notification for that build start/pull request
+    - **By default, `on_start` is set to `never` and `on_pull_request` is also set to `never`** if `webhook` is configured in the yml but you do not specify these tags.
+
+
+---
 ## Configuring deployments to PaaS/IaaS
 Having configured CI for your builds, here are the steps to deploy your code to various PaaS/IaaS providers.
 
