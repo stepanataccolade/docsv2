@@ -102,6 +102,20 @@ Select the branch you want the status for and pick between the 'Image URL' or 'M
 You can use this code to display your code coverage report after code coverage runs. The badge displays appropriate colors depending on the code coverage configuration in the `shippable.yml`. Refer the  [documentation](http://docs.shippable.com/ci_configure/#test_code_coverage) on how to configure code coverage reports.
 
 
+### Configure Webhook Events for Triggering Builds
+In this section, you can enable or disable triggering of builds for your project, based on specific webhook events on your source control system.
+
+- **Pull Requests**: Default value is Enabled. Every pull request initiated on the project in your source control system, triggers a build on Shippable. Click 'Disable' to stop the triggering of builds for this project.
+- **Commits**: Default value is Enabled. Every commit initiated on the project in your source control system, triggers a build on Shippable. Click 'Disable' to stop the triggering of builds for this project.
+- **Tags**: Default value is Disabled. To trigger builds for all git tag push events on the project in your source control system, click 'Enable'. Currently this feature is supported only for GitHub.
+- **Releases**: Default value is Disabled. To trigger builds for all GitHub release events on the project in your source control system, click 'Enable'. Currently this feature is supported only for GitHub.
+
+NOTE: The above webhook events, when enabled, trigger builds on Shippable irrespective of the user who initiated the event on the source control system.
+
+
+<img src="../images/configure_build_triggers.png" alt="Configure Webhook events to trigger builds" style="width:700px;"/>
+
+
 ### Dashboard Settings
 By default, we show a project's status on the Subscription and Landing pages with the following logic: 
 

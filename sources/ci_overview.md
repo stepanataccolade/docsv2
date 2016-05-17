@@ -27,9 +27,9 @@ Shippable automatically builds and tests your repositories when -
 - we receive a webhook for a git tag push event (currently only supported on GitHub)
 - we receive a webhook for a GitHub release event
 
-You can also run a manual build through the UI clicking on the `Build` button for any project or branch.
+You can also initiate a manual build through the UI, by clicking on the `Build` button for any project or branch, irrespective of a webhook event.
 
-Please note that we do not automatically trigger builds if you push a tag. You can still run a manual build after pushing the tag. 
+By default, we do not automatically trigger builds if you push a tag or create a release. Go [here](ci_projects.md#configure-webhook-events-for-triggering-builds) for details on configuring these settings.
 
 ### yml config
 
