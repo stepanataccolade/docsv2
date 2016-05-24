@@ -173,10 +173,10 @@ When you set up the [Amazon ECR integration](http://docs.shippable.com/int_docke
 
 ```
 integrations:
-	hub:
-	  - integrationName: your_integration_name
-	  type: ecr
-	  region: us-west-2
+  hub:
+    - integrationName: your_integration_name
+      type: ecr
+      region: us-west-2
 ```
 
 ## How do I use Ruby in a build with another language?
