@@ -35,7 +35,8 @@ roles and permissions on Amazon IAM console. This can be achieved in two steps. 
   Copy following policy document  
 
 ```
-"Statement": [
+{
+  "Statement": [
         {
             "Effect": "Allow",
             "Action": [
@@ -66,6 +67,7 @@ roles and permissions on Amazon IAM console. This can be achieved in two steps. 
             "Resource": "*"
         }
     ]
+}
 ```
   **Apply Policy**
 
