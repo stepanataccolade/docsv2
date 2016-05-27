@@ -87,6 +87,16 @@ env:
   secure: <encrypted output>
 ```
 
+### Custom Timeout
+By default, builds that are running for over 120 minutes will time out. You can configure the timeout setting between 1 and 120 minutes for your project.
+
+- Click 'Edit'
+- Input a number between 1 and 120 minutes
+- Click 'Save'
+- Once you set a custom timeout, it'll be in effect immediately
+- Click on 'Clear' to revert back to the default setting of 120 minutes
+
+
 ### Build status badges
 You can get embeddable build status badges for your project. These provide a visual indication of project status.
 
