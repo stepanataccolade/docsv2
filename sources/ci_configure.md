@@ -1000,7 +1000,7 @@ integrations:
 * `integrationName` is always `email` since you do not configure emails in account integrations or project settings.
 * `type` is `email`
 * `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project owner(s)'.
-    - To specify 'last committer' and 'project owner(s)' as part of this list, you can use `--lastcommitter` and `--owners`.
+    - To specify 'last committer' and 'project owner(s)' as part of this list, you can use `--last_committer` and `--owners`.
     - If there is a single recipient, you can use the format `recipients: example@org.com`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional]You can set the following options for the `on_success`, `on_failure` tags :
