@@ -126,12 +126,21 @@ NOTE: The above webhook events, when enabled, trigger builds on Shippable irresp
 <img src="../images/configure_build_triggers.png" alt="Configure Webhook events to trigger builds" style="width:700px;"/>
 
 
+### Run Parallel Jobs
+Disabling parallel jobs allows you to restrict job processing based on branch name.  When this setting is disabled, any waiting job will not begin until all processing jobs have completed.
+
+You can further customize this by selecting the specific branches that you don't want running in parallel.
+
+<img src="../images/run_parallel_jobs.png" alt="Run Parallel Jobs" style="width:700px;"/>
+
+In this example, if jobs are triggered simultaneously for branches `master` and `prtest`, only one job will be allowed to run at a time, even if the subscription has two idle nodes.  However, if this project were to trigger a job on a branch that was not selected, it would start as soon as it finds  an available node. The serial jobs will run in the order that they were queued.
+
 ### Dashboard Settings
-By default, we show a project's status on the Subscription and Landing pages with the following logic: 
+By default, we show a project's status on the Subscription and Landing pages with the following logic:
 
 - Show status of latest commit build of default branch configured in source control repo
 - If no default branch, show latest commit build for master branch
-- If no master branch, show status of the latest build across branches. 
+- If no master branch, show status of the latest build across branches.
 
 Builds triggered for pull requests are not considered while determining status of a branch.
 
