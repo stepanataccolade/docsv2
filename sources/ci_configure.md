@@ -1620,7 +1620,7 @@ A few things to note here:
 Your builds will time out in the following scenarios:
 
 -   If there has not been any log output or a command hangs for 10 minutes
--   If the build is still running after 60 minutes for Free minions or 120 minutes for Paid minions
+-   If the build is still running for more than 120 minutes. This is a default setting that you can change for your project and configure it between 1 - 120 minutes. Read [instructions](ci_projects.md#custom-timeout) on setting a desired value in the Project settings.
 
 Please let us now if you believe a build is timing out when it shouldn't do so and we will take a look.
 
