@@ -194,3 +194,8 @@ build:
   ci:
     - source /usr/local/rvm/scripts/rvm
 ```
+
+## Docker Compose fails with the following error
+`The Docker Engine version is less than the minimum required by Compose. Your current project requires a Docker Engine of version 1.10.0 or greater`
+
+You can navigate to the subscription settings page and select the unstable image which has docker version 1.11.1 available on it and all the builds for your subscription will be using this image to run your builds. For more info check out the [Machine Images Section](ci_subscriptions.md#selecting-the-machine-images)

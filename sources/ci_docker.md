@@ -28,7 +28,7 @@ build:
 integrations:
     hub:
       - integrationName: manishasDockerHub
-        type: docker  
+        type: docker
 ```
 
 ##Docker registries integration
@@ -58,6 +58,8 @@ build:
 ```
 Please remember to use the `-d` option so that the containers are started in the background and the command exits correctly. Running `docker compose` without the `-d` option will hang your build.
 The `docker ps` command will show you the containers running on your minion. You can now include tests that run against this application.
+
+If Docker Compose fails due to older Docker versions, then you have the option of using the latest AMI for your subscription. Check out the [Docker-Compose FAQ section](ci_faq/#docker-compose-fails-with-the-following-error)
 
 
 ##Docker in Test environments and Production
