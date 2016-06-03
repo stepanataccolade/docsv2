@@ -9,7 +9,7 @@ This page provides pricing information and instructions on how to upgrade or dow
 <img src="../images/shippable_pricing.png" alt="Subscription Dashboard" style="width:700px;"/>
 
 ## Plan description
-We offer Freemium pricing, so your first build container, aka minion, and your first pipeline is always free for [every subscription](gs_concepts.md/#Subscription).
+We offer Freemium pricing, so your first build container, aka minion, and your first pipeline is always free for [every subscription](gs_concepts.md#subscription).
 
 You can buy additional build containers and run parallel CI builds, and/or buy more pipelines depending on how many deployable units (cells) you need for your application.
 

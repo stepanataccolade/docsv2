@@ -709,7 +709,7 @@ Shippable allows you to encrypt environment variables and keep your configuratio
 
 To do this,
 
-1. Encrypt your environment variables ([Instructions here](ci_projects.md#encrypt_env_variables))
+1. Encrypt your environment variables ([Instructions here](ci_projects.md#encrypting-your-environment-variables))
 2. Copy the encrypted output string and add it to your yml file as shown below:
 
 ```
