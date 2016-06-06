@@ -911,7 +911,7 @@ build:
     - nosetests python/sample.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
 ```
 
-Examples for other languages can be found in our [Code Samples](languages/).
+Examples for other languages can be found in our [Code Samples](ci_languages/).
 
 Once you have set this up, you can view your test results in the `Test` tab on your build page.
 
@@ -934,7 +934,7 @@ build:
     - coverage xml -o shippable/codecoverage/coverage.xml python/sample.py
 ```
 
-Examples for other languages can be found in our [Code Samples](languages/).
+Examples for other languages can be found in our [Code Samples](ci_languages/).
 
 Once you have set this up, you can view your code coverage results in the `Code coverage` tab on your build page.
 
