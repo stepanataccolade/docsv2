@@ -26,5 +26,5 @@ script:
   - mkdocs build
 
 after_success:
-#  - 'if [ "$BRANCH" == "master" -a "$PULL_REQUEST" == "false" ]; then aws s3 sync $AWS_S3_LOCAL_PATH $AWS_S3_BUCKET --delete --acl public-read --region $AWS_S3_REGION; fi'
-  - aws s3 sync $AWS_S3_LOCAL_PATH $AWS_S3_BUCKET --delete --acl public-read --region $AWS_S3_REGION
+  - 'if [ "$IS_FORK" == "false" && "$PULL_REQUEST" == "false" && "$BRANCH" == "master"]; then aws s3 sync $AWS_S3_LOCAL_PATH $AWS_S3_BUCKET --delete --acl public-read --region $AWS_S3_REGION; fi'
+#  - aws s3 sync $AWS_S3_LOCAL_PATH $AWS_S3_BUCKET --delete --acl public-read --region $AWS_S3_REGION
