@@ -1526,9 +1526,12 @@ Selenium is not started on boot. You will have to enable it using
 **services** tag and start xvfb (X Virtual Framebuffer) on display port
 99.0, so that all your test suites will run on the server without a
 display. Configure your yml file as shown below to start selenium server
-on firefox.
+on firefox and run node tests.
 
 ```yaml
+language: node_js
+node_js:
+  - "0.10"
 addons:
   firefox: "23.0"
 
@@ -1537,8 +1540,9 @@ services:
 
 build:
   ci:
+    - sudo npm install
     - "export DISPLAY=:99.0"
-    - "/etc/init.d/xvfb start"
+    - xvfb-run --server-args="-ac" npm test
 ```
 
 Selenium **2.40** is started by default. You can also select a different
@@ -1566,19 +1570,19 @@ downloaded version. Configure your yml file as shown below to start
 selenium server **2.43** on firefox.
 
 ```yaml
+language: node_js
+node_js:
+  - "0.10"
 #specify required selenium and firefox version
 addons:
   selenium: "2.43"
   firefox: "27.0"
 
-#start the selenium server
-services:
-  - selenium
-
 build:
   ci:
+    - sudo npm install
     - "export DISPLAY=:99.0"
-    - "/etc/init.d/xvfb start"
+    - xvfb-run --server-args="-ac" npm test
 ```
 
 Sample javascript code using
