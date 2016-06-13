@@ -4,7 +4,8 @@ page_keywords: deploy, multi containers, microservices, Continuous Integration, 
 
 # Configuring and managing your deployments
 
-This section walks you through the workflow for configuring your application pipelines. We think of pipelines as the flow of your application from your build environment->ci->deployable units with different versions->deploy into single or multiple environments.
+This section walks you through the workflow for configuring your application pipelines. We think of pipelines as the flow of your application from your build environment->ci->deployable units with different versions->deploy into single or multiple environments. You can also see a practical example of [deploying a GitHub hosted sample node.js application to Google Container Engine](gs_deploy_sample/). 
+
 
 <img src="../images/pipeline_basic_flow.png" alt="Pipelines flow" style="width:700px;"/>
 
@@ -113,6 +114,7 @@ To create an environment on Shippable, you should have installed the Universal C
 
 You have created your environment and you're now ready to start creating your pipelines.
 
+
 ### Provisioning infrastructure using Terraform
 You can provision infrastructure using terraform by following the steps below:
 
@@ -160,15 +162,17 @@ integrations:
 
 
 ###Updating an environment
-TODO
+*To be updated*
 
 ###Deleting an environment
 You can delete an environment by going to the environment `Settings` page and clicking on `Delete`. Please note that you will first need to delete all pipelines before you delete the environment.
 
+* * * 
+
 ## Pipelines
 A pipeline defines the flow of a 'Unit of Deployment', which we call 'Cell', from source control or image registry to your Environment. A Cell is deployed at one time and on the same node. It is specific to each application and can be a micro-service, a service, an application tier, or even the entire application.
 
-TODO - Define the following - cell manifest, auto-increment, pipeline triggers
+*To be updated* - Define the following - cell manifest, auto-increment, pipeline triggers
 
 
 ###Creating a pipeline
@@ -209,15 +213,17 @@ As an example, here are a couple of screenshots for setting up the [api service 
 **Add pipeline page:**
 <img src="../images/pipelines_add.png" alt="Adding a GKE cluster to Shippable" style="width:700px; margin:0px auto; display:block"/>
 
+
 ###Update a pipeline
-TODO
+*To be updated*
+
 
 ###Delete a pipeline
 You can delete a pipeline by going to the Pipeline `Settings` page and clicking on `Delete`. Please note that you will need to change the `Scale` value to 0 for the corresponding Cell in all environments before being allowed to delete a pipeline.
 
+* * * 
 
 ## Cells
-
 
 ###Deploy a Cell
 If you have created an environment and associated it with a pipeline as described in the sections above, your Pipelines tab on the Subscription page should look like this:
@@ -246,6 +252,7 @@ That's it! You have deployed your first service! Go back to the `Pipelines` tab 
 
 <img src="../images/pipelines_deployed.png" alt="Shippable Pipeline visualizer" style="width:700px; margin:0px auto; display:block"/>
 
+
 ###Stopping a Cell
 You can Stop a Cell at any time by following the steps:
 
@@ -254,10 +261,12 @@ You can Stop a Cell at any time by following the steps:
 
 <img src="../images/cell_status.png" alt="Adding a GKE cluster to Shippable" style="width:700px; margin:0px auto; display:block"/>
 
+
 ###Upgrade/rollback to a different version
 You can Upgrade or Rollback to a different Cell Manifest version at any time by going to the Cell Status page and clicking on the `Deploy` button for the version you need.
 
 Please note that this only deploys a different version of the images in your cell, and changes the environment keys if needed. Routing and values for environment variables will not be rolled back or upgraded and whatever is currently configured for the cell will be respected.
+
 
 ###Updating a Cell
 
@@ -267,3 +276,5 @@ You can make updates to a Cell and redeploy it at any time. Please note that Cel
 - Go to the `Settings` tab and make the changes you need.
 - Near the `Deploy` button at the bottom of the page, you will see a list of changes you've made compared to what is actually deployed. Make sure the changes look good.
 - Click on `Deploy` if you want to deploy the updated Cell.
+
+* * * 

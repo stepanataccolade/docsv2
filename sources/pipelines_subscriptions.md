@@ -15,6 +15,7 @@ The top of your Pipelines Status page shows you how many pipelines you're using 
 
 You will also see a visual status of all pipelines for your application in the `Pipeline Status` section, which shows the information described in the sections below.
 
+
 ### CI
 The **Projects** that trigger your pipeline are shown on the left. If you enable these projects for Continuous Integration, you will see the latest build number. On hovering over this element, you see the following additional information:
 - Latest build number
@@ -24,12 +25,14 @@ The **Projects** that trigger your pipeline are shown on the left. If you enable
 
 Clicking on the project name takes you to the project page.
 
+
 ### Pipeline
 The **Pipeline** column shows you the pipeline name and latest cell version available for deployment. On hover, you'll see the following additional information:
 - Date/Time this cell version was created
 - The images and tags that are part of this cell version. If you're tagging your images with the recommended tags of $BRANCH.$BUILD_NUMBER, your image and tag will look something like manishas/api:master:45
 
 Clicking on the pipeline name will take you to the `Settings` page for the pipeline.
+
 
 ### Environments
 The next column shows **environment names** associated with the pipeline and the status of your cell deployed in the respective environment. This includes:
@@ -46,6 +49,8 @@ On hover, you see the following additional information:
 
 Clicking on the cell name takes you to the `Status` page of the cell deployed to the environment. This is described in more detail in TODO: Add link.
 
+* * * 
+
 ## Environments tab
 
 In the Environments tab is the list of environments configured in your subscription.
@@ -53,3 +58,7 @@ In the Environments tab is the list of environments configured in your subscript
 <img src="../images/pipelines_status_environments.png" alt="Subscription Dashboard" style="width:700px;"/>
 
 You can also click on the Settings button for an environment to go to the Settings for the environment.
+
+Here's a tutorial to [deploy a GitHub hosted sample node.js application to Google Container Engine](gs_deploy_sample/) that walks you through the concepts described above.
+
+* * * 
