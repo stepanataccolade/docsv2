@@ -247,7 +247,7 @@ NOTE: If the `ci` section is blank, then default commands are executed, dependin
 
 In general, follow the guidelines below to write the `ci` section:
 
-* First, install or update any required dependencies or packages. Commands like `npm installl` or `sudo apt-get update` should be at the top of this section.
+* First, install or update any required dependencies or packages. Commands like `npm install` or `sudo apt-get update` should be at the top of this section.
 * Next, create any databases or folders you need. For example, you could create a mysql database with a `- mysql -e 'create database myapp_test;'` or create folders for test results with the command `- mkdir -p shippable/testresults`
 * Next, include commands for your builds and tests. This could be something like `- nosetests python/sample.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml` for a python project.
 
