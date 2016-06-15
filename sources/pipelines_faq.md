@@ -21,3 +21,34 @@ Read the blog [upgrading your Continuous Integration/Continuous Delivery subscri
 You may notice that your pipeline has been configured correctly & is deploying your Docker image successfully into Kubernetes (GKE). However, you'll see that no service is created & hence your application is not accessible externally, even though you have configured the routing. A main reason this happens is when a GKE cluster is used & the port ranges are not configured. Kubernetes, by default, restricts the nodePort on a service to be in the range 30000 to 32767. Hence if you are using a GKE cluster, then you'll need to select the hostPort you choose for routing, between this range. For more details refer [deploying a sample app on pipelines](http://docs.shippable.com/gs_deploy_sample/#add-cell-manifest).
 
 * * * 
+
+## Sign into Shippable
+
+<div class="signup-buttons">
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-58244e44-4f25-4c2c-a7d7-4fa4380e9ba8">
+      <span class="hs-cta-node hs-cta-58244e44-4f25-4c2c-a7d7-4fa4380e9ba8" id="hs-cta-58244e44-4f25-4c2c-a7d7-4fa4380e9ba8">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/58244e44-4f25-4c2c-a7d7-4fa4380e9ba8"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-58244e44-4f25-4c2c-a7d7-4fa4380e9ba8" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/58244e44-4f25-4c2c-a7d7-4fa4380e9ba8.png"  alt="Sign up with GitHub"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, '58244e44-4f25-4c2c-a7d7-4fa4380e9ba8', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-5ff5419f-8d4b-4147-9477-84aab100c24b">
+      <span class="hs-cta-node hs-cta-5ff5419f-8d4b-4147-9477-84aab100c24b" id="hs-cta-5ff5419f-8d4b-4147-9477-84aab100c24b">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/5ff5419f-8d4b-4147-9477-84aab100c24b"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-5ff5419f-8d4b-4147-9477-84aab100c24b" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/5ff5419f-8d4b-4147-9477-84aab100c24b.png"  alt="Sign up with Bitbucket"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, '5ff5419f-8d4b-4147-9477-84aab100c24b', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+</div>
+
+* * * 

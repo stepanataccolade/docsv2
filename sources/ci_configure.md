@@ -1651,3 +1651,36 @@ However, you can run builds for any language you want using Shippable. You will 
 You can get the current status of the Shippable UI and API by going to our [Service Status page](http://status.shippable.com). Our status page also shows the status of some of our third party integrations like Amazon EC2, Quay.io, Digital Ocean, as well the response time of our API.
 
 The service status page can be viewed from our product UI by going to the heart ekg icon in your top navbar.
+
+*****
+
+## Sign into Shippable
+
+<div class="signup-buttons">
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-2846123d-8f9b-43ca-8598-97a22010b608">
+      <span class="hs-cta-node hs-cta-2846123d-8f9b-43ca-8598-97a22010b608" id="hs-cta-2846123d-8f9b-43ca-8598-97a22010b608">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/2846123d-8f9b-43ca-8598-97a22010b608"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-2846123d-8f9b-43ca-8598-97a22010b608" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/2846123d-8f9b-43ca-8598-97a22010b608.png"  alt="Sign up with GitHub"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, '2846123d-8f9b-43ca-8598-97a22010b608', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-7f4d980f-cda9-46c1-9a44-805a20fbdb1c">
+      <span class="hs-cta-node hs-cta-7f4d980f-cda9-46c1-9a44-805a20fbdb1c" id="hs-cta-7f4d980f-cda9-46c1-9a44-805a20fbdb1c">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/7f4d980f-cda9-46c1-9a44-805a20fbdb1c"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-7f4d980f-cda9-46c1-9a44-805a20fbdb1c" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/7f4d980f-cda9-46c1-9a44-805a20fbdb1c.png"  alt="Sign up with Bitbucket"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, '7f4d980f-cda9-46c1-9a44-805a20fbdb1c', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+</div>
+
+*****
