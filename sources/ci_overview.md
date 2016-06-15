@@ -93,5 +93,35 @@ cancel, and delete builds.
 on Shippable. They cannot delete enabled projects or upgrade pricing
 plans.
 
+*****
 
+## Sign into Shippable
 
+<div class="signup-buttons">
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-c4f1c1d3-0fd7-42b0-88de-e8664d56a9fd">
+      <span class="hs-cta-node hs-cta-c4f1c1d3-0fd7-42b0-88de-e8664d56a9fd" id="hs-cta-c4f1c1d3-0fd7-42b0-88de-e8664d56a9fd">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/c4f1c1d3-0fd7-42b0-88de-e8664d56a9fd"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-c4f1c1d3-0fd7-42b0-88de-e8664d56a9fd" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/c4f1c1d3-0fd7-42b0-88de-e8664d56a9fd.png"  alt="Sign up with GitHub"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, 'c4f1c1d3-0fd7-42b0-88de-e8664d56a9fd', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-c22d9688-4527-432f-8fe9-133975e43486">
+      <span class="hs-cta-node hs-cta-c22d9688-4527-432f-8fe9-133975e43486" id="hs-cta-c22d9688-4527-432f-8fe9-133975e43486">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/c22d9688-4527-432f-8fe9-133975e43486"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-c22d9688-4527-432f-8fe9-133975e43486" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/c22d9688-4527-432f-8fe9-133975e43486.png"  alt="Sign up with Bitbucket"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, 'c22d9688-4527-432f-8fe9-133975e43486', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+</div>
+
+*****

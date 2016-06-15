@@ -176,6 +176,35 @@ Here is what will happen:
 - You will see your Cell in Pipeline Status section show - `Deployed version : 2`
 - Click on the Cell link. You should see the text update in your deployed application
 
+*****
 
+## Sign into Shippable
 
+<div class="signup-buttons">
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-cfdb3b2d-32b0-48f2-b861-f2eafaed7806">
+      <span class="hs-cta-node hs-cta-cfdb3b2d-32b0-48f2-b861-f2eafaed7806" id="hs-cta-cfdb3b2d-32b0-48f2-b861-f2eafaed7806">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/cfdb3b2d-32b0-48f2-b861-f2eafaed7806"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-cfdb3b2d-32b0-48f2-b861-f2eafaed7806" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/cfdb3b2d-32b0-48f2-b861-f2eafaed7806.png"  alt="Sign up with GitHub"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, 'cfdb3b2d-32b0-48f2-b861-f2eafaed7806', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-eba2e46d-e1df-4701-a220-dd373dd4c875">
+      <span class="hs-cta-node hs-cta-eba2e46d-e1df-4701-a220-dd373dd4c875" id="hs-cta-eba2e46d-e1df-4701-a220-dd373dd4c875">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/eba2e46d-e1df-4701-a220-dd373dd4c875"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-eba2e46d-e1df-4701-a220-dd373dd4c875" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/eba2e46d-e1df-4701-a220-dd373dd4c875.png"  alt="Sign up with Bitbucket"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, 'eba2e46d-e1df-4701-a220-dd373dd4c875', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+</div>
 
+*****

@@ -56,3 +56,36 @@ To delete an image on lighthouse:
 1. Go to your [Lighthouse page](https://app.shippable.com/lighthouse)
  - You will see the list of images being watched on the Lighthouse Dashboard
  - Click on the `Delete` button for the image(s) you want to stop monitoring
+
+*****
+
+## Sign into Shippable
+
+<div class="signup-buttons">
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-64e0f8e9-8d08-40d5-948c-d0faf9827d17">
+      <span class="hs-cta-node hs-cta-64e0f8e9-8d08-40d5-948c-d0faf9827d17" id="hs-cta-64e0f8e9-8d08-40d5-948c-d0faf9827d17">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/64e0f8e9-8d08-40d5-948c-d0faf9827d17"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-64e0f8e9-8d08-40d5-948c-d0faf9827d17" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/64e0f8e9-8d08-40d5-948c-d0faf9827d17.png"  alt="Sign up with GitHub"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, '64e0f8e9-8d08-40d5-948c-d0faf9827d17', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-314f8ada-0d53-49db-afa0-483d5963e59e">
+      <span class="hs-cta-node hs-cta-314f8ada-0d53-49db-afa0-483d5963e59e" id="hs-cta-314f8ada-0d53-49db-afa0-483d5963e59e">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/314f8ada-0d53-49db-afa0-483d5963e59e"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-314f8ada-0d53-49db-afa0-483d5963e59e" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/314f8ada-0d53-49db-afa0-483d5963e59e.png"  alt="Sign up with Bitbucket"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, '314f8ada-0d53-49db-afa0-483d5963e59e', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+</div>
+
+*****

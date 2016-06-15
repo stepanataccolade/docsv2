@@ -373,6 +373,11 @@ h2:target, h3:target {
   }
 }
 
+/* Buttons */
+.signup-buttons {
+  text-align: center;
+}
+
 /* Content */
 
 #content table {

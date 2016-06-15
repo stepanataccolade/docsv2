@@ -199,3 +199,36 @@ build:
 `The Docker Engine version is less than the minimum required by Compose. Your current project requires a Docker Engine of version 1.10.0 or greater`
 
 You can navigate to the subscription settings page and select the unstable image which has docker version 1.11.1 available on it and all the builds for your subscription will be using this image to run your builds. For more info check out the [Machine Images Section](ci_subscriptions.md#selecting-the-machine-images)
+
+*****
+
+## Sign into Shippable
+
+<div class="signup-buttons">
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-d22bcb58-9b5a-40d8-8ef8-f095f6f49dd4">
+      <span class="hs-cta-node hs-cta-d22bcb58-9b5a-40d8-8ef8-f095f6f49dd4" id="hs-cta-d22bcb58-9b5a-40d8-8ef8-f095f6f49dd4">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/d22bcb58-9b5a-40d8-8ef8-f095f6f49dd4"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-d22bcb58-9b5a-40d8-8ef8-f095f6f49dd4" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/d22bcb58-9b5a-40d8-8ef8-f095f6f49dd4.png"  alt="Sign up with GitHub"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, 'd22bcb58-9b5a-40d8-8ef8-f095f6f49dd4', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-19b25e32-39e6-4c22-b0a8-df5b408b2c6a">
+      <span class="hs-cta-node hs-cta-19b25e32-39e6-4c22-b0a8-df5b408b2c6a" id="hs-cta-19b25e32-39e6-4c22-b0a8-df5b408b2c6a">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/19b25e32-39e6-4c22-b0a8-df5b408b2c6a"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-19b25e32-39e6-4c22-b0a8-df5b408b2c6a" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/19b25e32-39e6-4c22-b0a8-df5b408b2c6a.png"  alt="Sign up with Bitbucket"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, '19b25e32-39e6-4c22-b0a8-df5b408b2c6a', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+</div>
+
+*****

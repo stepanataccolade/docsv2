@@ -884,3 +884,36 @@ ci:
 We have a simple C project that you can fork and enable on Shippable to help you get started, for u12cpp image fork `u12cpp` branch of this project.
 
 [sample_c](https://github.com/shippableSamples/sample_c)
+
+*****
+
+## Sign into Shippable
+
+<div class="signup-buttons">
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-dc6f934b-c3f7-4203-8f94-a6800c964434">
+      <span class="hs-cta-node hs-cta-dc6f934b-c3f7-4203-8f94-a6800c964434" id="hs-cta-dc6f934b-c3f7-4203-8f94-a6800c964434">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/dc6f934b-c3f7-4203-8f94-a6800c964434"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-dc6f934b-c3f7-4203-8f94-a6800c964434" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/dc6f934b-c3f7-4203-8f94-a6800c964434.png"  alt="Sign up with GitHub"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, 'dc6f934b-c3f7-4203-8f94-a6800c964434', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-53ece3d3-aafd-4855-8c63-78bf84c82781">
+      <span class="hs-cta-node hs-cta-53ece3d3-aafd-4855-8c63-78bf84c82781" id="hs-cta-53ece3d3-aafd-4855-8c63-78bf84c82781">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/53ece3d3-aafd-4855-8c63-78bf84c82781"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-53ece3d3-aafd-4855-8c63-78bf84c82781" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/53ece3d3-aafd-4855-8c63-78bf84c82781.png"  alt="Sign up with Bitbucket"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, '53ece3d3-aafd-4855-8c63-78bf84c82781', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+</div>
+
+*****

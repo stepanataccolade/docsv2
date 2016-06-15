@@ -79,3 +79,36 @@ Since a pipeline is the lifecycle for a cell, all containers configured for the 
 ## Permissions
 
 All members of your GitHub organization have access to your Deployment pipelines. We are in the process of tying permissions to GitHub teams, so that you can define your teams in GitHub and then assign team based permissions to your pipelines and environments.
+
+*****
+
+## Sign into Shippable
+
+<div class="signup-buttons">
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-73e872dc-d91b-4aec-a3c4-e2a981663da2">
+      <span class="hs-cta-node hs-cta-73e872dc-d91b-4aec-a3c4-e2a981663da2" id="hs-cta-73e872dc-d91b-4aec-a3c4-e2a981663da2">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/73e872dc-d91b-4aec-a3c4-e2a981663da2"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-73e872dc-d91b-4aec-a3c4-e2a981663da2" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/73e872dc-d91b-4aec-a3c4-e2a981663da2.png"  alt="Sign up with GitHub"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, '73e872dc-d91b-4aec-a3c4-e2a981663da2', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-2e911403-926f-4f34-a4a4-788d11ce6c20">
+      <span class="hs-cta-node hs-cta-2e911403-926f-4f34-a4a4-788d11ce6c20" id="hs-cta-2e911403-926f-4f34-a4a4-788d11ce6c20">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/2e911403-926f-4f34-a4a4-788d11ce6c20"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-2e911403-926f-4f34-a4a4-788d11ce6c20" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/2e911403-926f-4f34-a4a4-788d11ce6c20.png"  alt="Sign up with Bitbucket"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, '2e911403-926f-4f34-a4a4-788d11ce6c20', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+</div>
+
+*****
