@@ -13,6 +13,8 @@ Our sample application has a UI tier and an API tier which are deployed as separ
  
  - GitHub account
  - Docker Hub account
+
+* * * 
  
 ##Fork our sample 
 
@@ -20,6 +22,7 @@ Fork the following GitHub repository:
 
 [Demo Sample repository](https://github.com/shippableSamples/micro-sample)
 
+* * * 
 
 ##Set up CI
 
@@ -30,6 +33,7 @@ Fork the following GitHub repository:
 - Click the `Enable Project` button to go to the Enable Projects page. If this if the first project you are enabling, you will directly land there.
 - Find the micro-sample project and click on the `Enable` button.
 - If you cannot find micro-sample in the list, click on the `Sync` button next to the Search box. This syncs your Shippable subscription with your source control account. Find micro-sample and enable it.
+
 
 ### Update config
 In order to use deployment pipelines, your project's CI workflow must push the resultant Docker image(s) to a registry, from where they will be deployed into your pipeline. Our sample code uses Docker Hub, but you can follow the same instructions to push to another registry.
@@ -85,6 +89,7 @@ integrations:
 ```
 This yml ensures that for each build of this sample, micro-www and micro-api images will be built and pushed to your registry with the tag <branch name>.<build number> .
 
+
 ###Run a build
 The changes to shippable.yml should trigger a build run for the project. If not, you can trigger a manual build from the Project's page on Shippable. Wait until status shows success.
 
@@ -95,12 +100,15 @@ This should create 2 Docker images in your Docker registry:
 
 If you see these images in your registry, you have successfully completed the first stage of setting up CI for the demo projects!
 
+* * * 
+
 ##Create an environment
 
 Next, you will need an environment(cluster) to which you can deploy the application.
 
 The easiest way to do this is to provision a cluster on Google Container Engine (GKE) by following instructions here - [Create an environment with existing GKE cluster](pipelines_configure.md#gke_cluster)
 
+* * * 
 
 ##Create a pipeline
 Now that you have a cluster ready to go, let's create your pipeline. Since you have one free pipeline, we're going to use that to deploy your application to GKE. If you have 2 pipelines in your plan, you can create 2 pipelines - one for API and one for UI - to run this application.
@@ -131,14 +139,18 @@ You will be taken back to the Add Image page. Select the tag you want to deploy 
 - Remember to use the range for ports for GKE clusters
 - Add the following configuration keys for the demo application by clicking `Add Variable` under Environment Variables section: `API_PORT`, `API_URL`, `WWW_PORT`, `LOG_LEVEL`, `SHUD_LOG_TO_FILE` The values for these keys will be entered later when we deploy the cell.
 
+
 ###Auto-increment
 The auto-increment feature automatically creates new cell manifest versions when new tags are detected for images in your pipeline. Let us enable this for our demo. Check the box for `Auto-increment`. For both images, enter the tag pattern `master.*`. This means cell manifest version will be auto incremented only when an image is pushed due to a build for `master` branch.
+
 
 ###Pipeline trigger
 Here, you can configure when we check for new image tags. Add the micro-sample project from your repository from the `Trigger projects` dropdown.
 This means that every time CI for micro-sample is triggered, we will check for new image tags and update the cell manifest version if auto increment is enabled.
 
 And that's it. Save your pipeline.
+
+* * * 
 
 ##Configure and deploy your cell
 You will be redirected back to the `Pipelines` tab of your subscription. You should see your new pipeline in the Pipeline Status graphic.
@@ -158,11 +170,14 @@ Click on the `Configuration` tab and enter the following information:
 
 That's it! Go back to `Configuration` tab and click on `Deploy`at the bottom of the page. It will take a few minutes to provision a load balancer on GKE, but your Cell should be deployed ina  couple of minutes.
 
+* * * 
+
 ##View the application
 Now that you've deployed the application, go back to the `Pipelines` tab of your Subscription. The Pipeline Status graphic should show that the Cell is now deployed (green check).
 
 Also, it should show a link in the cell. Click the link to view the page you just deployed. It will launch in a new browser tab.
 
+* * * 
 
 ##Make a change and watch the magic
 
@@ -176,7 +191,7 @@ Here is what will happen:
 - You will see your Cell in Pipeline Status section show - `Deployed version : 2`
 - Click on the Cell link. You should see the text update in your deployed application
 
-*****
+* * * 
 
 ## Sign into Shippable
 
@@ -207,4 +222,4 @@ Here is what will happen:
   <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-*****
+* * * 
