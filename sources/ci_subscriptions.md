@@ -125,7 +125,7 @@ The Machine Images section has a list of images that are available to run your b
     * Kernel Version: 3.19.0-51-generic
     * Operating System: Ubuntu 14.04.3 LTS
 
-Please note that the stable version has been tested rigorously to work generically accross the board and the unstable image has been tested for specific requirements.
+Please note that the stable version has been tested rigorously to work generically across the board and the unstable image has been tested for specific requirements.
 
 
 ### Deployment key
