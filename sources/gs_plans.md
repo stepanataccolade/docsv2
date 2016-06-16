@@ -8,6 +8,8 @@ This page provides pricing information and instructions on how to upgrade or dow
 
 <img src="../images/shippable_pricing.png" alt="Subscription Dashboard" style="width:700px;"/>
 
+---
+
 ## Plan description
 We offer Freemium pricing, so your first build container, aka minion, and your first pipeline is always free for [every subscription](gs_concepts.md#subscription).
 
@@ -22,6 +24,8 @@ By default, all your builds run on single tenant machines on Shippable's infrast
 
 As part of the free tier, you also get **one Pipeline**, which allows you to set up deployment for one deployment unit of your application. If your application has additional tiers/services, you will need to buy additional pipelines as described below.
 
+Check out our blog on details about [when/how to upgrade](http://blog.shippable.com/how-to-upgrade-your-ci-cd-subscription).
+
 ###Paid plan
 
 You can buy additional build containers and run parallel CI builds, and/or buy more pipelines depending on how many deployable units (cells) you need for your application.
@@ -30,6 +34,8 @@ The pricing for that is :
 
 - **Additional build minions with 2 cores, 3.75GB RAM for a promotional price of $10/month per minion.** Our regular list price after the promotion ends is $25/month per minion. Customers who buy subscription plans at the promotional price will grandfathered as long as their subscriptions are active and in good status.
 - **Additional pipelines in blocks of 3 at $10/mo per block.** In general, number of pipelines you will need is usually equal to the number of services in your application. For a typical 3 tier application with ui, api, db, you will need 3 pipelines.
+
+---
 
 ## Billing
 A subscription on Shippable corresponds to an individual or organizational subscription on GitHub/Bitbucket. Your pricing plans are enforced at a subscription level, so you need to determine your build minion and pipeline needs for each subscription.
@@ -49,6 +55,8 @@ You should buy more build minions if:
 
 You should buy more pipelines if your application has more than 1 unit of deployment. These can be tiers, services, or microservice.
 
+Read more about [when and how to upgrade your subscription](http://blog.shippable.com/how-to-upgrade-your-ci-cd-subscription). 
+
 To buy more build minions or pipelines, simply slide the slider to the number of minions and/or pipelines you need. Choose a credit card, or Enter a new credit card and click on `Buy`.
 
 We will charge your credit card immediately and send you an invoice. You can also view past invoices on this page.
@@ -56,7 +64,7 @@ We will charge your credit card immediately and send you an invoice. You can als
 ### Downgrade your plan
 You can downgrade your plan at any time by moving the slider to the number of minions and/or pipelines you need. Please note that any minion count changes due to your plan downgrade will be effective immediately and you will not receive a partial or prorated refund if you make this change in the middle of a billing cycle. Your new price will be reflected in your next invoice.
 
-*****
+---
 
 ## Sign into Shippable
 
@@ -87,4 +95,4 @@ You can downgrade your plan at any time by moving the slider to the number of mi
   <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-*****
+---

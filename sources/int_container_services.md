@@ -8,6 +8,8 @@ Shippable Deploy lets you easily deploy your Dockerized applications to popular 
 
 You will first need to configure an account integration with your credentials and/or keys in order to interact with these services using Shippable Deploy.
 
+---
+
 <a name="ecs-integration"></a>
 ## Amazon EC2 Container Service Using Account Keys
 
@@ -118,6 +120,8 @@ NOTE: Refer [the official Amazon documentation](http://docs.aws.amazon.com/Amazo
 5. Click `Save`
 
 You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters. For more information on this, please check out our [Deployment pipelines section](pipelines_overview.md)
+
+---
 
 <a name="ecs-integration-iam"></a>
 ## Amazon EC2 Container Service using Cross Account IAM Roles
@@ -242,6 +246,8 @@ This requires four additional steps to be performed by the user
 
 You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters. For more information on this, please check out our [Deployment pipelines section](pipelines_overview.md)
 
+---
+
 <a name="gke-integration"></a>
 ## Google Container Engine (GKE)
 
@@ -255,6 +261,8 @@ To deploy applications to GKE, you need to configure an account integration with
 
 You can now use this integration to set up your Environment and Deployment Pipelines on your GKE clusters. For more information on this, please check out our [Deployment pipelines section](pipelines_overview.md)
 
+---
+
 <a name="dcl-integration"></a>
 ## Docker Cloud
 To deploy containers to Docker Cloud, you need to configure an account integration with credentials to access your Docker Cloud account.
@@ -265,6 +273,8 @@ To deploy containers to Docker Cloud, you need to configure an account integrati
 * Click on `Add Integration`. Choose `Docker Cloud`, name your integration, and paste your API key.
 * Click `Save`.
 
+---
+
 <a name="ddc-integration"></a>
 ## Docker Datacenter
 To deploy containers to Docker Datacenter, you need to configure an account integration with credentials to access your Docker Cloud account.
@@ -274,3 +284,7 @@ To deploy containers to Docker Datacenter, you need to configure an account inte
 * Sign in to Shippable and go to your [Account Settings](https://app.shippable.com/accountSettings). Click on the `Integrations` tab.
 * Click on `Add Integration`. Choose `Docker Datacenter`, name your integration and provide the username, password and URL to access the Universal Control Plane.
 * Click `Save`.
+
+For more information, check out our blog - [Getting started with Docker Datacenter](http://blog.shippable.com/getting-started-with-docker-datacenter).
+
+---

@@ -8,6 +8,8 @@ We can notify you about your builds and deployment workflows through Slack, IRC,
 
 To set up notifications via Slack, HipChat or private IRC channels, you will need to configure account integrations with your credentials or keys to these services.
 
+---
+
 ## Slack notifications
 You will need to configure this integration to send notifications to Slack channel(s). Notifications can be sent for build status updates, lighthouse image updates, and deployment updates.
 
@@ -26,6 +28,10 @@ You will need to configure this integration to send notifications to Slack chann
 
 You have now configured Slack and can use this integration during your CI and Pipelines settings.
 
+Refer our blog on a stepwise guide to [notify failure/success status for your CI project, using Slack](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack). 
+
+---
+
 ## IRC notifications
 You will need to configure this integration to send notifications to private IRC room(s). Public IRC channels can be configured without the need for an account integration.
 
@@ -36,6 +42,8 @@ You will need to configure this integration to send notifications to private IRC
 5. Click `Save`
 
 You have now configured your private IRC integration and can use this to send notifications during your CI and Pipelines settings.
+
+---
 
 ## Email notifications
 
@@ -48,6 +56,11 @@ You can, however, add an Email account integration to receive notifications for 
 3. **Integration Name:** Use a distinctive name that's easy to recall. Example: `manishas-email-lhs`
 5. Enter your email address: `janedoe@shippable.com`
 6. Click on `Save`
+
+
+Check our tutorial to [notify failure/success status for your CI project, using Email](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack). 
+
+---
 
 ## HipChat notifications
 You will need to configure this integration to send notifications to HipChat room(s) and user(s). Notifications can be sent for build status updates, lighthouse image updates, and deployment updates.
@@ -66,3 +79,7 @@ You will need to configure this integration to send notifications to HipChat roo
 5. Click `Save`
 
 You have now configured HipChat and can use this integration during your CI and Deploy workflows.
+
+In addition, you can also review our blog on [getting started with HipChat notifications](http://blog.shippable.com/hipchat-integration-is-here).
+
+---

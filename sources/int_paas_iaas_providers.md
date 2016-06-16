@@ -8,6 +8,8 @@ Shippable CI lets you easily deploy your applications to popular Platform as a S
 
 You will first need to configure an account integration with your credentials and/or keys in order to interact with these services using Shippable CI.
 
+---
+
 <a name="eb-integration"></a>
 ## AWS Elastic Beanstalk
 
@@ -19,7 +21,8 @@ To deploy applications to AWS EB, you need to configure an AWS account integrati
 4. Enter your access and secret keys provided by AWS. [See here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) for info on how to generate them. 
 5. Click `Save`
 
-You can now use this integration to set up your Environment and Deployment Pipelines on your Elastic Beanstalk service. For more information on this, please check out our [Configuring deployments to PaaS/IaaS providers - AWS Elastic Beanstalk section](http://docs.shippable.com/ci_configure/#aws-elastic-beanstalk)
+You can now use this integration to set up your Environment and Deployment Pipelines on your Elastic Beanstalk service. For more information on this, refer the documentation on [Configuring deployments to PaaS/IaaS providers - AWS Elastic Beanstalk section](http://docs.shippable.com/ci_configure/#aws-elastic-beanstalk). In addition, review our blog for a stepwise guide on [deploying your source code application on AWS Elastic Beanstalk](http://blog.shippable.com/how-to-deploy-your-application-to-aws-elastic-beanstalk-using-shippable-part-1).
 
+---
 
-Stay tuned for other PaaS/IaaS providers
+Stay tuned for other PaaS/IaaS providers.
