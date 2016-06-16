@@ -75,6 +75,8 @@ ci:
   - pip install awscli
 ```
 
+---
+
 ## Creation of the AppSpec file
 
 The CodeDeploy deployment procedure follows deployment definition that
@@ -129,6 +131,8 @@ pip install -r /home/ec2-user/sample-app/requirements.txt
 
 You can find more details on AppSpec files in [the documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/app-spec-ref.html).
 
+---
+
 ## Using S3 to store build artifacts
 
 As noted above, CodeDeploy needs to 'pull' the build artifact from some
@@ -166,6 +170,8 @@ on_success:
 > `aws deployment create-deployment` command on success, so you can run
 > this command on your workstation to see recommended options.
 
+---
+
 ## Pulling the code from GitHub
 
 The other option is to configure CodeDeploy to pull the application code
@@ -181,6 +187,8 @@ Shippable build:
 on_success:
   - aws deploy create-deployment --application-name $CD_APP_NAME --github-location repository=$REPO_NAME,commitId=$COMMIT --deployment-group-name $CD_DEPLOYMENT_GROUP
 ```
+
+---
 
 ## Making build wait for the deployment completion
 
@@ -205,3 +213,5 @@ on_success:
 ```
 
 We invite you to explore the full sample at [Shippable GitHub account](https://github.com/shippableSamples/sample-python-codedeploy).
+
+---

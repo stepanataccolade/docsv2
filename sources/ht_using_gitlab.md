@@ -10,17 +10,30 @@ Then follow the steps mentioned [here](int_scm.md#gitlab) to add GitLab as
 an Account Integration and sync your Subscriptions. Once complete, you can
 enable a project/repository and setup a `shippable.yml` file to get your builds running.
 
+---
+
 ## Builds
 
 Builds are automatically triggered every time you commit code or open a new
 merge request.
+
+---
 
 ## Merge Requests
 
 Shippable triggers builds for all commits & merge requests, hence you can
 commit/merge code confidently without breaking your app.
 
+---
+
 ## Build Status
 
 Shippable supports displaying GitLab build status right where you need it by
 integrating with GitLab build status API.
+
+---
+
+## Get Started
+Check our blog [getting started with GitLab with Shippable CI](http://blog.shippable.com/getting-started-gitlab-with-shippable-ci)
+
+---
