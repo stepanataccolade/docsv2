@@ -15,6 +15,8 @@ The process for setting up an account integration for all supported registries i
 
 ## Docker Hub
 
+**Adding the Integration:**
+
 You will need to configure this integration to pull or push images to Docker Hub as part of building your project.
 
 
@@ -28,9 +30,24 @@ You will need to configure this integration to pull or push images to Docker Hub
 
 The integration will now be available to all your Continuous Integration and Pipelines settings within the Shippable portal.
 
+**Deleting the Integration:**
+
+To remove the Docker Hub integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
+
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. 
+2. Use the `Filters` dropdown to select `Docker`. Alternatively, you can use the `Integration Name` field to provide the name of your Docker Hub integration.
+3. Your Docker Hub integration shows up in the list.
+4. Click on the `...` next to `Docker` to list all dependencies of this integration. The list will include any project, environment or subscription image dependent on this integration.
+5. Individually access the `Settings` tab for each project/environment/subscription image and delete the Docker integration under the `Hub Integration` section. 
+6. Once all dependencies of the Docker integration have been removed, Step 4 will show the message: `This account integration is not being used.`
+7. Click the `Delete` button for the Docker Integration.
+
+
 --------
 
 ## Amazon EC2 Container Registry (ECR)
+
+**Adding the Integration**
 
 You will need to configure this integration to pull or push images to Amazon ECR.
 
@@ -44,10 +61,24 @@ The integration will now be available to all your continuous integration and dep
 
 NOTE: By default, the ECR region is set to `us-east-1`. To override and specify a desired region, you'll need to configure it in the `shippable.yml`. [See an example](http://docs.shippable.com/ci_faq/#how-do-i-specify-a-region-while-setting-up-amazon-ec2-container-registry-ecr-integration), for reference.
 
+**Deleting the Integration:**
+
+To remove the Amazon ECR integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
+
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. 
+2. Use the `Filters` dropdown to select `Amazon ECR`. Alternatively, you can use the `Integration Name` field to provide the name of your Amazon ECR integration.
+3. Your Amazon ECR integration shows up in the list.
+4. Click on the `...` next to `Amazon ECR` to list all dependencies of this integration. The list will include any project, environment or subscription image dependent on this integration.
+5. Individually access the `Settings` tab for each project/environment/subscription image and delete the Amazon ECR integration under the `Hub Integration` section. 
+6. Once all dependencies of the Amazon ECR integration have been removed, Step 4 will show the message: `This account integration is not being used.`
+7. Click the `Delete` button for the Amazon ECR Integration.
+
 
 --------
 
 ## Google Container Registry (GCR)
+
+**Adding the Integration:**
 
 You will need to configure this integration to pull or push images to Google Container Registry.
 
@@ -74,9 +105,25 @@ On your [Shippable dashboard](https://shippable.com):
 
 The integration will now be available to all your continuous integration and deployment workflows.
 
+**Deleting the Integration:**
+
+To remove the GCR integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
+
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. 
+2. Use the `Filters` dropdown to select `GCR`. Alternatively, you can use the `Integration Name` field to provide the name of your GCR integration.
+3. Your GCR integration shows up in the list.
+4. Click on the `...` next to `GCR` to list all dependencies of this integration. The list will include any project, environment or subscription image dependent on this integration.
+5. Individually access the `Settings` tab for each project/environment/subscription image and delete the GCR integration under the `Hub Integration` section. 
+6. Once all dependencies of the GCR integration have been removed, Step 4 will show the message: `This account integration is not being used.`
+7. Click the `Delete` button for the GCR Integration.
+
+
 --------
 
 ## Quay.io
+
+**Adding the Integration:**
+
 You will need to configure this integration in order to pull or push images to Quay.io. 
 
 **Getting your quay.io accesstoken**
@@ -105,9 +152,23 @@ Create a new Application and an it should be listed under OAuth Applications. Cl
 
 The integration will now be available to all your continuous integration and deployment workflows.
 
+**Deleting the Integration:**
+
+To remove the Quay.io integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
+
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. 
+2. Use the `Filters` dropdown to select `Quay.io`. Alternatively, you can use the `Integration Name` field to provide the name of your Quay.io integration.
+3. Your Quay.io integration shows up in the list.
+4. Click on the `...` next to `Quay.io` to list all dependencies of this integration. The list will include any project, environment or subscription image dependent on this integration.
+5. Individually access the `Settings` tab for each project/environment/subscription image and delete the Quay.io integration under the `Hub Integration` section. 
+6. Once all dependencies of the Quay.io integration have been removed, Step 4 will show the message: `This account integration is not being used.`
+7. Click the `Delete` button for the Quay.io Integration.
+
 --------
 
 ## Private Registry
+
+**Adding the Integration:**
 
 You will need to configure this integration in order to pull or push images from a private Docker registry. To set up this integration, you will need the URL of your private registry.
 
@@ -123,9 +184,25 @@ Note: For fetching image tags we use token based authentication using Docker API
 
 [v2-link]:https://docs.docker.com/registry/spec/auth/token/
 
+**Deleting the Integration:**
+
+To remove the Private Docker Registry integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
+
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. 
+2. Use the `Filters` dropdown to select `Private Docker Registry`. Alternatively, you can use the `Integration Name` field to provide the name of your private Docker registry integration.
+3. Your private Docker registry integration shows up in the list.
+4. Click on the `...` next to `Private Docker Registry` to list all dependencies of this integration. The list will include any project, environment or subscription image dependent on this integration.
+5. Individually access the `Settings` tab for each project/environment/subscription image and delete the Private Docker Registry integration under the `Hub Integration` section. 
+6. Once all dependencies of the Private Docker Registry integration have been removed, Step 4 will show the message: `This account integration is not being used.`
+7. Click the `Delete` button for the Private Docker Registry Integration.
+
+
+
 --------
 
 ## Docker Trusted Registry
+
+**Adding the Integration:**
 
 You will need to configure this integration in order to pull or push images from a Docker Trusted Registry. To set up this integration, you will need the URL of your Docker trusted registry.
 
@@ -136,5 +213,17 @@ You will need to configure this integration in order to pull or push images from
 6. Click on `Save`
 
 The integration will now be available to all your continuous integration and deployment workflows.
+
+**Deleting the Integration:**
+
+To remove the Docker Trusted Registry integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
+
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. 
+2. Use the `Filters` dropdown to select `Docker Trusted Registry`. Alternatively, you can use the `Integration Name` field to provide the name of your Docker Trusted Registry integration.
+3. Your Docker Trusted Registry integration shows up in the list.
+4. Click on the `...` next to `Docker Trusted Registry` to list all dependencies of this integration. The list will include any project, environment or subscription image dependent on this integration.
+5. Individually access the `Settings` tab for each project/environment/subscription image and delete the Docker Trusted Registry integration under the `Hub Integration` section. 
+6. Once all dependencies of the Docker Trusted Registry integration have been removed, Step 4 will show the message: `This account integration is not being used.`
+7. Click the `Delete` button for the Docker Trusted Registry Integration.
 
 ------------
