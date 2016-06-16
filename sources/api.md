@@ -37,6 +37,8 @@ Also be careful to never commit code containing your API token to a public repos
 
 Detailed documentation for API routes is provided below.
 
+---
+
 ## Runs
 
 The old `builds` have now been replaced by `runs`.
@@ -664,6 +666,8 @@ DELETE /runs/:id
 }
 ```
 
+---
+
 ## Jobs
 Jobs are individual builds in a Run. For example, a matrix build will have multiple Jobs that are a part of the Build Run, one for each value in the matrix. For more on matrix builds, [check out our documentation on build config](ci_configure.md#matrix_builds)
 
@@ -1038,6 +1042,8 @@ DELETE /jobs/:id
 
 This will return the entire Job object that is being deleted. The schema is the same as the one for GET /jobs/:id.
 
+---
+
 ## Projects
 
 The Projects endpoint will provide you with information about your projects.
@@ -1290,6 +1296,8 @@ You can also inject global environment variables into the new build by specifyin
 }
 ```
 
+---
+
 ## Subscriptions
 
 ###Get all subscriptions
@@ -1398,6 +1406,7 @@ This route lets you delete your subscription. Please note that all projects, job
 DELETE /subscriptions/:id
 ```
 
+---
 
 ## Accounts
 
@@ -1773,6 +1782,8 @@ Deletes the specified account
 
 The accounts schema described in GET /accounts/:id is returned.
 
+---
+
 ## Status Code Mapping
 Given below is the mapping of a build's statusCode to the build states displayed in the UI.
 
@@ -1788,7 +1799,7 @@ Given below is the mapping of a build's statusCode to the build states displayed
 
 Here is more information on [build states](ci_builds/#build-status).
 
-*****
+---
 
 ## Sign into Shippable
 
@@ -1819,4 +1830,4 @@ Here is more information on [build states](ci_builds/#build-status).
     <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-*****
+---

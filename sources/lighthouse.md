@@ -18,6 +18,7 @@ We're actively expanding Lighthouse functionality to include monitor dependencie
 
 You can check out Lighthouse bu signing in to [Shippable](https://app.shippable.com) and clicking on `Lighthouse` on the landing page.
 
+---
 
 ## Adding an image
 
@@ -36,10 +37,13 @@ To add an image to Lighthouse and receive notification when the image is updated
 
 Images are 'watched' every 20 mins, so your notification will be sent 20 mins after the image is updated, in the worst case.
 
+---
 
 ## Tags
 
 Lighthouse periodically polls the registry and the tags are updated when there is any update to the image in the source registry. You will see the latest tag against the image when the image is synced.
+
+---
 
 ## Updating an image
 
@@ -49,6 +53,8 @@ To update an image or change the notification settings:
  - You will see the list of images being watched on the Lighthouse Dashboard
  - Click on the image_name to update the notification setting
 
+---
+
 ## Deleting an image
 
 To delete an image on lighthouse:
@@ -57,7 +63,8 @@ To delete an image on lighthouse:
  - You will see the list of images being watched on the Lighthouse Dashboard
  - Click on the `Delete` button for the image(s) you want to stop monitoring
 
-*****
+---
+
 
 ## Sign into Shippable
 
@@ -88,4 +95,4 @@ To delete an image on lighthouse:
   <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-*****
+---

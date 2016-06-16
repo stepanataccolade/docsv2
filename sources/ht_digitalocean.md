@@ -7,6 +7,8 @@ page_keywords: digital ocean, continuous deployment, CI/CD
 DigitalOcean is a VPS provider that offers a number of pre-prepared
 virtual machine images to start from.
 
+---
+
 ## Using Capistrano to deploy
 
 The guide below will show how to deploy a Ruby on Rails application,
@@ -219,6 +221,8 @@ on_success:
 We invite you to explore our Ruby on Rails + Capistrano sample on our
 [Shippable GitHub account](https://github.com/shippableSamples/sample-rubyonrails-capistrano-digitalocean).
 
+---
+
 ## Using Dokku to deploy
 
 The guide below will show how to deploy a Node.js application,
@@ -289,3 +293,5 @@ Dokku's buildpacks based on Heroku's standard. This isn't a hard requirement to 
 
 We invite you to explore our Node + DigitalOcean sample on our
 [Shippable GitHub account](https://github.com/shippableSamples/sample-nodejs-digitalocean).
+
+---

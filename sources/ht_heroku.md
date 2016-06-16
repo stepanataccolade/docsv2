@@ -10,6 +10,8 @@ technologies to build and deploy apps on Heroku. There are two methods
 of deploying your applications to Heroku: using Heroku toolbelt or plain
 git command only.
 
+---
+
 ## Without Heroku toolbelt
 
 To be able to push your code to Heroku, you need to add SSH public key
@@ -41,6 +43,8 @@ toolbelt can be found on [our GitHub account](https://github.com/shippableSample
 >
 > If you happen to build other branches than `master`, please see
 > [Deploying from branches other than master](#heroku_other_branches) for details.
+
+---
 
 ## With Heroku toolbelt
 
@@ -104,6 +108,8 @@ configuring Heroku builds.
 > If you happen to build other branches than `master`, please see
 > [Deploying from branches other than master](#heroku_other_branches) for details.
 
+---
+
 ## Deploying from branches other than master
 
 Heroku always deploys contents of `master` branch, so if you happen to
@@ -121,6 +127,8 @@ the branches, so plain push would fail due to divergent histories.
 ```yaml
 - git push -f heroku $BRANCH:master
 ```
+
+---
 
 ## Using ClearDB MySQL database
 
@@ -151,6 +159,8 @@ $con = mysqli_connect($host, $username, $password, $db);
 Please refer to [Heroku docs](https://devcenter.heroku.com/articles/cleardb) for details on how to fetch and parse the url in different programming languages. Full
 sample of deploying PHP+MySQL application to Heroku (using Heroku
 toolbelt) can be found on [our GitHub account](https://github.com/shippableSamples/sample-php-mysql-heroku).
+
+---
 
 ## Using Heroku Postgres with Ruby on Rails
 
@@ -187,6 +197,8 @@ be done automatically if you create your rails app with
 `--database=postgresql` option. See [our sample Ruby on Rails Heroku
 application](https://github.com/shippableSamples/sample-rubyonrails-postgres-heroku)
 for details.
+
+---
 
 ## Test and coverage reports for Ruby on Rails
 
@@ -226,6 +238,8 @@ env:
 
 See [our sample Ruby on Rails Heroku application](https://github.com/shippableSamples/sample-rubyonrails-postgres-heroku) for details.
 
+---
+
 ## General information on using MongoDB
 
 You have two addons to choose from when using MongoDB on Heroku:
@@ -259,6 +273,8 @@ env:
 
 Then proceed to configure your application as is outlined in
 per-language guides below.
+
+---
 
 ## Using MongoDB with PHP
 
@@ -301,6 +317,8 @@ demonstrated in the last line of the snippet above.
 Full sample of deploying PHP+MongoDB application to Heroku (using Heroku
 toolbelt) can be found on [our GitHub account](https://github.com/shippableSamples/sample-php-mongo-heroku).
 
+---
+
 ## Using MongoDB with Python
 
 First, create file called `Procfile` that will tell Heroku how to launch
@@ -340,6 +358,8 @@ is demonstrated in the last line of the snippet above.
 
 Full sample of deploying Python+MongoDB application to Heroku (using
 Heroku toolbelt) can be found on [our GitHub account](https://github.com/shippableSamples/sample-python-mongo-heroku).
+
+---
 
 ## Using MongoDB with Ruby
 
@@ -397,6 +417,8 @@ on_success:
 Full sample of deploying Sinatra+MongoDB application to Heroku (using
 Heroku toolbelt) can be found on [our GitHub account](https://github.com/shippableSamples/sample-ruby-mongo-heroku).
 
+---
+
 ## Using MongoDB with Node.js
 
 First, create file called `Procfile` that will tell Heroku how to launch
@@ -428,3 +450,5 @@ mongoose.connect(process.env.MONGOLAB_URI);
 
 Full sample of deploying Express+MongoDB application to Heroku (using
 Heroku toolbelt) can be found on [our GitHub account](https://github.com/shippableSamples/sample-nodejs-mongo-heroku).
+
+---

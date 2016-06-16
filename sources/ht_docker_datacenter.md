@@ -2,13 +2,16 @@ page_title: Deploying to Docker Datacenter
 page_description: How to deploy your application to Docker Datacenter
 page_keywords: docker datacenter, continuous deployment, CI/CD
 
-## Docker Datacenter
+# Docker Datacenter
 Docker Datacenter CaaS (Containers-as-a-Service) enables enterprises to deploy Containers on-premises and on their virtual private cloud (VPC). We will see the Shippable CI/CD workflow, involving the following components of Docker Datacenter.
 
 - __Docker Trusted Registry__ (DTR) - Pull and push images to your Docker Datacenter.
 - __Universal Control Plane__ (UCP) - Deploy and manage containers on your Docker Datacenter.
 
-### Continuous Integration
+---
+
+## Continuous Integration
+
 Throughout the demo, we will use a [sample node.js application](https://github.com/shippablesamples/sample_node_ddc) to demonstrate the workflow.
 
 Once you enable your project, it is critical to have a `shippable.yml` file to use Shippable CI. The `shippable.yml` file includes instructions to run your tests and push your docker images to a registry. To know more about the CI workflow, please check the [CI overview](ci_overview).
@@ -41,7 +44,9 @@ In the ci section shown above, we issue commands to run tests. Once the tests ar
 
 In the sample application, we will push the docker images to the Docker Trusted Registry using the integration named `Shippable-DTR` ( Check [how to create integration for a docker registry in Shippable](int_docker_registries.md))
 
-### Continuous Delivery
+---
+
+## Continuous Delivery
 After we push the images to Docker Trusted Registry, the latest image automatically deploys to Docker Datacenter. Shippable Pipelines provides the choice of deploying containers to Docker Datacenter, manually & automatically, once the project build is complete.
 
 Configuring the deployment process involves two steps.
@@ -71,3 +76,8 @@ While adding the image, you can configure various options like Port Mapping, Mem
 
 * Since, we have mapped the Container Port 80 with Host port 30662, we can access the Web server running in the container via that port. Make sure to expose the port 30662 on your firewall. If everything went right, you should see this already !
 <img src="../images/ddc_sample_app.png" alt="Sample Application" style="width:700px;"/>
+
+For more details, check our stepwise guide to [getting started with Docker Datacenter](http://blog.shippable.com/getting-started-with-docker-datacenter).
+
+---
+ 

@@ -92,6 +92,8 @@ on_success:
 > stack/application, but so called OpsWorks IDs. They can be accessed in
 > stack/application settings page in the OpsWorks Management console.
 
+---
+
 ## Connecting to MySQL
 
 OpsWorks provides predefined MySQL layer to add to your stack.
@@ -144,6 +146,8 @@ ci:
 See the full sample of PHP web application featuring MySQL connection
 [on GitHub](https://github.com/shippableSamples/sample-php-mysql-opsworks)
 for details.
+
+---
 
 ## General information on using Amazon DynamoDB
 
@@ -297,6 +301,8 @@ on_success:
 Then proceed to configure your application as is outlined in
 per-language guides below.
 
+---
+
 ## Using DynamoDB with PHP
 
 To access DynamoDB, you need some client library that is able to speak
@@ -365,6 +371,8 @@ $client->createTable(array(
 ```
 
 Refer to the [DynamoDB client documentation](http://docs.aws.amazon.com/aws-sdk-php/guide/latest/service-dynamodb.html) and [the full sample](https://github.com/shippableSamples/sample-php-dynamo-opsworks) on our GitHub account for details.
+
+---
 
 ## Using DynamoDB with Node.js
 
@@ -444,4 +452,5 @@ db.putItem(params, callback);
 
 Refer to the [DynamoDB client documentation](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html) and [the full sample](https://github.com/shippableSamples/sample-nodejs-dynamo-opsworks) on our GitHub account for details.
 
+---
 
