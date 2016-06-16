@@ -2,8 +2,13 @@ page_title: Shippable CI/CD Dashboard
 page_description: Explanation of the CI/CD Dashboard
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml
 
-#CI dashboard
+#Subscription
 A subscription on Shippable corresponds to an individual or organizational subscription on GitHub/Bitbucket. Your pricing plans are enforced at this level, so you need to determine your minion needs for each subscription.
+
+* * * 
+
+## CI Dashboard
+The `CI` tab of your Subscription page shows you the latest status of all enabled projects. You can also view in progress builds and build history.
 
 To get to the CI dashboard,
 
@@ -11,10 +16,8 @@ To get to the CI dashboard,
 - Click on the `Subscriptions` dropdown and select the subscription you want to view.
 - This will bring you to the CI tab which shows you the latest status for your projects.
 
-## Status
-The `CI` tab of your Subscription page shows you the latest status of all enabled projects. You can also view in progress builds and build history.
+<img src="../images/mv_ci_dashboard.gif" alt="Continuous Integration Dashboard" style="width:700px;"/>
 
-<img src="../images/subscription_dashboard.png" alt="Subscription Dashboard" style="width:800px;"/>
 
 The **Summary View** is the default view when you navigate to this dashboard. It shows you the latest status for all enabled projects. By default, the latest status for a project is the build status for the latest commit for the default branch configured in your source control account. You can customize the branch(es) shown on this page and also configure this view to include status for pull request builds. More details on this in the [Dashboard Settings for Projects](ci_projects/#dashboard-settings).
 
@@ -22,10 +25,14 @@ If a build is queued or in progress, you will see at the top of the 'Summary' vi
 
 NOTE: To view time stamp for a build, hover the mouse over time details
 
+<img src="../images/subscription_dashboard.png" alt="Subscription Dashboard" style="width:700px;"/>
+
+
 The **History View** shows the build history across all enabled project in the subscription. You can filter this view by commit vs pull request builds, build status, and project name.
 
 You can also see how many minions are being used at the current time by looking at the **Minion usage** count.
 
+* * *
 
 ## Project actions
 
@@ -33,18 +40,16 @@ You can enable projects and trigger manual builds from the CI tab of the Subscri
 
 ###Enabling a project
 
-You can enable a project for CI by going to the clicking on the `Enable Project` button.
+You can enable a project for CI by doing the following: 
 
-<img src="../images/project_dashboard_list.png" alt="Dashboard List Page" style="width:800px;"/>
-
-- This brings you to the page with the list of repositories that not yet enabled in your subscription.
-- Click on the `Enable` button to enable a particular repository. You could also the search function to look for a repository and enable it.
-
-<img src="../images/project_dashboard_enable_project.png" alt="Dashboard Enable Project Page" style="width:800px;"/>
-
-- If you have recently added a repository to github/bitbucket, click on the `Sync` button and check to see if you can see your new repository.
+- Click on the `Enable Project` button on your `Subscription` page. This brings you to the page with the list of repositories that are not yet enabled within your subscription.
+- Click on the `Enable` button to enable a particular repository. If you have a long list of repositories, pull it up by typing the name of the repo to filter by name and enable it.
+- If you have recently added a repository to github/bitbucket and do not see it in the list, click on the `Sync` button. Once the sync is complete, you should see the new repo in the list, for you to enable.
 
 After enabling a project you will be redirected to the project's page on Shippable. More details on this are in our [Projects section](ci_projects.md)
+
+<img src="../images/mv_enable_project.gif" alt="Dashboard List Page" style="width:700px;"/>
+
 
 ### Building a Project
 Once enabled, you can build a project in the following ways -
@@ -56,10 +61,13 @@ Once enabled, you can build a project in the following ways -
 
 You can trigger manual builds for an enabled project by clicking on `Build` for a project in the **Summary View** of the subscription dashboard. To rebuild a previous build, go to the **History view** and click on `Rebuild` for any build listed there.
 
+* * * 
+
 ## Settings
 You can perform subscription level actions by clicking on the `Settings` tab on the Subscription page.
 
 <a name="ci_byoh"></a>
+
 ### Adding your own build infrastructure (BYOH)
 By default, all your builds run inside build containers hosted on Shippable's infrastructure. However, you can choose to run your builds on your own infrastructure, i.e. you can 'Bring your own hosts (BYOH)'. To understand the advantages of BYOH, check out the [Running builds on your machines section](ci_byoh.md).
 
@@ -97,6 +105,7 @@ You can reinitialize a node by clicking on the `Reinitialize` button. This will 
 #### Deleting a build node
 Click on `Delete` to delete your build node. This action is final and cannot be undone.
 
+
 ### Selecting the Machine Images
 The Machine Images section has a list of images that are available to run your builds. All the builds for your subscription will be using the stable image by default. You can switch to other images based on your requirements. Once you switch the images, all the builds for your subscription will be using the image that you have selected and you can switch back to the default version anytime.
 
@@ -133,7 +142,8 @@ The Deployment key section shows the SSH public key associated with your Shippab
 
 Our How To guides provide instructions on how to enable continuous deployment to different providers.
 
+
 ### Resetting your CI projects
 Resetting a subscription recreates all webhooks and deployment keys for your subscription. This should only be done if your subscription is in an inconsistent state and you need to restore it. Please note that you will need to re-encrypt all environment variables for your subscription after resetting it.
 
-
+* * * 

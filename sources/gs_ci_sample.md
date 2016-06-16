@@ -8,14 +8,20 @@ This tutorial walks through the process of running a sample build using Shippabl
 
 You need a GitHub account to complete this tutorial.
 
+* * * 
+
 ## Fork our sample project
 
 Fork the following GitHub repositories in order to complete the tutorial:
 
 <https://github.com/shippableSamples/sampleNod> 
 
+* * * 
+
 ## Sign in
 Login to [Shippable](http://www.shippable.com) using your GitHub credentials. 
+
+* * * 
 
 ## Enable a project
 
@@ -27,6 +33,8 @@ The first step is to enable continuous integration for your forked repository.
 -  Find the samplenod project and click on the `Enable` button.
 - If samplenod repo is not shown  in the list, click on the `Sync` button next to the Search box. This syncs your Shippable subscription with your source control account. Find the samplenod project and enable it.
 
+* * * 
+
 ## Run a build
 Your sample project already has a config file 	`shippable.yml` at the root of the repository.
  
@@ -34,11 +42,17 @@ Your sample project already has a config file 	`shippable.yml` at the root of th
 
 - Click the `Build` button to trigger your build.
  
+* * * 
 
 ## View build status
 Congratulations! You have successfully run your first build on Shippable. 
 
-*****
+* * * 
+
+## More examples
+Check out the stepwise, multi-part series of tutorials that takes you through running CI on a node.js application [hosted on a public repo](http://blog.shippable.com/get-started-with-continuous-integration-for-nodejs-app), [private repo](http://blog.shippable.com/running-ci-on-a-node.js-application-hosted-on-a-private-repository), [configuring unit tests](http://blog.shippable.com/configuring-a-unit-test-to-check-for-errors-on-the-node.js-application) and much, much more.
+
+* * *
 
 ## Sign into Shippable
 
@@ -69,4 +83,4 @@ Congratulations! You have successfully run your first build on Shippable.
   <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-*****
+---

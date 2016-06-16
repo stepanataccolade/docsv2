@@ -3,7 +3,7 @@ page_description: Explanation of the CI/CD Dashboard
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml
 
 # Projects
-A project on Shippable CI corresponds to a repository in your source control that you have enabled for CI. To learn how to enable a repository, check out the Enable a project section in [Subscriptions doc](ci_subscriptions.md)
+A project on Shippable CI corresponds to a repository in your source control that you have enabled for CI. To learn how to enable a repository, check out the ["Enable a project"](ci_subscriptions/#enabling-a-project) section.
 
 To get to the page for a particular project,
 
@@ -12,6 +12,7 @@ To get to the page for a particular project,
 - This will bring you to Dashboard of the subscription which shows latest status for all your projects.
 - Click on the project name to view the Project page. This will take you to the project dashboard.
 
+* * * 
 
 ## Dashboard
 The Project Dashboard shows you the latest status of all branches of the project. You can also view in progress builds and build history. You can get here by clicking on a project from the Shippable Home Page or Subscriptions page.
@@ -28,6 +29,7 @@ NOTE: To view time stamp for a build, hover the mouse over time details
 
 The **History View** shows the build history across all branches in the project. You can filter this view by commit vs pull request builds, build status, and branch name.
 
+
 ### Manually building a branch
 You can trigger manual builds for branch by clicking on `Build` for the branch in the **Summary View** of the project dashboard. If you cannot see the branch you want to build, check the `Show all branches` checkbox which will show all branches irrespective of whether they configured to be shown in `Dashboard Settings`.
 
@@ -36,6 +38,8 @@ To rebuild a previous build, go to the **History view** and click on `Rebuild` f
 ### Deleting builds
 
 You can **Delete builds** by clicking on the `Delete builds` button, checking the builds you want to delete, and clicking on `Delete`.
+
+* * * 
 
 ## Settings
 You can perform project level actions by clicking on the `Settings` tab on the Project page as shown below:
@@ -96,6 +100,8 @@ By default, builds that are running for over 120 minutes will time out. You can 
 - Once you set a custom timeout, it'll be in effect immediately
 - Click on 'Clear' to revert back to the default setting of 120 minutes
 
+For more details refer to our blog - [Changing the default time for a Continuous Integration projet](http://blog.shippable.com/changing-the-default-timeout-for-a-continuous-integration-project).
+
 
 ### Build status badges
 You can get embeddable build status badges for your project. These provide a visual indication of project status.
@@ -104,12 +110,14 @@ Select the branch you want the status for and also whether you want the 'Image U
 
 You can use this code anywhere you want to display the badge. For example, many customers  display this badge in the README.md of their project so anyone who goes to the project page on GitHub/Bitbucket can see it and know the project's status.  
 
+To learn more about practical examples, check out our blog - [Configuring a build badge for a node.js project status](http://blog.shippable.com/configuring-a-visual-indicator-for-a-node.js-project-status).
+
 ### Code coverage badges
 Similar to the build status badge, you can get embedded code coverage badges for your project, to provide visualization of the code coverage status for a repository.
 
 Select the branch you want the status for and pick between the 'Image URL' or 'Markdown' options. Copy the embedded code.
 
-You can use this code to display your code coverage report after code coverage runs. The badge displays appropriate colors depending on the code coverage configuration in the `shippable.yml`. Refer the  [documentation](http://docs.shippable.com/ci_configure/#test_code_coverage) on how to configure code coverage reports.
+You can use this code to display your code coverage report after code coverage runs. The badge displays appropriate colors depending on the code coverage configuration in the `shippable.yml`. Refer the  [documentation](http://docs.shippable.com/ci_configure/#test_code_coverage) on how to configure code coverage reports. In addition, refer to a step by step blog on [setting up code coverage for tests in Continuous Integration](http://blog.shippable.com/setting-up-code-coverage-visualization-for-tests-in-ci).
 
 
 ### Configure Webhook Events for Triggering Builds
@@ -125,6 +133,7 @@ NOTE: The above webhook events, when enabled, trigger builds on Shippable irresp
 
 <img src="../images/configure_build_triggers.png" alt="Configure Webhook events to trigger builds" style="width:700px;"/>
 
+Walk through the different scenarios and [configure webhooks to trigger Continuous Integration builds](http://blog.shippable.com/configure-web-hooks-to-trigger-continuous-integration).  
 
 ### Run Parallel Jobs
 Disabling parallel jobs allows you to restrict job processing based on branch name.  When this setting is disabled, any waiting job will not begin until all processing jobs have completed.
@@ -164,3 +173,5 @@ Resetting a project recreates all webhooks and deployment keys for your project.
 You can delete your project by clicking on the `Delete` button and then clicking on `Confirm`. Please note that deleting a project will delete all build history and delete all webhooks.
 
 Deleting a project has no effect on the repository in your source control.
+
+* * * 

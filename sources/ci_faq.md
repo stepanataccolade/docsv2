@@ -13,6 +13,9 @@ You can do this by going to the **Billing** Tab on your Subscription Dashboard a
 
 Plan upgrades are effective immediately and your bill will be pro-rated for the current month. Plan downgrades are effective immediately, however we do not issue refunds for minions that were already paid for during the current month.
 
+Check our blog on [upgrading your CI/CD subscription](http://blog.shippable.com/how-to-upgrade-your-ci-cd-subscription) for additional details.
+
+---
 
 ## Why can't I see some of my repositories in my Shippable account?
 
@@ -22,9 +25,13 @@ This happens due to one of the following reasons:
 - Your account hasn't yet been synced with the latest permissions from GitHub. To force sync your account, go to your Account Settings and click on the `Force Sync` icon next to your Account Id.
 -  You're a Bitbucket user and you have mercurial repositories. We do not support mercurial at this time, so you will need to convert them to git or use another platform for CI/CD.
 
+---
+
 ## Why do I get an error when I try to enable a project that is listed on my dashboard?
 
 This usually happens if you are a collaborator on a project and the owner of the project has not given Shippable access to the project. You can verify this by confirming that the owner of the project can see the project on their Shippable dashboard.
+
+--- 
 
 ## How can I validate my shippable YML?
 
@@ -32,6 +39,8 @@ You can use either of the tools below to validate if your YML is valid:
 
 * [YAML Lint](http://www.yamllint.com/)
 * [YAML Online Parser](http://yaml-online-parser.appspot.com/)
+
+---
 
 ## I have enabled my repository and committed code, but my build doesn't start. What could be wrong?
 
@@ -44,6 +53,8 @@ A couple of reasons why this could happen:
 * [YAML Lint](http://www.yamllint.com/)
 * [YAML Online Parser](http://yaml-online-parser.appspot.com/)
 
+---
+
 ## Why can't I see my BitBucket repos in my Shippable account?
 
 Shippable only supports git based repositories, so if you have mercurial
@@ -51,6 +62,8 @@ repositories in your BitBucket account, you will not see them in the
 Shippable repository list. If you cannot see git based repos, please
 open an issue on our [GitHub Support
 repo](<https://github.com/Shippable/support>).
+
+---
 
 ## Why can't Shippable see my org on GitHub?
 
@@ -60,9 +73,13 @@ manually grant access to Shippable. This can be resolved by going to the
 third-party access section for the org, and clicking 'Remove
 restrictions' Under the 'Third-party application access policy' section.
 
+---
+
 ## How do I link my GitHub and Bitbucket accounts?
 
-Please read our documentation on [linking GitHub and Bitbucket accounts](ht_link_gh_and_bb.md).
+Please read our documentation on [linking GitHub and Bitbucket accounts](ht_link_gh_and_bb.md). In addition, refer our [blog](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts) on this topic.
+
+---
 
 ## Why am I not able to see Bitbucket org repos after deleting and recreating my account on Shippable?
 
@@ -71,6 +88,8 @@ associated with the account. If you recreate your account, bitbucket
 will not allow us to pull all the permissions you have, unless the owner
 of that organization logs in back to shippable and then click on the
 sync repos button to see the repos.
+
+---
 
 ## How do I set desired timezones inside the minions?
 
@@ -88,6 +107,8 @@ before_script:
 This will change your minion timezone to paris time. Refer the article
 [list of tz database time zones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones) to select the timezone for your location.
 
+---
+
 ## How do I skip webhook builds?
 
 Any changes to your source code will trigger a build automatically on Shippable. If you do not want to run build for a particular commit,
@@ -100,10 +121,13 @@ webhook build will not be executed.
 
 **PR Build with multiple commits:** If the original commit did not include the skip flags and subsequent commits do, the PR build will _not_ skip a build.
 
+---
 
 ## Why is my project showing up as "empty" after I enable it? It is certainly not empty in github!
 
 A project is empty in Shippable if there are zero builds associated with it. A new project that you have just enabled shows up as an empty project. To avoid cluttering the project page with projects that are never built, the projects page doesn't show projects that have no builds unless you explicitly use the check box to let us know you want to see all projects. An exception to this is if you have just enabled a project; we do check this box during the enable process, so you are able to see your new project. We are continuously iterating on the user experience, so please write to us at support@shippable.com if you have any feedback on the feature.
+
+---
 
 ## My builds are failing at git_sync with error "Host key verification failed". Why?
 In the updated Shippable platform, you will see this error below, in two scenarios:
@@ -126,6 +150,8 @@ build:
 
 For more information, view the [migration guide](http://blog.shippable.com/migrating-to-the-new-build-platform) and the [Top 5 tips for a successful migration](http://blog.shippable.com/5-tips-for-a-successful-migration).
 
+---
+
 ## My builds are failing at git_sync with error "Permission denied (publickey)". How do I resolve it?
 To resolve the error shown below, go into the 'Settings' tab of your project. Scroll all the way down & click the 'Reset' button. This will reset the webhook & deploy the necessary key for the project.
 ```
@@ -136,11 +162,14 @@ Please make sure you have the correct access rights
 and the repository exists.
 ```
 
+---
+
 ## In my total build time, provisioning a node takes the longest time. How can I reduce the node provisioning time?
 When you trigger a build, we spin up a build machine and run your build. This provisioning takes approximately 2-3 minutes.
 
 If you want your builds to start immediately and avoid the node provisioning time, you can use our feature that lets you run builds on your own infrastructure. You can buy a machine from AWS or Digital Ocean or Linode and attach it to your Shippable subscription. We will run all your builds on your attached machines, and since your machines are always up, we will not need to provision nodes and this will save ~3 mins per build. You can read more about [Bringing Your Own Host - BYOH](http://docs.shippable.com/ci_byoh/). Once you BYOH, [read the instructions](http://docs.shippable.com/ci_subscriptions/#adding-your-own-build-infrastructure-byoh) for attaching your build infrastructure to Shippable.
 
+---
 
 ## I am pushing to heroku as part of my build. Why is this suddenly failing?
 
@@ -158,9 +187,14 @@ You will need to replace the `~/.ssh/id_rsa` to `/tmp/ssh/00_sub` since that is 
 ```
 Your push to Heroku should succeed with this change.
 
+---
+
 ## I cannot start a manual build for my Bitbucket project. Why is it not working?
 
 Check your branch name to see if it contains a ```/```. The Bitbucket API currently does not support branch names with a ```/``` in them. We opened a support issue with them - [Get commit/{revision} API does not accept branch names with "/"](https://bitbucket.org/site/master/issues/9969/get-commit-revision-api-does-not-accept) over 1 year ago and there is still no resolution for this. This is not a Shippable bug and while we understand that this affects everyone who uses Gitflow+Shippable+Bitbucket, we cannot fix this at our end.
+
+---
+
 ## I am using PHP 7.0 and am unable to install extensions as part of my yml config.
 
 We use pickle to install extensions for PHP. This works for all versions of PHP except 7.0.
@@ -168,6 +202,9 @@ We use pickle to install extensions for PHP. This works for all versions of PHP 
 Pickle requires `php$ver-dev` environment (which has development modules) to compile extensions. At this time, there is no official php7-dev environment, so pickle is unable to find dependent modules and cannot compile extensions like intl, redis, and gettext.
 
 We will watch for updates and as soon as `php7-dev` is available, the next image update will address this.
+
+---
+
 ## How do I specify a region while setting up Amazon EC2 Container Registry (ECR) Integration?
 When you set up the [Amazon ECR integration](http://docs.shippable.com/int_docker_registries/#amazon-ec2-container-registry-ecr), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
 
@@ -178,6 +215,8 @@ integrations:
       type: ecr
       region: us-west-2
 ```
+
+---
 
 ## How do I use Ruby in a build with another language?
 
@@ -195,12 +234,16 @@ build:
     - source /usr/local/rvm/scripts/rvm
 ```
 
+---
+
 ## Docker Compose fails with the following error
-`The Docker Engine version is less than the minimum required by Compose. Your current project requires a Docker Engine of version 1.10.0 or greater`
+```
+The Docker Engine version is less than the minimum required by Compose. Your current project requires a Docker Engine of version 1.10.0 or greater
+```
 
 You can navigate to the subscription settings page and select the unstable image which has docker version 1.11.1 available on it and all the builds for your subscription will be using this image to run your builds. For more info check out the [Machine Images Section](ci_subscriptions.md#selecting-the-machine-images)
 
-*****
+---
 
 ## Sign into Shippable
 
@@ -231,4 +274,4 @@ You can navigate to the subscription settings page and select the unstable image
   <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-*****
+---

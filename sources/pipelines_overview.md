@@ -68,7 +68,7 @@ In simple terms, a pipeline is the lifecycle for a unit of deployment, aka 'Cell
 
 A monolithic application is likely to need just one pipeline while a microservices based application might need tens or hundreds of pipelines. Most real world applications lie somewhere in the middle of this spectrum.
 
-<img src="../images/pipeline_status.png" alt="Subscription Dashboard" style="width:700px;"/>
+<img src="../images/pipelines_status.png" alt="Subscription Dashboard" style="width:700px;"/>
 
 A pipeline is defined by:
 

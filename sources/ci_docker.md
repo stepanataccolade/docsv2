@@ -7,6 +7,8 @@ The Shippable platform is natively built on Docker and is one of the largest dep
 
 While the content in this section is available scattered in various docs depending on the scenario, we thought it would help Docker users to have one place they can go to in order to figure out our Docker support.
 
+* * * 
+
 ##Docker commands in yml
 You can include Docker commands in your shippable.yml in order to set up your CI workflow.
 
@@ -31,6 +33,8 @@ integrations:
         type: docker
 ```
 
+* * * 
+
 ##Docker registries integration
 Shippable integrates with all popular Docker registries such as:
 
@@ -44,6 +48,8 @@ Shippable integrates with all popular Docker registries such as:
 You can push your images to or pull images from any of these registries by configuring your credentials in Shippable and using them to connect with these registries in your config file.
 
 For more on configuring integrations, check out the [Docker registries integration](int_docker_registries.md) docs. For more on how to use the integration in order to push and pull images, check out our [build config docs](ci_configure.md/#Docker) here.
+
+* * * 
 
 ##Docker compose
 Using [Docker compose](https://docs.docker.com/v1.5/compose/) lets you spin up a full topology and test your commits against a live application. This is much more powerful than just unit testing with stubs and is a great way for developers to find functional bugs before their commits travel farther in the delivery pipeline.
@@ -61,13 +67,14 @@ The `docker ps` command will show you the containers running on your minion. You
 
 If Docker Compose fails due to older Docker versions, then you have the option of using the latest AMI for your subscription. Check out the [Docker-Compose FAQ section](ci_faq/#docker-compose-fails-with-the-following-error)
 
+* * * 
 
 ##Docker in Test environments and Production
 Shippable provides build related Docker functionality as well as continuous delivery pipelines that you can use to deploy your application to test environments.
 
 Check out our [CD pipelines to learn more](pipelines_overview.md)
 
-*****
+---
 
 ## Sign into Shippable
 
@@ -98,4 +105,6 @@ Check out our [CD pipelines to learn more](pipelines_overview.md)
   <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-*****
+
+* * * 
+

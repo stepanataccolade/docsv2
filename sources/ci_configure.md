@@ -1,10 +1,12 @@
-  page_title: Shippable Build Configuration
+page_title: Shippable Build Configuration
 page_description: How to write your Shippable YML and Set up your Build Configuration
 page_keywords: getting started, questions, documentation, shippable, config, yml
 
 # Configure your build
 
 All build configuration happens through shippable.yml which should be present at the root of the repository you want to build using Shippable. The following sections describe the overall structure of the shippable.yml file, as well as detailed descriptions of every section in it.
+
+* * * 
 
 ##shippable.yml structure
 
@@ -68,7 +70,9 @@ integrations:
           branches:
 ```
 
-Details on what can be set in each section are in
+Details on what can be set in each section of the `shippable.yml` are listed below.
+
+* * * 
 
 ## Specifying language and runtime
 
@@ -111,9 +115,12 @@ Specific examples for each language are in our [Language guide](ci_languages.md)
 
 Specifying ```language: none``` in your yml skips any default language specific processing and will require you to specify a custom image for your build. Details are in the [Building unsupported languages](#unsupported_languages) section.
 
+* * * 
 
 ## Preparing your environment
 The `pre_ci` section lets you prepare your environment before your CI container is booted up. This could include building the docker image you want to use for CI, installing dependencies that your container needs, etc.
+
+* * * 
 
 <a name="build_images"></a>
 ## Setting your build image
@@ -159,7 +166,7 @@ You can add a Hub integration to project settings by going to your Project Setti
 
 <img src="../images/project_settings_hub_integration.png" alt="Account Settings Subscription" style="width:400px;"/>
 
-Once you have a Hub integration configured in your Project Settings, you can use it in your shippable.yml for the project.
+Once you have a Hub integration configured in your Project Settings, you can use it in your shippable.yml for the project. Check our [Docker Registries Integrations](int_docker_registries/) page for specifics on different Docker Registries such as Docker Hub, Amazon ECR, Google Container Registry, Quay.io, Private registry and Docker Trusted Registry.
 
 ###Building your CI image
 
@@ -239,6 +246,8 @@ For your specific case:
 
 The example yml above will pull the image manishas/myImage:tip using the integration manishas_dockerhub, and run the container with option `--privileged=true` and set env `FOO=BAR` inside the container.  
 
+* * * 
+
 ## The `ci` section
 
 The `ci` section of your yml is where the bulk of your build commands should be included. All commands in this section are executed sequentially inside your build container in the order they appear in your yml.
@@ -264,6 +273,8 @@ build:
     - npm test
     - mysql -e 'create database if not exists test;'
 ```
+
+* * * 
 
 ## Pushing an image to a registry
 
@@ -518,6 +529,8 @@ sudo pip install awscli
 
 <a name="matrix_builds"></a>
 
+* * * 
+
 ## Running multiple builds per commit
 
 In most cases, you want to trigger one build for each commit/pull request to your repository. However, there are times when you might want to trigger multiple builds for a single code change. For example, you might want to test against multiple versions of Ruby, multiple aspect ratios for your Selenium tests, or multiple environment variables.
@@ -580,6 +593,8 @@ matrix:
 
 Please note that you can specify language versions as number or string, i.e. as `0.10` or as `"0.10"`. In most cases the format is entirely interchangeable. However, in cases where the version number ends with a 0, such as `5.10`, it is safer to use a string to avoid the yml parser from transating the version to `5.1`.
 
+As an example, check out this tutorial on [testing a node.js app against multiple versions of node](http://blog.shippable.com/how-to-test-your-node.js-app-against-multiple-versions-of-node). 
+* * * 
 
 ## Using environment variables
 
@@ -765,6 +780,8 @@ env:
 > secured variables are also not displayed in the script tab for
 > security reasons.
 
+* * * 
+
 ## Caching
 
 You can turn on caching for your builds by including `cache: true` in the `build` section of your shippable.yml. This will cache contents of the build directory $SHIPPABLE_BUILD_DIR.
@@ -815,6 +832,8 @@ When caching is enabled, the entire build directory including artifacts (when `c
 
 * Add commands such as `rm` to remove the unwanted files in your `shippable.yml` in the `ci` section.  
 
+* * * 
+
 ## Retrying a command
 
 Sometimes, commands like `npm install` fail due to the intermittent network issues and this affects your build result. To avoid this, you can use `shippable_retry` in the yml to try the command up to 3 times if it returns a non-zero code.
@@ -828,6 +847,9 @@ build:
     - shippable_retry sudo apt-get update
     - shippable_retry sudo apt-get install something
 ```
+
+For more examples, refer our blog ["Automatically retry scripts to avoid network hiccups during CI process"](http://blog.shippable.com/automatically-retry-scripts-to-avoid-network-hiccups-during-ci-process). 
+* * * 
 
 ## Using git submodules
 
@@ -855,6 +877,8 @@ If you want to turn off submodules completely:
 git:
  submodules: false
 ```
+
+* * * 
 
 ## Including/excluding branches
 
@@ -885,7 +909,7 @@ branches:
     - release/*
 ```
 
----
+* * * 
 
 <a name="test_code_coverage"></a>
 ## Test and Code Coverage Reports
@@ -938,8 +962,13 @@ Examples for other languages can be found in our [Code Samples](ci_languages/).
 
 Once you have set this up, you can view your code coverage results in the `Code coverage` tab on your build page.
 
+Check out our blogs on [creating visualizations of your CI test results](http://blog.shippable.com/automatically-retry-scripts-to-avoid-network-hiccups-during-ci-process) and [setting up code coverage for tests](http://blog.shippable.com/setting-up-code-coverage-visualization-for-tests-in-ci) for additional details.
+* * * 
+
 ## Downloading console logs
 You can download your console logs by going to the build's page on Shippable, clicking on the `Download` dropdown that's on the right of the console pane, and selecting your logs.
+
+* * * 
 
 ## Build artifacts
 Shippable does not store artifacts for your builds. You will need to handle uploading artifacts as part of your configuration in your shippable.yml.
@@ -963,8 +992,7 @@ build:
 Similarly, you can copy contents of any folder with `$SHIPPABLE_BUILD_DIR/folder_name` depending on where the artifacts are for your build.
 If you need help defining secure variables, you can check out [our instructions](ci_projects/#encrypting-your-environment-variables)
 
-
----
+* * * 
 
 ## Notifications
 
@@ -1070,6 +1098,7 @@ integrations:
   By default, `on_start` is set to `never` and `on_pull_request` is set to `always` if Slack is configured in the yml but you do not specify these tags.     
 
 
+Check our blog ["Notifying CI failure/success status on Email and Slack"](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack) for multiple scenarios.
 
 ### HipChat notifications
 
@@ -1118,7 +1147,7 @@ integrations:
     - `never` means that you will never receive a notification for that build start/pull request
   By default, `on_start` is set to `never` and `on_pull_request` is set to `always` if HipChat is configured in the yml but you do not specify these tags.
 
-
+Check our blog on [configuring HipChat for both CI & piplelines](http://blog.shippable.com/hipchat-integration-is-here).
 
 ### IRC notifications
 
@@ -1158,7 +1187,8 @@ integrations:
   By default, `on_start` is set to `never` and `on_pull_request` is set to `always` if IRC is configured in the yml but you do not specify these tags.     
 
 
----
+* * * 
+
 ## Event Triggers
 Shippable supports triggers on user-specified webhook URLs or other enabled projects.
 
@@ -1215,8 +1245,10 @@ integrations:
     - `never` means that you will never receive a notification for that build start/pull request
     - **By default, `on_start` is set to `never` and `on_pull_request` is also set to `never`** if `webhook` is configured in the yml but you do not specify these tags.
 
+Check out our blogs  on practial examples of [Triggering a custom webhook after CI](http://blog.shippable.com/triggering-a-custom-webhook-after-continuous-integration) and [Triggering a parameterized build after CI](http://blog.shippable.com/triggering-a-parameterized-build-after-continuous-integration)to learn more about Event Triggers.
 
----
+* * * 
+
 ## Configuring deployments to PaaS/IaaS
 Having configured CI for your builds, here are the steps to deploy your code to various PaaS/IaaS providers.
 
@@ -1259,7 +1291,7 @@ Replace in the above form, with your values as follows:
 
 With this configured, upon a successful CI run you will see the above steps executed within your CI run console and you should be able to verify within EB that a deployment was triggered.
 
-For reference, here is a [sample Node.js application](https://github.com/shippableSamples/sample_node_eb_paas) that successfully performs source code deployment to Elastic Beanstalk.
+For reference, here is a [sample Node.js application](https://github.com/shippableSamples/sample_node_eb_paas) that successfully performs source code deployment to Elastic Beanstalk. In addition, the blog ["How to deploy your application to AWS Elastic Beanstak"](http://blog.shippable.com/how-to-deploy-your-application-to-aws-elastic-beanstalk-using-shippable-part-1) walks you through an end to end workflow - from setting up your repo to deploying your source code on AWS Elastic Beanstalk.
 
 ####**Docker deployment to AWS Elastic Beanstalk**
 
@@ -1319,7 +1351,8 @@ While the above scenario includes pulling a public Docker image, you may have ot
 
 Click for instructions [to pull an image from a private repository hosted by an online registry](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker.html) and/or for [multicontainer docker environments](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.html)
 
----
+* * * 
+
 
 ## Services
 
@@ -1491,7 +1524,8 @@ env:
 | RabbitMQ | SHIPPABLE_RABBITMQ_CMD |
 | Selenium | SHIPPABLE_SELENIUM_CMD |
 
----
+* * * 
+
 
 ## Addons
 
@@ -1588,7 +1622,8 @@ build:
 Sample javascript code using
 [Selenium](https://github.com/shippableSamples/sample_node_selenium) .
 
----
+* * * 
+
 
 ## Pull requests
 
@@ -1617,16 +1652,19 @@ A few things to note here:
 - The YML is always picked from the destination(base) branch.
 - If the pull request comes from a private fork of the project and the subscription key is not added as a deploy key for the fork, the pull request build will fail at the `git_sync` CI step. This is due to the way Bitbucket handles permissions on private forks. To fix this - first, copy the subscription deploy key from Shippable Subscription > Settings > Deployment Keys. Next, add it as a deploy key for the private fork: Bitbucket Project Settings > Deploy Key > Add.
 
-* * * * *
+
+
+* * * * * 
 
 ## Build timeout
 
 Your builds will time out in the following scenarios:
 
 -   If there has not been any log output or a command hangs for 10 minutes
--   If the build is still running for more than 120 minutes. This is a default setting that you can change for your project and configure it between 1 - 120 minutes. Read [instructions](ci_projects.md#custom-timeout) on setting a desired value in the Project settings.
+-   If the build is still running for more than 120 minutes. This is a default setting that you can change for your project and configure it between 1 - 120 minutes. Read [instructions](ci_projects.md#custom-timeout) on setting a desired value in the Project settings. In addition, we also have a blog on [Changing the default timeout for a CI project](http://blog.shippable.com/changing-the-default-timeout-for-a-continuous-integration-project).
 
-Please let us now if you believe a build is timing out when it shouldn't do so and we will take a look.
+Please [let us know](https://github.com/shippable/support/issues) if you believe a build is timing out when it shouldn't do so and we will take a look.
+
 
 * * * * *
 
@@ -1640,11 +1678,15 @@ Our webhook processor will look for the string **[ci skip]** or **[skip
 ci]** in the commit message and if it exists, then that particular
 webhook build will not be executed.
 
+* * * 
+
 <a name="unsupported_languages"></a>
 ## Building unsupported languages
 We support many popular languages with official build images for each one as listed on the [What is supported?](http://docs.shippable.com/gs_supported/) page.
 
 However, you can run builds for any language you want using Shippable. You will need to provide a custom image for your build as explained in the [Overriding default build image](http://docs.shippable.com/ci_configure/#overriding-the-default-build-image) section and use the `language: none` tag in your shippable.yml. Setting the language to none means that we skip any default processing for each section in your yml. You will need to configure everything you need in the yml and your builds should work as expected.
+
+* * * 
 
 ## Service Status
 
@@ -1652,7 +1694,9 @@ You can get the current status of the Shippable UI and API by going to our [Serv
 
 The service status page can be viewed from our product UI by going to the heart ekg icon in your top navbar.
 
-*****
+For additional details, check our blog on [Shippable status page](http://blog.shippable.com/features_amazon_ecr_regions_status_page_github_tags_and_more#status_page).
+
+---
 
 ## Sign into Shippable
 
@@ -1683,4 +1727,4 @@ The service status page can be viewed from our product UI by going to the heart 
   <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-*****
+* * * 
