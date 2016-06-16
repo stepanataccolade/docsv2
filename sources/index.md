@@ -20,6 +20,8 @@ Shippable integrates with all popular tools and services, such as build/test too
 
 <img src="./images/pipeline_basic_flow.png" alt="e2e pipeline" style="width:700px;"/>
 
+---
+
 ## Continuous Integration
 Our Continuous Integration platform helps developers find bugs as soon as they are introduced. Every time you commit code or open a pull request, your code will be automatically built and tested and you will receive a notification with build results.
 
@@ -47,6 +49,8 @@ You should take advantage of BYOH if:
 
 Go to [the Continuous Integration section](ci_overview.md) to learn more.
 
+---
+
 ## Continuous Delivery pipelines
 
 Our powerful deployment pipelines give software development teams the ability to automate the flow of their Docker based applications from CI to a versioned deployment unit which can then be easily and automatically deployed to Container Services like Amazon's ECS or Google Container Engine. Your application components are versioned and individual deployment units, which we call Cells, can be upgraded or rolled back with a single click. We also support auto-deploying to test environments, which means your functional tests can be automated to run on every code commit.
@@ -66,7 +70,7 @@ In addition, we also have a cool tool called **Lighthouse** that lets you monito
 
 Go to [Lighthouse Overview](lighthouse.md) to learn more.
 
-*****
+---
 
 ## Sign into Shippable
 
@@ -97,4 +101,4 @@ Go to [Lighthouse Overview](lighthouse.md) to learn more.
   <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-*****
+---

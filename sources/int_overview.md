@@ -19,16 +19,17 @@ To start with, you will always need to add an account integration as described b
 <img src="../images/account_settings_icon.png" alt="Account Settings" style="width:200px;"/>
 
 - Click the 'Integrations' tab and then click 'Add Integration'
-<img src="../images/add_account_integration.png" alt="Add Account Integration" style="width:800px;"/>
+<img src="../images/add_account_integration.png" alt="Add Account Integration" style="width:700px;"/>
 
 - Use the dropdown to select the desired integration and proceed with the configuration of that specific integration.
 
-<img src="../images/add_integration_select.png" alt="Select Account Integration" style="width:800px;"/>
+<img src="../images/add_integration_select.png" alt="Select Account Integration" style="width:700px;"/>
 
 - Click on `Save`.
 
 The integration should now show up in your `Integrations` tab. This integration will be available to all your projects and can be used for your workflows. Further details and examples of how a specific integration is used is available in the section for each integration.
 
+---
 
 ## Deleting an account integration
 
@@ -36,48 +37,54 @@ To delete an integration:, simply click on the `Delete` button for the integrati
 
 Delete will fail if there are any projects actively using the integration, so make sure the integration is not being used in any project before deleting it.
 
+---
 
 ## Supported integrations
 
 ### [Source Control Providers](int_scm.md)
-- GitHub
-- GitHub Enterprise
-- Bitbucket
-- GitLab
+-  [GitHub](int_scm/#github)
+-  [GitHub Enterprise](int_scm/#github-enterprise)
+-  [Bitbucket](int_scm/#bitbucket)
+-  [GitLab](int_scm/#gitlab)
 
-In addition, we are working on Bitbucket Server integration and will announce this in Q2 of 2016.
+In addition, we are working on Bitbucket Server integration and will announce this in Q3 of 2016.
 
 ### [Docker Registries](int_docker_registries.md)
-- Docker Hub
-- Google Container Registry (GCR)
-- Amazon Elastic Container Registry (ECR)
-- Quay.io
-- Self-hosted private registries
+- [Docker Hub](int_docker_registries/#docker-hub)
+- [Amazon EC2 Container Registry (ECR)](int_docker_registries/#amazon-ec2-container-registry-ecr)
+- [Google Container Registry](int_docker_registries/#google-container-registry-gcr)
+- [Quay](int_docker_registries/#quayio)
+- [Docker Trusted Registry](int_docker_registries/#docker-trusted-registry)
+- [Any private registry](int_docker_registries/#private-registry)
 
 ### [Container Services](int_container_services.md)
-- Amazon Elastic Container Service (ECS)
-- Google Container Engine (GKE)
-- Docker Cloud
-- Docker Datacenter
-- Red Hat Openshift V3 (coming soon)
+- [Amazon EC2 Container Service (ECS)](int_container_services/#amazon-ec2-container-service-using-account-keys)
+- [Google Container Engine (GKE)](int_container_services/#google-container-engine-gke)
+- [Docker Cloud](int_container_services/#docker-cloud)
+- [Docker Datacenter](int_container_services/#docker-datacenter)
 - Microsoft Azure (coming soon)
 
 ### [PaaS/IaaS Providers](int_paas_iaas_providers.md)
-- Amazon Elastic Beanstalk (EB)
-- Heroku (coming soon)
+- [AWS Elastic Beanstalk](int_paas_iaas_providers/#aws-elastic-beanstalk)
+- [AWS Opsworks](ht_opsworks/)
+- [Heroku](ht_heroku/)
 - Red Hat Openshift (coming soon)
+- [AWS EC2 (using CodeDeploy)](ht_codedeploy/)
+- [Digital Ocean](ht_digitalocean/)
+
 
 ### [Notifications](int_notifications.md)
-- Email
-- Slack
-- IRC
-- Hipchat
+- [Slack](int_notifications/#slack-notifications)
+- [IRC](int_notifications/#irc-notifications)
+- [Email](int_notifications/#email-notifications)
+- [HipChat](int_notifications/#hipchat-notifications)
 
 ### [Keys](int_keys.md)
-- SSH keys
-- PEM keys
+- [SSH keys](int_keys/#ssh)
+- [PEM keys](int_keys/#pem)
 
-*****
+---
+
 
 ## Sign into Shippable
 
@@ -108,4 +115,4 @@ In addition, we are working on Bitbucket Server integration and will announce th
   <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-*****
+---

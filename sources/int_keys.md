@@ -8,6 +8,8 @@ You can set up integrations for the keys you use to integrate with third party s
 
 This allows you to store your keys in your Shippable account and use them in your yml with the help of environment variables.
 
+---
+
 ## SSH
 
 To create an account integration for an SSH key, do the following:
@@ -29,6 +31,8 @@ integrations:
  * `type` is ssh-key
 
 Your SSH key will be available on your build minion in the `/tmp/ssh/` directory. You can then use the key for ssh commands in your shippable.yml.
+
+---
 
 ## PEM
 
@@ -52,3 +56,4 @@ integrations:
 
 Your PEM key will be available on your build minion in the `/tmp/ssh/` directory, and can be used in your shippable.yml.
 
+---

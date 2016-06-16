@@ -16,7 +16,7 @@ To get to the CI dashboard,
 - Click on the `Subscriptions` dropdown and select the subscription you want to view.
 - This will bring you to the CI tab which shows you the latest status for your projects.
 
-<img src="../images/mv_ci_dashboard.gif" alt="Continuous Integration Dashboard" style="width:700px;"/>
+<img src="../images/ci_subscriptions_mv_ci_dashboard.gif" alt="Continuous Integration Dashboard" style="width:700px;"/>
 
 
 The **Summary View** is the default view when you navigate to this dashboard. It shows you the latest status for all enabled projects. By default, the latest status for a project is the build status for the latest commit for the default branch configured in your source control account. You can customize the branch(es) shown on this page and also configure this view to include status for pull request builds. More details on this in the [Dashboard Settings for Projects](ci_projects/#dashboard-settings).
@@ -46,9 +46,9 @@ You can enable a project for CI by doing the following:
 - Click on the `Enable` button to enable a particular repository. If you have a long list of repositories, pull it up by typing the name of the repo to filter by name and enable it.
 - If you have recently added a repository to github/bitbucket and do not see it in the list, click on the `Sync` button. Once the sync is complete, you should see the new repo in the list, for you to enable.
 
-After enabling a project you will be redirected to the project's page on Shippable. More details on this are in our [Projects section](ci_projects.md)
+After enabling a project you will be redirected to the project's page on Shippable. More details on this are in our [Projects section](ci_projects.md).
 
-<img src="../images/mv_enable_project.gif" alt="Dashboard List Page" style="width:700px;"/>
+<img src="../images/ci_subscriptions_mv_enable_project.gif" alt="Enable a project" style="width:700px;"/>
 
 
 ### Building a Project

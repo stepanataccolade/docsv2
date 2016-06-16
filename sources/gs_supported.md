@@ -2,21 +2,24 @@ page_title: What is supported?
 page_description: Supported languages, services & platforms
 page_keywords: containers, languages, services, platforms, lxc, docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
-## What is supported?
+# What is supported?
 
 We support a multitude of languages, tools, services, as well as all popular source control providers, docker registries, container services, and notification providers.
 
 <img src="../images/shippable_end2end.png" alt="Subscription Dashboard" style="width:700px;"/>
 
+---
 
-#### Source control providers
--  <a href="http://www.github.com" target="_blank">GitHub</a>
--  <a href="http://enterprise.github.com" target="_blank">GitHub Enterprise</a>
--  <a href="http://www.bitbucket.org" target="_blank">Bitbucket</a>
--  <a href="http://www.gitlab.com" target="_blank">GitLab</a>
+## Source control providers
+-  [GitHub](int_scm/#github)
+-  [GitHub Enterprise](int_scm/#github-enterprise)
+-  [Bitbucket](int_scm/#bitbucket)
+-  [GitLab](int_scm/#gitlab)
 -   Bitbucket Server (coming soon)
 
-#### Languages
+---
+
+## Languages
 
 -  [Clojure](ci_languages/#clojure)
 -  [GO](ci_languages/#go)
@@ -28,12 +31,16 @@ We support a multitude of languages, tools, services, as well as all popular sou
 -  [Scala](ci_languages/#scala)
 -  [C](ci_languages/#c)
 
-####Platforms
+---
+
+##Platforms
 -  Ubuntu 12.04 LTS
 -  Ubuntu 13.10
 -  Ubuntu 14.04
 
-#### Services
+---
+
+## Services
 -  CouchDB 1.6.1
 -  Elastic Search 1.5.1
 -  Kestrel
@@ -49,7 +56,9 @@ We support a multitude of languages, tools, services, as well as all popular sou
 -  Selenium 2.52
 -  SqlLite 3
 
-#### Tools
+---
+
+## Tools
 -   Latest release of Git repository
 -   apt installer
 -   Networking tools
@@ -84,41 +93,53 @@ We support a multitude of languages, tools, services, as well as all popular sou
     -   Custom hostname
     -   PostgreSQL
 
+---
 
-#### Notification Providers
-- Email
-- HipChat
-- IRC
-- Slack
+## Notification Providers
+- [Slack](int_notifications/#slack-notifications)
+- [IRC](int_notifications/#irc-notifications)
+- [Email](int_notifications/#email-notifications)
+- [HipChat](int_notifications/#hipchat-notifications)
 
-#### Docker registries
-- Docker Hub
-- Amazon EC2 Container Registry (ECR)
-- Google Container Registry
-- Quay
-- Docker Trusted Registry
-- Any private registry
+---
 
-#### Container Services
-- Amazon EC2 Container Service (ECS)
+## Docker registries
+- [Docker Hub](int_docker_registries/#docker-hub)
+- [Amazon EC2 Container Registry (ECR)](int_docker_registries/#amazon-ec2-container-registry-ecr)
+- [Google Container Registry](int_docker_registries/#google-container-registry-gcr)
+- [Quay](int_docker_registries/#quayio)
+- [Docker Trusted Registry](int_docker_registries/#docker-trusted-registry)
+- [Any private registry](int_docker_registries/#private-registry)
+
+---
+
+## Container Services
+- [Amazon EC2 Container Service (ECS)](int_container_services/#amazon-ec2-container-service-using-account-keys)
+- [Google Container Engine (GKE)](int_container_services/#google-container-engine-gke)
+- [Docker Cloud](int_container_services/#docker-cloud)
+- [Docker Datacenter](int_container_services/#docker-datacenter)
 - Microsoft Azure (coming soon)
-- Google Container Engine (GKE)
-- Docker Cloud
-- Docker Datacenter
 
-#### IaaS
-- AWS EC2 (using CodeDeploy)
-- Digital Ocean
+---
 
-#### PaaS
-- AWS Elastic Beanstalk
-- AWS Opsworks
-- Heroku
-- Red Hat Openshift
+## IaaS
+- [AWS EC2 (using CodeDeploy)](ht_codedeploy/)
+- [Digital Ocean](ht_digitalocean/)
 
-#### Other third party services
+---
 
-*****
+## PaaS
+- [AWS Elastic Beanstalk](int_paas_iaas_providers/#aws-elastic-beanstalk)
+- [AWS Opsworks](ht_opsworks/)
+- [Heroku](ht_heroku/)
+- Red Hat Openshift (coming soon)
+
+---
+
+## Other third party services
+
+---
+
 
 ## Sign into Shippable
 
@@ -149,4 +170,4 @@ We support a multitude of languages, tools, services, as well as all popular sou
     <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-*****
+---

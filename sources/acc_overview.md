@@ -9,6 +9,11 @@ You can get to your account settings by clicking on the gear icon in the top nav
 You will land on the Accounts tab.
 
 
+<img src="../images/account_settings_icon.png" alt="Account Settings on Shippable" style="width:200px;"/>
+
+---
+
+
 ##Settings
 
 ### Account Information
@@ -103,4 +108,5 @@ You will not be charged until you use a card to upgrade a subscription.
 ### Removing a card
 You can click on the 'Delete' button for the card you wish to remove from your account.
 
+---
 
