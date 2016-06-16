@@ -14,6 +14,9 @@ The Builds page shows you information about a specific build(s) in a project. To
 
 Addiitonal information about what is shown on this page is given below. To learn how to configure your build, check out our [Build configuration section](ci_configure.md).
 
+* * * 
+
+
 ## Build information
 The build page shows all relevant information like status, branch name, commit message, committer, etc.
 
@@ -21,7 +24,7 @@ A build on Shippable can actually consist of one or more individual build items,
 
 The build status widget for the overall build looks like this:
 
-<img src="../images/ci_build_status.png" alt="Build status" style="width:800px;"/>
+<img src="../images/ci_build_status.png" alt="Build status" style="width:700px;"/>
 
 The breadcrumb shows you the account name, project name, and branch name. The actual widget provides the following information:
 
@@ -62,6 +65,8 @@ To the right of the status circle is the build number. Build number starts at 1 
 
 For matrix builds, the overall build is still numbered with a whole number and individual build items under it are numbered using decimals like 11.1, 11.2, etc.
 
+* * * 
+
 ## Build item details
 
 For each build item in a build, we provide the following:
@@ -81,7 +86,7 @@ Matrix values show what combination of the yml configuration is being used for t
 The build item console shows the actual console output for your build. Sections have a `+` to the left of them and can be collapsed or expanded as desired.You can also copy text from the console log.
 
 ### Test & code coverage tabs
-If you have set up your yml to [show test and code coverage results](ci_configure.md#test_code_coverage), you will the visualizations in the `Test` and `Code coverage` tabs.
+If you have set up your yml to [show test and code coverage results](ci_configure.md#test_code_coverage), you will see the visualizations in the `Test` and `Code coverage` tabs.
 
 <img src="../images/ci_test_results.png" alt="Build status" style="width:700px;"/>
 
@@ -91,3 +96,5 @@ The script section shows you exactly what scripts and commands were run for your
 
 ### Downloading console logs
 The `Download` dropdown on the right of the build item console lets you download console logs to your machine.
+
+* * * 

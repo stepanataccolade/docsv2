@@ -8,9 +8,13 @@ Shippable's Continuous Integration platform helps you automate builds and tests 
 
 Shippable is natively built on Docker, so all your builds run inside Docker containers, which we call Minions.
 
+* * * 
+
 ## What is supported?
 
 Go [here](gs_supported.md) to see a list of all supported source control providers, languages, services and platforms.
+
+* * *
 
 ## How do builds work?
 
@@ -31,23 +35,24 @@ You can also initiate a manual build through the UI, by clicking on the `Build` 
 
 By default, we do not automatically trigger builds if you push a tag or create a release. Go [here](ci_projects.md#configure-webhook-events-for-triggering-builds) for details on configuring these settings.
 
-### yml config
+
+### Shippable yml configuration
+We need a `shippable.yml` file at the root of your repository in order to run your builds. This is your config file and tells us what the build should do. For the yml structure and how to configure it, check out the [configure your build](ci_configure.md) section. 
+
 
 ### Build flow
-
-We need a shippable.yml file at the root of your repository in order to run your builds. This is your config file and tells us what the build should do. For the yml structure and how to configure it, check out the [Configure your build](ci_configure.md)
-
 When a build is triggered, it is executed in the sequence below -
 
 - First, commands in the `pre_ci` section are executed on your build machine and not in your build container.
 - The next step is booting your CI container. This will use our default Docker images if nothing is configured in the `pre_ci_boot` section of your yml. If that section is configured, it overrides the default image and boots up the CI container specified.
 - All commands in the `ci` section are executed in sequence.
 - Commands in the `post_ci` section are executed next.
-- If the `ci` and `post_ci` sections were successful, we will execute commands in the `on_success` section.
-- - If the `ci` and/or `post_ci` were failed, we will execute commands in the `on_failure` section.
+    - If the `ci` and `post_ci` sections were successful, we will execute commands in the `on_success` section.  
+    - If the `ci` and/or `post_ci` were failed, we will execute commands in the `on_failure` section.
 
 We also support the travis.yml format for most cases since we've built a translator that accepts travis.yml format and converts it to shippable.yml. To make it easy for Travis customers to try out Shippable, we will even read the .travis.yml in your repo without requiring you to add a shippable.yml. 
 
+* * * 
 
 ## Permissions
 
@@ -56,6 +61,7 @@ We also support the travis.yml format for most cases since we've built a transla
 We use OAuth authentication. What this means is if you have either a GitHub or Bitbucket account, you do not need to create a separate account on our platform.
 
 If you want to build repositories in your GitHub Enterprise instannce, you will still need to sign in with GitHub or Bitbucket and add an account integration for GitHub Enterprise.
+
 
 ### Authorizing Shippable
 
@@ -72,6 +78,7 @@ granularity, so we ask for access to all repos on Bitbucket by default.
 > repo. However, we need write permissions to add deploy keys to your
 > repos for our webhooks to work. We do not touch anything else in the
 > repo.
+
 
 ### Who has access?
 
@@ -93,7 +100,14 @@ cancel, and delete builds.
 on Shippable. They cannot delete enabled projects or upgrade pricing
 plans.
 
-*****
+* * * 
+
+## Practice Examples
+
+- Run a [sample CI build](gs_ci_sample/) on your own
+- Refer to the step-wise series of [running CI on a node.js application](http://blog.shippable.com/get-started-with-continuous-integration-for-nodejs-app)  
+
+* * * 
 
 ## Sign into Shippable
 
@@ -124,4 +138,4 @@ plans.
   <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-*****
+---

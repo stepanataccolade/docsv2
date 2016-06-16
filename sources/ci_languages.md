@@ -20,6 +20,8 @@ We support the following languages on Shippable CI:
 This list keeps growing so if you need something that you don't see
 here, contact our [support alias](mailto:support@shippable.com) or open a support issue in our [GitHub support repo](https://github.com/Shippable/support/issues)
 
+* * *
+
 ## Clojure
 
 ### Standard build image(s)
@@ -104,6 +106,7 @@ We have a simple Clojure project that you can fork and enable on Shippable to he
 
 [sample_clojure](https://github.com/shippableSamples/sampleClo)
 
+* * * 
 
 ## Go
 
@@ -176,6 +179,8 @@ ci:
 We have a simple Go project that you can fork and enable on Shippable to help you get started:
 
 [sample_go](https://github.com/shippableSamples/sampleGol)
+
+* * * 
 
 ## Java
 
@@ -322,6 +327,8 @@ plugin and `../shippable/testresults` for Surefire plugin:
 See [the following sample](https://github.com/shippableSamples/sample-java-maven-reactor)
 for details.
 
+* * * 
+
 ## Nodejs
 
 ### Standard build image(s)
@@ -430,9 +437,11 @@ if [[ $SHIPPABLE_NODE_VERSION =~ [0].[6-8] ]]; then npm install -g npm@~1.4.6; f
     coverage reports.
 
 ### Build Examples
-We have a simple Node.js project that you can fork and enable on Shippable to help you get started:
+We have a [simple Node.js project](https://github.com/shippableSamples/sample_nodejs) that you can fork and enable on Shippable to help you get started.
 
-[sample_node](https://github.com/shippableSamples/sampleNod)
+In addition, check out the first installment of a stepwise, multi-part series of tutorials on [running CI on a node.js application](http://blog.shippable.com/get-started-with-continuous-integration-for-nodejs-app).
+
+* * * 
 
 ## PHP
 
@@ -524,6 +533,8 @@ build:
 We have a simple PHP project that you can fork and enable on Shippable to help you get started with this PHP7 image:
 
 [sample_php_memcached](https://github.com/chetantarale/sample_php_memcached)
+
+* * * 
 
 ## Python
 
@@ -624,6 +635,7 @@ We have a simple Python project that you can fork and enable on Shippable to hel
 [sample_python](https://github.com/shippableSamples/samplePyt)
 
 
+* * * 
 
 ## Ruby
 
@@ -772,6 +784,8 @@ We have a simple Ruby project that you can fork and enable on Shippable to help 
 
 [sample_ruby](https://github.com/shippableSamples/sampleRub)
 
+* * * 
+
 ## Scala
 
 ### Standard build image(s)
@@ -832,6 +846,8 @@ ci:
 We have a simple Scala project that you can fork and enable on Shippable to help you get started:
 
 [sample_scala](https://github.com/shippableSamples/sampleSca)
+
+* * * 
 
 ## C
 
