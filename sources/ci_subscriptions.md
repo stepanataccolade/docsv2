@@ -19,7 +19,11 @@ To get to the CI dashboard,
 <img src="../images/ci_subscriptions_mv_ci_dashboard.gif" alt="Continuous Integration Dashboard" style="width:700px;"/>
 
 
-The **Summary View** is the default view when you navigate to this dashboard. It shows you the latest status for all enabled projects. By default, the latest status for a project is the build status for the latest commit for the default branch configured in your source control account. You can customize the branch(es) shown on this page and also configure this view to include status for pull request builds. More details on this in the [Dashboard Settings for Projects](ci_projects/#dashboard-settings).
+The **Summary View** is the default view when you navigate to this dashboard. 
+
+By default, you will see the status of the most recent commit builds for all enabled projects. The default branch of the repository, as configured in your source control account, is used. 
+
+You can customize the branch(es) shown on this page and also configure this view to include status for pull request builds. More details on this in the [Dashboard Settings for Projects](ci_projects/#dashboard-settings).
 
 If a build is queued or in progress, you will see at the top of the 'Summary' view.
 
