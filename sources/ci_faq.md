@@ -241,7 +241,62 @@ build:
 The Docker Engine version is less than the minimum required by Compose. Your current project requires a Docker Engine of version 1.10.0 or greater
 ```
 
-You can navigate to the subscription settings page and select the unstable image which has docker version 1.11.1 available on it and all the builds for your subscription will be using this image to run your builds. For more info check out the [Machine Images Section](ci_subscriptions.md#selecting-the-machine-images)
+You can navigate to the subscription settings page and select the unstable image which has docker version 1.11.1 available on it and all the builds for your subscription will be using this image to run your builds. For more info check out the [Machine Images Section](ci_subscriptions.md#selecting-the-machine-images).
+
+---
+
+
+## Enabling a project fails with the error
+```
+(Id: 2002) Owner not found for projectId::5762d2b72x8192902x23xxx2
+warn: caller:5762x2x501346x0x00959x0x|projects|enableById:5762x2x72x8192902x23xfx2|_getValidOwner
+```
+
+Reason: Admin permissions on the (GitHub/Bitbucket)repository are required to enable it as a project on Shippable's platform. This ensures Shippable can add a webhook to the repository and listen for commits and pull requests to trigger builds.
+
+**How to avoid:** Ensure a user with Admin permissions, [enables the project](ci_subscriptions/#enabling-a-project) on Shippable's platform. If you still get the error, then the permissions may be out of date and need to be udpated. Synchronize your permissions by clicking on the Account settings (gear icon in the top navigation bar) and clicking the `Sync` button.
+
+---
+
+## Build fails as it runs out of memory while installing PHP with the error
+
+```
+Error: Allowed memory size of 134217728 bytes exhausted (tried to
+allocate 913408 bytes)
+```
+
+**How to avoid:** You can add/change the settings of the php.ini file located at `~/.phpenv/versions/$(phpenv version-name)/etc/php.ini`. Add the following to the `ci` section of the `shippable.yml`:
+
+```
+- echo "memory_limit = 256M" >> $HOME/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+```
+---
+
+## I converted a public repository (enabled as a project on Shippble) to a private repo. Should I change any setting in Shippable?
+
+When public or private repo on GitHub/Bitbucket (and enabled as a project on Shippable) is converted to a private or public repo, all you need to do is reset the enabled project on Shippable. To do so:
+
+- Click on your project from the Shippable dashboard
+- Click the `Settings` tab
+- Scroll all the way down and click the `Reset` button under the 'Reset' section
+- Click `Confirm`. 
+
+The reset action will do the following things:
+
+1. Reset the webhook for Shippable
+2. Generate a new deploy key and update the repository
+
+If you are using encrypted variables for this project, they'll need to be re-encrypted. Integrations and other settings will not be affected. 
+
+---
+
+## Is mariadb supported on Shippable?
+
+Shippable [supports](gs_supported/) lots of different services, tools and third party services. If you have a service or a tool that is currently unsupported, you can still use it to run CI within Shippable in either of the two ways listed:
+
+1. Use Shippable's default images based on the language you use & install 'mariadb' as a dependency in the `build: ci` step.
+2. If you have an existing Docker image with 'mariadb' and other dependencies installed, then you can [override Shippable's default image](ci_configure/#overriding-the-default-build-image) and use it for CI. You can also [build your own Docker image](ci_configure/#building-your-ci-image) with all the dependencies including 'mariadb' and use it for CI. 
+
 
 ---
 

@@ -54,7 +54,11 @@ You can 'Resume' a paused project, which will re-establish the web hooks to your
 
 ### Syncing your project
 We sync your account with your source control provider once every 4 hours. However, there are times when you want to force a sync in order to see recently changes that were made in your source control. You can force a sync by clicking on the `Sync` button in the Sync section of the Project settings page.
-This action simply makes sure the permissions and repository changes from your source control are reflected in your Shippable project.
+This action simply makes sure the permissions and repository changes from your source control are reflected in your Shippable project. Here are few scenarios where you will want to sync your project:
+
+- A new branch has been created on your GitHub/Bitbucket repository and you don't find it on Shippable
+- The Project's name or language has been changed and is not reflected on Shippable
+
 
 ### Enabling integrations
 You can view all the configured integrations for your account by going to the 'Account Settings' & clicking the 'Integration' tab. It will display a list of all integrations that are configured & available for your projects.
