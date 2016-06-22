@@ -46,8 +46,7 @@ Delete will fail if there are any projects actively using the integration, so ma
 -  [GitHub Enterprise](int_scm/#github-enterprise)
 -  [Bitbucket](int_scm/#bitbucket)
 -  [GitLab](int_scm/#gitlab)
-
-In addition, we are working on Bitbucket Server integration and will announce this in Q3 of 2016.
+-  [Bitbucket Server](int_scm/#bitbucket-server)
 
 ### [Docker Registries](int_docker_registries.md)
 - [Docker Hub](int_docker_registries/#docker-hub)

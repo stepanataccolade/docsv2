@@ -15,7 +15,7 @@ We support a multitude of languages, tools, services, as well as all popular sou
 -  [GitHub Enterprise](int_scm/#github-enterprise)
 -  [Bitbucket](int_scm/#bitbucket)
 -  [GitLab](int_scm/#gitlab)
--   Bitbucket Server (coming soon)
+-  [Bitbucket Server](int_scm/#bitbucket-server)
 
 ---
 

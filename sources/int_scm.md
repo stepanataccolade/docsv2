@@ -9,20 +9,20 @@ Integrations for GitHub and Bitbucket do not need to be set up manually on Shipp
 ---
 
 ## GitHub
-Both public & private repositories are supported on Shippable. In order to integrate with your GitHub account, we automatically set up an Account integration when you log in using your GitHub credentials. 
+Both public & private repositories are supported on Shippable. In order to integrate with your GitHub account, we automatically set up an Account integration when you log in using your GitHub credentials.
 
 - For public repositories, you do not have to do anything to set this up further. You should be able to see all your public repos. Click the 'Sync' button if you don't see your public repo.
 - For private repositories, you need to authorize Shippable to access them. You can do this by following the outlined steps:
 
   - Click on the Account settings (gear icon on the top right hand navigation bar)
-  - In the 'Accounts' tab and under 'Git Identities' section, click 'Enable' under 'GitHub' 'Click to enable private access'. 
+  - In the 'Accounts' tab and under 'Git Identities' section, click 'Enable' under 'GitHub' 'Click to enable private access'.
 
 <img src="../images/int_scm_mv_enable_pvtrepo_access.gif" alt="Enable access to Private Repositories" style="width:700px;"/>
 
 ---  
 
 ## Bitbucket
-In order to integrate with your Bitbucket account, we automatically set up an Account integration when you log in using your Bitbucket credentials. You do not have to do anything to set this up further. 
+In order to integrate with your Bitbucket account, we automatically set up an Account integration when you log in using your Bitbucket credentials. You do not have to do anything to set this up further.
 
 Shippable also integrates with Bitbucket to build pull requests. Read [our documentation](ci_configure/#bitbucket) for details on setting it up.
 
@@ -65,5 +65,23 @@ In order to integrate with GitLab, you need to sign up to Shippable using your G
     - Paste the token in your integration on Shippable and click on `Save`.
 - After adding the GitLab integration, you should go to the Account Settings tab and `Sync` your Account.
 - Go to your Shippable dashboard and check to make sure your GitLab subscriptions are available in the CI dropdown.
+
+---
+
+## Bitbucket Server
+In order to integrate with Bitbucket Server, Shippable provides an addon which needs to be installed by the Bitbucket Server administrator. This should be available in the Atlassian Marketplace soon. Once installed, you need to sign up to Shippable using your GitHub/Bitbucket account and then add Bitbucket Server as an account integration as follows:
+
+- Click on the gear icon for Account Settings in the top navigation bar. Select the `Integrations` tab.
+- Click on `Add Integration` and from the dropdown for **Integration type**, select `Bitbucket Server`
+- Enter a name for this integration in the **Integration name** textbox.
+- Enter the username used to login to your Bitbucket Server account in the **Username** textbox.
+- Enter the URL for your Bitbucket Server instance in the **URL** textbox. Ensure there are no trailing slashes here.
+- You will need to add a private token from your Bitbucket Server account. To do this -
+    - Go to your Bitbucket Server account settings and in the left menu, select
+    `Shippable Token`
+    - Copy the private token provided
+    - Paste the token in the **Token** textbox on Shippable and click on `Save`.
+- After adding the Bitbucket Server integration, you should go to the Account Settings tab and `Sync` your Account.
+- Go to your Shippable dashboard and check to make sure your Bitbucket Server subscriptions are available in the CI dropdown.
 
 ---
