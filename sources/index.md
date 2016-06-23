@@ -6,7 +6,7 @@ page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deplo
 
 Shippable was founded so that software development teams could accelerate their release cycles by automating the build, test and deployment of applications. Our Continuous Delivery pipeline takes your code from source control to production, without the need for configuration management/IT automation tools or infrastructure code.
 
-We integrate with the tools and technologies you use today and will need tomorrow, like GitHub, Bitbucket, GitLab and on-prem repositories, offer seamless deployment to private clouds as well as leading cloud providers including Amazon and Google, and support all application architectures from enterprise grade multi-tier to containerized micro services.
+We integrate with the tools and technologies you use today and will need tomorrow, like GitHub, Bitbucket, GitLab, Bitbucket Server and on-prem repositories, offer seamless deployment to private clouds as well as leading cloud providers including Amazon and Google, and support all application architectures from enterprise grade multi-tier to containerized micro services.
 
 If you believe that your team should focus on product innovation instead of building complex deployment pipelines, you should sign up for Shippable today.
 
@@ -29,7 +29,7 @@ We run all your builds on **minions**, which are Docker-based containers. If you
 
 You should use Shippable for Continuous Integration if you fit the following profile -
 
-* Your source code is on GitHub, Bitbucket, GitLab or GitHub Enterprise. (Support for Bitbucket Server will be announced in Q2 2016)
+* Your source code is on GitHub, Bitbucket, GitLab, Bitbucket Server or GitHub Enterprise
 * You want to avoid the time sink of setting up and managing your own CI system and would rather spend the time writing features for your product   
 * (optional)You're a Docker user and you want to use your own custom image to run your builds. You can even run Docker compose to spin up environments!
 
