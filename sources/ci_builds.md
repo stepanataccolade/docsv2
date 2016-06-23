@@ -14,8 +14,9 @@ The Builds page shows you information about a specific build(s) in a project. To
 
 Addiitonal information about what is shown on this page is given below. To learn how to configure your build, check out our [Build configuration section](ci_configure.md).
 
-* * * 
+<img src="../images/ci_builds_mv_build_dashboard.gif" alt="Build Information" style="width:700px;"/>
 
+* * * 
 
 ## Build information
 The build page shows all relevant information like status, branch name, commit message, committer, etc.
