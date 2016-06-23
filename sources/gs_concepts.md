@@ -24,7 +24,7 @@ Each minion has 2 cores and 4GB RAM. If you use your own infrastructure to run y
 
 ## Account
 
-You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to emcompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services. 
+You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to emcompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services. Read the [accounts](acc_overview/) section for more details.
 
 ---
 

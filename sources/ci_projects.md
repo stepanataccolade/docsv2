@@ -12,6 +12,10 @@ To get to the page for a particular project,
 - This will bring you to Dashboard of the subscription which shows latest status for all your projects.
 - Click on the project name to view the Project page. This will take you to the project dashboard.
 
+In the example below, 'sample_nodejs' project is selected. 
+
+<img src="../images/ci_projects_mv_ci_dashboard.gif" alt="Project Dashboard" style="width:700px;"/>
+
 * * * 
 
 ## Dashboard
@@ -19,7 +23,8 @@ The Project Dashboard shows you the latest status of all branches of the project
 
 An example of the Project 'sampleNod' is shown below:
 
-<img src="../images/Project_home_page.png" alt="Project Page" style="width:700px;"/>
+<img src="../images/project_home_page.png" alt="Project Page" style="width:700px;"/>
+
 
 The **Summary View** is the default view when you navigate to this dashboard. It shows you the latest status for all branches that are built using Shippable. Latest status is defined as the build status for the latest commit build for that branch.
 
