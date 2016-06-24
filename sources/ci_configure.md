@@ -624,7 +624,7 @@ The following environment variables are available for every build. You can use t
 |JOB_ID		 | ID of job in Shippable.|
 |JOB_NUMBER, SHIPPABLE_JOB_NUMBER, SHIPPABLE_JOB_ID | All three variables are the same & represent the number of the job in Shippable.|
 |LANG		 |en_US.UTF-8 |
-|LAST_AUTHOR |Name of the last author.|
+|LAST_AUTHOR |Name of the last author. |
 |LAST_SUCCESSFUL_BUILD_TIMESTAMP		 |Timestamp of the last successful build in seconds. This will be set to **false** for the first build or for the build with no prior successful builds. |
 |LC_ALL 		 |en_US.UTF-8 |
 |LC_CTYPE 		 | en_US.UTF-8|
