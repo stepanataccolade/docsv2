@@ -15,6 +15,8 @@ This will start being populated weekly starting March 2016.
 
 [Link my GitHub and Bitbucket accounts](ht_link_gh_and_bb.md)
 
+[How to use Bitbucket Server with Shippable](ht_using_bitbucket_server.md)
+
 [Deploy to Heroku](ht_heroku.md)
 
 [Deploy to Amazon EC2 using Code Deploy](ht_codedeploy.md)

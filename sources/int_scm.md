@@ -69,13 +69,13 @@ In order to integrate with GitLab, you need to sign up to Shippable using your G
 ---
 
 ## Bitbucket Server
-In order to integrate with Bitbucket Server, Shippable provides an addon which needs to be installed by the Bitbucket Server administrator. This should be available in the Atlassian Marketplace soon. Once installed, you need to sign up to Shippable using your GitHub/Bitbucket account and then add Bitbucket Server as an account integration as follows:
+In order to integrate with Bitbucket Server, Shippable provides an addon which needs to be installed by the Bitbucket Server administrator. This should be available in the [Atlassian Marketplace](https://marketplace.atlassian.com/plugins/shippable/cloud/overview) soon. Once installed, sign in to Shippable using your GitHub/Bitbucket account and then add Bitbucket Server as an account integration as follows:
 
 - Click on the gear icon for Account Settings in the top navigation bar. Select the `Integrations` tab.
-- Click on `Add Integration` and from the dropdown for **Integration type**, select `Bitbucket Server`
+- Click on `Add Integration` and from the dropdown for **Integration type**, select `Bitbucket Server`.
 - Enter a name for this integration in the **Integration name** textbox.
 - Enter the username used to login to your Bitbucket Server account in the **Username** textbox.
-- Enter the URL for your Bitbucket Server instance in the **URL** textbox. Ensure there are no trailing slashes here.
+- Enter the URL for your Bitbucket Server instance in the 'URL' textbox. **Ensure there are no trailing slashes here**. Read the [FAQ](ci_faq/#i-cannot-start-a-manual-build-for-my-bitbucket-project-why-is-it-not-working) on this topic for more details. 
 - You will need to add a private token from your Bitbucket Server account. To do this -
     - Go to your Bitbucket Server account settings and in the left menu, select
     `Shippable Token`

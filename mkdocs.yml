@@ -50,6 +50,7 @@ pages:
   - Overview: ht_overview.md
   - Using GitLab with Shippable: ht_using_gitlab.md
   - Linking GitHub and Bitbucket accounts: ht_link_gh_and_bb.md
+  - Using Bitbucket Server with Shippable: ht_using_bitbucket_server.md
   - Deploy to Heroku: ht_heroku.md
   - Deploy to Amazon EC2: ht_codedeploy.md
   - Deploy to Digital Ocean: ht_digitalocean.md
