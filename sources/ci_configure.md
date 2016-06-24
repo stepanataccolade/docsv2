@@ -612,7 +612,9 @@ The following environment variables are available for every build. You can use t
 |CACHE_CONTAINER    | false |
 |CACHE_DIR    |  If cache is true in the build section of `shippable.yml`, then **true**.  Otherwise **false**.  |
 |CI		 | true|
-|COMMIT	 |Commit id that is being built and tested. |
+|COMMIT  |Commit id that is being built and tested. |
+|COMMITTER  |Name of the last committer. |
+|COMMIT_MESSAGE  |Commit message specified in the commit. |
 |COMPARE_URL		 |A link to GitHub/Bitbucket's comparision view for the push. |
 |CONTINUOUS_INTEGRATION	 |true |
 |DEBIAN_FRONTEND		 |noninteractive |
@@ -622,6 +624,7 @@ The following environment variables are available for every build. You can use t
 |JOB_ID		 | ID of job in Shippable.|
 |JOB_NUMBER, SHIPPABLE_JOB_NUMBER, SHIPPABLE_JOB_ID | All three variables are the same & represent the number of the job in Shippable.|
 |LANG		 |en_US.UTF-8 |
+|LAST_AUTHOR |Name of the last author.|
 |LAST_SUCCESSFUL_BUILD_TIMESTAMP		 |Timestamp of the last successful build in seconds. This will be set to **false** for the first build or for the build with no prior successful builds. |
 |LC_ALL 		 |en_US.UTF-8 |
 |LC_CTYPE 		 | en_US.UTF-8|
