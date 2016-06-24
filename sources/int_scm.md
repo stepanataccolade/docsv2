@@ -84,4 +84,7 @@ In order to integrate with Bitbucket Server, Shippable provides an addon which n
 - After adding the Bitbucket Server integration, you should go to the Account Settings tab and `Sync` your Account.
 - Go to your Shippable dashboard and check to make sure your Bitbucket Server subscriptions are available in the CI dropdown.
 
+For more details, read the stepwise tutorial - [Using Shippable with Bitbucket Server](ht_using_bitbucket_server.md)
+
+
 ---
