@@ -45,8 +45,8 @@ Delete will fail if there are any projects actively using the integration, so ma
 -  [GitHub](int_scm/#github)
 -  [GitHub Enterprise](int_scm/#github-enterprise)
 -  [Bitbucket](int_scm/#bitbucket)
--  [GitLab](int_scm/#gitlab)
 -  [Bitbucket Server](int_scm/#bitbucket-server)
+-  [GitLab](int_scm/#gitlab)
 
 ### [Docker Registries](int_docker_registries.md)
 - [Docker Hub](int_docker_registries/#docker-hub)

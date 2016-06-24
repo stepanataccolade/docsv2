@@ -29,7 +29,7 @@ We run all your builds on **minions**, which are Docker-based containers. If you
 
 You should use Shippable for Continuous Integration if you fit the following profile -
 
-* Your source code is on GitHub, Bitbucket, GitLab, Bitbucket Server or GitHub Enterprise
+* Your source code is on GitHub, GitHub Enterprise, Bitbucket, Bitbucket Server or GitLab 
 * You want to avoid the time sink of setting up and managing your own CI system and would rather spend the time writing features for your product   
 * (optional)You're a Docker user and you want to use your own custom image to run your builds. You can even run Docker compose to spin up environments!
 
