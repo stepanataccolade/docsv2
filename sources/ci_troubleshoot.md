@@ -2,147 +2,254 @@ page_title: Shippable FAQ
 page_description: Commonly asked questions that will help with troubleshooting
 page_keywords: concepts, documentation, shippable, CI/CD
 
-# FAQ
 
-Having trouble with your builds? Here is a list of frequently asked
-questions.... hope this helps!
+#Troubleshooting Errors
 
-### How can I update my Shippable plan?
+This document helps in troubleshooting errors generated on the Shippable platform while running Continuous Integration. The document is divided into two parts: 
 
-Shippable CI/CD and Shippable Formations are 2 different subscriptions under your account. These need to be purchased separately.
+1. Setup: Troubleshooting errors that occur during initial setup and prior to initiating a CI build. 
+2. Continuous Integration (CI): Troubleshooting errors that occur during the CI process and is shown in the Console output.
 
-First make sure you have a valid payment method on Shippable.
+For non-errors and questions, refer our [FAQ section](faq.md).
 
-- Click on the Account Settings icon on the top nav bar
-- Click on the **Cards** tab
-- Add a new payment method by clicking on the ![add icon](images/add_icon.gif)
+---
 
-To purchase additional containers for Shippable CI:
+## Setup
+### Owner not found
+When enabling a project on Bitbucket, the following error is generated:
 
-- Click on **CI** on the Shippable Landing page
-- Click on your **CI Subscription** in the dropdown
-- Go to the **Billing** tab
-- Make sure your plan is set to `Multi-Tenant CI`
-- Use the slider to select the number of containers you want for your subscription.
-- Enter your payment details and click `Buy`
-- Your CI Plan is now updated
+```
+(Id: 2002) Owner not found for projectId::5762d2b72x8192902x23xxx2
+warn: caller:5762x2x501346x0x00959x0x|projects|enableById:5762x2x72x8192902x23xfx2|_getValidOwner
+```
+Reason: Admin permissions on the repository are required to enable it as a project on Shippable's platform. This ensures Shippable can add a webhook to the repository and listen for commits and pull requests to trigger builds.
 
-To purchase containers for a new or existing Shippable Formation:
+**How to avoid:** Ensure a user with Admin permissions [enables the project](ci_subscriptions/#enabling-a-project) on Shippable's platform. If you still get the error, then the permissions may be out of date and need to be udpated. Synchronize your permissions by clicking on the Account settings (gear icon in the top navigation bar) and clicking the `Sync` button.
 
-- Click on **Formations** on the Shippable Landing page
-- Click on **Add a new formation** in the dropdown
-- This will take you to our payment page. Choose `Multi-Tenant Formation` as your plan
-- Use the slider to select the number of containers you want for your formation
-- Enter your payment details and click `Buy`
-- You are ready to start on your new formation
+---
 
-To update containers in an existing Shippable Formation:
+## Continuous Integration
+### failed to find yml file
+```
+- Alerts
+  - Errors
+    - failed to find yml file
+```
+Reason: All build configuration on Shippable happens through the `shippable.yml` file present at the root of your source contorl repository. If this file is missing, we don't know how to run your build and you see the error.
 
-- Click on **Formations** on the Shippable Landing page
-- Choose the Formation that you want to update
-- Go to the **Billing** tab
-- In the first section, choose `Multi-Tenant Formation` as your plan
-- Use the slider to select the number of containers you want for your formation
-- Enter your payment details and click `Buy`
-- Your plan is now updated
+**How to avoid:** For any repository you enable on Shippable, create a `shippable.yml` file at the root of your repo in your source control. At a minimum, include the language used in your repo, the version used & commands for tests that you are running. This example below shows a basic shippable.yml file that uses Node.js v5.3 and runs an npm test:
+
+``` 
+language: node_js
+
+node_js:
+  - 5.3
+
+build:
+  ci:
+    - npm install
+    - npm test
+```
+Shippable builds all branches that have a shippable.yml at the root, unless they are explicitly excluded through the yml configuration.
+
+The shippable.yml reference guide is the best resource to learn what's possible with Shippable and explore the full capabilities supported on the platform.
+
+---
 
 
-### Why can't I see some of my repositories in my Shippable account?
+### Integration name specified in yml does not match integrations present in project settings: null
+```
+- Alerts
+  - Errors
+    - Integration name specified in yml does not match integrations present in project settings: null
+```
+Reason: Notification and Hub integrations need to be set in two places - In the UI and in the `shippable.yml` file. You'll get this error if the name for the integration does not match in both places. 
 
-This happens due to one of the following reasons:
+**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our [documentation on enabling integrations](ci_projects/#enabling-integrations) for more details.
 
-- You haven't enabled private repositories in your Shippable account. Go to [Account Settings](account_settings.md) and in the **GitHub Identity** section, click on the **Private Repos OFF** icon. This is a one-way toggle button to turn on Private Repos for your GitHub account.
-- Your account hasn't yet been synced with the latest permissions from GitHub. To force sync your account, go to your Account Settings and click on the `Force Sync` icon next to your Account Id.
--  You're a Bitbucket user and you have mercurial repositories. We do not support mercurial at this time, so you will need to convert them to git or use another platform for CI/CD.
+---
 
-## Why do I get an error when I try to enable a project that is listed on my dashboard?
+### common2|_cleanRunYml|callerId:
+```
+- Alerts
+  - Errors
+    - common2|_cleanRunYml|callerId:!xxxxxxxxx prjectId: yyyyy
+```
+Reason: The language configured in the `shippable.yml` file should have the correct syntax in order to be recognized
 
-This usually happens if you are a collaborator on a project and the
-owner of the project has not given Shippable access to the project. You
-can verify this by confirming that the owner of the project can see the
-project on their Shippable dashboard.
+**How to avoid:** Ensure the correct syntax is used when specifying a language in the `shippable.yml`. All supported langagues and configuration syntax is [available here](ci_configure/#specifying-language-and-runtime).
 
-## How can I validate my shippable YML?
+---
 
-You can use either of the tools below to validate if your YML is valid:
+### invalid yml format
+```
+- Alerts
+  - Errors
+    - invalid yml format
+```
+Reason: This error is shown when the overall structure and syntax of the `shippable.yml` file needs to be fixed
 
-* [YAML Lint](http://www.yamllint.com/)
-* [YAML Online Parser](http://yaml-online-parser.appspot.com/)
+**How to avoid:** Use online tools such as [YAML Lint](http://www.yamllint.com/) or [YAML Online Parser](http://yaml-online-parser.appspot.com/) to check the overall structure and syntax of the `shippable.yml` file
 
-## I have enabled my repository and committed code, but my build doesn't start. What could be wrong?
+---
 
-A couple of reasons why this could happen:
+### bad YML data
+```
+- Alerts
+  - Errors
+    - Bad YML data in build.ci. Only strings allowed
+```
+Reason: This error is shown when a particular line or section within the `shippable.yml` file needs to be fixed.
 
-(1) Missing YML in the branch you are building
+**How to avoid:** Refer [our documentation](ci_configure/#shippableyml-structure)on the `shippable.yml` file for the syntax of a specific section called out in the error.
 
-(2) Shippable YML is invalid. Please validate your YML using either of the links below:
+---
 
-* [YAML Lint](http://www.yamllint.com/)
-* [YAML Online Parser](http://yaml-online-parser.appspot.com/)
 
-## Why can't I see my BitBucket repos in my Shippable account?
+### Permission denied (publickey)
+Build fails with the following error in the console:
 
-Shippable only supports git based repositories, so if you have mercurial
-repositories in your BitBucket account, you will not see them in the
-Shippable repository list. If you cannot see git based repos, please
-open an issue on our [GitHub Support
-repo](<https://github.com/Shippable/support>).
+```
+- git_sync
+  - ssh-agent bash -c 'ssh-add /tmp/ssh/01_deploy; git clone ssh://git@bitbucket.org/..........'
+    Permission denied (publickey).
+    fatal: Could not read from remote repository.
+    Please make sure you have the correct access rights and the repository exists.
+```
+Reason: The webhook to the source control system needs to be reset. 
 
-## Why can't Shippable see my org on GitHub?
+**How to avoid:** Follow the steps below:
+- Click on your project from the Shippable dashboard
+- Click the `Settings` tab
+- Scroll all the way down and click the `Reset` button under the 'Reset' section
+- Click `Confirm`. 
 
-GitHub's default policy when a new org is created is 'access
-restricted'. In order for Shippable to be able to see the org, you must
-manually grant access to Shippable. This can be resolved by going to the
-third-party access section for the org, and clicking 'Remove
-restrictions' Under the 'Third-party application access policy' section.
+The reset action will do the following things:
+1. Reset the webhook for Shippable
+2. Generate a new deploy key and update the repository
 
-## How do I link my GitHub and Bitbucket accounts?
+If you are using encrypted variables for this project, they'll need to be re-encrypted. Integrations and other settings will not be affected. 
 
-Please read our documentation on [linking GitHub and Bitbucket accounts](link_gh_and_bb.md).
+---
 
-## Why am I not able to see Bitbucket org repos after deleting and recreating my account on Shippable?
+### Host key verification failed
+Build fails with the following error in the console:
 
-Deleting the shippable account will also delete the permissions
-associated with the account. If you recreate your account, bitbucket
-will not allow us to pull all the permissions you have, unless the owner
-of that organization logs in back to shippable and then click on the
-sync repos button to see the repos.
+```
+Host key verification failed.
+fatal: Could not read from remote repository.
 
-## How do I set desired timezones inside the minions?
-
-By default, our minions are configured with ETC/UTC timezone which is
-set in /etc/timezone file for ubuntu minions. However, we allow you to
-set a specific time zone for the minion in before\_script section of
-your yml file . For example,
-
-```yml
-before_script:
-  - echo 'Europe/Paris' | sudo tee /etc/timezone
-  - sudo dpkg-reconfigure --frontend noninteractive tzdata
+Please make sure you have the correct access rights
+and the repository exists.
 ```
 
-This will change your minion timezone to paris time. Refer the article
-[list of tz database time zones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones) to select the timezone for your location.
+Reason: There are two reasons why you get this error:
 
-## How do I skip webhook builds?
+1. You are using a custom image & the $HOME environment variable is not set. When we update your ~/.ssh/config file to insert `StrictHostKeyChecking` to `no`, it throws up the error.
+2. If you are using an image from **shippableimages** repo. We have deprecated support for those images and our official images are now in the [drydock repo on Docker Hub](https://hub.docker.com/u/drydock/).
 
-Any changes to your source code will trigger a build automatically on Shippable. If you do not want to run build for a particular commit,
-then add ```ci skip``` or ```skip ci``` to your commit message.
+How to avoid: For the reasons above, follow these steps:
 
-Our webhook processor will look for the string ```ci skip``` or ```skip ci``` in the commit message and if it exists, then that particular
-webhook build will not be executed.
+1. To fix this error, you can either update your Dockerfile to set the $HOME environment variable, or you can set it in the `pre_ci_boot` section in the options tag within `shippable.yml` as shown:
 
-**PR Builds:** To skip a PR build, the ```ci skip``` or ```skip ci``` needs to be part of your PR title, since that's what GitHub sends us as part of the webhook.
+    ```
+build:
+  pre_ci_boot:
+    image_name: your/image
+    image_tag: your_tag
+    options: "-e HOME=/root"
+	```
 
-**PR Build with multiple commits:** If the original commit did not include the skip flags and subsequent commits do, the PR build will _not_ skip a build.
+2. Start using one of the new, official images to avoid running into this error. Switching to the new yml format automatically selects one of the new, official images for your build, by default. The naming convention for these images is [explained here](http://docs.shippable.com/ci_configure/#setting-your-build-image). 
 
-## Why is my build still not getting pushed to the registry, even though I have set *Push Build* to *Yes* under my Project Settings?
+For more information, view the [migration guide](http://blog.shippable.com/migrating-to-the-new-build-platform) and the [Top 5 tips for a successful migration](http://blog.shippable.com/5-tips-for-a-successful-migration).
 
-We only push _commit builds_ to the registry and not _PR builds_. Please confirm this is not the case. If your build is a commit build and still not getting pushed to the registry, make sure your registry login details are correctly specified under your [integration settings](integrations.md). If the login details are correct and push is failing for a commit build, go ahead and [file a support issue](https://github.com/Shippable/support/issues/new) and we will take a look.
+---
 
-## Why is my project showing up as "empty" after I enable it? It is certainly not empty in github!
+### gcloud: command not found
+Build fails with the following error:
 
-A project is empty in Shippable if there are zero builds associated with it. A new project that you have just enabled shows up as an empty project. To avoid cluttering the project page with projects that are never built, the projects page doesn't show projects that have no builds unless you explicitly use the check box to let us know you want to see all projects. An exception to this is if you have just enabled a project; we do check this box during the enable process, so you are able to see your new project. We are continuously iterating on the user experience, so please write to us at support@shippable.com if you have any feedback on the feature.
+```
+gcr_login
+   - cd /tmp && gcloud -q auth activate-service-account --key-file key.json
+    /root/xxx.sh: line 58: gcloud: command not found 
 
+```
 
+Reason: When you are using a custom image for your CI & you have specified a Google Container Registry (GCR) in the hub integration and in your `shippable.yml`, we try to log into GCR from inside the CI build container. Hence you would need the gcloud SDK (or awscli for ECR integrations) installed inside your custom image. 
+
+**How to avoid:** To avoid this, set the `agent_only: true` in the `shippable.yml` as shown below: 
+
+```
+integrations:
+  hub:
+    - integrationName: gcr_int_name
+      type: gcr
+      agent_only: true
+```
+If you would like to push your image to GCR, then use the `push` section after the `build: ci` section, which ensures the image is pushed after the CI is completed and this command is run outside the build container. 
+
+Refer [our documentation on this topic](http://docs.shippable.com/ci_configure/#gcrecr-and-custom-images) for more details.
+
+---
+
+### Error: Allowed memory size exhausted
+
+Build fails as it runs out of memory while installing PHP or Drupal, etc. with the following error:
+
+```
+Error: Allowed memory size of 134217728 bytes exhausted (tried to
+allocate 913408 bytes)
+```
+
+Reason: The default memory_limit in the php.ini has been reached. 
+
+**How to avoid:** You can add/change the settings of the php.ini file located at `~/.phpenv/versions/$(phpenv version-name)/etc/php.ini`. Add the following to the `ci` section of the `shippable.yml`:
+
+```
+- echo "memory_limit = 256M" >> $HOME/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+```
+
+---
+
+### no basic auth credentials
+When pushing a Docker image to a Docker Registry (Docker Hub, Amazon ECR, Google Container Registry, etc.), build fails with the following error:
+
+```
+- docker push 604622019445.dkr.ecr.us-east-1.amazonaws.com/vincari/node:latest 0s  
+The push refers to a repository [xxxxxx.dkr.ecr.us-east-1.amazonaws.com/xxxxx/node] (len: 1)
+25ce9d9cdec1: Preparing
+Post https://xxxxxx.dkr.ecr.us-east-1.amazonaws.com/v2/xxxxx/node/blobs/uploads/: no basic auth credentials
+```
+Reason: The Hub integration needs to be configured correctly. 
+
+**How to avoid:** Check the following settings to ensure the Hub integration has been configured correctly.
+
+1. Ensure the Hub integration has been correctly set in the 'Account' settings based on the [Docker Registry used](int_docker_registries/) 
+2. Check the 'Project' Settings to ensure the above integration is listed under the 'Hub Integration'. [Read instructions on setting it up](ci_projects/#enabling-integrations), if it is not.
+3. Ensure it is listed in the `shippable.yml` file under the `integration` section and the `integrationName` is exactly the same as the one specified in the UI.
+4. Ensure the indentation in the `shippable.yml` is correct. Here is an example
+   
+```
+integration:
+  hub:
+    - integrationName:
+      type:
+      agent_only:
+      branches:
+```
+---
+
+### The Docker Engine version is less than the minimum
+When using Docker Compose in the `post_ci` section, the build fails with the following error:
+
+```
+The Docker Engine version is less than the minimum required by Compose. Your current project requires a Docker Engine of version 1.10.0 or greater
+```
+
+Reason: The standard AMI uses Docker Engine of version 1.9. Our normal policy is to upgrade Docker version on our AMI every quarter after extensive testing. Since Docker Compose will not work on this version, we've created a new AMI and allow users to choose that for the build from the 'Subscription Settings'
+
+***How to avoid:** Navigate to the subscription settings page and select the unstable image which has docker version 1.11.1 available on it and all the builds for your subscription will be using this image to run your builds. For more info check out the [Machine Images Section](ci_subscriptions.md#selecting-the-machine-images).
+
+---
 
