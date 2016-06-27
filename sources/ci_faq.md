@@ -9,7 +9,7 @@ This document lists the FAQs that we've received through our [Support repository
 1. Setup: All questions related to setup and initial configuration
 2. Continuous Integration (CI): Questions related to the CI process
 
-If you have specific errors that you would like to troubleshoot, then refer our [troubleshooting section](troubleshoot.md). 
+If you have specific errors that you would like to troubleshoot, then refer our [troubleshooting section](ci_troubleshoot.md). 
 
 ---
 

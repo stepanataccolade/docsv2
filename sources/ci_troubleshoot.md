@@ -10,7 +10,7 @@ This document helps in troubleshooting errors generated on the Shippable platfor
 1. Setup: Troubleshooting errors that occur during initial setup and prior to initiating a CI build. 
 2. Continuous Integration (CI): Troubleshooting errors that occur during the CI process and is shown in the Console output.
 
-For non-errors and questions, refer our [FAQ section](faq.md).
+For non-errors and questions, refer our [FAQ section](ci_faq.md).
 
 ---
 
@@ -57,7 +57,7 @@ The shippable.yml reference guide is the best resource to learn what's possible 
 ---
 
 
-### Integration name specified in yml does not match integrations present in project settings: null
+### Integration name specified in yml does not match
 ```
 - Alerts
   - Errors
@@ -216,7 +216,7 @@ Reason: The default memory_limit in the php.ini has been reached.
 When pushing a Docker image to a Docker Registry (Docker Hub, Amazon ECR, Google Container Registry, etc.), build fails with the following error:
 
 ```
-- docker push 604622019445.dkr.ecr.us-east-1.amazonaws.com/vincari/node:latest 0s  
+- docker push 604622019445.dkr.ecr.us-east-1.amazonaws.com/xxxxxx/node:latest 0s  
 The push refers to a repository [xxxxxx.dkr.ecr.us-east-1.amazonaws.com/xxxxx/node] (len: 1)
 25ce9d9cdec1: Preparing
 Post https://xxxxxx.dkr.ecr.us-east-1.amazonaws.com/v2/xxxxx/node/blobs/uploads/: no basic auth credentials
