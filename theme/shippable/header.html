@@ -16,16 +16,22 @@
         <!-- Nav content to be toggled -->
         <div class="collapse navbar-collapse" id="navbar-contents">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://www.shippable.com/products.html">PRODUCTS</a></li>
-            <li><a href="http://www.shippable.com/pricing.html">PRICING</a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCT <i class="fa fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="/product.html">overview</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><a href="/integrations.html">integrations</a></li>
+              </ul>
+            </li>
+            <li><a href="/pricing.html">PRICING</a></li>
             <li><a href="http://docs.shippable.com">DOCS</a></li>
             <li><a href="http://blog.shippable.com">BLOG</a></li>
-            <li><a href="http://www.shippable.com/company.html">COMPANY</a></li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">LOGIN <i class="fa fa-chevron-down"></i></a>
+            <li><a href="/company.html">COMPANY</a></li>
+            <li id="login-dropdown" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">LOGIN <i class="fa fa-chevron-down"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="https://app.shippable.com/auth/github"><i class="fa fa-github fa-lg"></i> github</a></li>
+                <li><a id="headerLinkLoginGithub" href="<%= wwwUrl %>/auth/github<%= locals.redirectUrl ? '?redirectUrl=' + locals.redirectUrl : ''%>"><i class="fa fa-github fa-lg"></i> github</a></li>
                 <li role="presentation" class="divider"></li>
-                <li><a href="https://app.shippable.com/auth/bitbucket"><i class="fa fa-bitbucket fa-lg"></i> bitbucket</a></li>
+                <li><a id="headerLinkLoginBitbucket" href="<%= wwwUrl %>/auth/bitbucket<%= locals.redirectUrl ? '?redirectUrl=' + locals.redirectUrl : ''%>"><i class="fa fa-bitbucket fa-lg"></i> bitbucket</a></li>
               </ul>
             </li>
           </ul>
