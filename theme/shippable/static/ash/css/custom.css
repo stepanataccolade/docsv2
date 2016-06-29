@@ -328,22 +328,19 @@ h2:target, h3:target {
   padding-top: 20px;
 }
 #article {
-  margin-top: 100px;
+  margin-top: 50px;
   width: 100%;
   max-width: none;
   /*  margin-left: 245px;*/
 }
 /* Mainbar */
 #mainbar {
-  padding: 20px 10px 0px 0px;
+  padding: 20px;
 }
 
 /* Sidebar */
 #sidebar {
   padding: 0px;
-}
-#sidebar a {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 .sticky-anchor {
@@ -361,6 +358,11 @@ h2:target, h3:target {
 #sidebar .tocbar a {
   color: #003535;
   font-weight: 600;
+}
+
+#sidebar .tocbar label {
+    color: #003535;
+    font-weight: 600;
 }
 
 #sidebar .nav>li>a:hover, #sidebar .nav>li>a:focus {
