@@ -12,6 +12,9 @@ google_analytics: ['UA-50610279-1', 'auto']
 # Pages
 pages:
 - Getting Started:
+  - Extra:
+    - More: 
+      - Even More: morestuff.md
   - Overview: index.md
   - Concepts: gs_concepts.md
   - What is supported?: gs_supported.md
@@ -19,7 +22,7 @@ pages:
   - Your Shippable Account: acc_overview.md
   - Run a sample CI build: gs_ci_sample.md
   - Deploy a sample application: gs_deploy_sample.md
-- C I:
+- CI:
   - Overview: ci_overview.md
   - Subscriptions: ci_subscriptions.md
   - Projects: ci_projects.md
