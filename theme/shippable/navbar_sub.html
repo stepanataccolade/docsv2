@@ -1,6 +1,6 @@
 {% if not section.children %}
   <li>
-    <a href="{{ section.url }}">{{ section.title }}</a>
+    <a href="{{ section.url }}" name="{{section.title}}">{{ section.title }}</a>
   </li>
 {% else %}
   <li class="dropdown-submenu has-children">
