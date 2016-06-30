@@ -49,3 +49,6 @@ site/
 # Virtualenvs
 venv
 venvs
+
+.DS_Store
+.idea/*
