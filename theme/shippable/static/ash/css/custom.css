@@ -333,6 +333,9 @@ h2:target, h3:target {
   max-width: none;
   /*  margin-left: 245px;*/
 }
+#article.container {
+  padding-left: 0px;
+}
 /* Mainbar */
 #mainbar {
   padding: 20px;
@@ -349,24 +352,33 @@ h2:target, h3:target {
 
 #sidebar .tocbar {
   padding-right: 10px;
-  padding-top: 20px;
   z-index: 10;
   max-height: 50%;
   max-width: 100%;
 }
 
 #sidebar .tocbar a {
-  color: #003535;
+  color: #58595b;
   font-weight: 600;
 }
 
 #sidebar .tocbar label {
-    color: #003535;
+    color: #ffffff;
+    background-color: #58595b;
     font-weight: 600;
+    padding: 10px 1em;
+    width: 100%;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #ffffff;
+}
+
+#sidebar .tocbar li li label {
+  padding-left: 1.5em;
 }
 
 #sidebar .nav>li>a:hover, #sidebar .nav>li>a:focus {
-  background-color: #d1d2d3;
+  cursor: pointer;
+  background-color: #f3f3f4;
 }
 
 #sidebar .tocbar li {
@@ -375,28 +387,21 @@ h2:target, h3:target {
 
 #sidebar .tocbar li:hover label {
   text-decoration: none;
-  background-color: #d1d2d3;
-}
-
-#sidebar .tocbar label {
-  padding: 10px 15px;
-  width: 100%;
+  cursor: pointer;
+  background-color: #58595b;
 }
 
 #sidebar .tocbar .fa {
-  color: #003535;
+  color: #ffffff;
   float: right;
 }
 
 #sidebar .tocbar-sub {
-  margin-left: 2em;
-  border-left: dashed 1px #ccc;
-  font-size: 0.9em;
+  margin-left: 15px;
 }
 
 #sidebar .tocbar-sub a {
-  padding: 3px 10px;
-  color: #009999;
+  padding: 10px 2em;
 }
 
 #sidebar .tocbar-sub a:hover {
