@@ -248,7 +248,26 @@ cd micro-www .
 ```
 Reason: The folder (`micro-www` in this example) either does not exist or is a sub-folder and hence is unreachable.
 
-**How to avoid:** Check the path to the folder on your source control system. Include the entire path to the folder in the `cd` command. For example: `cd /root/src/github.com/Shippable-Demo/micro-sample/micro-www .`.
+**How to avoid:** Check the path to the folder on your source control system. Include the entire path to the folder in the `cd` command. For example: `cd /root/src/github.com/Shippable-Demo/micro-sample/micro-www .`
+
+---
+
+### ImportError: cannot import name Config
+For integrations with AWS Elastic Beanstalk, builds fail when running the `eb init` command with the following error:
+```
+File "/usr/local/lib/python2.7/dist-packages/boto3/__init__.py", line 16, in <module>
+    from boto3.session import Session
+File "/usr/local/lib/python2.7/dist-packages/boto3/session.py", line 17, in <module>
+    from botocore.client import Config
+ImportError: cannot import name Config
+```
+Reason: A new version of `awsebcli` was released, and pip is installing the new version. While 3.7.6 runs without an error, 3.7.7 needs a newer version of 'botocore'.
+
+**How to avoid:** Upgrade 'botocore' to the latest version at the end of the `post_ci` section by including the command below in the `shippable.yml` file:
+```
+post_ci:
+  - pip install --upgrade botocore
+```
 
 ---
 
