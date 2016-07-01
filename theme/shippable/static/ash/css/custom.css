@@ -433,6 +433,9 @@ h2:target, h3:target {
   /* show children when item is checked */
   display: block;
 }
+.cd-accordion-menu ul.visible {
+  display: block;
+}
 
 /* Buttons */
 .signup-buttons {

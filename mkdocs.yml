@@ -13,7 +13,7 @@ google_analytics: ['UA-50610279-1', 'auto']
 pages:
 - Overview:
   - What is Shippable?: index.md
-  - FAQ: ci_faq
+  - FAQ: ci_faq.md
 - Continuous Integration (CI):
   - Overview: ci_overview.md
   - What is supported?: gs_supported.md
