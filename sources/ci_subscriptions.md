@@ -19,13 +19,13 @@ To get to the CI dashboard,
 <img src="../images/ci_subscriptions_mv_ci_dashboard.gif" alt="Continuous Integration Dashboard" style="width:700px;"/>
 
 
-The **Summary View** is the default view when you navigate to this dashboard. 
+The **Dashboard View** is the default view when you navigate to this dashboard. 
 
 By default, you will see the status of the most recent commit builds for all enabled projects. The default branch of the repository, as configured in your source control account, is used. 
 
 You can customize the branch(es) shown on this page and also configure this view to include status for pull request builds. More details on this in the [Dashboard Settings for Projects](ci_projects/#dashboard-settings).
 
-If a build is queued or in progress, you will see at the top of the 'Summary' view.
+If a build is queued or in progress, you will see at the top of the 'Dashboard' view.
 
 NOTE: To view time stamp for a build, hover the mouse over time details
 
@@ -70,13 +70,13 @@ You can trigger manual builds for an enabled project by clicking on `Build` for 
 ## Settings
 You can perform subscription level actions by clicking on the `Settings` tab on the Subscription page.
 
-<a name="ci_byoh"></a>
+<a name="ci_byon"></a>
 
-### Adding your own build infrastructure (BYOH)
-By default, all your builds run inside build containers hosted on Shippable's infrastructure. However, you can choose to run your builds on your own infrastructure, i.e. you can 'Bring your own hosts (BYOH)'. To understand the advantages of BYOH, check out the [Running builds on your machines section](ci_byoh.md).
+### Adding your own build infrastructure (BYON)
+By default, all your builds run inside build containers hosted on Shippable's infrastructure. However, you can choose to run your builds on your own infrastructure, i.e. you can 'Bring Your Own Node (BYON)'. To understand the advantages of BYON, check out the [Running builds on your machines section](ci_byoh.md).
 
 The 'Build Infrastructure' section lets you set up your own infrastructure if desired.
-To do so, select the radio button for `I want to use my own build machines` and follow instructions for adding a build node below.
+To do so, select the radio button for `My Node` and follow instructions for adding a build node below.
 
 Please note that you need to add one build node per parallel build, up to a maximum of the number of parallel builds allowed in your plan.
 
@@ -112,6 +112,8 @@ Click on `Delete` to delete your build node. This action is final and cannot be 
 
 ### Selecting the Machine Images
 The Machine Images section has a list of images that are available to run your builds. All the builds for your subscription will be using the stable image by default. You can switch to other images based on your requirements. Once you switch the images, all the builds for your subscription will be using the image that you have selected and you can switch back to the default version anytime.
+
+To select your Machine Image, Go to the 'Settings' tab of your 'Subscription'. Click on the 'Options' tab and select from the dropdown under the 'Machine Images' section. 
 
 #### Here is the list of contents of the machine images
 
