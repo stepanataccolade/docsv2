@@ -11,7 +11,7 @@ To set up notifications via Slack, HipChat or private IRC channels, you will nee
 ---
 
 ## Slack notifications
-You will need to configure this integration to send notifications to Slack channel(s). Notifications can be sent for build status updates, lighthouse image updates, and deployment updates.
+You will need to configure this integration to send notifications to Slack channel(s). Notifications can be sent for build status updates, monitoring your Docker image updates, and deployment updates.
 
 **Configuring an incoming webhook on Slack**
 
@@ -49,7 +49,7 @@ You have now configured your private IRC integration and can use this to send no
 
 Build Emails are always sent through our Shippable account and are configured through shippable.yml. At this time, you cannot customize the domain emails are sent from. To request this enhancement, please contact [customer support](mailto:support@shippable.com)
 
-You can, however, add an Email account integration to receive notifications for monitored images in Lighthouse. To do this,
+You can, however, add an Email account integration to receive notifications for monitored Docker images. To do this,
 
 1. From your Shippable dashboard, click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
 2. **Integration type:** In the dropdown, select `Email`
@@ -63,7 +63,7 @@ Check our tutorial to [notify failure/success status for your CI project, using 
 ---
 
 ## HipChat notifications
-You will need to configure this integration to send notifications to HipChat room(s) and user(s). Notifications can be sent for build status updates, lighthouse image updates, and deployment updates.
+You will need to configure this integration to send notifications to HipChat room(s) and user(s). Notifications can be sent for build status updates, monitoring your Docker image updates, and deployment updates.
 
 **Generate a TOKEN for API access**
 
