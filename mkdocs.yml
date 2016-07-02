@@ -13,7 +13,7 @@ google_analytics: ['UA-50610279-1', 'auto']
 pages:
 - Overview:
   - What is Shippable?: index.md
-  - FAQ: ci_faq
+  - FAQ: ci_faq.md
 - Continuous Integration (CI):
   - Overview: ci_overview.md
   - What is supported?: gs_supported.md
@@ -125,7 +125,7 @@ pages:
     - Deploy to Azure Container Service (ACS): test.md
   - Deploy to Quay.io: test.md
   - Deploy to any private registry: test.md
-  - Languages:
+  - Languages Based:
     - test: test.md
   - Pushing to multiple registries: test.md
   - Pushing multiple tags: test.md
