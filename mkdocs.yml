@@ -49,32 +49,32 @@ pages:
   - Configuring Post CI: test.md
   - Integrations:
     - Notifications:
-      - Slack: int_notifications/#slack-notifications
-      - Email: int_notifications/#email-notifications
-      - HipChat: int_notifications/#hipchat-notifications
-      - IRC: int_notifications/#irc-notifications
+      - Slack: test.md
+      - Email: test.md
+      - HipChat: test.md
+      - IRC: test.md
     - Image Registries:
-      - Docker Hub: int_docker_registries/#docker-hub
-      - Docker Trusted Registry: int_docker_registries/#docker-trusted-registry
-      - Amazon EC2 Container Registry (ECR): int_docker_registries/#amazon-ec2-container-registry-ecr
-      - Google Container Registry (GCR): int_docker_registries/#google-container-registry-gcr
-      - Quay.io: int_docker_registries/#quayio
-      - Any Private Registry: int_docker_registries/#docker-trusted-registry
+      - Docker Hub: test.md
+      - Docker Trusted Registry: test.md
+      - Amazon EC2 Container Registry (ECR): test.md
+      - Google Container Registry (GCR): test.md
+      - Quay.io: test.md
+      - Any Private Registry: test.md
     - Container Services:
-      - Amazon EC2 Container Service (ECS): int_container_services/#amazon-ec2-container-service-using-account-keys
-      - Google Container Engine (GKE): int_container_services/#google-container-engine-gke
-      - Docker Cloud: int_container_services/#docker-cloud
-      - Docker Datacenter: int_container_services/#docker-datacenter
+      - Amazon EC2 Container Service (ECS): test.md
+      - Google Container Engine (GKE): test.md
+      - Docker Cloud: test.md
+      - Docker Datacenter: test.md
     - Deploy:
-      - AWS Elastic Beanstalk: int_paas_iaas_providers/#aws-elastic-beanstalk
+      - AWS Elastic Beanstalk: test.md
       - Webhooks: test.md
     - Keys:
-      - SSH: int_keys/#ssh
-      - PEM:  int_keys/#pem
+      - SSH: int_keys.md
+      - PEM:  int_keys.md
   - Running builds on your own machines (BYON):
     - Overview: ci_byoh.md
     - Setup: test.md
-  - Permissions: ci_overview/#permissions
+  - Permissions: test.md
   - Troubleshooting CI: ci_troubleshoot.md
 - Pipelines:
   - Overview: pipelines_overview.md
