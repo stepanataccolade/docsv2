@@ -29,7 +29,7 @@ We run all your builds on **minions**, which are Docker-based containers. If you
 
 You should use Shippable for Continuous Integration if you fit the following profile -
 
-* Your source code is on GitHub, GitHub Enterprise, Bitbucket, Bitbucket Server or GitLab 
+* Your source code is on GitHub, GitHub Enterprise, Bitbucket, Bitbucket Server or GitLab
 * You want to avoid the time sink of setting up and managing your own CI system and would rather spend the time writing features for your product   
 * (optional)You're a Docker user and you want to use your own custom image to run your builds. You can even run Docker compose to spin up environments!
 
@@ -66,9 +66,6 @@ You should use Shippable to set up your Continuous Delivery pipelines if you fit
 
 Go to [the CD Pipelines section](pipelines_overview.md) to learn more.
 
-In addition, we also have a cool tool called **Lighthouse** that lets you monitor any Docker images you depend on and be notified when they change. This helps avoid situations where your images no longer work due to changing dependencies.
-
-Go to [Lighthouse Overview](lighthouse.md) to learn more.
 
 ---
 

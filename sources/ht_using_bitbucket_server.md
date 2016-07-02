@@ -4,7 +4,7 @@ page_keywords: getting started, questions, documentation, shippable, bitbucket-s
 
 # Using Shippable with Bitbucket Server
 
-Several software development teams use Bitbucket Server to host their repositories. Shippable supports running Continuous Integration (CI) builds for Bitbucket Server. This tutorial walks you through using Shippable with Bitbucket Server successfully. 
+Several software development teams use Bitbucket Server to host their repositories. Shippable supports running Continuous Integration (CI) builds for Bitbucket Server. This tutorial walks you through using Shippable with Bitbucket Server successfully.
 
 The tutorial is split up into 4 sections:
 
@@ -13,7 +13,7 @@ The tutorial is split up into 4 sections:
 3. Sync subscriptions
 4. Running CI
 
-To set this up, follow the steps mentioned [here](int_scm.md#bitbucket-server) to add Bitbucket Server as
+To set this up, follow the steps mentioned here **UpdateLink** to add Bitbucket Server as
 an Account Integration and sync your Subscriptions. Once complete, you can enable a project/repository and setup a `shippable.yml` file to get your builds running.
 
 ---
@@ -51,7 +51,7 @@ Let's enable Shippable access to the repositories on Bitbucket Server. Currently
     - Navigate to 'Manage Account' on the Bitbucket Server portal
     - Select 'Shippable Token' from the left navigation menu
     - Copy the Shippable Auth Token
-    - Paste it in the 'Token' field in the Account Integration step on Shippable portal. 
+    - Paste it in the 'Token' field in the Account Integration step on Shippable portal.
 
 <img src="../images/ht_bbs_mv_shippable_int.gif" alt="Bitbucket Server Admin Settings" style="width:700px;"/>
 
