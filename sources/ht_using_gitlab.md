@@ -6,7 +6,7 @@ page_keywords: getting started, questions, documentation, shippable, gitlab, sou
 
 Shippable supports running CI builds for GitLab. To set this up, you'll first
 need to sign into Shippable using a GitHub or BitBucket.
-Then follow the steps mentioned [here](int_scm.md#gitlab) to add GitLab as
+Then follow the steps mentioned here **UpdateLink** to add GitLab as
 an Account Integration and sync your Subscriptions. Once complete, you can
 enable a project/repository and setup a `shippable.yml` file to get your builds running.
 

@@ -42,7 +42,7 @@ integrations:
 ```
 In the ci section shown above, we issue commands to run tests. Once the tests are complete, the docker image is pushed to a registry. ( Check the [supported registries](gs_supported.md) ).
 
-In the sample application, we will push the docker images to the Docker Trusted Registry using the integration named `Shippable-DTR` ( Check [how to create integration for a docker registry in Shippable](int_docker_registries.md))
+In the sample application, we will push the docker images to the Docker Trusted Registry using the integration named `Shippable-DTR` ( Check how to create integration for a docker registry in Shippable **UpdateLink**
 
 ---
 
@@ -80,4 +80,3 @@ While adding the image, you can configure various options like Port Mapping, Mem
 For more details, check our stepwise guide to [getting started with Docker Datacenter](http://blog.shippable.com/getting-started-with-docker-datacenter).
 
 ---
- 

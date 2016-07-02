@@ -24,7 +24,7 @@ warn: caller:5762x2x501346x0x00959x0x|projects|enableById:5762x2x72x8192902x23xf
 ```
 Reason: Admin permissions on the repository are required to enable it as a project on Shippable's platform. This ensures Shippable can add a webhook to the repository and listen for commits and pull requests to trigger builds.
 
-**How to avoid:** Ensure a user with Admin permissions [enables the project](ci_subscriptions/#enabling-a-project) on Shippable's platform. If you still get the error, then the permissions may be out of date and need to be udpated. Synchronize your permissions by clicking on the Account settings (gear icon in the top navigation bar) and clicking the `Sync` button.
+**How to avoid:** Ensure a user with Admin permissions enables the project **UpdateLink** on Shippable's platform. If you still get the error, then the permissions may be out of date and need to be udpated. Synchronize your permissions by clicking on the Account settings (gear icon in the top navigation bar) and clicking the `Sync` button.
 
 ---
 
@@ -65,11 +65,11 @@ The shippable.yml reference guide is the best resource to learn what's possible 
 ```
 Reason: Notification and Hub integrations need to be set in two places - In the UI and in the `shippable.yml` file. You'll get this error if the name for the integration does not match in both places.
 
-**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our [documentation on enabling integrations](ci_projects/#enabling-integrations) for more details.
+**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our documentation on enabling integrations **UpdateLink** for more details.
 
 ---
 
-### common2|_cleanRunYml|callerId:
+### common2| cleanRunYml|callerId:
 ```
 - Alerts
   - Errors
@@ -77,7 +77,7 @@ Reason: Notification and Hub integrations need to be set in two places - In the 
 ```
 Reason: The language configured in the `shippable.yml` file should have the correct syntax in order to be recognized
 
-**How to avoid:** Ensure the correct syntax is used when specifying a language in the `shippable.yml`. All supported langagues and configuration syntax is [available here](ci_configure/#specifying-language-and-runtime).
+**How to avoid:** Ensure the correct syntax is used when specifying a language in the `shippable.yml`. All supported languages and configuration syntax is available here **UpdateLink**.
 
 ---
 
@@ -101,7 +101,7 @@ Reason: This error is shown when the overall structure and syntax of the `shippa
 ```
 Reason: This error is shown when a particular line or section within the `shippable.yml` file needs to be fixed.
 
-**How to avoid:** Refer [our documentation](ci_configure/#shippableyml-structure)on the `shippable.yml` file for the syntax of a specific section called out in the error.
+**How to avoid:** Refer our documentation **UpdateLink** on the `shippable.yml` file for the syntax of a specific section called out in the error.
 
 ---
 
@@ -160,7 +160,7 @@ build:
     options: "-e HOME=/root"
 	```
 
-2. Start using one of the new, official images to avoid running into this error. Switching to the new yml format automatically selects one of the new, official images for your build, by default. The naming convention for these images is [explained here](http://docs.shippable.com/ci_configure/#setting-your-build-image).
+2. Start using one of the new, official images to avoid running into this error. Switching to the new yml format automatically selects one of the new, official images for your build, by default. The naming convention for these images is explained here **UpdateLink**.
 
 For more information, view the [migration guide](http://blog.shippable.com/migrating-to-the-new-build-platform) and the [Top 5 tips for a successful migration](http://blog.shippable.com/5-tips-for-a-successful-migration).
 
@@ -189,7 +189,7 @@ integrations:
 ```
 If you would like to push your image to GCR, then use the `push` section after the `build: ci` section, which ensures the image is pushed after the CI is completed and this command is run outside the build container.
 
-Refer [our documentation on this topic](http://docs.shippable.com/ci_configure/#gcrecr-and-custom-images) for more details.
+Refer our documentation on this topic **UpdateLink** for more details.
 
 ---
 
@@ -225,8 +225,8 @@ Reason: The Hub integration needs to be configured correctly.
 
 **How to avoid:** Check the following settings to ensure the Hub integration has been configured correctly.
 
-1. Ensure the Hub integration has been correctly set in the 'Account' settings based on the [Docker Registry used](int_docker_registries/)
-2. Check the 'Project' Settings to ensure the above integration is listed under the 'Hub Integration'. [Read instructions on setting it up](ci_projects/#enabling-integrations), if it is not.
+1. Ensure the Hub integration has been correctly set in the 'Account' settings based on the Docker Registry used **UpdateLink**
+2. Check the 'Project' Settings to ensure the above integration is listed under the 'Hub Integration'. Read instructions on setting it up **UpdateLink**, if it is not.
 3. Ensure it is listed in the `shippable.yml` file under the `integration` section and the `integrationName` is exactly the same as the one specified in the UI.
 4. Ensure the indentation in the `shippable.yml` is correct. Here is an example
 
@@ -280,6 +280,6 @@ The Docker Engine version is less than the minimum required by Compose. Your cur
 
 Reason: The standard AMI uses Docker Engine of version 1.9. Our normal policy is to upgrade Docker version on our AMI every quarter after extensive testing. Since Docker Compose will not work on this version, we've created a new AMI and allow users to choose that for the build from the 'Subscription Settings'
 
-**How to avoid:** Navigate to the subscription settings page and select the unstable image which has docker version 1.11.1 available on it and all the builds for your subscription will be using this image to run your builds. For more info check out the [Machine Images Section](ci_subscriptions.md#selecting-the-machine-images).
+**How to avoid:** Navigate to the subscription settings page and select the unstable image which has docker version 1.11.1 available on it and all the builds for your subscription will be using this image to run your builds. For more info check out the Machine Images Section **UpdateLink**.
 
 ---
