@@ -52,35 +52,4 @@ Congratulations! You have successfully run your first build on Shippable.
 ## More examples
 Check out the stepwise, multi-part series of tutorials that takes you through running CI on a node.js application [hosted on a public repo](http://blog.shippable.com/get-started-with-continuous-integration-for-nodejs-app), [private repo](http://blog.shippable.com/running-ci-on-a-node.js-application-hosted-on-a-private-repository), [configuring unit tests](http://blog.shippable.com/configuring-a-unit-test-to-check-for-errors-on-the-node.js-application) and much, much more.
 
-* * *
-
-## Sign into Shippable
-
-<div class="signup-buttons">
-  <!--HubSpot Call-to-Action Code -->
-  <span class="hs-cta-wrapper" id="hs-cta-wrapper-7fab9efc-4073-40b1-b273-fe26edc855a9">
-      <span class="hs-cta-node hs-cta-7fab9efc-4073-40b1-b273-fe26edc855a9" id="hs-cta-7fab9efc-4073-40b1-b273-fe26edc855a9">
-          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
-          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/7fab9efc-4073-40b1-b273-fe26edc855a9"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-7fab9efc-4073-40b1-b273-fe26edc855a9" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/7fab9efc-4073-40b1-b273-fe26edc855a9.png"  alt="Sign up with GitHub"/></a>
-      </span>
-      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
-      <script type="text/javascript">
-          hbspt.cta.load(362403, '7fab9efc-4073-40b1-b273-fe26edc855a9', {});
-      </script>
-  </span>
-  <!-- end HubSpot Call-to-Action Code -->
-  <!--HubSpot Call-to-Action Code -->
-  <span class="hs-cta-wrapper" id="hs-cta-wrapper-37fe99e8-081e-4f94-be36-a0a021936cd7">
-      <span class="hs-cta-node hs-cta-37fe99e8-081e-4f94-be36-a0a021936cd7" id="hs-cta-37fe99e8-081e-4f94-be36-a0a021936cd7">
-          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
-          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/37fe99e8-081e-4f94-be36-a0a021936cd7"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-37fe99e8-081e-4f94-be36-a0a021936cd7" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/37fe99e8-081e-4f94-be36-a0a021936cd7.png"  alt="Sign up with Bitbucket"/></a>
-      </span>
-      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
-      <script type="text/javascript">
-          hbspt.cta.load(362403, '37fe99e8-081e-4f94-be36-a0a021936cd7', {});
-      </script>
-  </span>
-  <!-- end HubSpot Call-to-Action Code -->
-</div>
-
 ---
