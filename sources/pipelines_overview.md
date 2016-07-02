@@ -22,7 +22,7 @@ You should use Shippable Deployment pipelines for the following reasons:
 
 **Cloud Portability** We support all popular Container Services and you can move your application environments between these in just a few minutes. The result? No lock in!
 
-* * * 
+* * *
 
 ## Example use case
 
@@ -50,9 +50,9 @@ Using Shippable, your workflow from source control to production will look like 
 - Additional tests, both manual and automated, are performed on **Beta**. This environment is updated several times until one day, everything planned for your next Production update has been tested and approved in **Beta**.
 - Release day! You simply push the *approved* service versions to your **Production** environment. As simple as that!
 
-Here's a [tutorial to deploy a GitHub hosted sample node.js application to Google Container Engine](gs_deploy_sample/). 
+Here's a [tutorial to deploy a GitHub hosted sample node.js application to Google Container Engine](gs_deploy_sample/).
 
-* * * 
+* * *
 
 ## Subscriptions
 
@@ -60,7 +60,7 @@ Deployment pipelines are available as part of your organizational or personal su
 
 **You are limited to configuring one environment per subscription today.** For example, if you run 2 Test environments, one Beta, and one Production environment, you will need 4 subscriptions. This limitation of one environment per subscription will be removed in the next few weeks and you will be able to create multiple environments in a single subscription.  
 
-By default, you get one free pipeline per subscription. You can add more pipelines as explained in the [Plans and Pricing section](gs_plans.md). Read the blog [upgrading your Continuous Integration/Continuous Delivery subscription](http://blog.shippable.com/how-to-upgrade-your-ci-cd-subscription) to help you determine when you need to upgrade.
+By default, you get one free pipeline per subscription. You can add more pipelines as explained in the Plans and Pricing section **UpdateLink**. Read the blog [upgrading your Continuous Integration/Continuous Delivery subscription](http://blog.shippable.com/how-to-upgrade-your-ci-cd-subscription) to help you determine when you need to upgrade.
 
 ### What is a Pipeline?
 
@@ -80,13 +80,13 @@ A pipeline is defined by:
 
 Since a pipeline is the lifecycle for a cell, all containers configured for the cell are always deployed together and on the same machine.
 
-* * * 
+* * *
 
 ## Permissions
 
 All members of your GitHub organization have access to your Deployment pipelines. We are in the process of tying permissions to GitHub teams, so that you can define your teams in GitHub and then assign team based permissions to your pipelines and environments.
 
-* * * 
+* * *
 
 ## Sign into Shippable
 
@@ -117,4 +117,4 @@ All members of your GitHub organization have access to your Deployment pipelines
   <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-* * * 
+* * *

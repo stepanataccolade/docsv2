@@ -17,7 +17,7 @@ The main endpoint for interacting with our API is
 
 ### Authentication
 
-Using our API requires authenticating with a Shippable API tokens. To generate a token, follow instructions in our [Generate API token](acc_overview.md#api-tokens) section.
+Using our API requires authenticating with a Shippable API tokens. To generate a token, follow instructions in our Generate API token **UpdateLink** section.
 
 These tokens must be placed in the header of your HTTP request. For example, if your API token has the value 10010, you can authenticate with curl as follows:
 
@@ -669,7 +669,7 @@ DELETE /runs/:id
 ---
 
 ## Jobs
-Jobs are individual builds in a Run. For example, a matrix build will have multiple Jobs that are a part of the Build Run, one for each value in the matrix. For more on matrix builds, [check out our documentation on build config](ci_configure.md#matrix_builds)
+Jobs are individual builds in a Run. For example, a matrix build will have multiple Jobs that are a part of the Build Run, one for each value in the matrix. For more on matrix builds, check out our documentation on build config **UpdateLink**
 
 ###Get all jobs
 This route returns all jobs across projects and subscriptions and runs.
@@ -1280,7 +1280,7 @@ You can specify the branch for which you want to trigger a run by specifying a `
 }
 ```
 
-Alternatively, branch name can also be specified as a parameter like this: 
+Alternatively, branch name can also be specified as a parameter like this:
 `POST /projects/:projectId/newBuild?branch=xyzFeature`
 
 
@@ -1789,7 +1789,7 @@ Given below is the mapping of a build's statusCode to the build states displayed
 
 |statusCode      | Definition | State|   Icon  |
 |---------------|--------------------|------------|---------|
-|0|waiting | Incomplete | ![add_icon](images/ci_build_icon_waiting.png)| 
+|0|waiting | Incomplete | ![add_icon](images/ci_build_icon_waiting.png)|
 |20|processing | Incomplete |![add_icon](images/ci_build_icon_processing.png)|
 |30|success |Complete |![add_icon](images/ci_build_icon_success.png)|
 |50|unstable |Complete |![add_icon](images/ci_build_icon_unstable.png)|

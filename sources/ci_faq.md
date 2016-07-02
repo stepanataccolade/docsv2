@@ -4,12 +4,12 @@ page_keywords: concepts, documentation, shippable, CI/CD, pipelines, upgrade con
 
 # FAQ
 
-This document lists the FAQs that we've received through our [Support repository](https://github.com/Shippable/support/issues) and speaking with our customers, on running Continuous Integration. The FAQ is divided into two sections: 
+This document lists the FAQs that we've received through our [Support repository](https://github.com/Shippable/support/issues) and speaking with our customers, on running Continuous Integration. The FAQ is divided into two sections:
 
 1. Setup: All questions related to setup and initial configuration
 2. Continuous Integration (CI): Questions related to the CI process
 
-If you have specific errors that you would like to troubleshoot, then refer our [troubleshooting section](ci_troubleshoot.md). 
+If you have specific errors that you would like to troubleshoot, then refer our [troubleshooting section](ci_troubleshoot.md).
 
 ---
 
@@ -30,7 +30,7 @@ Check our blog on [upgrading your CI/CD subscription](http://blog.shippable.com/
 
 This happens due to one of the following reasons:
 
-- You haven't enabled private repositories in your Shippable account. Go to [Account Settings](acc_overview.md) (gear icon on the top right hand navigation bar), in the 'Accounts' tab and under 'Git Identities' section, click 'Enable' under 'GitHub' 'Click to enable private access'. 
+- You haven't enabled private repositories in your Shippable account. Go to Account Settings (gear icon on the top right hand navigation bar), in the 'Accounts' tab and under 'Git Identities' section, click 'Enable' under 'GitHub' 'Click to enable private access'. 
 - Your account hasn't yet been synced with the latest permissions from GitHub. To force sync your account, go to your Account Settings and click on the `Force Sync` icon next to your Account Id.
 -  You're a Bitbucket user and you have mercurial repositories. We do not support mercurial at this time, so you will need to convert them to git or use another platform for CI/CD.
 
@@ -40,7 +40,7 @@ This happens due to one of the following reasons:
 
 This usually happens if you are a collaborator on a project and the owner of the project has not given Shippable access to the project. You can verify this by confirming that the owner of the project can see the project on their Shippable dashboard.
 
---- 
+---
 
 ### How can I validate my shippable YML?
 
@@ -100,14 +100,14 @@ When public or private repo on GitHub/Bitbucket (and enabled as a project on Shi
 - Click on your project from the Shippable dashboard
 - Click the `Settings` tab
 - Scroll all the way down and click the `Reset` button under the 'Reset' section
-- Click `Confirm`. 
+- Click `Confirm`.
 
 The reset action will do the following things:
 
 1. Reset the webhook for Shippable
 2. Generate a new deploy key and update the repository
 
-If you are using encrypted variables for this project, they'll need to be re-encrypted. Integrations and other settings will not be affected. 
+If you are using encrypted variables for this project, they'll need to be re-encrypted. Integrations and other settings will not be affected.
 
 ---
 
@@ -116,7 +116,7 @@ If you are using encrypted variables for this project, they'll need to be re-enc
 Shippable [supports](gs_supported/) lots of different services, tools and third party services. If you have a service or a tool that is currently unsupported, you can still use it to run CI within Shippable in either of the two ways listed:
 
 1. Use Shippable's default images based on the language you use & install 'mariadb' as a dependency in the `build: ci` step.
-2. If you have an existing Docker image with 'mariadb' and other dependencies installed, then you can [override Shippable's default image](ci_configure/#overriding-the-default-build-image) and use it for CI. You can also [build your own Docker image](ci_configure/#building-your-ci-image) with all the dependencies including 'mariadb' and use it for CI. 
+2. If you have an existing Docker image with 'mariadb' and other dependencies installed, then you can [override Shippable's default image](ci_configure/#overriding-the-default-build-image) and use it for CI. You can also [build your own Docker image](ci_configure/#building-your-ci-image) with all the dependencies including 'mariadb' and use it for CI.
 
 ---
 

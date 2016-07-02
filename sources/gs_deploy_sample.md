@@ -6,24 +6,22 @@ page_keywords: getting started, formations, quick start, documentation, shippabl
 
 This tutorial walks you through how you can deploy a sample application to Google Container Engine. You can follow similar steps to deploy to Amazon's ECS.
 
-Our sample application has a UI tier and an API tier which are deployed as separate [Cells](glossary.md/#cell). The UI shows a page with response time from an API ping.
+Our sample application has a UI tier and an API tier which are deployed as separate Cells **UpdateLink**. The UI shows a page with response time from an API ping.
 
 ##Prerequisites
  You need the following in order to walk through this tutorial:
- 
+
  - GitHub account
  - Docker Hub account
 
-* * * 
- 
-##Fork our sample 
+---
+##Fork our sample
 
 Fork the following GitHub repository:
 
 [Demo Sample repository](https://github.com/shippableSamples/micro-sample)
 
-* * * 
-
+---
 ##Set up CI
 
 - Sign in to [Shippable](https://app.shippable.com) and follow the following steps.
@@ -40,8 +38,8 @@ In order to use deployment pipelines, your project's CI workflow must push the r
 
 Do the following for micro-sample:
 
-- Add an account integration for the registry you want to push to by following these instructions - [How to add an account integration](int_docker_registries.md)
-- Go to the Project on Shippable by navigating to your Subscription from the landing page and then clicking on the project name. Click on `Settings`. 
+- Add an account integration for the registry you want to push to by following these instructions - How to add an account integration **UpdateLink**
+- Go to the Project on Shippable by navigating to your Subscription from the landing page and then clicking on the project name. Click on `Settings`.
 - In the `Integrations` section, click on dropdown for `Hub` and select the account integration you just created.
 - Now, go to the shippable.yml for the project and edit it.
 - Make changes to the yml by replacing everything in < > :
@@ -59,7 +57,7 @@ env:
     - XUNIT_FILE=../shippable/testresults/result.xml API_PORT=3001
 
 build:
-   pre_ci: 
+   pre_ci:
        - cd micro-api && docker build -t <registry_username>/micro-api .
    pre_ci_boot:
         image_name: <registry_username>/micro-api
@@ -70,12 +68,12 @@ build:
        - mkdir -p ../shippable/testresults
        - mkdir -p ../shippable/codecoverage       
        - cd micro-api
-       - npm install 
+       - npm install
        - grunt
    on_success:
        - cd ..
        - cd micro-www && docker build -t <registry_username>/micro-www .
-       - docker tag -f <registry_username>/micro-www:latest <registry_username>/micro-www:$BRANCH.$BUILD_NUMBER 
+       - docker tag -f <registry_username>/micro-www:latest <registry_username>/micro-www:$BRANCH.$BUILD_NUMBER
        - docker tag -f <registry_username>/micro-api:latest <registry_username>/micro-api:$BRANCH.$BUILD_NUMBER
        - docker push <registry_username>/micro-api:$BRANCH.$BUILD_NUMBER
        - docker push <registry_username>/micro-www:$BRANCH.$BUILD_NUMBER
@@ -100,24 +98,22 @@ This should create 2 Docker images in your Docker registry:
 
 If you see these images in your registry, you have successfully completed the first stage of setting up CI for the demo projects!
 
-* * * 
-
+---
 ##Create an environment
 
 Next, you will need an environment(cluster) to which you can deploy the application.
 
-The easiest way to do this is to provision a cluster on Google Container Engine (GKE) by following instructions here - [Create an environment with existing GKE cluster](pipelines_configure.md#gke_cluster)
+The easiest way to do this is to provision a cluster on Google Container Engine (GKE) by following instructions here - Create an environment with existing GKE cluster **UpdateLink**
 
-* * * 
-
+---
 ##Create a pipeline
 Now that you have a cluster ready to go, let's create your pipeline. Since you have one free pipeline, we're going to use that to deploy your application to GKE. If you have 2 pipelines in your plan, you can create 2 pipelines - one for API and one for UI - to run this application.
 
-To create your pipeline, go to your Subscription's `Pipelines` tab and click on `Add Pipeline`. 
+To create your pipeline, go to your Subscription's `Pipelines` tab and click on `Add Pipeline`.
 On the New Pipeline page, name your pipeline, say 'demo-app'
 
 <img src="../images/pipeline_create_name.png" alt="Name your pipeline" style="width:400px;"/>
-    
+
 Next, follow steps below:
 
 ###Add Cell manifest
@@ -126,7 +122,7 @@ Next, follow steps below:
 - In the `Select image` dropdown, select `Create image`. Enter the name registry_username/micro-api. Enter the account integration that has access to this image
 
     <img src="../images/pipeline_create_image.png" alt="Name your pipeline" style="width:400px;"/>
-    
+
 You will be taken back to the Add Image page. Select the tag you want to deploy (master.1)
 
 - Enter port number for your container - 3001
@@ -150,8 +146,7 @@ This means that every time CI for micro-sample is triggered, we will check for n
 
 And that's it. Save your pipeline.
 
-* * * 
-
+---
 ##Configure and deploy your cell
 You will be redirected back to the `Pipelines` tab of your subscription. You should see your new pipeline in the Pipeline Status graphic.
 
@@ -159,7 +154,7 @@ To configure and deploy your Cell, click on your Cell. This is the `demo-app` wi
 
 Click on the `Configuration` tab and enter the following information:
 
-- The top section shows the current cell manifest that is being used to create this Cell. You should see Version 1 being used. 
+- The top section shows the current cell manifest that is being used to create this Cell. You should see Version 1 being used.
 - The auto-deploy section allows you to configure whether you want this cell to be automatically deployed each time a new cell manifest version is detected. For the demo, check this box.
 - Enter the values for environment variables as shown below:
 
@@ -170,20 +165,18 @@ Click on the `Configuration` tab and enter the following information:
 
 That's it! Go back to `Configuration` tab and click on `Deploy`at the bottom of the page. It will take a few minutes to provision a load balancer on GKE, but your Cell should be deployed ina  couple of minutes.
 
-* * * 
-
+---
 ##View the application
 Now that you've deployed the application, go back to the `Pipelines` tab of your Subscription. The Pipeline Status graphic should show that the Cell is now deployed (green check).
 
 Also, it should show a link in the cell. Click the link to view the page you just deployed. It will launch in a new browser tab.
 
-* * * 
-
+---
 ##Make a change and watch the magic
 
 Now, go to micro-sample/blob/master/micro-www/public/views/home.html on GitHub. Make a simple edit, for example, change line 18 to "This is the best demo application!!". Commit your change.
 
-Here is what will happen: 
+Here is what will happen:
 
 - The CI workflow will be triggered for micro-sample. This will create new Docker images and push them to your registry
 - Your Cell Manifest version will be automatically incremented as a result of detecting new image tags
@@ -191,8 +184,7 @@ Here is what will happen:
 - You will see your Cell in Pipeline Status section show - `Deployed version : 2`
 - Click on the Cell link. You should see the text update in your deployed application
 
-* * * 
-
+---
 ## Sign into Shippable
 
 <div class="signup-buttons">
@@ -222,4 +214,4 @@ Here is what will happen:
   <!-- end HubSpot Call-to-Action Code -->
 </div>
 
-* * * 
+* * *
