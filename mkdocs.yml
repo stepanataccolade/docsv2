@@ -27,6 +27,7 @@ pages:
   - Configuring your build: ci_configure.md
   - Language help: ci_languages.md
   - Docker support: ci_docker.md
+  - Monitor your Docker images: lighthouse.md
   - Running builds on your machines: ci_byoh.md
   - Running a sample build: gs_ci_sample.md
   - CI FAQ: ci_faq.md
@@ -45,7 +46,6 @@ pages:
   - PaaS/IaaS providers: int_paas_iaas_providers.md
   - Notification providers: int_notifications.md
   - Keys: int_keys.md
-- Lighthouse: lighthouse.md
 - API: api.md
 - Tutorials:
   - Overview: ht_overview.md
