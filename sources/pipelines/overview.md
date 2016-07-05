@@ -14,7 +14,7 @@ Shippable's Unified Pipelines have the following characteristics
 - supports heterogeneous applications, sources and targets
 - it works for both cloud native and traditional applications
 
-
+<br>
 # What is it made up of?
 At the very core, it is application delivery workflows made up of 2 fundamental 
 building blocks. 
@@ -32,7 +32,7 @@ continuous delivery as opposed to spending time building them from scratch. You
 can also manage your infrastructure, provision, configure, and deploy traditional 
 as well cloud native applications be it IaaS, PaaS or CaaS. 
 
-
+<br>
 # Why do I need it?
 As seen in the picture below, CI is just a starting point for CD. 
 
@@ -51,7 +51,7 @@ You can override runtime environment variables as you move from one environment
 to another. Versioned application releases can be created at any stage to combine 
 1 or many deployable artifacts.
 
-
+<br>
 # Sample use case
 Consider a simple 2 tier Dockerized application on github
 
@@ -59,6 +59,7 @@ Consider a simple 2 tier Dockerized application on github
 - api : `yourOrg/api`
 
 Your deployment flows through 3 environments, 2 running on GKE and 1 on AWS
+<img src="../images/pipelineRequirement.png" alt="Single Pane of Glass" style="width:640px;"/>
 
  - test (GKE): every version is deployed to this environment
  - beta (ECS): pre-production environment where only release versions are deployed
@@ -84,9 +85,7 @@ times until one day, everything planned for your next `prod` update has been
 tested and approved in **beta**. The current `rc` version is *pegged* to prod
 - Release day! You simply push the *peged*  version to your **prod** environment
 
-Here's a [How to tutorial]() to achieve this workflow
-
-Using Shippable Unified Pipelines, your pipeline will look like this
+Here is a [how to tutorial]() to achieve this workflow using Shippable Unified 
+Pipelines. When finished your pipeline will look like this
 <img src="../images/spog.png" alt="Single Pane of Glass" style="width:640px;"/>
-
-
+<br>
