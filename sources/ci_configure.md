@@ -1664,7 +1664,7 @@ A few things to note here:
 Your builds will time out in the following scenarios:
 
 -   If there has not been any log output or a command hangs for 10 minutes
--   If the build is still running for more than 120 minutes. This is a default setting that you can change for your project and configure it between 1 - 120 minutes. Read [instructions](ci_projects.md#custom-timeout) on setting a desired value in the Project settings. In addition, we also have a blog on [Changing the default timeout for a CI project](http://blog.shippable.com/changing-the-default-timeout-for-a-continuous-integration-project).
+-   If the build is still running for more than 60 minutes (for free accounts) or for 120 minutes (for paid accounts). This is a default setting that you can change for your project and configure it between 1 - 60 minutes/120 minutes for free/paid accounts respectively. Read [instructions](ci_projects.md#custom-timeout) on setting a desired value in the Project settings. In addition, we also have a blog on [Changing the default timeout for a CI project](http://blog.shippable.com/changing-the-default-timeout-for-a-continuous-integration-project).
 
 Please [let us know](https://github.com/shippable/support/issues) if you believe a build is timing out when it shouldn't do so and we will take a look.
 
