@@ -75,9 +75,11 @@ Reason: Notification and Hub integrations need to be set in two places - In the 
   - Errors
     - common2|_cleanRunYml|callerId:!xxxxxxxxx prjectId: yyyyy
 ```
-Reason: The language configured in the `shippable.yml` file should have the correct syntax in order to be recognized
+Reason: The language configured in the `shippable.yml` file should have the correct syntax in order to be recognized. You will also get this error if you have enabled a project in the 'Infra' tab instead of the 'CI' tab. Infra projects are meant for terraform deployments and do not allow languages to be specified in the YML.
 
-**How to avoid:** Ensure the correct syntax is used when specifying a language in the `shippable.yml`. All supported langagues and configuration syntax is [available here](ci_configure/#specifying-language-and-runtime).
+**How to avoid:** Ensure the correct syntax is used when specifying a language in the `shippable.yml`. All supported langagues and configuration syntax is [available here](ci_configure/#specifying-language-and-runtime). 
+
+If you have indeed enabled the project through the 'Infra' tab instead of the 'CI' tab, then go to the 'Settings' page for your project, under the 'Options' tab, click the 'Delete' button. Go to the CI tab and enable the project from there and run your build.
 
 ---
 
@@ -283,3 +285,31 @@ Reason: The standard AMI uses Docker Engine of version 1.9. Our normal policy is
 **How to avoid:** Navigate to the subscription settings page and select the unstable image which has docker version 1.11.1 available on it and all the builds for your subscription will be using this image to run your builds. For more info check out the [Machine Images Section](ci_subscriptions.md#selecting-the-machine-images).
 
 ---
+
+### conq: repository access denied
+When the `on_success` in the `shippable.yml` has been configured, to push the build back to the repo, the build fails with the following error:
+
+```
+conq: repository access denied. access via a deployment key is read-only.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+```
+
+Reason: The error means either the build did not find the key you have configured, or key configured does not have permissions. 
+
+**How to avoid:** If you would like the SSH key to be used, check the following:
+- For setting up your own key, refer [our documentation on this topic](http://docs.shippable.com/int_keys/).
+
+- Ensure the SSH key has the right permissions on the repository
+- If you still get the above error, then a workaround is to tell the SSH-agent to use the key you have configured by adding the following to your `shippable.yml` before the `git push` (substituting your integration name for "MyKeyIntegrationName"): 
+
+```
+- echo -e "Host bitbucket.org \n\tIdentityFile /tmp/ssh/MyKeyIntegrationName \n\tIdentitiesOnly yes" > ~/.ssh/config
+``` 
+
+This will get it to use the right key by adding Bitbucket (as an example) to the SSH config with the SSH key from the integration specified. Do remember to leave out any characters that are not letters or numbers in the integration name when specifying the SSH key file.
+
+NOTE: If you are pushing to a repo that will trigger another build, add `skip ci` to the commit message to avoid building in a loop.
