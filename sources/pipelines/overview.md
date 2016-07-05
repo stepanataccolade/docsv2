@@ -32,7 +32,7 @@ can also manage your infrastructure, provision, configure, and deploy traditiona
 as well cloud native applications be it IaaS, PaaS or CaaS. 
 
 # Why do I need it?
-<img src="./images/overview.png" alt="Unified Pipelines" style="width:640px;"/>
+<img src="../images/overview.png" alt="Unified Pipelines" style="width:640px;"/>
 
 As seen in the picture above, CI is just a starting point for CD. 
 
@@ -80,8 +80,9 @@ times until one day, everything planned for your next `prod` update has been
 tested and approved in **beta**. The current `rc` version is *pegged* to prod
 - Release day! You simply push the *peged*  version to your **prod** environment
 
-Using Shippable Unified Pipelines, your pipeline will look like this
-<img src="./images/spog.png" alt="Single Pane of Glass" style="width:640px;"/>
-
 Here's a [How to tutorial]() to achieve this workflow
+
+Using Shippable Unified Pipelines, your pipeline will look like this
+<img src="../images/spog.png" alt="Single Pane of Glass" style="width:640px;"/>
+
 
