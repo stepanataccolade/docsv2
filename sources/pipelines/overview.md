@@ -59,6 +59,7 @@ Consider a simple 2 tier Dockerized application on github
 - api : `yourOrg/api`
 
 Your deployment flows through 3 environments, 2 running on GKE and 1 on AWS
+
 <img src="../images/pipelineRequirement.png" alt="Single Pane of Glass" style="width:640px;"/>
 
  - test (GKE): every version is deployed to this environment
