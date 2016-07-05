@@ -14,6 +14,7 @@ Shippable's Unified Pipelines have the following characteristics
 - supports heterogeneous applications, sources and targets
 - it works for both cloud native and traditional applications
 
+
 # What is it made up of?
 At the very core, it is application delivery workflows made up of 2 fundamental 
 building blocks. 
@@ -31,10 +32,13 @@ continuous delivery as opposed to spending time building them from scratch. You
 can also manage your infrastructure, provision, configure, and deploy traditional 
 as well cloud native applications be it IaaS, PaaS or CaaS. 
 
+
 # Why do I need it?
+As seen in the picture below, CI is just a starting point for CD. 
+
+
 <img src="../images/overview.png" alt="Unified Pipelines" style="width:640px;"/>
 
-As seen in the picture above, CI is just a starting point for CD. 
 
 If you want CD, the next step is to push your tested code as an immutable deploy 
 artifact. This can be a container image or a JAR file like deployable unit that 
@@ -47,8 +51,8 @@ You can override runtime environment variables as you move from one environment
 to another. Versioned application releases can be created at any stage to combine 
 1 or many deployable artifacts.
 
-# Sample Use Case
 
+# Sample use case
 Consider a simple 2 tier Dockerized application on github
 
 - ui  : `yourOrg/www` 
