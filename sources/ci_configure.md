@@ -1269,14 +1269,14 @@ Shippable performs the following steps for you, to deploy your source code on EB
 
 To enable Shippable to perform these steps, you will need to configure the following two steps for a successful deployment to EB.
 
-1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down and add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration in Shippable can be found [here](int_paas_iaas_providers.md)
+1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down and add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS' is being added to the project nodejs. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration in Shippable can be found [here](int_paas_iaas_providers.md)
 <img src="../images/project_settings_deploy_integration_aws.png" alt="Account Settings Subscription" style="width:400px;"/>
 2. **Configure shippable.yml**: Update the `shippable.yml` with the new collection for deployments. A sample form for doing a source code deployment to Elastic Beanstalk is shown:
 
 ```yaml
 integrations:
   deploy:
-    - integrationName: "aws-test"
+    - integrationName: "aws"
       type: aws
       target: eb_paas
       platform: "Node.js"
@@ -1286,7 +1286,7 @@ integrations:
 ```
 Replace in the above form, with your values as follows:
 
-- **integrationName**: replace 'aws-test' with your Account Integration in Shippable, set up for AWS (keep the double quotes)
+- **integrationName**: replace 'aws' with your Account Integration in Shippable, set up for AWS (keep the double quotes)
 - **platform**: replace 'Node.js' with your platform (available options can be found [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html))
 - **application_name**: replace with your Elastic Beanstalk application name
 - **env_name**: replace with your Elastic Beanstalk environment name
@@ -1310,7 +1310,7 @@ Upon completion of the above, EB updates your environment based on the uploaded 
 
 To enable Shippable perform the above steps, you will need to configure the following three steps for a successful deployment to EB.
 
-1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down and add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration with Shippable can be found [here](int_paas_iaas_providers.md)
+1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down and add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS' is being added to the project nodejs. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration with Shippable can be found [here](int_paas_iaas_providers.md)
 2. **Ensure you have a dockerrun.aws.json file** in the root of your source code directory. The relevant section to Shippable is given below and must follow this format:
 ```yaml
   "Image": {
@@ -1324,7 +1324,7 @@ To enable Shippable perform the above steps, you will need to configure the foll
 ```yaml
 integrations:
   deploy:
-    - integrationName: "aws-test"
+    - integrationName: "aws"
       type: aws
       target: eb_docker
       application_name: "sample-node-eb-docker-app"

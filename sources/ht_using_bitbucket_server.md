@@ -59,7 +59,7 @@ Let's enable Shippable access to the repositories on Bitbucket Server. Currently
 - Navigate to the Account Settings (gear in the upper right navigation bar)
 - Select the 'Accounts' tab and click the 'Sync' button.
 
-<img src="../images/ht_bbs_account_sync.png" alt="Bitbucket Server Admin Settings" style="width:700px;"/>
+<img src="../images/account_settings_sync.png" alt="Bitbucket Server Admin Settings" style="width:700px;"/>
 
 - Navigate to your list of subscriptions and you should now see your Bitbucket Server projects listed and available to enable.
 
