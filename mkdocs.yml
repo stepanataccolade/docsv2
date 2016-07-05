@@ -77,7 +77,7 @@ pages:
   - Permissions: test.md
   - Troubleshooting CI: ci_troubleshoot.md
 - Pipelines:
-  - Overview: pipelines_overview.md
+  - Overview: pipelines/overview.md
   - Deploying your first pipeline: gs_deploy_sample.md
   - Troubleshooting Pipelines: pipelines_faq.md
 - Navigating the UI:
