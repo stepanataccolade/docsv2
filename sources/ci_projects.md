@@ -123,10 +123,10 @@ In this example, if jobs are triggered simultaneously for branches `master` and 
 
 
 #### Custom Timeout
-By default, builds that are running for over 120 minutes will time out. You can configure the timeout setting between 1 and 120 minutes for your project.
+By default, builds that are running for over 60 minutes (for free accounts) or over 120 minutes (for paid accounts) will time out. You can configure the timeout setting between 1 and 60/120 minutes for your project.
 
 - Click 'Edit'
-- Input a number between 1 and 120 minutes
+- Input a number between 1 and 60 (for free accounts) or 1 and 120 minutes (for paid accounts)
 - Click 'Save'
 - Once you set a custom timeout, it'll be in effect immediately
 - Click on 'Clear' to revert back to the default setting of 120 minutes
