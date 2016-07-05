@@ -301,7 +301,7 @@ and the repository exists.
 Reason: The error means either the build did not find the key you have configured, or key configured does not have permissions. 
 
 **How to avoid:** If you would like the SSH key to be used, check the following:
-- For setting up your own key, refer [our documentation on this topic](http://docs.shippable.com/int_keys/).
+- For setting up your own key, refer [to our documentation on this topic](http://docs.shippable.com/int_keys/).
 
 - Ensure the SSH key has the right permissions on the repository
 - If you still get the above error, then a workaround is to tell the SSH-agent to use the key you have configured by adding the following to your `shippable.yml` before the `git push` (substituting your integration name for "MyKeyIntegrationName"): 
@@ -312,4 +312,4 @@ Reason: The error means either the build did not find the key you have configure
 
 This will get it to use the right key by adding Bitbucket (as an example) to the SSH config with the SSH key from the integration specified. Do remember to leave out any characters that are not letters or numbers in the integration name when specifying the SSH key file.
 
-NOTE: If you are pushing to a repo that will trigger another build, add `skip ci` to the commit message to avoid building in a loop.
+NOTE: If you are pushing to a repo that will trigger another build, add `[skip ci]` to the commit message to avoid building in a loop.
