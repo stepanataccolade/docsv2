@@ -339,7 +339,7 @@ integrations:
         - "#shippable"
       on_start: always
 ```
-Note that on_start defaults to never but always matches the previous fallback behavior.
+Note that `on_start` defaults to `never` but `always` matches the previous fallback behavior.
 
 Read more about [configuring Slack notifications](ci_configure/#slack-notifications) in our documentation.
 
