@@ -24,7 +24,7 @@ ones.
 These are the following resources that come straight out of the box. We are 
 constantly adding to this list
 
-- [syncRepo](../resources.md#syncRepo)
+- [syncRepo](resources.md#syncRepo)
 - gitRepo 
 - image
 - dockerOptions

@@ -23,7 +23,7 @@ building blocks.
 - Resources which are a set of managed integrations to external components that 
 make up your pipeline. For eg. git repositories, docker registries, artifactories, 
 s3 buckets, Heroku, ECS clusters etc. are all resources. For a full list of 
-supported resources [click here](../resources.md)
+supported resources [click here](resources.md)
 - Jobs which are set of pre-defined operations performed on resources. For eg. 
 deploy to ECS cluster, Run CI on a git repo, build a docker image etc. are all
 jobs. For a full list of pre-defined jobs [click here]()
