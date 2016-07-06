@@ -323,7 +323,7 @@ Reason: Legacy users who have Slack integration configured only in the UI ('Proj
 ```
 on_start : never
 on_failure: always
-on_succes: change
+on_success: change
 on_pull_request:always
 ```
 Hence Slack notifications will trigger only for these default events for these legacy users. 
