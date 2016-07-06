@@ -358,16 +358,36 @@ h2:target, h3:target {
 }
 
 #sidebar .tocbar a {
-  color: #ffffff;
-  background-color: #58595b;
-  font-weight: 600;
+  color: #58595b;
   border-bottom: 1px solid #ffffff;
+}
+
+#sidebar .tocbar a:hover {
+  color: #ffffff;
+  background-color: #003535;
+  border-bottom: 1px solid #ffffff;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#sidebar .tocbar a.currentPage {
+  cursor: default;
+  font-weight: 700;
+  background-color: #ffffff;
+  border-right: 4px solid #d3d3d4;
+}
+
+#sidebar .tocbar a.currentPage:hover {
+  color: #58595b;
 }
 
 #sidebar .tocbar label {
   color: #ffffff;
   background-color: #58595b;
-  font-weight: 600;
+  font-weight: normal;
   padding: 10px 1em;
   width: 100%;
   margin-bottom: 0px;
@@ -378,18 +398,14 @@ h2:target, h3:target {
   cursor: pointer;
 }
 
+#sidebar .tocbar label.active {
+  color: #58595b;
+  background-color: #d3d3d4;
+  font-weight: 700;
+}
+
 #sidebar .tocbar li li.has-children{
   background-color: #ffffff;
-}
-
-#sidebar .tocbar li li label {
-  padding-left: 1em;
-  color: #58595b;
-  background-color: #ffffff;
-}
-
-#sidebar .tocbar li li .fa {
-  color: #59595b;
 }
 
 #sidebar .tocbar li li li a {
@@ -418,7 +434,7 @@ h2:target, h3:target {
   padding: 10px 1em;
   color: #58595b;
   background-color: #f3f3f4;
-  border-bottom: none;
+  border-bottom: 1px solid #f3f3f4;
 }
 
 /* Sticky tocbar */
