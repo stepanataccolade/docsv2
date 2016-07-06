@@ -1,6 +1,15 @@
 {% if not section.children %}
   <li>
     <a href="{{ section.url }}" name="{{section.title}}">{{ section.title }}</a>
+    <script>
+      $('a[href="."]').parents("ul").siblings("input").prop("checked", true);
+      $('a[href="."]').parents("ul").siblings("label").addClass("active");
+      $('a[href="."]').addClass("currentPage");
+      $('a[href="./"]').parents("ul").siblings("input").prop("checked", true);
+      $('a[href="./"]').parents("ul").siblings("label").addClass("active");
+      $('a[href="./"]').addClass("currentPage");
+
+    </script>
   </li>
 {% else %}
   <li class="dropdown-submenu has-children">
