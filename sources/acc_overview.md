@@ -51,6 +51,8 @@ The `Enable` button is a one way toggle - once you enable private repository per
 
 Even if you use Bitbucket credentials to sign in, you can click the `Enable` button for your GitHub identity to connect your GitHub account. This will give you a consolidated Shippable account where you can build projects from both source control providers and also set up deployment pipelines.
 
+NOTE: Once you enable private repository access, if your private repositories do not show up, you'll need to force sync permissions between Shippable and your source control management system. To do so, go into the Account Settings (gear icon on the top right navigation bar) and click the 'Sync' button under the 'Accounts' tab. 
+
 **Bitbucket**
 
 If you signed in using your Bitbucket Account, your Bitbucket identity will be shown in this section. Bitbucket does not support granular permissions to public and private repo access, so access for both is turned on by default when you sign in and authorize Shippable to access Bitbucket.
