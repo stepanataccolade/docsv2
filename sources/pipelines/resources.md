@@ -21,10 +21,19 @@ one thing and one thing only. Together with [integrations]() they become a very
 powerful concept that can be used to model any pipeline from simple to complex 
 ones. 
 
+# How do I add Resources?
+Resources are stored in a resource file `shippable.resource.yml` present in a git 
+repository. Any repo can contain this file but only one of it can be used. If 
+more than 1 resource file is present, the first one is used. This is done in order
+to reduce conflict due to the same resource being defined in multiple places.
+
+To learn how to add this file and connect it to pipelines, 
+[click here](../../tutorials/how_to_add_syncRepos)
+
 These are the following resources that come straight out of the box. We are 
 constantly adding to this list
 
-- [syncRepo](resources.md#syncRepo)
+- [syncRepo](resources.md#SyncRepo)
 - gitRepo 
 - image
 - dockerOptions
