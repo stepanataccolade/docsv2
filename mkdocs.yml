@@ -78,6 +78,7 @@ pages:
   - Troubleshooting CI: ci_troubleshoot.md
 - Pipelines:
   - Overview: pipelines/overview.md
+  - Resources: pipelines/resources.md
   - Deploying your first pipeline: gs_deploy_sample.md
   - Troubleshooting Pipelines: pipelines_faq.md
 - Navigating the UI:
