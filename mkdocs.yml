@@ -97,6 +97,8 @@ pages:
     - Console logs: test.md
 - API: api.md
 - Tutorials:
+  - Pipelines:
+    - How to add resources : tutorials/how_to_add_syncRepos.md
   - Running a sample CI build: gs_ci_sample.md
   - Deploying a sample appliation: test.md
   - Source Control System:
