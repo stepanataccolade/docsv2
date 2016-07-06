@@ -42,8 +42,8 @@ As seen in the picture below, CI is just a starting point for CD.
 
 
 If you want CD, the next step is to push your tested code as an immutable deploy 
-artifact. This can be a container image or a JAR file like deployable unit that 
-is stored in a repository (Docker registry, JFrog etc.).
+artifact. This can be a container image or a JAR file that is stored in a 
+repository (Docker registry, JFrog etc.).
 
 From here, you can deploy these artifacts to an environment and even chain many
 environments to create a dev, test and production workflow. 
