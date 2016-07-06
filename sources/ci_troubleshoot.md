@@ -338,8 +338,9 @@ integrations:
       recipients:
         - "#shippable"
       on_start: always
+      on_success: always
 ```
-Note that `on_start` defaults to `never` but `always` matches the previous fallback behavior.
+Note that `on_start` defaults to `never` and `on_success` defaults to `change`. Changing both to `always` matches the previous fallback behavior.
 
 Read more about [configuring Slack notifications](ci_configure/#slack-notifications) in our documentation.
 
