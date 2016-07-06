@@ -33,7 +33,7 @@ To learn how to add this file and connect it to pipelines,
 These are the following resources that come straight out of the box. We are 
 constantly adding to this list
 
-- [syncRepo](resources.md#SyncRepo)
+- [syncRepo](resources#SyncRepo)
 - gitRepo 
 - image
 - dockerOptions
