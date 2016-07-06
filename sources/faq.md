@@ -1,47 +1,75 @@
 page_title: Shippable FAQ
 page_description: Commonly asked questions that will help with troubleshooting
-page_keywords: concepts, documentation, shippable, CI/CD, pipelines, upgrade containers, add new pipeline, multi containers, microservices, Continuous Integration, Continuous Deployment, testing, automation, frequently asked questions
+page_keywords: concepts, documentation, shippable, CI/CD, pipelines, upgrade containers, add new pipeline, multi containers, microservices, Continuous Integration, Continuous Deployment, Delivery, testing, automation, frequently asked questions
 
 # FAQ
 
-This document lists the FAQs that we've received through our [Support repository](https://github.com/Shippable/support/issues) and speaking with our customers, on running Continuous Integration. The FAQ is divided into two sections:
-
-1. Setup: All questions related to setup and initial configuration
-2. Continuous Integration (CI): Questions related to the CI process
-
-If you have specific errors that you would like to troubleshoot, then refer our [troubleshooting section](ci_troubleshoot.md).
+This document lists the FAQs that we've received through our [Support repository](https://github.com/Shippable/support/issues) and speaking with our customers, on running Continuous Integration. If you have specific errors that you would like to troubleshoot, then refer troubleshooting sections under [Continuous Integration](ci_troubleshoot.md) and [Pipelines](/pipelines/troubleshoot.md).
 
 ---
-
 ##Setup
 ### How can I upgrade or downgrade my plan?
 
-The Continuous Delivery plan gives you a minimum of 1 free minion & 1 free pipeline. Upgrading or downgrading your CI  simply means increasing or decreasing the number of build minions in your subscription.
+The Continuous Delivery plan gives you a minimum of 1 free minion & 1 free pipeline. Upgrading or downgrading your CI  simply means increasing or decreasing the number of build minions in your subscription. Similarly upgrading or downgrading your Pipelines means increasing or decreasing the number of pipelines and containers in your subscription.
 
-You can do this by going to the 'Billing' Tab on your Subscription Dashboard and clicking the 'Update plan' button. Use the slider to indicate the number of containers you want. Click on the 'Save changes' button when you are done.
+You can do this by going to the 'Billing' Tab on your Subscription Dashboard and clicking the 'Update plan' button. Use the slider to indicate the number of containers you want for CI and/or the number of pipelines you want for CD. Click on the 'Save changes' button when you are done.
 
 Plan upgrades are effective immediately and your bill will be pro-rated for the current month. Plan downgrades are effective immediately, however we do not issue refunds for minions that were already paid for during the current month.
 
-Check our blog on [upgrading your CI/CD subscription](http://blog.shippable.com/how-to-upgrade-your-ci-cd-subscription) for additional details.
+Check our blog on [upgrading your CI/CD subscription](http://blog.shippable.com/how-to-upgrade-your-ci-cd-subscription) that includes additional details on when to upgrade using your organizational details.
 
 ---
 
+### What does the term Minion mean in Shippable?
+Minions are Docker based containers that run your CI builds.
+
+When your build is triggered, we determine which Docker image to use in order to spin up your build minion. By default, the minion will container popular versions of the language specified in your yml, as well as popular tools and services used with that language. All this happens under the hood and 'just works'.
+
+If you're a Docker enthusiast and want to spin up your build minion based on your custom Docker image or build an image from Dockerfile, you can do so by following instructions here.
+
+Your build minions are transient and spin up when a build is triggered and are destroyed when a build completes.
+
+Each minion has 2 cores and 4GB RAM. If you use your own infrastructure to run your builds with [Bring Your Own Node (BYON)](ci_byoh) option, you can spin up bigger containers for your builds since we do not restrict resources for containers running on customers' infrastructure.
+
+---
+### Do I need to create an Account on Shippable?
+You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to encompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services. Read the [accounts section **UpdateLink**] for more details.
+
+---
+### Can you explain what a Subscription on Shippable means?
+A subscription on Shippable corresponds to an organization or personal account on GitHub or Bitbucket. So if you sign in to Shippable with GitHub credentials and your username is abcfoo and you're a member of orgs org1foo and org2foo, you will have 3 subscriptions on Shippable.
+
+Our billing plans are at a subscription level, so you can upgrade or downgrade each of your subscriptions independently. Also, we mirror permissions from your source control provider, so if someone has access to organizational repositories on GitHub/Bitbucket, they will also have access to view and run builds on Shippable. These permissions are synced automatically and you do not have to do anything to make this work. Read the [subscriptions section **UpdateLink**] for more details.
+
+---
+### What is a Project?
+A project on Shippable corresponds to a repository on your source control provider. As with subscriptions, project permissions are also synced with your source control provider.
+
+Once a project is enabled, we build all commits and pull requests for that project, irrespective of who commits and opens the pull request. Refer the [projects section **UpdateLink**] for additional details.
+
+---
+### What is the difference between a Build Container (cexec) and Shippable Agent (mexec) on the Shippable platform?
+A Build Container (also called cexec) is a Docker Container that is spun up on the host Node machine that executes the Continuous Integration related tasks. These include installing the required dependencies, cloning information from the source control system repository, executing unit tests and running test/code coverage reports, all of which have to be specified in the `shippable.yml` file.  
+
+Shippable Agent (mexec) on the other hand is also a Docker Container that is spun up on the host Node machine. The main function of the Shippable Agent is to interact with the Shippable platform and the Build Container and, performs actions outside the build container. Within the `shippable.yml` file, the `pre_ci`, `pre_ci_boot` and the `push` sections are executed on the Shippable Agent.
+
+Read the blog [Key concepts to get most out of Shippable's Continuous Integration](http://blog.shippable.com/key-concepts-of-shippable-ci-part-1) for a deeper understanding of the functions and interaction between the Build Container and Shippable Agent.
+
+---
 ### Why can't I see some of my repositories in my Shippable account?
 
 This happens due to one of the following reasons:
 
-- You haven't enabled private repositories in your Shippable account. Go to Account Settings (gear icon on the top right hand navigation bar), in the 'Accounts' tab and under 'Git Identities' section, click 'Enable' under 'GitHub' 'Click to enable private access'. 
+- You haven't enabled private repositories in your Shippable account. Go to Account Settings (gear icon on the top right hand navigation bar), in the 'Accounts' tab and under 'Git Identities' section, click 'Enable' under 'GitHub' 'Click to enable private access'.
 - Your account hasn't yet been synced with the latest permissions from GitHub. To force sync your account, go to your Account Settings and click on the `Force Sync` icon next to your Account Id.
 -  You're a Bitbucket user and you have mercurial repositories. We do not support mercurial at this time, so you will need to convert them to git or use another platform for CI/CD.
 
 ---
-
 ### Why do I get an error when I try to enable a project that is listed on my dashboard?
 
 This usually happens if you are a collaborator on a project and the owner of the project has not given Shippable access to the project. You can verify this by confirming that the owner of the project can see the project on their Shippable dashboard.
 
 ---
-
 ### How can I validate my shippable YML?
 
 You can use either of the tools below to validate if your YML is valid:
@@ -50,7 +78,6 @@ You can use either of the tools below to validate if your YML is valid:
 * [YAML Online Parser](http://yaml-online-parser.appspot.com/)
 
 ---
-
 ### Why can't I see my BitBucket repos in my Shippable account?
 
 Shippable only supports git based repositories, so if you have mercurial
@@ -60,7 +87,6 @@ open an issue on our [GitHub Support
 repo](<https://github.com/Shippable/support>).
 
 ---
-
 ### Why can't Shippable see my org on GitHub?
 
 GitHub's default policy when a new org is created is 'access
@@ -93,7 +119,7 @@ A project is empty in Shippable if there are zero builds associated with it. A n
 
 ---
 
-### I converted a public repository (enabled as a project on Shippble) to a private repo. Should I change any setting in Shippable?
+### I converted a public repository (enabled as a project on Shippable) to a private repo. Should I change any setting in Shippable?
 
 When public or private repo on GitHub/Bitbucket (and enabled as a project on Shippable) is converted to a private or public repo, all you need to do is reset the enabled project on Shippable. To do so:
 
@@ -119,7 +145,6 @@ Shippable [supports](gs_supported/) lots of different services, tools and third 
 2. If you have an existing Docker image with 'mariadb' and other dependencies installed, then you can [override Shippable's default image](ci_configure/#overriding-the-default-build-image) and use it for CI. You can also [build your own Docker image](ci_configure/#building-your-ci-image) with all the dependencies including 'mariadb' and use it for CI.
 
 ---
-
 
 ## Continuous Integration (CI)
 ### I have enabled my repository and committed code, but my build doesn't start. What could be wrong?
@@ -239,3 +264,8 @@ build:
 ```
 
 ---
+
+## Pipelines (Continuous Delivery (CD))
+### Why is my application not accessible externally, even though my pipeline is working perfectly?
+
+You may notice that your pipeline has been configured correctly & is deploying your Docker image successfully into Kubernetes (GKE). However, you'll see that no service is created & hence your application is not accessible externally, even though you have configured the routing. A main reason this happens is when a GKE cluster is used & the port ranges are not configured. Kubernetes, by default, restricts the nodePort on a service to be in the range 30000 to 32767. Hence if you are using a GKE cluster, then you'll need to select the hostPort you choose for routing, between this range. For more details refer [deploying a sample app on pipelines](gs_deploy_sample.md).
