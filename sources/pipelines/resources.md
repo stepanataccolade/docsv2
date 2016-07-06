@@ -33,7 +33,7 @@ To learn how to add this file and connect it to pipelines,
 These are the following resources that come straight out of the box. We are 
 constantly adding to this list
 
-- [syncRepo](resources#SyncRepo)
+- [syncRepo](#syncRepo)
 - gitRepo 
 - image
 - dockerOptions
@@ -61,6 +61,7 @@ constantly adding to this list
 <br>
 <br>
 
+<a name="syncRepo"></a>
 # syncRepo
 
 We natively support the following cloud targets
