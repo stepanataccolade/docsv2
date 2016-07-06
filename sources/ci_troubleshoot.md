@@ -313,3 +313,35 @@ Reason: The error means either the build did not find the key you have configure
 This will get it to use the right key by adding Bitbucket (as an example) to the SSH config with the SSH key from the integration specified. Do remember to leave out any characters that are not letters or numbers in the integration name when specifying the SSH key file.
 
 NOTE: If you are pushing to a repo that will trigger another build, add `[skip ci]` to the commit message to avoid building in a loop.
+
+---
+### Slack notifications do not occur after the July 1st service maintenance
+On July 1, 2016, Shippable underwent a scheduled service maintenance. Since then Slack notifications is not triggered for few customers.
+
+Reason: Legacy users who have Slack integration configured only in the UI ('Project' settings; 'Integrations' tab; 'Notification Integration') and not in the `shippable.yml` had notifications triggered for all events. Since the service update, the behavior of Slack for these legacy users has been changed to trigger events for the **default** configuration. The default configuration is: 
+
+```
+on_start : never
+on_failure: always
+on_succes: change
+on_pull_request:always
+```
+Hence Slack notifications will trigger only for these default events for these legacy users. 
+
+**How to avoid:** In order to ensure Slack notifications are triggered, just like before, use the following code in your `shippable.yml` file:
+
+```
+integrations:
+  notifications:
+    - integrationName: foobar-slack
+      type: slack
+      recipients:
+        - "#shippable"
+      on_start: always
+```
+Note that on_start defaults to never but always matches the previous fallback behavior.
+
+Read more about [configuring Slack notifications](ci_configure/#slack-notifications) in our documentation.
+
+---
+
