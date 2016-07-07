@@ -428,6 +428,39 @@ is 1
 <br>
 <a name="version"></a>
 # version
+This resource type is used to create version numbers. It uses semantic versioning 
+methodology to increment versions.
+
+```
+- name: box-version
+  type: version
+  source:
+    base: "0.0.1"
+```
+The above YML when added to `shippable.resources.yml` will create a resource of 
+type `version` with the name `box-version`. The base version is being set to 0.0.1
+
+### YML properties
+
+```
+name: string
+```
+This is the name of the resource. Keep it short but explanatory as this is used 
+as a reference in jobs
+
+```
+type: string
+```
+This defines the type of resource. In this case *version*. This cannot be changed 
+once set. 
+
+```
+source:
+  base: string with format "0.0.0"
+```
+`base` is an string integer that represents a semantic version that is used as a
+starting point. This will get incremented in the GET operations of jobs. You can 
+also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats too
 
 <br>
 <a name="ecsCluster"></a>
