@@ -45,6 +45,7 @@ These are the resources that come straight out of the box.
 - [acsCluster](#acsCluster): Azure Container Service cluster definition 
 - [dclCluster](#dclCluster): Docker Cloud cluster definition 
 
+<a name="integration"></a>
 # What is an integration?
 Shippable is designed to separate auth information out from resources. The reason
 for this is that there is no encryption/decryption issues when you move things
@@ -66,16 +67,33 @@ the same repository in both places. This can lead to unexpected behavior*
 TODO : 
 
 ### Adding syncRepo through YML
+
 ```
-- name: prod-repo01
+- name: prod-repo
   type: syncRepo
-  integration: "avinci-gh"
+  integration: avinci-gh
   source:
     name: avinci/prod
     branch: master
 ```
+The above YML when added to `shippable.resources.yml` will create a resource of 
+type `syncRepo` with the name `prod-repo`. It is using an integration `avinci-gh`
+which is the name of the integration defined ([learn more](#integration)). The 
+repo name is `prod` and belongs to `avinci` org. The branch to look for resource
+and job definitions is `master`
 
-`**name**: *string*`
+These are YML properties
+```
+**name**: *string*
+```
+*Required* This is the name of the resource. Keep it short but explanatory as this
+is used as a reference in jobs
+
+```
+**type**: *syncRepo*
+```
+*Required* This defines the type of resource. In this case *syncRepo*. This cannot 
+be changed once set. 
 
 
 
