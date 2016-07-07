@@ -105,7 +105,7 @@ which is the name of the integration defined, [learn more here](#integration). T
 repo name is `prod` and belongs to `avinci` org. The branch to look for resource
 and job definitions is `master`
 
-These are YML properties
+### YML properties
 
 ```
 name: string
@@ -172,7 +172,7 @@ which is the name of the integration defined, [learn more here](#integration). T
 repo name is `box` and belongs to `avinci` org. The branch to look for resource
 and job definitions is `master`
 
-These are YML properties
+### YML properties
 
 ```
 name: string
@@ -233,7 +233,7 @@ which is the name of the integration defined, [learn more here](#integration). T
 image name is `box` and belongs to `avinci` org. The branch to look for resource
 and job definitions is `master`. This image tag is being set to `master.35`.
 
-These are YML properties
+### YML properties
 
 ```
 name: string
