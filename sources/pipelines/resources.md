@@ -85,7 +85,6 @@ which is the name of the integration defined, [learn more here](#integration). T
 repo name is `prod` and belongs to `avinci` org. The branch to look for resource
 and job definitions is `master`
 
-<br>
 These are YML properties
 ```
 name: string
@@ -93,12 +92,14 @@ name: string
 *Required* This is the name of the resource. Keep it short but explanatory as this
 is used as a reference in jobs
 
+<br>
 ```
 type: string
 ```
 *Required* This defines the type of resource. In this case *syncRepo*. This cannot 
 be changed once set. 
 
+<br>
 ```
 integration: string
 ```
@@ -114,7 +115,7 @@ types of repository providers
 - gitlab
 - gitlab server
 
-
+<br>
 ```
 source:
   name: string 
