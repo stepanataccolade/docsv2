@@ -118,6 +118,7 @@ source:
   branch: string
 ```
 *Required* `name` is the fully qualified name of the repo i.e. **org/repo**
+
 *Optional* `branch` defaults to `master` if its not provided 
 
 <a name="gitRepo"></a>
