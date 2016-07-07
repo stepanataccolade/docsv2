@@ -222,21 +222,59 @@ integrations:
 
 ---
 
-### How do I use Ruby in a build with another language?
+### Can I use multiple langauges in a build?
 
-Specify your [language](http://docs.shippable.com/ci_configure/#specifying-language-and-runtime) as usual. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](http://docs.shippable.com/ci_configure/#setting-your-build-image) for that language.
+Yes, you can use multiple languages in a build. You can do this in either of the 2 ways shown below:
 
-All [official Shippable images](https://hub.docker.com/u/drydock/) have rvm installed, with a default version of Ruby. However, the rvm location is not added to the $PATH environment variable, so you will need to `source` rvm in your YML. This will give you access to both `ruby` and `rvm`. Your YML will look something like this:
+1. Use the default image for the first language by specifying the langauage in the `shippable.yml` file and then install the dependencies for the other language in the build.
+2. Build your own Docker image with all the dependencies you need for both and then [override the default build image](ci_configure/#overriding-the-default-build-image) to use your Docker image.
+
+Let's look at an example of using Node.js & Ruby in a build by using the first option above.
+
+Specify your [language](http://docs.shippable.com/ci_configure/#specifying-language-and-runtime) in the `shippable.yml`. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](http://docs.shippable.com/ci_configure/#setting-your-build-image) for that language.
+
+All [official Shippable images](https://hub.docker.com/u/drydock/) have rvm installed, with a default version of Ruby. However, the rvm location is not added to the $PATH environment variable, so you will need to `source` rvm in your YML. This will give you access to both `ruby` and `rvm`. Your `shippable.yml` should look like this:
 ```
 language: node_js
 
+#desired Node.js version(s)
 node_js:
-  - desired Node.js version(s)
+  - "0.12"
 
 build:
   ci:
     - source /usr/local/rvm/scripts/rvm
 ```
+
+---
+
+### Can I run unit tests in multiple languages in the same repository?
+
+Yes, you can run unit tests in multiple languages in the same repo. Let's look at an example of running Javascript and Python unit tests in the same build on Shippable. 
+
+The easiest way to do this would be to specify `node_js` as your language in the `shippable.yml` file, since python already comes installed on our node images by default. Your `shippable.yml` should look like this:
+
+
+```
+language: node_js
+
+# specify node version(s)
+node_js:
+  - "0.12"
+
+build:
+  ci:
+    # check the python version; it will be 2.7 by default
+    - python --version
+    # check the node version; it will be whatever you specified under node_js, above
+    - node --version
+    - npm install
+    - pip install -r requirements.txt
+    # now run your tests
+```
+    
+
+This `yml` configuration should cover a lot of scenarios. If you want a more tailor-made set-up, you can always create a custom image, install what you want in that image, and then use that for your build. Feel free to use our [drydock images](https://github.com/dry-dock) as a starting place; these are our build images. For more info on how to use custom images with a build, check out our [docs](ci_configure/#pulling-your-ci-image-from-a-docker-registry).
 
 ---
 
