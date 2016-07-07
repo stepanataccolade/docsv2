@@ -47,6 +47,18 @@ These are the resources that come straight out of the box.
 - [dclCluster](#dclCluster): Docker Cloud cluster definition 
 
 <br>
+# How do I delete a Resources?
+Deleting a resource is a 2 step process. Pipelines are all about dependencies and
+deployable units are flowing through these pipelines. Hard deleting resources from 
+pipelines is a non reversible operation and you will lose all the version history 
+etc. As a result of this, we only soft delete resources when they are removed from
+the YML file. If it was done mistakenly, you just add it back and the system will
+un-delete the resource. 
+
+To hard delete a resource, it will have to be done from the UI. 
+(TODO : add instructions)
+
+<br>
 <a name="integration"></a>
 # What is an integration?
 Shippable is designed to separate out auth information from resources. The reason
@@ -65,6 +77,10 @@ Using this resource you can instruct Shippable's internal sync system to look fo
 `shippable.resources.yml` and `shippable.jobs.yml`. This is the only resource that 
 can be added from the UI or `shippable.resources.yml`. *Note: You should not add
 the same repository in both places. This can lead to unexpected behavior*
+
+Adding this resource will create a webhook on the source repo server pointing to 
+Shippable. With this, future commits to the repo will automatically sync changes
+into your pipeline.
 
 ## Adding syncRepo from UI
 TODO : 
@@ -129,10 +145,129 @@ source:
 <br>
 <a name="gitRepo"></a>
 # gitRepo
+Using this resource you can hook your source code to pipelines. 
+
+
+## Adding syncRepo through YML
+
+```
+- name: box-repo
+  type: gitRepo
+  integration: avinci-gh
+  source:
+    name: avinci/box
+    branch: master
+```
+The above YML when added to `shippable.resources.yml` will create a resource of 
+type `gitRepo` with the name `box-repo`. It is using an integration `avinci-gh`
+which is the name of the integration defined, [learn more here](#integration). The 
+repo name is `box` and belongs to `avinci` org. The branch to look for resource
+and job definitions is `master`
+
+These are YML properties
+
+```
+name: string
+```
+*Required* This is the name of the resource. Keep it short but explanatory as this
+is used as a reference in jobs
+
+
+```
+type: string
+```
+*Required* This defines the type of resource. In this case *syncRepo*. This cannot 
+be changed once set. 
+
+
+```
+integration: string
+```
+*Required* This defines the integration that we are using to connect to the repo. 
+Shippable supports multiple types of git repository providers and they can be 
+defined as integrations[learn more](#integration)). We support the following 
+types of repository providers
+
+- github
+- bitbucket
+- github enterprise
+- bitbucket server (stash)
+- gitlab
+- gitlab server
+
+
+```
+source:
+  name: string 
+  branch: string
+```
+*Required* `name` is the fully qualified name of the repo i.e. **org/repo**
+
+*Optional* `branch` defaults to `master` if its not provided 
 
 <br>
 <a name="image"></a>
 # image
+This resource is used to add a docker image to your pipeline. The integrations
+enable you to pull or push to any registry, as long as it supports docker api
+calls
+
+
+```
+- name: box-image
+  type: image
+  integration: ric03uec-dh
+  source:
+    name: "aye0aye/box"
+    isPull: false
+    tag: "master.35"
+```
+The above YML when added to `shippable.resources.yml` will create a resource of 
+type `gitRepo` with the name `box-repo`. It is using an integration `avinci-gh`
+which is the name of the integration defined, [learn more here](#integration). The 
+repo name is `box` and belongs to `avinci` org. The branch to look for resource
+and job definitions is `master`
+
+These are YML properties
+
+```
+name: string
+```
+*Required* This is the name of the resource. Keep it short but explanatory as this
+is used as a reference in jobs
+
+
+```
+type: string
+```
+*Required* This defines the type of resource. In this case *syncRepo*. This cannot 
+be changed once set. 
+
+
+```
+integration: string
+```
+*Required* This defines the integration that we are using to connect to the repo. 
+Shippable supports multiple types of git repository providers and they can be 
+defined as integrations[learn more](#integration)). We support the following 
+types of repository providers
+
+- github
+- bitbucket
+- github enterprise
+- bitbucket server (stash)
+- gitlab
+- gitlab server
+
+
+```
+source:
+  name: string 
+  branch: string
+```
+*Required* `name` is the fully qualified name of the repo i.e. **org/repo**
+
+*Optional* `branch` defaults to `master` if its not provided 
 
 <br>
 <a name="dockerOptions"></a>
