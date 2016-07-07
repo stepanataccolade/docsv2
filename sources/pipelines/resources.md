@@ -159,12 +159,12 @@ using the same resource type.
 ## Adding syncRepo through YML
 
 ```
-- name: box-repo
-  type: gitRepo
-  integration: avinci-gh
+- name: box-repo                        #required
+  type: gitRepo                         #required
+  integration: avinci-gh                #required
   source:
-    name: avinci/box
-    branch: master
+    name: avinci/box                    #required
+    branch: master                      #optional
 ```
 The above YML when added to `shippable.resources.yml` will create a resource of 
 type `gitRepo` with the name `box-repo`. It is using an integration `avinci-gh`
@@ -177,19 +177,19 @@ and job definitions is `master`
 ```
 name: string
 ```
-*Required* This is the name of the resource. Keep it short but explanatory as this
+This is the name of the resource. Keep it short but explanatory as this
 is used as a reference in jobs
 
 ```
 type: string
 ```
-*Required* This defines the type of resource. In this case *syncRepo*. This cannot 
+This defines the type of resource. In this case *syncRepo*. This cannot 
 be changed once set. 
 
 ```
 integration: string
 ```
-*Required* This defines the integration that we are using to connect to the repo. 
+This defines the integration that we are using to connect to the repo. 
 Shippable supports multiple types of git repository providers and they can be 
 defined as integrations[learn more](#integration)). We support the following 
 types of repository providers
@@ -207,9 +207,9 @@ source:
   name: string 
   branch: string
 ```
-*Required* `name` is the fully qualified name of the repo i.e. **org/repo**
+`name` is the fully qualified name of the repo i.e. **org/repo**
 
-*Optional* `branch` defaults to `master` if its not provided 
+`branch` defaults to `master` if its not provided 
 
 <br>
 <a name="image"></a>
@@ -220,12 +220,12 @@ Integrations allow you to add images on any of the [supported image registeries]
 using the same resource type.
 
 ```
-- name: box-image
-  type: image
-  integration: avinci-dh
+- name: box-image                       #required
+  type: image                           #required
+  integration: avinci-dh                #required
   source:
-    name: "avinci/box"
-    tag: "master.35"
+    name: "avinci/box"                  #required
+    tag: "master.35"                    #optional
 ```
 The above YML when added to `shippable.resources.yml` will create a resource of 
 type `image` with the name `box-image`. It is using an integration `avinci-dh`
@@ -238,13 +238,13 @@ and job definitions is `master`. This image tag is being set to `master.35`.
 ```
 name: string
 ```
-*Required* This is the name of the resource. Keep it short but explanatory as this
+This is the name of the resource. Keep it short but explanatory as this
 is used as a reference in jobs
 
 ```
 type: string
 ```
-*Required* This defines the type of resource. In this case *image*. This cannot 
+This defines the type of resource. In this case *image*. This cannot 
 be changed once set. 
 
 ```
@@ -268,13 +268,71 @@ source:
   name: string 
   tag: string
 ```
-*Required* `name` is the fully qualified name of the image i.e. **org/repo**
+`name` is the fully qualified name of the image i.e. **org/repo**
 
-*Optional* `tag` defaults to `latest` if its not provided 
+`tag` defaults to `latest` if its not provided 
 
 <br>
 <a name="dockerOptions"></a>
 # dockerOptions
+This resource type is used to add a list of docker options that can be appended 
+to a docker image. This resource on its own does not mean anything unless used
+in conjunction with an image.
+
+This resource can also be used to override options that are already set in 
+another stage of the pipeline. A common use case for this would be a scenario in 
+which you want to run different memory settings for the same service in test vs
+production. 
+
+```
+- name: dv-opts                             #required
+  type: dockerOptions                       #required
+  source:
+    memory: 64                              #optional
+    cpu-shares: 256                         #optional TODO camelcase
+    portMappings:                           #optional
+      - "80:80"
+    TODO : add rest of the options to docs
+```
+The above YML when added to `shippable.resources.yml` will create a resource of 
+type `dockerOptions` with the name `dv-opts`. The following options are being
+set in this example. Memory of 64mb, CPU shares of 256 
+
+and host port 80 is being mapped to container port 80.
+
+### YML properties
+
+```
+name: string
+```
+This is the name of the resource. Keep it short but explanatory as this
+is used as a reference in jobs
+
+```
+type: string
+```
+This defines the type of resource. In this case *image*. This cannot 
+be changed once set. 
+
+```
+source:
+  memory: integer 
+  cpu-shares: integer
+  portMappings: [elements with integer:integer format]
+```
+`memory` is the amount of memory the container is allocated. It is set in 
+megabytes and is an integer. defaults to 0 if not provided which means let the 
+host node manage it dynamically.
+
+`cpu-shares` is the relative % of CPU that is allocated 
+[more info](http://stackoverflow.com/questions/26841846/how-to-allocate-50-cpu-resource-to-docker-container)
+This defaults to 0 if its not provided which means let the host node manage it 
+dynamically.
+
+`portMappings` is an array of port mappings. Host port is always the first 
+element and the container port is the second element separated by a `:`. Port
+numbers are always integers. If not provided, no container port is exposed, even
+if your Dockerfile had the `EXPOSE` statement.
 
 <br>
 <a name="params"></a>
