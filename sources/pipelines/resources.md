@@ -1,9 +1,9 @@
-page_title: Pipeline Resources
+page_title: Unified Pipeline Resources
 page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 <br>
-# What are Resources?
+# Resources
 Resources are the building blocks of your pipelines. Eg. git repos, docker 
 images etc. 
 
@@ -22,8 +22,8 @@ powerful concept that can be used to model any pipeline from simple to complex
 ones. 
 
 <br>
-# How do I add Resources?
-Resources are stored in a resource file `shippable.resource.yml` present in a git 
+# Adding Resources
+Resources are stored in a resource file `shippable.resources.yml` present in a git 
 repository. Any repo can contain this file but only one of it can be used. If 
 more than 1 resource file is present, the first one is used. This is done in order
 to reduce conflict due to the same resource being defined in multiple places.
@@ -31,6 +31,32 @@ to reduce conflict due to the same resource being defined in multiple places.
 To learn how to add this file and connect it to pipelines, 
 [click here](../../tutorials/how_to_add_syncRepos)
 
+<br>
+# Deleting Resources
+Deleting a resource is a 2 step process. Pipelines are all about dependencies and
+deployable units are flowing through these pipelines. Hard deleting resources from 
+pipelines is a non reversible operation and you will lose all the version history 
+etc. As a result of this, we only soft delete resources when they are removed from
+the YML file. If it was done mistakenly, you just add it back and the system will
+un-delete the resource. 
+
+To hard delete a resource, it will have to be done from the UI. 
+(TODO : add instructions)
+
+<br>
+<a name="integration"></a>
+# Integrations
+Shippable is designed to separate out auth information from resources. The reason
+for this is that there is no encryption/decryption issues when you move things
+around i.e. moving resource definitions from one repo to another or if the person
+who created it is no longer the member of the team etc. Integration property in the 
+YML definition is a reference to this integration.
+
+To learn how to create integration and map them to your org, 
+[click here](../../tutorials/how_to_add_integrations)
+
+<br>
+# Resource Types
 These are the resources that come straight out of the box.
 
 - [syncRepo](#syncRepo): source for resources & jobs
@@ -46,33 +72,8 @@ These are the resources that come straight out of the box.
 - [acsCluster](#acsCluster): Azure Container Service cluster definition 
 - [dclCluster](#dclCluster): Docker Cloud cluster definition 
 
-<br>
-# How do I delete Resources?
-Deleting a resource is a 2 step process. Pipelines are all about dependencies and
-deployable units are flowing through these pipelines. Hard deleting resources from 
-pipelines is a non reversible operation and you will lose all the version history 
-etc. As a result of this, we only soft delete resources when they are removed from
-the YML file. If it was done mistakenly, you just add it back and the system will
-un-delete the resource. 
-
-To hard delete a resource, it will have to be done from the UI. 
-(TODO : add instructions)
-
-<br>
-<a name="integration"></a>
-# What is an integration?
-Shippable is designed to separate out auth information from resources. The reason
-for this is that there is no encryption/decryption issues when you move things
-around i.e. moving resource definitions from one repo to another or if the person
-who created it is no longer the member of the team etc. Integration property in the 
-YML definition is a reference to this integration.
-
-To learn how to create integration and map them to your org, 
-[click here](../../tutorials/how_to_add_integrations)
-
-<br>
 <a name="syncRepo"></a>
-# syncRepo
+## syncRepo
 Using this resource type you can instruct Shippable's internal sync system to 
 look for `shippable.resources.yml` and `shippable.jobs.yml`. This is the only 
 resource that can be added from the UI or `shippable.resources.yml`. *Note: You 
@@ -86,11 +87,10 @@ into your pipeline.
 Integrations allow you to add repos on any of the [supported git servers](#repoTypes1) 
 using the same resource type.
 
-## Adding syncRepo from UI
+You can add a syncRepo from the UI by following these instructions 
 TODO : 
 
-## Adding syncRepo through YML
-
+Alternatively you can add it to `shippable.resources.yml`
 ```
 - name: prod-repo                           #required
   type: syncRepo                            #required
@@ -99,14 +99,12 @@ TODO :
     name: avinci/prod                       #required
     branch: master                          #optional
 ```
-The above YML when added to `shippable.resources.yml` will create a resource of 
-type `syncRepo` with the name `prod-repo`. It is using an integration `avinci-gh`
-which is the name of the integration defined, [learn more here](#integration). The 
-repo name is `prod` and belongs to `avinci` org. The branch to look for resource
-and job definitions is `master`
+This will create a resource of type `syncRepo` with the name `prod-repo`. It is 
+using an integration `avinci-gh` which is the name of the integration defined, 
+[learn more here](#integration). The repo name is `prod` and belongs to `avinci` 
+org. The branch to look for resource and job definitions is `master`
 
 ### YML properties
-
 ```
 name: string
 ```
@@ -146,7 +144,7 @@ source:
 
 <br>
 <a name="gitRepo"></a>
-# gitRepo
+## gitRepo
 Using this resource you can hook your source code to pipelines. 
 
 Adding this resource type will create a webhook on the source repo server pointing 
@@ -156,8 +154,7 @@ new version for this resource with the new commit sha.
 Integrations allow you to add repos on any of the [supported git servers](#repoTypes2) 
 using the same resource type.
 
-## Adding syncRepo through YML
-
+You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: box-repo                            #required
   type: gitRepo                             #required
@@ -166,14 +163,12 @@ using the same resource type.
     name: avinci/box                        #required
     branch: master                          #optional
 ```
-The above YML when added to `shippable.resources.yml` will create a resource of 
-type `gitRepo` with the name `box-repo`. It is using an integration `avinci-gh`
-which is the name of the integration defined, [learn more here](#integration). The 
-repo name is `box` and belongs to `avinci` org. The branch to look for resource
-and job definitions is `master`
+This will create a resource of type `gitRepo` with the name `box-repo`. It is 
+using an integration `avinci-gh` which is the name of the integration defined, 
+[learn more here](#integration). The repo name is `box` and belongs to `avinci` 
+org. The branch to look for resource and job definitions is `master`
 
 ### YML properties
-
 ```
 name: string
 ```
@@ -213,12 +208,13 @@ source:
 
 <br>
 <a name="image"></a>
-# image
+## image
 This resource type is used to add a docker image to your pipeline. 
 
 Integrations allow you to add images on any of the [supported image registeries](#regTypes) 
 using the same resource type.
 
+You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: box-image                           #required
   type: image                               #required
@@ -227,14 +223,13 @@ using the same resource type.
     name: "avinci/box"                      #required
     tag: "master.35"                        #optional
 ```
-The above YML when added to `shippable.resources.yml` will create a resource of 
-type `image` with the name `box-image`. It is using an integration `avinci-dh`
-which is the name of the integration defined, [learn more here](#integration). The 
-image name is `box` and belongs to `avinci` org. The branch to look for resource
-and job definitions is `master`. This image tag is being set to `master.35`.
+This will create a resource of type `image` with the name `box-image`. It is using 
+an integration `avinci-dh` which is the name of the integration defined, 
+[learn more here](#integration). The image name is `box` and belongs to `avinci` 
+org. The branch to look for resource and job definitions is `master`. This image 
+tag is being set to `master.35`.
 
 ### YML properties
-
 ```
 name: string
 ```
@@ -274,7 +269,7 @@ source:
 
 <br>
 <a name="dockerOptions"></a>
-# dockerOptions
+## dockerOptions
 This resource type is used to add a list of docker options that can be appended 
 to a docker image. This resource on its own does not mean anything unless used
 in conjunction with an image.
@@ -284,6 +279,7 @@ another stage of the pipeline. A common use case for this would be a scenario in
 which you want to run different memory settings for the same service in test vs
 production. 
 
+You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: box-opts                            #required
   type: dockerOptions                       #required
@@ -294,14 +290,11 @@ production.
       - "80:80"
     TODO : add rest of the options to docs
 ```
-The above YML when added to `shippable.resources.yml` will create a resource of 
-type `dockerOptions` with the name `box-opts`. The following options are being
-set in this example. Memory of 64mb, CPU shares of 256 
-
-and host port 80 is being mapped to container port 80.
+This will create a resource of type `dockerOptions` with the name `box-opts`. 
+The following options are being set in this example. Memory of 64mb, 
+CPU shares of 256 and host port 80 is being mapped to container port 80.
 
 ### YML properties
-
 ```
 name: string
 ```
@@ -336,7 +329,7 @@ if your Dockerfile had the `EXPOSE` statement.
 
 <br>
 <a name="params"></a>
-# params
+## params
 This resource type is used to add a list of environment params that will be 
 appended to app/service/microservice. This resource on its own does not mean 
 anything unless used in conjunction with a service.
@@ -346,21 +339,20 @@ set in another stage of the pipeline. A common use case for this would be a scen
 in  which you want to run different DB connection for the same service in test vs
 production. 
 
+You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: box-params                          #required
   type: params                              #required
   source:
-    params:                                 #optional
-      - DB_HOST: "ds015700"     TODO these are not arrays now
-      - DB_NAME: "ayeaye"
-      - DB_PORT: "15700"
+    params:                                 
+      DB_HOST: "ds015700"                   #required atleast 1
+      DB_NAME: "ayeaye"                     #optional
+      DB_PORT: "15700"                      #optional
 ```
-The above YML when added to `shippable.resources.yml` will create a resource of 
-type `params` with the name `box-params`. The following params are being
-set in this example. DB_HOST, DB_NAME & DB_PORT
+This will create a resource of type `params` with the name `box-params`. The 
+following params are being set in this example. DB_HOST, DB_NAME & DB_PORT
 
 ### YML properties
-
 ```
 name: string
 ```
@@ -376,15 +368,15 @@ be changed once set.
 ```
 source:
   params: 
-    - key1: value1
-    - key2: value2
+    key1: value1
+    key2: value2
 ```
-`params` is basically an array of key value pairs that will be set as environment
+`params` is basically an object of key value pairs that will be set as environment
 variables when the app/service/microservice starts at the target.
 
 <br>
 <a name="replicas"></a>
-# replicas
+## replicas
 This resource type is used to control the number of copies of the app/service/microservice
 that will be started at the target. This resource on its own does not mean 
 anything unless used in conjunction with a service.
@@ -394,6 +386,7 @@ set in another stage of the pipeline. A common use case for this would be a scen
 in  which you want to run different number of copies for the same service in test 
 vs production. 
 
+You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: box-scaler                          #required
   type: replicas                            #required
@@ -405,7 +398,6 @@ type `replicas` with the name `box-scaler`. Currently only 1 copy of the service
 to which this is attached is started when deployed.
 
 ### YML properties
-
 ```
 name: string
 ```
@@ -426,21 +418,21 @@ source:
 
 <br>
 <a name="version"></a>
-# version
+## version
 This resource type is used to create version numbers. It uses semantic versioning 
 methodology to increment versions.
 
+You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: box-version                         #required
   type: version                             #required
   source:
     base: "0.0.1"                           #required
 ```
-The above YML when added to `shippable.resources.yml` will create a resource of 
-type `version` with the name `box-version`. The base version is being set to 0.0.1
+This will create a resource of type `version` with the name `box-version`. The 
+base version is being set to 0.0.1
 
 ### YML properties
-
 ```
 name: string
 ```
@@ -463,9 +455,10 @@ also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats too
 
 <br>
 <a name="ecsCluster"></a>
-# ecsCluster
+## ecsCluster
 This resource type is used to add a AWS ECS cluster to your pipeline. 
 
+You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: env-test                            #required
   type: ecsCluster                          #required
@@ -474,13 +467,12 @@ This resource type is used to add a AWS ECS cluster to your pipeline.
     name : "test-aws"                       #required
     region: "us-east-1"                     #required
 ```
-The above YML when added to `shippable.resources.yml` will create a resource of 
-type `ecsCluster` with the name `env-test`. It is using an integration `avinci-aws`
-which is the name of the integration defined, [learn more here](#integration). The 
-cluster name is `test-aws` and on the aws region  to `us-east-1`. 
+This will create a resource of type `ecsCluster` with the name `env-test`. It is 
+using an integration `avinci-aws` which is the name of the integration defined, 
+[learn more here](#integration). The cluster name is `test-aws` and on the aws 
+region  to `us-east-1`. 
 
 ### YML properties
-
 ```
 name: string
 ```
@@ -509,9 +501,10 @@ source:
 
 <br>
 <a name="gkeCluster"></a>
-# gkeCluster
+## gkeCluster
 This resource type is used to add a AWS ECS cluster to your pipeline. 
 
+You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: env-test                            #required
   type: gkeCluster                          #required
@@ -520,13 +513,12 @@ This resource type is used to add a AWS ECS cluster to your pipeline.
     name : "test-gke"                       #required
     region: "us-central1-b"                 #required
 ```
-The above YML when added to `shippable.resources.yml` will create a resource of 
-type `gkeCluster` with the name `env-test`. It is using an integration `avinci-gke`
-which is the name of the integration defined, [learn more here](#integration). The 
-cluster name is `test-gke` and on the aws region  to `us-central1-b`. 
+This will create a resource of type `gkeCluster` with the name `env-test`. It is 
+using an integration `avinci-gke` which is the name of the integration defined, 
+[learn more here](#integration). The cluster name is `test-gke` and on the aws 
+region  to `us-central1-b`. 
 
 ### YML properties
-
 ```
 name: string
 ```
@@ -555,9 +547,10 @@ source:
 
 <br>
 <a name="tripubCluster"></a>
-# tripubCluster
+## tripubCluster
 This resource type is used to add a Joyent Triton cluster to your pipeline. 
 
+You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: env-test                            #required
   type: tripubCluster                       #required
@@ -566,13 +559,12 @@ This resource type is used to add a Joyent Triton cluster to your pipeline.
     name : "test-tri"                       #required
     region: "us-east-1"                     #required
 ```
-The above YML when added to `shippable.resources.yml` will create a resource of 
-type `tripubCluster` with the name `env-test`. It is using an integration `avinci-tri`
-which is the name of the integration defined, [learn more here](#integration). The 
-cluster name is `test-tri` and on the aws region  to `us-east-1`. 
+This will create a resource of type `tripubCluster` with the name `env-test`. It 
+is using an integration `avinci-tri` which is the name of the integration defined, 
+[learn more here](#integration). The cluster name is `test-tri` and on the aws 
+region  to `us-east-1`. 
 
 ### YML properties
-
 ```
 name: string
 ```
@@ -601,9 +593,10 @@ source:
 
 <br>
 <a name="acsCluster"></a>
-# acsCluster
+## acsCluster
 This resource type is used to add a Microsoft Azure cluster to your pipeline. 
 
+You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: env-test                            #required
   type: acsCluster                          #required
@@ -612,13 +605,12 @@ This resource type is used to add a Microsoft Azure cluster to your pipeline.
     name : "test-acs"                       #required
     region: "us-east-1"                     #required
 ```
-The above YML when added to `shippable.resources.yml` will create a resource of 
-type `acsCluster` with the name `env-test`. It is using an integration `avinci-acs`
-which is the name of the integration defined, [learn more here](#integration). The 
-cluster name is `test-acs` and on the aws region  to `us-east-1`. 
+This will create a resource of type `acsCluster` with the name `env-test`. It is 
+using an integration `avinci-acs`which is the name of the integration defined, 
+[learn more here](#integration). The cluster name is `test-acs` and on the aws 
+region  to `us-east-1`. 
 
 ### YML properties
-
 ```
 name: string
 ```
@@ -647,9 +639,10 @@ source:
 
 <br>
 <a name="dclCluster"></a>
-# dclCluster
+## dclCluster
 This resource type is used to add a AWS ECS cluster to your pipeline. 
 
+You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: env-test                            #required
   type: dclCluster                          #required
@@ -657,13 +650,11 @@ This resource type is used to add a AWS ECS cluster to your pipeline.
   source:
     name : "test-dcl"                       #required
 ```
-The above YML when added to `shippable.resources.yml` will create a resource of 
-type `dclCluster` with the name `env-test`. It is using an integration `avinci-dcl`
-which is the name of the integration defined, [learn more here](#integration). The 
-cluster name is `test-dcl`. 
+This will create a resource of type `dclCluster` with the name `env-test`. It is 
+using an integration `avinci-dcl` which is the name of the integration defined, 
+[learn more here](#integration). The cluster name is `test-dcl`. 
 
 ### YML properties
-
 ```
 name: string
 ```
