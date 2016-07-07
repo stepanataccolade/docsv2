@@ -127,6 +127,7 @@ supports multiple types of git repository providers and they can be defined as
 integrations[learn more](#integration)). We support the following types of 
 repository providers
 <a name="repoTypes1"></a>
+
 - github
 - bitbucket
 - github enterprise
@@ -193,6 +194,7 @@ Shippable supports multiple types of git repository providers and they can be
 defined as integrations[learn more](#integration)). We support the following 
 types of repository providers
 <a name="repoTypes2"></a>
+
 - github
 - bitbucket
 - github enterprise
@@ -253,6 +255,7 @@ Shippable supports multiple types of registries and they can be defined as
 integrations[learn more](#integration)). We support the following types of registries
 
 <a name="regTypes"></a>
+
 - Docker hub
 - Docker private registry
 - Docker trusted registry
