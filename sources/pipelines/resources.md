@@ -183,8 +183,8 @@ is used as a reference in jobs
 ```
 type: string
 ```
-This defines the type of resource. In this case *syncRepo*. This cannot 
-be changed once set. 
+This defines the type of resource. In this case *gitRepo*. This cannot be changed 
+once set. 
 
 ```
 integration: string
@@ -285,7 +285,7 @@ which you want to run different memory settings for the same service in test vs
 production. 
 
 ```
-- name: dv-opts                             #required
+- name: box-opts                             #required
   type: dockerOptions                       #required
   source:
     memory: 64                              #optional
@@ -295,7 +295,7 @@ production.
     TODO : add rest of the options to docs
 ```
 The above YML when added to `shippable.resources.yml` will create a resource of 
-type `dockerOptions` with the name `dv-opts`. The following options are being
+type `dockerOptions` with the name `box-opts`. The following options are being
 set in this example. Memory of 64mb, CPU shares of 256 
 
 and host port 80 is being mapped to container port 80.
@@ -311,7 +311,7 @@ is used as a reference in jobs
 ```
 type: string
 ```
-This defines the type of resource. In this case *image*. This cannot 
+This defines the type of resource. In this case *dockerOptions*. This cannot 
 be changed once set. 
 
 ```
@@ -337,10 +337,93 @@ if your Dockerfile had the `EXPOSE` statement.
 <br>
 <a name="params"></a>
 # params
+This resource type is used to add a list of environment params that will be 
+appended to app/service/microservice. This resource on its own does not mean 
+anything unless used in conjunction with a service.
+
+This resource can also be used to override environment variables that are already 
+set in another stage of the pipeline. A common use case for this would be a scenario 
+in  which you want to run different DB connection for the same service in test vs
+production. 
+
+```
+- name: box-params                          #required
+  type: params                              #required
+  source:
+    params:                                 #optional
+      - DB_HOST: "ds015700"     TODO these are not arrays now
+      - DB_NAME: "ayeaye"
+      - DB_PORT: "15700"
+```
+The above YML when added to `shippable.resources.yml` will create a resource of 
+type `params` with the name `box-params`. The following params are being
+set in this example. DB_HOST, DB_NAME & DB_PORT
+
+### YML properties
+
+```
+name: string
+```
+This is the name of the resource. Keep it short but explanatory as this is used 
+as a reference in jobs
+
+```
+type: string
+```
+This defines the type of resource. In this case *params*. This cannot 
+be changed once set. 
+
+```
+source:
+  params: 
+    - key1: value1
+    - key2: value2
+```
+`params` is basically an array of key value pairs that will be set as environment
+variables when the app/service/microservice starts at the target.
 
 <br>
 <a name="replicas"></a>
 # replicas
+This resource type is used to control the number of copies of the app/service/microservice
+that will be started at the target. This resource on its own does not mean 
+anything unless used in conjunction with a service.
+
+This resource can also be used to override environment variables that are already 
+set in another stage of the pipeline. A common use case for this would be a scenario 
+in  which you want to run different number of copies for the same service in test 
+vs production. 
+
+```
+- name: box-scaler
+  type: replicas
+    source:
+      count: 1
+```
+The above YML when added to `shippable.resources.yml` will create a resource of 
+type `replicas` with the name `box-scaler`. Currently only 1 copy of the service
+to which this is attached is started when deployed.
+
+### YML properties
+
+```
+name: string
+```
+This is the name of the resource. Keep it short but explanatory as this is used 
+as a reference in jobs
+
+```
+type: string
+```
+This defines the type of resource. In this case *replicas*. This cannot be changed 
+once set. 
+
+```
+source:
+  count: 1
+```
+`count` is an integer that represents the number of copies to run. By default it
+is 1
 
 <br>
 <a name="version"></a>
