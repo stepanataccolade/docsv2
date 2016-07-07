@@ -21,6 +21,7 @@ one thing and one thing only. Together with [integrations]() they become a very
 powerful concept that can be used to model any pipeline from simple to complex 
 ones. 
 
+<br>
 # How do I add Resources?
 Resources are stored in a resource file `shippable.resource.yml` present in a git 
 repository. Any repo can contain this file but only one of it can be used. If 
@@ -45,9 +46,10 @@ These are the resources that come straight out of the box.
 - [acsCluster](#acsCluster): Azure Container Service cluster definition 
 - [dclCluster](#dclCluster): Docker Cloud cluster definition 
 
+<br>
 <a name="integration"></a>
 # What is an integration?
-Shippable is designed to separate auth information out from resources. The reason
+Shippable is designed to separate out auth information from resources. The reason
 for this is that there is no encryption/decryption issues when you move things
 around i.e. moving resource definitions from one repo to another or if the person
 who created it is no longer the member of the team etc. Integration property in the 
@@ -56,6 +58,7 @@ YML definition is a reference to this integration.
 To learn how to create integration and map them to your org, 
 [click here](../../tutorials/how_to_add_integrations)
 
+<br>
 <a name="syncRepo"></a>
 # syncRepo
 Using this resource you can instruct Shippable's internal sync system to look for
@@ -121,62 +124,46 @@ source:
 
 *Optional* `branch` defaults to `master` if its not provided 
 
+<br>
 <a name="gitRepo"></a>
 # gitRepo
 
+<br>
 <a name="image"></a>
 # image
 
+<br>
 <a name="dockerOptions"></a>
 # dockerOptions
 
+<br>
 <a name="params"></a>
 # params
 
+<br>
 <a name="replicas"></a>
 # replicas
 
+<br>
 <a name="version"></a>
 # version
 
+<br>
 <a name="ecsCluster"></a>
 # ecsCluster
 
+<br>
 <a name="gkeCluster"></a>
 # gkeCluster
 
+<br>
 <a name="tritonCluster"></a>
 # tritonCluster
 
+<br>
 <a name="acsCluster"></a>
 # acsCluster
 
+<br>
 <a name="dclCluster"></a>
 # dclCluster
-
-We natively support the following cloud targets
-
-- [Amazon's EC2 Container Service (ECS)](int_container_services/#amazon-ec2-container-service-using-account-keys) 
-- [Google Container Engine (GKE)](int_container_services/#google-container-engine-gke) 
-- [Docker Cloud](int_container_services/#docker-cloud)  
-- [Docker Datacenter](int_container_services/#docker-datacenter) 
-- Joyent Triton
-
-In addition, you can deploy to any target using our 
-
-- Open shell script runner
-
-Native support coming soon to following targets
-
-- IaaS
-  - Digital Ocean 
-  - VMWare
-  - Openstack
-  - AWS EC2
-  - Google Cloud Platform
-- PaaS
-  - Elastic Beanstalk
-  - Heroku
-- CaaS
-  - Microsoft Azure 
-  - Red Hat Openshift 3 
