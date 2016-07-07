@@ -55,9 +55,29 @@ YML definition is a reference to this integration.
 To learn how to create integration and map them to your org, 
 [click here](../../tutorials/how_to_add_integrations)
 
-
 <a name="syncRepo"></a>
 # syncRepo
+Using this resource you can instruct Shippable's internal sync system to look for
+`shippable.resources.yml` and `shippable.jobs.yml`. This is the only resource that 
+can be added from the UI or `shippable.resources.yml`. *Note: You should not add
+the same repository in both places. This can lead to unexpected behavior*
+
+### Adding syncRepo from UI
+TODO : 
+
+### Adding syncRepo through YML
+```
+- name: prod-repo01
+  type: syncRepo
+  integration: "avinci-gh"
+  source:
+    name: avinci/prod
+    branch: master
+```
+
+`**name**: *string*`
+
+
 
 <a name="gitRepo"></a>
 # gitRepo
