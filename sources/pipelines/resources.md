@@ -47,7 +47,7 @@ These are the resources that come straight out of the box.
 - [dclCluster](#dclCluster): Docker Cloud cluster definition 
 
 <br>
-# How do I delete a Resources?
+# How do I delete Resources?
 Deleting a resource is a 2 step process. Pipelines are all about dependencies and
 deployable units are flowing through these pipelines. Hard deleting resources from 
 pipelines is a non reversible operation and you will lose all the version history 
@@ -216,17 +216,16 @@ calls
 ```
 - name: box-image
   type: image
-  integration: ric03uec-dh
+  integration: avinci-dh
   source:
-    name: "aye0aye/box"
-    isPull: false
+    name: "avinci/box"
     tag: "master.35"
 ```
 The above YML when added to `shippable.resources.yml` will create a resource of 
-type `gitRepo` with the name `box-repo`. It is using an integration `avinci-gh`
+type `image` with the name `box-image`. It is using an integration `avinci-dh`
 which is the name of the integration defined, [learn more here](#integration). The 
-repo name is `box` and belongs to `avinci` org. The branch to look for resource
-and job definitions is `master`
+image name is `box` and belongs to `avinci` org. The branch to look for resource
+and job definitions is `master`. This image tag is being set to `master.35`.
 
 These are YML properties
 
@@ -240,7 +239,7 @@ is used as a reference in jobs
 ```
 type: string
 ```
-*Required* This defines the type of resource. In this case *syncRepo*. This cannot 
+*Required* This defines the type of resource. In this case *image*. This cannot 
 be changed once set. 
 
 
@@ -248,26 +247,25 @@ be changed once set.
 integration: string
 ```
 *Required* This defines the integration that we are using to connect to the repo. 
-Shippable supports multiple types of git repository providers and they can be 
-defined as integrations[learn more](#integration)). We support the following 
-types of repository providers
+Shippable supports multiple types of registries and they can be defined as 
+integrations[learn more](#integration)). We support the following types of registries
 
-- github
-- bitbucket
-- github enterprise
-- bitbucket server (stash)
-- gitlab
-- gitlab server
+- Docker hub
+- Docker private registry
+- Docker trusted registry
+- Google container registry
+- Amazon Elastic Container Registry
+- Quay.io
 
 
 ```
 source:
   name: string 
-  branch: string
+  tag: string
 ```
-*Required* `name` is the fully qualified name of the repo i.e. **org/repo**
+*Required* `name` is the fully qualified name of the image i.e. **org/repo**
 
-*Optional* `branch` defaults to `master` if its not provided 
+*Optional* `tag` defaults to `latest` if its not provided 
 
 <br>
 <a name="dockerOptions"></a>
