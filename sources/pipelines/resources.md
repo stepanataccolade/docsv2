@@ -81,7 +81,7 @@ TODO :
 ```
 The above YML when added to `shippable.resources.yml` will create a resource of 
 type `syncRepo` with the name `prod-repo`. It is using an integration `avinci-gh`
-which is the name of the integration defined ([learn more](#integration)). The 
+which is the name of the integration defined, [learn more here](#integration). The 
 repo name is `prod` and belongs to `avinci` org. The branch to look for resource
 and job definitions is `master`
 
