@@ -63,10 +63,10 @@ Using this resource you can instruct Shippable's internal sync system to look fo
 can be added from the UI or `shippable.resources.yml`. *Note: You should not add
 the same repository in both places. This can lead to unexpected behavior*
 
-### Adding syncRepo from UI
+## Adding syncRepo from UI
 TODO : 
 
-### Adding syncRepo through YML
+## Adding syncRepo through YML
 
 ```
 - name: prod-repo
@@ -82,20 +82,43 @@ which is the name of the integration defined ([learn more](#integration)). The
 repo name is `prod` and belongs to `avinci` org. The branch to look for resource
 and job definitions is `master`
 
+<br>
 These are YML properties
 ```
-**name**: *string*
+name: string
 ```
 *Required* This is the name of the resource. Keep it short but explanatory as this
 is used as a reference in jobs
 
 ```
-**type**: *syncRepo*
+type: string
 ```
 *Required* This defines the type of resource. In this case *syncRepo*. This cannot 
 be changed once set. 
 
+```
+integration: string
+```
+*Required* This defines the integration that we are using to connect to the repo. 
+Shippable supports multiple types of git repository providers and they can be 
+defined as integrations[learn more](#integration)). We support the following 
+types of repository providers
 
+- github
+- bitbucket
+- github enterprise
+- bitbucket server (stash)
+- gitlab
+- gitlab server
+
+
+```
+source:
+  name: string 
+  branch: string
+```
+*Required* `name` is the fully qualified name of the repo i.e. **org/repo**
+*Optional* `branch` defaults to `master` if its not provided 
 
 <a name="gitRepo"></a>
 # gitRepo
