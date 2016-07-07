@@ -73,14 +73,18 @@ To learn how to create integration and map them to your org,
 <br>
 <a name="syncRepo"></a>
 # syncRepo
-Using this resource you can instruct Shippable's internal sync system to look for
-`shippable.resources.yml` and `shippable.jobs.yml`. This is the only resource that 
-can be added from the UI or `shippable.resources.yml`. *Note: You should not add
-the same repository in both places. This can lead to unexpected behavior*
+Using this resource type you can instruct Shippable's internal sync system to 
+look for `shippable.resources.yml` and `shippable.jobs.yml`. This is the only 
+resource that can be added from the UI or `shippable.resources.yml`. *Note: You 
+should not add the same repository in both places. This can lead to unexpected 
+behavior*
 
 Adding this resource will create a webhook on the source repo server pointing to 
 Shippable. With this, future commits to the repo will automatically sync changes
 into your pipeline.
+
+Integrations allow you to add repos on any of the [supported git servers](#repoTypes1) 
+using the same resource type.
 
 ## Adding syncRepo from UI
 TODO : 
@@ -88,12 +92,12 @@ TODO :
 ## Adding syncRepo through YML
 
 ```
-- name: prod-repo
-  type: syncRepo
-  integration: avinci-gh
+- name: prod-repo                       #required
+  type: syncRepo                        #required
+  integration: avinci-gh                #required
   source:
-    name: avinci/prod
-    branch: master
+    name: avinci/prod                   #required
+    branch: master                      #optional
 ```
 The above YML when added to `shippable.resources.yml` will create a resource of 
 type `syncRepo` with the name `prod-repo`. It is using an integration `avinci-gh`
@@ -106,25 +110,23 @@ These are YML properties
 ```
 name: string
 ```
-*Required* This is the name of the resource. Keep it short but explanatory as this
-is used as a reference in jobs
-
+This is the name of the resource. Keep it short but explanatory as this is used 
+as a reference in jobs
 
 ```
 type: string
 ```
-*Required* This defines the type of resource. In this case *syncRepo*. This cannot 
-be changed once set. 
-
+This defines the type of resource. In this case *syncRepo*. This cannot be 
+changed once set. 
 
 ```
 integration: string
 ```
-*Required* This defines the integration that we are using to connect to the repo. 
-Shippable supports multiple types of git repository providers and they can be 
-defined as integrations[learn more](#integration)). We support the following 
-types of repository providers
-
+This defines the integration that we are using to connect to the repo. Shippable 
+supports multiple types of git repository providers and they can be defined as 
+integrations[learn more](#integration)). We support the following types of 
+repository providers
+<a name="repoTypes1"></a>
 - github
 - bitbucket
 - github enterprise
@@ -132,21 +134,26 @@ types of repository providers
 - gitlab
 - gitlab server
 
-
 ```
 source:
   name: string 
   branch: string
 ```
-*Required* `name` is the fully qualified name of the repo i.e. **org/repo**
+`name` is the fully qualified name of the repo i.e. **org/repo**
 
-*Optional* `branch` defaults to `master` if its not provided 
+`branch` defaults to `master` if its not provided 
 
 <br>
 <a name="gitRepo"></a>
 # gitRepo
 Using this resource you can hook your source code to pipelines. 
 
+Adding this resource type will create a webhook on the source repo server pointing 
+to Shippable. With this, future commits to the repo will automatically create a 
+new version for this resource with the new commit sha.
+
+Integrations allow you to add repos on any of the [supported git servers](#repoTypes2) 
+using the same resource type.
 
 ## Adding syncRepo through YML
 
@@ -172,13 +179,11 @@ name: string
 *Required* This is the name of the resource. Keep it short but explanatory as this
 is used as a reference in jobs
 
-
 ```
 type: string
 ```
 *Required* This defines the type of resource. In this case *syncRepo*. This cannot 
 be changed once set. 
-
 
 ```
 integration: string
@@ -187,14 +192,13 @@ integration: string
 Shippable supports multiple types of git repository providers and they can be 
 defined as integrations[learn more](#integration)). We support the following 
 types of repository providers
-
+<a name="repoTypes2"></a>
 - github
 - bitbucket
 - github enterprise
 - bitbucket server (stash)
 - gitlab
 - gitlab server
-
 
 ```
 source:
@@ -208,10 +212,10 @@ source:
 <br>
 <a name="image"></a>
 # image
-This resource is used to add a docker image to your pipeline. The integrations
-enable you to pull or push to any registry, as long as it supports docker api
-calls
+This resource type is used to add a docker image to your pipeline. 
 
+Integrations allow you to add images on any of the [supported image registeries](#regTypes) 
+using the same resource type.
 
 ```
 - name: box-image
@@ -235,13 +239,11 @@ name: string
 *Required* This is the name of the resource. Keep it short but explanatory as this
 is used as a reference in jobs
 
-
 ```
 type: string
 ```
 *Required* This defines the type of resource. In this case *image*. This cannot 
 be changed once set. 
-
 
 ```
 integration: string
@@ -250,13 +252,13 @@ integration: string
 Shippable supports multiple types of registries and they can be defined as 
 integrations[learn more](#integration)). We support the following types of registries
 
+<a name="regTypes"></a>
 - Docker hub
 - Docker private registry
 - Docker trusted registry
 - Google container registry
 - Amazon Elastic Container Registry
 - Quay.io
-
 
 ```
 source:
