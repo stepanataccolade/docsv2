@@ -99,6 +99,7 @@ pages:
 - Tutorials:
   - Pipelines:
     - How to add resources: tutorials/how_to_add_syncRepos.md
+  - How to add integrations: tutorials/how_to_add_integrations.md
   - Running a sample CI build: gs_ci_sample.md
   - Deploying a sample appliation: test.md
   - Source Control System:

@@ -30,39 +30,67 @@ to reduce conflict due to the same resource being defined in multiple places.
 To learn how to add this file and connect it to pipelines, 
 [click here](../../tutorials/how_to_add_syncRepos)
 
-These are the following resources that come straight out of the box. We are 
-constantly adding to this list
+These are the resources that come straight out of the box.
 
-- [syncRepo](#syncRepo)
-- gitRepo 
-- image
-- dockerOptions
-- params
-- replicas
-- version
-- ecsCluster
-- gkeCluster
-- tritonCluster
-- azureCluster
-- dclCluster
+- [syncRepo](#syncRepo): source for resources & jobs
+- [gitRepo](#gitRepo): source for your code
+- [image](#image): docker image definition 
+- [dockerOptions](#dockerOptions): options for docker images
+- [params](#params): parameters for your apps/services/microservices
+- [replicas](#replicas): number of copies of the service to run
+- [version](#version): semantic versions
+- [ecsCluster](#ecsCluster): Amazon Elastic Compute Service cluster definition
+- [gkeCluster](#gkeCluster): Google Kubernetes cluster definition
+- [tritonCluster](#tritonCluster): Joyent Triton cluster definition 
+- [acsCluster](#acsCluster): Azure Container Service cluster definition 
+- [dclCluster](#dclCluster): Docker Cloud cluster definition 
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+# What is an integration?
+Shippable is designed to separate auth information out from resources. The reason
+for this is that there is no encryption/decryption issues when you move things
+around i.e. moving resource definitions from one repo to another or if the person
+who created it is no longer the member of the team etc. Integration property in the 
+YML definition is a reference to this integration.
+
+To learn how to create integration and map them to your org, 
+[click here](../../tutorials/how_to_add_integrations)
+
 
 <a name="syncRepo"></a>
 # syncRepo
+
+<a name="gitRepo"></a>
+# gitRepo
+
+<a name="image"></a>
+# image
+
+<a name="dockerOptions"></a>
+# dockerOptions
+
+<a name="params"></a>
+# params
+
+<a name="replicas"></a>
+# replicas
+
+<a name="version"></a>
+# version
+
+<a name="ecsCluster"></a>
+# ecsCluster
+
+<a name="gkeCluster"></a>
+# gkeCluster
+
+<a name="tritonCluster"></a>
+# tritonCluster
+
+<a name="acsCluster"></a>
+# acsCluster
+
+<a name="dclCluster"></a>
+# dclCluster
 
 We natively support the following cloud targets
 
