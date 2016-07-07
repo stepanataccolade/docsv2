@@ -79,6 +79,7 @@ pages:
 - Pipelines:
   - Overview: pipelines/overview.md
   - Resources: pipelines/resources.md
+  - Jobs: pipelines/jobs.md
   - Deploying your first pipeline: gs_deploy_sample.md
   - FAQ: pipelines/faq.md
 - Navigating the UI:
