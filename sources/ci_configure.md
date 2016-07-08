@@ -1087,8 +1087,8 @@ integrations:
 ```
 * `integrationName` value is the name of the account integration you added to the project settings.
 * `type` is slack
-* `recipients` specifies the channels you want to send the notification to. Please note that this overrides any channels you select while setting up the account integration.
-    - If there is a single recipient, you can use the format `recipients: "#channelOne"`
+* `recipients` specifies the channels you want to send the notification to. Please note that this is a required field for slack notifications to work. 
+    - If there is a single recipient, use the format `recipients: "#channelOne"`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional] You can set the following options for the `on_success`, `on_failure` tags :
     - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
