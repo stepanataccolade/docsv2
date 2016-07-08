@@ -14,7 +14,7 @@ smaller apps/services/microservices.
 
 There are many types of pre-canned jobs that come out of the box. Every job does
 one thing and one thing only. Together with [resources](resources) they become 
-a verybpowerful concept that can be used to model any pipeline from simple to 
+a very powerful concept that can be used to model any pipeline from simple to 
 complex ones. 
 
 # Adding Jobs
@@ -141,8 +141,10 @@ replicas of this means that you will get more copies of the whole manifest. If
 you need your apps/service/microservice to be separately deployed, you need to 
 create different manifests.
 
-### Single container manifest
-You can create this job by adding it to `shippable.jobs.yml`
+### Single container manifest pattern
+If your apps/services are decoupled and versioned, then you might want to independently
+deploy and maange them. In those cases, the following manifest will help
+
 ```
 - name: box-man                             #required
   type: manifest                            #required
@@ -152,12 +154,15 @@ You can create this job by adding it to `shippable.jobs.yml`
       - IN: box-params                      #optional
 ```
 This will create a job of type `manifest` with the name `box-man`. Since only 1
-(image)[resources#image] `box-image` is being used, the other 2 addon resources
-(dockerOptions)[resources#dockerOptions] & (params)[resources#params] and this 
+(image)[../resources#image] `box-image` is being used, the other 2 addon resources
+(dockerOptions)[../resources#dockerOptions] & (params)[../resources#params] and this 
 manifest when deployed will create a single container app/service/microservice
 
-### Multi container manifest
-You can create this job by adding it to `shippable.jobs.yml`
+### Multi container manifest pattern
+There are some cases where your apps/services are not completely decoupled. For
+example, your UI component might be tightly couple to your caching component. In
+those cases, a single manifest with 2 different images might be required. This 
+YML is a sample for that case
 
 ```
 - name: box-man                             #required
@@ -177,19 +182,65 @@ applies to both the images. But the resource `box-params` of type (params)[resou
 applies only to `box-image`. This manifest when deployed will create a 2 containers 
 as part of this app/service/microservice
 
+### Combining manifests into a manifest pattern
+The above example of multi container manifest will allow you to create a union of
+tighly coupled apps/services into a single deployable unit. One limitation of the 
+pattern is that you cannot scale them independently. They also get deployed on the 
+same node/vm/machine as a single manifest will deploy together onto a single node.
+
+If you still need tight coupling but still want to scale independently, the following
+pattern will helo.
+
+```
+- name: box-man                             #required
+  type: manifest                            #required
+  steps:
+      - IN: box-image                       #required
+      - IN: box-opts                        #optional
+      - IN: box-params                      #optional
+      
+- name: dv-man                              #required
+  type: manifest                            #required
+  steps:
+      - IN: dv-image                        #required
+      - IN: dv-opts                         #optional
+      
+- name: comb-man                            #required
+  type: manifest                            #required
+  steps:
+      - IN: box-man                         #required
+      - IN: dv-man                          #optional
+```
+In the above example 2 independent manifests are being combined into a 3rd manifest.
+With this approach, you get to scale them independently when you deploy. 
+
+<a name="ecsDeploy"></a>
+## ecsDeploy
+This job is used to deploy a manifest to (AWS ECS cluster)[resources#]. 
+
+### Single manifest release
+
+```
+- name: box-rel								#required
+  type: release								#required
+  steps:
+    - IN: box-ver							#required
+    - IN: box-man							#required
+    - TASK:									#required
+      bump: minor							#required
+```
+This will create a job of type `release` with the name `box-rel`. A resource of type 
+(version)[resources#version] is required for this job as `IN`. It also requires a resource 
+of type (manifest)[resources#manifest] upon which a release is being cut. In addition 
+to these, a `TASK` object with a property `bump` is required. `bump` takes in the following 
+options `major`, `minor`, `patch`, `alpha`, `beta` & `rc`
+
+
 <a name="release"></a>
 ## Release
-This job is used to define an app/service/microservice. The idea behind creating 
-manifests is to create a versioned immutable design time definition of how your
-app/service/microservice is made. 
+This job is used to create/manage/increment semantic versions. 
 
-A manifest is an unit of deployment. This means the entire manifest is deployed 
-as a whole on to a single node(vm, physical machine etc). Creating multiple 
-replicas of this means that you will get more copies of the whole manifest. If 
-you need your apps/service/microservice to be separately deployed, you need to 
-create different manifests.
-
-You can create this job by adding it to `shippable.jobs.yml`
+### Single manifest release
 
 ```
 - name: box-rel								#required
