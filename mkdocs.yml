@@ -15,66 +15,72 @@ pages:
   - What is Shippable?: index.md
   - FAQ: faq.md
 - Continuous Integration (CI):
-  - Overview: ci_overview.md
-  - What is supported?: gs_supported.md
-  - Running your first build: test.md
+  - Overview: sources/continuous_integration/ci_overview.md
+  - What is supported?: sources/continuous_integration/supported.md
+  - Running your first build: run_first_build.md
   - Defaults:
-    - Environment Variables: test.md
-    - Images: test.md
-    - Timeouts: test.md
-    - Node Machine Images: test.md
+    - Environment Variables: defaults/env_var.md
+    - Images: defaults/images.md
+    - Timeouts: defaults/timeouts.md
+    - Node Machine Images: defaults/machine_images.md
   - Configuring your environment:
     - Languages:
-      - Node.js: test.md
-      - Python: test.md
+      - Node.js: languages/node.md
+      - Python: languages/python.md
       - Ruby:
-        - GEMFILEs behaviour: test.md
+        - GEMFILEs behaviour: languages/ruby.md
       - Java:
-        - JDK behaviour: test.md
-      - Clojure: test.md
-      - Go: test.md
-      - PHP: test.md
-      - Scala: test.md
-      - C: test.md
-      - Custom Images: test.md
+        - JDK behaviour: languages/java.md
+      - Clojure: languages/clojure.md
+      - Go: languages/go.md
+      - PHP: languages/php.md
+      - Scala: languages/scala.md
+      - C: languages/objc.md
+      - Custom Images: languages/custom_images.md
     - Advanced Options:
-      - Custom Environment Variables: test.md
-      - Including/Excluding branches: test.md
-      - Matrix builds: test.md
-      - Caching: test.md
-      - Using git submodules: test.md
-      - Shippable_retry: test.md
+      - Custom Environment Variables: advanced_options/custom_env_var.md
+      - Including/Excluding branches: advanced_options/include_exclude_branches.md
+      - Matrix builds: advanced_options/matrix_builds.md
+      - Caching: advanced_options/caching.md
+      - Using git submodules: advanced_options/git_submodules.md
+      - Shippable_retry: advanced_options/shippable_retry.md
   - Configuring your CI:
-    - The ci section: test.md
-  - Configuring Post CI: test.md
+    - The ci section: build_ci.md
+  - Configuring Post CI: post_ci.md
   - Integrations:
+    - Source Control Systems:
+      - GitHub: scm/github.md
+      - GitHub Enterprise: scm/github_enterprise.md
+      - Bitbucket: scm/bitbucket.md
+      - Bitbucket Server: scm/bitbucket_server.md
+      - GitLab: scm/gitlab.md
     - Notifications:
-      - Slack: test.md
-      - Email: test.md
-      - HipChat: test.md
-      - IRC: test.md
+      - Slack: notifications/slack.md
+      - Email: notifications/email.md
+      - HipChat: notifications/hipchat.md
+      - IRC: notifications/irc.md
     - Image Registries:
-      - Docker Hub: test.md
-      - Docker Trusted Registry: test.md
-      - Amazon EC2 Container Registry (ECR): test.md
-      - Google Container Registry (GCR): test.md
-      - Quay.io: test.md
-      - Any Private Registry: test.md
+      - Docker Hub: image_registries/docker_hub.md
+      - Docker Trusted Registry: image_registries/docker_trusted_registry.md
+      - Amazon EC2 Container Registry (ECR): image_registries/amazon_ecr.md
+      - Google Container Registry (GCR): image_registries/google_gcr.md
+      - Quay.io: image_registries/quay.md
+      - Any Private Registry: image_registries/private_registry.md
     - Container Services:
-      - Amazon EC2 Container Service (ECS): test.md
-      - Google Container Engine (GKE): test.md
-      - Docker Cloud: test.md
-      - Docker Datacenter: test.md
+      - Amazon EC2 Container Service (ECS): container_services/amazon_ecs.md
+      - Google Container Engine (GKE): container_services/google_gke.md
+      - Docker Cloud: container_services/docker_cloud.md
+      - Docker Datacenter: container_services/docker_datacenter.md
     - Deploy:
-      - AWS Elastic Beanstalk: test.md
-      - Webhooks: test.md
+      - AWS Elastic Beanstalk: deploy/aws_eb.md
+      - Webhooks: deploy/webhooks.md
     - Keys:
-      - SSH: int_keys.md
-      - PEM:  int_keys.md
+      - SSH: keys/ssh.md
+      - PEM:  keys/pem.md
   - Running builds on your own machines (BYON):
-    - Overview: ci_byoh.md
-    - Setup: test.md
-  - Permissions: test.md
+    - Overview: byon/overview.md
+    - Setup: byon/setup.md
+  - Permissions: permissions.md
   - Troubleshooting CI: ci_troubleshoot.md
 - Pipelines:
   - Overview: pipelines/overview.md
@@ -84,19 +90,19 @@ pages:
   - Deploying your first pipeline: gs_deploy_sample.md
   - FAQ: pipelines/faq.md
 - Navigating the UI:
-  - Home Page: test.md
-  - Account Settings: test.md
+  - Home Page: navigating_ui/homepage.md
+  - Account Settings: navigating_ui/accountsettings.md
   - Subscriptions:
-    - CI tab: test.md
-    - Pipelines tab: test.md
-    - Settings: test.md
+    - CI tab: navigating_ui/subscriptions.md
+    - Pipelines tab: navigating_ui/subscriptions.md
+    - Settings: navigating_ui/subscriptions.md
   - Projects:
-    - Status: test.md
-    - Settings: test.md
+    - Status: navigating_ui/projects.md
+    - Settings: navigating_ui/projects.md
   - Builds:
-    - Test Coverage: test.md
-    - Code Coverage: test.md
-    - Console logs: test.md
+    - Test Coverage: navigating_ui/builds.md
+    - Code Coverage: navigating_ui/builds.md
+    - Console logs: navigating_ui/builds.md
 - API: api.md
 - Tutorials:
   - Pipelines:
