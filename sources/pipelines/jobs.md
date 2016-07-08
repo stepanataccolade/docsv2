@@ -134,7 +134,6 @@ These are the job types that come straight out of the box.
 - [dclDeploy](#dclDeploy): job for deploying to Docker Cloud
 - [runSh](#runSh): job for executing a set of shell scripts
 
-<br>
 <a name="manifest"></a>
 ## Manifest
 This job is used to define an app/service/microservice. The idea behind creating 
@@ -183,7 +182,6 @@ applies to both the images. But the resource `box-params` of type (params)[resou
 applies only to `box-image`. This manifest when deployed will create a 2 containers 
 as part of this app/service/microservice
 
-<br>
 <a name="release"></a>
 ## Release
 This job is used to define an app/service/microservice. The idea behind creating 
