@@ -47,11 +47,12 @@ of the type of pre-canned job
 
 ## A Simple Job
 ```
-- name: "Name of the job"
-  type: "one of the job types"
-  steps:
-    - IN: "some resource"
-    - IN: "some other resource"
+jobs:
+  - name: "Name of the job"
+    type: "one of the job types"
+    steps:
+      - IN: "some resource"
+      - IN: "some other resource"
 ```
 This a very simple job which needs 2 INPUT resources to perform whatever that 
 job is designed to do. 
@@ -63,13 +64,14 @@ Shippable will use the most recent or latest version available in the system.
 You could also pin a specific that you would like Shippable to fetch by using this
 YML.
 ```
-- name: "Name of the job"
-  type: "one of the job types"
-  steps:
-    - IN: "some resource"
-      versionName: "user friendly version e.g tag or commitSha"
-    - IN: "some other resource"
-      versionNumber: "shippable's internal version number"
+jobs:
+  - name: "Name of the job"
+    type: "one of the job types"
+    steps:
+      - IN: "some resource"
+        versionName: "user friendly version e.g tag or commitSha"
+      - IN: "some other resource"
+        versionNumber: "shippable's internal version number"
 ```
 You can use either the `versionName` which is a user friendly value or a `versionNumber`
 which is Shippable's internal incremental numbering system.
@@ -78,20 +80,46 @@ which is Shippable's internal incremental numbering system.
 In certain scenarios, you will want to change certain designtime configs when
 you thinking about runtime. This can be achieved by using this YML
 ```
-- name: "Name of the job"
-  type: "one of the job types"
-  steps:
-    - IN: "some resource"
-      versionName: "user friendly version e.g tag or commitSha"
-    - IN: "some other resource"
-      versionNumber: "shippable's internal version number"
-      applyTo:
-        - "some resource"
+jobs:
+  - name: "Name of the job"
+    type: "one of the job types"
+    steps:
+      - IN: "some resource"
+        versionName: "user friendly version e.g tag or commitSha"
+      - IN: "some other resource"
+        versionNumber: "shippable's internal version number"
+        applyTo:
+          - "some resource"
 ```
 `applyTo` is a property that takes in an array or `resource names`. If the 
 IN resource elements are present in the apply to resource, the values will get 
 replaced. This is very useful to change environmente variables, runtime container
 options etc.
+
+### YML properties
+```
+name: string
+```
+This is the name of the job. Keep it short but explanatory as this
+is used as a dependency in other jobs
+
+```
+type: string
+```
+This defines the type of job. This cannot be changed once set. 
+
+```
+steps:
+ - IN: "some resource"
+ - IN: "some other resource"
+```
+`steps` is an array of instructions made up of `IN`, `OUT` & `TASK` objects.
+
+`IN` is the name of the resource or job that is required to run this job.
+
+`OUT` is the name of the resource which is output from this job.
+
+`TASK` is an operation that is executed as part of this job.
 
 <br>
 # Job Types
@@ -109,43 +137,80 @@ These are the job types that come straight out of the box.
 <br>
 <a name="manifest"></a>
 ## manifest
-This job is used to define an app/service/microservice. 
+This job is used to define an app/service/microservice. The idea behind creating 
+manifests is to create a versioned immutable design time definition of how your
+app/service/microservice is made. 
 
-You can create this resource by adding it to `shippable.resources.yml`
-```
-- name: env-test                            #required
-  type: dclCluster                          #required
-  integration: avinci-dcl                   #required
-  source:
-    name : "test-dcl"                       #required
-```
-This will create a resource of type `dclCluster` with the name `env-test`. It is 
-using an integration `avinci-dcl` which is the name of the integration defined, 
-[learn more here](#integration). The cluster name is `test-dcl`. 
+A manifest is an unit of deployment. This means the entire manifest is deployed 
+as a whole on to a single node(vm, physical machine etc). Creating multiple 
+replicas of this means that you will get more copies of the whole manifest. If 
+you need your apps/service/microservice to be separately deployed, you need to 
+create different manifests.
 
-### YML properties
+## Single container manifest
+You can create this job by adding it to `shippable.jobs.yml`
 ```
-name: string
+- name: box-man                             #required
+  type: manifest                            #required
+  steps:
+      - IN: box-image                       #required
+      - IN: box-opts                        #optional
+      - IN: box-params                      #optional
 ```
-This is the name of the resource. Keep it short but explanatory as this
-is used as a reference in jobs
+This will create a job of type `manifest` with the name `box-man`. Since only 1
+(image)[resources#image] `box-image` is being used, the other 2 addon resources
+(dockerOptions)[resources#dockerOptions] & (params)[resources#params] and this 
+manifest when deployed will create a single container app/service/microservice
 
-```
-type: string
-```
-This defines the type of resource. In this case *dclCluster*. This cannot 
-be changed once set. 
-
-```
-integration: string
-```
-This defines the integration that we are using to connect to the cluster. 
+## Multi container manifest
+You can create this job by adding it to `shippable.jobs.yml`
 
 ```
-source:
-  name: string 
-  region: string
+- name: box-man                             #required
+  type: manifest                            #required
+  steps:
+      - IN: box-image                       #required
+      - IN: dv-image                        #required
+      - IN: all-opts                        #optional
+      - IN: box-params                      #optional
+        applyTo:
+          - box-image
 ```
-`name` is the name of the cluster that this resource represents.
+This will create a job of type `manifest` with the name `box-man`. This manifest 
+has 2 (image)[resources#image] `box-image` and `dv-image`. But the 2 addon resources 
+are configured differently. Resource `all-opts` of type (dockerOptions)[resources#dockerOptions] 
+applies to both the images. But the resource `box-params` of type (params)[resources#params] 
+applies only to `box-image`. This manifest when deployed will create a 2 containers 
+as part of this app/service/microservice
+
+<br>
+<a name="release"></a>
+## release
+This job is used to define an app/service/microservice. The idea behind creating 
+manifests is to create a versioned immutable design time definition of how your
+app/service/microservice is made. 
+
+A manifest is an unit of deployment. This means the entire manifest is deployed 
+as a whole on to a single node(vm, physical machine etc). Creating multiple 
+replicas of this means that you will get more copies of the whole manifest. If 
+you need your apps/service/microservice to be separately deployed, you need to 
+create different manifests.
+
+You can create this job by adding it to `shippable.jobs.yml`
+
+```
+- name: box-rel								#required
+  type: release								#required
+  steps:
+    - IN: box-ver							#required
+    - IN: box-man							#required
+    - TASK:									#required
+      bump: minor							#required
+```
+This will create a job of type `release` with the name `box-rel`. A resource of type 
+(version)[resources#version] is required for this job as `IN`. It also requires a resource 
+of type (manifest)[resources#manifest] upon which a release is being cut. In addition 
+to these, a `TASK` object with a property `bump` is required. `bump` takes in the following 
+options `major`, `minor`, `patch`, `alpha`, `beta` & `rc`
 
 <br>
