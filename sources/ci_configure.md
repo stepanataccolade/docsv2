@@ -1001,14 +1001,12 @@ If you need help defining secure variables, you can check out [our instructions]
 
 Shippable supports email, Slack, HipChat and IRC notifications and these can be configured in your yml file.
 
-By default, we send email notifications to the last committer when a build fails, or the status changes from failed to passed.
-
 You can change the notification settings by configuring the integrations section of your yml. Details for each supported provider are below.
 
 
 ### Email notifications
 
-By default, we send email notifications to the last committer when a build fails, or the status changes from failed to passed.
+By default, we send email notifications to the last committer and project owner when a build fails, or the status changes from failed to passed. We get the email address from your source control management system (GitHub/Bitbucket).
 
 To customize email notifications, use the yml structure below:
 
@@ -1030,7 +1028,7 @@ integrations:
 
 * `integrationName` is always `email` since you do not configure emails in account integrations or project settings.
 * `type` is `email`
-* `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project owner(s)'.
+* `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project owner(s)' email address that we get from your source control management system (GitHub/Bitbucket). NOTE: We do not use the email address specified in your 'Account Settings' for notifications. 
     - To specify 'last committer' and 'project owner(s)' as part of this list, you can use `--last_committer` and `--owners`.
     - If there is a single recipient, you can use the format `recipients: example@org.com`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
@@ -1042,7 +1040,7 @@ integrations:
 * [optional] You can set the following options for the `on_start`, `on_pull_request` tags :
     - `always` means that you will always receive a notification for build start/pull request
     - `never` means that you will never receive a notification for that build start/pull request
-  By default, `on_start` is set to `never` and `on_pull_request` is set to `always`.     
+  By default, `on_start` is set to `never` and `on_pull_request` is set to `always`.    
 
 If you do not want to get notified for any reason, you can turn off email notifications with the following in your yml:
 
@@ -1087,8 +1085,8 @@ integrations:
 ```
 * `integrationName` value is the name of the account integration you added to the project settings.
 * `type` is slack
-* `recipients` specifies the channels you want to send the notification to. Please note that this overrides any channels you select while setting up the account integration.
-    - If there is a single recipient, you can use the format `recipients: "#channelOne"`
+* `recipients` specifies the channels you want to send the notification to. Please note that this is a required field for slack notifications to work. 
+    - If there is a single recipient, use the format `recipients: "#channelOne"`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional] You can set the following options for the `on_success`, `on_failure` tags :
     - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.

@@ -69,7 +69,7 @@ In order to integrate with GitLab, you need to sign up to Shippable using your G
 ---
 
 ## Bitbucket Server
-In order to integrate with Bitbucket Server, Shippable provides an addon which needs to be installed by the Bitbucket Server administrator. This should be available in the [Atlassian Marketplace](https://marketplace.atlassian.com/plugins/shippable/cloud/overview) soon. Once installed, sign in to Shippable using your GitHub/Bitbucket account and then add Bitbucket Server as an account integration as follows:
+In order to integrate with Bitbucket Server, Shippable provides an addon which needs to be installed by the Bitbucket Server administrator. This is available in the [Atlassian Marketplace](https://marketplace.atlassian.com/plugins/shippable/cloud/overview). Once installed, sign in to Shippable using your GitHub/Bitbucket account and then add Bitbucket Server as an account integration as follows:
 
 - Click on the gear icon for Account Settings in the top navigation bar. Select the `Integrations` tab.
 - Click on `Add Integration` and from the dropdown for **Integration type**, select `Bitbucket Server`.
