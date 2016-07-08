@@ -13,26 +13,26 @@ p {
 h1 {
     font-size: 32px;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     letter-spacing: 0.1em;
 }
 
 h2 {
     font-size: 24px;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 h3 {
     font-size: 20px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 h4 {
     font-size: 16px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 hr {

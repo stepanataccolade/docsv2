@@ -72,8 +72,8 @@ jobs:
 You can use either the `versionName` which is a user friendly value or a `versionNumber`
 which is Shippable's internal incremental numbering system.
 
-## Selectively overiding INs
-In certain scenarios, you will want to change certain designtime configs when
+## Selectively overriding INs
+In certain scenarios, you will want to change certain design time configs when
 you thinking about runtime. This can be achieved by using this YML
 ```
 jobs:
@@ -89,7 +89,7 @@ jobs:
 ```
 `applyTo` is a property that takes in an array or `resource names`. If the 
 IN resource elements are present in the apply to resource, the values will get 
-replaced. This is very useful to change environmente variables, runtime container
+replaced. This is very useful to change environment variables, runtime container
 options etc.
 
 ### YML properties
@@ -176,9 +176,9 @@ YML is a sample for that case
           - box-image
 ```
 This will create a job of type `manifest` with the name `box-man`. This manifest 
-has 2 (image)[resources#image] `box-image` and `dv-image`. But the 2 addon resources 
-are configured differently. Resource `all-opts` of type (dockerOptions)[resources#dockerOptions] 
-applies to both the images. But the resource `box-params` of type (params)[resources#params] 
+has 2 (image)[../resources#image] `box-image` and `dv-image`. But the 2 addon resources 
+are configured differently. Resource `all-opts` of type (dockerOptions)[../resources#dockerOptions] 
+applies to both the images. But the resource `box-params` of type (params)[../resources#params] 
 applies only to `box-image`. This manifest when deployed will create a 2 containers 
 as part of this app/service/microservice
 
@@ -216,29 +216,93 @@ With this approach, you get to scale them independently when you deploy.
 
 <a name="ecsDeploy"></a>
 ## ecsDeploy
-This job is used to deploy a manifest to (AWS ECS cluster)[resources#]. 
+This job is used to deploy a manifest to (AWS ECS cluster)[../resources#ecsCluster]. 
 
-### Single manifest release
+### Single manifest deploy
 
 ```
-- name: box-rel								#required
-  type: release								#required
+- name: box-test-deploy                     #required
+  type: ecsDeploy                           #required
   steps:
-    - IN: box-ver							#required
-    - IN: box-man							#required
-    - TASK:									#required
-      bump: minor							#required
+    - IN: box-man                           #required
+    - IN: test-cluster                      #required
+    - IN: test-params                       #optional   
 ```
-This will create a job of type `release` with the name `box-rel`. A resource of type 
-(version)[resources#version] is required for this job as `IN`. It also requires a resource 
-of type (manifest)[resources#manifest] upon which a release is being cut. In addition 
-to these, a `TASK` object with a property `bump` is required. `bump` takes in the following 
-options `major`, `minor`, `patch`, `alpha`, `beta` & `rc`
+This will create a job of type `ecsDeploy` with the name `box-test-deploy`. A 
+manifest is required for this job as `IN`. It also requires a resource of type 
+(ecsCluster)[../resources#ecsCluster] which is used as a deployment target. In 
+addition an optional `IN` of type (params)[../resources#params] is being supplied.
+This is a very powerful pattern where the design time configs are being overridden
+by test configs. For more details about how overrides work (click here)[../faq]
 
+### Multi manifest deploy
+
+```
+- name: box-test-deploy                     #required
+  type: ecsDeploy                           #required
+  steps:
+    - IN: box-man                           #required
+    - IN: dv-man                            #optional
+    - IN: test-cluster                      #required
+    - IN: test-params                       #optional
+      applyTo:
+      - box-man
+```
+This will create a job of type `ecsDeploy` with the name `box-test-deploy`. A 
+manifest is required for this job as `IN`. Second one is optional. It also requires 
+a resource of type (ecsCluster)[../resources#ecsCluster] which is used as a 
+deployment target. In addition an optional `IN` of type (params)[../resources#params] 
+is being supplied but with the `applyTo` being set, only configs on `box-man` are 
+overridden and `dv-man` is left untouched. For more details about how overrides 
+work (click here)[../faq]
+
+*Note:You can also use this instead assuming you created a combo manifest*
+
+```
+- name: box-test-deploy                     #required
+  type: ecsDeploy                           #required
+  steps:
+    - IN: combo-man                         #required
+    - IN: test-cluster                      #required
+    - IN: test-params                       #optional
+      applyTo:
+      - box-man
+```
+Since we have created a combined manifest `combo-man`, all you need to do is supply 
+that. You can still use `applyTo` but you will have to know which manifests were
+used to create the combo.
+
+### Triggering 1 deployment from another
+Most teams need to create a deployment workflow i.e. go from test to production.
+You might also need to not auto deploy to production. 
+
+```
+- name: box-prod-deploy                     #required
+  type: ecsDeploy                           #required
+  steps:
+    - IN: box-test-deploy                   #required
+      trigger: false                        #optional
+    - IN: prod-cluster                      #required
+    - IN: prod-params                       #optional
+      applyTo:
+      - box-man
+```
+This will create a job of type `ecsDeploy` with the name `box-prod-deploy`. This 
+job is using another deploy job as `IN`. This means manifests that are currently 
+deployed in `box-test-deploy` is going to be deployed here. But since `trigger` 
+has been set to false, auto deploy will be turned off. It also requires 
+a resource of type (ecsCluster)[../resources#ecsCluster] which is used as a 
+deployment target. In addition an optional `IN` of type (params)[../resources#params] 
+is being supplied but with the `applyTo` being set, only configs on `box-man` are 
+overridden and `dv-man` is left untouched. For more details about how overrides 
+work (click here)[../faq]
 
 <a name="release"></a>
-## Release
-This job is used to create/manage/increment semantic versions. 
+## release
+This job is used to create/manage/increment semantic versions. You can create a
+release on top of a single or multi manifests, combo manifest or even deploy jobs.
+The idea is to create immutable, unique version numbers that be used as deployment 
+inputs.
 
 ### Single manifest release
 
@@ -252,9 +316,76 @@ This job is used to create/manage/increment semantic versions.
       bump: minor							#required
 ```
 This will create a job of type `release` with the name `box-rel`. A resource of type 
-(version)[resources#version] is required for this job as `IN`. It also requires a resource 
-of type (manifest)[resources#manifest] upon which a release is being cut. In addition 
-to these, a `TASK` object with a property `bump` is required. `bump` takes in the following 
-options `major`, `minor`, `patch`, `alpha`, `beta` & `rc`
+(version)[../resources#version] is required for this job as `IN`. It also requires 
+a resource `box-man` of type (manifest)[resources#manifest] upon which a release 
+is being cut. In addition to these, a `TASK` object with a property `bump` is required. 
+`bump` takes in the following options `major`, `minor`, `patch`, `alpha`, `beta` 
+& `rc`. 
+
+In this example, a snapshot of the current image versions etc. are captured and 
+a release is created. The version number is created by incrementing the minor of 
+the previous release. If this is the first time a version is being created, then 
+the base from `box-ver` (resource)[../resources#version] is taken in as a starting 
+point. In the future if you would like to reset the base, you can just update the
+version resource in your git resource file and all releases moving forward will
+be from the new base.
+
+### Multi manifest release
+
+```
+- name: box-rel								#required
+  type: release								#required
+  steps:
+    - IN: box-ver							#required
+    - IN: box-man							#required
+    - IN: dv-man							#optional
+    - TASK:									#required
+      bump: minor							#required
+```
+This will create a job of type `release` with the name `box-rel`. A resource of type 
+(version)[../resources#version] is required for this job as `IN`. It also requires 
+a resource `box-man` of type (manifest)[resources#manifest] upon which a release 
+is being cut. Since this is multi manifest release, another manifest `dv-man` is also
+added. In addition to these, a `TASK` object with a property `bump` is required. 
+`bump` takes in the following options `major`, `minor`, `patch`, `alpha`, `beta` 
+& `rc`. 
+
+In this example, a snapshot of the current image versions etc. from both the manifests 
+are captured and a release is created. The version number is created by incrementing 
+the minor of the previous release. For more information around release version numbers 
+check out single manifest release
+
+### Release from a app/service/microservice
+In certain workflows, there might be a need to cut a release from a running 
+app/service/microservice. This workflow is typical when all versions are getting 
+auto deployed to dev environment and from there you want to create a release that 
+eventually flows through test and then production
+
+```
+- name: box-beta-rel						#required
+  type: release								#required
+  steps:
+    - IN: box-test-deploy					#required
+    - TASK:									#required
+      bump: beta							#required
+```
+This will create a job of type `release` with the name `box-beta-rel`. It requires 
+a deploy job `box-test-deploy` of type (deploy)[#ecsDeploy] upon which a release 
+is being cut. This example is assuming a release is being deployed to 
+`box-test-deploy`and not a manifest. Hence the current running release is fetched 
+from `box-test-deploy` and its bumped with a `beta` tag. So for e.g. if `1.23.450` 
+is running on `box-test-deploy` then when this release job runs, we will get `1.23.450-beta.1`
+
+In case you are not sure if `box-test-deploy` is doing release based deployments, 
+then add a (version)[../resources#version] to create a base version and increment 
+the beta tag. The hierarchy of how prior versions are fetched is as follows
+
+- look to see if a deploy job has release based deployments, if so get the most 
+recent version from there
+- look to see if the release job has a prior release version, if so get the most 
+recent version from the job itself
+- if the above 2 options failed, get the base from the `version` resource, increment 
+that and create it as the first release
+
 
 <br>
