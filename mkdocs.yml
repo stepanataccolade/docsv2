@@ -15,67 +15,73 @@ pages:
   - What is Shippable?: index.md
   - FAQ: faq.md
 - Continuous Integration (CI):
-  - Overview: ci_overview.md
-  - What is supported?: gs_supported.md
-  - Running your first build: test.md
+  - Overview: continuous_integration/ci_overview.md
+  - What is supported?: continuous_integration/supported.md
+  - Running your first build: continuous_integration/run_first_build.md
   - Defaults:
-    - Environment Variables: test.md
-    - Images: test.md
-    - Timeouts: test.md
-    - Node Machine Images: test.md
+    - Environment Variables: continuous_integration/defaults/env_var.md
+    - Images: continuous_integration/defaults/images.md
+    - Timeouts: continuous_integration/defaults/timeouts.md
+    - Node Machine Images: continuous_integration/defaults/machine_images.md
   - Configuring your environment:
     - Languages:
-      - Node.js: test.md
-      - Python: test.md
+      - Node.js: continuous_integration/languages/node.md
+      - Python: continuous_integration/languages/python.md
       - Ruby:
-        - GEMFILEs behaviour: test.md
+        - GEMFILEs behaviour: continuous_integration/languages/ruby.md
       - Java:
-        - JDK behaviour: test.md
-      - Clojure: test.md
-      - Go: test.md
-      - PHP: test.md
-      - Scala: test.md
-      - C: test.md
-      - Custom Images: test.md
+        - JDK behaviour: continuous_integration/languages/java.md
+      - Clojure: continuous_integration/languages/clojure.md
+      - Go: continuous_integration/languages/go.md
+      - PHP: continuous_integration/languages/php.md
+      - Scala: continuous_integration/languages/scala.md
+      - C: continuous_integration/languages/objc.md
+      - Custom Images: continuous_integration/languages/custom_images.md
     - Advanced Options:
-      - Custom Environment Variables: test.md
-      - Including/Excluding branches: test.md
-      - Matrix builds: test.md
-      - Caching: test.md
-      - Using git submodules: test.md
-      - Shippable_retry: test.md
+      - Custom Environment Variables: continuous_integration/advanced_options/custom_env_var.md
+      - Including/Excluding branches: continuous_integration/advanced_options/include_exclude_branches.md
+      - Matrix builds: continuous_integration/advanced_options/matrix_builds.md
+      - Caching: continuous_integration/advanced_options/caching.md
+      - Using git submodules: continuous_integration/advanced_options/git_submodules.md
+      - Shippable_retry: continuous_integration/advanced_options/shippable_retry.md
   - Configuring your CI:
-    - The ci section: test.md
-  - Configuring Post CI: test.md
+    - The ci section: continuous_integration/build_ci.md
+  - Configuring Post CI: continuous_integration/post_ci.md
   - Integrations:
+    - Source Control Systems:
+      - GitHub: continuous_integration/scm/github.md
+      - GitHub Enterprise: continuous_integration/scm/github_enterprise.md
+      - Bitbucket: continuous_integration/scm/bitbucket.md
+      - Bitbucket Server: continuous_integration/scm/bitbucket_server.md
+      - GitLab: continuous_integration/scm/gitlab.md
     - Notifications:
-      - Slack: test.md
-      - Email: test.md
-      - HipChat: test.md
-      - IRC: test.md
+      - Slack: continuous_integration/notifications/slack.md
+      - Email: continuous_integration/notifications/email.md
+      - HipChat: continuous_integration/notifications/hipchat.md
+      - IRC: continuous_integration/notifications/irc.md
     - Image Registries:
-      - Docker Hub: test.md
-      - Docker Trusted Registry: test.md
-      - Amazon EC2 Container Registry (ECR): test.md
-      - Google Container Registry (GCR): test.md
-      - Quay.io: test.md
-      - Any Private Registry: test.md
+      - Docker Hub: continuous_integration/image_registries/docker_hub.md
+      - Docker Trusted Registry: continuous_integration/image_registries/docker_trusted_registry.md
+      - Amazon EC2 Container Registry (ECR): continuous_integration/image_registries/amazon_ecr.md
+      - Google Container Registry (GCR): continuous_integration/image_registries/google_gcr.md
+      - Quay.io: continuous_integration/image_registries/quay.md
+      - Any Private Registry: continuous_integration/image_registries/private_registry.md
     - Container Services:
-      - Amazon EC2 Container Service (ECS): test.md
-      - Google Container Engine (GKE): test.md
-      - Docker Cloud: test.md
-      - Docker Datacenter: test.md
+      - Amazon EC2 Container Service (ECS): continuous_integration/container_services/amazon_ecs.md
+      - Google Container Engine (GKE): continuous_integration/container_services/google_gke.md
+      - Docker Cloud: continuous_integration/container_services/docker_cloud.md
+      - Docker Datacenter: continuous_integration/container_services/docker_datacenter.md
     - Deploy:
-      - AWS Elastic Beanstalk: test.md
-      - Webhooks: test.md
+      - AWS Elastic Beanstalk: continuous_integration/deploy/aws_eb.md
+      - Webhooks: continuous_integration/deploy/webhooks.md
     - Keys:
-      - SSH: int_keys.md
-      - PEM:  int_keys.md
+      - SSH: continuous_integration/keys/ssh.md
+      - PEM:  continuous_integration/keys/pem.md
   - Running builds on your own machines (BYON):
-    - Overview: ci_byoh.md
-    - Setup: test.md
-  - Permissions: test.md
-  - Troubleshooting CI: ci_troubleshoot.md
+    - Overview: continuous_integration/byon/byon_overview.md
+    - Setup: continuous_integration/byon/setup.md
+  - Permissions: continuous_integration/permissions.md
+  - Troubleshooting CI: continuous_integration/ci_troubleshoot.md
 - Pipelines:
   - Overview: pipelines/overview.md
   - Resources: pipelines/resources.md
@@ -84,19 +90,19 @@ pages:
   - Deploying your first pipeline: gs_deploy_sample.md
   - FAQ: pipelines/faq.md
 - Navigating the UI:
-  - Home Page: test.md
-  - Account Settings: test.md
+  - Home Page: navigating_ui/homepage.md
+  - Account Settings: navigating_ui/account_settings.md
   - Subscriptions:
-    - CI tab: test.md
-    - Pipelines tab: test.md
-    - Settings: test.md
+    - CI tab: navigating_ui/subscriptions.md
+    - Pipelines tab: navigating_ui/subscriptions.md
+    - Settings: navigating_ui/subscriptions.md
   - Projects:
-    - Status: test.md
-    - Settings: test.md
+    - Status: navigating_ui/projects.md
+    - Settings: navigating_ui/projects.md
   - Builds:
-    - Test Coverage: test.md
-    - Code Coverage: test.md
-    - Console logs: test.md
+    - Test Coverage: navigating_ui/builds.md
+    - Code Coverage: navigating_ui/builds.md
+    - Console logs: navigating_ui/builds.md
 - API: api.md
 - Tutorials:
   - Pipelines:

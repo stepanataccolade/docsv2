@@ -1001,7 +1001,7 @@ If you need help defining secure variables, you can check out [our instructions]
 
 Shippable supports email, Slack, HipChat and IRC notifications and these can be configured in your yml file.
 
-By default, we send email notifications to the last committer when a build fails, or the status changes from failed to passed.
+By default, we send email notifications to the last committer when a build fails, or the status changes from failed to passed..
 
 You can change the notification settings by configuring the integrations section of your yml. Details for each supported provider are below.
 
