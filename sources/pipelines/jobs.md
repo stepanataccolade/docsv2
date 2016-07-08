@@ -45,7 +45,7 @@ To hard delete a job, it will have to be done from the UI.
 Jobs are defined through the YML and they all follow a similar format irrespective
 of the type of pre-canned job
 
-Here is a template YML the defines a job
+## A Simple Job
 ```
 - name: "Name of the job"
   type: "one of the job types"
@@ -56,6 +56,7 @@ Here is a template YML the defines a job
 This a very simple job which needs 2 INPUT resources to perform whatever that 
 job is designed to do. 
 
+## Pinning specific versions
 Since no particular version was pinned to the resources defined above, by default
 Shippable will use the most recent or latest version available in the system. 
 
@@ -73,16 +74,78 @@ YML.
 You can use either the `versionName` which is a user friendly value or a `versionNumber`
 which is Shippable's internal incremental numbering system.
 
+## Selectively overiding INs
+In certain scenarios, you will want to change certain designtime configs when
+you thinking about runtime. This can be achieved by using this YML
+```
+- name: "Name of the job"
+  type: "one of the job types"
+  steps:
+    - IN: "some resource"
+      versionName: "user friendly version e.g tag or commitSha"
+    - IN: "some other resource"
+      versionNumber: "shippable's internal version number"
+      applyTo:
+        - "some resource"
+```
+`applyTo` is a property that takes in an array or `resource names`. If the 
+IN resource elements are present in the apply to resource, the values will get 
+replaced. This is very useful to change environmente variables, runtime container
+options etc.
+
 <br>
 # Job Types
 These are the job types that come straight out of the box.
 
 - [manifest](#manifest): job for creating an app/service/microservice definition
 - [release](#release): job for release management
-- [runSh](#runSh): job for executing a set of shell scripts
 - [ecsDeploy](#ecsDeploy): job for deploying to Amazon Elastic Compute Service
 - [gkeDeploy](#gkeDeploy): job for deploying to Google Kubernetes
 - [tripubDeploy](#tripubDeploy): job for deploying to Joyent Triton
 - [acsDeploy](#acsDeploy): job for deploying to Azure Container Service
 - [dclDeploy](#dclDeploy): job for deploying to Docker Cloud
+- [runSh](#runSh): job for executing a set of shell scripts
 
+<br>
+<a name="manifest"></a>
+## manifest
+This job is used to define an app/service/microservice. 
+
+You can create this resource by adding it to `shippable.resources.yml`
+```
+- name: env-test                            #required
+  type: dclCluster                          #required
+  integration: avinci-dcl                   #required
+  source:
+    name : "test-dcl"                       #required
+```
+This will create a resource of type `dclCluster` with the name `env-test`. It is 
+using an integration `avinci-dcl` which is the name of the integration defined, 
+[learn more here](#integration). The cluster name is `test-dcl`. 
+
+### YML properties
+```
+name: string
+```
+This is the name of the resource. Keep it short but explanatory as this
+is used as a reference in jobs
+
+```
+type: string
+```
+This defines the type of resource. In this case *dclCluster*. This cannot 
+be changed once set. 
+
+```
+integration: string
+```
+This defines the integration that we are using to connect to the cluster. 
+
+```
+source:
+  name: string 
+  region: string
+```
+`name` is the name of the cluster that this resource represents.
+
+<br>
