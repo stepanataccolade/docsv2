@@ -201,10 +201,11 @@ h1 {
 	line-height: 44px;
 	font-style: normal;
 	text-align:left;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	position:relative;
 	letter-spacing: 0.1em;
-	margin-bottom: 17px;
+	margin-bottom: 16px;
+	margin-top: 16px;
 }
 
 h1.noSubtitle{
@@ -251,8 +252,8 @@ h2 {
 	line-height: 24px;
 	font-style: normal;
 	padding:0;
-	margin-bottom:17px;
-
+	margin-bottom:12px;
+	margin-top:12px;
 }
 h2.subTitle{
 	font-size:24px;
@@ -283,14 +284,16 @@ h1.bigTitle:after, .boxWrapper h1:after, .pricingBloc h1:after, .team h1:after, 
 h3, legend {
 	font-size: 16px;
 	line-height: 22px;
-	margin-bottom: 14px;
+	margin-bottom: 8px;
+	margin-top: 8px;
 	font-weight: 600;
 	letter-spacing: -0.06em;
 }
 h4 {
 	font-size: 14px;
 	line-height: 22px;
-	margin-bottom: 6px;
+	margin-bottom: 4px;
+	margin-bottom: 4px;
 	font-style: bold;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight:300;
