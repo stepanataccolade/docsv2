@@ -2,7 +2,6 @@ page_title: Unified Pipeline Jobs
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-<br>
 # Jobs
 Jobs are the executable units of your pipelines. Eg. deploy, runCI, release etc. 
 Jobs operate with resources as inputs and can output to other resources. 
@@ -18,7 +17,6 @@ one thing and one thing only. Together with [resources](resources) they become
 a verybpowerful concept that can be used to model any pipeline from simple to 
 complex ones. 
 
-<br>
 # Adding Jobs
 Jobs are stored in a jobs file `shippable.jobs.yml` present in a git 
 repository. Any repo can contain this file but only one of it can be used. If 
@@ -28,7 +26,6 @@ to reduce conflict due to the same job being defined in multiple places.
 To learn how to add this file and connect it to pipelines, 
 [click here](../../tutorials/how_to_add_syncRepos)
 
-<br>
 # Deleting Jobs
 Deleting a job is a 2 step process. Pipelines are all about dependencies and
 deployable units are flowing through these pipelines. Hard deleting jobs from 
@@ -40,7 +37,6 @@ un-delete the job.
 To hard delete a job, it will have to be done from the UI. 
 (TODO : add instructions)
 
-<br>
 # Anatomy of a Job YML 
 Jobs are defined through the YML and they all follow a similar format irrespective
 of the type of pre-canned job
@@ -121,7 +117,6 @@ steps:
 
 `TASK` is an operation that is executed as part of this job.
 
-<br>
 # Job Types
 These are the job types that come straight out of the box.
 
