@@ -136,7 +136,7 @@ These are the job types that come straight out of the box.
 
 <br>
 <a name="manifest"></a>
-## manifest
+## Manifest
 This job is used to define an app/service/microservice. The idea behind creating 
 manifests is to create a versioned immutable design time definition of how your
 app/service/microservice is made. 
@@ -147,7 +147,7 @@ replicas of this means that you will get more copies of the whole manifest. If
 you need your apps/service/microservice to be separately deployed, you need to 
 create different manifests.
 
-## Single container manifest
+### Single container manifest
 You can create this job by adding it to `shippable.jobs.yml`
 ```
 - name: box-man                             #required
@@ -162,7 +162,7 @@ This will create a job of type `manifest` with the name `box-man`. Since only 1
 (dockerOptions)[resources#dockerOptions] & (params)[resources#params] and this 
 manifest when deployed will create a single container app/service/microservice
 
-## Multi container manifest
+### Multi container manifest
 You can create this job by adding it to `shippable.jobs.yml`
 
 ```
@@ -185,7 +185,7 @@ as part of this app/service/microservice
 
 <br>
 <a name="release"></a>
-## release
+## Release
 This job is used to define an app/service/microservice. The idea behind creating 
 manifests is to create a versioned immutable design time definition of how your
 app/service/microservice is made. 
