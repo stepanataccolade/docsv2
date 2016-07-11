@@ -117,7 +117,7 @@ Do ensure this field is populated with a valid email address for the subscriptio
 #### Reset Subscription
 Resetting a subscription recreates all webhooks and deployment keys for your subscription. This should only be done if your subscription is in an inconsistent state and you need to restore it. Please note that you will need to re-encrypt all environment variables for your subscription after resetting it.
 
-### Intergrations
+### Integrations
 Integrations are added at a subscription level and they are available to be configured for a project by any user, with access to the subscription level. 
 
 For example, if an integration is added to an organization subscription, all users with access to the organization's subscription can configure the integration for their projects. 

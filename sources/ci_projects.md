@@ -173,6 +173,6 @@ Select the branch you want the status for and pick between the 'Image URL' or 'M
 You can use this code to display your code coverage report after code coverage runs. The badge displays appropriate colors depending on the code coverage configuration in the `shippable.yml`. Refer the  [documentation](http://docs.shippable.com/ci_configure/#test_code_coverage) on how to configure code coverage reports. In addition, refer to a step by step blog on [setting up code coverage for tests in Continuous Integration](http://blog.shippable.com/setting-up-code-coverage-visualization-for-tests-in-ci).
 
 ### Integrations
-To add an integration to your project, go to the Subscription's 'Settings'. [Click here](ci_subscriptions/#intergrations) for instructions. 
+To add an integration to your project, go to the Subscription's 'Settings'. [Click here](ci_subscriptions/#integrations) for instructions. 
 
 ---

@@ -156,13 +156,13 @@ The image you specify in this section should be available to Shippable when the 
 <a name="add_project_integrations"></a>
 ###Adding a hub integration to a project
 
-You need to add a hub integration to your project, if you want to do the following:
+Add a hub integration to your project to do any of the following:
 
 - Pull an image from a private Docker repository
 - Build a Docker image which has a `FROM` that pulls an image from a private Docker repository
 - Push to a Docker repository
 
-To [add a Hub integration](ci_subscriptions/#intergrations) to a project do the following:
+To [add a Hub integration](ci_subscriptions/#integrations) to a project do the following:
 
 -  Go to the 'Settings' tab of your subscription.
 -  Under the 'Integrations' section, click the 'Add Integration' button.
@@ -1004,7 +1004,7 @@ If you need help defining secure variables, you can check out [our instructions]
 
 ## Notifications
 
-Shippable supports email, Slack, HipChat and IRC notifications and to enable them, it should configured in your `shippable.yml` file for the project. For Slack and HipChat, the integrations need to be added in the UI (Subscription Settings, in addition the `shippable.yml`.
+Shippable supports email, Slack, HipChat and IRC notifications and to enable them, configure the integration in your `shippable.yml` file for the project. For Slack and HipChat, the integrations need to be added in the UI (Subscription Settings, in addition the `shippable.yml`.
 
 You can change the notification settings by configuring the integrations section of your yml. Details for each supported provider are below.
 
@@ -1279,7 +1279,7 @@ To enable Shippable to perform these steps, you will need to configure the follo
      - Under the 'Integrations' section, click the 'Add Integration' button.
      - In the dropdown of the 'Account Integrations' field, select 'AWS'. 
      - If you have created the AWS integration before, it'll show up as an option in the dropdown. Select AWS. This enables Shippable to authenticate into AWS. Given below is a screen shot of the Subscription Settings page, where 'AWS' is being added to the subscription 'Shippable-Demo'. 
-     - If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration in Shippable can be found [here](int_paas_iaas_providers.md).
+     - If you don't see an AWS option in the dropdown, instructions on setting up Amazon EB account integration in Shippable can be found [here](int_paas_iaas_providers.md).
      <img src="../images/subscription_settings_aws_integration.png" alt="Account Settings Subscription" style="width:700px;"/>
 
 2. **Configure shippable.yml**: Update the `shippable.yml` with the new collection for deployments. A sample form for doing a source code deployment to Elastic Beanstalk is shown:
