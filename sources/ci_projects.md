@@ -173,20 +173,6 @@ Select the branch you want the status for and pick between the 'Image URL' or 'M
 You can use this code to display your code coverage report after code coverage runs. The badge displays appropriate colors depending on the code coverage configuration in the `shippable.yml`. Refer the  [documentation](http://docs.shippable.com/ci_configure/#test_code_coverage) on how to configure code coverage reports. In addition, refer to a step by step blog on [setting up code coverage for tests in Continuous Integration](http://blog.shippable.com/setting-up-code-coverage-visualization-for-tests-in-ci).
 
 ### Integrations
-
-#### Enabling integrations
-You can view all the configured integrations for your account by going to the 'Account Settings' & clicking the 'Integration' tab. It will display a list of all integrations that are configured & available for your projects.
-
-There are two ways you can enable an integration in the UI. When you use either of them, the enabled integration will be available for all your projects.
-
-1. Through **Project Settings**: You can create an integration for the first time through the 'Settings' tab of your project. In the 'Settings' tab of your project, select the required integration dropdown & click 'Create Integration' as shown below.
-<img src="../images/project_settings_integration.png" alt="Select Account Integration" style="width:700px;"/>
-Proceed with the configuration of a specific integration. Once you create this integration, it'll be available for your projects.
-
-2. Through **Account Settings**: Alternatively, you can enable an integration by following the [instructions here](int_overview.md#adding-an-account-integration).
-
-**IMPORTANT**: After creating the 'Integrations' in the UI, you'll need to configure the same in the `shippable.yml` file. More details on [yml config here](ci_configure.md). The same is true for any Docker registry integrations.
-
-Instructions on specific account integrations are in our [Integrations section](int_overview.md)
+To add an integration to your project, go to the Subscription's 'Settings'. [Click here](ci_subscriptions/#intergrations) for instructions. 
 
 ---
