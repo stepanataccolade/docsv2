@@ -1326,7 +1326,7 @@ To enable Shippable perform the above steps, you will need to configure the foll
      - Under the 'Integrations' section, click the 'Add Integration' button.
      - In the dropdown of the 'Account Integrations' field, select 'AWS'. 
      - If you have created the AWS integration before, it'll show up as an option in the dropdown. Select AWS. This enables Shippable to authenticate into AWS. Given below is a screen shot of the Subscription Settings page, where 'AWS' is being added to the subscription 'Shippable-Demo'. 
-     - If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration in Shippable can be found [here](int_paas_iaas_providers.md).
+     - If you don't see an AWS option in the dropdown, instructions on setting up Amazon EB account integration in Shippable can be found [here](int_paas_iaas_providers.md).
      
 2. **Ensure you have a dockerrun.aws.json file** in the root of your source code directory. The relevant section to Shippable is given below and must follow this format:
 ```yaml
