@@ -109,7 +109,7 @@ The Deployment key section shows the SSH public key associated with your Shippab
 Our How To guides provide instructions on how to enable continuous deployment to different providers.
 
 #### Technical Contact
-Do ensure this field is populated with a valid email address for the subscription. This email will be used to notify information on service upgrades, service performance and other related topics. It will not be used for marketing purpose.
+Do ensure this field is populated with a valid email address for the subscription. This email will be used to notify information on service upgrades, service performance and other related topics. It will not be used for marketing purposes.
 
 #### Billing Contact
 Do ensure this field is populated with a valid email address for the subscription. This email will be used to send billing invoices for this subscription.
