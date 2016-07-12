@@ -87,7 +87,7 @@ pages:
   - Resources: pipelines/resources.md
   - Jobs: pipelines/jobs.md
   - Triggers: pipelines/triggers.md
-  - Deploying your first pipeline: tutorials/sample_pipeline.md
+  - Deploying your first pipeline: tutorials/deploy_sample_pipeline.md
   - FAQ: pipelines/faq.md
 - Navigating the UI:
   - Home Page: navigating_ui/homepage.md
@@ -108,15 +108,15 @@ pages:
   - Pipelines:
     - How to add resources: tutorials/how_to_add_syncRepos.md
   - How to add integrations: tutorials/how_to_add_integrations.md
-  - Running a sample CI build: tutorials/ci_sample_build.md
-  - Deploying a sample appliation: tutorials/sample_pipeline.md
+  - Running a sample CI build: tutorials/run_sample_ci_build.md
+  - Deploying a sample appliation: tutorials/deploy_sample_pipeline.md
   - Source Control System:
-    - Using GitHub: tutorials/ht_github.md
-    - Using GitHub Enterprise: tutorials/ht_ghe.md
-    - Using Bitbucket: ht_bitbucket.md
-    - Using Bitbucket Server: tutorials/ht_bitbucket_server.md
-    - Using GitLab: tutorials/ht_gitlab.md
-    - Linking GitHub and Bitbucket accounts: tutorials/ht_link_gh_and_bb.md
+    - Using GitHub: tutorials/how_to_use_github.md
+    - Using GitHub Enterprise: tutorials/how_to_use_github_enterprise.md
+    - Using Bitbucket: tutorials/how_to_use_bitbucket.md
+    - Using Bitbucket Server: tutorials/how_to_use_bitbucket_server.md
+    - Using GitLab: tutorials/how_to_use_gitlab.md
+    - Linking GitHub and Bitbucket accounts: tutorials/link_github_and_bitbucket.md
   - Amazon:
     - Deploy to AWS CodeDeploy: tutorials/ht_codedeploy.md
     - Deploy to Amazon Opsworks: tutorials/ht_opsworks.md
@@ -152,3 +152,4 @@ pages:
   - Running multiple docker push: test.md
   - Deploy to Heroku: tutorials/ht_heroku.md
   - Deploy to Digital Ocean: tutorials/ht_digitalocean.md
+  - Monitor your Docker images for updates: tutorials/how_to_monitor_docker_images.md
