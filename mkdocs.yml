@@ -98,9 +98,10 @@ pages:
     - Images section: navigating_ui/account_settings.md
     - API section: navigating_ui/account_settings.md
   - Subscriptions:
-    - CI tab: navigating_ui/subscriptions.md
-    - Pipelines tab: navigating_ui/subscriptions.md
-    - Settings tab: navigating_ui/subscriptions.md
+    - CI tab: navigating_ui/subscriptions_ci.md
+    - Infra tab: navigating_ui/subscriptions_infra.md
+    - Pipelines tab: navigating_ui/subscriptions_pipelines.md
+    - Settings tab: navigating_ui/subscriptions_settings.md
   - Projects:
     - Status: navigating_ui/projects.md
     - Settings: navigating_ui/projects.md

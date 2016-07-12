@@ -5,7 +5,7 @@ page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, d
 #Subscription
 A subscription on Shippable corresponds to an individual or organizational subscription on GitHub/Bitbucket. Your pricing plans are enforced at this level, so you need to determine your minion needs for each subscription.
 
-* * * 
+* * *
 
 ## CI Dashboard
 The `CI` tab of your Subscription page shows you the latest status of all enabled projects. You can also view in progress builds and build history.
@@ -19,9 +19,9 @@ To get to the CI dashboard,
 <img src="../images/ci_subscriptions_mv_ci_dashboard.gif" alt="Continuous Integration Dashboard" style="width:700px;"/>
 
 
-The **Summary View** is the default view when you navigate to this dashboard. 
+The **Summary View** is the default view when you navigate to this dashboard.
 
-By default, you will see the status of the most recent commit builds for all enabled projects. The default branch of the repository, as configured in your source control account, is used. 
+By default, you will see the status of the most recent commit builds for all enabled projects. The default branch of the repository, as configured in your source control account, is used.
 
 You can customize the branch(es) shown on this page and also configure this view to include status for pull request builds. More details on this in the [Dashboard Settings for Projects](ci_projects/#dashboard-settings).
 
@@ -44,7 +44,7 @@ You can enable projects and trigger manual builds from the CI tab of the Subscri
 
 ###Enabling a project
 
-You can enable a project for CI by doing the following: 
+You can enable a project for CI by doing the following:
 
 - Click on the `Enable Project` button on your `Subscription` page. This brings you to the page with the list of repositories that are not yet enabled within your subscription.
 - Click on the `Enable` button to enable a particular repository. If you have a long list of repositories, pull it up by typing the name of the repo to filter by name and enable it.
@@ -65,7 +65,7 @@ Once enabled, you can build a project in the following ways -
 
 You can trigger manual builds for an enabled project by clicking on `Build` for a project in the **Summary View** of the subscription dashboard. To rebuild a previous build, go to the **History view** and click on `Rebuild` for any build listed there.
 
-* * * 
+* * *
 
 ## Settings
 You can perform subscription level actions by clicking on the `Settings` tab on the Subscription page.
@@ -150,4 +150,4 @@ Our How To guides provide instructions on how to enable continuous deployment to
 ### Resetting your CI projects
 Resetting a subscription recreates all webhooks and deployment keys for your subscription. This should only be done if your subscription is in an inconsistent state and you need to restore it. Please note that you will need to re-encrypt all environment variables for your subscription after resetting it.
 
-* * * 
+* * *
