@@ -103,12 +103,11 @@ pages:
     - Pipelines tab: navigating_ui/subscriptions_pipelines.md
     - Settings tab: navigating_ui/subscriptions_settings.md
   - Projects:
-    - Status: navigating_ui/projects.md
-    - Settings: navigating_ui/projects.md
+    - Status: navigating_ui/projects_status.md
+    - Settings: navigating_ui/projects_settings.md
   - Builds:
-    - Test Coverage: navigating_ui/builds.md
-    - Code Coverage: navigating_ui/builds.md
-    - Console logs: navigating_ui/builds.md
+    - Build Information: navigating_ui/builds_information.md
+    - Build Item details: navigating_ui/build_item_details.md
 - API: api.md
 - Tutorials:
   - Pipelines:

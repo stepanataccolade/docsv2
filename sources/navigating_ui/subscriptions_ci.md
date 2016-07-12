@@ -64,6 +64,8 @@ You can also see how many minions are being used at the current time by looking 
 - Delete specific runs, by clicking the `Delete Runs` button. Select the build to be deleted and click the `Delete` button.
 - Use the `More` button on the bottom of the page to load and display more builds from your history.
 
+<img src="../images/subscription_history.png" alt="Subscription History" style="width:700px;"/>
+
 ---
 
 ##Enable Project
