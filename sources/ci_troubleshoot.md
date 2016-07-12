@@ -318,17 +318,9 @@ NOTE: If you are pushing to a repo that will trigger another build, add `[skip c
 ### Slack notifications do not occur after the July 1st service maintenance
 On July 1, 2016, Shippable underwent a scheduled service maintenance. Since then Slack notifications is not triggered for few customers.
 
-Reason: Legacy users who have Slack integration configured only in the UI ('Project' settings; 'Integrations' tab; 'Notification Integration') and not in the `shippable.yml` had notifications triggered for all events. Since the service update, the behavior of Slack for these legacy users has been changed to trigger events for the **default** configuration. The default configuration is: 
+Reason: Legacy users who have Slack integration configured only in the UI ('Project' settings; 'Integrations' tab; 'Notification Integration') and not in the `shippable.yml` had notifications triggered for all events. Since the service update, Slack notifications are required to be configured both in the UI and in the `shippable.yml`. Hence legacy users who have Slack notifications configured only in the UI no longer receive the notifications.
 
-```
-on_start : never
-on_failure: always
-on_success: change
-on_pull_request:always
-```
-Hence Slack notifications will trigger only for these default events for these legacy users. 
-
-**How to avoid:** In order to ensure Slack notifications are triggered, just like before, use the following code in your `shippable.yml` file:
+**How to avoid:** In order to ensure Slack notifications are triggered for the legacy users, just like before, for all events, use the following code in your `shippable.yml` file:
 
 ```
 integrations:
