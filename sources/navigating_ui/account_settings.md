@@ -123,7 +123,7 @@ Click the `Delete` button for the card you wish to remove from your account.
 ##Images
 This section allows you to monitor Docker images and be notified of updates to the images at no cost.
 
-Read the ["How to monitor your Docker Images"](../../tutorials/how_to_monitor_docker_images) section for further details.
+Read the ["How to monitor your Docker Images"](../../tutorials/how_to_monitor_docker_images/) section for further details.
 
 ---
 
