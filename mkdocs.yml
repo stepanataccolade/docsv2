@@ -87,7 +87,7 @@ pages:
   - Resources: pipelines/resources.md
   - Jobs: pipelines/jobs.md
   - Triggers: pipelines/triggers.md
-  - Deploying your first pipeline: gs_deploy_sample.md
+  - Deploying your first pipeline: tutorials/deploy_sample_pipeline.md
   - FAQ: pipelines/faq.md
 - Navigating the UI:
   - Home Page: navigating_ui/homepage.md
@@ -108,18 +108,18 @@ pages:
   - Pipelines:
     - How to add resources: tutorials/how_to_add_syncRepos.md
   - How to add integrations: tutorials/how_to_add_integrations.md
-  - Running a sample CI build: gs_ci_sample.md
-  - Deploying a sample appliation: test.md
+  - Running a sample CI build: tutorials/run_sample_ci_build.md
+  - Deploying a sample appliation: tutorials/deploy_sample_pipeline.md
   - Source Control System:
-    - Using GitHub: test.md
-    - Using GitHub Enterprise: test.md
-    - Using Bitbucket: test.md
-    - Using Bitbucket Server: ht_using_bitbucket_server.md
-    - Using GitLab: ht_using_gitlab.md
-    - Linking GitHub and Bitbucket accounts: ht_link_gh_and_bb.md
+    - Using GitHub: tutorials/how_to_use_github.md
+    - Using GitHub Enterprise: tutorials/how_to_use_github_enterprise.md
+    - Using Bitbucket: tutorials/how_to_use_bitbucket.md
+    - Using Bitbucket Server: tutorials/how_to_use_bitbucket_server.md
+    - Using GitLab: tutorials/how_to_use_gitlab.md
+    - Linking GitHub and Bitbucket accounts: tutorials/link_github_and_bitbucket.md
   - Amazon:
-    - Deploy to AWS CodeDeploy: ht_codedeploy.md
-    - Deploy to Amazon Opsworks: ht_opsworks.md
+    - Deploy to AWS CodeDeploy: tutorials/ht_codedeploy.md
+    - Deploy to Amazon Opsworks: tutorials/ht_opsworks.md
     - Deploy to Amazon EC2 Container Registry (ECR): test.md
     - Deploy to AWS Elastic Beanstalk: test.md
     - Deploy to Amazon EC2 Container Service (ECS): test.md
@@ -129,7 +129,7 @@ pages:
   - Docker:
     - Deploy to Docker Hub: test.md
     - Deploy to Docker Trusted Registry: test.md
-    - Deploy to Docker Datacenter: ht_docker_datacenter.md
+    - Deploy to Docker Datacenter: tutorials/ht_docker_datacenter.md
     - Deploy to Docker Cloud: test.md
   - Microsoft:
     - Deploy to DC/OS on Azure: test.md
@@ -150,5 +150,6 @@ pages:
   - Using Caching: test.md
   - Using matrix to parallelize builds: test.md
   - Running multiple docker push: test.md
-  - Deploy to Heroku: ht_heroku.md
-  - Deploy to Digital Ocean: ht_digitalocean.md
+  - Deploy to Heroku: tutorials/ht_heroku.md
+  - Deploy to Digital Ocean: tutorials/ht_digitalocean.md
+  - Monitor your Docker images for updates: tutorials/how_to_monitor_docker_images.md
