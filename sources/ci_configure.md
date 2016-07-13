@@ -1067,8 +1067,9 @@ To send Slack notifications, you will need to do the following:
 1. **Add Slack Integration in the UI**: 
      - Go to the 'Settings' tab of your subscription.
      - Under the 'Integrations' section, click the 'Add Integration'  button.
+     - Give a name to the Slack integration for your subscription, for example: `my_slack_integration`
      - In the dropdown of the 'Account Integrations' field, select 'Slack'. 
-     - If you have created the Slack integration before, it'll show up as an option in the dropdown. Select the Slack integration and go directly to step 2.
+     - If you have created the Slack integration before, it'll show up as an option in the dropdown. Select the Slack integration, click the `Save` button and go directly to step 2.
      - If Slack does not show up in the list of dropdowns, click the '+ Add  integration' option.
     - Add the Slack integration. [Access instructions here for help](int_notifications/#slack-notifications).
 
@@ -1089,7 +1090,7 @@ integrations:
       on_success: never
       on_failure: always
 ```
-* `integrationName` value is the name of the account integration you added to the 'Subscription' settings.
+* `integrationName` value is the name of the Slack integration you added to the 'Subscription' settings in Step 1. **IMPORTANT** The names in the 'Subscription' 'Integration' settings in Step 1 and the `shippable.yml` have to be exactly the same. If they are not, the build will fail with error as [described here](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match).
 * `type` is slack
 * `recipients` specifies the channels you want to send the notification to. Please note that this is a required field for slack notifications to work. 
     - If there is a single recipient, use the format `recipients: "#channelOne"`
@@ -1114,8 +1115,9 @@ To send HipChat notifications, you will need to do the following:
 1. **Add HipChat Integration in the UI**: 
      - Go to the 'Settings' tab of your subscription.
      - Under the 'Integrations' section, click the 'Add Integration' button. 
+     - Give a name to the Slack integration for your subscription, for example: `my_hipchat_integration`
      - In the dropdown of the 'Account Integrations' field, select 'HipChat'. 
-     - If you have created the HipChat integration before, it'll show up as an option in the dropdown. Select the HipChat integration and go directly to step 2.
+     - If you have created the HipChat integration before, it'll show up as an option in the dropdown. Select the HipChat integration, click the `Save` button and go directly to step 2.
     - If HipChat does not show up in the list of dropdowns, click the '+Add interation' option. 
     - Add the HipChat integration. [Access instructions here for help](int_notifications/#hipchat-notifications).
 
@@ -1138,7 +1140,7 @@ integrations:
       on_success: never
       on_failure: always
 ```
-* `integrationName` value is the name of the account integration you added to 'Subscription' settings.
+* `integrationName` value is the name of the HipChat integration you added to the 'Subscription' settings in Step 1. **IMPORTANT** The names in the 'Subscription' 'Integration' settings in Step 1 and the `shippable.yml` have to be exactly the same. If they are not, the build will fail with error as [described here](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match).
 * `type` is hipchat
 * `recipients` specifies the rooms and/or users you want to send the notification to.
     - If there is a single recipient and it is a room, you can use the format `recipients: "#channelOne"`
