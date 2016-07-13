@@ -61,11 +61,11 @@ The shippable.yml reference guide is the best resource to learn what's possible 
 ```
 - Alerts
   - Errors
-    - Integration name specified in yml does not match integrations present in project settings: null
+    - Integration name specified in yml does not match integrations present in Subscription settings: <name specified in subscription>
 ```
-Reason: Notification and Hub integrations need to be set in two places - In the UI and in the `shippable.yml` file. You'll get this error if the name for the integration does not match in both places.
+Reason: Notification and Hub integrations need to be set in two places - In the UI and in the `shippable.yml` file. You'll get this error if the name for the integration does not match in 'Subscription' Settings; 'Integrations' section and in the `shippable.yml` file.
 
-**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our documentation on enabling integrations **UpdateLink** for more details.
+**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our documentation on enabling [notifications](../continuous_integration/notifications/slack/) and [hub](../continuous_integration/deploy/aws_eb/) integration for more details.
 
 ---
 
@@ -283,3 +283,23 @@ Reason: The standard AMI uses Docker Engine of version 1.9. Our normal policy is
 **How to avoid:** Navigate to the subscription settings page and select the unstable image which has docker version 1.11.1 available on it and all the builds for your subscription will be using this image to run your builds. For more info check out the Machine Images Section **UpdateLink**.
 
 ---
+
+###Slack notifications do not occur after the July 1st service maintenance
+On July 1, 2016, Shippable underwent a scheduled service maintenance. Since then Slack notifications is not triggered for few customers.
+
+Reason: Legacy users who have Slack integration configured only in the UI ('Subscription' settings; 'Integrations' section; 'Notification Integration') and not in the `shippable.yml` had Slack notifications triggered for all events. Since the service update, Slack notifications are required to be configured both in the UI and in the `shippable.yml`. Hence legacy users who have Slack notifications configured only in the UI no longer receive the notifications.
+
+**How to avoid:** In order to ensure Slack notifications are triggered for the legacy users, just like before, for all events, use the following code in your `shippable.yml` file:
+```
+integrations:
+  notifications:
+    - integrationName: foobar-slack
+      type: slack
+      recipients:
+        - "#shippable"
+      on_start: always
+      on_success: always
+```
+Note that `on_start` defaults to `never` and `on_success` defaults to `change` if these tags are not specified in the `shippable.yml` file. Changing both to `always` matches the previous fallback behavior for legacy users.
+
+Read more about [configuring Slack notifications](../continuous_integration/notifications/slack/) in our documentation.
