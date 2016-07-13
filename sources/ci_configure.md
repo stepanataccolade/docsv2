@@ -1090,7 +1090,7 @@ integrations:
       on_success: never
       on_failure: always
 ```
-* `integrationName` value is the name of the Slack integration you added to the 'Subscription' settings in Step 1. **IMPORTANT** The names in the 'Subscription' 'Integration' settings in Step 1 and the `shippable.yml` have to be exactly the same. If they are not, the build will fail with error as [described here](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match).
+* `integrationName` value is the name of the Slack integration you added to the 'Subscription' settings in Step 1. **IMPORTANT** The names in the 'Subscription' 'Integration' settings in Step 1 and the `shippable.yml` have to be exactly the same. If they are not, the build will fail with an error as [described here](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match).
 * `type` is slack
 * `recipients` specifies the channels you want to send the notification to. Please note that this is a required field for slack notifications to work. 
     - If there is a single recipient, use the format `recipients: "#channelOne"`
@@ -1140,7 +1140,7 @@ integrations:
       on_success: never
       on_failure: always
 ```
-* `integrationName` value is the name of the HipChat integration you added to the 'Subscription' settings in Step 1. **IMPORTANT** The names in the 'Subscription' 'Integration' settings in Step 1 and the `shippable.yml` have to be exactly the same. If they are not, the build will fail with error as [described here](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match).
+* `integrationName` value is the name of the HipChat integration you added to the 'Subscription' settings in Step 1. **IMPORTANT** The names in the 'Subscription' 'Integration' settings in Step 1 and the `shippable.yml` have to be exactly the same. If they are not, the build will fail with an error as [described here](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match).
 * `type` is hipchat
 * `recipients` specifies the rooms and/or users you want to send the notification to.
     - If there is a single recipient and it is a room, you can use the format `recipients: "#channelOne"`
