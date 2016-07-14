@@ -98,7 +98,7 @@ You can add a HipChat account integration to receive notifications for monitored
 8. [Optional] Add additional recipients.
 9. Click the `Save` button.
 
-<img src="../images/hipchat_to_monitor_images.png" alt="Configure to be notified through HipChat while monitoring a Docker image" style="width:700px;"/>
+<img src="/continuous_integration/images/hipchat_to_monitor_images.png" alt="Configure to be notified through HipChat while monitoring a Docker image" style="width:700px;"/>
 ---
 
 Check our blog [on configuring HipChat for both CI and Pipelines](http://blog.shippable.com/hipchat-integration-is-here).

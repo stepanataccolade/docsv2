@@ -94,9 +94,9 @@ pages:
     - Build Information: navigating_ui/builds_information.md
     - Build Item details: navigating_ui/build_item_details.md
 - API:
-  - Overview: api.md
-  - Account routes: api_account_routes.md
-  - Project routes: api_project_routes.md
+  - Overview: api/api.md
+  - Account routes: api/api_account_routes.md
+  - Project routes: api/api_project_routes.md
 - Tutorials:
   - Pipelines:
     - How to add resources: tutorials/how_to_add_syncRepos.md
