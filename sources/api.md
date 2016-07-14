@@ -123,7 +123,7 @@ GET /runs/:id
 |HTTP Code      |    Description     |
 |---------------|--------------------|
 |200|success|
-|500|Internal Server Error. Check run id.|  
+|500|Internal Server Error. Check run id.|
 
 
 ```
@@ -1260,7 +1260,7 @@ POST /projects/:projectId/newBuild
 
 ####Response
 
-|HTTP code      |    Status     |    Description    |  
+|HTTP code      |    Status     |    Description    |
 |----------|-------------|-------------------|
 | 200| OK| New build was successfully triggered|
 | 500| Internal Server Error| Check project id|
@@ -1280,7 +1280,7 @@ You can specify the branch for which you want to trigger a run by specifying a `
 }
 ```
 
-Alternatively, branch name can also be specified as a parameter like this: 
+Alternatively, branch name can also be specified as a parameter like this:
 `POST /projects/:projectId/newBuild?branch=xyzFeature`
 
 
@@ -1317,7 +1317,7 @@ GET /subscriptions
 ####Response
 
 
-|HTTP code      |    Status     |    Description    |      
+|HTTP code      |    Status     |    Description    |
 |----------|-------------|-------------------|
 | 200| OK| Query was successful and all subscripti0ns will be returned.|
 
@@ -1347,7 +1347,7 @@ GET/subscriptions/:id
 
 ####Response
 
-|HTTP code      |    Status     |    Description    |      
+|HTTP code      |    Status     |    Description    |
 |----------|-------------|-------------------|
 | 200| OK| Query was successful and subscription details will be returned.|
 | 500| Internal Server Error| Incorrect subscription ID.|
@@ -1379,25 +1379,7 @@ GET/subscriptions/:id
 }
 
 ```
-### Get active minion count
-This route will tell you how many minions in a subscriptions are currently 'active', i.e. processing builds.
 
-```
-GET/subscriptions/:id/activeMinions
-```
-
-####Response
-
-|HTTP Code      |    Description     |
-|---------------|--------------------|
-|200|success|
-|500|Internal Server Error. Check subscription id.|
-
-```
-{
-    "count": 0
-}
-```
 
 ###Delete a subscription
 This route lets you delete your subscription. Please note that all projects, jobs and runs will also be deleted when the subscription is deleted.
@@ -1789,7 +1771,7 @@ Given below is the mapping of a build's statusCode to the build states displayed
 
 |statusCode      | Definition | State|   Icon  |
 |---------------|--------------------|------------|---------|
-|0|waiting | Incomplete | ![add_icon](images/ci_build_icon_waiting.png)| 
+|0|waiting | Incomplete | ![add_icon](images/ci_build_icon_waiting.png)|
 |20|processing | Incomplete |![add_icon](images/ci_build_icon_processing.png)|
 |30|success |Complete |![add_icon](images/ci_build_icon_success.png)|
 |50|unstable |Complete |![add_icon](images/ci_build_icon_unstable.png)|
