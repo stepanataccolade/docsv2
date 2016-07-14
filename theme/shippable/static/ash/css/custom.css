@@ -436,7 +436,7 @@ h2:target, h3:target {
 
 #sidebar .tocbar label {
     color: #ffffff;
-    background-color: #58595b;
+    background-color: #008585;
     font-weight: normal;
     padding: 10px 1em;
     width: 100%;
@@ -449,9 +449,9 @@ h2:target, h3:target {
 }
 
 #sidebar .tocbar label.active {
-    color: #58595b;
-    background-color: #d3d3d4;
-    font-weight: 700;
+    color: #ffffff;
+    background-color: #009999;
+    font-weight: 600;
 }
 
 #sidebar .tocbar li li.has-children {
