@@ -51,7 +51,7 @@ There are three actions to set up the Slack integration through the UI. They are
 **IMPORTANT:** The 'Name' you have entered in this step should be used in your `shippable.yml` file. Both names should be exactly the same. If not the build will fail with an error.
 6. From the 'Account Integrations' dropdown select the Slack account integration created.
 7. Click the `Save` button.
-10. The Slack integration will show up in the list of integrations for your subscription.
+8. The Slack integration will show up in the list of integrations for your subscription.
 
 ---
 
@@ -75,7 +75,7 @@ integrations:
 While the above is a sample code for your `shippable.yml`, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
 
 - `integrationName` value is the name of the Slack integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with error as  [described here **UpdateLink**](../continuous_integration/ci_troubleshoot/#Integration-name-specified-in-yml-does-not-match).
-- `type` is slack.
+- `type` is `slack`.
 - `recipients` specifies the channels you want to send the notification to. Please note this is a required field for slack notifications to work.
      - Even if there is a single recipient, use the format `recipients: "#channelOne"`
 - [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
@@ -85,9 +85,30 @@ While the above is a sample code for your `shippable.yml`, use the descriptions 
      - `never` means that you will never receive a notification for that build status.
      - By default, `on_success` is set to `change` and `on_failure` is set to `always` when Slack is configured in the yml and you have not specified these tags.
 - [optional] You can set the following options for the `on_start`, `on_pull_request` tags:
-     - Setting the value as `always` means that you will always receive a notification for build start/pull request.
-     - Setting the value `never` means that you will never receive a notification for that build start/pull request.
+     - Setting the value to `always` means that you will always receive a notification for build start/pull request.
+     - Setting the value to `never` means that you will never receive a notification for that build start/pull request.
      - By default, `on_start` is set to `never` and `on_pull_request` is set to `always` when Slack is configured in the yml and you have not specified these tags.
+
+---
+
+
+##Configuring Slack notifications to monitor Docker Images
+
+You can add a Slack account integration to receive notifications for monitored Docker images. To do this:
+
+1. Ensure you have configured [the monitoring of a Docker image](../navigating_ui/account_settings_images/).
+2. Go to 'Account Settings' and click the 'Images' section.
+3. Select the 'Image' you want to configure the Slack notifications.
+4. Under the 'Notifications' section, use the dropdown for the 'Channel' field and select `slack`.
+5. From the 'Slack Integrations' dropdown select the Slack integration created from your 'Account Settings'
+     - If there is no HipChat integration, click `Create Integration` and create a HipChat Account Integration. Follow [these steps](###Set-up-Slack-integration-in-Account-Settings), if you need help.
+6. In the 'Recipients' field, add the channel. For example: "#channelOne"
+7. Click the `Add Item` button.
+8. [Optional] Add additional recipients.
+9. Click the `Save` button.
+
+<img src="../images/slack_to_monitor_images.png" alt="Configure to be notified through Slack while monitoring a Docker image" style="width:700px;"/>
+---
 
 Check our blog ["Notifying CI failure/success status on Email and Slack"](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack) for multiple scenarios.
 
