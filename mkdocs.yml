@@ -86,11 +86,11 @@ pages:
 - Navigating the UI: 
   - Home Page: navigating_ui/homepage.md
   - Account Settings:
-    - Accounts section: navigating_ui/account_settings.md
-    - Integrations section: navigating_ui/account_settings.md
-    - Cards section: navigating_ui/account_settings.md
-    - Images section: navigating_ui/account_settings.md
-    - API section: navigating_ui/account_settings.md
+    - Accounts section: navigating_ui/account_settings_accounts.md
+    - Integrations section: navigating_ui/account_settings_integrations.md
+    - Cards section: navigating_ui/account_settings_cards.md
+    - Images section: navigating_ui/account_settings_images.md
+    - API section: navigating_ui/account_settings_api.md
   - Subscriptions:
     - CI tab: navigating_ui/subscriptions_ci.md
     - Infra tab: navigating_ui/subscriptions_infra.md
