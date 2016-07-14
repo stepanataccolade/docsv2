@@ -12,6 +12,9 @@ The Machine Images section has a list of images that are available to run your b
 
 To select your Machine Image, Go to the 'Settings' tab of your 'Subscription'. Click on the 'Options' section and select from the dropdown under the 'Machine Images' section.
 
+<img src="../images/subscriptions_settings_machine_image.png" alt="Machine Image for a Subscription" style="width:700px;"/>
+
+
 Here is the list of contents of the machine images:
 ```
     Stable
@@ -45,6 +48,8 @@ The Deployment key section shows the SSH public key associated with your Shippab
 
 Our How To guides provide instructions on how to enable continuous deployment to different providers.
 
+<img src="../images/subscriptions_settings_deployment_key.png" alt="Deployment Key for a Subscription" style="width:700px;"/>
+
 ###Technical Contact
 
 Do ensure this field is populated with a valid email address for the subscription. This email will be used to notify information on service upgrades, service performance and other related topics. It will not be used for marketing purposes.
@@ -56,6 +61,8 @@ Do ensure this field is populated with a valid email address for the subscriptio
 ###Reset Subscription
 
 Resetting a subscription recreates all webhooks and deployment keys for your subscription. This should only be done if your subscription is in an inconsistent state and you need to restore it. Please note that you will need to re-encrypt all environment variables for your subscription after resetting it.
+
+<img src="../images/subscriptions_settings_reset.png" alt="Resetting for a Subscription" style="width:700px;"/>
 
 ---
 

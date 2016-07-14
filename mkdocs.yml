@@ -10,16 +10,16 @@ theme_dir: theme/shippable
 google_analytics: ['UA-50610279-1', 'auto']
 
 # Pages
-pages: 
-- Overview: 
+pages:
+- Overview:
   - What is Shippable?: index.md
   - FAQ: faq.md
-- Continuous Integration (CI): 
+- Continuous Integration (CI):
   - Overview: continuous_integration/ci_overview.md
   - What is supported?: continuous_integration/supported.md
   - Running a sample build: continuous_integration/run_first_build.md
   - Configuring your build: continuous_integration/ci_shippableyml.md
-  - Languages: 
+  - Languages:
     - Node.js: continuous_integration/languages/node.md
     - Python: continuous_integration/languages/python.md
     - Java: continuous_integration/languages/java.md
@@ -30,51 +30,51 @@ pages:
     - Scala: continuous_integration/languages/scala.md
     - C: continuous_integration/languages/objc.md
     - Custom Images: continuous_integration/languages/custom_images.md
-  - Advanced Options: 
+  - Advanced Options:
     - Environment Variables: continuous_integration/advanced_options/env_var.md
     - Including/Excluding branches: continuous_integration/advanced_options/include_exclude_branches.md
     - Matrix builds: continuous_integration/advanced_options/matrix_builds.md
     - Caching: continuous_integration/advanced_options/caching.md
     - Using git submodules: continuous_integration/advanced_options/git_submodules.md
     - Shippable_retry: continuous_integration/advanced_options/shippable_retry.md
-    - Running builds on your own machines (BYON): continuous_integration/byon/byon_overview.md
-    - Images: continuous_integration/defaults/images.md
-    - Timeouts: continuous_integration/defaults/timeouts.md
-    - Node Machine Images: continuous_integration/defaults/machine_images.md
-  - Integrations: 
-    - Source Control Systems: 
+    - Running builds on your own machines (BYON): continuous_integration/advanced_options/byon_overview.md
+    - Images: continuous_integration/advanced_options/images.md
+    - Timeouts: continuous_integration/advanced_options/timeouts.md
+    - Node Machine Images: continuous_integration/advanced_options/machine_images.md
+  - Integrations:
+    - Source Control Systems:
       - GitHub: continuous_integration/scm/github.md
       - GitHub Enterprise: continuous_integration/scm/github_enterprise.md
       - Bitbucket: continuous_integration/scm/bitbucket.md
       - Bitbucket Server: continuous_integration/scm/bitbucket_server.md
       - GitLab: continuous_integration/scm/gitlab.md
-    - Notifications: 
+    - Notifications:
       - Slack: continuous_integration/notifications/slack.md
       - Email: continuous_integration/notifications/email.md
       - HipChat: continuous_integration/notifications/hipchat.md
       - IRC: continuous_integration/notifications/irc.md
-    - Image Registries: 
+    - Image Registries:
       - Docker Hub: continuous_integration/image_registries/docker_hub.md
       - Docker Trusted Registry: continuous_integration/image_registries/docker_trusted_registry.md
       - Amazon EC2 Container Registry (ECR): continuous_integration/image_registries/amazon_ecr.md
       - Google Container Registry (GCR): continuous_integration/image_registries/google_gcr.md
       - Quay.io: continuous_integration/image_registries/quay.md
       - Any Private Registry: continuous_integration/image_registries/private_registry.md
-    - Container Services: 
+    - Container Services:
       - Amazon EC2 Container Service (ECS): continuous_integration/container_services/amazon_ecs.md
       - Google Container Engine (GKE): continuous_integration/container_services/google_gke.md
       - Docker Cloud: continuous_integration/container_services/docker_cloud.md
       - Docker Datacenter: continuous_integration/container_services/docker_datacenter.md
   - Permissions: continuous_integration/permissions.md
   - Troubleshooting CI: continuous_integration/ci_troubleshoot.md
-- Pipelines: 
+- Pipelines:
   - Overview: pipelines/overview.md
   - Resources: pipelines/resources.md
   - Jobs: pipelines/jobs.md
   - Triggers: pipelines/triggers.md
   - Deploying your first pipeline: tutorials/deploy_sample_pipeline.md
   - FAQ: pipelines/faq.md
-- Navigating the UI: 
+- Navigating the UI:
   - Home Page: navigating_ui/homepage.md
   - Account Settings:
     - Accounts section: navigating_ui/account_settings_accounts.md
@@ -93,10 +93,10 @@ pages:
   - Builds:
     - Build Information: navigating_ui/builds_information.md
     - Build Item details: navigating_ui/build_item_details.md
-- API: 
-  - Overview: api.md 
-  - Account routes: api.md
-  - Project routes: api.md
+- API:
+  - Overview: api.md
+  - Account routes: api_account_routes.md
+  - Project routes: api_project_routes.md
 - Tutorials:
   - Pipelines:
     - How to add resources: tutorials/how_to_add_syncRepos.md
