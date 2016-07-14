@@ -10,26 +10,26 @@ theme_dir: theme/shippable
 google_analytics: ['UA-50610279-1', 'auto']
 
 # Pages
-pages:
-- Overview:
+pages: 
+- Overview: 
   - What is Shippable?: index.md
   - FAQ: faq.md
-- Continuous Integration (CI):
+- Continuous Integration (CI): 
   - Overview: continuous_integration/ci_overview.md
   - What is supported?: continuous_integration/supported.md
   - Running your first build: continuous_integration/run_first_build.md
-  - Defaults:
+  - Defaults: 
     - Environment Variables: continuous_integration/defaults/env_var.md
     - Images: continuous_integration/defaults/images.md
     - Timeouts: continuous_integration/defaults/timeouts.md
     - Node Machine Images: continuous_integration/defaults/machine_images.md
-  - Configuring your environment:
-    - Languages:
+  - Configuring your environment: 
+    - Languages: 
       - Node.js: continuous_integration/languages/node.md
       - Python: continuous_integration/languages/python.md
-      - Ruby:
+      - Ruby: 
         - GEMFILEs behaviour: continuous_integration/languages/ruby.md
-      - Java:
+      - Java: 
         - JDK behaviour: continuous_integration/languages/java.md
       - Clojure: continuous_integration/languages/clojure.md
       - Go: continuous_integration/languages/go.md
@@ -37,35 +37,35 @@ pages:
       - Scala: continuous_integration/languages/scala.md
       - C: continuous_integration/languages/objc.md
       - Custom Images: continuous_integration/languages/custom_images.md
-    - Advanced Options:
+    - Advanced Options: 
       - Custom Environment Variables: continuous_integration/advanced_options/custom_env_var.md
       - Including/Excluding branches: continuous_integration/advanced_options/include_exclude_branches.md
       - Matrix builds: continuous_integration/advanced_options/matrix_builds.md
       - Caching: continuous_integration/advanced_options/caching.md
       - Using git submodules: continuous_integration/advanced_options/git_submodules.md
       - Shippable_retry: continuous_integration/advanced_options/shippable_retry.md
-  - Configuring your CI:
+  - Configuring your CI: 
     - The ci section: continuous_integration/build_ci.md
   - Configuring Post CI: continuous_integration/post_ci.md
-    - Deploy:
+    - Deploy: 
       - AWS Elastic Beanstalk: continuous_integration/deploy/aws_eb.md
       - Webhooks: continuous_integration/deploy/webhooks.md
-    - Keys:
+    - Keys: 
       - SSH: continuous_integration/keys/ssh.md
       - PEM:  continuous_integration/keys/pem.md
-  - Running builds on your own machines (BYON):
+  - Running builds on your own machines (BYON): 
     - Overview: continuous_integration/byon/byon_overview.md
     - Setup: continuous_integration/byon/setup.md
   - Permissions: continuous_integration/permissions.md
   - Troubleshooting CI: continuous_integration/ci_troubleshoot.md
-- Pipelines:
+- Pipelines: 
   - Overview: pipelines/overview.md
   - Resources: pipelines/resources.md
   - Jobs: pipelines/jobs.md
   - Triggers: pipelines/triggers.md
   - Deploying your first pipeline: tutorials/deploy_sample_pipeline.md
   - FAQ: pipelines/faq.md
-- Navigating the UI:
+- Navigating the UI: 
   - Home Page: navigating_ui/homepage.md
   - Account Settings:
     - Accounts section: navigating_ui/account_settings.md
