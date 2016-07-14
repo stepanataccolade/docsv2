@@ -18,35 +18,28 @@ pages:
   - Overview: continuous_integration/ci_overview.md
   - What is supported?: continuous_integration/supported.md
   - Running your first build: continuous_integration/run_first_build.md
-  - Defaults:
-    - Environment Variables: continuous_integration/defaults/env_var.md
+  - Configuring your build: ci_shippableyml.md
+  - Languages:
+    - Node.js: continuous_integration/languages/node.md
+    - Python: continuous_integration/languages/python.md
+    - Ruby: continuous_integration/languages/ruby.md
+    - Java: continuous_integration/languages/java.md
+    - Clojure: continuous_integration/languages/clojure.md
+    - Go: continuous_integration/languages/go.md
+    - PHP: continuous_integration/languages/php.md
+    - Scala: continuous_integration/languages/scala.md
+    - C: continuous_integration/languages/objc.md
+    - Custom Images: continuous_integration/languages/custom_images.md  - Defaults:
+  - Advanced Options:
+    - Environment Variables: continuous_integration/advanced_options/custom_env_var.md
+    - Including/Excluding branches: continuous_integration/advanced_options/include_exclude_branches.md
+    - Matrix builds: continuous_integration/advanced_options/matrix_builds.md
+    - Caching: continuous_integration/advanced_options/caching.md
+    - Using git submodules: continuous_integration/advanced_options/git_submodules.md
+    - Shippable_retry: continuous_integration/advanced_options/shippable_retry.md
     - Images: continuous_integration/defaults/images.md
     - Timeouts: continuous_integration/defaults/timeouts.md
     - Node Machine Images: continuous_integration/defaults/machine_images.md
-  - Configuring your environment:
-    - Languages:
-      - Node.js: continuous_integration/languages/node.md
-      - Python: continuous_integration/languages/python.md
-      - Ruby:
-        - GEMFILEs behaviour: continuous_integration/languages/ruby.md
-      - Java:
-        - JDK behaviour: continuous_integration/languages/java.md
-      - Clojure: continuous_integration/languages/clojure.md
-      - Go: continuous_integration/languages/go.md
-      - PHP: continuous_integration/languages/php.md
-      - Scala: continuous_integration/languages/scala.md
-      - C: continuous_integration/languages/objc.md
-      - Custom Images: continuous_integration/languages/custom_images.md
-    - Advanced Options:
-      - Custom Environment Variables: continuous_integration/advanced_options/custom_env_var.md
-      - Including/Excluding branches: continuous_integration/advanced_options/include_exclude_branches.md
-      - Matrix builds: continuous_integration/advanced_options/matrix_builds.md
-      - Caching: continuous_integration/advanced_options/caching.md
-      - Using git submodules: continuous_integration/advanced_options/git_submodules.md
-      - Shippable_retry: continuous_integration/advanced_options/shippable_retry.md
-  - Configuring your CI:
-    - The ci section: continuous_integration/build_ci.md
-  - Configuring Post CI: continuous_integration/post_ci.md
   - Integrations:
     - Source Control Systems:
       - GitHub: continuous_integration/scm/github.md
