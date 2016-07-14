@@ -93,7 +93,8 @@ pages:
   - Builds:
     - Build Information: navigating_ui/builds_information.md
     - Build Item details: navigating_ui/build_item_details.md
-- API: api.md 
+- API: 
+  - Overview: api.md 
   - Account routes: api.md
   - Project routes: api.md
 - Tutorials:
