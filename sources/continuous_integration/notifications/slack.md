@@ -108,6 +108,7 @@ You can add a Slack account integration to receive notifications for monitored D
 9. Click the `Save` button.
 
 <img src="../images/slack_to_monitor_images.png" alt="Configure to be notified through Slack while monitoring a Docker image" style="width:700px;"/>
+
 ---
 
 Check our blog ["Notifying CI failure/success status on Email and Slack"](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack) for multiple scenarios.

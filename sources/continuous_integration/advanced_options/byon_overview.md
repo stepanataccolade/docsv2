@@ -1,5 +1,5 @@
-page_title: BYOH
-page_description: Code examples, FAQs, language & platform support
+page_title: BYON (Bring Your Own Nodes) while running your Continuous Integration projects
+page_description: An overview of the BYON feature on Shippable
 page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
 # Running builds on your own machines (BYOH)
@@ -43,6 +43,6 @@ We have tested this extensively using machines on Amazon EC2 and Digital Ocean. 
 ---
 
 ## Configuring BYOH
-To set up your BYOH for your subscription, go to Subscription settings section explaining how to configure your subscription to use your own build infrastructure **UpdateLink** to learn more.
+To set up your BYOH for your subscription, go to [Subscription settings section explaining how to configure your subscription to use your own build infrastructure](/navigating_ui/subscriptions_settings/#nodes) to learn more.
 
 ---
