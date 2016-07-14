@@ -31,15 +31,13 @@ pages:
     - C: continuous_integration/languages/objc.md
     - Custom Images: continuous_integration/languages/custom_images.md
   - Advanced Options: 
-    - Environment Variables: continuous_integration/advanced_options/custom_env_var.md
+    - Environment Variables: continuous_integration/advanced_options/env_var.md
     - Including/Excluding branches: continuous_integration/advanced_options/include_exclude_branches.md
     - Matrix builds: continuous_integration/advanced_options/matrix_builds.md
     - Caching: continuous_integration/advanced_options/caching.md
     - Using git submodules: continuous_integration/advanced_options/git_submodules.md
     - Shippable_retry: continuous_integration/advanced_options/shippable_retry.md
     - Running builds on your own machines (BYON): continuous_integration/byon/byon_overview.md
-  - Defaults: 
-    - Environment Variables: continuous_integration/defaults/env_var.md
     - Images: continuous_integration/defaults/images.md
     - Timeouts: continuous_integration/defaults/timeouts.md
     - Node Machine Images: continuous_integration/defaults/machine_images.md
@@ -95,7 +93,10 @@ pages:
   - Builds:
     - Build Information: navigating_ui/builds_information.md
     - Build Item details: navigating_ui/build_item_details.md
-- API: api.md
+- API: 
+  - Overview: api.md 
+  - Account routes: api.md
+  - Project routes: api.md
 - Tutorials:
   - Pipelines:
     - How to add resources: tutorials/how_to_add_syncRepos.md
