@@ -107,7 +107,7 @@ You can add a Slack account integration to receive notifications for monitored D
 8. [Optional] Add additional recipients.
 9. Click the `Save` button.
 
-<img src="../images/slack_to_monitor_images.png" alt="Configure to be notified through Slack while monitoring a Docker image" style="width:700px;"/>
+<img src="/continuous_integration/images/slack_to_monitor_images.png" alt="Configure to be notified through Slack while monitoring a Docker image" style="width:700px;"/>
 
 ---
 

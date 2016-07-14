@@ -71,7 +71,7 @@ You can add an Email account integration to receive notifications for monitored 
 7. [Optional] Add additional recipients.
 8. Click the `Save` button.
 
-<img src="../images/email_to_monitor_images.png" alt="Configure an email address to be notified while monitoring a Docker image" style="width:700px;"/>
+<img src="/continuous_integration/images/email_to_monitor_images.png" alt="Configure an email address to be notified while monitoring a Docker image" style="width:700px;"/>
 
 Check our blog ["Notifying CI failure/success status on Email and Slack"](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack) for multiple scenarios.
 
