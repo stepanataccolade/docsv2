@@ -47,12 +47,30 @@ pages:
   - Configuring your CI: 
     - The ci section: continuous_integration/build_ci.md
   - Configuring Post CI: continuous_integration/post_ci.md
-    - Deploy: 
-      - AWS Elastic Beanstalk: continuous_integration/deploy/aws_eb.md
-      - Webhooks: continuous_integration/deploy/webhooks.md
-    - Keys: 
-      - SSH: continuous_integration/keys/ssh.md
-      - PEM:  continuous_integration/keys/pem.md
+  - Integrations: 
+    - Source Control Systems: 
+      - GitHub: continuous_integration/scm/github.md
+      - GitHub Enterprise: continuous_integration/scm/github_enterprise.md
+      - Bitbucket: continuous_integration/scm/bitbucket.md
+      - Bitbucket Server: continuous_integration/scm/bitbucket_server.md
+      - GitLab: continuous_integration/scm/gitlab.md
+    - Notifications: 
+      - Slack: continuous_integration/notifications/slack.md
+      - Email: continuous_integration/notifications/email.md
+      - HipChat: continuous_integration/notifications/hipchat.md
+      - IRC: continuous_integration/notifications/irc.md
+    - Image Registries: 
+      - Docker Hub: continuous_integration/image_registries/docker_hub.md
+      - Docker Trusted Registry: continuous_integration/image_registries/docker_trusted_registry.md
+      - Amazon EC2 Container Registry (ECR): continuous_integration/image_registries/amazon_ecr.md
+      - Google Container Registry (GCR): continuous_integration/image_registries/google_gcr.md
+      - Quay.io: continuous_integration/image_registries/quay.md
+      - Any Private Registry: continuous_integration/image_registries/private_registry.md
+    - Container Services: 
+      - Amazon EC2 Container Service (ECS): continuous_integration/container_services/amazon_ecs.md
+      - Google Container Engine (GKE): continuous_integration/container_services/google_gke.md
+      - Docker Cloud: continuous_integration/container_services/docker_cloud.md
+      - Docker Datacenter: continuous_integration/container_services/docker_datacenter.md
   - Running builds on your own machines (BYON): 
     - Overview: continuous_integration/byon/byon_overview.md
     - Setup: continuous_integration/byon/setup.md
