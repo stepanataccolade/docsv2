@@ -96,7 +96,11 @@ pages:
 - API:
   - Overview: api/api.md
   - Account routes: api/api_account_routes.md
+  - Subscription routes: api/api_subscription_routes.md
   - Project routes: api/api_project_routes.md
+  - Job routes: api/api_job_routes.md
+  - Run routes: api/api_runs_routes.md
+  - Status Code Mapping: api/api_status_mapping.md
 - Tutorials:
   - Pipelines:
     - How to add resources: tutorials/how_to_add_syncRepos.md
