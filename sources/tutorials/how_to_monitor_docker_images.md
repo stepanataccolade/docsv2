@@ -25,7 +25,7 @@ You can check out this feature by signing in to [Shippable](http://www.shippable
 To monitor an image and receive notification when the image is updated in the registry, follow the steps below:
 
 1. Create an account integration for the Docker registry where the image is to be monitored. (Instructions here)
-2. Create an account integration for the type of notification you want to receive when the image changes. You can set up Slack, HipChat, IRC, or Email notification. (Instructions here)
+2. Create an account integration for the type of notification you want to receive when the image changes. You can set up [Slack](/continuous_integration/notifications/slack/#Configuring-slack-notifications-to-monitor-Docker-Images/), [HipChat](/continuous_integration/notifications/hipchat/#Configuring-hipchat-notifications-to-monitor-Docker-Images/), [IRC](/continuous_integration/notifications/irc/#Configuring-IRC-notifications-to-monitor-Docker-Images/), or [Email](/continuous_integration/notifications/email/#Configuring-email-notifications-to-monitor-Docker-Images/) notification.
 3. Go to your 'Account Settings' (gear icon on the top right hand navigation bar) and click the 'Images' tab.
 4. Click on Add image and complete the following:
      - Image Name: your_repo_name/image_name (the image from either DockerHub or GCR)

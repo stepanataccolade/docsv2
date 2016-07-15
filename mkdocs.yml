@@ -65,6 +65,12 @@ pages:
       - Google Container Engine (GKE): continuous_integration/container_services/google_gke.md
       - Docker Cloud: continuous_integration/container_services/docker_cloud.md
       - Docker Datacenter: continuous_integration/container_services/docker_datacenter.md
+    - Deploy:
+      - AWS Elastic Beanstalk: continuous_integration/deploy/aws_eb.md
+      - Webhooks: continuous_integration/deploy/webhooks.md
+    - Keys:
+      - SSH: continuous_integration/keys/ssh.md
+      - PEM:  continuous_integration/keys/pem.md
   - Permissions: continuous_integration/permissions.md
   - Troubleshooting CI: continuous_integration/ci_troubleshoot.md
 - Pipelines:
