@@ -4,7 +4,7 @@ page_keywords: docker hub, amazon, ecs, gcr, ecr, google, shippable, quay, coreo
 
 # Private Registry
 
-##Adding the Integration
+##Adding the Account Integration
 
 You will need to configure this integration in order to pull or push images from a private Image registry. To set up this integration, you will need the URL of your private registry.
 

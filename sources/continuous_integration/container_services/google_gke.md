@@ -7,7 +7,7 @@ page_keywords: amazon, ecs, gke, kubernetes, engine, google, shippable, quay, co
 
 To deploy applications to GKE, you need to configure an account integration with credentials to access your GKE account.
 
-##Adding the Integration
+##Adding the Account Integration
 
 1. Go to your [Google Cloud Platform (GCP) Console](https://console.cloud.google.com).
 2. Create a new Service account by following the instructions in Google's documentation for [generating a service account credential](https://cloud.google.com/storage/docs/authentication#service_accounts).

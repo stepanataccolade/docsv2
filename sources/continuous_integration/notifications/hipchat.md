@@ -66,7 +66,7 @@ integrations:
 ```
 While the above is a sample code for your `shippable.yml`, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
 
-- `integrationName` value is the name of the HipChat integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with error as  [described here **UpdateLink**](../continuous_integration/ci_troubleshoot/#Integration-name-specified-in-yml-does-not-match).
+- `integrationName` value is the name of the HipChat integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with error as [described here](ci_troubleshoot/#Integration-name-specified-in-yml-does-not-match).
 - `type` is `hipchat`.
 - `recipients` specifies the rooms and/or users you want to send the notification to. Please note this is a required field for HipChat notifications to work.
      - Even if there is a single recipient, use the format `recipients: "#roomOne"` for rooms and `@userOne` for users.
@@ -81,26 +81,39 @@ While the above is a sample code for your `shippable.yml`, use the descriptions 
      - Setting the value to `never` means that you will never receive a notification for that build start/pull request.
      - By default, `on_start` is set to `never` and `on_pull_request` is set to `always` when HipChat is configured in the yml and you have not specified these tags.
 
+Check our blog [on configuring HipChat for both CI and Pipelines](http://blog.shippable.com/hipchat-integration-is-here).
+
 ---
 
 ##Configuring HipChat notifications to monitor Docker Images
 
 You can add a HipChat account integration to receive notifications for monitored Docker images. To do this:
 
-1. Ensure you have configured [the monitoring of a Docker image](../navigating_ui/account_settings_images/).
+1. Ensure you have configured [the monitoring of a Docker image](navigating_ui/account_settings_images/).
 2. Go to 'Account Settings' and click the 'Images' section.
 3. Select the 'Image' you want to configure the HipChat notifications.
 4. Under the 'Notifications' section, use the dropdown for the 'Channel' field and select `hipchat`.
 5. From the 'hipchat Integrations' dropdown select the hipchat integration created from your 'Account Settings'.
-     - If there is no HipChat integration, click `Create Integration` and create a HipChat Account Integration. Follow [these steps](###Set-up-HipChat-integration-in-Account-Settings), if you need help.
+     - If there is no HipChat integration, click `Create Integration` and create a HipChat Account Integration. Follow [these steps](#Set-up-HipChat-integration-in-Account-Settings), if you need help.
 6. In the 'Recipients' field, add the room and/or users. For example: "#roomOne" and/or "@userOne"
 7. Click the `Add Item` button.
 8. [Optional] Add additional recipients.
 9. Click the `Save` button.
 
 <img src="/continuous_integration/images/hipchat_to_monitor_images.png" alt="Configure to be notified through HipChat while monitoring a Docker image" style="width:700px;"/>
----
-
-Check our blog [on configuring HipChat for both CI and Pipelines](http://blog.shippable.com/hipchat-integration-is-here).
 
 ---
+##Deleting the HipChat Integration
+
+To remove the HipChat integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
+
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` section.
+2. Select the HipChat integration from the list of integrations. If you have many entries, use the `Filters` dropdown and select `HipChat`. Alternatively, you can use the `Integration Name` field to provide the name of your HipChat integration.
+3. Your HipChat integration shows up in the list.
+4. Click on the `Delete` button.
+5. A window pops up confirming that you want to delete the integration. This window lists all dependencies of this this integration. The list will include any project, environment or subscription image dependent on this integration.
+6. If there are dependencies, individually access the `Settings` tab for each project/environment/subscription image and delete the HipChat integration.
+7. Once all dependencies of the HipChat integration have been removed, Step 5 will show the message: `No dependency`.
+8. Click the `Yes` button to delete the HipChat Integration.
+
+--------

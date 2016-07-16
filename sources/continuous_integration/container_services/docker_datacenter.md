@@ -5,7 +5,7 @@ page_keywords: amazon, ecs, gke, kubernetes, engine, google, shippable, quay, co
 # Docker Datacenter
 To deploy containers to Docker Datacenter, you need to configure an account integration with credentials to access your Docker Cloud account.
 
-##Adding the Integration
+##Adding the Account Integration
 The steps to add a Docker Datacenter integration are:
 
 1. Use your own credentials or decide to create a new user with appropriate user permissions, on Docker Cloud, to deploy from Shippable.

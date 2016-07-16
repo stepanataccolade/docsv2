@@ -3,7 +3,7 @@ page_description: Setting up Shippable account integrations for Docker Trusted R
 page_keywords: docker hub, amazon, ecs, gcr, google, shippable, quay, coreos, docker, registry, EC2 Container Service, Google, Docker Trusted registry, private
 
 # Docker Trusted Registry
-##Adding the Integration
+##Adding the Account Integration
 
 You will need to configure this integration in order to pull or push images from a Docker Trusted Registry. To set up this integration, you will need the URL of your Docker Trusted Registry.
 
