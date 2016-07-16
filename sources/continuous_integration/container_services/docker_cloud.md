@@ -5,7 +5,7 @@ page_keywords: amazon, ecs, gke, kubernetes, engine, google, shippable, quay, co
 # Docker Cloud
 To deploy containers to Docker Cloud, you need to configure an account integration with credentials to access your Docker Cloud account.
 
-##Adding the Integration
+##Adding the Account Integration
 
 1. [Generate an API key](https://cloud.docker.com/account/#container-api-key) in your Docker Cloud account to use with Shippable.
 2. Copy the generated API key.

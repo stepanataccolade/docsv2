@@ -4,7 +4,7 @@ page_keywords: docker hub, amazon, AWS, ecs, gcr, ecr, google, shippable, quay, 
 
 # Google Container Registry (GCR)
 
-##Adding the Integration
+##Adding the Account Integration
 
 You will need to configure this integration to pull or push images to Google Container Registry.
 

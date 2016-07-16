@@ -5,7 +5,7 @@ page_keywords: docker hub, amazon, ecs, gcr, ecr, google, shippable, quay, coreo
 
 # Quay.io
 
-##Adding the Integration
+##Adding the Account Integration
 
 You will need to configure this integration in order to pull or push images to Quay.io.
 

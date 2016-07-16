@@ -23,7 +23,7 @@ On Shippable, currently you can configure integration with the following Image R
 
 # Docker Hub
 
-##Adding the Integration
+##Adding the Account Integration
 
 You will need to configure this integration to pull or push images to Docker Hub as part of building your project.
 

@@ -4,7 +4,7 @@ page_keywords: Docker Hub, amazon, ecs, gcr, google, shippable, quay, coreos, do
 
 # Amazon EC2 Container Registry (ECR)
 
-##Adding the Integration
+##Adding the Account Integration
 
 You will need to configure this integration to pull or push images to Amazon ECR.
 
