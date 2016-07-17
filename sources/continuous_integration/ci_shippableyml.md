@@ -313,7 +313,7 @@ As an example, let's see how to send a Slack notification for successful and fai
 	- Go to your Subscription page on Shippable and click on the `Settings` tab
 	- Click on `Integrations` in the sidebar menu. This will show you the list of currently configured integrations.
 	- If you see the integration you want to use, skip to step 2.
-	- If you want to add a new integration, click on `Add integration` and follow directions to add your integration.
+	- If you want to add a new integration, click on `Add integration`. Enter a name for your integration and then click on the dropdown and click on 'Add integration'. Select `Slack` and follow directions to add your integration.
 	
 2. Add the snippet below in your yml and then customize:
 
@@ -355,12 +355,51 @@ For advanced Slack notification handling, please read our [Slack notifications p
 
 #### Additional notification integrations
 
-[HipChat notifications](notifications/hipchat.md)  
-[Email notifications](notifications/email.md)  
-[IRC notifications](notifications/irc.md)  
-[Slack notifications](notifications/slack.md)  
+[HipChat notifications](integrations/notifications/hipchat.md)  
+[Email notifications](integrations/notifications/email.md)  
+[IRC notifications](integrations/notifications/irc.md)  
+[Slack notifications](integrations/notifications/slack.md)  
 
 ### hub
+Hub integrations allow you to integrate with any Docker registry such as Docker Hub, Amazon ECR, Google Container Registry (GCR), CoreOS's Quay.io, Docker Trusted Registry, or any self hosted private Docker registry. 
+
+You need to add a hub integration to your project settings if you want to do the following:
+
+- Pull an image from a private Docker repository
+- Build a Docker image which has a `FROM` that pulls an image from a private Docker repository
+- Push to a Docker repository
+
+#### Example: Add a Docker Hub integration
+As an example, let's see how we can specify a Docker Hub integration:
+
+1. Add a Hub integration to your subscription
+
+	- Go to your Subscription's page on Shippable and click on the `Settings` tab
+	- Click on `Integrations` in the sidebar menu. This will show you the list of currently configured integrations.
+	- If you see the integration you want to use, skip to step 2.
+	- If you want to add a new integration, click on `Add integration`. Enter a name for your integration and then click on the dropdown and click on 'Add integration'. Select `Docker` from the dropdown, and follow directions to add your integration.
+
+2. Add the snippet below in your yml and then customize:
+
+```
+integrations:
+  hub:
+    - integrationName: my_docker_integration
+      type: docker
+
+```
+And that's it. You can now use docker commands under the `build` section of your yml to push or pull images from this registry. Advanced options like configuring this integration to only apply to specific branches are discussed in the [Docker Hub integration](integrations/image_registries/docker_hub.md)
+
+#### Additional Hub integrations
+Please visit the following pages for details on how to add hub integrations for other image registries:
+
+[Docker Trusted Registry](integrations/image_registries/docker_trusted_registry.md)
+[Amazon ECR](integrations/image_registries/amazon_ecr.md)
+[Google Container Registry](integrations/image_registries/google_gcr.md)
+[Quay.io](integrations/image_registries/quay.md)
+[Private Docker Registry](integrations/image_registries/private_registry.md)
+[Docker Hub](integrations/image_registries/docker_hub.md)
+
 ### deploy
 ### source control
 ### keys
