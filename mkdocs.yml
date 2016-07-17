@@ -42,35 +42,36 @@ pages:
     - Timeouts: continuous_integration/advanced_options/timeouts.md
     - Node Machine Images: continuous_integration/advanced_options/machine_images.md
   - Integrations:
-    - Source Control Systems:
-      - GitHub: continuous_integration/scm/github.md
-      - GitHub Enterprise: continuous_integration/scm/github_enterprise.md
-      - Bitbucket: continuous_integration/scm/bitbucket.md
-      - Bitbucket Server: continuous_integration/scm/bitbucket_server.md
-      - GitLab: continuous_integration/scm/gitlab.md
+    - Source Control Systems: 
+      - Overview: continuous_integration/integrations/scm/scm_overview.md
+      - GitHub: continuous_integration/integrations/scm/github.md
+      - GitHub Enterprise: continuous_integration/integrations/scm/github_enterprise.md
+      - Bitbucket: continuous_integration/scm/integrations/bitbucket.md
+      - Bitbucket Server: continuous_integration/integrations/scm/bitbucket_server.md
+      - GitLab: continuous_integration/integrations/scm/gitlab.md
     - Notifications:
-      - Slack: continuous_integration/notifications/slack.md
-      - Email: continuous_integration/notifications/email.md
-      - HipChat: continuous_integration/notifications/hipchat.md
-      - IRC: continuous_integration/notifications/irc.md
+      - Slack: continuous_integration/integrations/notifications/slack.md
+      - Email: continuous_integration/integrations/notifications/email.md
+      - HipChat: continuous_integration/integrations/notifications/hipchat.md
+      - IRC: continuous_integration/integrations/notifications/irc.md
     - Image Registries:
-      - Docker Hub: continuous_integration/image_registries/docker_hub.md
-      - Docker Trusted Registry: continuous_integration/image_registries/docker_trusted_registry.md
-      - Amazon EC2 Container Registry (ECR): continuous_integration/image_registries/amazon_ecr.md
-      - Google Container Registry (GCR): continuous_integration/image_registries/google_gcr.md
-      - Quay.io: continuous_integration/image_registries/quay.md
-      - Any Private Registry: continuous_integration/image_registries/private_registry.md
+      - Docker Hub: continuous_integration/integrations/image_registries/docker_hub.md
+      - Docker Trusted Registry: continuous_integration/integrations/image_registries/docker_trusted_registry.md
+      - Amazon EC2 Container Registry (ECR): continuous_integration/integrations/image_registries/amazon_ecr.md
+      - Google Container Registry (GCR): continuous_integration/integrations/image_registries/google_gcr.md
+      - Quay.io: continuous_integration/integrations/image_registries/quay.md
+      - Any Private Registry: continuous_integration/integrations/image_registries/private_registry.md
     - Container Services:
-      - Amazon EC2 Container Service (ECS): continuous_integration/container_services/amazon_ecs.md
-      - Google Container Engine (GKE): continuous_integration/container_services/google_gke.md
-      - Docker Cloud: continuous_integration/container_services/docker_cloud.md
-      - Docker Datacenter: continuous_integration/container_services/docker_datacenter.md
+      - Amazon EC2 Container Service (ECS): continuous_integration/integrations/container_services/amazon_ecs.md
+      - Google Container Engine (GKE): continuous_integration/integrations/container_services/google_gke.md
+      - Docker Cloud: continuous_integration/integrations/container_services/docker_cloud.md
+      - Docker Datacenter: continuous_integration/integrations/container_services/docker_datacenter.md
     - Deploy:
-      - AWS Elastic Beanstalk: continuous_integration/deploy/aws_eb.md
-      - Webhooks: continuous_integration/deploy/webhooks.md
+      - AWS Elastic Beanstalk: continuous_integration/integrations/deploy/aws_eb.md
+      - Webhooks: continuous_integration/deploy/integrations/webhooks.md
     - Keys:
-      - SSH: continuous_integration/keys/ssh.md
-      - PEM:  continuous_integration/keys/pem.md
+      - SSH: continuous_integration/integrations/keys/ssh.md
+      - PEM:  continuous_integration/integrations/keys/pem.md
   - Permissions: continuous_integration/permissions.md
   - Troubleshooting CI: continuous_integration/ci_troubleshoot.md
 - Pipelines:

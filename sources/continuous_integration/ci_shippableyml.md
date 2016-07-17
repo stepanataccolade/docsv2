@@ -249,11 +249,43 @@ The build section is where you specify commands and options for your actual CI b
 ### pre_ci
 
 ### pre_ci_boot
-This section is optional
+This section is optional and lets you override the default build image used for your CI workflow. You should include this section in your yml only if:
+- You want to use your own custom Docker image for your build 
+- You want to customize some options while starting up your CI container
+
+The following snippet shows how to override the default CI image and instead use your own custom image:
+
+```
+build:
+  pre_ci_boot:
+    image_name: my_registry_repo/my_image
+    image_tag: latest
+    pull: true
+    env: FOO=bar
+    options: "-e HOME=/root"
+
+```
+In the snippet above, replace the following:
+
+* `image_name` value is in the format (docker-registry-username)/(docker-registry-image-repo). For GCR and ECR, you will to specify image_name in the right format:
+    *  GCR: gcr.io/(docker-registry-username)/(docker-registry-image-repo)
+    *  ECR: aws_account_id.dkr.ecr.us-east-1.amazonaws.com/repo-name
+* `image_tag` is the tag for the image that you want to pull.  
+* set `pull` to `true` if you want to pull this image from a docker registry and `false` if the image is already on the build machine and doesn't need to be pulled from a registry. 
+* In the `env` section, you can enter any environment variables you want to be set inside your CI container.
+* In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown if it is not already set in your image.
+
+**Things to remember**
+
+- If you are pulling a private image from a registry, you will also need to specify a hub integration in your yml. Please check out the [integrations section](#integrations) to see how to do this.
+- If you set `pull` to false, the image and tag you specify in `image_name` and `image_tag` should be available on the build machine. This means that you must either build the image from a Dockerfile or pull the image in the `pre_ci` section.
+- Minimum requirements for custom CI images are documented TBD: Update Link  
 
 ### ci
 
 ### post_ci
+
+
 
 ### on_success
 
@@ -286,6 +318,36 @@ build:
 - This section is also not executed if the build fails because code coverage does not meet the minimum threshold value.
   
 ### cache
+You can turn on caching for your builds by including `cache: true` in the `build` section of your shippable.yml. This will cache contents of the build directory $SHIPPABLE_BUILD_DIR.
+
+```
+build:
+  cache: true
+```
+
+You can also choose to cache specific folders instead of the entire build directory by using the `cache_dir_list` tag. The cache_dir_list is an array of **absolute path** of the folders that needs to be cached. Please note that you still need the `cache: true` in your yml:
+
+```
+build:
+  cache: true
+  cache_dir_list:
+    - absolute path of dir1
+    - absolute path of dir2
+    - absolute path of dir3
+```
+For example, to cache node modules and the .git folder, you would specify the following:
+
+```
+build:
+  cache: true
+  cache_dir_list:
+    - $SHIPPABLE_BUILD_DIR/node_modules
+    - $SHIPPABLE_BUILD_DIR/.git
+```
+
+Cache is updated for every build and is available to subsequent builds.
+
+**Advanced caching topics** like clearing cache, removing unwanted files when caching is enabled, etc are covered on our [caching page](advanced_options/caching.md)
 
 ### push
 
@@ -401,5 +463,12 @@ Please visit the following pages for details on how to add hub integrations for 
 [Docker Hub](integrations/image_registries/docker_hub.md)
 
 ### deploy
-### source control
+
+
+
+
+
+ 
+
+
 ### keys
