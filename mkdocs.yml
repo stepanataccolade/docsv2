@@ -68,7 +68,7 @@ pages:
       - Docker Datacenter: continuous_integration/integrations/container_services/docker_datacenter.md
     - Deploy:
       - AWS Elastic Beanstalk: continuous_integration/integrations/deploy/aws_eb.md
-      - Webhooks: continuous_integration/deploy/integrations/webhooks.md
+      - Webhooks: continuous_integration/integrations/deploy/webhooks.md
     - Keys:
       - SSH: continuous_integration/integrations/keys/ssh.md
       - PEM:  continuous_integration/integrations/keys/pem.md
