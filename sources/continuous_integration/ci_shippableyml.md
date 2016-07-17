@@ -73,7 +73,7 @@ You can set this tag to the following values depending on the language you need 
 
 Specifying ```language: none``` in your yml skips any default language specific processing and will require you to specify a custom image for your build. Details are in the [Building unsupported languages](#unsupported_languages) section.
 
-
+* * * 
 
 ## runtime
 The runtime tag depends tells us the version of the language you want to run your build against. For example, you can set the following for node_js:
@@ -89,6 +89,8 @@ Similarly, you can use `rvm` for Ruby, `jdk` for Java and Scala, `go` for go, `p
 - Setting the runtime only works if you are using our default build images or an image pulled from our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) for CI.
 
 - You can specify language versions as number or string, i.e. as `0.10` or as `"0.10"`. In most cases the format is entirely interchangeable. However, in cases where the version number ends with a 0, such as `5.10`, it is safer to use a string to avoid the yml parser from transating the version to `5.1`.
+
+* * * 
 
 ## services
 Shippable offers a host of pre-installed services to make it easy to run your builds. 
@@ -143,6 +145,7 @@ The following pages describe how to use each service in greater detail:
 
 [SqlLite](services/sqllite.md) 
 
+* * * 
 
 ## env
 You can customize your build workflow by using environment variables that are set at runtime and available during your build. Shippable provides [a standard list of environment variables](advanced_options/env_var.md) that are available during each build. For example, you can use the `$BRANCH` variable to call different scripts depending on which branch is being built.
@@ -168,6 +171,7 @@ Our [advanced topic guide for environment variables](advanced_options/env_var.md
 
 *Defining global variables*
 
+* * * 
 
 ## matrix
 In most cases, you want to trigger one build for each commit/pull request to your repository. However, there are times when you might want to trigger multiple builds for a single code change. For example, you might want to test against multiple versions of Ruby, multiple aspect ratios for your Selenium tests, or multiple environment variables. 
@@ -237,6 +241,7 @@ matrix:
 
 As an example, check out this tutorial on [testing a node.js app against multiple versions of node](http://blog.shippable.com/how-to-test-your-node.js-app-against-multiple-versions-of-node). 
 
+* * * 
 
 ## build
 The build section is where you specify commands and options for your actual CI build. 
@@ -280,21 +285,27 @@ build:
 - The `on_failure` section will not be executed for timed out, unstable builds.
 - This section is also not executed if the build fails because code coverage does not meet the minimum threshold value.
   
+### cache
 
 ### push
+
+* * * 
 
 ## integrations
 The integrations section lets you specify what third party services you want to interact with a part of your build. 
 
 ### Notifications
-Shippable supports email, Slack, HipChat and IRC notifications and these can be configured in your yml file.
+Shippable supports sedning email, Slack, HipChat and IRC notifications and these can be configured in your yml file.
 
-Email notifications are always sent by default to the committer and commit author if they are 'members' of the repository, i.e. they have admin or push permissions to the repository. These default notifications are sent if:
+####Default behavior
+By default, email notifications are sent to the committer and commit author if they are 'members' of the repository, i.e. they have admin or push permissions to the repository. These default notifications are sent if:
 - a build fails
 - a previously failing build is successful 
 
-To send Slack, HipChat, or IRC notifications or to modify the default setting for email notifications, you will need to include a few lines in your yml.
+To send Slack, HipChat, or IRC notifications or to modify the default setting for email notifications, you will need to add some config your yml.
 
+
+####Example: Sending Slack notifications
 As an example, let's see how to send a Slack notification for successful and failing builds:
 
 1. Add a Slack integration to your subscription
@@ -342,7 +353,7 @@ In the snippet above, replace the following:
     
 For advanced Slack notification handling, please read our [Slack notifications page](notifications/slack.md) .
 
-### Additional notification integrations
+#### Additional notification integrations
 
 [HipChat notifications](notifications/hipchat.md)  
 [Email notifications](notifications/email.md)  
