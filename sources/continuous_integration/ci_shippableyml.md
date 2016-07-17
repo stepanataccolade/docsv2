@@ -355,10 +355,10 @@ For advanced Slack notification handling, please read our [Slack notifications p
 
 #### Additional notification integrations
 
-[HipChat notifications](integratins/notifications/hipchat.md)  
-[Email notifications](integratins/notifications/email.md)  
-[IRC notifications](integratins/notifications/irc.md)  
-[Slack notifications](integratins/notifications/slack.md)  
+[HipChat notifications](integrations/notifications/hipchat.md)  
+[Email notifications](integrations/notifications/email.md)  
+[IRC notifications](integrations/notifications/irc.md)  
+[Slack notifications](integrations/notifications/slack.md)  
 
 ### hub
 Hub integrations allow you to integrate with any Docker registry such as Docker Hub, Amazon ECR, Google Container Registry (GCR), CoreOS's Quay.io, Docker Trusted Registry, or any self hosted private Docker registry. 
