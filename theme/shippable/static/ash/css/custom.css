@@ -430,7 +430,7 @@ h2:target, h3:target {
     cursor: default;
     font-weight: 700;
     background-color: #ffffff;
-    border-right: 4px solid #d3d3d4;
+    border-right: 8px solid #003737;
 }
 
 #sidebar .tocbar a.currentPage:hover {
@@ -453,12 +453,17 @@ h2:target, h3:target {
 
 #sidebar .tocbar label.active {
     color: #ffffff;
-    background-color: #009999;
+    background-color: #003737;
     font-weight: 600;
 }
 
 #sidebar .tocbar li li.has-children {
     background-color: #ffffff;
+}
+
+#sidebar .tocbar li li label{
+    color: #ffffff;
+    background-color: #008585;
 }
 
 #sidebar .tocbar li li li a {
