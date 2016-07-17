@@ -440,6 +440,7 @@ h2:target, h3:target {
 #sidebar .tocbar label {
     color: #ffffff;
     background-color: #008585;
+    font-size: 16px;
     font-weight: normal;
     padding: 10px 1em;
     width: 100%;

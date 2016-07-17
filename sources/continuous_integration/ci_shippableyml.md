@@ -66,12 +66,11 @@ This is a mandatory tag that tells us the language used for your project so that
 
 ```
 language: node_js
-
 ```
 
 You can set this tag to the following values depending on the language you need for your build: `clojure`, `go`, `java`, `node_js`, `php`, `python`, `ruby`, `scala`, `c`
 
-Specifying ```language: none``` in your yml skips any default language specific processing and will require you to specify a custom image for your build. Details are in the [Building unsupported languages](#unsupported_languages) section.
+Specifying ```language: none``` in your yml skips any default language specific processing and will require you to specify a custom image for your build. Details are in the [Building unsupported languages](languages/custom_images.md) section.
 
 * * * 
 
@@ -83,6 +82,8 @@ node_js:
   - 0.12
 ```
 Similarly, you can use `rvm` for Ruby, `jdk` for Java and Scala, `go` for go, `python` for python, `php` for PHP versions.
+
+For more on each language and how to set the runtime, you can check out our language specific pages: [Node.js](languages/node.md), [Python](languages/python.md), [Java](languages/java.md), [Ruby](languages/ruby.md), [Go](languages/go.md), [Scala](languages/scala.md), [PHP](languages/php.md), [Clojure](languages/clojure.md), [C](languages/objc.md).
 
 **Things to remember**
 
@@ -282,9 +283,45 @@ In the snippet above, replace the following:
 - Minimum requirements for custom CI images are documented TBD: Update Link  
 
 ### ci
+The `ci` section of your yml is where the bulk of your build commands should be included. All commands in this section are executed sequentially inside your build container in the order they appear in your yml.
+
+In general, follow the guidelines below to write the `ci` section:
+
+* First, install or update any required dependencies or packages. Commands like `npm install` or `sudo apt-get update` should be at the top of this section.
+* Next, create any databases or folders you need. For example, you could create a mysql database with a `- mysql -e 'create database myapp_test;'` or create folders for test results with the command `- mkdir -p shippable/testresults`
+* Next, include commands for your builds and tests. This could be something like `- nosetests python/sample.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml` for a python project.
+
+Depending on the whether your `ci` section is successful or not, the `on_success` or `on_failure` sections will be executed. You can include post build actions depending on your build result in these sections.
+
+An example is shown below:
+
+```
+build:
+  ci:
+    - npm install    
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
+    - mysql -e 'create database if not exists test;'
+    - grunt
+    - npm test
+
+```
+
+**Things to remember**
+
+- If the `ci` section is blank, then default commands are executed, depending on the language. For more information, check out the specific language page: [Node.js](languages/node.md), [Python](languages/python.md), [Java](languages/java.md), [Ruby](languages/ruby.md), [Go](languages/go.md), [Scala](languages/scala.md), [PHP](languages/php.md), [Clojure](languages/clojure.md), [C](languages/objc.md).
 
 ### post_ci
+The `post_ci` section of the yml is executed after the `ci` section. Similar to the `ci` section, you can include a set of commands in this section which will be executed sequentially. 
 
+For example, you can execute a script  
+
+```
+build:
+  on_success:
+    - ./post_CI_processing.sh
+
+```  
 
 
 ### on_success
@@ -350,6 +387,7 @@ Cache is updated for every build and is available to subsequent builds.
 **Advanced caching topics** like clearing cache, removing unwanted files when caching is enabled, etc are covered on our [caching page](advanced_options/caching.md)
 
 ### push
+
 
 * * * 
 
