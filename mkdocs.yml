@@ -46,7 +46,7 @@ pages:
       - Overview: continuous_integration/integrations/scm/scm_overview.md
       - GitHub: continuous_integration/integrations/scm/github.md
       - GitHub Enterprise: continuous_integration/integrations/scm/github_enterprise.md
-      - Bitbucket: continuous_integration/scm/integrations/bitbucket.md
+      - Bitbucket: continuous_integration/integrations/scm/bitbucket.md
       - Bitbucket Server: continuous_integration/integrations/scm/bitbucket_server.md
       - GitLab: continuous_integration/integrations/scm/gitlab.md
     - Notifications:
