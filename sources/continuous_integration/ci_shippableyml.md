@@ -383,9 +383,9 @@ As an example, let's see how we can specify a Docker Hub integration:
 
 ```
 integrations:
-    hub:
-      - integrationName: my_docker_integration
-        type: docker
+  hub:
+    - integrationName: my_docker_integration
+      type: docker
 
 ```
 And that's it. You can now use docker commands under the `build` section of your yml to push or pull images from this registry. Advanced options like configuring this integration to only apply to specific branches are discussed in the [Docker Hub integration](integrations/image_registries/docker_hub.md)
