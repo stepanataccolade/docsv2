@@ -179,6 +179,7 @@ Shippable supports this scenario through the Build Matrix feature, where the fol
 - specifying multiple gemfiles for ruby
 
 For example, the yml snippet below will generate 6 builds, one for each combinations of language runtime and environment variable:
+
 ```
 language: node_js
 
@@ -238,26 +239,117 @@ As an example, check out this tutorial on [testing a node.js app against multipl
 
 
 ## build
-The build section 
-
+The build section is where you specify commands and options for your actual CI build. 
 
 ### pre_ci
+
 ### pre_ci_boot
+This section is optional
+
 ### ci
+
 ### post_ci
 
 ### on_success
 
-The `on_success` section is provided for any actions you want to take if your CI is successful. For example, you might want to 
+The `on_success` section is provided for any actions you want to take if your CI is successful. The commands in this section are executed only if the `ci` section exits with 0, indicating success.
 
+For example, you can execute a script if CI succeeds with the following yml snippet:
 
+```
+build:
+  on_success:
+    - ./doSomething.sh
+
+```  
 
 ### on_failure
+
+The `on_failure` section is provided for any actions you want to take if your CI fails for any reason. The commands in this section are executed only if the `ci` section does not exits with 0, indicating failure. 
+
+For example, you can execute a script if CI fails with the following yml snippet:
+
+```
+build:
+  on_failure:
+    - ./doSomething.sh
+
+```
+**Things to remember**
+
+- The `on_failure` section will not be executed for timed out, unstable builds.
+- This section is also not executed if the build fails because code coverage does not meet the minimum threshold value.
+  
+
 ### push
 
 ## integrations
+The integrations section lets you specify what third party services you want to interact with a part of your build. 
 
-### notifications
+### Notifications
+Shippable supports email, Slack, HipChat and IRC notifications and these can be configured in your yml file.
+
+Email notifications are always sent by default to the committer and commit author if they are 'members' of the repository, i.e. they have admin or push permissions to the repository. These default notifications are sent if:
+- a build fails
+- a previously failing build is successful 
+
+To send Slack, HipChat, or IRC notifications or to modify the default setting for email notifications, you will need to include a few lines in your yml.
+
+As an example, let's see how to send a Slack notification for successful and failing builds:
+
+1. Add a Slack integration to your subscription
+
+	- Go to your Subscription page on Shippable and click on the `Settings` tab
+	- Click on `Integrations` in the sidebar menu. This will show you the list of currently configured integrations.
+	- If you see the integration you want to use, skip to step 2.
+	- If you want to add a new integration, click on `Add integration` and follow directions to add your integration.
+	
+2. Add the snippet below in your yml and then customize:
+
+```
+integrations:
+  notifications:
+    - integrationName: my_slack_integration
+      type: slack
+      recipients:
+        - "#channelOne"
+        - "#channelTwo"
+      branches:
+        only:
+          - master
+          - dev
+      on_success: always
+      on_failure: always
+      on_pull_request: never
+      on_start: never
+```
+In the snippet above, replace the following:
+
+- `my_slack_integration` with the integration name you want to use.
+- `recipients` with the names of the rooms you want to send notifications to
+	- If there is a single recipient, you can use the format `recipients: "#channelOne"`
+- [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
+- [optional] You can set the following options for the `on_success`, `on_failure` tags :
+    - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
+    - `always` means that you will always receive a notification for that build status
+    - `never` means that you will never receive a notification for that build status
+  By default, `on_success` is set to `change` and `on_failure` is set to `always` if Slack is configured in the yml but you do not specify these tags.
+* [optional] You can set the following options for the `on_start`, `on_pull_request` tags :
+    - `always` means that you will always receive a notification for build start/pull request
+    - `never` means that you will never receive a notification for that build start/pull request
+    
+    By default, `on_start` is set to `never` and `on_pull_request` is set to `always` if Slack is configured in the yml but you do not specify these tags.  
+    
+For advanced Slack notification handling, please read our [Slack notifications page](notifications/slack.md) .
+
+### Additional notification integrations
+
+[HipChat notifications](notifications/hipchat.md)  
+[Email notifications](notifications/email.md)  
+[IRC notifications](notifications/irc.md)  
+[Slack notifications](notifications/slack.md)  
+
 ### hub
 ### deploy
 ### source control
+### keys
