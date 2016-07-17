@@ -27,6 +27,8 @@ h3 {
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 5px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
 }
 
 h4 {
@@ -73,7 +75,6 @@ blockquote::after {
 
 code {
     font-size: 0.9em !important;
-    font-weight:bold;
     border: 1px solid #ddd;
     color: #333;
     background-color: #F5F5F5;
