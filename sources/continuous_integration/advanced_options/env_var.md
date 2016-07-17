@@ -149,7 +149,7 @@ env:
 ```
 
 ---
-
+<a name="multi_vars"></a>
 ## Multiple variables per build
 
 You can combine multiple environment variables in the same build using the `global` tag. This will prevent a build matrix for being triggered and all your variables will be defined for one build.
