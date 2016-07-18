@@ -15,7 +15,7 @@ Check out this feature by doing the following steps:
 ##Adding an image
 To monitor an image and receive notification when the image is updated in the registry, follow the steps below.
 
-- Create an account integration for an Image registry (such as Docker Hub, Docker Trusted Registry,  Amazon ECR, Google GCR, Quay.io or any private registry) where the image is to be monitored. [Instructions here](account_settings_integrations/adding-an-account-integration/)
+- Create an account integration for an Image registry (such as Docker Hub, Docker Trusted Registry,  Amazon ECR, Google GCR, Quay.io or any private registry) where the image is to be monitored. [Instructions here](accountSettingsIntegrations/#Adding-an-account-integration/)
 - Create an account integration for the type of notification you want to receive when the image changes. You can set up Slack, HipChat, IRC, or Email notification. [Instructions here](../continuous_integration/notifications/slack/)
 - Go to your 'Account Settings' (gear icon on the top right hand navigation bar) and click the 'Images' section.
 - Click the `Add image` button and complete the following:

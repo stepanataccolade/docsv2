@@ -7,7 +7,7 @@ You need to add your credit card information to your account in order to use the
 
 The Cards section will show you all the credit cards linked to your account.
 
-<img src="../images/account_settings_cards.png" alt="List of credit cards under Account Settings" style="width:700px;"/>
+<img src="../images/AccountSettingsCards.png" alt="List of credit cards under Account Settings" style="width:700px;"/>
 
 ##Adding a card
 
@@ -15,7 +15,7 @@ Click on the `Add Card` button to add a new card and follow instructions to save
 
 You will not be charged until you use a card to upgrade a subscription.
 
-<img src="../images/account_settings_add_card.png" alt="Adding a Credit Card to your Account" style="width:700px;"/>
+<img src="../images/AccountSettingsAddCard.png" alt="Adding a Credit Card to your Account" style="width:700px;"/>
 
 ---
 
@@ -23,7 +23,7 @@ You will not be charged until you use a card to upgrade a subscription.
 
 Click the `Delete` button for the card you wish to remove from your account. Click the `Yes` button on the confirmation window.
 
-<img src="../images/account_settings_delete_card.png" alt="Deleting a Credit Card to your Account" style="width:700px;"/>
+<img src="../images/AccountSettingsDeleteCard.png" alt="Deleting a Credit Card to your Account" style="width:700px;"/>
 
 
 ---

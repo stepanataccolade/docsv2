@@ -79,27 +79,27 @@ pages:
   - Resources: pipelines/resources.md
   - Jobs: pipelines/jobs.md
   - Triggers: pipelines/triggers.md
-  - Deploying your first pipeline: tutorials/DeploySamplePipeline.md
+  - Deploying your first pipeline: tutorials/deploySamplePipeline.md
   - FAQ: pipelines/faq.md
 - Navigating the UI:
-  - Home Page: NavigatingUI/HomePage.md
+  - Home Page: navigatingUI/homePage.md
   - Account Settings:
-    - Accounts section: NavigatingUI/AccountSettingsAccounts.md
-    - Integrations section: NavigatingUI/AccountSettingsIntegrations.md
-    - Cards section: NavigatingUI/AccountSettingsCards.md
-    - Images section: NavigatingUI/AccountSettingsImages.md
-    - API section: NavigatingUI/AccountSettingsApi.md
+    - Accounts section: navigatingUI/accountSettingsAccounts.md
+    - Integrations section: navigatingUI/accountSettingsIntegrations.md
+    - Cards section: navigatingUI/accountSettingsCards.md
+    - Images section: navigatingUI/accountSettingsImages.md
+    - API section: navigatingUI/accountSettingsApi.md
   - Subscriptions:
-    - CI tab: NavigatingUI/SubscriptionsCI.md
-    - Infra tab: NavigatingUI/SubscriptionsInfra.md
-    - Pipelines tab: NavigatingUI/SubscriptionsPipelines.md
-    - Settings tab: NavigatingUI/SubscriptionsSettings.md
+    - CI tab: navigatingUI/subscriptionsCI.md
+    - Infra tab: navigatingUI/subscriptionsInfra.md
+    - Pipelines tab: navigatingUI/subscriptionsPipelines.md
+    - Settings tab: navigatingUI/subscriptionsSettings.md
   - Projects:
-    - Status: NavigatingUI/ProjectStatus.md
-    - Settings: NavigatingUI/ProjectSettings.md
+    - Status: navigatingUI/projectStatus.md
+    - Settings: navigatingUI/projectSettings.md
   - Builds:
-    - Build Overview: NavigatingUI/BuildOverview.md
-    - Build Details: NavigatingUI/BuildDetails.md
+    - Build Overview: navigatingUI/buildOverview.md
+    - Build Details: navigatingUI/buildDetails.md
 - API:
   - Overview: api/api.md
   - Account routes: api/apiAccount.md
@@ -110,10 +110,10 @@ pages:
   - Status Code Mapping: api/apiStatusMapping.md
 - Tutorials:
   - Pipelines:
-    - How to add resources: tutorials/HowToAddSyncRepos.md
+    - How to add resources: tutorials/howToAddSyncRepos.md
   - How to add integrations: tutorials/how_to_add_integrations.md
-  - Running a sample CI build: tutorials/RunSampleCIBuild.md
-  - Deploying a sample appliation: tutorials/DeploySamplePipeline.md
+  - Running a sample CI build: tutorials/runSampleCIBuild.md
+  - Deploying a sample appliation: tutorials/deploySamplePipeline.md
   - Source Control System:
     - Using GitHub: tutorials/how_to_use_github.md
     - Using GitHub Enterprise: tutorials/how_to_use_github_enterprise.md
