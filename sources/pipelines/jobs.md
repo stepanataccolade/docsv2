@@ -49,6 +49,7 @@ jobs:
     steps:
       - IN: "some resource"
       - IN: "some other resource"
+      
 ```
 This a very simple job which needs 2 INPUT resources to perform whatever that 
 job is designed to do. 
