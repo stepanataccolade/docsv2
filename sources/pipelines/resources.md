@@ -66,11 +66,7 @@ These are the resources that come straight out of the box.
 - [params](#params): parameters for your apps/services/microservices
 - [replicas](#replicas): number of copies of the service to run
 - [version](#version): semantic versions
-- [ecsCluster](#ecsCluster): Amazon Elastic Compute Service cluster definition
-- [gkeCluster](#gkeCluster): Google Kubernetes cluster definition
-- [tripubCluster](#tripubCluster): Joyent Triton cluster definition 
-- [acsCluster](#acsCluster): Azure Container Service cluster definition 
-- [dclCluster](#dclCluster): Docker Cloud cluster definition 
+- [cluster](#cluster): Cluster that defines a container service
 
 <a name="syncRepo"></a>
 ## syncRepo
@@ -95,8 +91,8 @@ Alternatively you can add it to `shippable.resources.yml`
 - name: prod-repo                           #required
   type: syncRepo                            #required
   integration: avinci-gh                    #required
-  source:
-    name: avinci/prod                       #required
+  pointer:
+    sourceName: avinci/prod                 #required
     branch: master                          #optional
 ```
 This will create a resource of type `syncRepo` with the name `prod-repo`. It is 
@@ -134,8 +130,8 @@ repository providers
 - gitlab server
 
 ```
-source:
-  name: string 
+pointer:
+  sourceName: string 
   branch: string
 ```
 `name` is the fully qualified name of the repo i.e. **org/repo**
@@ -159,8 +155,8 @@ You can create this resource by adding it to `shippable.resources.yml`
 - name: box-repo                            #required
   type: gitRepo                             #required
   integration: avinci-gh                    #required
-  source:
-    name: avinci/box                        #required
+  pointer:
+    sourceName: avinci/box                  #required
     branch: master                          #optional
 ```
 This will create a resource of type `gitRepo` with the name `box-repo`. It is 
@@ -198,11 +194,11 @@ types of repository providers
 - gitlab server
 
 ```
-source:
-  name: string 
+pointer:
+  sourceName: string 
   branch: string
 ```
-`name` is the fully qualified name of the repo i.e. **org/repo**
+`sourceName` is the fully qualified name of the repo i.e. **org/repo**
 
 `branch` defaults to `master` if its not provided 
 
@@ -211,7 +207,7 @@ source:
 ## image
 This resource type is used to add a docker image to your pipeline. 
 
-Integrations allow you to add images on any of the [supported image registeries](#regTypes) 
+Integrations allow you to add images on any of the [supported image registries](#regTypes) 
 using the same resource type.
 
 You can create this resource by adding it to `shippable.resources.yml`
@@ -219,15 +215,16 @@ You can create this resource by adding it to `shippable.resources.yml`
 - name: box-image                           #required
   type: image                               #required
   integration: avinci-dh                    #required
-  source:
-    name: "avinci/box"                      #required
-    tag: "master.35"                        #optional
+  pointer:
+    sourceName: "avinci/box"                #required
+  seed:
+    versionName: "master.35"                #required
 ```
 This will create a resource of type `image` with the name `box-image`. It is using 
 an integration `avinci-dh` which is the name of the integration defined, 
 [learn more here](#integration). The image name is `box` and belongs to `avinci` 
 org. The branch to look for resource and job definitions is `master`. This image 
-tag is being set to `master.35`.
+tag is being set to `master.35` as the initial seed version.
 
 ### YML properties
 ```
@@ -259,13 +256,16 @@ integrations[learn more](#integration)). We support the following types of regis
 - Quay.io
 
 ```
-source:
-  name: string 
-  tag: string
+pointer:
+  sourceName: string 
 ```
-`name` is the fully qualified name of the image i.e. **org/repo**
+`sourceName` is the fully qualified name of the image i.e. **org/repo**
 
-`tag` defaults to `latest` if its not provided 
+```
+seed:
+  versionName: string
+```
+`versionName` since this is an image, this will take in the tag of the image
 
 <br>
 <a name="dockerOptions"></a>
@@ -283,7 +283,7 @@ You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: box-opts                            #required
   type: dockerOptions                       #required
-  source:
+  version:
     memory: 64                              #optional
     cpu-shares: 256                         #optional TODO camelcase
     portMappings:                           #optional
@@ -308,14 +308,14 @@ This defines the type of resource. In this case *dockerOptions*. This cannot
 be changed once set. 
 
 ```
-source:
+version:
   memory: integer 
   cpu-shares: integer
   portMappings: [elements with integer:integer format]
 ```
 `memory` is the amount of memory the container is allocated. It is set in 
 megabytes and is an integer. defaults to 0 if not provided which means let the 
-host node manage it dynamically.
+host node manage it dynamically. 
 
 `cpu-shares` is the relative % of CPU that is allocated 
 [more info](http://stackoverflow.com/questions/26841846/how-to-allocate-50-cpu-resource-to-docker-container)
@@ -326,6 +326,8 @@ dynamically.
 element and the container port is the second element separated by a `:`. Port
 numbers are always integers. If not provided, no container port is exposed, even
 if your Dockerfile had the `EXPOSE` statement.
+
+Any time any of these options changes, a new version is created
 
 <br>
 <a name="params"></a>
@@ -343,7 +345,7 @@ You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: box-params                          #required
   type: params                              #required
-  source:
+  version:
     params:                                 
       DB_HOST: "ds015700"                   #required atleast 1
       DB_NAME: "ayeaye"                     #optional
@@ -366,13 +368,14 @@ This defines the type of resource. In this case *params*. This cannot
 be changed once set. 
 
 ```
-source:
+version:
   params: 
     key1: value1
     key2: value2
 ```
 `params` is basically an object of key value pairs that will be set as environment
-variables when the app/service/microservice starts at the target.
+variables when the app/service/microservice starts at the target. A new version is
+created everytime any of the values of the params changes. 
 
 <br>
 <a name="replicas"></a>
@@ -390,8 +393,8 @@ You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: box-scaler                          #required
   type: replicas                            #required
-    source:
-      count: 1                              #required
+  version:
+    count: 1                                #required
 ```
 The above YML when added to `shippable.resources.yml` will create a resource of 
 type `replicas` with the name `box-scaler`. Currently only 1 copy of the service
@@ -411,26 +414,27 @@ This defines the type of resource. In this case *replicas*. This cannot be chang
 once set. 
 
 ```
-source:
+version:
   count: 1
 ```
-`count` is an integer that represents the number of copies to run.
+`count` is an integer that represents the number of copies to run. This is versioned
+and everytime the counter is changed, a new version is created.
 
 <br>
 <a name="version"></a>
 ## version
-This resource type is used to create version numbers. It uses semantic versioning 
+This resource type is used to create version numbers. It uses semantic version
 methodology to increment versions.
 
 You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: box-version                         #required
   type: version                             #required
-  source:
-    base: "0.0.1"                           #required
+  seed:
+    versionName: "0.0.1"                    #required
 ```
 This will create a resource of type `version` with the name `box-version`. The 
-base version is being set to 0.0.1
+seed version is being set to 0.0.1
 
 ### YML properties
 ```
@@ -446,28 +450,29 @@ This defines the type of resource. In this case *version*. This cannot be change
 once set. 
 
 ```
-source:
-  base: string with format "0.0.0"
+seed:
+  versionName: string with format "0.0.0"
 ```
-`base` is an string integer that represents a semantic version that is used as a
-starting point. This will get incremented in the GET operations of jobs. You can 
-also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats too
+`versionName` is an string integer that represents a semantic version that is used 
+as a starting point. This will get incremented in the IN operations of [jobs](#jobs). 
+You can also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats too
 
 <br>
-<a name="ecsCluster"></a>
-## ecsCluster
-This resource type is used to add a AWS ECS cluster to your pipeline. 
+<a name="cluster"></a>
+## cluster
+This resource type is used to add a container service that can be used for deploying
+your apps/services/microservices. 
 
 You can create this resource by adding it to `shippable.resources.yml`
 ```
 - name: env-test                            #required
-  type: ecsCluster                          #required
+  type: cluster                             #required
   integration: avinci-aws
-  source:
-    name : "test-aws"                       #required
-    region: "us-east-1"                     #required
+  pointer:
+    sourceName : "test-aws"                 #required
+    region: "us-east-1"                     #required for some container services
 ```
-This will create a resource of type `ecsCluster` with the name `env-test`. It is 
+This will create a resource of type `cluster` with the name `env-test`. It is 
 using an integration `avinci-aws` which is the name of the integration defined, 
 [learn more here](#integration). The cluster name is `test-aws` and on the aws 
 region  to `us-east-1`. 
@@ -488,195 +493,32 @@ be changed once set.
 ```
 integration: string
 ```
-This defines the integration that we are using to connect to the cluster. 
+This defines the integration that we are using to connect to the container service. 
+Shippable supports multiple types of container services and they can be defined as 
+integrations[learn more](#integration)). We support the following types of container
+services 
+
+- ecsCluster: AWS Elastic container service
+- gkeCluster: Google Kubernetes container cluster
+- tripubCluster: Joyent Triton container cluster 
+- acsCluster: Azure Ccntainer Service cluster 
+- dclCluster: Docker cloud container cluster 
+
 
 ```
-source:
-  name: string 
+pointer:
+  sourceName: string 
   region: string
 ```
-`name` is the name of the cluster that this resource represents.
+`sourceName` is the name of the cluster that this resource represents.
 
-`region` is the AWS region where the cluster resides. The format is "us-west-1"
+`region` is the region where the cluster resides. The values are dependent on the
+integration. This is required for the following types of integrations and will take
+in the values that the provider supports
 
-<br>
-<a name="gkeCluster"></a>
-## gkeCluster
-This resource type is used to add a AWS ECS cluster to your pipeline. 
-
-You can create this resource by adding it to `shippable.resources.yml`
-```
-- name: env-test                            #required
-  type: gkeCluster                          #required
-  integration: avinci-gke                   #required
-  source:
-    name : "test-gke"                       #required
-    region: "us-central1-b"                 #required
-```
-This will create a resource of type `gkeCluster` with the name `env-test`. It is 
-using an integration `avinci-gke` which is the name of the integration defined, 
-[learn more here](#integration). The cluster name is `test-gke` and on the aws 
-region  to `us-central1-b`. 
-
-### YML properties
-```
-name: string
-```
-This is the name of the resource. Keep it short but explanatory as this
-is used as a reference in jobs
-
-```
-type: string
-```
-This defines the type of resource. In this case *gkeCluster*. This cannot 
-be changed once set. 
-
-```
-integration: string
-```
-This defines the integration that we are using to connect to the cluster. 
-
-```
-source:
-  name: string 
-  region: string
-```
-`name` is the name of the cluster that this resource represents.
-
-`region` is the GCP region where the cluster resides. The format is "us-central1-b"
-
-<br>
-<a name="tripubCluster"></a>
-## tripubCluster
-This resource type is used to add a Joyent Triton cluster to your pipeline. 
-
-You can create this resource by adding it to `shippable.resources.yml`
-```
-- name: env-test                            #required
-  type: tripubCluster                       #required
-  integration: avinci-tri                   #required
-  source:
-    name : "test-tri"                       #required
-    region: "us-east-1"                     #required
-```
-This will create a resource of type `tripubCluster` with the name `env-test`. It 
-is using an integration `avinci-tri` which is the name of the integration defined, 
-[learn more here](#integration). The cluster name is `test-tri` and on the aws 
-region  to `us-east-1`. 
-
-### YML properties
-```
-name: string
-```
-This is the name of the resource. Keep it short but explanatory as this
-is used as a reference in jobs
-
-```
-type: string
-```
-This defines the type of resource. In this case *tripubCluster*. This cannot 
-be changed once set. 
-
-```
-integration: string
-```
-This defines the integration that we are using to connect to the cluster. 
-
-```
-source:
-  name: string 
-  region: string
-```
-`name` is the name of the cluster that this resource represents.
-
-`region` is the Triton region where the cluster resides. The format is "us-west-1"
-
-<br>
-<a name="acsCluster"></a>
-## acsCluster
-This resource type is used to add a Microsoft Azure cluster to your pipeline. 
-
-You can create this resource by adding it to `shippable.resources.yml`
-```
-- name: env-test                            #required
-  type: acsCluster                          #required
-  integration: avinci-acs                   #required
-  source:
-    name : "test-acs"                       #required
-    region: "us-east-1"                     #required
-```
-This will create a resource of type `acsCluster` with the name `env-test`. It is 
-using an integration `avinci-acs`which is the name of the integration defined, 
-[learn more here](#integration). The cluster name is `test-acs` and on the aws 
-region  to `us-east-1`. 
-
-### YML properties
-```
-name: string
-```
-This is the name of the resource. Keep it short but explanatory as this
-is used as a reference in jobs
-
-```
-type: string
-```
-This defines the type of resource. In this case *acsCluster*. This cannot 
-be changed once set. 
-
-```
-integration: string
-```
-This defines the integration that we are using to connect to the cluster. 
-
-```
-source:
-  name: string 
-  region: string
-```
-`name` is the name of the cluster that this resource represents.
-
-`region` is the Azure region where the cluster resides. The format is "us-west-1"
-
-<br>
-<a name="dclCluster"></a>
-## dclCluster
-This resource type is used to add a AWS ECS cluster to your pipeline. 
-
-You can create this resource by adding it to `shippable.resources.yml`
-```
-- name: env-test                            #required
-  type: dclCluster                          #required
-  integration: avinci-dcl                   #required
-  source:
-    name : "test-dcl"                       #required
-```
-This will create a resource of type `dclCluster` with the name `env-test`. It is 
-using an integration `avinci-dcl` which is the name of the integration defined, 
-[learn more here](#integration). The cluster name is `test-dcl`. 
-
-### YML properties
-```
-name: string
-```
-This is the name of the resource. Keep it short but explanatory as this
-is used as a reference in jobs
-
-```
-type: string
-```
-This defines the type of resource. In this case *dclCluster*. This cannot 
-be changed once set. 
-
-```
-integration: string
-```
-This defines the integration that we are using to connect to the cluster. 
-
-```
-source:
-  name: string 
-  region: string
-```
-`name` is the name of the cluster that this resource represents.
+- ecsCluster: AWS Elastic container service
+- gkeCluster: Google Kubernetes container cluster
+- tripubCluster: Joyent Triton container cluster 
+- acsCluster: Azure Ccntainer Service cluster 
 
 <br>
