@@ -15,6 +15,6 @@ Given below is the mapping of a build's statusCode to the build states displayed
 |70|canceled |Complete |![add_icon](/navigating_ui/images/ci_build_icon_cancelled.png)|
 |80|failed |Complete |![add_icon](/navigating_ui/images/ci_build_icon_failed.png)|
 
-Here is more information on [build states](/navigating_ui/builds_information/#build-status).
+Here is more information on [build states](/navigating_ui/BuildOverview/#build-status).
 
 ---
