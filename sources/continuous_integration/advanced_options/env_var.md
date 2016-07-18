@@ -164,7 +164,7 @@ env:
 ---
 
 ##Injecting Global Env Variables
-You can also inject global environment variables into the new build by specifying key-value pairs in the request body while [triggering a new build](api.md#trigger-a-new-run) . These key-value pairs have to be set in the `globalEnv` property.
+You can also inject global environment variables into the new build by specifying key-value pairs in the request body while [triggering a new build](/api/api_project_routes/#trigger-a-new-run) . These key-value pairs have to be set in the `globalEnv` property.
 
 ```
 {
