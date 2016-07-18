@@ -42,7 +42,7 @@ pages:
     - Timeouts: continuous_integration/advanced_options/timeouts.md
     - Node Machine Images: continuous_integration/advanced_options/machine_images.md
   - Integrations:
-    - Source Control Systems: 
+    - Source Control Systems:
       - Overview: continuous_integration/integrations/scm/scm_overview.md
       - GitHub: continuous_integration/integrations/scm/github.md
       - GitHub Enterprise: continuous_integration/integrations/scm/github_enterprise.md
@@ -79,41 +79,41 @@ pages:
   - Resources: pipelines/resources.md
   - Jobs: pipelines/jobs.md
   - Triggers: pipelines/triggers.md
-  - Deploying your first pipeline: tutorials/deploy_sample_pipeline.md
+  - Deploying your first pipeline: tutorials/DeploySamplePipeline.md
   - FAQ: pipelines/faq.md
 - Navigating the UI:
-  - Home Page: navigating_ui/homepage.md
+  - Home Page: NavigatingUI/HomePage.md
   - Account Settings:
-    - Accounts section: navigating_ui/account_settings_accounts.md
-    - Integrations section: navigating_ui/account_settings_integrations.md
-    - Cards section: navigating_ui/account_settings_cards.md
-    - Images section: navigating_ui/account_settings_images.md
-    - API section: navigating_ui/account_settings_api.md
+    - Accounts section: NavigatingUI/AccountSettingsAccounts.md
+    - Integrations section: NavigatingUI/AccountSettingsIntegrations.md
+    - Cards section: NavigatingUI/AccountSettingsCards.md
+    - Images section: NavigatingUI/AccountSettingsImages.md
+    - API section: NavigatingUI/AccountSettingsApi.md
   - Subscriptions:
-    - CI tab: navigating_ui/subscriptions_ci.md
-    - Infra tab: navigating_ui/subscriptions_infra.md
-    - Pipelines tab: navigating_ui/subscriptions_pipelines.md
-    - Settings tab: navigating_ui/subscriptions_settings.md
+    - CI tab: NavigatingUI/SubscriptionsCI.md
+    - Infra tab: NavigatingUI/SubscriptionsInfra.md
+    - Pipelines tab: NavigatingUI/SubscriptionsPipelines.md
+    - Settings tab: NavigatingUI/SubscriptionsSettings.md
   - Projects:
-    - Status: navigating_ui/projects_status.md
-    - Settings: navigating_ui/projects_settings.md
+    - Status: NavigatingUI/ProjectStatus.md
+    - Settings: NavigatingUI/ProjectSettings.md
   - Builds:
-    - Build Information: navigating_ui/builds_information.md
-    - Build Item details: navigating_ui/build_item_details.md
+    - Build Overview: NavigatingUI/BuildOverview.md
+    - Build Details: NavigatingUI/BuildDetails.md
 - API:
   - Overview: api/api.md
-  - Account routes: api/api_account_routes.md
-  - Subscription routes: api/api_subscription_routes.md
-  - Project routes: api/api_project_routes.md
-  - Job routes: api/api_job_routes.md
-  - Run routes: api/api_runs_routes.md
-  - Status Code Mapping: api/api_status_mapping.md
+  - Account routes: api/apiAccount.md
+  - Subscription routes: api/apiSubscription.md
+  - Project routes: api/apiProject.md
+  - Job routes: api/apiJob.md
+  - Run routes: api/apiRuns.md
+  - Status Code Mapping: api/apiStatusMapping.md
 - Tutorials:
   - Pipelines:
-    - How to add resources: tutorials/how_to_add_syncRepos.md
+    - How to add resources: tutorials/HowToAddSyncRepos.md
   - How to add integrations: tutorials/how_to_add_integrations.md
-  - Running a sample CI build: tutorials/run_sample_ci_build.md
-  - Deploying a sample appliation: tutorials/deploy_sample_pipeline.md
+  - Running a sample CI build: tutorials/RunSampleCIBuild.md
+  - Deploying a sample appliation: tutorials/DeploySamplePipeline.md
   - Source Control System:
     - Using GitHub: tutorials/how_to_use_github.md
     - Using GitHub Enterprise: tutorials/how_to_use_github_enterprise.md
