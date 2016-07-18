@@ -156,4 +156,4 @@ pages:
   - Running multiple docker push: test.md
   - Deploy to Heroku: tutorials/ht_heroku.md
   - Deploy to Digital Ocean: tutorials/ht_digitalocean.md
-  - Monitor your Docker images for updates: tutorials/how_to_monitor_docker_images.md
+  - Monitor your Docker images for updates: tutorials/howToMonitorDockerImages.md

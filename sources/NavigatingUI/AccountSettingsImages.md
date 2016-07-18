@@ -30,7 +30,7 @@ To monitor an image and receive notification when the image is updated in the re
 
 Images are 'watched' every 20 mins, so your notification will be sent 20 mins after the image is updated, in the worst case.
 
-<img src="../images/account_settings_add_image.png" alt="Adding an Image to monitor" style="width:700px;"/>
+<img src="../images/accountSettingsAddImage.png" alt="Adding an Image to monitor" style="width:700px;"/>
 
 ---
 
@@ -47,7 +47,7 @@ To update an image or change the notification settings:
 - You will see the list of images being watched.
 - Click on the image_name to update the notification setting.
 
-<img src="../images/account_settings_update_image.png" alt="Updating an Image" style="width:700px;"/>
+<img src="../images/accountSettingsUpdateImage.png" alt="Updating an Image" style="width:700px;"/>
 
 ---
 
@@ -60,6 +60,6 @@ To delete an image from being monitored:
 - Click on the Delete button for the image(s) you want to stop monitoring.
 
 
-Read the ["How to monitor your Docker Images"](../../tutorials/how_to_monitor_docker_images/) section for further details.
+Read the ["How to monitor your Docker Images"](/tutorials/howToMonitorDockerImages/) section for further details.
 
 ---

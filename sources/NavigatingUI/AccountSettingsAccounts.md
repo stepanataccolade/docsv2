@@ -6,7 +6,7 @@ page_keywords: User Interface, microservices, Continuous Integration, Continuous
 #Account Settings
 Get to your account settings by clicking on the gear icon in the top navigation bar when you are logged in to Shippable.
 
-<img src="../images/TopRightNavigationMenu.png" alt="Shippable Top Right Navigation Menu" style="width:200px;"/>
+<img src="../images/topRightNavigationMenu.png" alt="Shippable Top Right Navigation Menu" style="width:200px;"/>
 
 ---
 The Account Settings contains the following sections:
@@ -26,7 +26,7 @@ You can use the `Sync` button to sync your account at any time if you want to se
 
 For example: You are added to an organization on GitHub as an owner/collaborator, or  you have new repos in GitHub and want to see them immediately, or you linked your Bitbucket account to this account and want to see your Bitbucket repositories right away.
 
-<img src="../images/AccountSettingsAccountInfo.png" alt="Account Settings Account information" style="width:700px;"/>
+<img src="../images/accountSettingsAccountInfo.png" alt="Account Settings Account information" style="width:700px;"/>
 
 ---
 
@@ -34,7 +34,7 @@ For example: You are added to an organization on GitHub as an owner/collaborator
 
 This sections shows you which source control identities are connected to your Shippable account. You can connect both GitHub and Bitbucket accounts to one Shippable account and get a consolidated view of all your projects.
 
-<img src="../images/AccountSettingsGitIdentities.png" alt="GitHub and Bitbucket identities" style="width:700px;"/>
+<img src="../images/accountSettingsGitIdentities.png" alt="GitHub and Bitbucket identities" style="width:700px;"/>
 
 **GitHub**
 
@@ -64,6 +64,6 @@ Your account will be deleted immediately if you choose to complete this action.
 
 Please note that deleting your account does not delete Organization subscriptions since these are shared by multiple users. If you sign in to Shippable again at a future time, you will still see projects and builds for organizational subscriptions. If you want to stop using Shippable for organizations, you can always revoke access in your GitHub account settings.
 
-<img src="../images/AccountSettingsDelete.png" alt="Delete your Account" style="width:700px;"/>
+<img src="../images/accountSettingsDelete.png" alt="Delete your Account" style="width:700px;"/>
 
 ---
