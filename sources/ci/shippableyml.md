@@ -314,12 +314,13 @@ build:
 ### post_ci
 The `post_ci` section of the yml is executed after the `ci` section. Similar to the `ci` section, you can include a set of commands in this section which will be executed sequentially. 
 
-For example, you can execute a script  
+For example, you can push your docker image to a registry 
 
 ```
 build:
   on_success:
     - ./post_CI_processing.sh
+    - 
 
 ```  
 
@@ -455,10 +456,10 @@ For advanced Slack notification handling, please read our [Slack notifications p
 
 #### Additional notification integrations
 
-[HipChat notifications](integrations/notifications/hipchat.md)  
-[Email notifications](integrations/notifications/email.md)  
-[IRC notifications](integrations/notifications/irc.md)  
-[Slack notifications](integrations/notifications/slack.md)  
+- [HipChat notifications](integrations/notifications/hipchat.md)  
+- [Email notifications](integrations/notifications/email.md)  
+- [IRC notifications](integrations/notifications/irc.md)  
+- [Slack notifications](integrations/notifications/slack.md)  
 
 ### hub
 Hub integrations allow you to integrate with any Docker registry such as Docker Hub, Amazon ECR, Google Container Registry (GCR), CoreOS's Quay.io, Docker Trusted Registry, or any self hosted private Docker registry. 
