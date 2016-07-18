@@ -1,4 +1,4 @@
-page_title: Shippable FAQ
+page_title: Troubleshoot Continuous Integration
 page_description: Commonly asked questions that will help with troubleshooting
 page_keywords: concepts, documentation, shippable, CI/CD
 
