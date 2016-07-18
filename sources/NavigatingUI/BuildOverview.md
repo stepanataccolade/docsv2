@@ -12,20 +12,20 @@ The Builds page shows you information about a specific build(s) in a project. To
 - Click on the project name to view the Project page. This will take you to the project dashboard.
 - Click on any build number in the Summary or History tabs to get to the Build page
 
-Addiitonal information about what is shown on this page is given below. To learn how to configure your build, check out our [Build configuration section**UpdateLink**](build_ci.md).
+Additional information about what is shown on this page is given below. To learn how to configure your build, check out our [Build configuration section**UpdateLink**](build_ci.md).
 
-<img src="../images/ci_builds_mv_build_dashboard.gif" alt="Build Information" style="width:700px;"/>
+<img src="../images/buildDashboardMv.gif" alt="Build Information" style="width:700px;"/>
 
 ---
 
 ## Build information
 The build page shows all relevant information like status, branch name, commit message, committer, etc.
 
-A build on Shippable can actually consist of one or more individual build items, depending on your yml configuration. Configurations resulting in a [matrix build](../continuous_integration/advanced_options/matrix_builds.md) will have more than one build items as part of the build.
+A build on Shippable can actually consist of one or more individual build items, depending on your yml configuration. Configurations resulting in a [matrix build](/continuous_integration/advanced_options/matrix_builds.md) will have more than one build items as part of the build.
 
 The build status widget for the overall build looks like this:
 
-<img src="../images/ci_build_status.png" alt="Build status" style="width:700px;"/>
+<img src="../images/buildStatus.png" alt="Build status" style="width:700px;"/>
 
 The breadcrumb shows you the Subscription name and project name. The actual widget provides the following information:
 
@@ -48,22 +48,22 @@ The circle at the left of the widget shows a color coded status with the followi
 ### Build status definitions:
 Complete States
 
-- ![add_icon](images/ci_build_icon_success.png) **success**: The build has successfully completed with no failed tests in a build or in any job in a matrix build. The statusCode in API for this state is 30.
-- ![add_icon](images/ci_build_icon_unstable.png) **unstable**: State when a job ends successfully (meaning it returned an exit code of 0), but there are one or more failed tests. If at least one job in a matrix is unstable and all the other jobs are successful, the build will be marked as unstable. The statusCode in API for this state is 50.
-- ![add_icon](images/ci_build_icon_timeout.png) **timeout**: The build has timed out prior to executing all the jobs. This occurs  when there is no log output or a command hangs for over 10 minutes. It also occurs if your build is running for over 60 minutes (for free accounts) or over 120 minutes (for paid accounts). The statusCode in API for this state is 60.
-- ![add_icon](images/ci_build_icon_cancelled.png) **canceled**: State when a build has been manually canceled, from the Shippable portal. The statusCode in API for this state is 70.
-- ![add_icon](images/ci_build_icon_failed.png) **failed**: State when there is at least a single failure in a build or a single job in a matrix build that fails. The errors in the build causing it to fail are listed in the console logs for the exact step it failed. The statusCode in API for this state is 80.
+- ![add_icon](images/buildSuccess.png) **success**: The build has successfully completed with no failed tests in a build or in any job in a matrix build. The statusCode in API for this state is 30.
+- ![add_icon](images/buildUnstable.png) **unstable**: State when a job ends successfully (meaning it returned an exit code of 0), but there are one or more failed tests. If at least one job in a matrix is unstable and all the other jobs are successful, the build will be marked as unstable. The statusCode in API for this state is 50.
+- ![add_icon](images/buildTimeout.png) **timeout**: The build has timed out prior to executing all the jobs. This occurs  when there is no log output or a command hangs for over 10 minutes. It also occurs if your build is running for over 60 minutes (for free accounts) or over 120 minutes (for paid accounts). The statusCode in API for this state is 60.
+- ![add_icon](images/buildCancelled.png) **canceled**: State when a build has been manually canceled, from the Shippable portal. The statusCode in API for this state is 70.
+- ![add_icon](images/buildFailed.png) **failed**: State when there is at least a single failure in a build or a single job in a matrix build that fails. The errors in the build causing it to fail are listed in the console logs for the exact step it failed. The statusCode in API for this state is 80.
 
 Incomplete States:
 
-- ![add_icon](images/ci_build_icon_waiting.png) **waiting**: A build that is waiting for an available minion. The most probable reason you'll see this state is when you have exceeded the number of concurrent builds your subscription is eligible for. The statusCode in API for this state is 0.
-- ![add_icon](images/ci_build_icon_processing.png) **processing**: A build that is still in progress and is executing the steps defined in shippable.yml file. The statusCode in API for this state is 20.
+- ![add_icon](images/buildWaiting.png) **waiting**: A build that is waiting for an available minion. The most probable reason you'll see this state is when you have exceeded the number of concurrent builds your subscription is eligible for. The statusCode in API for this state is 0.
+- ![add_icon](images/buildProcessing.png) **processing**: A build that is still in progress and is executing the steps defined in shippable.yml file. The statusCode in API for this state is 20.
 
 
 The white icon inside the circle shows whether a commit or a pull request triggered the build:
 
-- ![add_icon](images/ci_build_icon_commit.png) for a build triggered by a commit
-- ![add_icon](images/ci_build_icon_pr.png) for a build triggered by a pull request
+- ![add_icon](images/buildCommit.png) for a build triggered by a commit
+- ![add_icon](images/buildPR.png) for a build triggered by a pull request
 
 
 ### Build number

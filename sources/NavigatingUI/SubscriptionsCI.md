@@ -25,30 +25,30 @@ To get to the CI view,
 - Click on the `Subscriptions` dropdown and select the subscription you want to view.
 - This will bring you to the CI tab which shows you the latest status for your projects.
 
-<img src="../images/ci_subscriptions_mv_ci_dashboard.gif" alt="Continuous Integration Dashboard" style="width:700px;"/>
+<img src="../images/subscriptionsDashboardMv.gif" alt="Continuous Integration Dashboard" style="width:700px;"/>
 
 ---
 
 ##Dashboard section
 The 'Dashboard' section is the default view when you navigate to this page. By default, you will see the status of the most recent commit builds for all enabled projects. The default branch of the repository, as configured in your source control account, is used.
 
-You can customize the branch(es) shown on this page and also configure this view to include status for pull request builds. More details on this in the [Dashboard Settings for Projects](projects/#dashboard-settings).
+You can customize the branch(es) shown on this page and also configure this view to include status for pull request builds. More details on this in the [Dashboard Settings for Projects](/navigatingUI/projectSettings/#Dashboard-Settings).
 
 If a build is queued or in progress, you will see at the top of the 'Dashboard' view. Use the 'Filters' dropdown to select specific statuses of the builds to be displayed. By default, you will see all statuses of the builds.
 
-<img src="../images/subscription_dashboard.png" alt="Subscription Dashboard" style="width:700px;"/>
+<img src="../images/subscriptionDashboard.png" alt="Subscription Dashboard" style="width:700px;"/>
 
-I'll use the example build '79 sample_nodejs' from the picture shown above to explain the details included in the 'Subscription Dashboard' summary:
+I'll use the example build '86 sample_nodejs' from the picture shown above to explain the details included in the 'Subscription Dashboard' summary:
 
-- Build status icon: Displays the status of the build - Success, failed, etc. Hover the mouse on the icon to get a pop up about the build status. For a complete list refer the [builds status page](builds/status). In the above example, it shows 'Success'
-- Build number: Displays the latest build number. In the above example, it shows '79'
+- Build status icon: Displays the status of the build - Success, failed, etc. Hover the mouse on the icon to get a pop up about the build status. For a complete list refer the [builds status page](buildOverview/#Build-status). In the above example, it shows 'Success'
+- Build number: Displays the latest build number. In the above example, it shows '86
 - Project: Displays the name of the project. In the above example, it shows sample_nodejs' within your subscription.
-- Branch name: Displays the name of the branch for the project. By default, it is 'master'. To include other branches in this summary, go to the [Project's Settings page](projects/#runs_config) and select the branch to be displayed. In the above example, it shows the 'master' branch.
-- Build Date: Displays the date the build was run. Hover the mouse on the date to get additional information such as day and time. In the above example, it shows 'Yesterday at 5:13PM'. NOTE: The dates are shown in the DD/MM/YYYY format.
-- Build Time: Displays the time taken for the build to run. Hover the mouse on the time to get the exact timestamp in seconds. In the above example, it shows '7 minutes'.
+- Branch name: Displays the name of the branch for the project. By default, it is 'master'. To include other branches in this summary, go to the [Project's Settings page](navigatingUI/projectSettings/#Dashboard-Settings) and select the branch to be displayed. In the above example, it shows the 'master' branch.
+- Build Date: Displays the date the build was run. Hover the mouse on the date to get additional information such as day and time. In the above example, it shows 'Today at 1:58 PM'. NOTE: The dates are shown in the MM/DD/YYYY format.
+- Build Time: Displays the time taken for the build to run. Hover the mouse on the time to get the exact timestamp in seconds. In the above example, it shows '4 minutes'.
 - Triggered by: Displays the account name (from the source control system) that triggered the build. In the above example, it shows 'Shippable-Demo'.
-- Secure Hash Algorithm (SHA): Displays the unique ID of the commit. You can click on the SHA to directly access the commit on the source control system. In the above example, it is 99f4e3cc82.
-- Commit message: Displays the commit message. In the above example, it is 'removed...'. Hover the mouse over the commit message to get the full sentence.
+- Secure Hash Algorithm (SHA): Displays the unique ID of the commit. You can click on the SHA to directly access the commit on the source control system. In the above example, it is 41e820fe07.
+- Commit message: Displays the commit message. In the above example, it is 'changed...'. Hover the mouse over the commit message to get the full sentence.
 
 NOTE:
 - You can trigger manual builds for an enabled project by clicking on `Build` for a project.
@@ -64,7 +64,7 @@ You can also see how many minions are being used at the current time by looking 
 - Delete specific runs, by clicking the `Delete Runs` button. Select the build to be deleted and click the `Delete` button.
 - Use the `More` button on the bottom of the page to load and display more builds from your history.
 
-<img src="../images/subscription_history.png" alt="Subscription History" style="width:700px;"/>
+<img src="../images/subscriptionHistory.png" alt="Subscription History" style="width:700px;"/>
 
 ---
 
@@ -79,6 +79,6 @@ You can enable a project for CI by doing the following:
 
 After enabling a project you will be redirected to the project's page on Shippable. More details on this are in our [Projects section](projects.md).
 
-<img src="../images/ci_subscriptions_mv_enable_project.gif" alt="Subscription Dashboard" style="width:700px;"/>
+<img src="../images/subscriptionSettingEnableProjectMv.gif" alt="Subscription Dashboard" style="width:700px;"/>
 
 ---
