@@ -15,7 +15,7 @@ Check out this feature by doing the following steps:
 ##Adding an image
 To monitor an image and receive notification when the image is updated in the registry, follow the steps below.
 
-- Create an account integration for an Image registry (such as Docker Hub, Docker Trusted Registry,  Amazon ECR, Google GCR, Quay.io or any private registry) where the image is to be monitored. [Instructions here](account_settings_integrations/adding-an-account-integration/)
+- Create an account integration for an Image registry (such as Docker Hub, Docker Trusted Registry,  Amazon ECR, Google GCR, Quay.io or any private registry) where the image is to be monitored. [Instructions here](accountSettingsIntegrations/#Adding-an-account-integration/)
 - Create an account integration for the type of notification you want to receive when the image changes. You can set up Slack, HipChat, IRC, or Email notification. [Instructions here](../continuous_integration/notifications/slack/)
 - Go to your 'Account Settings' (gear icon on the top right hand navigation bar) and click the 'Images' section.
 - Click the `Add image` button and complete the following:
@@ -30,7 +30,7 @@ To monitor an image and receive notification when the image is updated in the re
 
 Images are 'watched' every 20 mins, so your notification will be sent 20 mins after the image is updated, in the worst case.
 
-<img src="../images/account_settings_add_image.png" alt="Adding an Image to monitor" style="width:700px;"/>
+<img src="../images/accountSettingsAddImage.png" alt="Adding an Image to monitor" style="width:700px;"/>
 
 ---
 
@@ -47,7 +47,7 @@ To update an image or change the notification settings:
 - You will see the list of images being watched.
 - Click on the image_name to update the notification setting.
 
-<img src="../images/account_settings_update_image.png" alt="Updating an Image" style="width:700px;"/>
+<img src="../images/accountSettingsUpdateImage.png" alt="Updating an Image" style="width:700px;"/>
 
 ---
 
@@ -60,6 +60,6 @@ To delete an image from being monitored:
 - Click on the Delete button for the image(s) you want to stop monitoring.
 
 
-Read the ["How to monitor your Docker Images"](../../tutorials/how_to_monitor_docker_images/) section for further details.
+Read the ["How to monitor your Docker Images"](/tutorials/howToMonitorDockerImages/) section for further details.
 
 ---

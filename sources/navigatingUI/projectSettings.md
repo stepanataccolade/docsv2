@@ -5,7 +5,7 @@ page_keywords: User Interface, microservices, Continuous Integration, Continuous
 #Projects Settings
 You can perform project level actions by clicking on the `Settings` tab on the Project page as shown below:
 
-<img src="../images/project_settings.png" alt="Project Settings" style="width:700px;"/>
+<img src="../images/projectSettings.png" alt="Project Settings" style="width:700px;"/>
 
 ## Options section
 ### Syncing your project
@@ -51,7 +51,7 @@ You can override this default behavior in the Dashboard Settings section by cust
 
 For example, the configuration below will show status of the latest build for branches master and sample_nodejs_branch, irrespective of whether it was triggered by a commit or a pull request..
 
-<img src="../images/projects_settings_dashboard.png" alt="Project Settings Dashboard configuration" style="width:700px;"/>
+<img src="../images/projectsSettingsDashboard.png" alt="Project Settings Dashboard configuration" style="width:700px;"/>
 
 ### Configure Webhook Events for Triggering Builds
 In this section, you can enable or disable triggering of builds for your project, based on specific webhook events on your source control system.
@@ -64,7 +64,7 @@ In this section, you can enable or disable triggering of builds for your project
 NOTE: The above webhook events, when enabled, trigger builds on Shippable irrespective of the user who initiated the event on the source control system.
 
 
-<img src="../images/configure_build_triggers.png" alt="Configure Webhook events to trigger builds" style="width:700px;"/>
+<img src="../images/projectSettingsTriggerBuilds.png" alt="Configure Webhook events to trigger builds" style="width:700px;"/>
 
 Walk through the different scenarios and [configure webhooks to trigger Continuous Integration builds](http://blog.shippable.com/configure-web-hooks-to-trigger-continuous-integration).  
 
@@ -73,7 +73,7 @@ Disabling parallel jobs allows you to restrict job processing based on branch na
 
 You can further customize this by selecting the specific branches that you don't want running in parallel.
 
-<img src="../images/run_parallel_jobs.png" alt="Run Parallel Jobs" style="width:700px;"/>
+<img src="../images/projectSettingsRunParallelJobs.png" alt="Run Parallel Jobs" style="width:700px;"/>
 
 In this example, if jobs are triggered simultaneously for branches `master` and `prtest`, only one job will be allowed to run at a time, even if the subscription has two idle nodes.  However, if this project were to trigger a job on a branch that was not selected, it would start as soon as it finds  an available node. The serial jobs will run in the order that they were queued.
 
@@ -87,7 +87,7 @@ By default, builds that are running for over 60 minutes (for free accounts) or o
 - Once you set a custom timeout, it'll be in effect immediately
 - Click on 'Clear' to revert back to the default setting of 120 minutes
 
-<img src="../images/project_timeout.png" alt="Customize Timeouts" style="width:700px;"/>
+<img src="../images/projectSettingsTimeout.png" alt="Customize Timeouts" style="width:700px;"/>
 
 For more details refer to our blog - [Changing the default time for a Continuous Integration projet](http://blog.shippable.com/changing-the-default-timeout-for-a-continuous-integration-project).
 
@@ -101,7 +101,7 @@ You can configure a low coverage alert for your project. First you can set the j
 - Once you set the low coverage alert, it'll be in effect immediately
 - Click on 'Edit' and set values to '0' and 'No' to revert back to the default settings
 
-<img src="../images/project_low_coverage.png" alt="Low Coverage Alert" style="width:700px;"/>
+<img src="../images/projectSettingsLowCoverage.png" alt="Low Coverage Alert" style="width:700px;"/>
 
 ---
 
@@ -127,7 +127,7 @@ env:
 ```
 You can also decrypt previously encrypted values by pasting the encrypted values in the 'Decrypt' section and clicking the `Decrypt` button.
 
-<img src="../images/project_encrypt.png" alt="Encrypt Environment Variables" style="width:700px;"/>
+<img src="../images/projectSettingsEncrypt.png" alt="Encrypt Environment Variables" style="width:700px;"/>
 
 ---
 
@@ -149,12 +149,12 @@ Select the branch you want the status for and pick between the 'Image URL' or 'M
 
 You can use this code to display your code coverage report after code coverage runs. The badge displays appropriate colors depending on the code coverage configuration in the `shippable.yml`. Refer the  [documentation **UpdateLink**](test_code_coverage) on how to configure code coverage reports. In addition, refer to a step by step blog on [setting up code coverage for tests in Continuous Integration](http://blog.shippable.com/setting-up-code-coverage-visualization-for-tests-in-ci).
 
-<img src="../images/project_badges.png" alt="Badges for Test and Code Coverage" style="width:700px;"/>
+<img src="../images/projectSettingsBadges.png" alt="Badges for Test and Code Coverage" style="width:700px;"/>
 
 
 ---
 
 ## Integrations section
-To add an integration to your project, go to the Subscription's 'Settings'. [Click here](subscriptions_settings/#integrations) for instructions.
+To add an integration to your project, go to the Subscription's 'Settings'. [Click here](/NavigatingUI/subscriptionsSettings/#integrations) for instructions.
 
 ---

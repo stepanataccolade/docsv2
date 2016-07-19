@@ -12,7 +12,7 @@ The Machine Images section has a list of images that are available to run your b
 
 To select your Machine Image, Go to the 'Settings' tab of your 'Subscription'. Click on the 'Options' section and select from the dropdown under the 'Machine Images' section.
 
-<img src="../images/subscriptions_settings_machine_image.png" alt="Machine Image for a Subscription" style="width:700px;"/>
+<img src="../images/subscriptionSettingsMachineImage.png" alt="Machine Image for a Subscription" style="width:700px;"/>
 
 
 Here is the list of contents of the machine images:
@@ -48,7 +48,7 @@ The Deployment key section shows the SSH public key associated with your Shippab
 
 Our How To guides provide instructions on how to enable continuous deployment to different providers.
 
-<img src="../images/subscriptions_settings_deployment_key.png" alt="Deployment Key for a Subscription" style="width:700px;"/>
+<img src="../images/subscriptionSettingsDeploymentKey.png" alt="Deployment Key for a Subscription" style="width:700px;"/>
 
 ###Technical Contact
 
@@ -62,7 +62,7 @@ Do ensure this field is populated with a valid email address for the subscriptio
 
 Resetting a subscription recreates all webhooks and deployment keys for your subscription. This should only be done if your subscription is in an inconsistent state and you need to restore it. Please note that you will need to re-encrypt all environment variables for your subscription after resetting it.
 
-<img src="../images/subscriptions_settings_reset.png" alt="Resetting for a Subscription" style="width:700px;"/>
+<img src="../images/subscriptionSettingsReset.png" alt="Resetting for a Subscription" style="width:700px;"/>
 
 ---
 
@@ -83,16 +83,16 @@ Add the integration to a subscription, in the UI, through **Subscription Setting
 1. Go to the 'Settings' tab of your subscription and click the 'Integrations' section on the left side menu.
 
 2. Click 'Add Integration' and select the list of integrations available in the dropdown of the 'Account Integrations' field.
-     <img src="../images/add_integration_for_subscription.png" alt="Add Integration to a Subscription" style="width:700px;"/>
+     <img src="../images/subscriptionSettingsAddIntegration.png" alt="Add Integration to a Subscription" style="width:700px;"/>
 
 3. Ensure the 'Integration Name' you input is exactly the same as the one you configure in the `shippable.yml` file
-<img src="../images/add_integration_for_subscription_2.png" alt="Add Integration to a Subscription" style="width:700px;"/>
+<img src="../images/subscriptionSettingsAddIntegration2.png" alt="Add Integration to a Subscription" style="width:700px;"/>
 
 
 NOTE: If you don't see an integration in the dropdown, you will need to create one. To do so:
 
 - Click on the '+ Add integration' from the dropdown choices of the 'Account Integrations' field as shown above in Step 3.
-- Create the integration. [Detailed instructions here](account_settings/#adding-an-account-integration).
+- Create the integration. [Detailed instructions here](navigatingUI/accountSettingsIntegrations/#Adding-an-account-integration).
 - Once you create this integration, add it to  your subscription by following Steps 2 and 3.
 
 **IMPORTANT**: After adding the 'Integrations' in the UI, you'll need to configure the same in the `shippable.yml` file for the project. More details on [yml config here(**UpdateLink**)](Update). The same is true for any Docker registry integrations.
@@ -108,12 +108,12 @@ To get to the Subscription Billing page:
 - Click on the `Subscriptions` dropdown and select the subscription you want to view.
 - Click on the Billing tab to view and manage your plan.
 
-By default, you are subscribed to the 'Continuous Deivery' free plan. It includes:
+By default, you are subscribed to the 'Continuous Delivery' free plan. It includes:
 
 - One free CI build container (2 core, 3.75GB RAM) that supports unlimited public and private repositories for unlimited users from your source control provider. You can run as many builds as you want.
 - One free Pipeline, that allows you to set up deployment for one Cell.
 
-<img src="../images/ci_subscription_plan.png" alt="Subscription Plan" style="width:700px;"/>
+<img src="../images/subscriptionSettingsBilling.png" alt="Subscription Plan" style="width:700px;"/>
 
 ###Upgrade your plan
 
@@ -137,7 +137,7 @@ You can downgrade your plan at any time by moving the slider to the number of mi
 
 ## Nodes
 
-By default, all your builds run inside build containers hosted on Shippable's infrastructure. However, you can choose to run your builds on your own infrastructure, i.e. you can '**Bring Your Own Node (BYON)**'. To understand the advantages of BYON, check out the [Running builds on your machines section](../continuous_integration/byon/byon_overview.md).
+By default, all your builds run inside build containers hosted on Shippable's infrastructure. However, you can choose to run your builds on your own infrastructure, i.e. you can '**Bring Your Own Node (BYON)**'. To understand the advantages of BYON, check out the [Running builds on your machines section](../continuous_integration/advanced_options/byon_overview.md).
 
 The 'Build Infrastructure' section lets you set up your own infrastructure if desired.
 To do so, select the radio button for `My Node` and follow instructions for adding a build node below.

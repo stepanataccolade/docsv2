@@ -15,7 +15,7 @@ This section lists all the integrations that have been added by this account. Th
 - `Edit` button: Edit the integration
 - `Delete` button: Delete the integration
 
-<img src="../images/account_settings_integrations.png" alt="List of integrations under Account Settings" style="width:700px;"/>
+<img src="../images/accountSettingsIntegrations.png" alt="List of integrations under Account Settings" style="width:700px;"/>
 
 ##Adding an account integration
 
@@ -23,11 +23,11 @@ This section lists all the integrations that have been added by this account. Th
 
 - Click the 'Integrations' tab and then click 'Add Integration'
 
-<img src="../images/add_account_integration.png" alt="Add Account Integration" style="width:700px;"/>
+<img src="../images/accountSettingsAddIntegration.png" alt="Add Account Integration" style="width:700px;"/>
 
 - Use the dropdown to select the desired integration and proceed with the configuration of that specific integration.
 
-<img src="../images/add_integration_select.png" alt="Select Account Integration" style="width:700px;"/>
+<img src="../images/accountSettingsSelectIntegration.png" alt="Select Account Integration" style="width:700px;"/>
 
 - Click on `Save`.
 
@@ -41,6 +41,6 @@ To delete an integration: Simply click on the `Delete` button for the integratio
 
 Delete will fail if there are any projects actively using the integration, so make sure the integration is not being used in any project before deleting it.
 
-<img src="../images/delete_account_integration.png" alt="Delete Account Integration" style="width:700px;"/>
+<img src="../images/accountSettingsDeleteIntegration.png" alt="Delete Account Integration" style="width:700px;"/>
 
 ---

@@ -3,7 +3,7 @@ page_description: Overview of Shippable's Account Settings API section UI
 page_keywords: User Interface, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 #API Tokens
-This is where you generate, view and manage access tokens to use our [API](../../api).
+This is where you generate, view and manage access tokens to use our [API](/api/api/).
 
 ##Adding a token
 To add a token:
@@ -12,14 +12,14 @@ To add a token:
 - Enter a token name and click on `Add` to create a new token.
 - IMPORTANT: Remember to copy the token. For security reasons, the token will never be displayed again.
 
-<img src="../images/account_settings_api_add.png" alt="Add API token on Shippable" style="width:700px;"/>
+<img src="../images/accountSettingsApiAdd.png" alt="Add API token on Shippable" style="width:700px;"/>
 
 ---
 
 ##Deleting a token
 To delete a token, click on the `Delete` button next to the token you want to delete.
 
-<img src="../images/account_settings_api_delete.png" alt="API token on Shippable" style="width:700px;"/>
+<img src="../images/accountSettingsApiDelete.png" alt="API token on Shippable" style="width:700px;"/>
 
 ---
 
