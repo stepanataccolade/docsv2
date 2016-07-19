@@ -1,3 +1,7 @@
+page_title: Source Control systems integration with Shippable
+page_description: How to integrate different source control management systems with Shippable
+page_keywords: source control management system, continuous integration, continuous delivery, pipelines, git
+
 # Source control integrations
 
 Shippable supports building repositories from a wide variery of git-based source control systems, including SaaS providers like GitHub, Bitbucket, GitLab, GitHub and Server products like GitHub Enterprise, GitLab Enterprise, and Bitbucket Server.
@@ -6,6 +10,8 @@ Our landing page at [https://app.shippable.com](https://app.shippable.com) suppo
 
 The following pages provide more information about building repositories on various source control providers:
 
-[Bitbucket Server](bitbucket_server.md)
-[GitHub Enterprise](github_enterprise.md)
-[GitLab](gitlab.md) 
+- [GitHub](github/)
+- [GitHub Enterprise](githubEnterprise/)
+- [Bitbucket](bitbucket/)
+- [Bitbucket Server](bitbucketServer/)
+- [GitLab](gitlab/)
