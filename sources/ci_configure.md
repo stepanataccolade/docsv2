@@ -96,7 +96,7 @@ The following language tags are supported at this time:
 
 ```none```
 
-```c```
+```c/c++```
 
 You can set the language and runtime as shown below. Example is for node.js projects.
 
