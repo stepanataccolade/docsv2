@@ -79,8 +79,9 @@ pages:
   - Resources: pipelines/resources.md
   - Jobs: pipelines/jobs.md
   - Triggers: pipelines/triggers.md
-  - Deploying your first pipeline: tutorials/deploySamplePipeline.md
+  - Sample: tutorials/samplePipeline.md
   - FAQ: pipelines/faq.md
+  - Troubleshooting: pipelines/troubleshoot.md
 - Navigating the UI:
   - Home Page: navigatingUI/homePage.md
   - Account Settings:
@@ -113,7 +114,7 @@ pages:
     - How to add resources: tutorials/howToAddSyncRepos.md
   - How to add integrations: tutorials/how_to_add_integrations.md
   - Running a sample CI build: tutorials/runSampleCIBuild.md
-  - Deploying a sample appliation: tutorials/deploySamplePipeline.md
+  - Deploying a sample appliation: tutorials/samplePipeline.md
   - Source Control System:
     - Using GitHub: tutorials/how_to_use_github.md
     - Using GitHub Enterprise: tutorials/how_to_use_github_enterprise.md
