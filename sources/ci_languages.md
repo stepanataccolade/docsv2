@@ -14,7 +14,7 @@ We support the following languages on Shippable CI:
 -  [python](#python)
 -  [ruby](#ruby)
 -  [scala](#scala)
--  [c](#c)
+-  [c/c++](#c)
 
 
 This list keeps growing so if you need something that you don't see
@@ -849,14 +849,14 @@ We have a simple Scala project that you can fork and enable on Shippable to help
 
 * * * 
 
-## C
+## C/C++
 
 ### Standard build image(s)
-By default, we will run your C build using our standard ubuntu 14.04 C image u14cpp. This image has gcc and clang C compilers.
+By default, we will run your C/C++ build using our standard ubuntu 14.04 C++ image u14cpp. This image has gcc and clang C compilers.
 
 The Dockerfile for u14cpp is [here](https://github.com/dry-dock/u14cpp) while the image on Docker Hub can be found [here](https://hub.docker.com/r/drydock/u14cpp/).
 
-We have the following standard C images:
+We have the following standard C/C++ images:
 
 * u12cpp
     * compilers:
