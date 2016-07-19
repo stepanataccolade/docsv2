@@ -18,7 +18,7 @@ The Shippable platform consists of 2 parts:
 
 Shippable integrates with all popular tools and services, such as build/test tools,  source control providers, docker registries, cloud providers, and container services.
 
-<img src="./images/pipeline_basic_flow.png" alt="e2e pipeline" style="width:700px;"/>
+<img src="/ci/images/pipelineBasicFlow.png" alt="End to End Pipeline" style="width:700px;"/>
 
 ---
 
@@ -35,19 +35,7 @@ You should use Shippable for Continuous Integration if you fit the following pro
 
 Some customers are not comfortable or for some reason cannot run builds on our hosted infrastructure. To address this, we offer an additional feature called BYOH where you can run builds on your own infrastructure.
 
-###Bring your own hosts (BYOH)
-For customers who want complete control over their build hosts, we offer a novel approach called **Bring your own hosts (BYOH)**.
-
-BYOH lets you run builds on your own infrastructure, so you can attach your machines to your Shippable subscription and all your builds are routed to those machines. This is a powerful hybrid approach that gives you the benefit of using a SaaS service for CI orchestration, while still giving you full control over the infrastructure and security of your build machines.
-
-You should take advantage of BYOH if:  
-
-* You want complete control over your build machines.
-* Your builds are resource intensive and 2 core, 4GB RAM is not sufficient to run them. You need bigger containers!
-* You want your build machines to be inside your VPC and/or behind your firewall, which also gives you the ability to configure access, IAM, etc.
-
-
-Go to [the Continuous Integration section](ci_overview.md) to learn more.
+Go to [the Continuous Integration section](/ci/overview/) to learn more.
 
 ---
 
@@ -64,7 +52,7 @@ You should use Shippable to set up your Continuous Delivery pipelines if you fit
 * You are not using Docker in production but are interested in containerizing your Test environments.  
 * You run (or want to run) functional tests for every code commit
 
-Go to [the CD Pipelines section](pipelines_overview.md) to learn more.
+Go to [the Unified Pipelines section](/pipelines/overview/) to learn more.
 
 
 ---
