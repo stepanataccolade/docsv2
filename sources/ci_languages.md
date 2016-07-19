@@ -14,7 +14,7 @@ We support the following languages on Shippable CI:
 -  [python](#python)
 -  [ruby](#ruby)
 -  [scala](#scala)
--  [c/c++](#c)
+-  [c/c++](#cc)
 
 
 This list keeps growing so if you need something that you don't see
