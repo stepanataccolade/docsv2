@@ -21,9 +21,9 @@ To deploy applications to GKE, you need to configure an account integration with
 10. Paste your JSON key.
 11. Click on `Save`.
 
-<img src="/continuous_integration/images/gke_integration.png" alt="Google Container Engine integration" style="width:700px;"/>
+<img src="/ci/images/gkeInt.png" alt="Google Container Engine integration" style="width:700px;"/>
 
-You can now use this integration to set up your Environment and Deployment Pipelines on your GKE clusters. For more information on this, please check out our [Deployment pipelines section](pipelines_overview.md)
+You can now use this integration to set up your Environment and Deployment Pipelines on your GKE clusters. For more information on this, please check out our [Deployment pipelines section](/pipelines/overview/)
 
 ---
 

@@ -27,7 +27,7 @@ You can add the integration for a Project or for a Generic Webhook. The steps to
 7. In the 'Authorization' field, you'll need to specify the [Shippable API Token](/NavigatingUI/AccountSettingsApi/).
 8. Click on `Save`.
 
-<img src="/continuous_integration/images/event_trigger_project.png" alt="Event Trigger integration" style="width:700px;"/>
+<img src="/ci/images/eventTriggerProject.png" alt="Event Trigger integration" style="width:700px;"/>
 
 The integration will now be available to all your Continuous Integration and Pipelines settings within the Shippable portal.
 
@@ -42,7 +42,7 @@ The integration will now be available to all your Continuous Integration and Pip
 7. In the Authorization field, you need to specify the HTTP Authorization Header required to hit the specified webhook URL. If no authorization is required, this field can be left blank.
 8. Click on `Save`.
 
-<img src="/continuous_integration/images/event_trigger_gwebhook.png" alt="Event Trigger integration" style="width:700px;"/>
+<img src="/ci/images/eventTriggerWebhook.png" alt="Event Trigger integration" style="width:700px;"/>
 
 The integration will now be available to all your Continuous Integration and Pipelines settings within the Shippable portal.
 
@@ -60,13 +60,14 @@ The integration will now be available to all your Continuous Integration and Pip
 7. Click the `Save` button.
 8. The Webhook integration will show up in the list of integrations for your subscription.
 
-<img src="/continuous_integration/images/subscription_webhook_integration.png" alt="Event Trigger integration" style="width:700px;"/>
+<img src="/ci/images/subscriptionWebhookInt.png" alt="Event Trigger integration" style="width:700px;"/>
 
 The integration will now be available to all your Continuous Integration and Pipelines settings for any user with access to the Subscription.
 
 ---
 
 ##3. Configure the Event Trigger Integration in the `shippable.yml` file for your project
+
 
 ```
 integrations:
@@ -89,10 +90,10 @@ integrations:
       on_start: never
 ```
 
-- `integrationName` value is the name of the Webhook integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/continuous_integration/ci_troubleshoot/#integration-name-specified-in-yml-does-not-match).
+- `integrationName` value is the name of the Webhook integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
 - `type` is `webhook`.
-- [optional] `payload` You can specify `key=value` pairs where the `value` is a string. The string can contain Shippable [Environment Variables](/continuous_integration/advanced_options/env_var/). These variables will be populated by corresponding values from a run for this project.
-- If the `webhook` integration is set up **to trigger an enabled project**: the `payload` will be injected into the next run as a set of global environment variables ([Injecting Global Env Variables](/continuous_integration/advanced_options/env_var/#Injecting-Global-Env-Variables).
+- [optional] `payload` You can specify `key=value` pairs where the `value` is a string. The string can contain Shippable [Environment Variables](/ci/advancedOptions/envVar/). These variables will be populated by corresponding values from a run for this project.
+- If the `webhook` integration is set up **to trigger an enabled project**: the `payload` will be injected into the next run as a set of global environment variables ([Injecting Global Env Variables](/ci/advancedOptions/envVar/#injecting-global-env-variables/)).
 - If the `webhook` integration is set up **to trigger an external webhook**: the `payload` will be converted to a JSON with `key: value` attributes which will be sent as the body when the specified webhook URL is triggered.
 - [optional] `branches` allows you to choose the branches you want to trigger the configured webhook for. By default, the configured webhook is triggered for all branches. The `only` tag should be used when you want to trigger webhooks for specific branches. You can also use the `except` tag to exclude specific branches.
 - [optional] You can set the following options for the `on_success`, `on_failure` tags :

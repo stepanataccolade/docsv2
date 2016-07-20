@@ -1,6 +1,6 @@
-page_title: Docker Cloud Container Services integrations
-page_description: Setting up Shippable account integrations for Docker Cloud Container Service
-page_keywords: amazon, ecs, gke, kubernetes, engine, google, shippable, quay, coreos, docker, registry, EC2 Container Service, Google, Docker Cloud, Datacenter, private
+page_title: Docker Datacenter Container Services integrations
+page_description: Setting up Shippable account integrations for Docker Datacenter Container Service
+page_keywords: amazon, ecs, gke, kubernetes, engine, google, shippable, quay, coreos, docker, registry, EC2 Container Service, Google, Docker Cloud, private
 
 # Docker Datacenter
 To deploy containers to Docker Datacenter, you need to configure an account integration with credentials to access your Docker Cloud account.
@@ -20,7 +20,7 @@ The steps to add a Docker Datacenter integration are:
 10. Provide the URL to access the Universal Control Plane.
 11. Click on `Save`.
 
-<img src="/continuous_integration/images/docker_datacenter_integration.png" alt="Docker Datacenter integration" style="width:700px;"/>
+<img src="/ci/images/dockerDatacenterInt.png" alt="Docker Datacenter integration" style="width:700px;"/>
 
 The integration will now be available to all your Continuous Integration and Pipelines settings within the Shippable portal.
 

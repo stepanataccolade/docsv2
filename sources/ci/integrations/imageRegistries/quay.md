@@ -17,11 +17,11 @@ A new application can be created under an Organization. To create an Organizatio
 
 You can see your organization listed under Users and Organizations on your dashboard. Click on your Organization that you just created, click on the applications tab which is present at the bottom of the Organization view just above Organization settings.
 
-<img src="/continuous_integration/images/quay_new_application.png" alt="Quay create new application" style="width:700px;"/>
+<img src="/ci/images/quayNewApp.png" alt="Quay create new application" style="width:700px;"/>
 
 Create a new Application and an it should be listed under OAuth Applications. Click on the application you created, and then on `Generate Token` under the menu options. Shippable will require read permission.Finally click on `authorize application` and Quay will provide you with an access token.
 
-<img src="/continuous_integration/images/quay_generate_token.png" alt="Quay generate token" style="width:700px;"/>
+<img src="/ci/images/quayToken.png" alt="Quay generate token" style="width:700px;"/>
 
 ###Configuring Quay.io Integration on Shippable
 
@@ -34,7 +34,7 @@ On your [Shippable dashboard](https://shippable.com):
 5. Enter your credentials.
 6. Click on `Save`.
 
-<img src="../images/quay_integration.png" alt="Quay integration" style="width:700px;"/>
+<img src="/ci/images/quayInt.png" alt="Quay integration" style="width:700px;"/>
 
 The integration will now be available to all your continuous integration and deployment workflows.
 
@@ -85,13 +85,13 @@ While the above is a sample code for your `shippable.yml`, use the descriptions 
 - `image_name:` value is in the format docker-registry-username/docker-registry-image-repo.
 - `image_tag:` value is the tag for the image that you want to pull.
 - `pull:` set to `true` to pull the image from the specified Image Registry.
-- In the `env` section, you can enter any environment variables you want to be set inside your CI container. Read more about [environment variables](/continuous_integration/advanced_options/env_var/).
+- In the `env` section, you can enter any environment variables you want to be set inside your CI container. Read more about [environment variables](/ci/advancedOptions/envVar/).
 - In the `options` tag, enter any docker options you want to use in the docker run command. You also need to include the HOME environment variable as shown if it is not already set in your image.
-- `integrationName` value is the name of the Quay integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match). Moreover, this account should have permissions to pull the the build image specified in the `image_name` setting.
+- `integrationName` value is the name of the Quay integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match). Moreover, this account should have permissions to pull the the build image specified in the `image_name` setting.
 - `type` is `quay.io`.
 - [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
 
-For more information on pulling images, refer our documentation on [pulling an image](/continuous_integration/advanced_options/images/).
+For more information on pulling images, refer our documentation on [pulling an image](/ci/advancedOptions/images/).
 
 ---
 
@@ -145,11 +145,11 @@ integrations:
 - set `pull` to `false` if you want to use the image you built during the pre_ci step instead of pulling from a docker registry.
 - In the env section, you can enter any environment variables you want to be set inside your CI container.
 - In the options tag, enter any docker options you want to use in the docker run command. You also need to include the HOME environment variable as shown if it is not already set in your 'Dockerfile'.
-- `integrationName` value is the name of the Quay integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match). Moreover, this account should have permissions to pull the the build image specified in the `image_name` setting.
+- `integrationName` value is the name of the Quay integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match). Moreover, this account should have permissions to pull the the build image specified in the `image_name` setting.
 - `type` is `quay.io`.
 - [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
 
-For more information on building images as part of the CI, refer our documentation on [building an image](/continuous_integration/advanced_options/images/).
+For more information on building images as part of the CI, refer our documentation on [building an image](/ci/advancedOptions/images/).
 
 ---
 
@@ -214,11 +214,11 @@ integrations:
 ```
 
 
-- `integrationName` value is the name of the Quay integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match). Moreover, this account should have permissions to pull the the build image specified in the `image_name` setting.
+- `integrationName` value is the name of the Quay integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match). Moreover, this account should have permissions to pull the the build image specified in the `image_name` setting.
 - `type` is `quay.io`.
 - [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
 
-For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/continuous_integration/advanced_options/images/). In addition, read our blog - [Key concepts of using Docker in Shippable Continuous Integration](http://blog.shippable.com/key-concepts-of-shippable-ci-part-2) for more details.
+For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/ci/advancedOptions/images/). In addition, read our blog - [Key concepts of using Docker in Shippable Continuous Integration](http://blog.shippable.com/key-concepts-of-shippable-ci-part-2) for more details.
 
 ---
 
