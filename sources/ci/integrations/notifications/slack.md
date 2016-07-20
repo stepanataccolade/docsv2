@@ -15,10 +15,9 @@ Notifications can be sent for build status updates, monitoring your Docker image
 
 ##1. Set up Slack integration through UI
 
-There are three actions to set up the Slack integration through the UI. They are:
+There are two actions to set up the Slack integration through the UI. They are:
 
 - Configure an incoming webhook on Slack
-- Set up Slack integration in Account Settings
 - Add the Slack integration to your subscription
 
 ###Configure an incoming webhook on Slack
@@ -30,28 +29,25 @@ There are three actions to set up the Slack integration through the UI. They are
 4. Copy the text in the 'Webhook URL' section. It looks like this: `https://hooks.slack.com/services/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`.
 5. Click the `Save Settings` button.
 
-###Set up Slack integration in Account Settings
-1. Login to [Shippable](https://app.shippable.com).
-2. Go to Account Settings by clicking the gear icon on the top right navigation bar.
-3. Click the 'Integrations' section.
-4. Click the `Add Integration` button.
-5. In the 'Master Integration' dropdown, select 'Slack'.
-6. Provide an easy-to-remember name for the Slack integration, such as 'shippable-slack', in the 'Integration Name' field.
-7. In the 'Webhook URL' field, paste the text from Slack's webhook URL from Step 4 in the above section
-8. Provide the channel name or the user name where you would like the notifications to be sent.
-9. Click the `Save` button.
-10. The Slack integration will show up in the list of Account integrations.
-
 ###Add the Slack integration to your subscription
 1. Ensure you have logged in to [Shippable](https://app.shippable.com).
 2. Select your Subscription from the dropdown burger bar menu on the top left.
 3. Click the 'Settings' tab and go to the 'Integrations' section.
 4. Click the `Add Integration` button.
-5. Provide an easy-to-remember name for the Slack integration for your Subscription, such as 'slack-integration', in the 'Name' field.
+5. In the 'Account Integrations' dropdown list review if you have a Slack account integration already created. If you have, select it and go to Step 12.
+6. If you do not find an existing Slack account integration, then select '+Add Integration' option.
+7. In the 'Master Integration' dropdown, select 'Slack'.
+8. Provide an easy-to-remember name for the Slack integration, such as 'slack-account', in the 'Integration Name' field.
+9. In the 'Webhook URL' field, paste the text from Slack's webhook URL from Step 4 in the above section
+10. Provide the channel name or the user name where you would like the notifications to be sent.
+11. Click the `Save` button.
+12. Provide an easy-to-remember name for the Slack integration for your Subscription, such as 'slack-integration', in the 'Name' field.
 **IMPORTANT:** The 'Name' you have entered in this step should be used in your `shippable.yml` file. Both names should be exactly the same. If not the build will fail with an error.
-6. From the 'Account Integrations' dropdown select the Slack account integration created.
-7. Click the `Save` button.
-8. The Slack integration will show up in the list of integrations for your subscription.
+13. From the 'Account Integrations' dropdown select the Slack account integration created.
+14. Click the `Save` button.
+15. The Slack integration will show up in the list of integrations for your subscription.
+
+<img src="/ci/images/addSlackIntMV.gif" alt="Add Slack Integration on Shippable" style="width:700px;"/>
 
 ---
 
@@ -115,7 +111,40 @@ You can add a Slack account integration to receive notifications for monitored D
 ---
 ##Deleting the Slack Integration
 
-To remove the Slack integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
+To remove the Slack integration, you'll need to remove this integration from all dependencies configured to use it.
+
+###Deleting Slack integration from a Project
+To remove the Slack integration from a project, simply remove the section shown below from the `shippable.yml` for that project.
+
+```
+integrations:
+  notifications:
+    - integrationName: slack-integration
+      type: slack
+      recipients:
+        - "#channelOne"
+        - "#channelTwo"
+      branches:
+        only:
+          - master
+          - dev
+      on_success: never
+      on_failure: always
+```
+
+###Deleting Slack integration from a Subscription
+To delete a Slack integration from a subscription, the steps are:
+
+1. Ensure you have logged in to [Shippable](https://app.shippable.com).
+2. Select your Subscription from the dropdown burger bar menu on the top left.
+3. Click the 'Settings' tab and go to the 'Integrations' section.
+4. Review the list of integrations for your subscription.
+5. Click the `Delete` button next to the Slack integration.
+
+<img src="/ci/images/delSlackInt.png" alt="Delete the Slack integration from your Subscription" style="width:700px;"/>
+
+###Deleting Slack Account Integration
+To delete the Slack Account integration, all the dependencies, such as Subscriptions, using the Slack account must be deleted first. Do note that this action is irreversible. The steps to delete the Slack Account integration are:
 
 1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` section.
 2. Select the Slack integration from the list of integrations. If you have many entries, use the `Filters` dropdown and select `Slack`. Alternatively, you can use the `Integration Name` field to provide the name of your Slack integration.

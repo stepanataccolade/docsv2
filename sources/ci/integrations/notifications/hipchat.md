@@ -10,10 +10,9 @@ Notifications can be sent for build status updates, monitoring your Docker image
 
 ##1. Set up HipChat integration through UI
 
-There are three actions to set up the HipChat integration through the UI. They are:
+There are two actions to set up the HipChat integration through the UI. They are:
 
 - Generate a token for API access
-- Set up HipChat integration in Account Settings
 - Add the HipChat integration to your subscription
 
 ###Generate a token for API access
@@ -22,27 +21,24 @@ There are three actions to set up the HipChat integration through the UI. They a
      - Provide credentials to your HipChat account, if prompted.
 2. Create a token with `Send Message` and `Send Notification` scopes.
 
-###Set up HipChat integration in Account Settings
-1. Login to [Shippable](https://app.shippable.com).
-2. Go to Account Settings by clicking the gear icon on the top right navigation bar.
-3. Click the 'Integrations' section.
-4. Click the `Add Integration` button.
-5. In the 'Master Integration' dropdown, select 'HipChat'.
-6. Provide an easy-to-remember name for the HipChat integration, such as 'shippable-hipchat', in the 'Integration Name' field.
-7. In the 'Token' field, paste the token from HipChat's UI from Step 2 in the above section.
-8. Click the `Save` button.
-9. The HipChat integration will show up in the list of Account integrations.
-
 ###Add the HipChat integration to your subscription
 1. Ensure you have logged in to [Shippable](https://app.shippable.com).
 2. Select your Subscription from the dropdown burger bar menu on the top left.
 3. Click the 'Settings' tab and go to the 'Integrations' section.
 4. Click the `Add Integration` button.
-5. Provide an easy-to-remember name for the HipChat integration for your Subscription, such as 'hipchat-integration', in the 'Name' field.
+5. In the 'Account Integrations' dropdown list review if you have a HipChat account integration already created. If you have, select it and go to Step 12.
+6. If you do not find an existing HipChat account integration, then select '+Add Integration' option.
+7. In the 'Master Integration' dropdown, select 'HipChat'.
+8. Provide an easy-to-remember name for the HipChat integration, such as 'hipchat-account', in the 'Integration Name' field.
+9. In the 'Token' field, paste the token from HipChat's UI from Step 2 in the above section.
+10. Click the `Save` button.
+11. Provide an easy-to-remember name for the HipChat integration for your Subscription, such as 'hipchat-integration', in the 'Name' field.
 **IMPORTANT:** The 'Name' you have entered in this step should be used in your `shippable.yml` file. Both names should be exactly the same. If not the build will fail with an error.
-6. From the 'Account Integrations' dropdown select the HipChat account integration created.
-7. Click the `Save` button.
-10. The HipChat integration will show up in the list of integrations for your subscription.
+12. From the 'Account Integrations' dropdown select the HipChat account integration created.
+13. Click the `Save` button.
+14. The HipChat integration will show up in the list of integrations for your subscription.
+
+<img src="/ci/images/addHipChatIntMV.gif" alt="Add HipChat Integration on Shippable" style="width:700px;"/>
 
 ---
 
@@ -105,7 +101,41 @@ You can add a HipChat account integration to receive notifications for monitored
 ---
 ##Deleting the HipChat Integration
 
-To remove the HipChat integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
+To remove the HipChat integration, you'll need to remove this integration from all dependencies configured to use it.
+
+###Deleting HipChat integration from a Project
+To remove the HipChat integration from a project, simply remove the section shown below from the `shippable.yml` for that project.
+
+```
+integrations:
+  notifications:
+    - integrationName: hipchat-integration
+      type: hipchat
+      recipients:
+        - "#roomOne"
+        - "#roomTwo"
+        - "@userOne"
+      branches:
+        only:
+          - master
+          - dev
+      on_success: never
+      on_failure: always
+```
+
+###Deleting HipChat integration from a Subscription
+To delete a HipChat integration from a subscription, the steps are:
+
+1. Ensure you have logged in to [Shippable](https://app.shippable.com).
+2. Select your Subscription from the dropdown burger bar menu on the top left.
+3. Click the 'Settings' tab and go to the 'Integrations' section.
+4. Review the list of integrations for your subscription.
+5. Click the `Delete` button next to the HipChat integration.
+
+<img src="/ci/images/delHipChatInt.png" alt="Delete the HipChat integration from your Subscription" style="width:700px;"/>
+
+###Deleting HipChat Account Integration
+To delete the HipChat Account integration, all the dependencies, such as Subscriptions, using the HipChat account must be deleted first. Do note that this action is irreversible. The steps to delete the HipChat Account integration are:
 
 1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` section.
 2. Select the HipChat integration from the list of integrations. If you have many entries, use the `Filters` dropdown and select `HipChat`. Alternatively, you can use the `Integration Name` field to provide the name of your HipChat integration.
