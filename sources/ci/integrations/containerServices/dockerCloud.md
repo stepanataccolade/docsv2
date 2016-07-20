@@ -19,7 +19,7 @@ To deploy containers to Docker Cloud, you need to configure an account integrati
 10. Provide the Docker Cloud API Endpoint URL.
 11. Click on `Save`.
 
-<img src="/continuous_integration/images/docker_cloud_integration.png" alt="Docker Cloud integration" style="width:700px;"/>
+<img src="/ci/images/dockerCloudInt.png" alt="Docker Cloud integration" style="width:700px;"/>
 
 The integration will now be available to all your Continuous Integration and Pipelines settings within the Shippable portal.
 

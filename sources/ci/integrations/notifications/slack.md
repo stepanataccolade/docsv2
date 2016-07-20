@@ -74,7 +74,7 @@ integrations:
 ```
 While the above is a sample code for your `shippable.yml`, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
 
-- `integrationName` value is the name of the Slack integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with error as [described here](ci_troubleshoot/#Integration-name-specified-in-yml-does-not-match).
+- `integrationName` value is the name of the Slack integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with error as [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
 - `type` is `slack`.
 - `recipients` specifies the channels you want to send the notification to. Please note this is a required field for slack notifications to work.
      - Even if there is a single recipient, use the format `recipients: "#channelOne"`
@@ -99,7 +99,7 @@ Check our blog ["Notifying CI failure/success status on Email and Slack"](http:/
 
 You can add a Slack account integration to receive notifications for monitored Docker images. To do this:
 
-1. Ensure you have configured [the monitoring of a Docker image](/navigating_ui/account_settings_images/).
+1. Ensure you have configured [the monitoring of a Docker image](/navigatingUI/accountSettingsImages/).
 2. Go to 'Account Settings' and click the 'Images' section.
 3. Select the 'Image' you want to configure the Slack notifications.
 4. Under the 'Notifications' section, use the dropdown for the 'Channel' field and select `slack`.
@@ -110,7 +110,7 @@ You can add a Slack account integration to receive notifications for monitored D
 8. [Optional] Add additional recipients.
 9. Click the `Save` button.
 
-<img src="/continuous_integration/images/slack_to_monitor_images.png" alt="Configure to be notified through Slack while monitoring a Docker image" style="width:700px;"/>
+<img src="/ci/images/slackMonitorImages.png" alt="Configure to be notified through Slack while monitoring a Docker image" style="width:700px;"/>
 
 ---
 ##Deleting the Slack Integration

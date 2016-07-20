@@ -66,7 +66,7 @@ integrations:
 ```
 While the above is a sample code for your `shippable.yml`, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
 
-- `integrationName` value is the name of the HipChat integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with error as [described here](ci_troubleshoot/#Integration-name-specified-in-yml-does-not-match).
+- `integrationName` value is the name of the HipChat integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with error as [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
 - `type` is `hipchat`.
 - `recipients` specifies the rooms and/or users you want to send the notification to. Please note this is a required field for HipChat notifications to work.
      - Even if there is a single recipient, use the format `recipients: "#roomOne"` for rooms and `@userOne` for users.
@@ -89,7 +89,7 @@ Check our blog [on configuring HipChat for both CI and Pipelines](http://blog.sh
 
 You can add a HipChat account integration to receive notifications for monitored Docker images. To do this:
 
-1. Ensure you have configured [the monitoring of a Docker image](navigating_ui/account_settings_images/).
+1. Ensure you have configured [the monitoring of a Docker image](/navigatingUI/accountSettingsImages/).
 2. Go to 'Account Settings' and click the 'Images' section.
 3. Select the 'Image' you want to configure the HipChat notifications.
 4. Under the 'Notifications' section, use the dropdown for the 'Channel' field and select `hipchat`.
@@ -100,7 +100,7 @@ You can add a HipChat account integration to receive notifications for monitored
 8. [Optional] Add additional recipients.
 9. Click the `Save` button.
 
-<img src="/continuous_integration/images/hipchat_to_monitor_images.png" alt="Configure to be notified through HipChat while monitoring a Docker image" style="width:700px;"/>
+<img src="/ci/images/hipchatMonitorImages.png" alt="Configure to be notified through HipChat while monitoring a Docker image" style="width:700px;"/>
 
 ---
 ##Deleting the HipChat Integration

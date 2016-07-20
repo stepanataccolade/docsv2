@@ -6,30 +6,30 @@ page_keywords: containers, languages, services, platforms, lxc, docker, Continuo
 
 We support a multitude of languages, tools, services, as well as all popular source control providers, docker registries, container services, and notification providers.
 
-<img src="../images/shippable_end2end.png" alt="Subscription Dashboard" style="width:700px;"/>
+<img src="/ci/images/supportedOnShippable.png" alt="Supported on Shippable" style="width:700px;"/>
 
 ---
 
 ## Source control providers
--  [GitHub](int_scm/#github)
--  [GitHub Enterprise](int_scm/#github-enterprise)
--  [Bitbucket](int_scm/#bitbucket)
--  [Bitbucket Server](int_scm/#bitbucket-server)
--  [GitLab](int_scm/#gitlab)
+-  [GitHub](/ci/integrations/scm/github/)
+-  [GitHub Enterprise](/ci/integrations/scm/githubEnterprise/)
+-  [Bitbucket](/ci/integrations/scm/bitbucket/)
+-  [Bitbucket Server](/ci/integrations/scm/bitbucketServer/)
+-  [GitLab](/ci/integrations/scm/gitlab/)
 
 ---
 
 ## Languages
 
--  [Clojure](ci_languages/#clojure)
--  [GO](ci_languages/#go)
--  [Java](ci_languages/#java)
--  [Node.js](ci_languages/#node)
--  [PHP](ci_languages/#php)
--  [Python](ci_languages/#python)
--  [Ruby](ci_languages/#ruby)
--  [Scala](ci_languages/#scala)
--  [C](ci_languages/#c)
+-  [Node.js](/ci/languages/node/)
+-  [Python](/ci/languages/python/)
+-  [Java](/ci/languages/java/)
+-  [Clojure](/ci/languages/clojure/)
+-  [Ruby](/ci/languages/ruby/)
+-  [GO](/ci/languages/go/)
+-  [PHP](/ci/languages/php/)
+-  [Scala](/ci/languages/scala/)
+-  [C/C++](/ci/languages/objc/)
 
 ---
 
@@ -41,20 +41,20 @@ We support a multitude of languages, tools, services, as well as all popular sou
 ---
 
 ## Services
--  CouchDB 1.6.1
--  Elastic Search 1.5.1
--  Kestrel
--  Memcached 1.4.23
--  MongoDB 3.0
--  MySQL 5.6.23
--  Neo4j 2.2.1
--  Postgres 9.4
--  RabbitMQ 3.5.1
--  Redis 3.0.0
--  RethinkDB 2.0.1
--  Riak 2.0.5
--  Selenium 2.52
--  SqlLite 3
+-  [CouchDB 1.6.1](/ci/services/couchdb/)
+-  [Elastic Search 1.5.1](/ci/services/elasticsearch/)
+-  [Kestrel](/ci/services/kestrel/)
+-  [Memcached 1.4.23](/ci/services/memcached/)
+-  [MongoDB 3.0](/ci/services/mongodb/)
+-  [MySQL 5.6.23](/ci/services/mysql/)
+-  [Neo4j 2.2.1](/ci/services/neo4j/)
+-  [Postgres 9.4](/ci/services/postgres/)
+-  [RabbitMQ 3.5.1](/ci/services/rabbitmq/)
+-  [Redis 3.0.0](/ci/services/redis/)
+-  [RethinkDB 2.0.1](/ci/services/rethinkdb/)
+-  [Riak 2.0.5](/ci/services/riak/)
+-  [Selenium 2.52](/ci/services/selenium/)
+-  [SqlLite 3](/ci/services/sqllite/)
 
 ---
 
@@ -96,42 +96,42 @@ We support a multitude of languages, tools, services, as well as all popular sou
 ---
 
 ## Notification Providers
-- [Slack](int_notifications/#slack-notifications)
-- [IRC](int_notifications/#irc-notifications)
-- [Email](int_notifications/#email-notifications)
-- [HipChat](int_notifications/#hipchat-notifications)
+- [Slack](/ci/integrations/notifications/slack/)
+- [Email](/ci/integrations/notifications/email/)
+- [HipChat](/ci/integrations/notifications/hipchat/)
+- [IRC](/ci/integrations/notifications/irc/)
 
 ---
 
-## Docker registries
-- [Docker Hub](int_docker_registries/#docker-hub)
-- [Amazon EC2 Container Registry (ECR)](int_docker_registries/#amazon-ec2-container-registry-ecr)
-- [Google Container Registry](int_docker_registries/#google-container-registry-gcr)
-- [Quay](int_docker_registries/#quayio)
-- [Docker Trusted Registry](int_docker_registries/#docker-trusted-registry)
-- [Any private registry](int_docker_registries/#private-registry)
+## Image registries
+- [Docker Hub](/ci/integrations/imageRegistries/dockerHub/)
+- [Docker Trusted Registry](/ci/integrations/imageRegistries/dockerTrustedRegistry/)
+- [Amazon EC2 Container Registry (ECR)](/ci/integrations/imageRegistries/ecr/)
+- [Google Container Registry (GCR)](/ci/integrations/imageRegistries/gcr/)
+- [Quay](/ci/integrations/imageRegistries/quay/)
+- [Any private registry](/ci/integrations/imageRegistries/privateRegistry/)
 
 ---
 
 ## Container Services
-- [Amazon EC2 Container Service (ECS)](int_container_services/#amazon-ec2-container-service-using-account-keys)
-- [Google Container Engine (GKE)](int_container_services/#google-container-engine-gke)
-- [Docker Cloud](int_container_services/#docker-cloud)
-- [Docker Datacenter](int_container_services/#docker-datacenter)
+- [Amazon EC2 Container Service (ECS)](/ci/integrations/containerServices/ecs/)
+- [Google Container Engine (GKE)](/ci/integrations/containerServices/gke/)
+- [Docker Cloud](/ci/integrations/containerServices/dockerCloud/)
+- [Docker Datacenter](/ci/integrations/containerServices/dockerDatacenter/)
 - Microsoft Azure (coming soon)
 
 ---
 
 ## IaaS
-- [AWS EC2 (using CodeDeploy)](ht_codedeploy/)
-- [Digital Ocean](ht_digitalocean/)
+- [AWS EC2 (using CodeDeploy)](/tutorials/usingCodeDeploy/)
+- [Digital Ocean](/tutorials/usingDigitalOcean/)
 
 ---
 
 ## PaaS
-- [AWS Elastic Beanstalk](int_paas_iaas_providers/#aws-elastic-beanstalk)
-- [AWS Opsworks](ht_opsworks/)
-- [Heroku](ht_heroku/)
+- [AWS Elastic Beanstalk](/ci/integrations/deploy/eb/)
+- [AWS Opsworks](/tutorials/usingOpsWorks/)
+- [Heroku](/tutorials/usingHeroku/)
 - Red Hat Openshift (coming soon)
 
 ---
