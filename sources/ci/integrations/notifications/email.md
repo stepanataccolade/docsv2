@@ -60,7 +60,7 @@ You can add an Email account integration to receive notifications for monitored 
 7. [Optional] Add additional recipients.
 8. Click the `Save` button.
 
-<img src="/ci/images/emailMonitorImages.png" alt="Configure an email address to be notified while monitoring a Docker image" style="width:700px;"/>
+<img src="/ci/images/integrations/notifications/email/monitorImages.png" alt="Configure an email address to be notified while monitoring a Docker image" style="width:700px;"/>
 
 ---
 

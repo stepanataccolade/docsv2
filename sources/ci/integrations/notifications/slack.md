@@ -47,7 +47,7 @@ There are two actions to set up the Slack integration through the UI. They are:
 14. Click the `Save` button.
 15. The Slack integration will show up in the list of integrations for your subscription.
 
-<img src="/ci/images/addSlackIntMV.gif" alt="Add Slack Integration on Shippable" style="width:700px;"/>
+<img src="/ci/images/integrations/notifications/slack/addIntMv.gif" alt="Add Slack Integration on Shippable" style="width:700px;"/>
 
 ---
 
@@ -106,7 +106,7 @@ You can add a Slack account integration to receive notifications for monitored D
 8. [Optional] Add additional recipients.
 9. Click the `Save` button.
 
-<img src="/ci/images/slackMonitorImages.png" alt="Configure to be notified through Slack while monitoring a Docker image" style="width:700px;"/>
+<img src="/ci/images/integrations/notifications/slack/monitorImages.png" alt="Configure to be notified through Slack while monitoring a Docker image" style="width:700px;"/>
 
 ---
 ##Deleting the Slack Integration
@@ -141,7 +141,7 @@ To delete a Slack integration from a subscription, the steps are:
 4. Review the list of integrations for your subscription.
 5. Click the `Delete` button next to the Slack integration.
 
-<img src="/ci/images/delSlackInt.png" alt="Delete the Slack integration from your Subscription" style="width:700px;"/>
+<img src="/ci/images/integrations/notifications/slack/deleteInt.png" alt="Delete the Slack integration from your Subscription" style="width:700px;"/>
 
 ###Deleting Slack Account Integration
 To delete the Slack Account integration, all the dependencies, such as Subscriptions, using the Slack account must be deleted first. Do note that this action is irreversible. The steps to delete the Slack Account integration are:

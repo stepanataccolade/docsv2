@@ -57,6 +57,6 @@ You can add an IRC account integration to receive notifications for monitored Do
 7. [Optional] Add additional recipients.
 8. Click the `Save` button.
 
-<img src="/ci/images/ircMonitorImages.png" alt="Configure to be notified through IRC while monitoring a Docker image" style="width:700px;"/>
+<img src="/ci/images/integrations/notifications/irc/monitorImages.png" alt="Configure to be notified through IRC while monitoring a Docker image" style="width:700px;"/>
 
 ---

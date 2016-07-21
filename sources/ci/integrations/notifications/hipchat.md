@@ -38,7 +38,7 @@ There are two actions to set up the HipChat integration through the UI. They are
 13. Click the `Save` button.
 14. The HipChat integration will show up in the list of integrations for your subscription.
 
-<img src="/ci/images/addHipChatIntMV.gif" alt="Add HipChat Integration on Shippable" style="width:700px;"/>
+<img src="/ci/images/integrations/notifications/hipchat/addIntMv.gif" alt="Add HipChat Integration on Shippable" style="width:700px;"/>
 
 ---
 
@@ -96,7 +96,7 @@ You can add a HipChat account integration to receive notifications for monitored
 8. [Optional] Add additional recipients.
 9. Click the `Save` button.
 
-<img src="/ci/images/hipchatMonitorImages.png" alt="Configure to be notified through HipChat while monitoring a Docker image" style="width:700px;"/>
+<img src="/ci/images/integrations/notifications/hipchat/monitorImages.png" alt="Configure to be notified through HipChat while monitoring a Docker image" style="width:700px;"/>
 
 ---
 ##Deleting the HipChat Integration
@@ -132,7 +132,7 @@ To delete a HipChat integration from a subscription, the steps are:
 4. Review the list of integrations for your subscription.
 5. Click the `Delete` button next to the HipChat integration.
 
-<img src="/ci/images/delHipChatInt.png" alt="Delete the HipChat integration from your Subscription" style="width:700px;"/>
+<img src="/ci/images/integrations/notifications/hipchat/deleteInt.png" alt="Delete the HipChat integration from your Subscription" style="width:700px;"/>
 
 ###Deleting HipChat Account Integration
 To delete the HipChat Account integration, all the dependencies, such as Subscriptions, using the HipChat account must be deleted first. Do note that this action is irreversible. The steps to delete the HipChat Account integration are:
