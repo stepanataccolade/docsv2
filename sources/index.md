@@ -18,7 +18,7 @@ The Shippable platform consists of 2 parts:
 
 Shippable integrates with all popular tools and services, such as build/test tools,  source control providers, docker registries, cloud providers, and container services.
 
-<img src="/ci/images/pipelineBasicFlow.png" alt="End to End Pipeline" style="width:700px;"/>
+<img src="/images/pipelineBasicFlow.png" alt="End to End Pipeline" style="width:700px;"/>
 
 ---
 
