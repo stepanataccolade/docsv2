@@ -58,7 +58,7 @@ you want to delete.
 Delete will fail if there are any projects actively using the integration, so 
 make sure the integration is not being used in any project before deleting it.
 
-<img src="../images/accountSettings/deleteIntegration.png" alt="Delete Account 
+<img src="../../images/accountSettings/deleteIntegration.png" alt="Delete Account 
 Integration" style="width:700px;"/>
 
 ---
