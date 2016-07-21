@@ -20,7 +20,7 @@ The steps to enable GitHub Enterprise integration with Shippable are:
    `Personal access tokens`.
     - Click on `Generate token` and on the Generate Token page, select the following permissions as shown below:
 
-    <img src="/ci/images/githubEnterprisePermissions.png" alt="GitHub Enterprise Permissions" style="width:700px;"/>
+    <img src="/ci/images/integrations/scm/githubEnterprise/permissions.png" alt="GitHub Enterprise Permissions" style="width:700px;"/>
 
     - Click on `Generate token`, and copy the generated token immediately. This is important since you will not see the token once you navigate away from this page.
     - Paste the token in your Integration on Shippable and click on `Save`.   
