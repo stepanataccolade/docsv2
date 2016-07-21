@@ -116,7 +116,7 @@ jobs have completed.
 You can further customize this by selecting the specific branches that you don't 
 want running in parallel.
 
-<img src="../../images/projectsrunParallelJobs.png" alt="Run Parallel Jobs" style="width:700px;"/>
+<img src="../../images/projects/runParallelJobs.png" alt="Run Parallel Jobs" style="width:700px;"/>
 
 In this example, if jobs are triggered simultaneously for branches `master` and 
 `prtest`, only one job will be allowed to run at a time, even if the subscription 
