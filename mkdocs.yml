@@ -92,7 +92,6 @@ pages:
     - API: navigatingUI/accountSettings/api.md
   - Subscription:
     - CI: navigatingUI/subscriptions/ci.md
-    - Infra: navigatingUI/subscriptions/infra.md
     - Pipelines: navigatingUI/subscriptions/pipelines.md
     - Settings: navigatingUI/subscriptions/settings.md
   - Project:
