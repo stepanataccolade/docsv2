@@ -13,34 +13,44 @@ All configuration for CI happens through shippable.yml which should be present a
 The structure of a basic shippable.yml is shown below. The sections below explore each section of the yml in greater detail.
 
 ```
-language: #any supported language tag
+language:  #language 						
 
-node_js:
-  - #language version
+node_js:									
+  - #language version						
 
-services:
-  - #any supported service
+services:									
+  - #any supported service					
 
-env:
+env:										
   - #env1=foo
   - #env2=bar
 
-matrix:
+matrix:										
 
-build:
+build:										
   pre_ci:   
-
+    - #command1
+    - #command2
   pre_ci_boot:
     image_name: 
     image_tag:
     pull:
     options:
   ci:
+    - #command1
+    - #command2
   post_ci:
+    - #command1
+    - #command2 
   on_success:
+    - #command1
+    - #command2  
   on_failure:
+    - #command1
+    - #command2
   cache:
-
+  cache_dir_list:
+    - #dir1
   push:
 
 integrations:
@@ -56,6 +66,10 @@ integrations:
       type:
       agent_only:
 ```
+
+Some **things to remember** before you start reading the sections below:
+
+- 
 
 
 * * * 
@@ -83,7 +97,17 @@ node_js:
 ```
 Similarly, you can use `rvm` for Ruby, `jdk` for Java and Scala, `go` for go, `python` for python, `php` for PHP versions.
 
-For more on each language and how to set the runtime, you can check out our language specific pages: [Node.js](languages/node.md), [Python](languages/python.md), [Java](languages/java.md), [Ruby](languages/ruby.md), [Go](languages/go.md), [Scala](languages/scala.md), [PHP](languages/php.md), [Clojure](languages/clojure.md), [C](languages/objc.md).
+For more on each language and how to set the runtime, you can check out our language specific pages: 
+
+- [Node.js](languages/node.md)
+- [Python](languages/python.md)
+- [Java](languages/java.md)
+- [Ruby](languages/ruby.md)
+- [Go](languages/go.md)
+- [Scala](languages/scala.md)
+- [PHP](languages/php.md)
+- [Clojure](languages/clojure.md)
+- [C/C++](languages/objc.md)
 
 **Things to remember**
 
@@ -118,33 +142,20 @@ If you want to use a service that is not available out of the box with Shippable
 
 The following pages describe how to use each service in greater detail:
 
-[CouchDB](services/couchdb.md)
-
-[Elastic Search](services/elasticsearch.md)
-
-[Kestrel](services/kestrel.md)
-
-[Memcached](services/memcached.md) 
-
-[MongoDB](services/mongodb.md) 
-
-[MySQL](services/mysql.md)
- 
-[Neo4j](services/neo4j.md) 
-
-[Postgres](services/postgres.md) 
-
-[RabbitMQ](services/rabbitmq.md) 
-
-[Redis](services/redis.md)
-
-[RethinkDB](services/rethinkdb.md) 
-
-[Riak](services/riak.md) 
-
-[Selenium](services/selenium.md) 
-
-[SqlLite](services/sqllite.md) 
+* [CouchDB](services/couchdb.md)
+* [Elastic Search](services/elasticsearch.md)
+* [Kestrel](services/kestrel.md)
+* [Memcached](services/memcached.md) 
+* [MongoDB](services/mongodb.md) 
+* [MySQL](services/mysql.md)
+* [Neo4j](services/neo4j.md) 
+* [Postgres](services/postgres.md) 
+* [RabbitMQ](services/rabbitmq.md) 
+* [Redis](services/redis.md)
+* [RethinkDB](services/rethinkdb.md) 
+* [Riak](services/riak.md) 
+* [Selenium](services/selenium.md) 
+* [SqlLite](services/sqllite.md) 
 
 * * * 
 
@@ -248,9 +259,26 @@ As an example, check out this tutorial on [testing a node.js app against multipl
 The build section is where you specify commands and options for your actual CI build. 
 
 ### pre_ci
+The `pre_ci` section is **optional** lets you prepare your environment before your CI container is spun up. This could include building the docker image you want to use for CI, installing dependencies that your container needs, etc.
+
+You can choose to execute any number of commands in this section. For example, you can build a Docker image from Dockerfile with the following snippet:
+
+```
+build:
+  pre_ci:
+    - docker build -t myImage:tip .
+    - ./doSomething.sh
+
+``` 
+
+**Things to remember**
+
+- Environment variables set in the `pre_ci` section will not be available in other sections of the yml. This is because commands in the `pre_ci` section are executed outside the CI container. 
+
+- Do not include commands for your actual CI workflow in this section. This section is mainly for any commands you need to run before the build container is spun up.
 
 ### pre_ci_boot
-This section is optional and lets you override the default build image used for your CI workflow. You should include this section in your yml only if:
+This section is **optional** and lets you override the default build image used for your CI workflow. You should include this section in your yml only if:
 - You want to use your own custom Docker image for your build 
 - You want to customize some options while starting up your CI container
 
@@ -283,7 +311,7 @@ In the snippet above, replace the following:
 - Minimum requirements for custom CI images are documented TBD: Update Link  
 
 ### ci
-The `ci` section of your yml is where the bulk of your build commands should be included. All commands in this section are executed sequentially inside your build container in the order they appear in your yml.
+The `ci` section of your yml is where the bulk of your build commands should be included. All commands in this section are executed sequentially inside your build container in the order they appear in your yml. This section is optional, but if you don't have any commands in this section, we some some default commands based on language, e.g. npm install and npm test for node.js projects.
 
 In general, follow the guidelines below to write the `ci` section:
 
@@ -309,7 +337,17 @@ build:
 
 **Things to remember**
 
-- If the `ci` section is blank, then default commands are executed, depending on the language. For more information, check out the specific language page: [Node.js](languages/node.md), [Python](languages/python.md), [Java](languages/java.md), [Ruby](languages/ruby.md), [Go](languages/go.md), [Scala](languages/scala.md), [PHP](languages/php.md), [Clojure](languages/clojure.md), [C](languages/objc.md).
+- If the `ci` section is blank, then default commands are executed, depending on the language. For more information, check out specific language pages: 
+
+- [Node.js](languages/node.md)
+- [Python](languages/python.md)
+- [Java](languages/java.md)
+- [Ruby](languages/ruby.md)
+- [Go](languages/go.md)
+- [Scala](languages/scala.md)
+- [PHP](languages/php.md)
+- [Clojure](languages/clojure.md)
+- [C/C++](languages/objc.md)
 
 ### post_ci
 The `post_ci` section of the yml is executed after the `ci` section. Similar to the `ci` section, you can include a set of commands in this section which will be executed sequentially. 
@@ -323,7 +361,6 @@ build:
     - 
 
 ```  
-
 
 ### on_success
 
@@ -388,6 +425,30 @@ Cache is updated for every build and is available to subsequent builds.
 **Advanced caching topics** like clearing cache, removing unwanted files when caching is enabled, etc are covered on our [caching page](advanced_options/caching.md)
 
 ### push
+The push section is **optional** and lets you push your CI container to any Docker registry of your choice. Include this section if:
+- You are using a custom image for your CI, i.e. your yml contains the `pre_ci_boot` section and specifies a custom CI image, AND
+- You want to push your image to Google Container Registry or AWS ECR registries after CI, AND
+- Your custom CI image does not have gcloud SDK (if pushing to GCR) or aws cli (idf pushing to ECR)
+
+The folowing snippet lets you push to GCR:
+
+```
+build:
+  push:
+    - docker push gcr.io/my_repo/my_image:latest
+
+integrations:
+  hub:
+    - integrationName: gcr_int_name
+      type: gcr
+      agent_only: true
+
+```
+
+In the snippet above, the `integrations` section lets you configures GCR credentials and you can then use the push section to push the image. For a more detailed explanation, please check out the specific integration page:
+
+- [Google Container Registry](integrations/imageRegistries/gcr.md)
+- [Amazon ECR](integrations/imageRegistries/ecr.md)
 
 
 * * * 
@@ -489,25 +550,52 @@ integrations:
       type: docker
 
 ```
-And that's it. You can now use docker commands under the `build` section of your yml to push or pull images from this registry. Advanced options like configuring this integration to only apply to specific branches are discussed in the [Docker Hub integration](integrations/image_registries/docker_hub.md)
+And that's it. You can now use docker commands under the `build` section of your yml to push or pull images from this registry. Advanced options like configuring this integration to only apply to specific branches are discussed in the [Docker Hub integration](integrations/imageRegistries/dockerHub.md)
 
 #### Additional Hub integrations
 Please visit the following pages for details on how to add hub integrations for other image registries:
 
-[Docker Trusted Registry](integrations/image_registries/docker_trusted_registry.md)
-[Amazon ECR](integrations/image_registries/amazon_ecr.md)
-[Google Container Registry](integrations/image_registries/google_gcr.md)
-[Quay.io](integrations/image_registries/quay.md)
-[Private Docker Registry](integrations/image_registries/private_registry.md)
-[Docker Hub](integrations/image_registries/docker_hub.md)
+[Docker Trusted Registry](integrations/image_registries/dockerTrustedRegistry.md)
+[Amazon ECR](integrations/imageRegistries/ecr.md)
+[Google Container Registry](integrations/imageRegistries/gcr.md)
+[Quay.io](integrations/imageRegistries/quay.md)
+[Private Docker Registry](integrations/imageRegistries/privateRegistry.md)
+[Docker Hub](integrations/imageRegistries/dockerHub.md)
 
 ### deploy
+The `deploy` section of the yml lets you depoy your code or Docker container to Amazon Elastic Beanstalk (EB). 
 
-
-
-
-
- 
+To configure deployments to EB, please refer to our [Integration page for Amazon Elastic Beanstalk](integrations/deploy/eb.md).
 
 
 ### keys
+You can also create integrations for PEM and SSH keys and use them during your CI workflows. This helps you set up integrations for with third party services that do not have a native Integration with our platform.
+
+You can store your keys in your Shippable account and then use them in your yml with the help of environment variables.
+
+#### Example: SSH keys
+As an example let us see how to set up an SSH key integration.
+
+1. Add a Key integration to your subscription
+
+	- Go to your Subscription's page on Shippable and click on the `Settings` tab
+	- Click on `Integrations` in the sidebar menu. This will show you the list of currently configured integrations.
+	- If you see the integration you want to use, skip to step 2.
+	- If you want to add a new integration, click on `Add integration`. Enter a name for your integration and then click on the dropdown and click on 'Add integration'. Select `SSH key` from the dropdown, and follow directions to add your integration.
+	
+2. In your project's shippable.yml, add the following:
+
+```
+integrations:
+  key:
+    - integrationName: ssh_integration_name
+      type: ssh-key
+```
+
+In the example above, the integrationName value should match the integration name in your Subscription Settings.
+Your SSH key will now be available on your build minion in the `/tmp/ssh/` directory. You can then use the key for ssh commands in your `shippable.yml`.
+For a more detailed explanation, check out our [SSH key integration](integrations/keys/ssh.md) page.
+
+#### Additional Key integrations
+[PEM keys](integrations/keys/pem.md)
+[SSH keys](integrations/keys/ssh.md)
