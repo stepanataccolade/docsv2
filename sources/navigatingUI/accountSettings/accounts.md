@@ -38,7 +38,7 @@ or  you have new repos in GitHub and want to see them immediately, or you linked
 your Bitbucket account to this account and want to see your Bitbucket repositories 
 right away.
 
-<img src="../../images/accountSettings/sccountInfo.png" alt="Account Settings 
+<img src="../../images/accountSettings/accountInfo.png" alt="Account Settings 
 Account information" style="width:700px;"/>
 
 ---
