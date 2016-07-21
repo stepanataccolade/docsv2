@@ -22,7 +22,7 @@ style="width:700px;"/>
 ##Deleting a token
 To delete a token, click on the `Delete` button next to the token you want to delete.
 
-<img src="../images/accountSettings/tokenDelete.png" alt="API token on Shippable" 
+<img src="../../images/accountSettings/tokenDelete.png" alt="API token on Shippable" 
 style="width:700px;"/>
 
 ---
