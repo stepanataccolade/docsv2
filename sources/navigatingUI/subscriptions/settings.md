@@ -61,9 +61,6 @@ encrypt any environment variables that you want to use during your build.
 Our How To guides provide instructions on how to enable continuous deployment to 
 different providers.
 
-<img src="../../images/subscriptions/deploymentKey.png" alt="Deployment Key for 
-a Subscription" style="width:700px;"/>
-
 ###Technical Contact
 
 Do ensure this field is populated with a valid email address for the subscription. 
@@ -112,12 +109,12 @@ section on the left side menu.
 
 2. Click 'Add Integration' and select the list of integrations available in the 
 dropdown of the 'Account Integrations' field. 
-<img src="../images/subscriptions/addIntegration.png" alt="Add Integration to a 
+<img src="../../images/subscriptions/addIntegration.png" alt="Add Integration to a 
 Subscription" style="width:700px;"/>
 
 3. Ensure the 'Integration Name' you input is exactly the same as the one you 
 configure in the `shippable.yml` file
-<img src="../images/subscriptions/addIntegration2.png" alt="Add Integration to a 
+<img src="../../images/subscriptions/addIntegration2.png" alt="Add Integration to a 
 Subscription" style="width:700px;"/>
 
 
@@ -203,7 +200,7 @@ for adding a build node below.
 Please note that you need to add one build node per parallel build, up to a maximum 
 of the number of parallel builds allowed in your plan.
 
-### Adding a build node
+### Adding a build no   de
 * To add a build machine, click on the `Add node` button. You will be redirected 
 to the Add Node page.
 * Enter a name for the node and its IP address.
