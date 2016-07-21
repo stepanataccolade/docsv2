@@ -151,13 +151,22 @@ deploy and maange them. In those cases, the following manifest will help
   type: manifest                            #required
   steps:
       - IN: box-image                       #required
+        versionName: "master.35"            #optional
       - IN: box-opts                        #optional
       - IN: box-params                      #optional
 ```
 This will create a job of type `manifest` with the name `box-man`. Since only 1
 (image)[../resources#image] `box-image` is being used, the other 2 addon resources
 (dockerOptions)[../resources#dockerOptions] & (params)[../resources#params] and this 
-manifest when deployed will create a single container app/service/microservice
+manifest when deployed will create a single container app/service/microservice. 
+Another key functionality is the ability to pin versions. By default, every 
+resource when used in `IN` gets the most recent version in the system. There are
+scenarios where you might not want this and get a static one. In those cases you
+use the tag `versionName` or `versionNumber`. In the above scenario we are using
+versionName for a resource of type image and this means its actually a docker tag. 
+We want `box-image` with a tag `master.35`. Shippable internally maintains a 
+sequential number for every version of the resource created. You can also refer 
+to that number by using `versionNumber` see below for an example.
 
 ### Multi container manifest pattern
 There are some cases where your apps/services are not completely decoupled. For
@@ -170,7 +179,9 @@ YML is a sample for that case
   type: manifest                            #required
   steps:
       - IN: box-image                       #required
+        versionName: "master.35"            #optional
       - IN: dv-image                        #required
+        versionNumber: 10                   #optional
       - IN: all-opts                        #optional
       - IN: box-params                      #optional
         applyTo:
@@ -181,7 +192,9 @@ has 2 (image)[../resources#image] `box-image` and `dv-image`. But the 2 addon re
 are configured differently. Resource `all-opts` of type (dockerOptions)[../resources#dockerOptions] 
 applies to both the images. But the resource `box-params` of type (params)[../resources#params] 
 applies only to `box-image`. This manifest when deployed will create a 2 containers 
-as part of this app/service/microservice
+as part of this app/service/microservice. We are pinning the version of `box-image`
+to the tag `master.35` and `dv-image` to whatever the tag Shippable versionNumber 
+`10` points to
 
 ### Combining manifests into a manifest pattern
 The above example of multi container manifest will allow you to create a union of
