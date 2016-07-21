@@ -31,7 +31,7 @@ pages:
     - C: ci/languages/objc.md
     - Custom Images: ci/languages/customImages.md
   - Advanced Options:
-    - Environment Variables: ci/advancedOptions/envVar.md
+    - Environment Variables: ci/advancedOptions/environmentVariables.md
     - Including/Excluding branches: ci/advancedOptions/branches.md
     - Matrix builds: ci/advancedOptions/matrixBuilds.md
     - Caching: ci/advancedOptions/caching.md
@@ -109,51 +109,39 @@ pages:
   - Run routes: api/run.md
   - Status Code Mapping: api/statusMapping.md
 - Tutorials:
-  - Pipelines:
-    - How to add resources: tutorials/howToAddSyncRepos.md
-  - How to add integrations: tutorials/addAccountIntegrations.md
-  - Running a sample CI build: tutorials/runSampleCIBuild.md
-  - Deploying a sample appliation: tutorials/samplePipeline.md
-  - Source Control System:
-    - Using GitHub: tutorials/usingGitHub.md
-    - Using GitHub Enterprise: tutorials/usingGitHubEnterprise.md
-    - Using Bitbucket: tutorials/usingBitbucket.md
-    - Using Bitbucket Server: tutorials/usingBitbucketServer.md
-    - Using GitLab: tutorials/usingGitLab.md
-    - Linking GitHub and Bitbucket accounts: tutorials/linkGitHubAndBitbucket.md
-  - Amazon:
-    - Deploy to AWS CodeDeploy: tutorials/usingCodeDeploy.md
-    - Deploy to Amazon Opsworks: tutorials/usingOpsWorks.md
-    - Deploy to Amazon EC2 Container Registry (ECR): test.md
-    - Deploy to AWS Elastic Beanstalk: test.md
-    - Deploy to Amazon EC2 Container Service (ECS): test.md
-  - Google:
-    - Deploy to Google Container Registry (GCR): test.md
-    - Deploy to Google Container Engine (GKE): test.md
-  - Docker:
-    - Deploy to Docker Hub: test.md
-    - Deploy to Docker Trusted Registry: test.md
-    - Deploy to Docker Datacenter: tutorials/usingDockerDatacenter.md
-    - Deploy to Docker Cloud: test.md
-  - Microsoft:
-    - Deploy to DC/OS on Azure: test.md
-    - Deploy to Docker Swarm on Azure: test.md
-    - Deploy to Azure Container Service (ACS): test.md
-  - Deploy to Quay.io: test.md
-  - Deploy to any private registry: test.md
-  - Languages Based:
-    - test: test.md
-  - Pushing to multiple registries: test.md
-  - Pushing multiple tags: test.md
-  - Overriding the default build image: test.md
-  - Building your CI image: test.md
-  - Pulling your CI image from a Docker registry: test.md
-  - Setting up matrix builds: test.md
-  - Setting up git submodules: test.md
-  - Using Shippable_retry: test.md
-  - Using Caching: test.md
-  - Using matrix to parallelize builds: test.md
-  - Running multiple docker push: test.md
-  - Deploy to Heroku: tutorials/usingHeroku.md
-  - Deploy to Digital Ocean: tutorials/usingDigitalOcean.md
-  - Monitor your Docker images for updates: tutorials/howToMonitorDockerImages.md
+  - Continuous Integration (CI) tutorials:
+    - Adding Account Integrations: tutorials/ci/integrations/addAccountIntegrations.md
+    - Run a sample CI build: tutorials/ci/runSampleCIBuild.md
+    - Monitor your Docker Images for updates: tutorials/ci/howToMonitorDockerImages.md
+    - Advanced Options Tutorials:
+      - Setting up matrix builds: test.md
+      - Using matrix to parallelize builds: test.md
+      - Using Caching: test.md
+      - Setting up git submodules: test.md
+      - Using Shippable_retry: test.md
+      - Pushing to multiple registries: test.md
+      - Pushing multiple tags: test.md
+      - Overriding the default build image: test.md
+      - Building your CI image: test.md
+      - Pulling your CI image from a Docker registry: test.md
+      - Running multiple docker push: test.md
+    - Integrations Tutorials:
+      - Source Control Systems Tutorials:
+        - GitHub: tutorials/ci/integrations/scm/usingGitHub.md
+        - GitHub Entrprise: tutorials/ci/integrations/scm/usingGitHubEnterprise.md
+        - Bitbucket: tutorials/ci/integrations/scm/usingBitbucket.md
+        - Bitbucket Server: tutorials/ci/integrations/scm/usingBitbucketServer.md
+        - GitLab: tutorials/ci/integrations/scm/usingGitLab.md
+      - Notifications Tutorials: test.md
+      - Image Registries Tutorials: test.md
+      - Container Services Tutorials:
+        - Docker Datacenter: usingDockerDatacenter.md
+      - Deploy Tutorials:
+        - Heroku: usingHeroku.md
+        - OpsWorks: usingOpsWorks.md
+        - Code Deploy: usingCodeDeploy.md
+        - Digital Ocean: usingDigitalOcean.md
+      - Keys Tutorials: test.md
+  - Pipelines Tutorials:
+    - How to add resources: tutorials/pipelines/howToAddSyncRepos.md
+    - Deploying a sample appliation: tutorials/samplePipeline.md
