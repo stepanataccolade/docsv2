@@ -65,7 +65,7 @@ The shippable.yml reference guide is the best resource to learn what's possible 
 ```
 Reason: Notification and Hub integrations need to be set in two places - In the UI and in the `shippable.yml` file. You'll get this error if the name for the integration does not match in 'Subscription' Settings; 'Integrations' section and in the `shippable.yml` file.
 
-**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our documentation on enabling [notifications](../continuous_integration/notifications/slack/) and [hub](../continuous_integration/deploy/aws_eb/) integration for more details.
+**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our documentation on enabling [notifications](../ci/notifications/slack/) and [hub](../ci/deploy/aws_eb/) integration for more details.
 
 ---
 
@@ -302,4 +302,4 @@ integrations:
 ```
 Note that `on_start` defaults to `never` and `on_success` defaults to `change` if these tags are not specified in the `shippable.yml` file. Changing both to `always` matches the previous fallback behavior for legacy users.
 
-Read more about [configuring Slack notifications](../continuous_integration/notifications/slack/) in our documentation.
+Read more about [configuring Slack notifications](../ci/notifications/slack/) in our documentation.

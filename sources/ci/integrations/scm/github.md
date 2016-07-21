@@ -10,7 +10,7 @@ Both public & private GitHub repositories are supported on Shippable. In order t
 - To enable GitHub integration for public repositories:  
      - Log in to [Shippable](https://app.shippable.com) using your GitHub credentials.
      - Click on `Authorize application` button to authorize Shippable to access your public repositories on GitHub (This is a one-time step). Provide your GitHub password, if prompted.
-     - Your subscription using your GitHub account is ready to use. In your 'Subscription', in the 'CI' tab, click the 'Enable Project' section to view all your public repositories in GitHub. Proceed to [enabling a project](/navigatingUI/subscriptionsCI/#enable-project).
+     - Your subscription using your GitHub account is ready to use. In your 'Subscription', in the 'CI' tab, click the 'Enable Project' section to view all your public repositories in GitHub. Proceed to [enabling a project](/navigatingUI/subscriptions/ci/#enable-project).
      - If you don't see your projects in the above step, click on the Account settings (gear icon on the top right hand navigation bar).
           - In the 'Accounts' section click the `Sync` button.
 - For private repositories, you need to one-time authorize Shippable to access them. You can do this by following the outlined steps:

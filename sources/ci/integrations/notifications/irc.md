@@ -48,7 +48,7 @@ While the above is a sample code for your `shippable.yml`, use the descriptions 
 
 You can add an IRC account integration to receive notifications for monitored Docker images. To do this:
 
-1. Ensure you have configured [the monitoring of a Docker image](/navigatingUI/accountSettingsImages/).
+1. Ensure you have configured [the monitoring of a Docker image](/navigatingUI/accountSettings/images/).
 2. Go to 'Account Settings' and click the 'Images' section.
 3. Select the 'Image' you want to configure the IRC notifications.
 4. Under the 'Notifications' section, use the dropdown for the 'Channel' field and select `irc`.

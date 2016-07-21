@@ -3,7 +3,7 @@ page_description: Overview of Shippable's Projects Status UI
 page_keywords: User Interface, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 #Projects Status tab
-A project on Shippable CI corresponds to a repository in your source control that you have enabled for CI. To learn how to enable a repository, check out the ["Enable Project"](/navigatingUI/subscriptionsCI//#enable-project) section.
+A project on Shippable CI corresponds to a repository in your source control that you have enabled for CI. To learn how to enable a repository, check out the ["Enable Project"](/navigatingUI/subscriptions/ci//#enable-project) section.
 
 To get to the Projects Status page for a particular project,
 
@@ -27,9 +27,9 @@ If a build is queued or in progress, you will see at the top of the 'Dashboard' 
 
 I'll use the example build '79 for the 'sample_nodejs' project from the picture shown above to explain the details included in the 'Project Dashboard' summary:
 
-- Build status icon: Displays the status of the build - Success, failed, etc. Hover the mouse on the icon to get a pop up about the build status. For a complete list refer the [builds status page](buildOverview/#build-status). In the above example, it shows 'Success'
+- Build status icon: Displays the status of the build - Success, failed, etc. Hover the mouse on the icon to get a pop up about the build status. For a complete list refer the [builds status page](builds/overview/#build-status). In the above example, it shows 'Success'
 - Build number: Displays the latest build number. In the above example, it shows '79'
-- Branch name: Displays the name of the branch for the project. By default, it is 'master'. To include other branches in this summary, go to the [Project's Settings page](/NavigatingUI/projectSettings/#dashboard-settings) and select the branch to be displayed. In the above example, it shows the 'master' and the 'sample_nodejs_branch' branch.
+- Branch name: Displays the name of the branch for the project. By default, it is 'master'. To include other branches in this summary, go to the [Project's Settings page](/NavigatingUI/projects/settings/#dashboard-settings) and select the branch to be displayed. In the above example, it shows the 'master' and the 'sample_nodejs_branch' branch.
 - Build Date: Displays the date the build was run. Hover the mouse on the date to get additional information such as day and time. In the above example, it shows 'Yesterday at 5:10PM'. NOTE: The dates are shown in the MM/DD/YYYY format.
 - Build Time: Displays the time taken for the build to run. Hover the mouse on the time to get the exact timestamp in seconds. In the above example, it shows '7 minutes'.
 - Triggered by: Displays the account name (from the source control system) that triggered the build. In the above example, it shows 'Shippable-Demo'.

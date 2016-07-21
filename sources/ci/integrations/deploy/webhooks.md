@@ -24,7 +24,7 @@ You can add the integration for a Project or for a Generic Webhook. The steps to
 4. For 'Integration Name' use a distinctive name that's easy to associate to the integration and recall. Example: `Event-Trigger-Integration`.
 5. Under 'What would you like to trigger?' select `Project` from the dropdown choices.
 6. [Optional] Select the Project that you want to associate the integration. In the screen shot below, `sample_nodejs` has been selected.
-7. In the 'Authorization' field, you'll need to specify the [Shippable API Token](/NavigatingUI/AccountSettingsApi/).
+7. In the 'Authorization' field, you'll need to specify the [Shippable API Token](/NavigatingUI/accountSettings/api/).
 8. Click on `Save`.
 
 <img src="/ci/images/eventTriggerProject.png" alt="Event Trigger integration" style="width:700px;"/>

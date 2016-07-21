@@ -17,8 +17,8 @@ pages:
 - Continuous Integration (CI):
   - Overview: ci/overview.md
   - What is supported?: ci/supported.md
-  - Running a sample build: ci/runFirstBuild.md
-  - Configuring your build: ci/shippableyml.md
+  - Running a build: ci/runFirstBuild.md
+  - Build config: ci/shippableyml.md
   - Languages:
     - Node.js: ci/languages/node.md
     - Python: ci/languages/python.md
@@ -83,24 +83,24 @@ pages:
   - FAQ: pipelines/faq.md
   - Troubleshooting: pipelines/troubleshoot.md
 - Navigating the UI:
-  - Home Page: navigatingUI/homePage.md
+  - Home: navigatingUI/home.md
   - Account Settings:
-    - Accounts section: navigatingUI/accountSettingsAccounts.md
-    - Integrations section: navigatingUI/accountSettingsIntegrations.md
-    - Cards section: navigatingUI/accountSettingsCards.md
-    - Images section: navigatingUI/accountSettingsImages.md
-    - API section: navigatingUI/accountSettingsApi.md
+    - Accounts: navigatingUI/accountSettings/accounts.md
+    - Integrations: navigatingUI/accountSettings/integrations.md
+    - Cards: navigatingUI/accountSettings/cards.md
+    - Images: navigatingUI/accountSettings/images.md
+    - API: navigatingUI/accountSettings/api.md
   - Subscriptions:
-    - CI tab: navigatingUI/subscriptionsCI.md
-    - Infra tab: navigatingUI/subscriptionsInfra.md
-    - Pipelines tab: navigatingUI/subscriptionsPipelines.md
-    - Settings tab: navigatingUI/subscriptionsSettings.md
+    - CI: navigatingUI/subscriptions/ci.md
+    - Infra: navigatingUI/subscriptions/infra.md
+    - Pipelines: navigatingUI/subscriptions/pipelines.md
+    - Settings: navigatingUI/subscriptions/settings.md
   - Projects:
-    - Status: navigatingUI/projectStatus.md
-    - Settings: navigatingUI/projectSettings.md
+    - Status: navigatingUI/projects/status.md
+    - Settings: navigatingUI/projects/settings.md
   - Builds:
-    - Build Overview: navigatingUI/buildOverview.md
-    - Build Details: navigatingUI/buildDetails.md
+    - Build Overview: navigatingUI/builds/overview.md
+    - Build Details: navigatingUI/builds/detail.md
 - API:
   - Overview: api/api.md
   - Account routes: api/apiAccount.md

@@ -51,7 +51,7 @@ Check our blog ["Notifying CI failure/success status on Email and Slack"](http:/
 
 You can add an Email account integration to receive notifications for monitored Docker images. To do this:
 
-1. Ensure you have configured [the monitoring of a Docker image](/navigatingUI/accountSettingsImages/).
+1. Ensure you have configured [the monitoring of a Docker image](/navigatingUI/accountSettings/images/).
 2. Go to 'Account Settings' and click the 'Images' section.
 3. Select the 'Image' you want to configure the email notifications.
 4. Under the 'Notifications' section, use the dropdown for the 'Channel' field and select `email`.

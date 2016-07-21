@@ -85,7 +85,7 @@ Check our blog [on configuring HipChat for both CI and Pipelines](http://blog.sh
 
 You can add a HipChat account integration to receive notifications for monitored Docker images. To do this:
 
-1. Ensure you have configured [the monitoring of a Docker image](/navigatingUI/accountSettingsImages/).
+1. Ensure you have configured [the monitoring of a Docker image](/navigatingUI/accountSettings/images/).
 2. Go to 'Account Settings' and click the 'Images' section.
 3. Select the 'Image' you want to configure the HipChat notifications.
 4. Under the 'Notifications' section, use the dropdown for the 'Channel' field and select `hipchat`.

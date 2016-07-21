@@ -32,7 +32,7 @@ To get to the CI view,
 ##Dashboard section
 The 'Dashboard' section is the default view when you navigate to this page. By default, you will see the status of the most recent commit builds for all enabled projects. The default branch of the repository, as configured in your source control account, is used.
 
-You can customize the branch(es) shown on this page and also configure this view to include status for pull request builds. More details on this in the [Dashboard Settings for Projects](/navigatingUI/projectSettings/#Dashboard-Settings).
+You can customize the branch(es) shown on this page and also configure this view to include status for pull request builds. More details on this in the [Dashboard Settings for Projects](/navigatingUI/projects/settings/#Dashboard-Settings).
 
 If a build is queued or in progress, you will see at the top of the 'Dashboard' view. Use the 'Filters' dropdown to select specific statuses of the builds to be displayed. By default, you will see all statuses of the builds.
 
@@ -40,10 +40,10 @@ If a build is queued or in progress, you will see at the top of the 'Dashboard' 
 
 I'll use the example build '86 sample_nodejs' from the picture shown above to explain the details included in the 'Subscription Dashboard' summary:
 
-- Build status icon: Displays the status of the build - Success, failed, etc. Hover the mouse on the icon to get a pop up about the build status. For a complete list refer the [builds status page](buildOverview/#Build-status). In the above example, it shows 'Success'
+- Build status icon: Displays the status of the build - Success, failed, etc. Hover the mouse on the icon to get a pop up about the build status. For a complete list refer the [builds status page](builds/overview/#Build-status). In the above example, it shows 'Success'
 - Build number: Displays the latest build number. In the above example, it shows '86
 - Project: Displays the name of the project. In the above example, it shows sample_nodejs' within your subscription.
-- Branch name: Displays the name of the branch for the project. By default, it is 'master'. To include other branches in this summary, go to the [Project's Settings page](navigatingUI/projectSettings/#Dashboard-Settings) and select the branch to be displayed. In the above example, it shows the 'master' branch.
+- Branch name: Displays the name of the branch for the project. By default, it is 'master'. To include other branches in this summary, go to the [Project's Settings page](navigatingUI/projects/settings/#Dashboard-Settings) and select the branch to be displayed. In the above example, it shows the 'master' branch.
 - Build Date: Displays the date the build was run. Hover the mouse on the date to get additional information such as day and time. In the above example, it shows 'Today at 1:58 PM'. NOTE: The dates are shown in the MM/DD/YYYY format.
 - Build Time: Displays the time taken for the build to run. Hover the mouse on the time to get the exact timestamp in seconds. In the above example, it shows '4 minutes'.
 - Triggered by: Displays the account name (from the source control system) that triggered the build. In the above example, it shows 'Shippable-Demo'.

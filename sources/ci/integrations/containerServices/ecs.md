@@ -30,7 +30,7 @@ On the [IAM console](https://console.aws.amazon.com/iam/) do following:
           - Select `Allows IAM users from a 3rd party AWS account to access this account.`
      - Establish Trust: Provide the following values  
           - Account Id: <12 digit AWS account id>
-          - External Id: <user's Shippable account id> (This can be found on the Shippable platform, Account Settings/Accounts section. Check [our documentation](/navigatingUI/accountSettingsAccounts/) for more help.)
+          - External Id: <user's Shippable account id> (This can be found on the Shippable platform, Account Settings/Accounts section. Check [our documentation](/navigatingUI/accountSettings/accounts/) for more help.)
      - Click `Next Step`
      - Skip attaching any policies in this step. Click `Next Step`
      - Review and click `Create Role`

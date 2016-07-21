@@ -92,7 +92,7 @@ Add the integration to a subscription, in the UI, through **Subscription Setting
 NOTE: If you don't see an integration in the dropdown, you will need to create one. To do so:
 
 - Click on the '+ Add integration' from the dropdown choices of the 'Account Integrations' field as shown above in Step 3.
-- Create the integration. [Detailed instructions here](navigatingUI/accountSettingsIntegrations/#Adding-an-account-integration).
+- Create the integration. [Detailed instructions here](navigatingUI/accountSettings/integrations/#Adding-an-account-integration).
 - Once you create this integration, add it to  your subscription by following Steps 2 and 3.
 
 **IMPORTANT**: After adding the 'Integrations' in the UI, you'll need to configure the same in the `shippable.yml` file for the project. More details on [yml config here(**UpdateLink**)](Update). The same is true for any Docker registry integrations.

@@ -155,6 +155,6 @@ You can use this code to display your code coverage report after code coverage r
 ---
 
 ## Integrations section
-To add an integration to your project, go to the Subscription's 'Settings'. [Click here](/NavigatingUI/subscriptionsSettings/#integrations) for instructions.
+To add an integration to your project, go to the Subscription's 'Settings'. [Click here](/NavigatingUI/subscriptions/settings/#integrations) for instructions.
 
 ---

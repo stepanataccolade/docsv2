@@ -12,7 +12,7 @@ In order to integrate with your Bitbucket account, we automatically set up an Ac
 - To enable Bitbucket integration for public repositories:  
      - Log in to [Shippable](https://app.shippable.com) using your Bitbucket credentials.
      - Click on `Authorize application` button to authorize Shippable to access your public and private  repositories on GitHub (This is a one-time step). Provide your Bitbucket password, if prompted.
-     - Your subscription using your Bitbucket account is ready to use. In your 'Subscription', in the 'CI' tab, click the 'Enable Project' section to view all your public and private repositories in Bitbucket. Proceed to [enabling a project](/navigatingUI/subscriptionsCI/#enable-project).
+     - Your subscription using your Bitbucket account is ready to use. In your 'Subscription', in the 'CI' tab, click the 'Enable Project' section to view all your public and private repositories in Bitbucket. Proceed to [enabling a project](/navigatingUI/subscriptions/ci/#enable-project).
      - If you don't see your projects in the above step, click on the Account settings (gear icon on the top right hand navigation bar).
           - In the 'Accounts' section click the `Sync` button.
 - No additional step required for private repositories as the above step provides access to both public and private repositories hosted on Bitbucket.
