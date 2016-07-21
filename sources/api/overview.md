@@ -5,7 +5,9 @@ page_keywords: shippable, API, HTTP
 # API
 # Overview and Purpose
 
-The Shippable API enables you to do most things that you would normally do in the Shippable UI through HTTP requests. Our API is RESTful, and can be interfaced through curl, third party tools, your own wrapper libraries, or any form of HTTPS communication.
+The Shippable API enables you to do most things that you would normally do in the Shippable UI through HTTP requests.
+
+Our API is RESTful, and can be interfaced through curl, third party tools, your own wrapper libraries, or any form of HTTPS communication.
 
 Please note that you must have a paid account with Shippable in order to use the API.
 
