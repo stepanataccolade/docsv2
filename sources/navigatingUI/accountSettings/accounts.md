@@ -1,7 +1,6 @@
 page_title: Navigating Shippable's Account Settings UI
 page_description: Overview of Shippable's Account Settings UI
-page_keywords: User Interface, microservices, Continuous Integration, Continuous 
-Deployment, CI/CD, testing, automation, pipelines, docker, lxc
+page_keywords: User Interface, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 
 #Account Settings

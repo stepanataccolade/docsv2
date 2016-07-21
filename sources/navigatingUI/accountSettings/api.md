@@ -1,7 +1,6 @@
 page_title: Navigating Shippable's Account Settings - API UI
 page_description: Overview of Shippable's Account Settings API section UI
-page_keywords: User Interface, microservices, Continuous Integration, Continuous 
-Deployment, CI/CD, testing, automation, pipelines, docker, lxc
+page_keywords: User Interface, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 #API Tokens
 This is where you generate, view and manage access tokens to use our [API](/api/api/).

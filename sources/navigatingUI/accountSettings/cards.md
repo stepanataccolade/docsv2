@@ -1,7 +1,6 @@
 page_title: Navigating Shippable's Account Settings - Cards UI
 page_description: Overview of Shippable's Account Settings Cards section UI
-page_keywords: User Interface, microservices, Continuous Integration, Continuous 
-Deployment, CI/CD, testing, automation, pipelines, docker, lxc
+page_keywords: User Interface, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 #Cards
 You need to add your credit card information to your account in order to use the 
