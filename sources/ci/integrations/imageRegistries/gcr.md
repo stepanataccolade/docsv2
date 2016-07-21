@@ -28,7 +28,7 @@ On your [Shippable dashboard](https://shippable.com):
 11. Enter your JSON key that you saved earlier
 12. Click on `Save`
 
-<img src="/ci/images/gcrInt.png" alt="Google Container Registry integration" style="width:700px;"/>
+<img src="/ci/images/integrations/imageRegistries/gcr/addInt.png" alt="Google Container Registry integration" style="width:700px;"/>
 
 The integration will now be available to all your continuous integration and deployment workflows.
 
