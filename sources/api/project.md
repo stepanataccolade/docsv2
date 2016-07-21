@@ -245,7 +245,9 @@ Alternatively, branch name can also be specified as a parameter like this:
 
 
 ###Injecting Global Env Variables
-You can also inject global environment variables into the new build by specifying key-value pairs in the JSON payload in the request body of the `POST`. These key-value pairs have to be set in the `globalEnv` property.
+You can also inject global environment variables into the new build by specifying key-value pairs in the JSON payload in the request body of the `POST`.
+
+These key-value pairs have to be set in the `globalEnv` property.
 
 ```
 {

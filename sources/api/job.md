@@ -3,7 +3,11 @@ page_description: How to interface with Shippable's API
 page_keywords: shippable, API, HTTP
 
 # Jobs
-Jobs are individual builds in a Run. For example, a matrix build will have multiple Jobs that are a part of the Build Run, one for each value in the matrix. For more on matrix builds, [check out our documentation on build config](ci_configure.md#matrix_builds)
+Jobs are individual builds in a Run.
+
+For example, a matrix build will have multiple Jobs that are a part of the Build Run, one for each value in the matrix.
+
+For more on matrix builds, [check out our documentation on build config](/ci/advancedOptions/matrixBuilds/)
 
 ##Get all jobs
 This route returns all jobs across projects and subscriptions and runs.

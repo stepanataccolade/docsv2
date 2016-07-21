@@ -101,13 +101,13 @@ pages:
     - Overview: navigatingUI/builds/overview.md
     - Detail: navigatingUI/builds/detail.md
 - API:
-  - Overview: api/api.md
-  - Account routes: api/apiAccount.md
-  - Subscription routes: api/apiSubscription.md
-  - Project routes: api/apiProject.md
-  - Job routes: api/apiJob.md
-  - Run routes: api/apiRuns.md
-  - Status Code Mapping: api/apiStatusMapping.md
+  - Overview: api/overview.md
+  - Account routes: api/account.md
+  - Subscription routes: api/subscription.md
+  - Project routes: api/project.md
+  - Job routes: api/job.md
+  - Run routes: api/run.md
+  - Status Code Mapping: api/statusMapping.md
 - Tutorials:
   - Pipelines:
     - How to add resources: tutorials/howToAddSyncRepos.md
