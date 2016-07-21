@@ -22,7 +22,7 @@ In order to integrate with your Bitbucket account, we automatically set up an Ac
 ##Pull Requests
 Shippable also integrates with Bitbucket to build pull requests.
 
-<img src="/ci/images/bitbucketPRStatus.png" alt="Bitbucket PR Status" style="width:700px;"/>
+<img src="/ci/images/integrations/scm/bitbucket/prStatus.png" alt="Bitbucket PR Status" style="width:700px;"/>
 
 The pull request build can be enabled or disabled by editing the webhook in Bitbucket.
 To enable it:
@@ -31,7 +31,7 @@ To enable it:
 - Check Pull Request Created and Updated.
 - To disable, uncheck the two options.
 
-<img src="/ci/images/bitbucketWebhookTriggers.png" alt="Bitbucket Webhook Triggers" style="width:300px;">
+<img src="/ci/images/integrations/scm/bitbucket/webhookTriggers.png" alt="Bitbucket Webhook Triggers" style="width:300px;">
 
 A few things to note here:
 

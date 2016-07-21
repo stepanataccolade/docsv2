@@ -20,7 +20,7 @@ Both public & private GitHub repositories are supported on Shippable. In order t
      - In the 'Accounts' section and under 'Git Identities', click 'Enable' under 'GitHub'.
      - Click `Authorize application` in the next page to enable access to private repositories.
 
-<img src="/ci/images/githubEnablePvtRepoMV.gif" alt="Enable access to GitHub Private Repositories" style="width:700px;"/>
+<img src="/ci/images/integrations/scm/github/enablePvtRepoMv.gif" alt="Enable access to GitHub Private Repositories" style="width:700px;"/>
 
 ---  
 ##Pull Requests
@@ -29,7 +29,7 @@ Shippable integrates with GitHub to build your pull requests and show status inl
 
 Whenever a pull request is opened for a project that is enabled on Shippable, we will run a build for the respective pull request and send you a build status notification. You can also see this status on your GitHub page as shown below:
 
-<img src="/ci/images/githubPRStatus.png" alt="GitHub PR Status" style="width:700px;"/>
+<img src="/ci/images/integrations/scm/github/prStatus.png" alt="GitHub PR Status" style="width:700px;"/>
 
 You can then merge the PR confidently if the build passes, or fix any issues that cause a failed build. Each time your pull request is updated, we will kick off a new build and update status.
 
