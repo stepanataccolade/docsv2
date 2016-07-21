@@ -27,7 +27,7 @@ You can add the integration for a Project or for a Generic Webhook. The steps to
 7. In the 'Authorization' field, you'll need to specify the [Shippable API Token](/NavigatingUI/accountSettings/api/).
 8. Click on `Save`.
 
-<img src="/ci/images/eventTriggerProject.png" alt="Event Trigger integration" style="width:700px;"/>
+<img src="/ci/images/integrations/deploy/webhooks/addTriggerProject.png" alt="Event Trigger integration" style="width:700px;"/>
 
 The integration will now be available to all your Continuous Integration and Pipelines settings within the Shippable portal.
 
@@ -42,7 +42,7 @@ The integration will now be available to all your Continuous Integration and Pip
 7. In the Authorization field, you need to specify the HTTP Authorization Header required to hit the specified webhook URL. If no authorization is required, this field can be left blank.
 8. Click on `Save`.
 
-<img src="/ci/images/eventTriggerWebhook.png" alt="Event Trigger integration" style="width:700px;"/>
+<img src="/ci/images/integrations/deploy/webhooks/addTriggerWebhook.png" alt="Event Trigger integration" style="width:700px;"/>
 
 The integration will now be available to all your Continuous Integration and Pipelines settings within the Shippable portal.
 
@@ -60,7 +60,7 @@ The integration will now be available to all your Continuous Integration and Pip
 7. Click the `Save` button.
 8. The Webhook integration will show up in the list of integrations for your subscription.
 
-<img src="/ci/images/subscriptionWebhookInt.png" alt="Event Trigger integration" style="width:700px;"/>
+<img src="/ci/images/integrations/deploy/webhooks/addSubscriptionInt.png" alt="Event Trigger integration" style="width:700px;"/>
 
 The integration will now be available to all your Continuous Integration and Pipelines settings for any user with access to the Subscription.
 

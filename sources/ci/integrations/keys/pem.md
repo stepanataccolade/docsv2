@@ -14,7 +14,7 @@ To create an account integration for a PEM key, do the following:
 - Enter a name for your key and then paste your key into the textbox labeled `key`.
 - `Save` your key.
 
-<img src="/ci/images/pemInt.png" alt="PEM Keys integration" style="width:700px;"/>
+<img src="/ci/images/integrations/keys/pem/addInt.png" alt="PEM Keys integration" style="width:700px;"/>
 
 You will need to add this key to both the 'Subscription' Settings **and** the `shippable.yml` of every project you want to use it in. Example `shippable.yml` integration:
 ```

@@ -31,7 +31,7 @@ To deploy applications to AWS EB, you need to configure an AWS account integrati
 
 The integration will now be available to all your continuous integration and deployment workflows.
 
-<img src="/ci/images/awsInt.png" alt="Amazon AWS integration" style="width:700px;"/>
+<img src="/ci/images/integrations/deploy/eb/addAwsInt.png" alt="Amazon AWS integration" style="width:700px;"/>
 
 ---
 

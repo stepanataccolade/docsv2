@@ -22,7 +22,7 @@ To create an account integration for an SSH key, do the following:
 - `Save` the generated key.
 
 
-<img src="/ci/images/sshInt.png" alt="SSH Keys integration" style="width:700px;"/>
+<img src="/ci/images/integrations/keys/ssh/addInt.png" alt="SSH Keys integration" style="width:700px;"/>
 
 You will need to add this key to both the 'Subscription' Settings **and** the `shippable.yml` of every project you want to use it in. Example `shippable.yml` integration:
 ```

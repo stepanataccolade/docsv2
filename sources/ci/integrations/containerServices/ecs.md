@@ -146,7 +146,7 @@ NOTE: Do not forget to include the comma at the top. After adding to the `Statem
 6. Enter the ARN for the role `shippable-role-to-allow-ecs-access`. This will be a string with format like this `arn:aws:iam::XXXXXX:role/shippable-role-to-allow-ecs-access`, where XXXXXX is your 12 digit AWS account id.
 7. Click on `Save`.
 
-<img src="/ci/images/awsIamInt.png" alt="Amazon AWS IAM integration" style="width:700px;"/>
+<img src="/ci/images/integrations/containerServices/ecs/addAwsIamInt.png" alt="Amazon AWS IAM integration" style="width:700px;"/>
 
 You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters. For more information on this, please check out our [Deployment pipelines section](/pipelines/overview/)
 
@@ -271,7 +271,7 @@ NOTE: Refer [the official Amazon documentation](http://docs.aws.amazon.com/Amazo
 6. Enter your access and secret keys provided by AWS. [See here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) for info on how to generate them.
 7. Click on `Save`.
 
-<img src="/ci/images/awsInt.png" alt="Amazon AWS integration" style="width:700px;"/>
+<img src="/ci/images/integrations/containerServices/ecs/addAwsInt.png" alt="Amazon AWS integration" style="width:700px;"/>
 
 You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters. For more information on this, please check out our [Deployment pipelines section](/pipelines/overview/)
 
