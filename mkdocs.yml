@@ -84,23 +84,23 @@ pages:
   - Troubleshooting: pipelines/troubleshoot.md
 - Navigating the UI:
   - Home: navigatingUI/home.md
-  - Account Settings:
-    - Accounts: navigatingUI/accountSettings/accounts.md
+  - Account:
+    - Account: navigatingUI/accountSettings/accounts.md
     - Integrations: navigatingUI/accountSettings/integrations.md
     - Cards: navigatingUI/accountSettings/cards.md
     - Images: navigatingUI/accountSettings/images.md
     - API: navigatingUI/accountSettings/api.md
-  - Subscriptions:
+  - Subscription:
     - CI: navigatingUI/subscriptions/ci.md
     - Infra: navigatingUI/subscriptions/infra.md
     - Pipelines: navigatingUI/subscriptions/pipelines.md
     - Settings: navigatingUI/subscriptions/settings.md
-  - Projects:
+  - Project:
     - Status: navigatingUI/projects/status.md
     - Settings: navigatingUI/projects/settings.md
-  - Builds:
-    - Build Overview: navigatingUI/builds/overview.md
-    - Build Details: navigatingUI/builds/detail.md
+  - Build:
+    - Overview: navigatingUI/builds/overview.md
+    - Detail: navigatingUI/builds/detail.md
 - API:
   - Overview: api/api.md
   - Account routes: api/apiAccount.md
