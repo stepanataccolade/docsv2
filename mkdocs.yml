@@ -1,6 +1,6 @@
 # General
 site_name: Shippable Documentation
-repo_url: https://github.com/Shippable
+repo_url: https://github.com/Shippable/docsv2
 
 # Paths
 docs_dir: sources
