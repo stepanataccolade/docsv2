@@ -20,7 +20,7 @@ The steps to add a Docker Datacenter integration are:
 10. Provide the URL to access the Universal Control Plane.
 11. Click on `Save`.
 
-<img src="/ci/images/dockerDatacenterInt.png" alt="Docker Datacenter integration" style="width:700px;"/>
+<img src="/ci/images/integrations/containerServices/dockerDatacenter/addInt.png" alt="Docker Datacenter integration" style="width:700px;"/>
 
 The integration will now be available to all your Continuous Integration and Pipelines settings within the Shippable portal.
 
