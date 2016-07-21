@@ -17,7 +17,7 @@ You will need to configure this integration to pull or push images to Amazon ECR
 
 The integration will now be available to all your continuous integration and deployment workflows.
 
-<img src="/ci/images/ecrInt.png" alt="Amazon EC2 Container Registry integration" style="width:700px;"/>
+<img src="/ci/images/integrations/imageRegistries/ecr/addInt.png" alt="Amazon EC2 Container Registry integration" style="width:700px;"/>
 
 
 NOTE: By default, the ECR region is set to `us-east-1`. To override and specify a desired region, you'll need to configure it in the `shippable.yml`. Here's an example, for reference.

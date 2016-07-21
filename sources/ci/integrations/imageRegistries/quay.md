@@ -17,11 +17,11 @@ A new application can be created under an Organization. To create an Organizatio
 
 You can see your organization listed under Users and Organizations on your dashboard. Click on your Organization that you just created, click on the applications tab which is present at the bottom of the Organization view just above Organization settings.
 
-<img src="/ci/images/quayNewApp.png" alt="Quay create new application" style="width:700px;"/>
+<img src="/ci/images/integrations/imageRegistries/quay/newApplication.png" alt="Quay create new application" style="width:700px;"/>
 
 Create a new Application and an it should be listed under OAuth Applications. Click on the application you created, and then on `Generate Token` under the menu options. Shippable will require read permission.Finally click on `authorize application` and Quay will provide you with an access token.
 
-<img src="/ci/images/quayToken.png" alt="Quay generate token" style="width:700px;"/>
+<img src="/ci/images/integrations/imageRegistries/quay/generateToken.png" alt="Quay generate token" style="width:700px;"/>
 
 ###Configuring Quay.io Integration on Shippable
 
@@ -34,7 +34,7 @@ On your [Shippable dashboard](https://shippable.com):
 5. Enter your credentials.
 6. Click on `Save`.
 
-<img src="/ci/images/quayInt.png" alt="Quay integration" style="width:700px;"/>
+<img src="/ci/images/integrations/imageRegistries/quay/addInt.png" alt="Quay integration" style="width:700px;"/>
 
 The integration will now be available to all your continuous integration and deployment workflows.
 

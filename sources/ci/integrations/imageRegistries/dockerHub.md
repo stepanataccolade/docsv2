@@ -43,14 +43,14 @@ You will need to configure this integration to pull or push images to Docker Hub
 8. Provide an easy-to-remember name for the Docker Hub integration, such as 'docker-account', in the 'Integration Name' field.
 9. Enter your credentials.
 10. Click the `Save` button.
-     - <img src="/ci/images/dockerHubAcctInt.png" alt="Docker Hub integration" style="width:700px;"/>
+     - <img src="/ci/images/integrations/imageRegistries/dockerHub/accountInt.png" alt="Docker Hub integration" style="width:700px;"/>
 11. Provide an easy-to-remember name for the Docker Hub integration for your Subscription, such as 'docker-hub-integration', in the 'Name' field.
 **IMPORTANT:** The 'Name' you have entered in this step should be used in your `shippable.yml` file. Both names should be exactly the same. If not the build will fail with an error.
 12. From the 'Account Integrations' dropdown select the Docker Hub account integration created.
 13. Click the `Save` button.
 14. The Docker Hub integration will show up in the list of integrations for your subscription.
 
-<img src="/ci/images/dockerHubSubsInt.png" alt="Docker Hub integration" style="width:700px;"/>
+<img src="/ci/images/integrations/imageRegistries/dockerHub/subscriptionInt.png" alt="Docker Hub integration" style="width:700px;"/>
 
 The integration will now be available to all your Continuous Integration and Pipelines settings within the Shippable portal.
 
@@ -297,7 +297,7 @@ To delete a Docker Hub integration from a subscription, the steps are:
 4. Review the list of integrations for your subscription.
 5. Click the `Delete` button next to the Docker Hub integration.
 
-<img src="/ci/images/delDockerHubInt.png" alt="Delete the Docker Hub integration from your Subscription" style="width:700px;"/>
+<img src="/ci/images/integrations/imageRegistries/dockerHub/deleteInt.png" alt="Delete the Docker Hub integration from your Subscription" style="width:700px;"/>
 
 ###Deleting Docker Account Integration
 To delete the Docker Account integration, all the dependencies, such as Subscriptions, using the Docker account must be deleted first. Do note that this action is irreversible. The steps to delete the Docker Account integration are:
