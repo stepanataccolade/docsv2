@@ -135,7 +135,7 @@ Add the integration to a subscription, in the UI, through **Subscription Setting
 2. Click 'Add Integration' and select the list of integrations available in the dropdown of the 'Account Integrations' field.
      <img src="../images/add_integration_for_subscription.png" alt="Add Integration to a Subscription" style="width:700px;"/>
      
-3. Ensure the 'Integration Name' you input is exactly the same as the one you configure in the `shippable.yml` file
+3. Ensure the 'Integration Name' you input **is exactly the same** as the one you configure in the `shippable.yml` file. If they are not the same, then the build will fail with an error as [described in our troubleshooting section](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match). 
 <img src="../images/add_integration_for_subscription_2.png" alt="Add Integration to a Subscription" style="width:700px;"/>
 
 
