@@ -191,7 +191,7 @@ Your new price will be reflected in your next invoice.
 By default, all your builds run inside build containers hosted on Shippable's
 infrastructure. However, you can choose to run your builds on your own infrastructure,
 i.e. you can '**Bring Your Own Node (BYON)**'. To understand the advantages of BYON,
-check out the [Running builds on your machines section](../continuous_integration/advanced_options/byonOverview.md).
+check out the [Running builds on your machines section](/ci/advancedOptions/byonOverview).
 
 The 'Build Infrastructure' section lets you set up your own infrastructure if
 desired. To do so, select the radio button for `My Node` and follow instructions
@@ -200,7 +200,7 @@ for adding a build node below.
 Please note that you need to add one build node per parallel build, up to a maximum
 of the number of parallel builds allowed in your plan.
 
-### Adding a build no   de
+### Adding a build node
 * To add a build machine, click on the `Add node` button. You will be redirected
 to the Add Node page.
 * Enter a name for the node and its IP address.

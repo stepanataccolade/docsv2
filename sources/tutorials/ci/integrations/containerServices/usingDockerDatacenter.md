@@ -14,7 +14,7 @@ Docker Datacenter CaaS (Containers-as-a-Service) enables enterprises to deploy C
 
 Throughout the demo, we will use a [sample node.js application](https://github.com/shippablesamples/sample_node_ddc) to demonstrate the workflow.
 
-Once you enable your project, it is critical to have a `shippable.yml` file to use Shippable CI. The `shippable.yml` file includes instructions to run your tests and push your docker images to a registry. To know more about the CI workflow, please check the [CI overview](ci_overview).
+Once you enable your project, it is critical to have a `shippable.yml` file to use Shippable CI. The `shippable.yml` file includes instructions to run your tests and push your docker images to a registry. To know more about the CI workflow, please check the [CI overview](/ci/overview).
 
 Lets review the `shippable.yml` file of the sample application.
 ```yaml
@@ -40,7 +40,7 @@ integrations:
     - integrationName : "Shippable-DTR"
       type : Docker Trusted Registry
 ```
-In the ci section shown above, we issue commands to run tests. Once the tests are complete, the docker image is pushed to a registry. ( Check the [supported registries](gs_supported.md) ).
+In the ci section shown above, we issue commands to run tests. Once the tests are complete, the docker image is pushed to a registry. ( Check the [supported registries](/ci/supported) ).
 
 In the sample application, we will push the docker images to the Docker Trusted Registry using the integration named `Shippable-DTR` ( Check how to create integration for a docker registry in Shippable **UpdateLink**
 
@@ -63,7 +63,7 @@ After Creating an Environment, Click on "Add Pipeline" and you will be redirecte
 
 * Give a __Pipeline Name__. This name will be used in naming the containers created on Docker Datacenter. Containers will be named by the pattern *PipelineName-PipelineId-ImageNumber-ReplicaNumber*
 
-* Configure __Cell Manifest__. In this section, you can choose to add one or more docker images that are stored in the [supported registries](gs_supported.md). We will add `ship-dtr.in/shippable-ci/sample_node_ddc` that we push in the Continuous Integration phase and specify the key values for Environment variables.
+* Configure __Cell Manifest__. In this section, you can choose to add one or more docker images that are stored in the [supported registries](/ci/supported). We will add `ship-dtr.in/shippable-ci/sample_node_ddc` that we push in the Continuous Integration phase and specify the key values for Environment variables.
 <img src="../images/ddc_cell_manifest.png" alt="Cell Manifest" style="width:700px;"/>
 While adding the image, you can configure various options like Port Mapping, Memory Limit etc.
 <img src="../images/ddc_image_creation.png" alt="Image Creation" style="width:700px;"/>
