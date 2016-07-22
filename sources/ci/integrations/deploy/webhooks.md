@@ -92,8 +92,8 @@ integrations:
 
 - `integrationName` value is the name of the Webhook integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
 - `type` is `webhook`.
-- [optional] `payload` You can specify `key=value` pairs where the `value` is a string. The string can contain Shippable [Environment Variables](/ci/advancedOptions/envVar/). These variables will be populated by corresponding values from a run for this project.
-- If the `webhook` integration is set up **to trigger an enabled project**: the `payload` will be injected into the next run as a set of global environment variables ([Injecting Global Env Variables](/ci/advancedOptions/envVar/#injecting-global-env-variables/)).
+- [optional] `payload` You can specify `key=value` pairs where the `value` is a string. The string can contain Shippable [Environment Variables](/ci/advancedOptions/environmentVariables/). These variables will be populated by corresponding values from a run for this project.
+- If the `webhook` integration is set up **to trigger an enabled project**: the `payload` will be injected into the next run as a set of global environment variables ([Injecting Global Env Variables](/ci/advancedOptions/environmentVariables/#injecting-global-env-variables)).
 - If the `webhook` integration is set up **to trigger an external webhook**: the `payload` will be converted to a JSON with `key: value` attributes which will be sent as the body when the specified webhook URL is triggered.
 - [optional] `branches` allows you to choose the branches you want to trigger the configured webhook for. By default, the configured webhook is triggered for all branches. The `only` tag should be used when you want to trigger webhooks for specific branches. You can also use the `except` tag to exclude specific branches.
 - [optional] You can set the following options for the `on_success`, `on_failure` tags :

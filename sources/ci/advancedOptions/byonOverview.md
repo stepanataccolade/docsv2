@@ -43,6 +43,6 @@ We have tested this extensively using machines on Amazon EC2 and Digital Ocean. 
 ---
 
 ## Configuring BYON
-To set up your BYON for your subscription, go to documentation on [Subscription settings](/navigatingUI/subscriptions/settings/#Nodes) which explains how to configure your subscription to use your own build infrastructure to learn more.
+To set up your BYON for your subscription, go to documentation on [Subscription settings](/navigatingUI/subscriptions/settings/#nodes) which explains how to configure your subscription to use your own build infrastructure to learn more.
 
 ---

@@ -29,23 +29,23 @@ If you're a Docker enthusiast and want to spin up your build minion based on you
 
 Your build minions are transient and spin up when a build is triggered and are destroyed when a build completes.
 
-Each minion has 2 cores and 4GB RAM. If you use your own infrastructure to run your builds with [Bring Your Own Node (BYON)](ci_byoh) option, you can spin up bigger containers for your builds since we do not restrict resources for containers running on customers' infrastructure.
+Each minion has 2 cores and 4GB RAM. If you use your own infrastructure to run your builds with [Bring Your Own Node (BYON)](/ci/advancedOptions/byonOverview/) option, you can spin up bigger containers for your builds since we do not restrict resources for containers running on customers' infrastructure.
 
 ---
 ### Do I need to create an Account on Shippable?
-You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to encompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services. Read the [accounts section **UpdateLink**] for more details.
+You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to encompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services. Read the [accounts section](/navigatingUI/accountSettings/accounts/) for more details.
 
 ---
 ### Can you explain what a Subscription on Shippable means?
 A subscription on Shippable corresponds to an organization or personal account on GitHub or Bitbucket. So if you sign in to Shippable with GitHub credentials and your username is abcfoo and you're a member of orgs org1foo and org2foo, you will have 3 subscriptions on Shippable.
 
-Our billing plans are at a subscription level, so you can upgrade or downgrade each of your subscriptions independently. Also, we mirror permissions from your source control provider, so if someone has access to organizational repositories on GitHub/Bitbucket, they will also have access to view and run builds on Shippable. These permissions are synced automatically and you do not have to do anything to make this work. Read the [subscriptions section **UpdateLink**] for more details.
+Our billing plans are at a subscription level, so you can upgrade or downgrade each of your subscriptions independently. Also, we mirror permissions from your source control provider, so if someone has access to organizational repositories on GitHub/Bitbucket, they will also have access to view and run builds on Shippable. These permissions are synced automatically and you do not have to do anything to make this work. Read the [subscriptions section](/navigatingUI/subscriptions/ci/) for more details.
 
 ---
 ### What is a Project?
 A project on Shippable corresponds to a repository on your source control provider. As with subscriptions, project permissions are also synced with your source control provider.
 
-Once a project is enabled, we build all commits and pull requests for that project, irrespective of who commits and opens the pull request. Refer the [projects section **UpdateLink**] for additional details.
+Once a project is enabled, we build all commits and pull requests for that project, irrespective of who commits and opens the pull request. Refer the [projects section](/navigatingUI/projects/status/) for additional details.
 
 ---
 ### What is the difference between a Build Container (cexec) and Shippable Agent (mexec) on the Shippable platform?
@@ -99,7 +99,7 @@ restrictions' Under the 'Third-party application access policy' section.
 
 ### How do I link my GitHub and Bitbucket accounts?
 
-Please read our documentation on [linking GitHub and Bitbucket accounts](ci/integrations/scm/github/#Linking-gitHub-and-bitbucket-accounts). In addition, refer our [blog](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts) on this topic.
+Please read our documentation on [linking GitHub and Bitbucket accounts](ci/integrations/scm/github/#linking-github-and-bitbucket-accounts). In addition, refer our [blog](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts) on this topic.
 
 ---
 
@@ -139,10 +139,10 @@ If you are using encrypted variables for this project, they'll need to be re-enc
 
 ### Is mariadb supported on Shippable?
 
-Shippable [supports](gs_supported/) lots of different services, tools and third party services. If you have a service or a tool that is currently unsupported, you can still use it to run CI within Shippable in either of the two ways listed:
+Shippable [supports](/ci/supported/) lots of different services, tools and third party services. If you have a service or a tool that is currently unsupported, you can still use it to run CI within Shippable in either of the two ways listed:
 
 1. Use Shippable's default images based on the language you use & install 'mariadb' as a dependency in the `build: ci` step.
-2. If you have an existing Docker image with 'mariadb' and other dependencies installed, then you can [override Shippable's default image](ci_configure/#overriding-the-default-build-image) and use it for CI. You can also [build your own Docker image](ci_configure/#building-your-ci-image) with all the dependencies including 'mariadb' and use it for CI.
+2. If you have an existing Docker image with 'mariadb' and other dependencies installed, then you can [override Shippable's default image](/ci/advancedOptions/images/#overriding-the-default-build-image) and use it for CI. You can also [build your own Docker image](/ci/advancedOptions/images/#building-your-ci-image) with all the dependencies including 'mariadb' and use it for CI.
 
 ---
 
@@ -151,7 +151,7 @@ Shippable [supports](gs_supported/) lots of different services, tools and third 
 
 A couple of reasons why this could happen:
 
-(1) Missing YML in the branch you are building. Create a `shippable.yml` file in the root of your repository. Here is a [reference/example](http://docs.shippable.com/ci_configure/#shippableyml-structure) of a `shippable.yml` file
+(1) Missing YML in the branch you are building. Create a `shippable.yml` file in the root of your repository. Here is a [reference/example](/ci/shippableyml/) of a `shippable.yml` file
 
 (2) Shippable YML is invalid. Please validate your YML using either of the links below:
 
@@ -196,7 +196,7 @@ webhook build will not be executed.
 ### In my total build time, provisioning a node takes the longest time. How can I reduce the node provisioning time?
 When you trigger a build, we spin up a build machine and run your build. This provisioning takes approximately 2-3 minutes.
 
-If you want your builds to start immediately and avoid the node provisioning time, you can use our feature that lets you run builds on your own infrastructure. You can buy a machine from AWS or Digital Ocean or Linode and attach it to your Shippable subscription. We will run all your builds on your attached machines, and since your machines are always up, we will not need to provision nodes and this will save ~3 mins per build. You can read more about [Bringing Your Own Host - BYOH](http://docs.shippable.com/ci_byoh/). Once you BYOH, [read the instructions](http://docs.shippable.com/ci_subscriptions/#adding-your-own-build-infrastructure-byoh) for attaching your build infrastructure to Shippable.
+If you want your builds to start immediately and avoid the node provisioning time, you can use our feature that lets you run builds on your own infrastructure. You can buy a machine from AWS or Digital Ocean or Linode and attach it to your Shippable subscription. We will run all your builds on your attached machines, and since your machines are always up, we will not need to provision nodes and this will save ~3 mins per build. You can read more about [Bringing Your Own Node - BYON](/ci/advancedOptions/byonOverview/). Once you BYON, [read the instructions](navigatingUI/subscriptions/settings/#nodes) for attaching your build infrastructure to Shippable.
 
 ---
 
@@ -235,7 +235,7 @@ We will watch for updates and as soon as `php7-dev` is available, the next image
 ---
 
 ### How do I specify a region while setting up Amazon EC2 Container Registry (ECR) Integration?
-When you set up the [Amazon ECR integration](http://docs.shippable.com/int_docker_registries/#amazon-ec2-container-registry-ecr), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
+When you set up the [Amazon ECR integration](/ci/integrations/imageRegistries/ecr/), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
 
 ```
 integrations:
@@ -249,7 +249,7 @@ integrations:
 
 ### How do I use Ruby in a build with another language?
 
-Specify your [language](http://docs.shippable.com/ci_configure/#specifying-language-and-runtime) as usual. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](http://docs.shippable.com/ci_configure/#setting-your-build-image) for that language.
+Specify your [language](/ci/shippableyml/#language) as usual. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](/ci/shippableyml/#setting-your-build-image) for that language.
 
 All [official Shippable images](https://hub.docker.com/u/drydock/) have rvm installed, with a default version of Ruby. However, the rvm location is not added to the $PATH environment variable, so you will need to `source` rvm in your YML. This will give you access to both `ruby` and `rvm`. Your YML will look something like this:
 ```
