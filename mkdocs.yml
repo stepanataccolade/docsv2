@@ -79,7 +79,7 @@ pages:
   - Resources: pipelines/resources.md
   - Jobs: pipelines/jobs.md
   - Triggers: pipelines/triggers.md
-  - Sample: tutorials/samplePipeline.md
+  - Sample: tutorials/pipelines/samplePipeline.md
   - FAQ: pipelines/faq.md
   - Troubleshooting: pipelines/troubleshoot.md
 - Navigating the UI:
@@ -127,6 +127,7 @@ pages:
       - Running multiple docker push: test.md
     - Integrations Tutorials:
       - Source Control Systems Tutorials:
+        - Linking GitHub and Bitbucket accounts on Shippable: tutorials/ci/integrations/scm/linkGitHubAndBitbucket.md
         - GitHub: tutorials/ci/integrations/scm/usingGitHub.md
         - GitHub Entrprise: tutorials/ci/integrations/scm/usingGitHubEnterprise.md
         - Bitbucket: tutorials/ci/integrations/scm/usingBitbucket.md
@@ -135,13 +136,13 @@ pages:
       - Notifications Tutorials: test.md
       - Image Registries Tutorials: test.md
       - Container Services Tutorials:
-        - Docker Datacenter: usingDockerDatacenter.md
+        - Docker Datacenter: tutorials/ci/integrations/containerServices/usingDockerDatacenter.md
       - Deploy Tutorials:
-        - Heroku: usingHeroku.md
-        - OpsWorks: usingOpsWorks.md
-        - Code Deploy: usingCodeDeploy.md
-        - Digital Ocean: usingDigitalOcean.md
+        - Heroku: tutorials/ci/integrations/deploy/usingHeroku.md
+        - OpsWorks: tutorials/ci/integrations/deploy/usingOpsWorks.md
+        - Code Deploy: tutorials/ci/integrations/deploy/usingCodeDeploy.md
+        - Digital Ocean: tutorials/ci/integrations/deploy/usingDigitalOcean.md
       - Keys Tutorials: test.md
   - Pipelines Tutorials:
     - How to add resources: tutorials/pipelines/howToAddSyncRepos.md
-    - Deploying a sample appliation: tutorials/samplePipeline.md
+    - Deploying a sample appliation: tutorials/pipelines/samplePipeline.md

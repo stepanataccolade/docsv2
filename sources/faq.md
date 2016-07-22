@@ -4,7 +4,7 @@ page_keywords: concepts, documentation, shippable, CI/CD, pipelines, upgrade con
 
 # FAQ
 
-This document lists the FAQs that we've received through our [Support repository](https://github.com/Shippable/support/issues) and speaking with our customers, on running Continuous Integration. If you have specific errors that you would like to troubleshoot, then refer troubleshooting sections under [Continuous Integration](ci_troubleshoot.md) and [Pipelines](/pipelines/troubleshoot.md).
+This document lists the FAQs that we've received through our [Support repository](https://github.com/Shippable/support/issues) and speaking with our customers, on running Continuous Integration. If you have specific errors that you would like to troubleshoot, then refer troubleshooting sections under [Continuous Integration](/ci/troubleshoot/) and [Pipelines](/pipelines/troubleshoot/).
 
 ---
 ##Setup
@@ -99,7 +99,7 @@ restrictions' Under the 'Third-party application access policy' section.
 
 ### How do I link my GitHub and Bitbucket accounts?
 
-Please read our documentation on [linking GitHub and Bitbucket accounts](ht_link_gh_and_bb.md). In addition, refer our [blog](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts) on this topic.
+Please read our documentation on [linking GitHub and Bitbucket accounts](ci/integrations/scm/github/#Linking-gitHub-and-bitbucket-accounts). In addition, refer our [blog](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts) on this topic.
 
 ---
 
@@ -268,4 +268,4 @@ build:
 ## Pipelines (Continuous Delivery (CD))
 ### Why is my application not accessible externally, even though my pipeline is working perfectly?
 
-You may notice that your pipeline has been configured correctly & is deploying your Docker image successfully into Kubernetes (GKE). However, you'll see that no service is created & hence your application is not accessible externally, even though you have configured the routing. A main reason this happens is when a GKE cluster is used & the port ranges are not configured. Kubernetes, by default, restricts the nodePort on a service to be in the range 30000 to 32767. Hence if you are using a GKE cluster, then you'll need to select the hostPort you choose for routing, between this range. For more details refer [deploying a sample app on pipelines](gs_deploy_sample.md).
+You may notice that your pipeline has been configured correctly & is deploying your Docker image successfully into Kubernetes (GKE). However, you'll see that no service is created & hence your application is not accessible externally, even though you have configured the routing. A main reason this happens is when a GKE cluster is used & the port ranges are not configured. Kubernetes, by default, restricts the nodePort on a service to be in the range 30000 to 32767. Hence if you are using a GKE cluster, then you'll need to select the hostPort you choose for routing, between this range. For more details refer [deploying a sample app on pipelines](/tutorials/pipelines/samplePipeline).

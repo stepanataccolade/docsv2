@@ -24,6 +24,6 @@ Install the Shippable Add-on available in the [Atlassian Marketplace](https://ma
 - After adding the Bitbucket Server integration, you should go to the Account Settings tab and `Sync` your Account.
 - Go to your Shippable dashboard and check to make sure your Bitbucket Server subscriptions are available in the CI dropdown.
 
-For more details, read the stepwise tutorial - [Using Shippable with Bitbucket Server](usingBitbucketServer.md)
+For more details, read the stepwise tutorial - [Using Shippable with Bitbucket Server](/tutorials/ci/integrations/scm/usingBitbucketServer)
 
 ---

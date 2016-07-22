@@ -10,7 +10,7 @@ This document helps in troubleshooting errors generated on the Shippable platfor
 1. Setup: Troubleshooting errors that occur during initial setup and prior to initiating a CI build.
 2. Continuous Integration (CI): Troubleshooting errors that occur during the CI process and is shown in the Console output.
 
-For non-errors and questions, refer our [FAQ section](ci_faq.md).
+For non-errors and questions, refer our [FAQ section](/faq).
 
 ---
 
