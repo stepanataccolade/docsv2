@@ -3,7 +3,9 @@ page_description: Configure HipChat to send out notifications for Continuous Int
 page_keywords: Integration, Integrate, Slack, Notify, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, email, HipChat, IRC
 
 #HipChat
-Notifications can be sent for build status updates, monitoring your Docker image updates, and deployment updates. To send these notifications to HipChat room(s) and user(s), you'll need to take both steps outlined below:
+Notifications can be sent for build status updates, monitoring your Docker image updates, and deployment updates.
+
+To send these notifications to HipChat room(s) and user(s), you'll need to take both steps outlined below:
 
 1. Set up HipChat integration on Shippable through UI
 2. Configure HipChat notification options in the `shippable.yml` file
@@ -135,7 +137,11 @@ To delete a HipChat integration from a subscription, the steps are:
 <img src="/ci/images/integrations/notifications/hipchat/deleteInt.png" alt="Delete the HipChat integration from your Subscription" style="width:700px;"/>
 
 ###Deleting HipChat Account Integration
-To delete the HipChat Account integration, all the dependencies, such as Subscriptions, using the HipChat account must be deleted first. Do note that this action is irreversible. The steps to delete the HipChat Account integration are:
+To delete the HipChat Account integration, all the dependencies, such as Subscriptions, using the HipChat account must be deleted first.
+
+Do note that this action is irreversible.
+
+The steps to delete the HipChat Account integration are:
 
 1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` section.
 2. Select the HipChat integration from the list of integrations. If you have many entries, use the `Filters` dropdown and select `HipChat`. Alternatively, you can use the `Integration Name` field to provide the name of your HipChat integration.

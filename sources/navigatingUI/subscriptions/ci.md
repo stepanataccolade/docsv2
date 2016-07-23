@@ -4,9 +4,9 @@ page_keywords: User Interface, microservices, Continuous Integration, Continuous
 
 
 #Subscriptions
-A subscription on Shippable corresponds to an individual or organizational
-subscription on GitHub/Bitbucket. Your pricing plans are enforced at this level,
-so you need to determine your minion needs for each subscription.
+A subscription on Shippable corresponds to an individual or organizational subscription on GitHub/Bitbucket.
+
+Your pricing plans are enforced at this level, so you need to determine your minion needs for each subscription.
 
 The Subscriptions page consists of 4 tabs:
 
@@ -19,8 +19,9 @@ The Subscriptions page consists of 4 tabs:
 
 #CI tab
 
-The `CI` tab of your Subscription page shows you the latest status of all enabled
-projects. You can also view in progress builds and build history.
+The `CI` tab of your Subscription page shows you the latest status of all enabled projects.
+
+You can also view in progress builds and build history.
 
 To get to the CI view,
 
@@ -36,18 +37,25 @@ Dashboard" style="width:700px;"/>
 ---
 
 ##Dashboard section
-The 'Dashboard' section is the default view when you navigate to this page. By
-default, you will see the status of the most recent commit builds for all enabled
-projects. The default branch of the repository, as configured in your source control
-account, is used.
+The 'Dashboard' section is the default view when you navigate to this page.
+
+By default, you will see the status of the most recent commit builds for all enabled
+projects.
+
+The default branch of the repository, as configured in your source control account, is used.
 
 You can customize the branch(es) shown on this page and also configure this view
-to include status for pull request builds. More details on this in the
-[Dashboard Settings for Projects](/navigatingUI/projects/settings/#Dashboard-Settings).
+to include status for pull request builds.
+
+More details on this in the [Dashboard Settings for Projects](/navigatingUI/projects/settings/#Dashboard-Settings).
 
 If a build is queued or in progress, you will see at the top of the 'Dashboard'
-view. Use the 'Filters' dropdown to select specific statuses of the builds to be
-displayed. By default, you will see all statuses of the builds.
+view.
+
+Use the 'Filters' dropdown to select specific statuses of the builds to be
+displayed.
+
+By default, you will see all statuses of the builds.
 
 <img src="../../images/subscriptions/dashboard.png" alt="Subscription Dashboard"
 style="width:700px;"/>
@@ -86,13 +94,13 @@ a project.
 ---
 
 ##History section
-The 'History' section shows the build history across all enabled projects in the
-subscription. You can filter this view by build type (commit vs pull request builds),
-build statuses, and project names. The default view is set to all build types, all
-build statuses and all projects.  
+The 'History' section shows the build history across all enabled projects in the subscription.
 
-You can also see how many minions are being used at the current time by looking
-at the **Minion usage** count on the top right of the page.
+You can filter this view by build type (commit vs pull request builds), build statuses, and project names.
+
+The default view is set to all build types, all build statuses and all projects.  
+
+You can also see how many minions are being used at the current time by looking at the **Minion usage** count on the top right of the page.
 
 - Rerun a previous build, by clicking on `Rerun` for any build listed here.
 - Delete specific runs, by clicking the `Delete Runs` button. Select the build
@@ -107,8 +115,9 @@ style="width:700px;"/>
 
 ##Enable Project
 The 'Enable Project' section shows all the repositories (from your source control
-system) that are yet to be enabled as projects on the Shippable platform. You can
-enable projects and trigger manual builds from this page.
+system) that are yet to be enabled as projects on the Shippable platform.
+
+You can enable projects and trigger manual builds from this page.
 
 You can enable a project for CI by doing the following:
 
@@ -123,6 +132,7 @@ in the list, click on the Sync button. Once the sync is complete, you should see
 the new repo in the list, for you to enable.
 
 After enabling a project you will be redirected to the project's page on Shippable.
+
 More details on this are in our [Projects section](/navigatingUI/projects/status).
 
 <img src="../../images/subscriptions/enableProjectMv.gif" alt="Subscription

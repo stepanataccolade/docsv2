@@ -4,7 +4,11 @@ page_keywords: source control management system, continuous integration, continu
 
 
 # Bitbucket
-In order to integrate with your Bitbucket account, we automatically set up an Account integration when you log in using your Bitbucket credentials. You do not have to do anything to set this up further. Shippable also integrates with Bitbucket to build pull requests. For further details, read documentation below.
+In order to integrate with your Bitbucket account, we automatically set up an Account integration when you log in using your Bitbucket credentials.
+
+You do not have to do anything to set this up further.
+
+Shippable also integrates with Bitbucket to build pull requests. For further details, read documentation below.
 
 ---
 
@@ -43,7 +47,11 @@ A few things to note here:
 ---
 
 ##Linking GitHub and Bitbucket Accounts
-You can use Shippable to run builds on both GitHub and Bitbucket repositories, by connecting both your accounts on Shippable. This helps in a consolidated view of all projects across both these source control systems. To connect both these accounts, do the following:
+You can use Shippable to run builds on both GitHub and Bitbucket repositories, by connecting both your accounts on Shippable.
+
+This helps in a consolidated view of all projects across both these source control systems.
+
+To connect both these accounts, do the following:
 
 - Sign into [Shippable](http://www.shippable.com) with either GitHub or Bitbucket account. Pick the account that you want as your primary account.
 - Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Accounts' section.
@@ -51,7 +59,9 @@ You can use Shippable to run builds on both GitHub and Bitbucket repositories, b
 - Click the `Enable` button under GitHub (or Bitbucket, if you've signed in using GitHub).
 - Follow the authorization flow for GitHub (or Bitbucket). Provide your GitHub (or Bitbucket) credentials when prompted.
 
-Once both your accounts are linked, you should see a consolidated list of orgs and projects in your account. Going forward, you can sign in to Shippable with either GitHub or Bitbucket credentials.
+Once both your accounts are linked, you should see a consolidated list of orgs and projects in your account.
+
+Going forward, you can sign in to Shippable with either GitHub or Bitbucket credentials.
 
 **IMPORTANT**
 

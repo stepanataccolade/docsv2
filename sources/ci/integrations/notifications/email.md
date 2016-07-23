@@ -3,7 +3,9 @@ page_description: Configure Email to send out email notifications for Continuous
 page_keywords: Integration, Integrate, Slack, Notify, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, email, HipChat, IRC
 
 #Email
-By default, we send email notifications to the last committer and project owner when a build fails, or the status changes from failed to passed. We get the email address from your source control management system (GitHub/Bitbucket).
+By default, we send email notifications to the last committer and project owner when a build fails, or the status changes from failed to passed.
+
+We get the email address from your source control management system (GitHub/Bitbucket).
 
 To customize the email notifications, you'll need to configure options in the `shippable.yml` file. There is no setting up of email integration through the UI.
 

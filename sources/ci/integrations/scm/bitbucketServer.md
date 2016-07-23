@@ -3,11 +3,15 @@ page_description: How to integrate Bitbucket Server with Shippable
 page_keywords: source control management system, continuous integration, continuous delivery, pipelines, git, GitHub, GitHub Enterprise, Bitbucket, GitLab
 
 # Bitbucket Server
-In order to integrate with Bitbucket Server, Shippable provides an Add-on which needs to be installed by the Bitbucket Server administrator. Once installed you can add the Bitbucket Server integration on Shippable.
+In order to integrate with Bitbucket Server, Shippable provides an Add-on which needs to be installed by the Bitbucket Server administrator.
+
+Once installed you can add the Bitbucket Server integration on Shippable.
 
 ##Adding the Bitbucket Server integration
 
-Install the Shippable Add-on available in the [Atlassian Marketplace](https://marketplace.atlassian.com/plugins/shippable/cloud/overview). Then [sign in to Shippable](https://app.shippable.com) using your GitHub/Bitbucket account and then add Bitbucket Server as an account integration as follows:
+Install the Shippable Add-on available in the [Atlassian Marketplace](https://marketplace.atlassian.com/plugins/shippable/cloud/overview).
+
+Then [sign in to Shippable](https://app.shippable.com) using your GitHub/Bitbucket account and then add Bitbucket Server as an account integration as follows:
 
 - Log in to [Shippable](https://app.shippable.com) using your GitHub or Bitbucket credentials.
 - Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Integrations' section.

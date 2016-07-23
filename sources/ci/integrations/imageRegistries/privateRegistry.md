@@ -6,7 +6,9 @@ page_keywords: docker hub, amazon, ecs, gcr, ecr, google, shippable, quay, coreo
 
 ##Adding the Account Integration
 
-You will need to configure this integration in order to pull or push images from a private Image registry. To set up this integration, you will need the URL of your private registry.
+You will need to configure this integration in order to pull or push images from a private Image registry.
+
+To set up this integration, you will need the URL of your private registry.
 
 1. Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Integrations' section.
 2. Click on the `Add Integration` button.
@@ -20,7 +22,9 @@ The integration will now be available to all your continuous integration and dep
 <img src="/ci/images/integrations/imageRegistries/privateRegistry/addInt.png" alt="Private Registry integration" style="width:700px;"/>
 
 
-Note: For fetching image tags we use token based authentication using Docker API V2. This is used only in pipelines. So you need to have an auth-server setup for your private registry. For more information read the [official Docker's docs](https://docs.docker.com/registry/spec/auth/token/).
+Note: For fetching image tags we use token based authentication using Docker API V2.
+
+This is used only in pipelines. So you need to have an auth-server setup for your private registry. For more information read the [official Docker's docs](https://docs.docker.com/registry/spec/auth/token/).
 
 ---
 
@@ -201,7 +205,7 @@ integrations:
 - `type` is `"private docker registry"`.
 - [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
 
-For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/ci/advancedOptions/images/). In addition, read our blog - [Key concepts of using Docker in Shippable Continuous Integration](http://blog.shippable.com/key-concepts-of-shippable-ci-part-2) for more details.
+For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/ci/advancedOptions/images/).
 
 ---
 

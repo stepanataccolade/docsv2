@@ -4,8 +4,9 @@ page_keywords: User Interface, microservices, Continuous Integration, Continuous
 
 # Builds
 
-The Builds page shows you information about a specific build(s) in a project. To
-get to a specific build page,
+The Builds page shows you information about a specific build(s) in a project.
+
+To get to a specific build page:
 
 - Login to [Shippable](https://app.shippable.com)
 - Click on the CI dropdown and select the subscription you want to view.
@@ -15,21 +16,20 @@ for all your projects.
 project dashboard.
 - Click on any build number in the Summary or History tabs to get to the Build page
 
-Additional information about what is shown on this page is given below. To learn
-how to configure your build, check out our [Build configuration section](/ci/shippableyml).
+Additional information about what is shown on this page is given below.
+
+To learn how to configure your build, check out our [Build configuration section](/ci/shippableyml).
 
 <img src="../../images/builds/dashboardMv.gif" alt="Build Information" style="width:700px;"/>
 
 ---
 
 ## Build information
-The build page shows all relevant information like status, branch name, commit
-message, committer, etc.
+The build page shows all relevant information like status, branch name, commit message, committer, etc.
 
-A build on Shippable can actually consist of one or more individual build items,
-depending on your yml configuration. Configurations resulting in a
-[matrix build](/ci/advancedOptions/matrixbuilds/) will
-have more than one build items as part of the build.
+A build on Shippable can actually consist of one or more individual build items, depending on your yml configuration.
+
+Configurations resulting in a [matrix build](/ci/advancedOptions/matrixbuilds/) will have more than one build items as part of the build.
 
 The build status widget for the overall build looks like this:
 

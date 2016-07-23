@@ -3,11 +3,10 @@ page_description: Overview of Shippable's Account Settings Integration section U
 page_keywords: User Interface, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 #Integrations
-Shippable integrates with many third party services/platforms and you can leverage
-this by setting up an account integration and then using the integration at any
-point in your Shippable Continuous Integration or Delivery workflow.
+Shippable integrates with many third party services/platforms and you can leverage this by setting up an account integration and then using the integration at any point in your Shippable Continuous Integration or Delivery workflow.
 
 This section lists all the integrations that have been added by this account.
+
 The information displayed for existing integrations are:
 
 - Type: Icon representing the third party integration
@@ -45,22 +44,23 @@ Integration" style="width:700px;"/>
 
 - Click on `Save`.
 
-The integration should now show up in your `Integrations` tab. This integration
-will be available to all your projects and can be used for your workflows. Further
-details and examples of how a specific integration is used is available in the
+The integration should now show up in your `Integrations` tab.
+
+This integration will be available to all your projects and can be used for your workflows.
+
+Further details and examples of how a specific integration is used is available in the
 section for each integration.
 
 ---
 
 ## Deleting an account integration
 
-To delete an integration: Simply click on the `Delete` button for the integration
-you want to delete.
+To delete an integration: Simply click on the `Delete` button for the integration you want to delete.
 
-Delete will fail if there are any projects actively using the integration, so
-make sure the integration is not being used in any project before deleting it.
+Delete will fail if there are any projects actively using the integration, so make sure the integration is not being used in any project before deleting it.
 
 <img src="../../images/accountSettings/deleteIntegration.png" alt="Delete Account
 Integration" style="width:700px;"/>
 
 ---
+ s

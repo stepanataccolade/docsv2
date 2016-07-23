@@ -5,7 +5,9 @@ page_keywords: eb, amazon, aws, shippable, google, openshift
 #Event Triggers based on user specified Webhooks
 Shippable supports triggers on user-specified webhook URLs or other enabled projects.
 
-By default, configured triggers are hit only if a commit build succeeds. You can configure the integration in the `shippable.yml` according to your scenarios.
+By default, configured triggers are hit only if a commit build succeeds.
+
+You can configure the integration in the `shippable.yml` according to your scenarios.
 
 This can be done by following the steps below:
 

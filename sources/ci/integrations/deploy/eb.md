@@ -20,7 +20,9 @@ Let's look at both and the way Shippable helps you in having a successful deploy
 
 ##Adding the Account Integration
 
-To deploy applications to AWS EB, you need to configure an AWS account integration with credentials to access the EB instance. The steps to do so are:
+To deploy applications to AWS EB, you need to configure an AWS account integration with credentials to access the EB instance.
+
+The steps to do so are:
 
 1. Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Integrations' section.
 2. Click on the `Add Integration` button.
@@ -91,7 +93,9 @@ With this configured, upon a successful CI run you will see Shippable execute th
 - Authenticates into EB console using the right credentials
 - Issues the Deploy command on EB from the right directory
 
-For reference, here is a [sample Node.js application](https://github.com/shippableSamples/sample_node_eb_paas) that successfully performs source code deployment to Elastic Beanstalk. In addition, the blog ["How to deploy your application to AWS Elastic Beanstak"](http://blog.shippable.com/how-to-deploy-your-application-to-aws-elastic-beanstalk-using-shippable-part-1) walks you through an end to end workflow - from setting up your repo to deploying your source code on AWS Elastic Beanstalk.
+For reference, here is a [sample Node.js application](https://github.com/shippableSamples/sample_node_eb_paas) that successfully performs source code deployment to Elastic Beanstalk.
+
+In addition, the blog ["How to deploy your application to AWS Elastic Beanstak"](http://blog.shippable.com/how-to-deploy-your-application-to-aws-elastic-beanstalk-using-shippable-part-1) walks you through an end to end workflow - from setting up your repo to deploying your source code on AWS Elastic Beanstalk.
 
 ---
 
@@ -175,11 +179,18 @@ With this configured, upon a successful CI run you will see Shippable execute th
 
 For reference, here is a [sample Node.js application](https://github.com/shippableSamples/sample_node_eb_docker) that successfully performs Docker deployment to Elastic Beanstalk.
 
-
+```
 **NOTE**:
-While the above scenario includes pulling a public Docker image, you may have other scenarios such as wanting to pull an image from a private registry in your workflow. This is totally possible. Authenticating and pulling private third party images occurs outside of Shippable actions. You will have to be configure these settings within Elastic Beanstalk as Shippable is not responsible for these actions.
+While the above scenario includes pulling a public Docker image, you may have other scenarios such as wanting to pull an image from a private registry in your workflow.
 
-Click for instructions [to pull an image from a private repository hosted by an online registry](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker.html) and/or for [multicontainer docker environments](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.html)
+This is totally possible.
+
+Authenticating and pulling private third party images occurs outside of Shippable actions.
+
+You will have to be configure these settings within Elastic Beanstalk as Shippable is not responsible for these actions.
+```
+
+Click for instructions [to pull an image from a private repository hosted by an online registry](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker.html) and/or for [multicontainer docker environments](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.html).
 
 ---
 

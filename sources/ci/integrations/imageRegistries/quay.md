@@ -11,15 +11,25 @@ You will need to configure this integration in order to pull or push images to Q
 
 ###Getting your quay.io accesstoken
 
-Shippable will need your `username`, `password` and your `accesstoken`. `Username` and `Password` are same as your quay login credentials but to get your `accesstoken` you will need to create an quay `application` and `authorize` the application.
+Shippable will need your `username`, `password` and your `accesstoken`.
 
-A new application can be created under an Organization. To create an Organization click on the + icon in the menu and select `New Organization` then, fill in the details and hit create application.
+`Username` and `Password` are same as your quay login credentials but to get your `accesstoken` you will need to create an quay `application` and `authorize` the application.
 
-You can see your organization listed under Users and Organizations on your dashboard. Click on your Organization that you just created, click on the applications tab which is present at the bottom of the Organization view just above Organization settings.
+A new application can be created under an Organization.
+
+To create an Organization click on the + icon in the menu and select `New Organization` then, fill in the details and hit create application.
+
+You can see your organization listed under Users and Organizations on your dashboard.
+
+Click on your Organization that you just created, click on the applications tab which is present at the bottom of the Organization view just above Organization settings.
 
 <img src="/ci/images/integrations/imageRegistries/quay/newApplication.png" alt="Quay create new application" style="width:700px;"/>
 
-Create a new Application and an it should be listed under OAuth Applications. Click on the application you created, and then on `Generate Token` under the menu options. Shippable will require read permission.Finally click on `authorize application` and Quay will provide you with an access token.
+Create a new Application and an it should be listed under OAuth Applications.
+
+Click on the application you created, and then on `Generate Token` under the menu options.
+
+Shippable will require read permission.Finally click on `authorize application` and Quay will provide you with an access token.
 
 <img src="/ci/images/integrations/imageRegistries/quay/generateToken.png" alt="Quay generate token" style="width:700px;"/>
 
@@ -50,6 +60,7 @@ To pull an image, you'll need to do the following:
 
 ###Add the Quay integration to your subscription
 This step is required only for private repositories hosted on Quay. If you are using a public repository on Quay, skip this step and go directly to configuring your `shippable.yml` step.
+
 To add Quay integration to your subscription, do the following:
 
 1. Ensure you have logged in to [Shippable](https://app.shippable.com).
@@ -155,7 +166,9 @@ For more information on building images as part of the CI, refer our documentati
 
 ##Push an image to Quay
 
-You can push your image to Quay in the `post_ci` or `push` sections of the `shippable.yml`. The main difference is that the `post_ci` section runs inside the build container and the `push` section runs outside the build container in the Shippable Agent.
+You can push your image to Quay in the `post_ci` or `push` sections of the `shippable.yml`.
+
+The main difference is that the `post_ci` section runs inside the build container and the `push` section runs outside the build container in the Shippable Agent.
 
 To push an image to Quay, do the following:
 
@@ -218,7 +231,7 @@ integrations:
 - `type` is `quay.io`.
 - [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
 
-For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/ci/advancedOptions/images/). In addition, read our blog - [Key concepts of using Docker in Shippable Continuous Integration](http://blog.shippable.com/key-concepts-of-shippable-ci-part-2) for more details.
+For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/ci/advancedOptions/images/).
 
 ---
 

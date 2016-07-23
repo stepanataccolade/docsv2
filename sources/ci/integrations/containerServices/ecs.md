@@ -6,7 +6,9 @@ page_keywords: amazon, ecs, gke, kubernetes, engine, google, shippable, quay, co
 
 Shippable lets you easily deploy your Dockerized applications to popular Container Services like Amazon EC2 Container Service (ECS), Google Container Engine (GKE), or Red Hat OpenShift 3.
 
-You will first need to configure an account integration with your credentials and/or keys in order to interact with these services using Shippable Pipelines. There are two ways to configure Amazon EC2 Container Service (ECS) on Shippable. Use either one of them:
+You will first need to configure an account integration with your credentials and/or keys in order to interact with these services using Shippable Pipelines.
+
+There are two ways to configure Amazon EC2 Container Service (ECS) on Shippable. Use either one of them:
 
 - ECS integration using Cross Account AWS Identity and Access Management (IAM) Roles
 - ECS integration using Account Keys
@@ -15,7 +17,11 @@ You will first need to configure an account integration with your credentials an
 
 # ECS integration using Cross Account AWS IAM Roles
 
-This is a (recommended) way of giving AWS account access to Shippable without sharing your AWS Secret and Access Keys. [AWS Cross Account account IAM Roles documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) provides technical details on how Shippable internal implements this. To put simply, Shippable uses its own AWS account keys to assume a Role on user's behalf and then perform actions on user's AWS account.
+This is a (recommended) way of giving AWS account access to Shippable without sharing your AWS Secret and Access Keys.
+
+[AWS Cross Account account IAM Roles documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) provides technical details on how Shippable internal implements this.
+
+To put simply, Shippable uses its own AWS account keys to assume a Role on user's behalf and then perform actions on user's AWS account.
 
 This requires four additional steps to be performed by the user
 
@@ -148,13 +154,17 @@ NOTE: Do not forget to include the comma at the top. After adding to the `Statem
 
 <img src="/ci/images/integrations/containerServices/ecs/addAwsIamInt.png" alt="Amazon AWS IAM integration" style="width:700px;"/>
 
-You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters. For more information on this, please check out our [Deployment pipelines section](/pipelines/overview/)
+You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters.
+
+For more information on this, please check out our [Deployment pipelines section](/pipelines/overview/)
 
 ---
 
 # ECS integration using Account Keys
 
-In this method of deploying to Amazon ECS, you need to configure an AWS account integration with credentials to access the ECS instance and create appropriate roles and permissions on [Amazon AWS IAM console](https://console.aws.amazon.com/iam/). This can be achieved in two steps. The first step sets up appropriate AWS access and second one uses the AWS user keys to create Shippable Account Integration.
+In this method of deploying to Amazon ECS, you need to configure an AWS account integration with credentials to access the ECS instance and create appropriate roles and permissions on [Amazon AWS IAM console](https://console.aws.amazon.com/iam/).
+
+This can be achieved in two steps. The first step sets up appropriate AWS access and second one uses the AWS user keys to create Shippable Account Integration.
 
 ##1. Create an AWS IAM User with access to ECS resources
 
@@ -168,7 +178,9 @@ On the [IAM console](https://console.aws.amazon.com/iam/) do following:
      - Download the User Security Credentials (or copy them)
      - Click `Close`.
 
-  Once the user is created, attach a policy to this user that gives the user, access to Amazon ECS resources. The credentials(Access Key/Secret Key pair) for this user will be used for creating
+  Once the user is created, attach a policy to this user that gives the user, access to Amazon ECS resources.
+
+  The credentials (Access Key/Secret Key pair) for this user will be used for creating
   an Account Integration on Shippable.
 
   On the [IAM console](https://console.aws.amazon.com/iam/) do following:
@@ -233,7 +245,9 @@ This Role will be used by Shippable when creating a service on ECS. On the [IAM 
      - Click `Next Step`.
      - Review and click `Create Role`
 
-Amazon has a pre-existing policy called `AmazonEC2ContainerServiceRole` is being attached to the Role here. It contains everything that the role needs to allow the ECS agent to control the load balancing.
+Amazon has a pre-existing policy called `AmazonEC2ContainerServiceRole` is being attached to the Role here.
+
+It contains everything that the role needs to allow the ECS agent to control the load balancing.
 
 ##3. Update the `Trust Relationships` of the Shippable Role
 
@@ -259,6 +273,7 @@ Amazon has a pre-existing policy called `AmazonEC2ContainerServiceRole` is being
 ```
 
 This gives the `ecs` agent running on each ECS instance(s) permissions to talk to the Load balancers
+
 NOTE: Refer [the official Amazon documentation](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service_IAM_role.html) on how to set up this special role and policy
 
 ##4. Create Shippable Account Integration
@@ -273,7 +288,9 @@ NOTE: Refer [the official Amazon documentation](http://docs.aws.amazon.com/Amazo
 
 <img src="/ci/images/integrations/containerServices/ecs/addAwsInt.png" alt="Amazon AWS integration" style="width:700px;"/>
 
-You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters. For more information on this, please check out our [Deployment pipelines section](/pipelines/overview/)
+You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters.
+
+For more information on this, please check out our [Deployment pipelines section](/pipelines/overview/).
 
 ---
 

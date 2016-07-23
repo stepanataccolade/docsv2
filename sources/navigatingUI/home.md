@@ -4,30 +4,26 @@ page_keywords: User Interface, microservices, Continuous Integration, Continuous
 
 
 #Home Page
-Login to [Shippable](http://www.shippable.com) and you'll see the Home Page of
-the Shippable portal. The Home Page gives you a summary of information across your
-subscriptions, projects and builds.
+Login to [Shippable](http://www.shippable.com) and you'll see the Home Page of the Shippable portal.
 
-From anywhere within the portal, you can get to the Home Page either by clicking
-the 'Home' image on the top right hand navigation or the 'Home' image on the top
-left burger menu.
+The Home Page gives you a summary of information across your subscriptions, projects and builds.
+
+From anywhere within the portal, you can get to the Home Page either by clicking the 'Home' image on the top right hand navigation or the 'Home' image on the top left burger menu.
 
 <img src="../images/home.png" alt="Shippable Home Page" style="width:700px;"/>
 
 ---
 
 ##Home Dashboard
-The 'Dashboard' section on the Home Page shows you the builds being processed
-under the 'Inflight Runs' section and a summary of the latest builds of all the
-projects, across your subscriptions that your account has access.
+The 'Dashboard' section on the Home Page shows you the builds being processed under the 'Inflight Runs' section and a summary of the latest builds of all the projects, across your subscriptions that your account has access.
 
-By default, only the latest builds from Master branches are displayed. To change
-this default setting and include branches in the summary display, go to the
+By default, only the latest builds from Master branches are displayed.
+
+To change this default setting and include branches in the summary display, go to the
 [Project's Settings page](projects/settings/#dashboard-settings) and select the
 branch to be displayed.
 
-I'll use the example build '85 Shippable-Demo/sample_nodejs' from the picture
-shown above to explain the details included in the 'Home Dashboard' summary:
+I'll use the example build '85 Shippable-Demo/sample_nodejs' from the picture shown above to explain the details included in the 'Home Dashboard' summary:
 
 - Build status icon: Displays the status of the build - Success, failed, etc.
 Hover the mouse on the icon to get a pop up about the build status. For a complete
@@ -77,3 +73,5 @@ on GitHub. Use this link to view all support issues, log new ones and get help
 from Shippable's support team.
 - Account Settings icon: Takes you to [account settings](/NavigatingUI/accountSettings/accounts/).
 - Log out icon: Use this link to log out of Shippable portal.
+
+---

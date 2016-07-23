@@ -5,7 +5,9 @@ page_keywords: Integration, Integrate, Slack, Notify, microservices, Continuous 
 #IRC
 You can send notifications to public using Shippable. Support for private IRC rooms coming soon.
 
-To customize the IRC public room notifications, you'll need to configure options in the `shippable.yml` file. There is no setting up of IRC integration through the UI.
+To customize the IRC public room notifications, you'll need to configure options in the `shippable.yml` file.
+
+There is no setting up of IRC integration through the UI.
 
 ##Configure IRC notification options in the `shippable.yml`
 To configure IRC notifications for your project, add the following to the `shippable.yml` file for that project.
@@ -46,7 +48,9 @@ While the above is a sample code for your `shippable.yml`, use the descriptions 
 
 ##Configuring IRC notifications to monitor Docker Images
 
-You can add an IRC account integration to receive notifications for monitored Docker images. To do this:
+You can add an IRC account integration to receive notifications for monitored Docker images.
+
+To do this:
 
 1. Ensure you have configured [the monitoring of a Docker image](/navigatingUI/accountSettings/images/).
 2. Go to 'Account Settings' and click the 'Images' section.
