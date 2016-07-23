@@ -3,12 +3,13 @@ page_description: Overview of Shippable's Account Settings Images section UI
 page_keywords: User Interface, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 #Images
-Shippable lets you monitor any Docker image from any registry and be notified if
-the image changes. This is very powerful since you can now set up Shippable to
-automatically build all dependent projects when an upstream image is updated.
+Shippable lets you monitor any Docker image from any registry and be notified if the image changes.
 
-This feature is available to all Shippable users for free. You can monitor any
-number of images at no cost.
+This is very powerful since you can now set up Shippable to automatically build all dependent projects when an upstream image is updated.
+
+This feature is available to all Shippable users for free.
+
+You can monitor any number of images at no cost.
 
 Check out this feature by doing the following steps:
 -  Sign in to [Shippable](https://app.shippable.com)
@@ -46,8 +47,7 @@ and click the 'Images' section.
      latest synced time shows that we could successfully sync the image and will
      be able to send notifications when the image changes.
 
-Images are 'watched' every 20 mins, so your notification will be sent
-20 mins after the image is updated, in the worst case.
+Images are 'watched' every 20 mins, so your notification will be sent 20 mins after the image is updated, in the worst case.
 
 <img src="../../images/accountSettings/addImage.png" alt="Adding an Image to
 monitor" style="width:700px;"/>
@@ -55,9 +55,9 @@ monitor" style="width:700px;"/>
 ---
 
 ##Tags
-Once configured, Shippable periodically polls the registry and the tags are updated
-when there is any update to the image in the source registry. You will see the
-latest tag against the image when the image is synced.
+Once configured, Shippable periodically polls the registry and the tags are updated when there is any update to the image in the source registry.
+
+You will see the latest tag against the image when the image is synced.
 
 ---
 

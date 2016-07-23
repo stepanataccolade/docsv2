@@ -3,7 +3,9 @@ page_description: How to integrate GitHub with Shippable
 page_keywords: source control management system, continuous integration, continuous delivery, pipelines, git, Bitbucket, GitHub Enterprise, Bitbucket server, GitLab
 
 # GitHub
-Both public & private GitHub repositories are supported on Shippable. In order to integrate with your GitHub account, we automatically set up an Account integration when you log in using your GitHub credentials.
+Both public & private GitHub repositories are supported on Shippable.
+
+In order to integrate with your GitHub account, we automatically set up an Account integration when you log in using your GitHub credentials.
 
 ##Enabling GitHub account integration
 
@@ -27,18 +29,26 @@ Both public & private GitHub repositories are supported on Shippable. In order t
 
 Shippable integrates with GitHub to build your pull requests and show status inline on your GitHub page for the PR.
 
-Whenever a pull request is opened for a project that is enabled on Shippable, we will run a build for the respective pull request and send you a build status notification. You can also see this status on your GitHub page as shown below:
+Whenever a pull request is opened for a project that is enabled on Shippable, we will run a build for the respective pull request and send you a build status notification.
+
+You can also see this status on your GitHub page as shown below:
 
 <img src="/ci/images/integrations/scm/github/prStatus.png" alt="GitHub PR Status" style="width:700px;"/>
 
-You can then merge the PR confidently if the build passes, or fix any issues that cause a failed build. Each time your pull request is updated, we will kick off a new build and update status.
+You can then merge the PR confidently if the build passes, or fix any issues that cause a failed build.
+
+Each time your pull request is updated, we will kick off a new build and update status.
 
 After you accept the pull request, Shippable will run one more build for the merged repo and will send email notifications for the merged repo.
 
 ---
 
 ##Linking GitHub and Bitbucket Accounts
-You can use Shippable to run builds on both GitHub and Bitbucket repositories, by connecting both your accounts on Shippable. This helps in a consolidated view of all projects across both these source control systems. To connect both these accounts, do the following:
+You can use Shippable to run builds on both GitHub and Bitbucket repositories, by connecting both your accounts on Shippable.
+
+This helps in a consolidated view of all projects across both these source control systems.
+
+To connect both these accounts, do the following:
 
 - Sign into [Shippable](http://www.shippable.com) with either GitHub or Bitbucket account. Pick the account that you want as your primary account.
 - Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Accounts' section.
@@ -46,7 +56,9 @@ You can use Shippable to run builds on both GitHub and Bitbucket repositories, b
 - Click the `Enable` button under Bitbucket (or GitHub, if you've signed in using Bitbucket).
 - Follow the authorization flow for Bitbucket (or GitHub). Provide your Bitbucket (or GitHub) credentials when prompted.
 
-Once both your accounts are linked, you should see a consolidated list of orgs and projects in your account. Going forward, you can sign in to Shippable with either GitHub or Bitbucket credentials.
+Once both your accounts are linked, you should see a consolidated list of orgs and projects in your account.
+
+Going forward, you can sign in to Shippable with either GitHub or Bitbucket credentials.
 
 **IMPORTANT**
 

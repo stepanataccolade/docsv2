@@ -134,7 +134,9 @@ For more information on building images as part of the CI, refer our documentati
 
 ##Push an image to Docker Trusted Registry
 
-You can push your image to Docker Trusted Registry in the `post_ci` or `push` sections of the `shippable.yml`. The main difference is that the `post_ci` section runs inside the build container and the `push` section runs outside the build container in the Shippable Agent.
+You can push your image to Docker Trusted Registry in the `post_ci` or `push` sections of the `shippable.yml`.
+
+The main difference is that the `post_ci` section runs inside the build container and the `push` section runs outside the build container in the build machine.
 
 To push an image to Docker Trusted Registry, do the following:
 
@@ -197,13 +199,15 @@ integrations:
 - `type` is `"Docker Trusted Registry"`.
 - [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
 
-For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/ci/advancedOptions/images/). In addition, read our blog - [Key concepts of using Docker in Shippable Continuous Integration](http://blog.shippable.com/key-concepts-of-shippable-ci-part-2) for more details.
+For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/ci/advancedOptions/images/).
 
 ---
 
 ##Deleting the Integration
 
-To remove the Docker Trusted Registry integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
+To remove the Docker Trusted Registry integration, you'll need to remove this integration from all dependencies configured to use it.
+
+To find all the dependencies:
 
 1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` section.
 2. Select the Docker Trusted Registry integration from the list of integrations. If you have many entries, use the `Filters` dropdown and select `Docker`. Alternatively, you can use the `Integration Name` field to provide the name of your Docker Trusted Registry integration.

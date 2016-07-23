@@ -121,7 +121,9 @@ Given below are the variables, supported by Shippable.
 ---
 
 ## Custom Variables
-You can also set your own environment variables in the yml. Each statement under the ```env``` tag will trigger a separate build with that env variable, so specifying multiple environment variables will give you a build matrix for every commit.
+You can also set your own environment variables in the yml.
+
+Each statement under the ```env``` tag will trigger a separate build with that env variable, so specifying multiple environment variables will give you a build matrix for every commit.
 
 ```yaml
 # environment variable
@@ -130,7 +132,11 @@ env:
  - FOO=bar BAR=foo
 ```
 
-Env variables can create an exponential number of builds when combined with `jdk` & `rvm , node_js etc.` i.e. it is multiplicative. For an example, please check out the [Build Matrix section](matrix_builds/). To avoid a build matrix and kick off a single build with all environments, you can use the global tag as detailed in the 'Combining variables in a single build' section below.
+Env variables can create an exponential number of builds when combined with `jdk` & `rvm , node_js etc.` i.e. it is multiplicative.
+
+For an example, please check out the [Matrix Builds section](/ci/advancedOptions/matrixBuilds/).
+
+To avoid a matrix build and kick off a single build with all environments, you can use the global tag as detailed in the ['Combining multiple variables in a single build'](/ci/advancedOptions/environmentVariables/#combining-multiple-variables-in-a-single-build) section below.
 
 ---
 
@@ -150,9 +156,11 @@ env:
 
 ---
 <a name="multi_vars"></a>
-## Multiple variables per build
+## Combining multiple variables in a single build
 
-You can combine multiple environment variables in the same build using the `global` tag. This will prevent a build matrix for being triggered and all your variables will be defined for one build.
+You can combine multiple environment variables in the same build using the `global` tag.
+
+This will prevent a build matrix for being triggered and all your variables will be defined for one build.
 
 ```yaml
 env:
@@ -164,7 +172,9 @@ env:
 ---
 
 ##Injecting Global Env Variables
-You can also inject global environment variables into the new build by specifying key-value pairs in the request body while [triggering a new build](/api/apiProject/#trigger-a-new-run) . These key-value pairs have to be set in the `globalEnv` property.
+You can inject global environment variables into the new build by specifying key-value pairs in the request body while [triggering a new build](/api/apiProject/#trigger-a-new-run) .
+
+These key-value pairs have to be set in the `globalEnv` property.
 
 ```
 {
@@ -175,8 +185,7 @@ You can also inject global environment variables into the new build by specifyin
 }
 ```
 
-To encrypt multiple environment variables separately, configure your yml
-file as shown below:
+To encrypt multiple environment variables separately, configure your yml file as shown below:
 
 ```
 env:
@@ -192,11 +201,10 @@ env:
 
 > **Note**
 >
-> Due to the security risk of exposing your secure variables, we do not
-> decrypt secure variables for pull request from the forks of public
-> projects. Secure variable decryption is limited to the pull request
-> triggered from the branches on the same repository. And the decrypted
-> secured variables are also not displayed in the script tab for
-> security reasons.
+> Due to the security risk of exposing your secure variables, we do not decrypt secure variables for pull request from the forks of public projects.
+
+> Secure variable decryption is limited to the pull request triggered from the branches on the same repository.
+
+> And the decrypted secured variables are also not displayed in the script tab for security reasons.
 
 ---

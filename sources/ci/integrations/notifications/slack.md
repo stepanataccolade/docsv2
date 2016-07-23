@@ -5,10 +5,13 @@ page_keywords: Integration, Integrate, Slack, Notify, microservices, Continuous 
 
 #Notifications
 Shippable can notify you about your builds and deployment workflows through Slack, IRC, Email and HipChat.
+
 To set up notifications via Slack, HipChat, Email or private IRC channels, you will need to configure account integrations with your credentials or keys to these services and configure the options in the `shippable.yml` file.
 
 #Slack
-Notifications can be sent for build status updates, monitoring your Docker image updates, and deployment updates. To send these notifications to Slack channel(s), you'll need to take both steps outlined below:
+Notifications can be sent for build status updates, monitoring your Docker image updates, and deployment updates.
+
+To send these notifications to Slack channel(s), you'll need to take both steps outlined below:
 
 1. Set up Slack integration on Shippable through UI
 2. Configure Slack notification options in the `shippable.yml` file
@@ -86,14 +89,15 @@ While the above is a sample code for your `shippable.yml`, use the descriptions 
      - By default, `on_start` is set to `never` and `on_pull_request` is set to `always` when Slack is configured in the yml and you have not specified these tags.
 
 
-
 Check our blog ["Notifying CI failure/success status on Email and Slack"](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack) for multiple scenarios.
 
 ---
 
 ##Configuring Slack notifications to monitor Docker Images
 
-You can add a Slack account integration to receive notifications for monitored Docker images. To do this:
+You can add a Slack account integration to receive notifications for monitored Docker images.
+
+To do this:
 
 1. Ensure you have configured [the monitoring of a Docker image](/navigatingUI/accountSettings/images/).
 2. Go to 'Account Settings' and click the 'Images' section.
@@ -144,7 +148,11 @@ To delete a Slack integration from a subscription, the steps are:
 <img src="/ci/images/integrations/notifications/slack/deleteInt.png" alt="Delete the Slack integration from your Subscription" style="width:700px;"/>
 
 ###Deleting Slack Account Integration
-To delete the Slack Account integration, all the dependencies, such as Subscriptions, using the Slack account must be deleted first. Do note that this action is irreversible. The steps to delete the Slack Account integration are:
+To delete the Slack Account integration, all the dependencies, such as Subscriptions, using the Slack account must be deleted first.
+
+Do note that this action is irreversible.
+
+The steps to delete the Slack Account integration are:
 
 1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` section.
 2. Select the Slack integration from the list of integrations. If you have many entries, use the `Filters` dropdown and select `Slack`. Alternatively, you can use the `Integration Name` field to provide the name of your Slack integration.

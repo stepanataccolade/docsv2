@@ -29,7 +29,9 @@ You can now use this integration to set up your Environment and Deployment Pipel
 
 ##Deleting the Integration
 
-To remove the Google Container Engine integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
+To remove the Google Container Engine integration, you'll need to remove this integration from all dependencies configured to use it.
+
+To find all the dependencies:
 
 1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` section.
 2. Select the Google Container Engine integration from the list of integrations. If you have many entries, use the `Integration Name` field to provide the name of your Google Container Engine integration.

@@ -96,7 +96,14 @@ If you want to build your Docker image as part of your workflow for each CI run 
 2. Configure your `shippable.yml` to associate the GCR integration for your project and add few options to ensure you are building the Docker image as part of CI.
 
 **IMPORTANT**
-If you are using a custom image and you specify an GCR integration in your yml, we will try to login to the registry on your behalf from inside your CI build container. This means that for custom images, you would need the gCloud SDK installed inside your custom image if you want this to succeed, else you will get a `gcloud not found` error. Get around this by setting `agent_only: true` for GCR integration in your `shippable.yml`. This will ensure that we will not attempt to login to the registry from inside your CI build container. However, this also means that you will not be able to pull from or push to GCR in the `ci`, `post_ci`, `on_success` and `on_failure` sections.
+If you are using a custom image and you specify an GCR integration in your yml, we will try to login to the registry on your behalf from inside your CI build container.
+
+This means that for custom images, you would need the gCloud SDK installed inside your custom image if you want this to succeed, else you will get a `gcloud not found` error.
+
+Get around this by setting `agent_only: true` for GCR integration in your `shippable.yml`.
+
+This will ensure that we will not attempt to login to the registry from inside your CI build container.
+However, this also means that you will not be able to pull from or push to GCR in the `ci`, `post_ci`, `on_success` and `on_failure` sections.
 
 If you do want to use docker commands to interact with GCR in your `ci`, `post_ci`, `on_success` or `on_failure` sections within your `shippable.yml`, then include the following in your 'Dockerfile' to install the gCloud SDK:
 ```
@@ -162,7 +169,9 @@ For more information on building images as part of the CI, refer our documentati
 
 ##Push an image to GCR
 
-You can push your image to GCR in the `post_ci` or `push` sections of the `shippable.yml`. The main difference is that the `post_ci` section runs inside the build container and the `push` section runs outside the build container in the Shippable Agent.
+You can push your image to GCR in the `post_ci` or `push` sections of the `shippable.yml`.
+
+The main difference is that the `post_ci` section runs inside the build container and the `push` section runs outside the build container in the Shippable Agent.
 
 To push an image to GCR, do the following:
 
@@ -170,7 +179,14 @@ To push an image to GCR, do the following:
 2. Configure your `shippable.yml` to associate the GCR integration for your project and add few options to ensure you are pushing the Docker image in `post_ci` section or in the `push` section.
 
 **IMPORTANT**
-If you are using a custom image and you specify an GCR integration in your yml, we will try to login to the registry on your behalf from inside your CI build container. This means that for custom images, you would need the gCloud SDK installed inside your custom image if you want this to succeed, else you will get a `gcloud not found` error. Get around this by setting `agent_only: true` for GCR integration in your `shippable.yml`. This will ensure that we will not attempt to login to the registry from inside your CI build container. However, this also means that you will not be able to pull from or push to GCR in the `ci`, `post_ci`, `on_success` and `on_failure` sections.
+If you are using a custom image and you specify an GCR integration in your yml, we will try to login to the registry on your behalf from inside your CI build container.
+
+This means that for custom images, you would need the gCloud SDK installed inside your custom image if you want this to succeed, else you will get a `gcloud not found` error.
+
+Get around this by setting `agent_only: true` for GCR integration in your `shippable.yml`.
+
+This will ensure that we will not attempt to login to the registry from inside your CI build container.
+However, this also means that you will not be able to pull from or push to GCR in the `ci`, `post_ci`, `on_success` and `on_failure` sections.
 
 If you do want to use docker commands to interact with GCR in your `ci`, `post_ci`, `on_success` or `on_failure` sections within your `shippable.yml`, then include the following in your 'Dockerfile' to install the gCloud SDK:
 ```
@@ -239,7 +255,7 @@ integrations:
 - `agent_only:` Set the value to `true` only if you are using a custom Docker image and you want to pull from or push to GCR in the `ci`, `post_ci`, `on_success` or `on_failure` sections.
 - [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
 
-For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/ci/advancedOptions/images/). In addition, read our blog - [Key concepts of using Docker in Shippable Continuous Integration](http://blog.shippable.com/key-concepts-of-shippable-ci-part-2) for more details.
+For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/ci/advancedOptions/images/).
 
 ---
 

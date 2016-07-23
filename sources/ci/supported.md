@@ -41,20 +41,20 @@ We support a multitude of languages, tools, services, as well as all popular sou
 ---
 
 ## Services
--  [CouchDB 1.6.1](/ci/services/couchdb/)
--  [Elastic Search 1.5.1](/ci/services/elasticsearch/)
+-  [CouchDB 1.6.1](/ci/services/couchDB/)
+-  [Elastic Search 1.5.1](/ci/services/elasticSearch/)
 -  [Kestrel](/ci/services/kestrel/)
 -  [Memcached 1.4.23](/ci/services/memcached/)
--  [MongoDB 3.0](/ci/services/mongodb/)
--  [MySQL 5.6.23](/ci/services/mysql/)
+-  [MongoDB 3.0](/ci/services/mongoDB/)
+-  [MySQL 5.6.23](/ci/services/mySQL/)
 -  [Neo4j 2.2.1](/ci/services/neo4j/)
--  [Postgres 9.4](/ci/services/postgres/)
--  [RabbitMQ 3.5.1](/ci/services/rabbitmq/)
+-  [PostgreSQL 9.4](/ci/services/postgreSQL/)
+-  [RabbitMQ 3.5.1](/ci/services/rabbitMQ/)
 -  [Redis 3.0.0](/ci/services/redis/)
--  [RethinkDB 2.0.1](/ci/services/rethinkdb/)
+-  [RethinkDB 2.0.1](/ci/services/rethinkDB/)
 -  [Riak 2.0.5](/ci/services/riak/)
 -  [Selenium 2.52](/ci/services/selenium/)
--  [SqlLite 3](/ci/services/sqllite/)
+-  [SQLite 3](/ci/services/sqLite/)
 
 ---
 

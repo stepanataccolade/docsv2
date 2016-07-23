@@ -13,11 +13,11 @@ You will need an Image Registry integration if you want to do the following -
 On Shippable, currently you can configure integration with the following Image Registries:
 
 - Docker Hub
-- Docker Trusted registry
-- Amazon EC2 Container Registry (ECR)
-- Google Container Registry (GCR)
-- Quay.io
-- Any private registry
+- [Docker Trusted Registry](/ci/integrations/imageRegistries/dockerTrustedRegistry/)
+- [Amazon EC2 Container Registry (ECR)](/ci/integrations/imageRegistries/ecr/)
+- [Google Container Registry (GCR)](/ci/integrations/imageRegistries/gcr/)
+- [Quay.io](/ci/integrations/imageRegistries/quay/)
+- [Any private registry](/ci/integrations/imageRegistries/privateRegistry/)
 
 ---
 
@@ -56,7 +56,9 @@ The integration will now be available to all your Continuous Integration and Pip
 
 
 ##Configure Docker Hub integration in the `shippable.yml`
-Configure the Docker Hub integration in the `shippable.yml` file for each project that requires the Docker Hub integration. The `shippable.yml` configuration depends on the scenario you are trying to achieve. Let's look at three of them.
+Configure the Docker Hub integration in the `shippable.yml` file for each project that requires the Docker Hub integration.
+
+The `shippable.yml` configuration depends on the scenario you are trying to achieve. Let's look at three of them.
 
 1. Pull an image from Docker Hub.
 2. Build a Docker image which has a `FROM` that pulls an image from a private repository in any Image Registry.
@@ -73,7 +75,10 @@ To pull an image, you'll need to do the following:
 2. Configure your `shippable.yml` to associate the Docker Hub integration for your project (Required for both public and private repositories on Docker Hub).
 
 ###Add the Docker Hub integration through the UI
-This step is required only for private repositories hosted on Docker Hub. If you are using a public repository on Docker Hub, skip this step and go directly to configuring your `shippable.yml` step.
+This step is required only for private repositories hosted on Docker Hub.
+
+If you are using a public repository on Docker Hub, skip this step and go directly to configuring your `shippable.yml` step.
+
 To add Docker Hub integration to your subscription, do the following:
 
 1. Ensure you have logged in to [Shippable](https://app.shippable.com).
@@ -135,7 +140,10 @@ If you want to build your Docker image as part of your workflow for each CI run 
 2. Configure your `shippable.yml` to associate the Docker Hub integration for your project and add few options to ensure you are building the Docker image as part of CI.
 
 ###Add the Docker Hub integration through the UI
-This step is required only for private repositories hosted on Docker Hub. If you are using a public repository on Docker Hub, skip this step and go directly to configuring your `shippable.yml` step.
+This step is required only for private repositories hosted on Docker Hub.
+
+If you are using a public repository on Docker Hub, skip this step and go directly to configuring your `shippable.yml` step.
+
 To add Docker Hub integration to your subscription, do the following:
 
 1. Ensure you have logged in to [Shippable](https://app.shippable.com).
@@ -196,7 +204,9 @@ For more information on building images as part of the CI, refer our documentati
 
 ##Push an image to Docker Hub
 
-You can push your image to Docker Hub in the `post_ci` or `push` sections of the `shippable.yml`. The main difference is that the `post_ci` section runs inside the build container and the `push` section runs outside the build container in the Shippable Agent.
+You can push your image to Docker Hub in the `post_ci` or `push` sections of the `shippable.yml`.
+
+The main difference is that the `post_ci` section runs inside the build container and the `push` section runs outside the build container in the build machine.
 
 To push an image to Docker Hub, do the following:
 
@@ -204,7 +214,10 @@ To push an image to Docker Hub, do the following:
 2. Configure your `shippable.yml` to associate the Docker Hub integration for your project and add few options to ensure you are pushing the Docker image in `post_ci` section or in the `push` section.
 
 ###Add the Docker Hub integration through the UI
-This step is required only for private repositories hosted on Docker Hub. If you are using a public repository on Docker Hub, skip this step and go directly to configuring your `shippable.yml` step.
+This step is required only for private repositories hosted on Docker Hub.
+
+If you are using a public repository on Docker Hub, skip this step and go directly to configuring your `shippable.yml` step.
+
 To add Docker Hub integration to your subscription, do the following:
 
 1. Ensure you have logged in to [Shippable](https://app.shippable.com).
@@ -268,7 +281,7 @@ integrations:
 - `type` is `docker`.
 - [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
 
-For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/ci/advancedOptions/images/). In addition, read our blog - [Key concepts of using Docker in Shippable Continuous Integration](http://blog.shippable.com/key-concepts-of-shippable-ci-part-2) for more details.
+For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/ci/advancedOptions/images/).
 
 ---
 
