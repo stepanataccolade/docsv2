@@ -30,6 +30,21 @@ pages:
     - Scala: ci/languages/scala.md
     - C: ci/languages/objc.md
     - Custom Images: ci/languages/customImages.md
+  - Services:
+    - CouchDB: ci/services/couchDB.md
+    - Elastic Search: ci/services/elasticSearch.md
+    - Kestrel: ci/services/kestrel.md
+    - Memcached: ci/services/memcached.md
+    - MongoDB: ci/services/mongoDB.md
+    - MySQL: ci/services/mySQL.md
+    - Neo4j: ci/services/neo4j.md
+    - Postgres: ci/services/postgreSQL.md
+    - RabbitMQ: ci/services/rabbitMQ.md
+    - Redis: ci/services/redis.md
+    - RethinkDB: ci/services/rethinkDB.md
+    - Riak: ci/services/riak.md
+    - Selenium: ci/services/selenium.md
+    - SQLite: ci/services/sqlite.md
   - Advanced Options:
     - Environment Variables: ci/advancedOptions/environmentVariables.md
     - Including/Excluding branches: ci/advancedOptions/branches.md

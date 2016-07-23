@@ -5,7 +5,9 @@ page_keywords: getting started, questions, documentation, shippable, config, yml
 # Matrix Builds
 ## Running multiple builds per commit
 
-In most cases, you want to trigger one build for each commit/pull request to your repository. However, there are times when you might want to trigger multiple builds for a single code change. For example, you might want to test against multiple versions of Ruby, multiple aspect ratios for your Selenium tests, or multiple environment variables.
+In most cases, you want to trigger one build for each commit/pull request to your repository. However, there are times when you might want to trigger multiple builds for a single code change.
+
+For example, you might want to test against multiple versions of Ruby, multiple aspect ratios for your Selenium tests, or multiple environment variables.
 
 This scenario is handled by our matrix build feature, so the following yml configs will trigger multiple builds -
 

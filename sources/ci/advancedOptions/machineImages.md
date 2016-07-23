@@ -3,7 +3,13 @@ page_description: How to configure the node Machine Image for your Continuous In
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Docker, version, 1.11, 1.12
 
 ## Selecting the Machine Images
-The Machine Images section has a list of images that are available to run your builds. All the builds for your subscription will be using the stable image by default. You can switch to other images based on your requirements. Once you switch the images, all the builds for your subscription will be using the image that you have selected and you can switch back to the default version anytime. Review [our documentation](/navigating_ui/subscriptions_settings/#machine-images) for help on switching the images.
+The Machine Images section has a list of images that are available to run your builds.
+
+All the builds for your subscription will be using the stable image by default.
+
+You can switch to other images based on your requirements. Once you switch the images, all the builds for your subscription will be using the image that you have selected and you can switch back to the default version anytime.
+
+Review [our documentation](/navigatingUI/subscriptions/settings/#machine-images) for help on switching the images.
 
 #### Here is the list of contents of the machine images
 
