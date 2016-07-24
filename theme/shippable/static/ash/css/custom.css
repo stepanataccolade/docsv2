@@ -543,6 +543,7 @@ h2:target, h3:target {
 #content table td {
     padding: 3px;
     border: solid 1px #ddd;
+    color: #000;
 }
 
 #content table th {
