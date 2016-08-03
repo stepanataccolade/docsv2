@@ -2,6 +2,9 @@
 # Node
 Node.js is the number one language used to build projects on Shippable. This page explains yml configuration that is specific to node.js projects. For a complete yml reference, please read the [Build configuration section](../shippableyml.md)
 
+##yml configuration
+
+The sections below explore sections of the yml that are specific to Node.js projects. 
 
 ###language 
 
@@ -87,7 +90,7 @@ We have 2 primary build images for Node.js projects, which should be sufficient 
 
 If the official images do not satisfy your requirements, you can do one of 2 things:
 
-- Include commands to install any missing dependencies or packages in your yml
+- Continue using official images and include commands to install any missing dependencies or packages in your yml
 - Use a custom build image that contains exactly what you need for yout CI
 	
 #### Using a custom build image
@@ -120,7 +123,7 @@ Your tests results data needs to be in junit format and your code coverage resul
 
 Sample yml snippet:
 
-```yaml
+```
 env:
   # Set environment variable for test results output 
   - XUNIT_FILE=shippable/testresults/result.xml
@@ -145,6 +148,28 @@ If you want to build a project with node versions like 0.6, 0.8, 0.10, and 0.11 
 
 ```
 if [[ $SHIPPABLE_NODE_VERSION =~ [0].[6-8] ]]; then npm install -g npm@~1.4.6; fi
+```
+
+#### Caching node modules 
+
+To avoid installing your node modules each time, you can cache them with the following yml snippet:
+
+```
+build:
+  cache: true
+  cache_dir_list:
+    - $SHIPPABLE_BUILD_DIR/node_modules
+```
+
+#### Retrying installation of dependencies
+Your dependencies can sometimes fail to install due to network glitches or other external transient factors. You can harden the command for installing dependencies by using `shippable_retry`. We will then retry the command up to 3 times if it returns a non-zero code.
+
+
+```
+build:
+  ci:
+    - shippable_retry sudo npm install
+```
 
 ## Sample projects
 
