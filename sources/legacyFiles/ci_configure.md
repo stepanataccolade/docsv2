@@ -953,12 +953,12 @@ To set up code coverage result visualization for a repository, do the following:
 
 For example, here is a sample configuration for a Python project -
 
-```yaml
+```yaml  
 build:
-  ci:
+  ci:  
     - mkdir -p shippable/codecoverage
     - coverage run --branch python/sample.py
-    - coverage xml -o shippable/codecoverage/coverage.xml python/sample.py
+    - coverage xml -o shippable/codecoverage/coverage.xml python/sample.pyhippable/codecoverage/
 ```
 
 Examples for other languages can be found in our [Code Samples](ci_languages/).
