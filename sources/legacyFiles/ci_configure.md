@@ -958,7 +958,7 @@ build:
   ci:  
     - mkdir -p shippable/codecoverage
     - coverage run --branch python/sample.py
-    - coverage xml -o shippable/codecoverage/coverage.xml python/sample.pyhippable/codecoverage/
+    - coverage xml -o shippable/codecoverage/coverage.xml python/sample.py
 ```
 
 Examples for other languages can be found in our [Code Samples](ci_languages/).
