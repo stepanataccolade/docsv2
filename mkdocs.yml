@@ -18,7 +18,7 @@ pages:
   - Overview: ci/overview.md
   - What is supported?: ci/supported.md
   - Running a build: ci/runFirstBuild.md
-  - Build config: ci/shippableyml.md
+  - Build configuration: ci/shippableyml.md
   - Languages:
     - Node.js: ci/languages/node.md
     - Python: ci/languages/python.md
