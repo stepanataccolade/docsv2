@@ -104,7 +104,8 @@ The `ci` section should contain all commands you need for your `ci` workflow. Co
 If the `ci` section is blank, then we will run the default command `npm install`, so it has the same effect the same as the yml snippet below:
 
 ```
-ci:
+build:
+  ci:
     - npm install
 ```
 
@@ -112,7 +113,8 @@ ci:
 If needed, you can install your project dependencies using [NPM](http://npmjs.org/) in this section:
 
 ```
-ci:
+build:
+  ci:
     - npm install -g grunt-cli
 ```
 
@@ -131,7 +133,7 @@ env:
 build:
   ci:
     #Create folders for test and code coverage
-    - mkdir -p shippable/codecoverage
+    - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
     
     #Run tests

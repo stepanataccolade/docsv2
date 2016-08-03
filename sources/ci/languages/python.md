@@ -108,7 +108,8 @@ The `ci` section should contain all commands you need for your `ci` workflow. Co
 If the `ci` section is blank, we will run the default command shown in the yml snippet below:
 
 ```
-ci:
+build:
+  ci:
     - if [ -f $SHIPPABLE_BUILD_DIR/requirements.txt ]; then pip install -r $SHIPPABLE_BUILD_DIR/requirements.txt; fi
 ```
 
@@ -116,7 +117,8 @@ ci:
 If needed, you can install your project dependencies using the `pip` command in this section:
 
 ```
-ci:
+build:
+  ci:
     - "pip install -r requirements.txt --use-mirrors"
 ```
 
@@ -131,7 +133,7 @@ Sample yml snippet using nose and python coverage:
 build:
   ci:
     #Create folders for test and code coverage
-    - mkdir -p shippable/codecoverage
+    - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
     
     #Run test and code coverage and output results to the right folder
