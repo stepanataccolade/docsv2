@@ -34,7 +34,7 @@ php:
 If you want to test against several versions of PHP, you can specify multiple runtimes. The snippet below will trigger 2 builds, one against each version:
 
 ```
-rvm:
+php:
   - 5.4
   - 5.5
 ```
