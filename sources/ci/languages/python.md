@@ -103,16 +103,6 @@ If you do decide to use a custom CI image, you will need to configure the `pre_c
 ### ci
 The `ci` section should contain all commands you need for your `ci` workflow. Commands in this section are executed sequentially. If any command fails, we exit this section with a non zero exit code.
 
-#### Default commands
-
-If the `ci` section is blank, we will run the default command shown in the yml snippet below:
-
-```
-build:
-  ci:
-    - if [ -f $SHIPPABLE_BUILD_DIR/requirements.txt ]; then pip install -r $SHIPPABLE_BUILD_DIR/requirements.txt; fi
-```
-
 #### Installing dependencies
 If needed, you can install your project dependencies using the `pip` command in this section:
 
@@ -169,7 +159,17 @@ build:
     - shippable_retry pip install -r requirements.txt --use-mirrors
 ```
 
+#### Default commands
 
+If the `ci` section is blank, we will run the default command shown in the yml snippet below:
+
+```
+build:
+  ci:
+    - if [ -f $SHIPPABLE_BUILD_DIR/requirements.txt ]; then pip install -r $SHIPPABLE_BUILD_DIR/requirements.txt; fi
+```
+
+To avoid executing the default command, include a simple command in like `pwd` or `ls` in this section.
 
 
 
