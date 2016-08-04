@@ -99,34 +99,6 @@ If you do decide to use a custom CI image, you will need to configure the `pre_c
 ### ci
 The `ci` section should contain all commands you need for your `ci` workflow. Commands in this section are executed sequentially. If any command fails, we exit this section with a non zero exit code.
 
-#### Default commands
-
-If the `ci` section is blank, we will run some default commands as explained below.
-
-* If your repository root does not have gradle or maven files, then our Java builder will use Ant. This is the same as the snippet below:
-
-```
-build:
-  ci:
-    - ant test
-```
-* If your repository has a pom.xml file at the root, then our Java builder will use Maven 3:
-
-```
-build: 
-  ci:
-   - mvn install -DskipTests=true
-```
-
-* If your repository has a build.gradle file at the root, then our Java builder will use gradle:
-
-```
-build:
-  ci:
-   - gradle assemble
-```
-
-
 #### Test and code coverage
 You can view your test and code coverage results in a consumable format and drill down further to find out which tests failed or which sections of your code were not covered by your tests.
 
@@ -189,6 +161,34 @@ build:
     - shippable_retry mvn install -DskipTests=true
 ```
 
+#### Default commands
+
+If the `ci` section is blank, we will run some default commands as explained below.
+
+* If your repository root does not have gradle or maven files, then our Java builder will use Ant. This is the same as the snippet below:
+
+```
+build:
+  ci:
+    - ant test
+```
+* If your repository has a pom.xml file at the root, then our Java builder will use Maven 3:
+
+```
+build: 
+  ci:
+   - mvn install -DskipTests=true
+```
+
+* If your repository has a build.gradle file at the root, then our Java builder will use gradle:
+
+```
+build:
+  ci:
+   - gradle assemble
+```
+
+To avoid executing the default command, include a simple command in like `pwd` or `ls` in this section.
 
 
 
