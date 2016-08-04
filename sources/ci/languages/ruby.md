@@ -10,7 +10,7 @@ The sections below explore sections of the yml that are specific to Ruby project
 ###language 
 
 
-For Ruby projects, this tag should always be set to go as show below:
+For Ruby projects, this tag should always be set to ruby as show below:
 
 ```
 language: ruby
@@ -123,7 +123,7 @@ build:
 
 ```
 
-If you are using a custom gemfile that iss not at the root of your repository, you can specify it with the gemfile tag:
+If you are using a custom gemfile that is not at the root of your repository, you can specify it with the gemfile tag:
 
 ```
 gemfile: gemfiles/Gemfile.ci
