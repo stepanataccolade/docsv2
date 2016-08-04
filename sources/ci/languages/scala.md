@@ -102,7 +102,7 @@ The Scala builder assumes dependency management based on projects like Maven, Gr
 
 
 #### Using sbt 
-If you are using sbt to test,you can include your custom sbt command in the `ci` section woth any options you want:  
+If you are using sbt to test,you can include your custom sbt command in the `ci` section with any options you want:  
 
 ```
 build:
