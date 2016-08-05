@@ -147,6 +147,27 @@ NOTE: If you don't see an integration in the dropdown, you will need to create o
 
 **IMPORTANT**: After adding the 'Integrations' in the UI, you'll need to configure the same in the `shippable.yml` file for the project. More details on [yml config here](ci_configure.md). The same is true for any Docker registry integrations.
 
+### Encrypt
+#### Encrypting your environment variables
+Shippable allows you to encrypt your environment variable definitions and keep your configurations private in your shippable.yml by using the `secure` tag.
+
+To encrypt a variable, enter the environment variable and its values in the text box as shown below and click on `Encrypt`-
+
+```
+name="abc"
+```
+To encrypt multiple variables, you can use the following syntax-
+
+```
+var1="abc" var2="xyz"
+```
+You can now use these encrypted variables in your shippable.yml with a secure tag . For example,
+
+```
+env:
+  secure: <encrypted output>
+```
+
 ### Billing
 A subscription on Shippable corresponds to an individual or organizational subscription on GitHub/Bitbucket. Your pricing plans are enforced at a subscription level, so you need to determine your build minion and pipeline needs for each subscription.
 
