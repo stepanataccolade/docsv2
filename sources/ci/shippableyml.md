@@ -481,7 +481,7 @@ The integrations section lets you specify what third party services you want to 
 ### Notifications
 Shippable supports sending email, Slack, HipChat and IRC notifications and these can be configured in your yml file.
 
-####Default behavior
+####i. Default behavior
 By default, email notifications are sent to the committer and commit author if they are 'members' of the repository, i.e. they have admin or push permissions to the repository. These default notifications are sent if:
 - a build fails
 - a previously failing build is successful 
@@ -489,7 +489,7 @@ By default, email notifications are sent to the committer and commit author if t
 To send Slack, HipChat, or IRC notifications or to modify the default setting for email notifications, you will need to add some config your yml.
 
 
-####Example: Sending Slack notifications
+####ii. Example: Sending Slack notifications
 As an example, let's see how to send a Slack notification for successful and failing builds:
 
 1. Add a Slack integration to your subscription
@@ -537,7 +537,7 @@ In the snippet above, replace the following:
     
 For advanced Slack notification handling, please read our [Slack notifications page](notifications/slack.md) .
 
-#### Additional notification integrations
+####iii. Additional notification integrations
 
 - [HipChat notifications](integrations/notifications/hipchat.md)  
 - [Email notifications](integrations/notifications/email.md)  
@@ -553,7 +553,7 @@ You need to add a hub integration to your project settings if you want to do the
 - Build a Docker image which has a `FROM` that pulls an image from a private Docker repository
 - Push to a Docker repository
 
-#### Example: Add a Docker Hub integration
+####i. Example: Add a Docker Hub integration
 As an example, let's see how we can specify a Docker Hub integration:
 
 1. Add a Hub integration to your subscription
@@ -574,7 +574,7 @@ integrations:
 ```
 And that's it. You can now use docker commands under the `build` section of your yml to push or pull images from this registry. Advanced options like configuring this integration to only apply to specific branches are discussed in the [Docker Hub integration](integrations/imageRegistries/dockerHub.md)
 
-#### Additional Hub integrations
+####ii. Additional Hub integrations
 Please visit the following pages for details on how to add hub integrations for other image registries:
 
 [Docker Trusted Registry](integrations/image_registries/dockerTrustedRegistry.md)
@@ -595,7 +595,7 @@ You can also create integrations for PEM and SSH keys and use them during your C
 
 You can store your keys in your Shippable account and then use them in your yml with the help of environment variables.
 
-#### Example: SSH keys
+####i. Example: SSH keys
 As an example let us see how to set up an SSH key integration.
 
 1. Add a Key integration to your subscription
@@ -618,6 +618,6 @@ In the example above, the integrationName value should match the integration nam
 Your SSH key will now be available on your build minion in the `/tmp/ssh/` directory. You can then use the key for ssh commands in your `shippable.yml`.
 For a more detailed explanation, check out our [SSH key integration](integrations/keys/ssh.md) page.
 
-#### Additional Key integrations
+####ii. Additional Key integrations
 [PEM keys](integrations/keys/pem.md)
 [SSH keys](integrations/keys/ssh.md)
