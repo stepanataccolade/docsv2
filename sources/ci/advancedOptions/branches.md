@@ -5,17 +5,11 @@ page_keywords: getting started, questions, documentation, shippable, config, yml
 
 # Including/excluding branches
 
-By default, Shippable builds all branches for enabled repositories.
-
-If a branch does not have a `shippable.yml` at its root, we will create a build and show an error in the build console.
+By default, Shippable builds all branches for enabled repositories. Even if a branch does not have a `shippable.yml` at its root, we will create a build and show an error in the build console.
 
 You can choose to build specific branches by using the `branches` sections in your yml.
 
-The specific branch that is being included/excluded needs to have this configuration, and not just the master branch.
-
-When we get a webhook for an enabled repository, we read the shippable.yml from the branch that has changed and trigger a build using that yml.
-
-So unless the yml in the branch to be included/excluded has the right settings, we are not aware of it and will trigger a build as expected.  
+Please note that specific branch that is being included/excluded needs to have this configuration, and not just the master branch. When we get a webhook for an enabled repository, we read the shippable.yml from the branch that changed and trigger a build using that yml. So unless the yml in the branch to be included/excluded has the right settings, we are not aware of it and will trigger a build as expected.  
 
 Wildcard entries for branches and git-flow branches, are supported.
 
@@ -39,5 +33,7 @@ branches:
     - beta*
     - release/*
 ```
+
+
 
 ---
