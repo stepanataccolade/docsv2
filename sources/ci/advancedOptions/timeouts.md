@@ -3,22 +3,29 @@ page_description: Information about your builds timing out while running Continu
 page_keywords: getting started, questions, documentation, shippable, config, yml
 
 
-# Build timeout
-##Default Timeouts
-Your builds will time out in the following scenarios based on default timeout settings:
+# Build timeouts
 
--   If there has not been any log output or a command hangs for 10 minutes
--   If the build is still running for more than 60 minutes (for free plans) or for more than 120 minutes (for paid plans). This is a default setting that can be customized per project.
+To avoid situations where builds hang due to test or build scripts, we will time out your builds in specific scenarios.   
+
+By default, your builds will time out if:
+
+-   there is no log output or a command hangs for 10 minutes, or
+-   the build runs for more than 60 minutes for a project in a free subscription 
+-   the build runs for more than 120 minutes for a project on a paid subscription 
+
+Timed out builds are shown with a purple colored status on your build dashboard:
+
+
 
 ---
 
 ##Custom Timeouts
-You can customize the build time outs per project. You can customize it between 1 - 60 minutes for free plans and 1 - 120 minutes for paid plans.
+You can customize the build timeout setting for any enabled project. This setting can be configured to be between 1 - 60 minutes for free subscriptions and 1 - 120 minutes for paid subscriptions.
 
-To customize the timeouts for a project, do the following:
+To customize the timeouts for a project:
 
 - Go to 'Project' settings
-- Click the 'Runs Config' section
+- Click the 'Runs Config' section in the sidebar menu
 - Scroll down to the 'Custom Timeouts' section
 - Click the `Edit` button
 - Enter a value between 1 and 60 (for free plans) or 120 (for paid plans)
@@ -38,3 +45,4 @@ Customizing build timeouts is also covered in the [Navigating the UI/Project Set
 Please [let us know](https://github.com/shippable/support/issues) if you believe a build is timing out when it shouldn't do so and we will take a look.
 
 ---
+
