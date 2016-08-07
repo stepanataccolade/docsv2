@@ -52,7 +52,7 @@ pages:
     - Caching: ci/advancedOptions/caching.md
     - Using git submodules: ci/advancedOptions/gitSubmodules.md
     - Shippable_retry: ci/advancedOptions/retry.md
-    - Running builds on your own machines (BYON): ci/advancedOptions/byonOverview.md
+    - Running builds on your own machines (BYON): ci/advancedOptions/byon.md
     - Images: ci/advancedOptions/images.md
     - Timeouts: ci/advancedOptions/timeouts.md
     - Node Machine Images: ci/advancedOptions/machineImages.md
