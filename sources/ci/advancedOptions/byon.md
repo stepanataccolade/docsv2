@@ -65,7 +65,7 @@ To start, click on the `Settings` tab of your Subscription page and then click o
 
 Choose the radio button for `My node`
 
-<img src="../../images/advancedOptions/byon.png" alt="bring your own node" style="width:800px;"/>
+<img src="../../images/advancedOptions/byon.png" alt="bring your own node" style="width:1000px;"/>
 
 Next, follow instructions for adding a build node below.
 
