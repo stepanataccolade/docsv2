@@ -59,7 +59,7 @@ integrations:
           recipients:
           branches:
           on_start:
-          on_success
+          on_success:
           on_failure:
           on_changed:   
 

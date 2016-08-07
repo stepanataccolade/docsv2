@@ -32,7 +32,7 @@ env:
   global:
     - APP_NAME=shroudd-headland-1758
 
-on_success :
+on_success:
   - git push -f git@heroku.com:$APP_NAME.git master
 ```
 
