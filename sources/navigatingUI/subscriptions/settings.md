@@ -160,7 +160,7 @@ You can run as many builds as you want.
 You should buy more build minions if:
 
 - Your builds need bigger minions than the one in your free plan. All paid minions
-come with 2 cores, 3.75GB RAM (as opposed to 1 core, 2GB RAM with the free plan)
+come with 2 cores, 3.75GB RAM
 - Your team is growing and your builds are frequently queued as a result, which
 means your developers wait longer to get build results. Buying more minions will
 enable parallel execution of builds and reduce queuing time.
@@ -189,60 +189,14 @@ Your new price will be reflected in your next invoice.
 
 ## Nodes
 
+This page lets you configure the Bring Your Own Nodes (BYON) feature. 
+
 By default, all your builds run inside build containers hosted on Shippable's infrastructure.
 
-However, you can choose to run your builds on your own infrastructure, i.e. you can '**Bring Your Own Node (BYON)**'.
+However, you can choose to run your builds on your own infrastructure, i.e. you can '**Bring Your Own Node (BYON)**'. This option is great for organizations whose security policies do not allow them to run builds on third party hosted infrastructure, and also for those who want faster builds with no node spin up time and docker caching.
 
-To understand the advantages of BYON, check out the [Running builds on your machines section](/ci/advancedOptions/byonOverview).
+BYON gives you all the flexibility and simplicity of using a SaaS service for CI orchestration, while still giving you full control over the infrastructure and security of your build machines.
 
-The 'Build Infrastructure' section lets you set up your own infrastructure if desired.
-
-To do so, select the radio button for `My Node` and follow instructions for adding a build node below.
-
-Please note that you need to add one build node per parallel build, up to a maximum of the number of parallel builds allowed in your plan.
-
-### Adding a build node
-* To add a build machine, click on the `Add node` button. You will be redirected to the Add Node page.
-* Enter a name for the node and its IP address.
-* You can choose to initialize the build host through Shippable or run the initialization scripts yourself. Initialization through Shippable requires you to grant SSH access, so if you do not want to grant that for any reason, select the radio button for `I want to run the scripts myself`
-* To initialize the node through Shippable,
-    * Enter the SSH port for your build host. This is usually port 22, but is configurable.
-    * Choose whether you want to enable swap space on your machine. This is recommended.
-    * Copy the command shown and run it on your build host. This will create a
-    shippable user on your host and allow us to run initialization scripts on
-    your machine.
-    * Check the checkbox to confirm that you have run the command on your machine
-    and click on `Initialize`
-    * You will be redirected to a page showing you the console log as your machine
-    is initialized.
-    * When your node is ready, the status indicator on will turn green.
-* To run the initialization scripts yourself,
-    * Choose whether you want to enable swap space on your machine. This is recommended.
-    * Click on `Generate initialization scripts` to generate the script.
-    * Click on `Download scripts` to download. Copy it to your build machine and
-    run them.
-    * Check the `I have run this script on my node successfully` and then click
-    on the `Save` button.
-    * Your node status will automatically show green at this point. We have no way F
-    of verifying that the node was in fact successfully initialized so you will
-    need to make sure this was the case.
-
-Once you add your first build node, all subsequent builds for that subscription
-will run on your machines.
-
-### Editing a build node
-You can click on the `Edit` button for a build node to edit the node name. Nothing
-else can be edited for a node.
-
-### Re-initializing a build node
-You can reinitialize a node by clicking on the `Reinitialize` button. This will reset the node and initialize/install everything from scratch.
-
-You can only reinitialize nodes provisioned on Shippable's infrastructure.
-
-If you have added your own build nodes, you will need to re-download the initialization script and
-run it on your node.
-
-### Deleting a build node
-Click on `Delete` to delete your build node. This action is final and cannot be undone.
+To understand the advantages of BYON and learn how to configure this feature, check out the [Running builds on your machines section](../../ci/advancedOptions/byon/).
 
 ---
