@@ -8,48 +8,12 @@ You can perform subscription level actions by clicking on the 'Settings' tab on 
 ##Options
 ###Machine Images
 
-The Machine Images section has a list of images that are available to run your builds.
+Machine images are used to spin up a VM for your build. Our default `Stable` machine image is extensively tested and should serve the needs of almost all customers. However, there are some situations where customers need a later version of a tool, such as latest Docker version. To address this need, we also offer an `Unstable` version of the Machine Image which is regularly updated if required. The unstable version is tested for common scenarios.
 
-All the builds for your subscription will be using the stable image by default.
+For a complete list of what is installed on each machine image, read our [CI Machine images section.](../../../ci/advancedOptions/machineImages/)
 
-You can switch to other images based on your requirements.
+**Machine image should not be confused with the actual build container image where your CI workflow is executed.** The CI container is spun up on the build VM and is described in the [Images section](../../../ci/advancedOptions/images/)
 
-Once you switch the images, all the builds for your subscription will be using the image that you
-have selected and you can switch back to the default version anytime.
-
-To select your Machine Image, Go to the 'Settings' tab of your 'Subscription'. Click on the 'Options' section and select from the dropdown under the 'Machine Images' section.
-
-<img src="../../images/subscriptions/machineImage.png"
-alt="Machine Image for a Subscription" style="width:700px;"/>
-
-
-Here is the list of contents of the machine images:
-```
-    Stable
-        Shippable Official Images.
-        Docker Server Version: 1.9.1
-        Storage Driver: aufs
-        Root Dir: /data/aufs
-        Backing Filesystem: extfs
-        Dirperm1 Supported: true
-        Execution Driver: native-0.2
-        Logging Driver: json-file
-        Kernel Version: 3.19.0-51-generic
-        Operating System: Ubuntu 14.04.3 LTS
-
-    Unstable
-        Shippable Official Images.
-        Docker Server Version: 1.11.1
-        Storage Driver: aufs
-        Root Dir: /data/aufs
-        Backing Filesystem: extfs
-        Dirperm1 Supported: true
-        Cgroup Driver: cgroupfs
-        Kernel Version: 3.19.0-51-generic
-        Operating System: Ubuntu 14.04.3 LTS
-```
-Please note that the stable version has been tested rigorously to work generically
-across the board and the unstable image has been tested for specific requirements.
 
 ###Deployment key
 
