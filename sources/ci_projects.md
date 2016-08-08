@@ -134,8 +134,25 @@ By default, builds that are running for over 60 minutes (for free accounts) or o
 For more details refer to our blog - [Changing the default time for a Continuous Integration projet](http://blog.shippable.com/changing-the-default-timeout-for-a-continuous-integration-project).
 
 ### Encrypt
+#### Encrypting your environment variables
+Shippable allows you to encrypt your environment variable definitions and keep your configurations private in your shippable.yml by using the `secure` tag.
 
-Encryption has been moved to [Subscriptions](ci_subscriptions/#encrypt).
+To encrypt a variable, enter the environment variable and its values in the text box as shown below and click on `Encrypt`-
+
+```
+name="abc"
+```
+To encrypt multiple variables, you can use the following syntax-
+
+```
+var1="abc" var2="xyz"
+```
+You can now use these encrypted variables in your shippable.yml with a secure tag . For example,
+
+```
+env:
+  secure: <encrypted output>
+```
 
 ### Badges
 
