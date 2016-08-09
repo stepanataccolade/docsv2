@@ -44,16 +44,23 @@ Please note that the `0.10` version is inside double quotes. This is to prevent 
 
 ### pre_ci and pre_ci_boot
 
-Depending on the `language` and `services` tags in your yml, an official build image is chosen for your build by default, and your build container is started with standard options. The default images for Node.js builds are explained below.
+Depending on the `language` and `services` tags in your yml, an official build image is chosen for your build by default, and your build container is started with standard options. 
+
+As shown in the picture below, your build container is a Docker container and is spun up on your build machine. Your codebase is copied into your build container and instructions from your shippable.yml are executed inside this container. The Docker image used to spin up your build container must either contain all dependencies required for your build, or you must install the dependencies in your shippable.yml. 
+
+<img src="../../images/advancedOptions/shippableBuildContainer.png"
+alt="Build container" style="width:800px;"/>
+
+The default images for Node.js builds are explained in the section below.
 
 The pre_ci and pre_ci_boot sections are primarily used in one of the following scenarios:
 
-* You want to use a custom Docker image for your CI 
-* You want to override the default options that are used to boot up the default CI image
+* You want to use a custom Docker image to spin up your build container 
+* You want to override the default options that are used to boot up the default build container
 
 If you do not want to do either of the above, you should skip these tags in the yml.
 
-#### Default Node.js image
+#### Default Node.js images
 We have 2 primary build images for Node.js projects, which should be sufficient for most Node.js projects: 
 
 * [dry-dock/u14nod](https://github.com/dry-dock/u14nod) is used if you specify `language: node_js` in your yml and do not specify a `services` tag. This image contains the following:
