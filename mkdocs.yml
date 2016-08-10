@@ -33,7 +33,6 @@ pages:
   - Services:
     - CouchDB: ci/services/couchDB.md
     - Elastic Search: ci/services/elasticSearch.md
-    - Kestrel: ci/services/kestrel.md
     - Memcached: ci/services/memcached.md
     - MongoDB: ci/services/mongoDB.md
     - MySQL: ci/services/mySQL.md
