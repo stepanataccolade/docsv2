@@ -52,7 +52,7 @@ build:
 
 
 integrations:
-#if you are using integrations, you'll need to set it up in two places. Project settings & here in this section of the yml.
+#if you are using integrations, you'll need to set it up in two places. Subscription settings & here in this section of the yml.
     notifications:
         - integrationName:
           type:
@@ -154,19 +154,24 @@ build:
 The image you specify in this section should be available to Shippable when the build reaches this step. To learn how to build your CI image from a Dockerfile or pull from a registry, check out the sections below.
 
 <a name="add_project_integrations"></a>
-###Adding a hub integration to project settings
+###Adding a hub integration to a project
 
-You need to add a hub integration to your project settings if you want to do the following:
+Add a hub integration to your project to do any of the following:
 
 - Pull an image from a private Docker repository
 - Build a Docker image which has a `FROM` that pulls an image from a private Docker repository
 - Push to a Docker repository
 
-You can add a Hub integration to project settings by going to your Project Settings UI and navigating to the `Integrations` section. Click on the `Hub integration` dropdown to select an existing integration or create a new one.  
+To [add a Hub integration](ci_subscriptions/#integrations) to a project do the following:
 
-<img src="../images/project_settings_hub_integration.png" alt="Account Settings Subscription" style="width:400px;"/>
+-  Go to the 'Settings' tab of your subscription.
+-  Under the 'Integrations' section, click the 'Add Integration' button.
+-  In the dropdown of the 'Account Integrations' field, select the desired integration for a Docker registry (such as Docker Hub, Amazon ECR, Google Container Registry, Quay.io, Private registry and Docker Trusted Registry). 
+-  If you have created the required Docker registry integration before, it'll show up as an option in the dropdown. Select the required integration
+-  Configure the integration in the `shippable.yml` file for the project. 
+-  Ensure the integration name in the UI and in the `shippable.yml` are exactly the same. 
 
-Once you have a Hub integration configured in your Project Settings, you can use it in your shippable.yml for the project. Check our [Docker Registries Integrations](int_docker_registries/) page for specifics on different Docker Registries such as Docker Hub, Amazon ECR, Google Container Registry, Quay.io, Private registry and Docker Trusted Registry.
+Check our [Docker Registries Integrations](int_docker_registries/) page for specifics on different Docker Registries such as Docker Hub, Amazon ECR, Google Container Registry, Quay.io, Private registry and Docker Trusted Registry.
 
 ###Building your CI image
 
@@ -193,7 +198,7 @@ For your specific case:
 
 The example yml above will ensure that manishas/myImage:tip is used to start the CI container with the option `--privileged=true` and with the environment variable FOO=BAR already set within the container.
 
-**Please note that if your Dockerfile has a `FROM` which pulls a private image from a registry, you will also need to specify a hub integration in project settings (see section above) and have the following in your yml.**
+**Please note that if your Dockerfile has a `FROM` which pulls a private image from a registry, you will also need to add a hub integration to your project (see section above) and have the following in your yml.**
 
 ```
 integrations:
@@ -211,7 +216,7 @@ You can pull any image you have access to from a Docker registry and use that to
 
 To pull a image from a registry, you will need to do the following-
 
-1. [Skip if you are pulling an image from a public repo] Add a hub integration to your project settings ([Instructions here](#add_project_integrations))
+1. [Skip if you are pulling an image from a public repo] Add a hub integration to your project ([Instructions here](#add_project_integrations)).
 2. Add the following in your shippable.yml:
 
 ```
@@ -240,7 +245,7 @@ For your specific case:
 * set `pull` to `true` if you want to pull this image from a docker registry.
 * In the `env` section, you can enter any environment variables you want to be set inside your CI container.
 * In the `options` tag, enter any docker options you want to use in the `docker run` command. You also need to include the HOME environment variable as shown if it is not already set in your image.
-* For `integrationName` tag, enter the name of the account integration you have added to your project settings. This account should have permissions to pull the the build image specified in the `image_name` setting.
+* For `integrationName` tag, enter the name of the account integration you have added to your project. This account should have permissions to pull the the build image specified in the `image_name` setting.
 * In the `type` tag, enter the type of registry. Options are `docker` for Docker Hub, `gcr` for Google container registry, `quay.io` for Quay.io, `ecr` for Amazon EC2 Container registry, `private docker registry` for a self hosted private registry and `Docker Trusted Registry` for Docker Trusted Registry.
 * [optional]Using the `branches` section, specify the branches this account integration is applicable to. You can skip this if you want your integration to be applicable for all branches.
 
@@ -284,7 +289,7 @@ You can do this in the `post_ci` or `push` sections of your shippable.yml. The m
 
 To push your CI build container image to a registry: 
 
-1. Add a Hub integration to your project settings ([Instructions here](#add_project_integrations))
+1. Add a Hub integration to your project ([Instructions here](#add_project_integrations))
 2. Add the following in your shippable.yml:
 
 **Docker Hub**
@@ -999,16 +1004,16 @@ If you need help defining secure variables, you can check out [our instructions]
 
 ## Notifications
 
-Shippable supports email, Slack, HipChat and IRC notifications and these can be configured in your yml file.
-
-By default, we send email notifications to the last committer when a build fails, or the status changes from failed to passed.
+Shippable supports email, Slack, HipChat and IRC notifications and to enable them, configure the integration in your `shippable.yml` file for the project. For Slack and HipChat, the integrations need to be added in the UI (Subscription Settings, in addition the `shippable.yml`.
 
 You can change the notification settings by configuring the integrations section of your yml. Details for each supported provider are below.
 
 
 ### Email notifications
 
-By default, we send email notifications to the last committer when a build fails, or the status changes from failed to passed.
+By default, we send email notifications to the last committer and project owner when a build fails, or the status changes from failed to passed. We get the email address from your source control management system (GitHub/Bitbucket).
+
+Adding email notifications through UI (Subscription settings) is not required. 
 
 To customize email notifications, use the yml structure below:
 
@@ -1028,9 +1033,9 @@ integrations:
       on_failure: always
 ```
 
-* `integrationName` is always `email` since you do not configure emails in account integrations or project settings.
+* `integrationName` is always `email` since you do not configure emails in account integrations or 'Subscription' settings.
 * `type` is `email`
-* `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project owner(s)'.
+* `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project owner(s)' email address that we get from your source control management system (GitHub/Bitbucket). NOTE: We do not use the email address specified in your 'Account Settings' for notifications. 
     - To specify 'last committer' and 'project owner(s)' as part of this list, you can use `--last_committer` and `--owners`.
     - If there is a single recipient, you can use the format `recipients: example@org.com`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
@@ -1042,7 +1047,7 @@ integrations:
 * [optional] You can set the following options for the `on_start`, `on_pull_request` tags :
     - `always` means that you will always receive a notification for build start/pull request
     - `never` means that you will never receive a notification for that build start/pull request
-  By default, `on_start` is set to `never` and `on_pull_request` is set to `always`.     
+  By default, `on_start` is set to `never` and `on_pull_request` is set to `always`.    
 
 If you do not want to get notified for any reason, you can turn off email notifications with the following in your yml:
 
@@ -1059,14 +1064,14 @@ notifications:
 
 To send Slack notifications, you will need to do the following:
 
-1. **Configure Slack Integration**: Go to the 'Settings' tab of your project & under the Integrations section, click the 'Select notification integration' dropdown. If you have created the Slack integration before, it'll show up as an option in the dropdown. Select the Slack integration and go directly to step 2.
-    - If this is the first time, click the 'Create Integration' option.
-    - In the 'New Notification Integration' section, select 'Slack' from the 'Master Integration' dropdown.
-    - Give a name to your Slack integration.
-    - Put the webhook URL that you get from Slack.
-    - Input the channel or the username where the notifications should be sent
-    - Click 'Save Integration'.
-    - If you want to view the list of all integrations configured for your subscription, [access instructions here](ci_projects.md#enabling-integrations).
+1. **Add Slack Integration in the UI**: 
+     - Go to the 'Settings' tab of your subscription.
+     - Under the 'Integrations' section, click the 'Add Integration'  button.
+     - Give a name to the Slack integration for your subscription, for example: `my_slack_integration`
+     - In the dropdown of the 'Account Integrations' field, select 'Slack'. 
+     - If you have created the Slack integration before, it'll show up as an option in the dropdown. Select the Slack integration, click the `Save` button and go directly to step 2.
+     - If Slack does not show up in the list of dropdowns, click the '+ Add  integration' option.
+    - Add the Slack integration. [Access instructions here for help](int_notifications/#slack-notifications).
 
 2. **Add the following in your shippable.yml**:
 
@@ -1085,10 +1090,10 @@ integrations:
       on_success: never
       on_failure: always
 ```
-* `integrationName` value is the name of the account integration you added to the project settings.
+* `integrationName` value is the name of the Slack integration you added to the 'Subscription' settings in Step 1. **IMPORTANT** The names in the 'Subscription' 'Integration' settings in Step 1 and the `shippable.yml` have to be exactly the same. If they are not, the build will fail with an error as [described here](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match).
 * `type` is slack
-* `recipients` specifies the channels you want to send the notification to. Please note that this overrides any channels you select while setting up the account integration.
-    - If there is a single recipient, you can use the format `recipients: "#channelOne"`
+* `recipients` specifies the channels you want to send the notification to. Please note that this is a required field for slack notifications to work. 
+    - If there is a single recipient, use the format `recipients: "#channelOne"`
 * [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
 * [optional] You can set the following options for the `on_success`, `on_failure` tags :
     - `change` for `on_success` or `on_failure` means you will receive notifications only when the build status changes to success or failure respectively.
@@ -1107,13 +1112,14 @@ Check our blog ["Notifying CI failure/success status on Email and Slack"](http:/
 
 To send HipChat notifications, you will need to do the following:
 
-1. **Configure HipChat Integration**: Go to the 'Settings' tab of your project & under the Integrations section, click the 'Select notification integration' dropdown. If you have created the HipChat integration before, it'll show up as an option in the dropdown. Select the HipChat integration and go directly to step 2.
-    - If this is the first time, click the 'Create Integration' option.
-    - In the 'New Notification Integration' section, select 'HipChat' from the 'Master Integration' dropdown.
-    - Give a name to your HipChat integration.
-    - Provide a HipChat API access token.
-    - Click 'Save Integration'.
-    - If you want to view the list of all integrations configured for your subscription, [access instructions here](ci_projects.md#enabling-integrations).
+1. **Add HipChat Integration in the UI**: 
+     - Go to the 'Settings' tab of your subscription.
+     - Under the 'Integrations' section, click the 'Add Integration' button. 
+     - Give a name to the Slack integration for your subscription, for example: `my_hipchat_integration`
+     - In the dropdown of the 'Account Integrations' field, select 'HipChat'. 
+     - If you have created the HipChat integration before, it'll show up as an option in the dropdown. Select the HipChat integration, click the `Save` button and go directly to step 2.
+    - If HipChat does not show up in the list of dropdowns, click the '+Add interation' option. 
+    - Add the HipChat integration. [Access instructions here for help](int_notifications/#hipchat-notifications).
 
 2. **Add the following in your shippable.yml**:
 
@@ -1134,7 +1140,7 @@ integrations:
       on_success: never
       on_failure: always
 ```
-* `integrationName` value is the name of the account integration you added to project settings.
+* `integrationName` value is the name of the HipChat integration you added to the 'Subscription' settings in Step 1. **IMPORTANT** The names in the 'Subscription' 'Integration' settings in Step 1 and the `shippable.yml` have to be exactly the same. If they are not, the build will fail with an error as [described here](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match).
 * `type` is hipchat
 * `recipients` specifies the rooms and/or users you want to send the notification to.
     - If there is a single recipient and it is a room, you can use the format `recipients: "#channelOne"`
@@ -1156,6 +1162,7 @@ Check our blog on [configuring HipChat for both CI & piplelines](http://blog.shi
 
 You can send notifications to public IRC rooms using Shippable. Private IRC support is coming up soon.
 
+Adding IRC notifications through UI (Subscription settings) is not required. 
 Use the following yml structure to send IRC notifications:
 
 ```yaml
@@ -1232,7 +1239,7 @@ integrations:
       on_pull_request: never
       on_start: never
 ```
-* `integrationName` value is the name of the account integration you added to project settings.
+* `integrationName` value is the name of the account integration you added to 'Subscription' settings.
 * `type` is webhook
 * [optional] `payload` You can specify `key=value` pairs where the `value` is a string. The string can contain Shippable [Environment Variables](ci_configure/#using-environment-variables). These variables will be populated by corresponding values from a run for this project.
 * If the `webhook` integration is set up **to trigger an enabled project**: the `payload` will be injected into the next run as a set of global environment variables ([Injecting Global Env Variables](api/#trigger-a-new-run)).
@@ -1269,14 +1276,20 @@ Shippable performs the following steps for you, to deploy your source code on EB
 
 To enable Shippable to perform these steps, you will need to configure the following two steps for a successful deployment to EB.
 
-1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down and add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration in Shippable can be found [here](int_paas_iaas_providers.md)
-<img src="../images/project_settings_deploy_integration_aws.png" alt="Account Settings Subscription" style="width:400px;"/>
+1. **Add Amazon AWS integration to the project**: 
+     - Go to the 'Settings' tab of your subscription.
+     - Under the 'Integrations' section, click the 'Add Integration' button.
+     - In the dropdown of the 'Account Integrations' field, select 'AWS'. 
+     - If you have created the AWS integration before, it'll show up as an option in the dropdown. Select AWS. This enables Shippable to authenticate into AWS. Given below is a screen shot of the Subscription Settings page, where 'AWS' is being added to the subscription 'Shippable-Demo'. 
+     - If you don't see an AWS option in the dropdown, instructions on setting up Amazon EB account integration in Shippable can be found [here](int_paas_iaas_providers.md).
+     <img src="../images/subscription_settings_aws_integration.png" alt="Account Settings Subscription" style="width:700px;"/>
+
 2. **Configure shippable.yml**: Update the `shippable.yml` with the new collection for deployments. A sample form for doing a source code deployment to Elastic Beanstalk is shown:
 
 ```yaml
 integrations:
   deploy:
-    - integrationName: "aws-test"
+    - integrationName: "aws"
       type: aws
       target: eb_paas
       platform: "Node.js"
@@ -1286,7 +1299,7 @@ integrations:
 ```
 Replace in the above form, with your values as follows:
 
-- **integrationName**: replace 'aws-test' with your Account Integration in Shippable, set up for AWS (keep the double quotes)
+- **integrationName**: replace 'aws' with your Account Integration in Shippable, set up for AWS (keep the double quotes)
 - **platform**: replace 'Node.js' with your platform (available options can be found [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html))
 - **application_name**: replace with your Elastic Beanstalk application name
 - **env_name**: replace with your Elastic Beanstalk environment name
@@ -1310,7 +1323,13 @@ Upon completion of the above, EB updates your environment based on the uploaded 
 
 To enable Shippable perform the above steps, you will need to configure the following three steps for a successful deployment to EB.
 
-1. **Add Amazon AWS integration to Project settings**: On the Project's Settings page, under Integrations, click on the `Select Deploy Integrations` drop down and add the AWS integration to your project. This enables Shippable to authenticate into AWS. Given below is a screen shot of a Sample Project Settings page, where the Deploy Integration 'AWS - ttrahan' is being added to the project node-express-eb. If you don't see an option of AWS in the dropdown, instructions on setting up Amazon EB account integration with Shippable can be found [here](int_paas_iaas_providers.md)
+1. **Add Amazon AWS integration to the project**: 
+     - Go to the 'Settings' tab of your subscription.
+     - Under the 'Integrations' section, click the 'Add Integration' button.
+     - In the dropdown of the 'Account Integrations' field, select 'AWS'. 
+     - If you have created the AWS integration before, it'll show up as an option in the dropdown. Select AWS. This enables Shippable to authenticate into AWS. Given below is a screen shot of the Subscription Settings page, where 'AWS' is being added to the subscription 'Shippable-Demo'. 
+     - If you don't see an AWS option in the dropdown, instructions on setting up Amazon EB account integration in Shippable can be found [here](int_paas_iaas_providers.md).
+     
 2. **Ensure you have a dockerrun.aws.json file** in the root of your source code directory. The relevant section to Shippable is given below and must follow this format:
 ```yaml
   "Image": {
@@ -1324,7 +1343,7 @@ To enable Shippable perform the above steps, you will need to configure the foll
 ```yaml
 integrations:
   deploy:
-    - integrationName: "aws-test"
+    - integrationName: "aws"
       type: aws
       target: eb_docker
       application_name: "sample-node-eb-docker-app"
@@ -1656,7 +1675,6 @@ A few things to note here:
 - If the pull request comes from a private fork of the project and the subscription key is not added as a deploy key for the fork, the pull request build will fail at the `git_sync` CI step. This is due to the way Bitbucket handles permissions on private forks. To fix this - first, copy the subscription deploy key from Shippable Subscription > Settings > Deployment Keys. Next, add it as a deploy key for the private fork: Bitbucket Project Settings > Deploy Key > Add.
 
 
-
 * * * * * 
 
 ## Build timeout
@@ -1664,7 +1682,7 @@ A few things to note here:
 Your builds will time out in the following scenarios:
 
 -   If there has not been any log output or a command hangs for 10 minutes
--   If the build is still running for more than 120 minutes. This is a default setting that you can change for your project and configure it between 1 - 120 minutes. Read [instructions](ci_projects.md#custom-timeout) on setting a desired value in the Project settings. In addition, we also have a blog on [Changing the default timeout for a CI project](http://blog.shippable.com/changing-the-default-timeout-for-a-continuous-integration-project).
+-   If the build is still running for more than 60 minutes (for free accounts) or for 120 minutes (for paid accounts). This is a default setting that you can change for your project and configure it between 1 - 60 minutes/120 minutes for free/paid accounts respectively. Read [instructions](ci_projects.md#custom-timeout) on setting a desired value in the Project settings. In addition, we also have a blog on [Changing the default timeout for a CI project](http://blog.shippable.com/changing-the-default-timeout-for-a-continuous-integration-project).
 
 Please [let us know](https://github.com/shippable/support/issues) if you believe a build is timing out when it shouldn't do so and we will take a look.
 

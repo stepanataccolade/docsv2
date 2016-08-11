@@ -21,7 +21,7 @@ an Account Integration and sync your Subscriptions. Once complete, you can enabl
 ## Install the Shippable add-on for Bitbucket Server
 This step is a one-time action that needs administrator access on the Bitbucket Server. The steps to add the Shippable add-on for the first time set up are:
 
-- Navigate to the [Atlassian Marketplace](https://marketplace.atlassian.com/plugins/shippable/cloud/overview) and download the Shippable add-on (.jar file) to your computer. NOTE: This is coming soon.
+- Navigate to the [Atlassian Marketplace](https://marketplace.atlassian.com/plugins/shippable/cloud/overview) and download the Shippable add-on (.jar file) to your computer.
 - Log in with administrator access to your Bitbucket Server.
 - Navigate to the Administrator page (gear icon on the upper right navigation bar).
 <img src="../images/ht_bbs_admin_settings.png" alt="Bitbucket Server Admin Settings" style="width:500px;"/>
@@ -59,7 +59,7 @@ Let's enable Shippable access to the repositories on Bitbucket Server. Currently
 - Navigate to the Account Settings (gear in the upper right navigation bar)
 - Select the 'Accounts' tab and click the 'Sync' button.
 
-<img src="../images/ht_bbs_account_sync.png" alt="Bitbucket Server Admin Settings" style="width:700px;"/>
+<img src="../images/account_settings_sync.png" alt="Bitbucket Server Admin Settings" style="width:700px;"/>
 
 - Navigate to your list of subscriptions and you should now see your Bitbucket Server projects listed and available to enable.
 

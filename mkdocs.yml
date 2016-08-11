@@ -16,84 +16,31 @@ pages:
   - FAQ: faq.md
 - Continuous Integration (CI):
   - Overview: ci_overview.md
-  - What is supported?: gs_supported.md
-  - Running your first build: test.md
-  - Defaults:
-    - Environment Variables: test.md
-    - Images: test.md
-    - Timeouts: test.md
-    - Node Machine Images: test.md
-  - Configuring your environment:
-    - Languages:
-      - Node.js: test.md
-      - Python: test.md
-      - Ruby:
-        - GEMFILEs behaviour: test.md
-      - Java:
-        - JDK behaviour: test.md
-      - Clojure: test.md
-      - Go: test.md
-      - PHP: test.md
-      - Scala: test.md
-      - C: test.md
-      - Custom Images: test.md
-    - Advanced Options:
-      - Custom Environment Variables: test.md
-      - Including/Excluding branches: test.md
-      - Matrix builds: test.md
-      - Caching: test.md
-      - Using git submodules: test.md
-      - Shippable_retry: test.md
-  - Configuring your CI:
-    - The ci section: test.md
-  - Configuring Post CI: test.md
-  - Integrations:
-    - Notifications:
-      - Slack: test.md
-      - Email: test.md
-      - HipChat: test.md
-      - IRC: test.md
-    - Image Registries:
-      - Docker Hub: test.md
-      - Docker Trusted Registry: test.md
-      - Amazon EC2 Container Registry (ECR): test.md
-      - Google Container Registry (GCR): test.md
-      - Quay.io: test.md
-      - Any Private Registry: test.md
-    - Container Services:
-      - Amazon EC2 Container Service (ECS): test.md
-      - Google Container Engine (GKE): test.md
-      - Docker Cloud: test.md
-      - Docker Datacenter: test.md
-    - Deploy:
-      - AWS Elastic Beanstalk: test.md
-      - Webhooks: test.md
-    - Keys:
-      - SSH: int_keys.md
-      - PEM:  int_keys.md
-  - Running builds on your own machines (BYON):
-    - Overview: ci_byoh.md
-    - Setup: test.md
-  - Permissions: test.md
-  - Troubleshooting CI: ci_troubleshoot.md
+  - Subscriptions: ci_subscriptions.md
+  - Projects: ci_projects.md
+  - Builds: ci_builds.md
+  - Configuring your build: ci_configure.md
+  - Language help: ci_languages.md
+  - Docker support: ci_docker.md
+  - Monitor your Docker images: lighthouse.md
+  - Running builds on your machines: ci_byoh.md
+  - Running a sample build: gs_ci_sample.md
+  - CI FAQ: ci_faq.md
+  - CI Troubleshooting: ci_troubleshoot.md
 - Pipelines:
-  - Overview: pipelines/overview.md
-  - Deploying your first pipeline: gs_deploy_sample.md
-  - Troubleshooting Pipelines: pipelines_faq.md
-- Navigating the UI:
-  - Home Page: test.md
-  - Account Settings: test.md
-  - Subscriptions:
-    - CI tab: test.md
-    - Pipelines tab: test.md
-    - Settings: test.md
-  - Projects:
-    - Status: test.md
-    - Settings: test.md
-  - Builds:
-    - Test Coverage: test.md
-    - Code Coverage: test.md
-    - Console logs: test.md
+  - Overview: pipelines_overview.md
+  - Pipeline Status: pipelines_subscriptions.md
+  - Configuring and managing pipelines: pipelines_configure.md
+  - Deploy a sample app: gs_deploy_sample.md
+  - Pipelines FAQ: pipelines_faq.md
+- Integrations:
+  - Overview: int_overview.md
+  - Source control providers: int_scm.md
+  - Docker registries: int_docker_registries.md
+  - Container services: int_container_services.md
+  - PaaS/IaaS providers: int_paas_iaas_providers.md
+  - Notification providers: int_notifications.md
+  - Keys: int_keys.md
 - API: api.md
 - Tutorials:
   - Running a sample CI build: gs_ci_sample.md
