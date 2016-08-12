@@ -18,12 +18,12 @@ p {
   font-size: 1em;
 }
 
-div {
+/*div {
   border: 1px solid #ff0000;
 }
 .grid {
   border: 1px solid #ff0000;
-}
+}*/
 .vcenter {
   display: inline-block;
   vertical-align: middle;
@@ -41,6 +41,7 @@ div {
 }
 
 
+/*** Nav Bar ***/
 .docs-nav {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#003535+3,009999+100 */
   background: #003535;*/ /* Old browsers */
@@ -82,4 +83,48 @@ div {
 .docs-nav ul > li > a.hilight:hover {
   color: #ffffff;
   background-color: #003535;
+}
+
+/*** Footer ***/
+.footer {
+  background: #009999;
+  color: #ffffff;
+  padding-top: 1em;
+}
+.footer-top {
+  height: 2.5em;
+}
+.footer-top img {
+  height: 2.5em;
+}
+.footer .navbar-nav > li > a {
+  padding: 0em 1em;
+}
+.footer a {
+  color: #ffffff;
+}
+.footer a:hover {
+  color: #000000;
+}
+.footer-top img {
+  padding-left: 1em;
+}
+.footer-container .row-number-2 {
+  display: none;
+}
+.footer .hs_followme > div {
+  padding: 0px !important;
+}
+.copyright p {
+  margin: 0px;
+  text-align: center;
+  color: #ffffff;
+}
+.social-media {
+  text-align: right;
+}
+
+/*** Hide Google script ***/
+body > iframe {
+  position: fixed;
 }
