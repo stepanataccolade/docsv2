@@ -1,0 +1,85 @@
+body {
+  font-family: ProximaNova-Regular, "proxima-nova", "Maven Pro", sans-serif;
+  font-size: 14px;
+}
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size: 3em;
+}
+h3 {
+  font-size: 2em;
+}
+h4 {
+  font-size: 1em;
+}
+p {
+  font-size: 1em;
+}
+
+div {
+  border: 1px solid #ff0000;
+}
+.grid {
+  border: 1px solid #ff0000;
+}
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+.col-no-pad {
+  padding: 0px;
+}
+.align-self-parent {
+  display: flex;
+  justify-content: center;
+}
+.align-self {
+  align-self: center;
+}
+
+
+.docs-nav {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#003535+3,009999+100 */
+  background: #003535;*/ /* Old browsers */
+  background: -webkit-linear-gradient(top,  #003535 3%,#009999 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #003535 3%,#009999 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  height: 5em;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003535', endColorstr='#009999',GradientType=0 ); /* IE6-9 */
+  border: 1px solid #58595b;
+  width: 100%;
+}
+.navbar-mascot {
+  max-height: 3em;
+  max-width: 4em;
+}
+.navbar-brand {
+  font-size: 14px;
+  max-height: 3em;
+  max-width: 15em;
+  padding: 0em;
+}
+.docs-nav input {
+  width: 40em;
+  display: block;
+  margin: auto;
+}
+.docs-nav ul > li > a {
+  line-height: calc(5em - 2px);;
+  padding: 0em 1em;
+  color: #ffffff;
+}
+.docs-nav ul > li > a:hover {
+  color: #ffffff;
+  background-color: #009999;
+}
+.docs-nav ul > li > a.hilight {
+  color: #000000;
+  background-color: #eee;
+}
+.docs-nav ul > li > a.hilight:hover {
+  color: #ffffff;
+  background-color: #003535;
+}
