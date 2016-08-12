@@ -25,10 +25,10 @@ pages:
   - Monitor your Docker images: lighthouse.md
   - Running builds on your machines: ci_byoh.md
   - Running a sample build: gs_ci_sample.md
-  - CI FAQ: ci_faq.md
+  # - CI FAQ: ci_faq.md
   - CI Troubleshooting: ci_troubleshoot.md
 - Pipelines:
-  - Overview: pipelines_overview.md
+  - Overview: pipelines/overview.md
   - Pipeline Status: pipelines_subscriptions.md
   - Configuring and managing pipelines: pipelines_configure.md
   - Deploy a sample app: gs_deploy_sample.md
