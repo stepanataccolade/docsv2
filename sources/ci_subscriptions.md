@@ -135,7 +135,7 @@ Add the integration to a subscription, in the UI, through **Subscription Setting
 2. Click 'Add Integration' and select the list of integrations available in the dropdown of the 'Account Integrations' field.
      <img src="../images/add_integration_for_subscription.png" alt="Add Integration to a Subscription" style="width:700px;"/>
      
-3. Ensure the 'Integration Name' you input is exactly the same as the one you configure in the `shippable.yml` file
+3. Ensure the 'Integration Name' you input **is exactly the same** as the one you configure in the `shippable.yml` file. If they are not the same, then the build will fail with an error as [described in our troubleshooting section](ci_troubleshoot/#integration-name-specified-in-yml-does-not-match). 
 <img src="../images/add_integration_for_subscription_2.png" alt="Add Integration to a Subscription" style="width:700px;"/>
 
 
@@ -146,6 +146,27 @@ NOTE: If you don't see an integration in the dropdown, you will need to create o
 - Once you create this integration, add it to  your subscription by following Steps 2 and 3. 
 
 **IMPORTANT**: After adding the 'Integrations' in the UI, you'll need to configure the same in the `shippable.yml` file for the project. More details on [yml config here](ci_configure.md). The same is true for any Docker registry integrations.
+
+### Encrypt
+#### Encrypting your environment variables
+Shippable allows you to encrypt your environment variable definitions and keep your configurations private in your shippable.yml by using the `secure` tag.
+
+To encrypt a variable, enter the environment variable and its values in the text box as shown below and click on `Encrypt`-
+
+```
+name="abc"
+```
+To encrypt multiple variables, you can use the following syntax-
+
+```
+var1="abc" var2="xyz"
+```
+You can now use these encrypted variables in your shippable.yml with a secure tag . For example,
+
+```
+env:
+  secure: <encrypted output>
+```
 
 ### Billing
 A subscription on Shippable corresponds to an individual or organizational subscription on GitHub/Bitbucket. Your pricing plans are enforced at a subscription level, so you need to determine your build minion and pipeline needs for each subscription.

@@ -104,7 +104,7 @@ To update theme change files in `theme/shippable` directory.
 ## Issues
 
 - A broken link in api.md: `https://prod-shippable.s3.amazonaws.com/artifacts/subscriptions/.../tar.gz`
-- Mkdoks for now (May 2015) is a real raw project without enough documentation
+- <a target="_blank" href="http://www.mkdocs.org/">Mkdocs</a> for now (May 2015) is a real raw project without enough documentation
 - "Edit this article" doesn't point to the document only to the whole source dir:
     - https://github.com/mkdocs/mkdocs/issues/269
     - https://github.com/mkdocs/mkdocs/issues/266

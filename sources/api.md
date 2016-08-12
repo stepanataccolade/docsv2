@@ -17,7 +17,8 @@ The main endpoint for interacting with our API is
 
 ### Authentication
 
-Using our API requires authenticating with a Shippable API tokens. To generate a token, follow instructions in our Generate API token **UpdateLink** section.
+Using our API requires authenticating with a Shippable API token.
+To generate a token, follow instructions in our [Generate API token](acc_overview.md#api-tokens) section.
 
 These tokens must be placed in the header of your HTTP request. For example, if your API token has the value 10010, you can authenticate with curl as follows:
 
@@ -123,7 +124,7 @@ GET /runs/:id
 |HTTP Code      |    Description     |
 |---------------|--------------------|
 |200|success|
-|500|Internal Server Error. Check run id.|  
+|500|Internal Server Error. Check run id.|
 
 
 ```
@@ -1260,7 +1261,7 @@ POST /projects/:projectId/newBuild
 
 ####Response
 
-|HTTP code      |    Status     |    Description    |  
+|HTTP code      |    Status     |    Description    |
 |----------|-------------|-------------------|
 | 200| OK| New build was successfully triggered|
 | 500| Internal Server Error| Check project id|
@@ -1317,7 +1318,7 @@ GET /subscriptions
 ####Response
 
 
-|HTTP code      |    Status     |    Description    |      
+|HTTP code      |    Status     |    Description    |
 |----------|-------------|-------------------|
 | 200| OK| Query was successful and all subscripti0ns will be returned.|
 
@@ -1347,7 +1348,7 @@ GET/subscriptions/:id
 
 ####Response
 
-|HTTP code      |    Status     |    Description    |      
+|HTTP code      |    Status     |    Description    |
 |----------|-------------|-------------------|
 | 200| OK| Query was successful and subscription details will be returned.|
 | 500| Internal Server Error| Incorrect subscription ID.|
@@ -1379,25 +1380,7 @@ GET/subscriptions/:id
 }
 
 ```
-### Get active minion count
-This route will tell you how many minions in a subscriptions are currently 'active', i.e. processing builds.
 
-```
-GET/subscriptions/:id/activeMinions
-```
-
-####Response
-
-|HTTP Code      |    Description     |
-|---------------|--------------------|
-|200|success|
-|500|Internal Server Error. Check subscription id.|
-
-```
-{
-    "count": 0
-}
-```
 
 ###Delete a subscription
 This route lets you delete your subscription. Please note that all projects, jobs and runs will also be deleted when the subscription is deleted.
