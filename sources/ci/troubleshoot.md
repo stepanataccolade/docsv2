@@ -75,9 +75,11 @@ Reason: Notification and Hub integrations need to be set in two places - In the 
   - Errors
     - common2|_cleanRunYml|callerId:!xxxxxxxxx prjectId: yyyyy
 ```
-Reason: The language configured in the `shippable.yml` file should have the correct syntax in order to be recognized
+Reason: The language configured in the `shippable.yml` file should have the correct syntax in order to be recognized. You will also get this error if you have enabled a project in the 'Infra' tab instead of the 'CI' tab. Infra projects are meant for terraform deployments and do not allow languages to be specified in the YML.
 
-**How to avoid:** Ensure the correct syntax is used when specifying a language in the `shippable.yml`. All supported languages and configuration syntax is available here **UpdateLink**.
+**How to avoid:** Ensure the correct syntax is used when specifying a language in the `shippable.yml`. All supported langagues and configuration syntax is [available here](ci_configure/#specifying-language-and-runtime). 
+
+If you have indeed enabled the project through the 'Infra' tab instead of the 'CI' tab, then go to the 'Settings' page for your project, under the 'Options' tab, click the 'Delete' button. Go to the CI tab and enable the project from there and run your build.
 
 ---
 
@@ -290,6 +292,7 @@ On July 1, 2016, Shippable underwent a scheduled service maintenance. Since then
 Reason: Legacy users who have Slack integration configured only in the UI ('Subscription' settings; 'Integrations' section; 'Notification Integration') and not in the `shippable.yml` had Slack notifications triggered for all events. Since the service update, Slack notifications are required to be configured both in the UI and in the `shippable.yml`. Hence legacy users who have Slack notifications configured only in the UI no longer receive the notifications.
 
 **How to avoid:** In order to ensure Slack notifications are triggered for the legacy users, just like before, for all events, use the following code in your `shippable.yml` file:
+
 ```
 integrations:
   notifications:
@@ -300,6 +303,7 @@ integrations:
       on_start: always
       on_success: always
 ```
+
 Note that `on_start` defaults to `never` and `on_success` defaults to `change` if these tags are not specified in the `shippable.yml` file. Changing both to `always` matches the previous fallback behavior for legacy users.
 
 Read more about [configuring Slack notifications](../ci/notifications/slack/) in our documentation.

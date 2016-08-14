@@ -247,16 +247,24 @@ integrations:
 
 ---
 
-### How do I use Ruby in a build with another language?
+### Can I use multiple langauges in a build?
 
 Specify your [language](/ci/shippableyml/#language) as usual. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](/ci/shippableyml/#setting-your-build-image) for that language.
 
-All [official Shippable images](https://hub.docker.com/u/drydock/) have rvm installed, with a default version of Ruby. However, the rvm location is not added to the $PATH environment variable, so you will need to `source` rvm in your YML. This will give you access to both `ruby` and `rvm`. Your YML will look something like this:
+1. Use the default image for the first language by specifying the langauage in the `shippable.yml` file and then install the dependencies for the other language in the build.
+2. Build your own Docker image with all the dependencies you need for both and then [override the default build image](ci_configure/#overriding-the-default-build-image) to use your Docker image.
+
+Let's look at an example of using Node.js & Ruby in a build by using the first option above.
+
+Specify your [language](http://docs.shippable.com/ci_configure/#specifying-language-and-runtime) in the `shippable.yml`. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](http://docs.shippable.com/ci_configure/#setting-your-build-image) for that language.
+
+All [official Shippable images](https://hub.docker.com/u/drydock/) have rvm installed, with a default version of Ruby. However, the rvm location is not added to the $PATH environment variable, so you will need to `source` rvm in your YML. This will give you access to both `ruby` and `rvm`. Your `shippable.yml` should look like this:
 ```
 language: node_js
 
+#desired Node.js version(s)
 node_js:
-  - desired Node.js version(s)
+  - "0.12"
 
 build:
   ci:
@@ -265,7 +273,63 @@ build:
 
 ---
 
-## Pipelines (Continuous Delivery (CD))
-### Why is my application not accessible externally, even though my pipeline is working perfectly?
+### Can I run unit tests in multiple languages in the same repository?
 
-You may notice that your pipeline has been configured correctly & is deploying your Docker image successfully into Kubernetes (GKE). However, you'll see that no service is created & hence your application is not accessible externally, even though you have configured the routing. A main reason this happens is when a GKE cluster is used & the port ranges are not configured. Kubernetes, by default, restricts the nodePort on a service to be in the range 30000 to 32767. Hence if you are using a GKE cluster, then you'll need to select the hostPort you choose for routing, between this range. For more details refer [deploying a sample app on pipelines](/tutorials/pipelines/samplePipeline).
+Yes, you can run unit tests in multiple languages in the same repo. Let's look at an example of running Javascript and Python unit tests in the same build on Shippable. 
+
+The easiest way to do this would be to specify `node_js` as your language in the `shippable.yml` file, since python already comes installed on our node images by default. Your `shippable.yml` should look like this:
+
+
+```
+language: node_js
+
+# specify node version(s)
+node_js:
+  - "0.12"
+
+build:
+  ci:
+    # check the python version; it will be 2.7 by default
+    - python --version
+    # check the node version; it will be whatever you specified under node_js, above
+    - node --version
+    - npm install
+    - pip install -r requirements.txt
+    # now run your tests
+```
+    
+
+This `yml` configuration should cover a lot of scenarios. If you want a more tailor-made set-up, you can always create a custom image, install what you want in that image, and then use that for your build. Feel free to use our [drydock images](https://github.com/dry-dock) as a starting place; these are our build images. For more info on how to use custom images with a build, check out our [docs](ci_configure/#pulling-your-ci-image-from-a-docker-registry).
+
+You may notice that your pipeline has been configured correctly & is deploying your Docker image successfully into Kubernetes (GKE). However, you'll see that no service is created & hence your application is not accessible externally, even though you have configured the routing. A main reason this happens is when a GKE cluster is used & the port ranges are not configured. Kubernetes, by default, restricts the nodePort on a service to be in the range 30000 to 32767. Hence if you are using a GKE cluster, then you'll need to select the hostPort you choose for routing, between this range. For more details refer [deploying a sample app on pipelines](gs_deploy_sample.md).
+
+---
+
+## Sign into Shippable
+
+<div class="signup-buttons">
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-d22bcb58-9b5a-40d8-8ef8-f095f6f49dd4">
+      <span class="hs-cta-node hs-cta-d22bcb58-9b5a-40d8-8ef8-f095f6f49dd4" id="hs-cta-d22bcb58-9b5a-40d8-8ef8-f095f6f49dd4">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/d22bcb58-9b5a-40d8-8ef8-f095f6f49dd4"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-d22bcb58-9b5a-40d8-8ef8-f095f6f49dd4" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/d22bcb58-9b5a-40d8-8ef8-f095f6f49dd4.png"  alt="Sign up with GitHub"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, 'd22bcb58-9b5a-40d8-8ef8-f095f6f49dd4', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+  <!--HubSpot Call-to-Action Code -->
+  <span class="hs-cta-wrapper" id="hs-cta-wrapper-19b25e32-39e6-4c22-b0a8-df5b408b2c6a">
+      <span class="hs-cta-node hs-cta-19b25e32-39e6-4c22-b0a8-df5b408b2c6a" id="hs-cta-19b25e32-39e6-4c22-b0a8-df5b408b2c6a">
+          <!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]-->
+          <a href="http://cta-redirect.hubspot.com/cta/redirect/362403/19b25e32-39e6-4c22-b0a8-df5b408b2c6a"  target="_blank" ><img class="hs-cta-img" id="hs-cta-img-19b25e32-39e6-4c22-b0a8-df5b408b2c6a" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/362403/19b25e32-39e6-4c22-b0a8-df5b408b2c6a.png"  alt="Sign up with Bitbucket"/></a>
+      </span>
+      <script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script>
+      <script type="text/javascript">
+          hbspt.cta.load(362403, '19b25e32-39e6-4c22-b0a8-df5b408b2c6a', {});
+      </script>
+  </span>
+  <!-- end HubSpot Call-to-Action Code -->
+</div>

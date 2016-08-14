@@ -72,6 +72,6 @@ If Docker Compose fails due to older Docker versions, then you have the option o
 ##Docker in Test environments and Production
 Shippable provides build related Docker functionality as well as continuous delivery pipelines that you can use to deploy your application to test environments.
 
-Check out our [CD pipelines to learn more](pipelines_overview.md)
+Check out our [CD pipelines to learn more](pipelines/overview.md)
 
 ---

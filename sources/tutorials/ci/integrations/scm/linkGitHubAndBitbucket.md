@@ -23,7 +23,7 @@ with either of your GitHub/BitBucket credentials going forward.
 >
 > To see the linked account repositories updated immediately, click on the **Sync** button on your Account Settings section
 > 
-> <img src="../images/account_settings_sync.png" alt="Aye0Aye Successful Build" style="width:200px;"/>
+> <img src="../images/account_settings_sync.png" alt="Aye0Aye Successful Build" style="width:700px;"/>
 
 
 **Note**
