@@ -6,8 +6,6 @@ page_keywords: containers, languages, services, platforms, lxc, docker, Continuo
 
 We support a multitude of languages, tools, services, as well as all popular source control providers, docker registries, container services, and notification providers.
 
-<img src="/ci/images/supportedOnShippable.png" alt="Supported on Shippable" style="width:700px;"/>
-
 ---
 
 ## Source control providers
