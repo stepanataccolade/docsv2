@@ -4,9 +4,12 @@ page_keywords: source control management system, continuous integration, continu
 
 
 # GitHub Enterprise
-Currently, we do not support signing in to Shippable directly with your GitHub Enterprise credentials.
 
- In order to use Shippable for your GitHub Enterprise repositories, you will need to first sign in with GitHub or Bitbucket and then add an account integration.
+We support GitHub Enterprise in 2 flavors:
+
+- Using Shippaable SaaS, you can sign in to Shippable with your GitHub or Bitbucket credentials, and then add an integration to your account that enables you to build repositories hosted on your GitHub Enterprise instance. This is described in the sections below.
+- You can also buy Shippable Server and run it on-premises or behind your firewall in your private cloud. In this setup, we support authenticating against GitHub Enterprise directly. If you are interested in this model, please send us an email to our [Sales team](mailto:sales@shippable.com)
+
 
 ##Adding the GitHub Enterprise integration
 The steps to enable GitHub Enterprise integration with Shippable are:

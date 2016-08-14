@@ -4,21 +4,21 @@ page_keywords: source control management system, continuous integration, continu
 
 
 # Bitbucket
-In order to integrate with your Bitbucket account, we automatically set up an Account integration when you log in using your Bitbucket credentials.
-
-You do not have to do anything to set this up further.
-
-Shippable also integrates with Bitbucket to build pull requests. For further details, read documentation below.
+In order to integrate with your Bitbucket account, we automatically set up an Account integration when you log in using your Bitbucket credentials. You do not have to do anything to set this up further.
 
 ---
 
-##Enabling Bitbucket account integration
-- To enable Bitbucket integration for public repositories:  
-     - Log in to [Shippable](https://app.shippable.com) using your Bitbucket credentials.
-     - Click on `Authorize application` button to authorize Shippable to access your public and private  repositories on GitHub (This is a one-time step). Provide your Bitbucket password, if prompted.
-     - Your subscription using your Bitbucket account is ready to use. In your 'Subscription', in the 'CI' tab, click the 'Enable Project' section to view all your public and private repositories in Bitbucket. Proceed to [enabling a project](/navigatingUI/subscriptions/ci/#enable-project).
-     - If you don't see your projects in the above step, click on the Account settings (gear icon on the top right hand navigation bar).
-          - In the 'Accounts' section click the `Sync` button.
+##Signing in with Bitbucket
+To build repositories hosted on Bitbucket. you will need to authorize Shippable to access your repositories. 
+
+To enable Bitbucket for public and private repositories:  
+
+- Log in to [Shippable](https://app.shippable.com) using your Bitbucket credentials.
+- Click on `Authorize application` button to authorize Shippable to access your public and private  repositories on Bitbucket (This is a one-time step). Provide your Bitbucket password, if prompted.
+- Your subscription is ready to use aftet this step. 
+- You can click on the top left menu icon to see a list of your Subscriptions. Choose the subscription you want.  
+- In the 'CI' tab, click the 'Enable Project' section to view all your public and private repositories in Bitbucket. Proceed to [enabling a project](/navigatingUI/subscriptions/ci/#enable-project).
+- If you don't see your projects in the above step, click on the Account settings (gear icon on the top navigation bar). In the 'Accounts' section click the `Sync` button.
 - No additional step required for private repositories as the above step provides access to both public and private repositories hosted on Bitbucket.
 
 ---
