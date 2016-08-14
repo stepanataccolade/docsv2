@@ -93,7 +93,7 @@ pages:
   - Resources: pipelines/resources.md
   - Jobs: pipelines/jobs.md
   - Triggers: pipelines/triggers.md
-  - Sample: tutorials/pipelines/samplePipeline.md
+  - Sample: pipelines/samplePipeline.md
   - FAQ: pipelines/faq.md
   - Troubleshooting: pipelines/troubleshoot.md
 - Navigating the UI:
@@ -122,41 +122,24 @@ pages:
   - Job routes: api/job.md
   - Run routes: api/run.md
   - Status Code Mapping: api/statusMapping.md
-- Tutorials:
-  - Continuous Integration (CI) tutorials:
+- Tutorials: 
+  - CI Tutorials: 
     - Adding Account Integrations: tutorials/ci/integrations/addAccountIntegrations.md
     - Run a sample CI build: tutorials/ci/runSampleCIBuild.md
     - Monitor your Docker Images for updates: tutorials/ci/howToMonitorDockerImages.md
-    - Advanced Options Tutorials:
-      - Setting up matrix builds: test.md
-      - Using matrix to parallelize builds: test.md
-      - Using Caching: test.md
-      - Setting up git submodules: test.md
-      - Using Shippable_retry: test.md
-      - Pushing to multiple registries: test.md
-      - Pushing multiple tags: test.md
-      - Overriding the default build image: test.md
-      - Building your CI image: test.md
-      - Pulling your CI image from a Docker registry: test.md
-      - Running multiple docker push: test.md
-    - Integrations Tutorials:
-      - Source Control Systems Tutorials:
+    - Integrations tutorials: 
+      - Source Control Systems Tutorials: 
         - Linking GitHub and Bitbucket accounts on Shippable: tutorials/ci/integrations/scm/linkGitHubAndBitbucket.md
-        - GitHub: tutorials/ci/integrations/scm/usingGitHub.md
-        - GitHub Entrprise: tutorials/ci/integrations/scm/usingGitHubEnterprise.md
-        - Bitbucket: tutorials/ci/integrations/scm/usingBitbucket.md
-        - Bitbucket Server: tutorials/ci/integrations/scm/usingBitbucketServer.md
-        - GitLab: tutorials/ci/integrations/scm/usingGitLab.md
-      - Notifications Tutorials: test.md
-      - Image Registries Tutorials: test.md
-      - Container Services Tutorials:
-        - Docker Datacenter: tutorials/ci/integrations/containerServices/usingDockerDatacenter.md
-      - Deploy Tutorials:
-        - Heroku: tutorials/ci/integrations/deploy/usingHeroku.md
-        - OpsWorks: tutorials/ci/integrations/deploy/usingOpsWorks.md
-        - Code Deploy: tutorials/ci/integrations/deploy/usingCodeDeploy.md
-        - Digital Ocean: tutorials/ci/integrations/deploy/usingDigitalOcean.md
-      - Keys Tutorials: test.md
-  - Pipelines Tutorials:
+        - Building GitHub Enterprise repos: tutorials/ci/integrations/scm/usingGitHubEnterprise.md
+        - Building Bitbucket Server repos: tutorials/ci/integrations/scm/usingBitbucketServer.md
+        - Building GitLab repos: tutorials/ci/integrations/scm/usingGitLab.md
+      - Container Services Tutorials: 
+        - Using Docker Datacenter: tutorials/ci/integrations/containerServices/usingDockerDatacenter.md
+      - Deploy Tutorials: 
+        - Using Heroku: tutorials/ci/integrations/deploy/usingHeroku.md
+        - Using OpsWorks: tutorials/ci/integrations/deploy/usingOpsWorks.md
+        - Using Code Deploy: tutorials/ci/integrations/deploy/usingCodeDeploy.md
+        - Using Digital Ocean: tutorials/ci/integrations/deploy/usingDigitalOcean.md
+  - Pipelines Tutorials:  
     - How to add resources: tutorials/pipelines/howToAddSyncRepos.md
     - Deploying a sample appliation: tutorials/pipelines/samplePipeline.md

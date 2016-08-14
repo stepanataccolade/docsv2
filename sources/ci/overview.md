@@ -42,13 +42,16 @@ You need to create a configuration file called **shippable.yml** and commit it t
 
 When a build is triggered, it is executed in the sequence below -
 
-* First, commands in the `pre_ci` section are executed on your build machine by the Shippable Agent.
+* First, we provision a build machine for you. Build machines have 2 cores, 3.75 GB RAM each. Provisioning can take anytime between 10 seconds to 4 mins, depending on whether your subscription already has a build machine running from an earlier build.
+* Once the machine is available, the Shippable agent starts running on that machine.
+* Commands in the `pre_ci` section are then executed on your build machine by the Shippable Agent.
 * The next step is booting your build container. This will use our default Docker images if nothing is configured in the `pre_ci_boot` section of your yml. If that section is configured, it overrides the default image and boots up the build container specified.
+* Next, we set the environment in the build container and clone your repository that is to be built.
 * All commands in the `ci` section are executed in sequence inside the build container.
 * Commands in the `post_ci` section are executed inside the build container.
-* If the `ci` and `post_ci` sections were successful, we will execute commands in the `on_success` section.
-* If the `ci` and/or `post_ci` sections failed, we will execute commands in the `on_failure` section.
-* If notifications are configured for the build, we will send out notifications about build results through the configured channel. Email notifications are on by default.
+* If the `ci` and `post_ci` sections were successful, commands in the `on_success` section are executed.
+* If the `ci` and/or `post_ci` sections failed, commands in the `on_failure` section are execured.
+* If notifications are configured in the yml, we will send out notifications about build results through the configured channel. Email notifications are on by default.
 
 ---
 
