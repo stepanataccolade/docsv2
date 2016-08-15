@@ -34,8 +34,13 @@ etc. As a result of this, we only soft delete jobs when they are removed from
 the YML file. If it was done mistakenly, you just add it back and the system will
 un-delete the job. 
 
-To hard delete a job, it will have to be done from the UI. 
-(TODO : add instructions)
+You can hard delete a job through the UI. To do this:
+
+* Go to your Subscription page and click on the `Pipelines` tab
+* Click on the `Jobs` pill
+* You will find a list of soft deleted jobs at the bottom of the page. To hard delete, just click the `Delete` button for the job you want to hard delete.
+
+A job must be soft deleted before it can be hard deleted.
 
 # Anatomy of a Job YML 
 Jobs are defined through the YML and they all follow a similar format irrespective
