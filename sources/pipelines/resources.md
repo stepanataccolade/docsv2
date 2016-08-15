@@ -23,7 +23,7 @@ ones.
 
 <br>
 # Adding Resources
-Resources are stored in a resource file `shippable.resources.yml` present in a git 
+Resources are stored in a resource file `shippable.resources.yml` in a git 
 repository. Any repo can contain this file but only one of it can be used. If 
 more than 1 resource file is present, the first one is used. This is done in order
 to reduce conflict due to the same resource being defined in multiple places.
@@ -35,13 +35,15 @@ To learn how to add this file and connect it to pipelines,
 # Deleting Resources
 Deleting a resource is a 2 step process. Pipelines are all about dependencies and
 deployable units are flowing through these pipelines. Hard deleting resources from 
-pipelines is a non reversible operation and you will lose all the version history 
-etc. As a result of this, we only soft delete resources when they are removed from
-the YML file. If it was done mistakenly, you just add it back and the system will
-un-delete the resource. 
+pipelines is a non reversible operation and you will lose the version history. As a result, we only soft delete resources when they are removed from the YML file. If it was done mistakenly, you just add it back and the system will un-delete the resource. 
 
-To hard delete a resource, it will have to be done from the UI. 
-(TODO : add instructions)
+You can hard delete a resource through the UI. To do this:
+
+* Go to your Subscription page and click on the `Pipelines` tab
+* Click on the `Resources` pill
+* You will find a list of soft deleted resources at the bottom of the page. To hard delete, just click the 	`Delete` button for the resource you want to delete
+
+A resource must be soft deleted before it can be hard deleted.
 
 <br>
 <a name="integration"></a>
@@ -350,9 +352,10 @@ You can create this resource by adding it to `shippable.resources.yml`
       DB_HOST: "ds015700"                   #required atleast 1
       DB_NAME: "ayeaye"                     #optional
       DB_PORT: "15700"                      #optional
+      secure: <encrypted value>  			 #optional
 ```
 This will create a resource of type `params` with the name `box-params`. The 
-following params are being set in this example. DB_HOST, DB_NAME & DB_PORT
+following params are being set in this example: DB_HOST, DB_NAME, DB_PORT, and a secure variable containing an encrypted value.
 
 ### YML properties
 ```
@@ -372,10 +375,14 @@ version:
   params: 
     key1: value1
     key2: value2
+    secure: encrypted value
 ```
 `params` is basically an object of key value pairs that will be set as environment
 variables when the app/service/microservice starts at the target. A new version is
 created everytime any of the values of the params changes. 
+
+You can use secure variables to encrypt any key value pairs that contain sensitive information you don't want to include as plain text. To encrypt one or more key value pairs, [follow the instructions in the Subscription Settings guide](../navigatingUI/subscriptions/settings.md#encrypt). Copy the encrypted value and include it in your resource file as shown in the snippet above.
+
 
 <br>
 <a name="replicas"></a>
