@@ -96,6 +96,30 @@ The same is true for any Docker registry integrations.
 
 ---
 
+##Encrypt
+Shippable allows you to encrypt your environment variable definitions and keep your configurations private in your yml config files by using the secure tag.
+
+To encrypt a variable, enter the environment variable and its values in the text box as shown below and click on Encrypt-
+
+```
+name="abc"`
+```
+
+To encrypt multiple variables, you can use the following syntax-
+
+```
+var1="abc" var2="xyz"
+```
+Copy the encrypted value.
+
+You can now use these encrypted values in your shippable.yml with a secure tag . For example,
+
+```
+env:
+  secure: <encrypted output>
+```
+---
+
 ## Billing
 A subscription on Shippable corresponds to an individual or organizational subscription
 on GitHub/Bitbucket.
