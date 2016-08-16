@@ -23,6 +23,10 @@ a {
   -o-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  color: #009999;
+}
+a:hover, a:focus, a:active {
+  color: #49B7E2;
 }
 
 .container-override {
@@ -99,6 +103,9 @@ a {
 .main-body {
   background: #ffffff;
 }
+.main-body h1, .main-body h2, .main-body h3, .main-body h4 {
+  color: #003535;
+}
 
 /* Accordion tocbar */
 .cd-accordion-menu ul {
@@ -108,7 +115,7 @@ a {
 .cd-accordion-menu ul.active {
     display: block;
 }
-.left-nav h4 {
+.side-nav h4 {
   color: #58595b;
   margin: 0em;
   padding: 1em;
@@ -119,26 +126,36 @@ a {
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.left-nav i {
+.side-nav i {
   color: #58595b;
   float: right;
 }
-.left-nav li {
+.side-nav li {
   margin-left: .5em;
 }
-.left-nav h4:hover, .left-nav h4:active, .left-nav h4:focus {
+.side-nav h4:hover, .side-nav h4:active, .side-nav h4:focus {
   background-color: #eeeeee;
 }
-.left-nav li li a {
+.side-nav li li a {
   color: #58595b;
   padding-left: 1.5em;
   border-left: 2px solid rgba(188, 181, 185, 0.3);
 }
-.left-nav #side-nav li li h4 {
+.side-nav #side-nav li li h4 {
   border-left: 2px solid rgba(188, 181, 185, 0.3);
 }
-.left-nav a.currentPage {
+.side-nav a.currentPage {
   border-left: 2px solid #009999;
+  color: #009999;
+}
+.side-nav.right-nav h4.nav-title {
+  background-color: #009999;
+  color: #ffffff;
+}
+.side-nav.right-nav ul {
+  background-color: #f3f3f4;
+}
+.side-nav.right-nav li li a {
   color: #009999;
 }
 
