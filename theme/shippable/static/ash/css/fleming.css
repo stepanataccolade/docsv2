@@ -134,6 +134,9 @@ a {
   padding-left: 1.5em;
   border-left: 2px solid rgba(188, 181, 185, 0.3);
 }
+.left-nav #side-nav li li h4 {
+  border-left: 2px solid rgba(188, 181, 185, 0.3);
+}
 .left-nav a.currentPage {
   border-left: 2px solid #009999;
   color: #009999;
