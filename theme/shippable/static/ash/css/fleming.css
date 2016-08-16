@@ -17,7 +17,17 @@ h4 {
 p {
   font-size: 1em;
 }
+a {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
 
+.container-override {
+  max-width: none;
+}
 /*div {
   border: 1px solid #ff0000;
 }
@@ -41,7 +51,7 @@ p {
 }
 
 
-/*** Nav Bar ***/
+/*** Top Nav Bar ***/
 .docs-nav {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#003535+3,009999+100 */
   background: #003535;*/ /* Old browsers */
@@ -83,6 +93,50 @@ p {
 .docs-nav ul > li > a.hilight:hover {
   color: #ffffff;
   background-color: #003535;
+}
+
+/* Main Body of Page */
+.main-body {
+  background: #ffffff;
+}
+
+/* Accordion tocbar */
+.cd-accordion-menu ul {
+    /* by default hide all sub menus */
+    display: none;
+}
+.cd-accordion-menu ul.active {
+    display: block;
+}
+.left-nav h4 {
+  color: #58595b;
+  margin: 0em;
+  padding: 1em;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.left-nav i {
+  color: #58595b;
+  float: right;
+}
+.left-nav li {
+  margin-left: .5em;
+}
+.left-nav h4:hover, .left-nav h4:active, .left-nav h4:focus {
+  background-color: #eeeeee;
+}
+.left-nav li li a {
+  color: #58595b;
+  padding-left: 1.5em;
+  border-left: 2px solid rgba(188, 181, 185, 0.3);
+}
+.left-nav a.currentPage {
+  border-left: 2px solid #009999;
+  color: #009999;
 }
 
 /*** Footer ***/

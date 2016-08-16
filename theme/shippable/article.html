@@ -1,15 +1,14 @@
-<article id="article" class="container">
-  <nav id="sidebar" class="col-md-2 hidden-xs hidden-sm hidden-print">
+<article class="main-body container container-override col-no-pad">
+  <nav class="left-nav col-md-2 hidden-xs hidden-sm hidden-print col-no-pad">
     <ul class="tocbar nav cd-accordion-menu" id="side-nav">
       {% for section in nav %}
         {% if section.children %}
-          <li class="has-children">
+          <li>
             {% for first_item in section.children[:1] %}
-              <input type="checkbox" name="{{ section.title }}" id="{{ section.title }}">
-              <label for="{{ section.title }}">
+              <h4>
                 {{ section.title }}
                 <i class="fa fa-chevron-down"></i>
-              </label>
+              </h4>
               <ul class="tocbar-sub nav">
                 {% for section in section.children %}
                   {% include "navbar_sub.html" %}
@@ -29,24 +28,24 @@
     <div class="sticky-anchor"></div>
   </nav>
   <section id="mainbar" class="col-md-9">
-      <div id="mkdocs-search-results">
-      </div>
-      <section id="content">
-          {% block content %} {{ content }} {% endblock %}
-      </section>
-      <nav class="pull-left hidden-print">
-          {% if previous_page %}
-          <a rel="next" {% if previous_page %}href="{{ previous_page.url }}" {% endif %}>
-              <span class="fa fa-arrow-left"></span> Previous
-          </a>
-          {% endif %} {% if next_page %}
-          <a rel="prev" {% if next_page %}href="{{ next_page.url }}" {% endif %}>
-      Next <span class="fa fa-arrow-right"></span>
+    <div id="mkdocs-search-results">
+    </div>
+    <section id="content">
+        {% block content %} {{ content }} {% endblock %}
+    </section>
+    <nav class="pull-left hidden-print">
+        {% if previous_page %}
+        <a rel="next" {% if previous_page %}href="{{ previous_page.url }}" {% endif %}>
+            <span class="fa fa-arrow-left"></span> Previous
+        </a>
+        {% endif %} {% if next_page %}
+        <a rel="prev" {% if next_page %}href="{{ next_page.url }}" {% endif %}>
+    Next <span class="fa fa-arrow-right"></span>
     </a> {% endif %}
-      </nav>
-      <nav class="pull-right hidden-print">
-          <a href="{{ repo_url }}/docsv2/blob/master/sources/{% if current_page %}{{ current_page.path }}{% endif %}" title="edit this article">Edit this article on GitHub</a>
-      </nav>
+    </nav>
+    <nav class="pull-right hidden-print">
+        <a href="{{ repo_url }}/docsv2/blob/master/sources/{% if current_page %}{{ current_page.path }}{% endif %}" title="edit this article">Edit this article on GitHub</a>
+    </nav>
   </section>
   <!-- <nav id="sidebar" class="col-md-3 hidden-xs hidden-sm hidden-print">
     {% if toc|first and toc|first|attr('children') %}

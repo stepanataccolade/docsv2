@@ -2,21 +2,16 @@
   <li>
     <a href="{{ section.url }}" name="{{section.title}}">{{ section.title }}</a>
     <script>
-      $('a[href="."]').parents("ul").siblings("input").prop("checked", true);
-      $('a[href="."]').parents("ul").siblings("label").addClass("active");
       $('a[href="."]').addClass("currentPage");
-      $('a[href="./"]').parents("ul").siblings("input").prop("checked", true);
-      $('a[href="./"]').parents("ul").siblings("label").addClass("active");
       $('a[href="./"]').addClass("currentPage");
     </script>
   </li>
 {% else %}
   <li class="dropdown-submenu has-children">
-    <input type="checkbox" name="{{ section.title }}" id="{{ section.title }}">
-    <label for="{{ section.title }}">
+    <h4>
       {{ section.title }}
       <i class="fa fa-chevron-down"></i>
-    </label>
+    </h4>
     <ul class="tocbar-sub nav">
       {% for section in section.children %}
         {% include "navbar_sub.html" %}
