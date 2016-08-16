@@ -1,5 +1,5 @@
 body {
-  font-family: ProximaNova-Regular, "proxima-nova", "Maven Pro", sans-serif;
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
   font-size: 14px;
 }
 h1 {
@@ -17,7 +17,21 @@ h4 {
 p {
   font-size: 1em;
 }
+a {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #009999;
+}
+a:hover, a:focus, a:active {
+  color: #49B7E2;
+}
 
+.container-override {
+  max-width: none;
+}
 /*div {
   border: 1px solid #ff0000;
 }
@@ -41,7 +55,7 @@ p {
 }
 
 
-/*** Nav Bar ***/
+/*** Top Nav Bar ***/
 .docs-nav {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#003535+3,009999+100 */
   background: #003535;*/ /* Old browsers */
@@ -83,6 +97,66 @@ p {
 .docs-nav ul > li > a.hilight:hover {
   color: #ffffff;
   background-color: #003535;
+}
+
+/* Main Body of Page */
+.main-body {
+  background: #ffffff;
+}
+.main-body h1, .main-body h2, .main-body h3, .main-body h4 {
+  color: #003535;
+}
+
+/* Accordion tocbar */
+.cd-accordion-menu ul {
+    /* by default hide all sub menus */
+    display: none;
+}
+.cd-accordion-menu ul.active {
+    display: block;
+}
+.side-nav h4 {
+  color: #58595b;
+  margin: 0em;
+  padding: 1em;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.side-nav i {
+  color: #58595b;
+  float: right;
+}
+.side-nav li {
+  margin-left: .5em;
+}
+.side-nav h4:hover, .side-nav h4:active, .side-nav h4:focus {
+  background-color: #eeeeee;
+}
+.side-nav li li a {
+  color: #58595b;
+  padding-left: 1.5em;
+  border-left: 2px solid rgba(188, 181, 185, 0.3);
+}
+.side-nav #side-nav li li h4 {
+  border-left: 2px solid rgba(188, 181, 185, 0.3);
+}
+.side-nav a.currentPage {
+  border-left: 2px solid #009999;
+  color: #009999;
+}
+.side-nav.right-nav h4.nav-title {
+  background-color: #009999;
+  color: #ffffff;
+}
+.side-nav.right-nav ul {
+  background-color: #f3f3f4;
+}
+.side-nav.right-nav li li a {
+  color: #009999;
 }
 
 /*** Footer ***/
