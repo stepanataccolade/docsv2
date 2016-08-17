@@ -9,18 +9,22 @@ Unified pipelines provide the quickest and easiest way to achieve Continuous Del
 
 Our platform helps you innovate faster by accelerating your software release lifecycle. We achieve this by giving you a continuous deployment platform that helps you:
 
-####Improve productivity
+**Improve productivity**
+
 Most deployment pipelines today need to be cobbled together with tools that solve part of the end to end requirement. These pipelines are mostly homegrown and DevOps engineers spend a lot of time writing thousands of lines of imperative code to create them. As a result, companies either automate only part of their deployment workflow or bite the bullet and spend the time required to build these pipelines. Both choices are suboptimal and slow down your release cycles.    
  
 Shippable gives you an **end to end declarative platform** that will get your deployment pipeline up and running in less than an hour. No coding required! 
 
-####Always use the best tools for the job
+**Always use the best tools for the job**
+
 Our pipelines are heterogeneous, i.e. they support all tools and services that you might want to use for your deployment workflows. Want to switch from HipChat to Slack? Configure it in less than 5 minutes. Want to deploy to a different cloud endpoint? Also configured in less than 5 mins! 
 
-####Ship cloud native and traditional applications in a unified pipeline
+**Ship cloud native and traditional applications in a unified pipeline**
+
 Cloud native is the new buzzword, but if you're like most organizations, a bulk of your code is still written in Java and deployed to an IaaS/PaaS. With Shippable, you can use the same pipeline to ship both types of applications.
 
-####View all your deployments in a Single Pane of Glass
+**View all your deployments in a Single Pane of Glass**
+
 Our pipelines give you an end to end visual representation of your deployment workflow, with the ability to zoom in and out of any part of it. You can view version history, logs, and also upgrade and rollback in no time.
 
 

@@ -26,12 +26,15 @@ p {
   font-size: 1em;
   color: #58595b;
 }
-
 code {
   background-color: #f3f3f4;
   color: #58595b;
   border: 1px solid #58595b;
 }
+pre code {
+  font-size:0.9em;
+}
+
 a {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
