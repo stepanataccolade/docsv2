@@ -539,10 +539,10 @@ For advanced Slack notification handling, please read our [Slack notifications p
 
 ####iii. Additional notification integrations
 
-- [HipChat notifications](integrations/notifications/hipchat.md)  
-- [Email notifications](integrations/notifications/email.md)  
-- [IRC notifications](integrations/notifications/irc.md)  
-- [Slack notifications](integrations/notifications/slack.md)  
+- [HipChat notifications](../integrations/notifications/hipchat.md)  
+- [Email notifications](../integrations/notifications/email.md)  
+- [IRC notifications](../integrations/notifications/irc.md)  
+- [Slack notifications](../integrations/notifications/slack.md)  
 
 ### hub
 Hub integrations allow you to integrate with any Docker registry such as Docker Hub, Amazon ECR, Google Container Registry (GCR), CoreOS's Quay.io, Docker Trusted Registry, or any self hosted private Docker registry. 
@@ -577,17 +577,17 @@ And that's it. You can now use docker commands under the `build` section of your
 ####ii. Additional Hub integrations
 Please visit the following pages for details on how to add hub integrations for other image registries:
 
-[Docker Trusted Registry](integrations/image_registries/dockerTrustedRegistry.md)
-[Amazon ECR](integrations/imageRegistries/ecr.md)
-[Google Container Registry](integrations/imageRegistries/gcr.md)
-[Quay.io](integrations/imageRegistries/quay.md)
-[Private Docker Registry](integrations/imageRegistries/privateRegistry.md)
-[Docker Hub](integrations/imageRegistries/dockerHub.md)
+[Docker Trusted Registry](../integrations/image_registries/dockerTrustedRegistry.md)
+[Amazon ECR](../integrations/imageRegistries/ecr.md)
+[Google Container Registry](../integrations/imageRegistries/gcr.md)
+[Quay.io](../integrations/imageRegistries/quay.md)
+[Private Docker Registry](../integrations/imageRegistries/privateRegistry.md)
+[Docker Hub](../integrations/imageRegistries/dockerHub.md)
 
 ### deploy
 The `deploy` section of the yml lets you depoy your code or Docker container to Amazon Elastic Beanstalk (EB). 
 
-To configure deployments to EB, please refer to our [Integration page for Amazon Elastic Beanstalk](integrations/deploy/eb.md).
+To configure deployments to EB, please refer to our [Integration page for Amazon Elastic Beanstalk](../integrations/deploy/eb.md).
 
 
 ### keys
@@ -616,8 +616,8 @@ integrations:
 
 In the example above, the integrationName value should match the integration name in your Subscription Settings.
 Your SSH key will now be available on your build minion in the `/tmp/ssh/` directory. You can then use the key for ssh commands in your `shippable.yml`.
-For a more detailed explanation, check out our [SSH key integration](integrations/keys/ssh.md) page.
+For a more detailed explanation, check out our [SSH key integration](../integrations/keys/ssh.md) page.
 
 ####ii. Additional Key integrations
-[PEM keys](integrations/keys/pem.md)
-[SSH keys](integrations/keys/ssh.md)
+[PEM keys](../integrations/keys/pem.md)
+[SSH keys](../integrations/keys/ssh.md)

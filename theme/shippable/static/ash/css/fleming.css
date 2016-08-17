@@ -1,21 +1,36 @@
 body {
   font-family: 'Source Sans Pro', Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
 }
 h1 {
-  font-size: 4em;
+  font-size: 2.5em;
+  color: #58595b;
+  font-weight: 400;
 }
 h2 {
-  font-size: 3em;
+  font-size: 2em;
+  color: #9f390c;
+  font-weight: 400;
 }
 h3 {
-  font-size: 2em;
+  font-size: 1.5em;
+  color: #88300a;
+  font-weight: 400;
 }
 h4 {
-  font-size: 1em;
+  font-size: 1.25em;
+  color: #58595b;
+  font-weight: 400;
 }
 p {
   font-size: 1em;
+  color: #58595b;
+}
+
+code {
+  background-color: #f3f3f4;
+  color: #58595b;
+  border: 1px solid #58595b;
 }
 a {
   -webkit-transition: all 0.3s ease;
@@ -103,9 +118,10 @@ a:hover, a:focus, a:active {
 .main-body {
   background: #ffffff;
 }
-.main-body h1, .main-body h2, .main-body h3, .main-body h4 {
+
+/*.main-body h1, .main-body h2, .main-body h3, .main-body h4 {
   color: #003535;
-}
+}*/
 
 /* Accordion tocbar */
 .cd-accordion-menu ul {
@@ -119,6 +135,7 @@ a:hover, a:focus, a:active {
   color: #58595b;
   margin: 0em;
   padding: 1em;
+  font-size: 1em;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;

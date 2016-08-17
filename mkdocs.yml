@@ -54,40 +54,40 @@ pages:
     - Running builds on your own machines (BYON): ci/advancedOptions/byon.md
     - Images: ci/advancedOptions/images.md
     - Timeouts: ci/advancedOptions/timeouts.md
-    - Node Machine Images: ci/advancedOptions/machineImages.md
-  - Integrations:
-    - Source Control Systems:
-      - Overview: ci/integrations/scm/scmOverview.md
-      - GitHub: ci/integrations/scm/github.md
-      - GitHub Enterprise: ci/integrations/scm/githubEnterprise.md
-      - Bitbucket: ci/integrations/scm/bitbucket.md
-      - Bitbucket Server: ci/integrations/scm/bitbucketServer.md
-      - GitLab: ci/integrations/scm/gitlab.md
-    - Notifications:
-      - Slack: ci/integrations/notifications/slack.md
-      - Email: ci/integrations/notifications/email.md
-      - HipChat: ci/integrations/notifications/hipchat.md
-      - IRC: ci/integrations/notifications/irc.md
-    - Image Registries:
-      - Docker Hub: ci/integrations/imageRegistries/dockerHub.md
-      - Docker Trusted Registry: ci/integrations/imageRegistries/dockerTrustedRegistry.md
-      - Amazon EC2 Container Registry (ECR): ci/integrations/imageRegistries/ecr.md
-      - Google Container Registry (GCR): ci/integrations/imageRegistries/gcr.md
-      - Quay.io: ci/integrations/imageRegistries/quay.md
-      - Any Private Registry: ci/integrations/imageRegistries/privateRegistry.md
-    - Container Services:
-      - Amazon EC2 Container Service (ECS): ci/integrations/containerServices/ecs.md
-      - Google Container Engine (GKE): ci/integrations/containerServices/gke.md
-      - Docker Cloud: ci/integrations/containerServices/dockerCloud.md
-      - Docker Datacenter: ci/integrations/containerServices/dockerDatacenter.md
-    - Deploy:
-      - AWS Elastic Beanstalk: ci/integrations/deploy/eb.md
-      - Webhooks: ci/integrations/deploy/webhooks.md
-    - Keys:
-      - SSH: ci/integrations/keys/ssh.md
-      - PEM:  ci/integrations/keys/pem.md
+    - Node Machine Images: ci/advancedOptions/machineImages.md  
   - Permissions: ci/permissions.md
   - Troubleshooting CI: ci/troubleshoot.md
+- Integrations: 
+  - Source Control Systems: 
+    - Overview: integrations/scm/scmOverview.md
+    - GitHub: integrations/scm/github.md
+    - GitHub Enterprise: integrations/scm/githubEnterprise.md
+    - Bitbucket: integrations/scm/bitbucket.md
+    - Bitbucket Server: integrations/scm/bitbucketServer.md
+    - GitLab: integrations/scm/gitlab.md
+  - Notifications: 
+    - Slack: integrations/notifications/slack.md
+    - Email: integrations/notifications/email.md
+    - HipChat: integrations/notifications/hipchat.md
+    - IRC: integrations/notifications/irc.md
+  - Image Registries: 
+    - Docker Hub: integrations/imageRegistries/dockerHub.md
+    - Docker Trusted Registry: integrations/imageRegistries/dockerTrustedRegistry.md
+    - Amazon EC2 Container Registry (ECR): integrations/imageRegistries/ecr.md
+    - Google Container Registry (GCR): integrations/imageRegistries/gcr.md
+    - Quay.io: integrations/imageRegistries/quay.md
+    - Any Private Registry: integrations/imageRegistries/privateRegistry.md
+  - Container Services: 
+    - Amazon EC2 Container Service (ECS): integrations/containerServices/ecs.md
+    - Google Container Engine (GKE): integrations/containerServices/gke.md
+    - Docker Cloud: integrations/containerServices/dockerCloud.md
+    - Docker Datacenter: integrations/containerServices/dockerDatacenter.md
+  - Deploy: 
+    - AWS Elastic Beanstalk: integrations/deploy/eb.md
+    - Webhooks: integrations/deploy/webhooks.md
+  - Keys:
+    - SSH: integrations/keys/ssh.md
+    - PEM:  integrations/keys/pem.md  
 - Pipelines:
   - Overview: pipelines/overview.md
   - Resources: pipelines/resources.md
