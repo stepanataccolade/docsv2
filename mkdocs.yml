@@ -57,6 +57,14 @@ pages:
     - Node Machine Images: ci/advancedOptions/machineImages.md  
   - Permissions: ci/permissions.md
   - Troubleshooting CI: ci/troubleshoot.md
+- Continuous Deployment Pipelines:
+  - Overview: pipelines/overview.md
+  - Resources: pipelines/resources.md
+  - Jobs: pipelines/jobs.md
+  - Triggers: pipelines/triggers.md
+  - Sample: pipelines/samplePipeline.md
+  - FAQ: pipelines/faq.md
+  - Troubleshooting: pipelines/troubleshoot.md
 - Integrations: 
   - Source Control Systems: 
     - Overview: integrations/scm/scmOverview.md
@@ -88,14 +96,6 @@ pages:
   - Keys:
     - SSH: integrations/keys/ssh.md
     - PEM:  integrations/keys/pem.md  
-- Pipelines:
-  - Overview: pipelines/overview.md
-  - Resources: pipelines/resources.md
-  - Jobs: pipelines/jobs.md
-  - Triggers: pipelines/triggers.md
-  - Sample: pipelines/samplePipeline.md
-  - FAQ: pipelines/faq.md
-  - Troubleshooting: pipelines/troubleshoot.md
 - Navigating the UI:
   - Home: navigatingUI/home.md
   - Account:
@@ -141,5 +141,5 @@ pages:
         - Using Code Deploy: tutorials/ci/integrations/deploy/usingCodeDeploy.md
         - Using Digital Ocean: tutorials/ci/integrations/deploy/usingDigitalOcean.md
   - Pipelines Tutorials:  
-    - How to add resources: tutorials/pipelines/howToAddSyncRepos.md
-    - Deploying a sample appliation: tutorials/pipelines/samplePipeline.md
+    - Using integrations with a runSh job: tutorials/pipelines/runShUseIntegrations.md
+    - Deploying a sample application: tutorials/pipelines/samplePipeline.md

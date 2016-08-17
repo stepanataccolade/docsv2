@@ -469,8 +469,8 @@ integrations:
 
 In the snippet above, the `integrations` section lets you configures GCR credentials and you can then use the push section to push the image. For a more detailed explanation, please check out the specific integration page:
 
-- [Google Container Registry](integrations/imageRegistries/gcr.md)
-- [Amazon ECR](integrations/imageRegistries/ecr.md)
+- [Google Container Registry](../integrations/imageRegistries/gcr.md)
+- [Amazon ECR](../integrations/imageRegistries/ecr.md)
 
 
 * * * 
@@ -572,7 +572,7 @@ integrations:
       type: docker
 
 ```
-And that's it. You can now use docker commands under the `build` section of your yml to push or pull images from this registry. Advanced options like configuring this integration to only apply to specific branches are discussed in the [Docker Hub integration](integrations/imageRegistries/dockerHub.md)
+And that's it. You can now use docker commands under the `build` section of your yml to push or pull images from this registry. Advanced options like configuring this integration to only apply to specific branches are discussed in the [Docker Hub integration](../integrations/imageRegistries/dockerHub.md)
 
 ####ii. Additional Hub integrations
 Please visit the following pages for details on how to add hub integrations for other image registries:
