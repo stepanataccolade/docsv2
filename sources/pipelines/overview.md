@@ -4,23 +4,31 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 <br>
 # Shippable Unified Pipelines Overview
-Unified pipelines are a way to achieve Continuous Delivery. These are designed
-to deliver your applications faster without having to write any imperative code
-for your pipelines. The focus is to get you to reduce your cycle time between
-writing code and running code.
 
-Shippable's Unified Pipelines have the following characteristics
+Unified pipelines provide the quickest and easiest way to achieve Continuous Delivery. 
 
-- it is a declarative platform
-- supports heterogeneous applications, sources and targets
-- it works for both cloud native and traditional applications
+Our platform helps you innovate faster by accelerating your software release lifecycle. We achieve this by giving you a continuous deployment platform that helps you:
+
+####Improve productivity
+Most deployment pipelines today need to be cobbled together with tools that solve part of the end to end requirement. These pipelines are mostly homegrown and DevOps engineers spend a lot of time writing thousands of lines of imperative code to create them. As a result, companies either automate only part of their deployment workflow or bite the bullet and spend the time required to build these pipelines. Both choices are suboptimal and slow down your release cycles.    
+ 
+Shippable gives you an **end to end declarative platform** that will get your deployment pipeline up and running in less than an hour. No coding required! 
+
+####Always use the best tools for the job
+Our pipelines are heterogeneous, i.e. they support all tools and services that you might want to use for your deployment workflows. Want to switch from HipChat to Slack? Configure it in less than 5 minutes. Want to deploy to a different cloud endpoint? Also configured in less than 5 mins! 
+
+####Ship cloud native and traditional applications in a unified pipeline
+Cloud native is the new buzzword, but if you're like most organizations, a bulk of your code is still written in Java and deployed to an IaaS/PaaS. With Shippable, you can use the same pipeline to ship both types of applications.
+
+####View all your deployments in a Single Pane of Glass
+Our pipelines give you an end to end visual representation of your deployment workflow, with the ability to zoom in and out of any part of it. You can view version history, logs, and also upgrade and rollback in no time.
+
 
 <br>
-# What is it made up of?
-At the very core, it is application delivery workflows made up of three fundamental
-building blocks.
+## What is it made of?
+Unified Pipelines consist of three fundamental building blocks that can be strung together.
 
-- [Resources](resources.md) are the building blocks of your pipeline. They can
+- [Resources](resources.md) are the basic components of your pipeline. These are They can
 include managed integrations to external components or services, custom
 integrations to internal assets, as well as reusable building blocks, such as
 runtime parameters to be used across environments. For example, git
@@ -44,26 +52,20 @@ deployments into both traditional and cloud native architectures, whether IaaS,
 PaaS, or CaaS.
 
 <br>
-# Why do I need it?
-As seen in the picture below, CI is just a starting point for CD.
+## Why do I need it?
+As seen in the picture below, Continuous Integration is just a starting point for achieving Continuous Delivery.
 
+<img src="../images/appDeliveryPipelines.png" alt="Shippable Continuous Integration and Delivery" style="width:1200px;"/>
 
-<img src="../images/overview.png" alt="Unified Pipelines" style="width:640px;"/>
-
-
-If you want CD, the next step is to push your tested code as an immutable deploy
-artifact. This can be a container image or a JAR file that is stored in a
+To achieve true end to end Continuous Delivery, the next step is to push your tested code as an immutable deploy artifact. This can be a container image or a JAR file that is stored in a
 repository (Docker registry, JFrog etc.).
 
-From here, you can deploy these artifacts to an environment and even chain many
-environments to create a dev, test and production workflow.
+From here, you can deploy these artifacts to an environment and even chain many environments to create a dev, test and production workflow.
 
-You can override runtime environment variables as you move from one environment
-to another. Versioned application releases can be created at any stage to combine
-1 or many deployable artifacts.
+You can override runtime environment variables as you move from one environment to another. Versioned application releases can be created at any stage to combine one or many deployable artifacts.
 
 <br>
-# Sample use case
+## Sample use case
 Consider a simple 2 tier Dockerized application on github
 
 - ui  : `yourOrg/www`
@@ -95,9 +97,8 @@ ops is notified through the slack channel
 each successful test pas will create a new `rc`. This process continues several
 times until one day, everything planned for your next `prod` update has been
 tested and approved in **beta**. The current `rc` version is *pegged* to prod
-- Release day! You simply push the *peged*  version to your **prod** environment
+- Release day! You simply push the *pegged*  version to your **prod** environment
 
 Here is a [how to tutorial]() to achieve this workflow using Shippable Unified
 Pipelines. When finished your pipeline will look like this
-<img src="../images/spog.png" alt="Single Pane of Glass" style="width:640px;"/>
-<br>
+<TODO: Update image>
