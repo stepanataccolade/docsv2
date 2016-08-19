@@ -92,7 +92,7 @@ createOutState() {
 ```
 ###Extracting version information from a resource
 
-For information on how to extract data from a version of a resource, [read our tutorial](extractVersionInformation.md) on this subject.
+For information on how to extract data from a version of a resource, [read our tutorial](extractVersionInformation/) on this subject.
 
 
 
