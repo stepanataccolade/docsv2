@@ -34,7 +34,7 @@ jobs:
 ###Extracting data from integration
 Now that you have added the integration as an `IN` resource, you need to extract data from your integration in order to use it in your custom script. For example, if your integration is for Docker Hub, you will need to extract the username and password from your integration resource so you can include a `docker login` command in your custom script.
 
-The information from your integration is stored in the `./IN/<resource name>integration.env` file. You can run the comand shown below to extract your credentials:
+The information from your integration is stored in the `./IN/<resource name>integration.env` file. You can run the comand shown below to export your credentials:
 
 ```
   . ./IN/myIntegration/integration.env
@@ -49,10 +49,43 @@ You can use then use these environment variables in your custom script as shown 
 
 ```
 dockerLogin() {
-  . ./IN/$RES_DOCKER_CREDS/integration.env		
+  . ./IN/myIntegration/integration.env		
   docker login -u $username -p $password
 }
 ```
+
+##integration.env reference
+
+The example above shows you how to abstract data from integration.env for Docker Hub integrations. We currently support many different integration types, so you need a comprehensive mapping of integration type vs environment variable names.
+
+The table below shows you the environment variables that are available for your custom scripts when you run the `. ./IN/<resource name>/integration.env` command:	
+
+
+| Account Integration type                | Environment variables                          |
+|-----------------------------------------|------------------------------------------------|
+| Amazon ECR                              | $aws_access_key_id $aws_secret_access_key      |
+| AWS                                     | $aws_access_key_id $aws_secret_access_key $url |
+| Azure Container Service                 | $username $url                                 |
+| Bitbucket                               | $url $token                                    |
+| Bitbucket Server                        | $username $url $token                          |
+| Docker Hub                              | $username $password $email                     |
+| Docker Cloud                            | $username $token $url                          |
+| Docker Datacenter                       | $username $password $url                       |
+| Docker Trusted Registry                 | $username $paassword $email $url               |
+| GCR                                     | $json_key                                      |
+| GitHub                                  | $url $token                                    |
+| GitHub Enterprise                       | $url $token                                    |
+| Gitlab                                  | $url $token                                    |
+| Google Container Engine                 | $json_key $url                                 |
+| Hipchat                                 | $token                                         |
+| Joyent Triton Elastic Container Service | $username $url                                 |
+| Joyent Triton Public Cloud              | $username $url $validityperiod                 |
+| PEM key                                 | $key                                           |
+| Private Docker registry                 | $username $paassword $email $url               |
+| Quay.io                                 | $username $paassword $email $url $accesstoken  |
+| Slack                                   | $webhookurl                                    |
+| SSH key                                 | $publickey $privatekey                         |  
+
 
 
 

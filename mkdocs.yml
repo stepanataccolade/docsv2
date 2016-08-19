@@ -66,6 +66,7 @@ pages:
   - FAQ: pipelines/faq.md
   - Troubleshooting: pipelines/troubleshoot.md
 - Integrations: 
+  - Overview: integrations/overview.md
   - Source Control Systems: 
     - Overview: integrations/scm/scmOverview.md
     - GitHub: integrations/scm/github.md
@@ -141,5 +142,8 @@ pages:
         - Using Code Deploy: tutorials/ci/integrations/deploy/usingCodeDeploy.md
         - Using Digital Ocean: tutorials/ci/integrations/deploy/usingDigitalOcean.md
   - Pipelines Tutorials:  
-    - Using integrations with a runSh job: tutorials/pipelines/runShUseIntegrations.md
     - Deploying a sample application: tutorials/pipelines/samplePipeline.md
+    - runSh tutorials: 
+      - Using integrations with runSh: tutorials/pipelines/runShUseIntegrations.md
+      - Updating resource version: tutorials/pipelines/updateResourceVersion.md
+      
