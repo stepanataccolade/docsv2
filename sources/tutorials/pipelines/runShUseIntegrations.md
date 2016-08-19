@@ -71,7 +71,7 @@ The table below shows you the environment variables that are available for your 
 | Docker Hub                              | $username $password $email                     |
 | Docker Cloud                            | $username $token $url                          |
 | Docker Datacenter                       | $username $password $url                       |
-| Docker Trusted Registry                 | $username $paassword $email $url               |
+| Docker Trusted Registry                 | $username $password $email $url               |
 | GCR                                     | $json_key                                      |
 | GitHub                                  | $url $token                                    |
 | GitHub Enterprise                       | $url $token                                    |
@@ -81,8 +81,8 @@ The table below shows you the environment variables that are available for your 
 | Joyent Triton Elastic Container Service | $username $url                                 |
 | Joyent Triton Public Cloud              | $username $url $validityperiod                 |
 | PEM key                                 | $key                                           |
-| Private Docker registry                 | $username $paassword $email $url               |
-| Quay.io                                 | $username $paassword $email $url $accesstoken  |
+| Private Docker registry                 | $username $password $email $url               |
+| Quay.io                                 | $username $password $email $url $accesstoken  |
 | Slack                                   | $webhookurl                                    |
 | SSH key                                 | $publickey $privatekey                         |  
 
