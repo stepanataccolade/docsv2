@@ -456,4 +456,7 @@ The following sample shows the overall structure of a runSh job:
 <a name="advancedRunSh"></a>
 ####runSh scenarios
 
-[Using integrations with a runSh job](../tutorials/pipelines/runShUseIntegrations.md)
+* [Using integrations with a runSh job](../tutorials/pipelines/runShUseIntegrations.md)
+* [Updating resource versions](../tutorials/pipelines/updateResourceVersion.md)
+* [Extracting resource version information](../tutorials/pipelines/extractVersionInformation.md)
+* [Persisting state between runs](../tutorials/pipelines/persistStateBetweenRuns.md)
