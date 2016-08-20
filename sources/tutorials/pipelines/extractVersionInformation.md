@@ -119,7 +119,126 @@ The example above shows the `version.json` for an `image` resource. To use this 
 
 `version.json` for a gitRepo resource is:
 
-<TODO>
+```
+{
+  "operation": "IN",
+  "resourceId": 19156,
+  "name": "infra-repo",
+  "sourceName": "ric03uec/infra",
+  "projectId": "57a8bf2e61b41c0f00c7378c",
+  "isConsistent": true,
+  "type": "gitRepo",
+  "propertyBag": {
+    "yml": {
+      "name": "infra-repo",
+      "type": "gitRepo",
+      "integration": "ric03uec-github",
+      "pointer": {
+        "sourceName": "ric03uec/infra",
+        "branch": "master"
+      }
+    },
+    "sysIntegrationName": "ric03uec-github",
+    "sysDeployKey": {
+      "public": "public key",
+      "private": "private key"
+    },
+    "sysPassword": "VniMvjaRgJuiLBlS",
+    "sysUserName": "infra",
+    "sysWebhookExternalId": 9430397,
+    "normalizedRepo": {
+      "name": "infra",
+      "fullName": "ric03uec/infra",
+      "repositoryProvider": "github",
+      "repositoryUrl": "https://api.github.com/repos/ric03uec/infra",
+      "sourceId": 65223724,
+      "sourceDescription": "infra provisioning repo",
+      "isPrivateRepository": false,
+      "isFork": false,
+      "repositorySshUrl": "git@github.com:ric03uec/infra.git",
+      "repositoryHttpsUrl": "https://github.com/ric03uec/infra.git",
+      "language": "Shell",
+      "sourceForksCount": 0,
+      "sourceStargazersCount": 0,
+      "sourceWatchersCount": 0,
+      "sourceSize": null,
+      "sourceDefaultBranch": "master",
+      "sourcePushed": "2016-08-08T17:14:35Z",
+      "sourceCreated": "2016-08-08T17:13:44Z",
+      "sourceUpdated": "2016-08-08T17:14:35Z",
+      "sourceRepoOwner": {
+        "login": "ric03uec",
+        "id": 1110988,
+        "avatar_url": "https://avatars.githubusercontent.com/u/1110988?v=3",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ric03uec",
+        "html_url": "https://github.com/ric03uec",
+        "followers_url": "https://api.github.com/users/ric03uec/followers",
+        "following_url": "https://api.github.com/users/ric03uec/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ric03uec/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ric03uec/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ric03uec/subscriptions",
+        "organizations_url": "https://api.github.com/users/ric03uec/orgs",
+        "repos_url": "https://api.github.com/users/ric03uec/repos",
+        "events_url": "https://api.github.com/users/ric03uec/events{/privacy}",
+        "type": "User",
+        "site_admin": false
+      },
+      "permissions": null,
+      "roles": null,
+      "repositoryHtmlUrl": null
+    }
+  },
+  "versionDependencyPropertyBag": {},
+  "version": {
+    "versionId": 88535,
+    "versionNumber": 23,
+    "versionName": "74943404bb84b6042141f792cfe68853a3dbc50d",
+    "propertyBag": {
+      "shaData": {
+        "providerDomain": "github.com",
+        "branchName": "master",
+        "isPullRequest": false,
+        "pullRequestNumber": null,
+        "pullRequestBaseBranch": null,
+        "commitSha": "74943404bb84b6042141f792cfe68853a3dbc50d",
+        "beforeCommitSha": "f0a61acb0025b2f346da512fb35b361b79100dcd",
+        "commitUrl": "https://github.com/ric03uec/infra/commit/74943404bb84b6042141f792cfe68853a3dbc50d",
+        "commitMessage": "updting provision script",
+        "baseCommitRef": "",
+        "headCommitRef": "",
+        "headPROrgName": "",
+        "compareUrl": "https://github.com/ric03uec/infra/compare/f0a61acb0025b2f346da512fb35b361b79100dcd...74943404bb84b6042141f792cfe68853a3dbc50d",
+        "skipDecryption": false,
+        "isGitTag": false,
+        "gitTagName": null,
+        "gitTagMessage": null,
+        "isRelease": false,
+        "releaseName": null,
+        "releaseBody": null,
+        "releasedAt": null,
+        "isPrerelease": false,
+        "committer": {
+          "email": "devashish.86@gmail.com",
+          "login": "ric03uec",
+          "displayName": "Devashish"
+        },
+        "lastAuthor": {
+          "email": "devashish.86@gmail.com",
+          "login": "ric03uec",
+          "displayName": "Devashish"
+        },
+        "triggeredBy": {
+          "email": "devashish.86@gmail.com",
+          "login": "ric03uec"
+        }
+      }
+    }
+  },
+  "subscriptionIntegrationId": 2232
+}
+
+```
 
 
 ###image
@@ -169,7 +288,33 @@ The example above shows the `version.json` for an `image` resource. To use this 
 
 `version.json` for a dockerOptions resource is:
 
-<TODO>
+```
+[
+  {
+    "name": "docket-options",
+    "images": [
+      {
+        "image": "library/nginx",
+        "tag": "latest",
+        "params": {
+          "MONGO_API_URL": "localhost:28017"
+        },
+        "dockerOptions": {
+          "memory": 64,
+          "cpuShares": 256,
+          "portMappings": [
+            "80:80"
+          ]
+        },
+        "name": "dv-image",
+        "versionNumber": 1
+      }
+    ],
+    "replicas": 1
+  }
+]
+
+```
 
 ###params
 
@@ -255,12 +400,6 @@ The example above shows the `version.json` for an `image` resource. To use this 
 
 ```
 
-###version
-
-`version.json` for a version resource is:
-
-<TODO>
-
 ###cluster
 
 `version.json` for a cluster resource is:
@@ -304,13 +443,14 @@ The example above shows the `version.json` for an `image` resource. To use this 
 
 `version.json` for a notification resource is:
 
-<TODO>
+<Coming soon>
 
 
 ###integration
 
 `version.json` for a integration resource is:
 
+```
 {
   "operation": "IN",
   "resourceId": 148,
@@ -339,3 +479,73 @@ The example above shows the `version.json` for an `image` resource. To use this 
   },
   "subscriptionIntegrationId": 3
 }
+```
+
+###job (any type)
+In case the `IN` for your custom job is another job, you can still extract version information from it if needed. Similar to resources, all jobs are also versioned.
+
+The `version.json` for a job is shown below. Please note that the property bag depends on the configuration of the job.
+
+```
+{
+  "operation": "IN",
+  "resourceId": 129,
+  "name": "dv-man",
+  "sourceName": null,
+  "projectId": "57b69cb8c9e2c91700bb8fb2",
+  "isConsistent": true,
+  "type": "manifest",
+  "propertyBag": {
+    "yml": {
+      "name": "dv-man",
+      "type": "manifest",
+      "steps": [
+        {
+          "IN": "dv-image",
+          "pull": false,
+          "versionName": "latest",
+          "versionNumber": 0
+        },
+        {
+          "IN": "dv-params",
+          "applyTo": [
+            "dv-image"
+          ]
+        },
+        {
+          "IN": "dv-opts"
+        },
+        {
+          "IN": "trigger-dv-man"
+        }
+      ],
+      "on_success": [
+        {
+          "NOTIFY": "slackNotification"
+        }
+      ],
+      "on_failure": [
+        {
+          "NOTIFY": "slackNotification"
+        }
+      ],
+      "flags": [
+        "dv"
+      ]
+    }
+  },
+  "versionDependencyPropertyBag": {
+    
+  },
+  "version": {
+    "versionId": 271,
+    "versionNumber": 7,
+    "versionName": null,
+    "propertyBag": {
+      "sha": "933620525107919e5f31148dd42f82419ed361a8"
+    }
+  }
+}
+
+```
+
