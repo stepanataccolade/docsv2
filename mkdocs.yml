@@ -147,3 +147,4 @@ pages:
       - Using integrations with runSh: tutorials/pipelines/runShUseIntegrations.md
       - Updating resource version: tutorials/pipelines/updateResourceVersion.md
       - Extracting resource version information: tutorials/pipelines/extractVersionInformation.md
+      - Persisting state between runs: tutorials/pipelines/persistStateBetweenRuns.md
