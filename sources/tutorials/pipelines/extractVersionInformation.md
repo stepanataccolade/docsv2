@@ -443,7 +443,42 @@ The example above shows the `version.json` for an `image` resource. To use this 
 
 `version.json` for a notification resource is:
 
-<Coming soon>
+```
+{
+  "operation": "IN",
+  "resourceId": 61,
+  "name": "slackNotification",
+  "sourceName": null,
+  "projectId": "57b7e770f848cc1a00a8d0bf",
+  "isConsistent": true,
+  "type": "notification",
+  "propertyBag": {
+    "yml": {
+      "name": "slackNotification",
+      "type": "notification",
+      "integration": "deepika-slack",
+      "pointer": {
+        "recipients": [
+          "#deepika-test"
+        ]
+      }
+    }
+  },
+  "versionDependencyPropertyBag": {
+    
+  },
+  "version": {
+    "versionId": 73,
+    "versionNumber": 1,
+    "versionName": null,
+    "propertyBag": {
+      
+    }
+  },
+  "subscriptionIntegrationId": 5
+}
+
+```
 
 
 ###integration
@@ -479,6 +514,44 @@ The example above shows the `version.json` for an `image` resource. To use this 
   },
   "subscriptionIntegrationId": 3
 }
+```
+
+###versionversion
+
+`version.json` for a integration resource is:
+
+
+```
+{
+  "operation": "IN",
+  "resourceId": 59,
+  "name": "version-resource",
+  "sourceName": null,
+  "projectId": "57b7e770f848cc1a00a8d0bf",
+  "isConsistent": true,
+  "type": "version",
+  "propertyBag": {
+    "yml": {
+      "name": "version-resource",
+      "type": "version",
+      "seed": {
+        "versionName": "0.0.1-beta"
+      }
+    }
+  },
+  "versionDependencyPropertyBag": {
+    
+  },
+  "version": {
+    "versionId": 68,
+    "versionNumber": 1,
+    "versionName": "0.0.1-beta",
+    "propertyBag": {
+      
+    }
+  }
+}
+
 ```
 
 ###job (any type)
