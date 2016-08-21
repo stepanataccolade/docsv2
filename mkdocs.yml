@@ -60,6 +60,7 @@ pages:
 - Continuous Deployment Pipelines:
   - Overview: pipelines/overview.md
   - Resources: 
+    - Overview: pipelines/resources/overview.md
     - cluster: pipelines/resources/cluster.md
     - dockerOptions: pipelines/resources/dockerOptions.md
     - gitRepo: pipelines/resources/gitRepo.md
@@ -158,6 +159,8 @@ pages:
         - Using Digital Ocean: tutorials/ci/integrations/deploy/usingDigitalOcean.md
   - Pipelines Tutorials:  
     - Deploying a sample application: tutorials/pipelines/samplePipeline.md
+    - manifest tutorials: 
+      - Using combination manifests: tutorials/pipelines/usingCombinationManifests.md
     - runSh tutorials: 
       - Using integrations with runSh: tutorials/pipelines/runShUseIntegrations.md
       - Updating resource version: tutorials/pipelines/updateResourceVersion.md

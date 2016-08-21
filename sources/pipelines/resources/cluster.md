@@ -3,7 +3,10 @@ page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # cluster
-This resource type is used to specify a cluster in any Container Service to which you can deploy your apps/services/microservices. 
+This resource type is used to specify a cluster in any Container Service to which you can deploy your apps/services/microservices. A `cluster` resource is usually an `IN`
+
+
+
 
 You can create this resource by adding it to `shippable.resources.yml`
 ```
