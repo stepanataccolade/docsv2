@@ -164,25 +164,25 @@ If you want to use a service that is not available out of the box with Shippable
 
 The following pages describe how to use each service in greater detail:
 
-* [CouchDB](services/couchdb.md)
-* [Elastic Search](services/elasticsearch.md)
-* [Kestrel](services/kestrel.md)
-* [Memcached](services/memcached.md) 
-* [MongoDB](services/mongodb.md) 
-* [MySQL](services/mysql.md)
-* [Neo4j](services/neo4j.md) 
-* [Postgres](services/postgres.md) 
-* [RabbitMQ](services/rabbitmq.md) 
-* [Redis](services/redis.md)
-* [RethinkDB](services/rethinkdb.md) 
-* [Riak](services/riak.md) 
-* [Selenium](services/selenium.md) 
-* [SqlLite](services/sqllite.md) 
+* [CouchDB](services/couchdb/)
+* [Elastic Search](services/elasticsearch/)
+* [Kestrel](services/kestrel/)
+* [Memcached](services/memcached/) 
+* [MongoDB](services/mongodb/) 
+* [MySQL](services/mysql/)
+* [Neo4j](services/neo4j/) 
+* [Postgres](services/postgres/) 
+* [RabbitMQ](services/rabbitmq/) 
+* [Redis](services/redis/)
+* [RethinkDB](services/rethinkdb/) 
+* [Riak](services/riak/) 
+* [Selenium](services/selenium/) 
+* [SqlLite](services/sqllite/) 
 
 * * * 
 
 ## env
-You can customize your build workflow by using environment variables that are set at runtime and available during your build. Shippable provides [a standard list of environment variables](advanced_options/env_var.md) that are available during each build. For example, you can use the `$BRANCH` variable to call different scripts depending on which branch is being built.
+You can customize your build workflow by using environment variables that are set at runtime and available during your build. Shippable provides [a standard list of environment variables](advanced_options/environmentVariables/) that are available during each build. For example, you can use the `$BRANCH` variable to call different scripts depending on which branch is being built.
 
 You can also define your custom environment variables in the `env` section of your shippable.yml:
 
@@ -195,7 +195,7 @@ The yml snippet above makes the variables $TEST and $FOO available during your b
 Please note that environment variables set in the pre_ci section are not available in the `ci`, `post_ci`, `after_success`, and `after_failure` sections since `pre_ci `commands are run on the build machine and not inside the ci container.`
 
 ###Advanced topics for environment variables 
-Our [advanced topic guide for environment variables](advanced_options/env_var.md) covers more complex scenarios like: 
+Our [advanced topic guide for environment variables](advanced_options/environmentVariables/) covers more complex scenarios like: 
 
 *List of standard environment variables*
 
@@ -444,7 +444,7 @@ build:
 
 Cache is updated for every build and is available to subsequent builds.
 
-**Advanced caching topics** like clearing cache, removing unwanted files when caching is enabled, etc are covered on our [caching page](advanced_options/caching.md)
+**Advanced caching topics** like clearing cache, removing unwanted files when caching is enabled, etc are covered on our [caching page](advancedOptions/caching/)
 
 ### push
 The push section is **optional** and lets you push your CI container to any Docker registry of your choice. Include this section if:
@@ -535,7 +535,7 @@ In the snippet above, replace the following:
     
     By default, `on_start` is set to `never` and `on_pull_request` is set to `always` if Slack is configured in the yml but you do not specify these tags.  
     
-For advanced Slack notification handling, please read our [Slack notifications page](notifications/slack.md) .
+For advanced Slack notification handling, please read our [Slack notifications page](../integrations/notifications/slack.md) .
 
 ####iii. Additional notification integrations
 
@@ -577,7 +577,7 @@ And that's it. You can now use docker commands under the `build` section of your
 ####ii. Additional Hub integrations
 Please visit the following pages for details on how to add hub integrations for other image registries:
 
-[Docker Trusted Registry](../integrations/image_registries/dockerTrustedRegistry.md)
+[Docker Trusted Registry](../integrations/imageRegistries/dockerTrustedRegistry.md)
 [Amazon ECR](../integrations/imageRegistries/ecr.md)
 [Google Container Registry](../integrations/imageRegistries/gcr.md)
 [Quay.io](../integrations/imageRegistries/quay.md)
