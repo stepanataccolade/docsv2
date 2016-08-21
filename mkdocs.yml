@@ -59,8 +59,23 @@ pages:
   - Troubleshooting CI: ci/troubleshoot.md
 - Continuous Deployment Pipelines:
   - Overview: pipelines/overview.md
-  - Resources: pipelines/resources.md
-  - Jobs: pipelines/jobs.md
+  - Resources: 
+    - cluster: pipelines/resources/cluster.md
+    - dockerOptions: pipelines/resources/dockerOptions.md
+    - gitRepo: pipelines/resources/gitRepo.md
+    - image: pipelines/resources/image.md
+    - integration: pipelines/resources/integration.md    
+    - notification: pipelines/resources/notification.md
+    - params: pipelines/resources/params.md
+    - replicas: pipelines/resources/replicas.md
+    - syncRepo: pipelines/resources/syncRepo.md
+    - version: pipelines/resources/version.md                                
+  - Jobs: 
+    - Overview: pipelines/jobs/overview.md
+    - manifest: pipelines/jobs/manifest.md
+    - deploy: pipelines/jobs/deploy.md
+    - release: pipelines/jobs/release.md
+    - runSh: pipelines/jobs/runSh.md
   - Triggers: pipelines/triggers.md
   - Sample: pipelines/samplePipeline.md
   - FAQ: pipelines/faq.md
@@ -79,6 +94,7 @@ pages:
     - Email: integrations/notifications/email.md
     - HipChat: integrations/notifications/hipchat.md
     - IRC: integrations/notifications/irc.md
+    - Webhooks: integrations/notifications/webhooks.md
   - Image Registries: 
     - Docker Hub: integrations/imageRegistries/dockerHub.md
     - Docker Trusted Registry: integrations/imageRegistries/dockerTrustedRegistry.md
@@ -93,7 +109,6 @@ pages:
     - Docker Datacenter: integrations/containerServices/dockerDatacenter.md
   - Deploy: 
     - AWS Elastic Beanstalk: integrations/deploy/eb.md
-    - Webhooks: integrations/deploy/webhooks.md
   - Keys:
     - SSH: integrations/keys/ssh.md
     - PEM:  integrations/keys/pem.md  

@@ -54,10 +54,6 @@ You should use Shippable to set up your Continuous Delivery pipelines if you fit
 
 Go to [the Unified Pipelines section](/pipelines/overview/) to learn more.
 
-In addition, we also have a cool feature that lets you monitor any Docker images you depend on and be notified when they change. This helps avoid situations where your images no longer work due to changing dependencies.
-
-Go to [Monitor your Docker images](lighthouse.md) to learn more.
-
 ---
 
 ## Sign into Shippable

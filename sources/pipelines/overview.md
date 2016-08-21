@@ -32,13 +32,13 @@ Our pipelines give you an end to end visual representation of your deployment wo
 ## What is it made of?
 Unified Pipelines consist of three fundamental building blocks that can be strung together.
 
-- [Resources](resources.md) are the basic components of your pipeline. These are They can
+- [Resources](resources/overview/) are the basic components of your pipeline. These are They can
 include managed integrations to external components or services, custom
 integrations to internal assets, as well as reusable building blocks, such as
 runtime parameters to be used across environments. For example, git
 repositories, docker registries, artifact repositories, s3 buckets, deployment
 endpoints like Heroku, ECS clusters, etc., are all resources.
-- [Jobs](jobs.md) are actions that connect the resources together.  They represent
+- [Jobs](jobs/overview/) are actions that connect the resources together.  They represent
 a set of pre-defined operations or custom actions that can be performed on your
 resources. For example, deploying to an ECS cluster, running CI on a commit to a
 git repo, building a docker image, etc., are all jobs.
