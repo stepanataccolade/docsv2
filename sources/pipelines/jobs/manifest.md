@@ -3,99 +3,111 @@ page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # manifest
-This job is used to define an app/service/microservice. The idea behind creating 
-manifests is to create a versioned immutable design time definition of how your
-app/service/microservice is made. 
 
-A manifest is an unit of deployment. This means the entire manifest is deployed 
-as a whole on to a single node(vm, physical machine etc). Creating multiple 
-replicas of this means that you will get more copies of the whole manifest. If 
-you need your apps/service/microservice to be separately deployed, you need to 
-create different manifests.
+A `manifest` is versioned immutable design time definition of a unit of deployment for your application. Everything in a manifest is always deployed as a whole on to a single node(virtual machine, physical machine etc). Manifests are also scaled as a whole, so creating multiple replicas of a manifest leads to multiple copies of the entire manifest.
 
-## Single container manifest pattern
-If your apps/services are decoupled and versioned, then you might want to independently
-deploy and maange them. In those cases, the following manifest will help
+Depending on your architecture and requirements, your unit of deployment can be a service, microservice, or even the entire application. If you need your apps/service/microservice to be separately deployed, you need to separate different manifests for each.
+
+Manifest jobs are used to generate a new version of the manifest each time anything in the manifest changes.
+
+Manifest jobs can be of 3 types:
+
+* [Single package manifest](#single): The manifest definition contains only one deployable image. 
+* [Multi package manifest](#multi): The manifest definition contains more than one deployable image. All services in the manifest are deployed on the same node and scaled together.
+* [Combination manifest](#combination): The manifest is a combination of multiple separately defined manifests. Services in a combination manifest can be deployed and scaled independently.
+
+---
+<a name="single"></a>
+## Single package manifest pattern
+
+A single package manifest has only one input `image` resource. If your microservices/services in your application are decoupled and versioned, then you might want to independently deploy and manage them by using single package manifests.
+
+<img src="../../images/jobs/singlePackageManifest.png" alt="Single package manifest" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+A manifest is configured in `shippable.jobs.yml` as shown below:
 
 ```
-- name: box-man                             #required
+- name: <string>                             	#required
+  type: manifest                             	#required
+  steps:
+      - IN: <image>                       		#required
+        versionName: <string>           		#optional
+      - IN: <dockerOptions>                   	#optional
+      - IN: <params>                      		#optional
+```
+
+* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
+* `type` is always set to manifest
+* One `image` resource is mandatory an an input for a manifest job. Please read documentation on how to [define an image resource](../resources/image/) in your resources yml.
+	* By default, the latest version of the image resource will be used to generate the manifest. If you want to pin a specific version of the image, you can do so by including the `versionName` or `versionNumber` tags. 
+* `dockerOptions` is an optional tag and customizes the memory, cpu shares, port mappings, etc. Read more on [dockerOptions resource](../resources/dockerOptions/).
+* `params` is an optional tag and adds a list of environment params required for the manifest. This can include any key value pairs, for example database connection details. Read more on [params resource](../resources/params/).
+
+---
+<a name="multi"></a>
+## Multi package manifest pattern
+There are some cases where your services are not completely decoupled. For example, your UI component might be tightly coupled with your caching component. In those cases, a manifest with 2 different images might be required. This is defined with the multi package manifest pattern.
+
+<img src="../../images/jobs/multiPackageManifest.png" alt="Multi package manifest" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+A multi-package manifest is configured in `shippable.jobs.yml` as shown below:
+
+```
+- name: <string>                             #required
   type: manifest                            #required
   steps:
-      - IN: box-image                       #required
-        versionName: "master.35"            #optional
-      - IN: box-opts                        #optional
-      - IN: box-params                      #optional
-```
-This will create a job of type `manifest` with the name `box-man`. Since only 1
-[image](../resources/image/) `box-image` is being used, the other 2 addon resources
-[dockerOptions](../resources/dockerOptions/) & [params](../resources/params/) and this 
-manifest when deployed will create a single container app/service/microservice. 
-Another key functionality is the ability to pin versions. By default, every 
-resource when used in `IN` gets the most recent version in the system. There are
-scenarios where you might not want this and get a static one. In those cases you
-use the tag `versionName` or `versionNumber`. In the above scenario we are using
-versionName for a resource of type image and this means its actually a docker tag. 
-We want `box-image` with a tag `master.35`. Shippable internally maintains a 
-sequential number for every version of the resource created. You can also refer 
-to that number by using `versionNumber` see below for an example.
-
-## Multi container manifest pattern
-There are some cases where your apps/services are not completely decoupled. For
-example, your UI component might be tightly couple to your caching component. In
-those cases, a single manifest with 2 different images might be required. This 
-YML is a sample for that case
-
-```
-- name: box-man                             #required
-  type: manifest                            #required
-  steps:
-      - IN: box-image                       #required
-        versionName: "master.35"            #optional
-      - IN: dv-image                        #required
-        versionNumber: 10                   #optional
-      - IN: all-opts                        #optional
-      - IN: box-params                      #optional
+      - IN: <image>                       #required
+        versionName: <string>            #optional
+      - IN: <image>                        #required
+        versionNumber: <number>                   #optional
+      - IN: <dockerOptions>                        #optional
+      - IN: <params>                      #optional
         applyTo:
-          - box-image
+          - <image>
 ```
-This will create a job of type `manifest` with the name `box-man`. This manifest 
-has 2 [image](../resources/image/) `box-image` and `dv-image`. But the 2 addon resources 
-are configured differently. Resource `all-opts` of type [dockerOptions](../resources/dockerOptions/) 
-applies to both the images. But the resource `box-params` of type [params](../resources/params/) 
-applies only to `box-image`. This manifest when deployed will create a 2 containers 
-as part of this app/service/microservice. We are pinning the version of `box-image`
-to the tag `master.35` and `dv-image` to whatever the tag Shippable versionNumber 
-`10` points to
 
-## Combining manifests into a manifest pattern
-The above example of multi container manifest will allow you to create a union of
-tighly coupled apps/services into a single deployable unit. One limitation of the 
-pattern is that you cannot scale them independently. They also get deployed on the 
-same node/vm/machine as a single manifest will deploy together onto a single node.
+* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
+* `type` is always set to manifest
+* You can define as many `image` resources as needed. Please read documentation on how to [define an image resource](../resources/image/) in your resources yml.
+	* By default, the latest version of the image resource will be used to generate the manifest. If you want to pin a specific version of the image, you can do so by including the `versionName` or `versionNumber` tags. 
+* `dockerOptions` is an optional tag and customizes the memory, cpu shares, port mappings, etc. Read more on [dockerOptions resource](../resources/dockerOptions/).
+	* 	By default, values specified in dockerOptions apply to all images in the manifest. If you want the custom values to only apply to specific images, use the `applyTo` tag and provide a list of images you want to apply them to. 
+* `params` is an optional tag and adds a list of environment params required for the manifest. This can include any key value pairs, for example database connection details. Read more on [params resource](../resources/params/).
+	* 	By default, values specifies in params applies to all images in the manifest. If you want them to only apply to specific images, use the `applyTo` tag and provide a list of images you want to apply them to.
 
-If you still need tight coupling but still want to scale independently, the following
-pattern will helo.
+
+---
+<a name="combination"></a>
+## Combination manifest pattern
+The above example of multi package manifest will allow you to create a union of tightly coupled services into a single deployable unit. However, a big limitation is all services are deployed on the same node and you cannot scale each service independently. 
+
+<img src="../../images/jobs/combinationManifest.png" alt="Combination manifests" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+If you need to define tightly coupled services but still want to be able to deploy them on separate nodes and scale them independently, you should use the combination manifest pattern shown below:
 
 ```
-- name: box-man                             #required
-  type: manifest                            #required
+- name: manifest-1                            	#required
+  type: manifest                            	#required
   steps:
-      - IN: box-image                       #required
-      - IN: box-opts                        #optional
-      - IN: box-params                      #optional
+      - IN: <image>                       		#required
+      - IN: <dockerOptions>                   	#optional
+      - IN: <params>                      		#optional
       
-- name: dv-man                              #required
-  type: manifest                            #required
+- name: manifest-2                            	#required
+  type: manifest                           	#required
   steps:
-      - IN: dv-image                        #required
-      - IN: dv-opts                         #optional
+      - IN: <image>                        	#required
+      - IN: <dockerOptions>                  	#optional
       
-- name: combo-man                            #required
-  type: manifest                            #required
+- name: combo-manifest                        	#required
+  type: manifest                            	#required
   steps:
-      - IN: box-man                         #required
-      - IN: dv-man                          #optional
+      - IN: manifest-1                        	#required
+      - IN: manifest-2                       	#optional
 ```
-In the above example 2 independent manifests are being combined into a 3rd manifest.
-With this approach, you get to scale them independently when you deploy. 
+In the above example ,2 independent manifests are being combined into a 3rd manifest.
+With this approach, you can deploy and scale each service independently as required. 
+
+##manifest tutorials
+[Using a combination manufest pattern](../../tutorials/usingCombinationManifests/])
 
