@@ -73,7 +73,7 @@ A multi-package manifest is configured in `shippable.jobs.yml` as shown below:
 * `dockerOptions` is an optional tag and customizes the memory, cpu shares, port mappings, etc. Read more on [dockerOptions resource](../resources/dockerOptions/).
 	* 	By default, values specified in dockerOptions apply to all images in the manifest. If you want the custom values to only apply to specific images, use the `applyTo` tag and provide a list of images you want to apply them to. 
 * `params` is an optional tag and adds a list of environment params required for the manifest. This can include any key value pairs, for example database connection details. Read more on [params resource](../resources/params/).
-	* 	By default, values specifies in params applies to all images in the manifest. If you want them to only apply to specific images, use the `applyTo` tag and provide a list of images you want to apply them to.
+	* 	By default, values specified in params applies to all images in the manifest. If you want them to only apply to specific images, use the `applyTo` tag and provide a list of images you want to apply them to.
 
 
 ---
@@ -108,6 +108,7 @@ If you need to define tightly coupled services but still want to be able to depl
 In the above example ,2 independent manifests are being combined into a 3rd manifest.
 With this approach, you can deploy and scale each service independently as required. 
 
+---
 ##manifest tutorials
 [Using a combination manufest pattern](../../tutorials/usingCombinationManifests/])
 
