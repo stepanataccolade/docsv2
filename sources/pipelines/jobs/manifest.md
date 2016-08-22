@@ -81,7 +81,7 @@ A multi-package manifest is configured in `shippable.jobs.yml` as shown below:
 ## Combination manifest pattern
 The above example of multi package manifest will allow you to create a union of tightly coupled services into a single deployable unit. However, a big limitation is all services are deployed on the same node and you cannot scale each service independently. 
 
-<img src="../../images/jobs/combinationManifest.png" alt="Combination manifests" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="../../images/jobs/combinationManifest.png" alt="Combination manifests" style="width:600px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 If you need to define tightly coupled services but still want to be able to deploy them on separate nodes and scale them independently, you should use the combination manifest pattern shown below:
 
@@ -110,5 +110,5 @@ With this approach, you can deploy and scale each service independently as requi
 
 ---
 ##manifest tutorials
-[Using a combination manufest pattern](../../tutorials/usingCombinationManifests/])
+[Using a combination manifest pattern](../../tutorials/usingCombinationManifests/])
 
