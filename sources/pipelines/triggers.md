@@ -4,42 +4,49 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 <br>
 # Triggers
-Triggers are used to manually trigger a workflow. This can also be done using the 
-UI. If you would like to use your source control to do it, this is the way to do it
+Triggers are used to manually trigger a workflow by running a job. Manual run for jobs is also available through the SPOG UI. However, triggers allow you to manually run jobs using a `trigger` defined in a versioned yml file in your source control. 
 
-<br>
-# Adding Triggers
-Triggers are stored in a trigger file `shippable.triggers.yml` present in a git 
-repository. Any repo can contain this file but only one of it can be used. If 
-more than 1 trigger file is present, the first one is used. This is done in order
-to reduce conflict due to the same trigger being defined in multiple places.
+<img src="../../images/jobs/triggerJob.png" alt="Triggering a manual job through a resource" style="width:600px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-To learn how to add this file and connect it to pipelines, 
-[click here](../../tutorials/how_to_add_syncRepos)
-
-<br>
-# Deleting Triggers
-Deleting a trigger is a 2 step process. Pipelines are all about dependencies and
-deployable units are flowing through these pipelines. Hard deleting triggers from 
-pipelines is a non reversible operation and you will lose all the version history 
-etc. As a result of this, we only soft delete triggers when they are removed from
-the YML file. If it was done mistakenly, you just add it back and the system will
-un-delete the trigger. 
-
-To hard delete a trigger, it will have to be done from the UI. 
-(TODO : add instructions)
-
-<br>
-# Anatomy of a Trigger YML 
-Triggers are defined through the YML and they all follow a similar format.
-
-Here is a template YML the defines a trigger
 ```
-- name: "Name of the trigger"
+
+## Adding Triggers
+ 
+All triggers should be configured in `shippable.triggers.yml` and be committed to a sync repository. You cannot have more than one `shippable.triggers.yml` per subscription. If more than 1 triggers yml is detected in the sync repo, the first one is used. This is done in order to reduce conflicts due to the same trigger being defined in multiple places.
+
+To learn how to add this file and connect it to pipelines, [read our tutorial.](../../tutorials/how_to_add_syncRepos)
+
+```
+## Anatomy of a Trigger YML 
+All triggers follow a similar format.
+
+You can define a trigger as follows:
+
+```
+- name: <string>
   type: trigger
   version:
     counter: 1
 ```
-The above YML adds a trigger with the counter being set to 1. Everytime you want 
-to manually trigger a [job](#job), add this trigger to the `IN` of the job. Now upon
-changing the counter to 2, the job will be manually triggered.
+
+`name` should be an easy to remember text string. This will appear in the visualization of this trigger in the SPOG view.
+`type` is always set to trigger
+Changing the value of the `counter` tag and pushing `shippable.triggers.yml` will trigger the job for which this trigger resource is an input.
+
+Triggers work with [all job types](jobs/overview/).
+
+```
+## Deleting Triggers
+
+Since pipelines are all about dependencies and deployable units are flowing through these pipelines at all times, deleting a trigger can significantly alter or irreversibly change the pipeline in unexpected ways. To avoid accidental deletion of trigger(s) in ymls, we have made deletion of triggers a 2 step process. 
+
+First, you need to soft-delete a trigger by removing it from your `shippable.triggers.yml` file. This removes it from the pipeline, but does not remove it from the database. You can see a list of soft-deleted triggers at the bottom of the `Resources` tab. If soft-deleted triggers are added back to the triggers yml, the system will undelete them and you will retain version history for the undeleted trigger. 
+
+To completely remove a trigger from the system, you need to hard delete it through the UI. To do this:
+
+* Go to your Subscription page and click on the `Pipelines` tab
+* Click on the `Resources` pill
+* You will find a list of soft deleted triggers at the bottom of the page. To hard delete, just click the 	`Delete` button for the trigger you want to delete
+
+A trigger must be soft deleted before it can be hard deleted.
+
