@@ -42,6 +42,7 @@ A manifest is configured in `shippable.jobs.yml` as shown below:
 	* By default, the latest version of the image resource will be used to generate the manifest. If you want to pin a specific version of the image, you can do so by including the `versionName` or `versionNumber` tags. 
 * `dockerOptions` is an optional tag and customizes the memory, cpu shares, port mappings, etc. Read more on [dockerOptions resource](../resources/dockerOptions/).
 * `params` is an optional tag and adds a list of environment params required for the manifest. This can include any key value pairs, for example database connection details. Read more on [params resource](../resources/params/).
+* `replicas` is an optional input resource that lets you scale the number of instances of your manifest that you want to deploy. The default value for replicas is 1. Read more on [replicas resource](../resources/replicas/).
 
 ---
 <a name="multi"></a>
@@ -53,15 +54,16 @@ There are some cases where your services are not completely decoupled. For examp
 A multi-package manifest is configured in `shippable.jobs.yml` as shown below:
 
 ```
-- name: <string>                             #required
-  type: manifest                            #required
+- name: <string>                             	#required
+  type: manifest                            	#required
   steps:
-      - IN: <image>                       #required
-        versionName: <string>            #optional
-      - IN: <image>                        #required
-        versionNumber: <number>                   #optional
-      - IN: <dockerOptions>                        #optional
-      - IN: <params>                      #optional
+      - IN: <image>                       		#required
+        versionName: <string>            		#optional
+      - IN: <image>                        	#required
+        versionNumber: <number>           		#optional
+      - IN: <dockerOptions>                	#optional
+      - IN: <replicas>							#optional
+      - IN: <params>                      		#optional
         applyTo:
           - <image>
 ```
@@ -74,41 +76,11 @@ A multi-package manifest is configured in `shippable.jobs.yml` as shown below:
 	* 	By default, values specified in dockerOptions apply to all images in the manifest. If you want the custom values to only apply to specific images, use the `applyTo` tag and provide a list of images you want to apply them to. 
 * `params` is an optional tag and adds a list of environment params required for the manifest. This can include any key value pairs, for example database connection details. Read more on [params resource](../resources/params/).
 	* 	By default, values specified in params applies to all images in the manifest. If you want them to only apply to specific images, use the `applyTo` tag and provide a list of images you want to apply them to.
+* `replicas` is an optional input resource that lets you scale the number of instances of your manifest that you want to deploy. The default value for replicas is 1. Read more on [replicas resource](../resources/replicas/).
 
 
 ---
-<a name="combination"></a>
-## Combination manifest pattern
-The above example of multi package manifest will allow you to create a union of tightly coupled services into a single deployable unit. However, a big limitation is all services are deployed on the same node and you cannot scale each service independently. 
 
-<img src="../../images/jobs/combinationManifest.png" alt="Combination manifests" style="width:600px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-If you need to define tightly coupled services but still want to be able to deploy them on separate nodes and scale them independently, you should use the combination manifest pattern shown below:
-
-```
-- name: manifest-1                            	#required
-  type: manifest                            	#required
-  steps:
-      - IN: <image>                       		#required
-      - IN: <dockerOptions>                   	#optional
-      - IN: <params>                      		#optional
-      
-- name: manifest-2                            	#required
-  type: manifest                           	#required
-  steps:
-      - IN: <image>                        	#required
-      - IN: <dockerOptions>                  	#optional
-      
-- name: combo-manifest                        	#required
-  type: manifest                            	#required
-  steps:
-      - IN: manifest-1                        	#required
-      - IN: manifest-2                       	#optional
-```
-In the above example ,2 independent manifests are being combined into a 3rd manifest.
-With this approach, you can deploy and scale each service independently as required. 
-
----
 ##manifest tutorials
 [Using a combination manifest pattern](../../tutorials/usingCombinationManifests/])
 
