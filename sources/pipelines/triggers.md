@@ -16,7 +16,7 @@ All triggers should be configured in `shippable.triggers.yml` and be committed t
 
 To learn how to add this file and connect it to pipelines, [read our tutorial.](../../tutorials/how_to_add_syncRepos)
 
-```
+---
 ## Anatomy of a Trigger YML 
 All triggers follow a similar format.
 
@@ -35,7 +35,7 @@ Changing the value of the `counter` tag and pushing `shippable.triggers.yml` wil
 
 Triggers work with [all job types](jobs/overview/).
 
-```
+---
 ## Deleting Triggers
 
 Since pipelines are all about dependencies and deployable units are flowing through these pipelines at all times, deleting a trigger can significantly alter or irreversibly change the pipeline in unexpected ways. To avoid accidental deletion of trigger(s) in ymls, we have made deletion of triggers a 2 step process. 

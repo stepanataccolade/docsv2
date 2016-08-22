@@ -3,10 +3,8 @@ page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # release
-This job is used to create/manage/increment semantic versions. You can create a
-release on top of a single or multi manifests, combo manifest or even deploy jobs.
-The idea is to create immutable, unique version numbers that be used as deployment 
-inputs.
+`release` jobs are used to create/manage/increment semantic versions. You can create a release consisting of single or multiple manifests, combination manifests or even deploy jobs. The idea is to create immutable, unique version numbers that be used as deployment inputs.
+
 
 ## Single manifest release
 
