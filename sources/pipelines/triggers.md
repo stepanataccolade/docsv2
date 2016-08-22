@@ -6,7 +6,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # Triggers
 Triggers are used to manually trigger a workflow by running a job. Manual run for jobs is also available through the SPOG UI. However, triggers allow you to manually run jobs using a `trigger` defined in a versioned yml file in your source control. 
 
-<img src="../../images/jobs/triggerJob.png" alt="Triggering a manual job through a resource" style="width:600px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="../images/triggerJob.png" alt="Triggering a manual job through a resource" style="width:400px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 ```
 
