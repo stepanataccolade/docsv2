@@ -6,7 +6,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 You can use a `gitRepo` resource to connect any source control repository to a job. It is typically used as an optional `IN` for [runSh jobs](../jobs/runSh/).  
 
-Adding this resource type creates a webhook on the source repoository pointing to Shippable. Due tothis, future commits to the repository will automatically create a new version for this resource with the new commit SHA.
+Adding this resource type creates a webhook on the source repoository pointing to Shippable. Due tothis, future commits to the repository will automatically create a new version for this resource with the new commit SHA. This will trigger any job(s) that has this resource as an `IN` as long as automatic trigger isn't explicitly turned off. 
 
 You can create this resource by adding it to `shippable.resources.yml`
 ```
@@ -30,7 +30,6 @@ You can create this resource by adding it to `shippable.resources.yml`
 	- [Bitbucket Server (formerly Stash)](../../integrations/scm/bitbucketServer/)
 	- [Gitlab/GitlabServer](../../integrations/scm/gitlab/)
 
-* `pointer` section provides information about the repository and branch you want to connect .
+* `pointer` section provides information about the repository and branch you want to connect to.
 	* `sourceName` is the fully qualified name of the repository in the format **org/repo**
 	* `branch` specifies the branch you need. If not specified, it defaults to `master`.
-

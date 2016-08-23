@@ -3,65 +3,37 @@ page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # image
-This resource type is used to add a docker image to your pipeline. 
 
-Integrations allow you to add images on any of the [supported image registries](#regTypes) 
-using the same resource type.
+An `image` resource is used to add a reference to a docker image to your pipeline. It is used as an input for [manifest jobs](../jobs/manifest/).
 
-You can create this resource by adding it to `shippable.resources.yml`
+You can create an `image` resource by adding it to `shippable.resources.yml`
 ```
-- name: box-image                           #required
-  type: image                               #required
-  integration: avinci-dh                    #required
+- name: <string>                           	#required
+  type: image                               	#required
+  integration: <string>                   	 	#required
   pointer:
-    sourceName: "avinci/box"                #required
-  seed:
-    versionName: "master.35"                #required
+    sourceName: "org/repo"                	#required
+  seed:	
+    versionName: "<string>"                #required
 ```
-This will create a resource of type `image` with the name `box-image`. It is using 
-an integration `avinci-dh` which is the name of the integration defined, 
-[learn more here](overview#integration). The image name is `box` and belongs to `avinci` 
-org. The branch to look for resource and job definitions is `master`. This image 
-tag is being set to `master.35` as the initial seed version.
 
-## YML properties
-```
-name: string
-```
-This is the name of the resource. Keep it short but explanatory as this
-is used as a reference in jobs
+* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
 
-```
-type: string
-```
-This defines the type of resource. In this case *image*. This cannot 
-be changed once set. 
+* `type` is always set to image
 
-```
-integration: string
-```
-This defines the integration that we are using to connect to the repo. Shippable 
-supports multiple types of registries and they can be defined as 
-integrations[learn more](overview#integration). We support the following types of registries
+* `integration` should be the name of the integration that connects to the Docker Registry provider where the image is located. To learn how to create integrations for a specific Docker Registry, please select from the list below and read the **Adding an integration** section on that page:
 
-<a name="regTypes"></a>
+	- [Docker Hub](../../integrations/imageRegistries/dockerHub/)
+	- [Docker Private Registry](../../integrations/imageRegistries/privateRegistry/)
+	- [Docker Trusted Registry](../../integrations/imageRegistries/dockerTrustedRegistry/)
+	- [Google Container Registry (GCR)](../../integrations/imageRegistries/gcr/)
+	- [Amazon Elastic Container Registry (ECR)](../../integrations/imageRegistries/ecr/)
+	- [Quay.io](../../integrations/imageRegistries/quay/)
 
-- Docker hub
-- Docker private registry
-- Docker trusted registry
-- Google container registry
-- Amazon Elastic Container Registry
-- Quay.io
 
-```
-pointer:
-  sourceName: string 
-```
-`sourceName` is the fully qualified name of the image i.e. **org/repo**
+* `pointer` section provides information about the image.
+	* `sourceName` is the fully qualified name of the image. This is dependent on the registry where the image is located. For Docker Hub, this can be <repo name>/<image name>, e.g. manishas/demoImage
 
-```
-seed:
-  versionName: string
-```
-`versionName` since this is an image, this will take in the tag of the image
+* `versionName` is usually set to image tag. The seed versionName sets initial tag for the image. 
 
+When the `versionName` changes for an `image` resource, a new version of the resource is created and this triggers any job(s) that has this resource as an `IN` as long as automatic trigger isn't explicitly turned off. 
