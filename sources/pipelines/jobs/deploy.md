@@ -16,14 +16,15 @@ If your job takes a single manifest as an input, it is a single manifest deploym
 A single manifest deploy is configured in `shippable.jobs.yml` as shown below:
 
 ```
-- name: <string>                     		#required
-  type: deploy                           	#required
-  steps:
-    - IN: <manifest>                		#required
-    - IN: <cluster>                      	#required
-    - IN: <dockerOptions>					#optional override
-    - IN: <params>                       	#optional override  
-    - IN: <replicas>						#optional override
+jobs:
+  - name: <string>                     		#required
+    type: deploy                           	#required
+    steps:
+      - IN: <manifest>                			#required
+      - IN: <cluster>                      	#required
+      - IN: <dockerOptions>						#optional override
+      - IN: <params>                       	#optional override  
+      - IN: <replicas>							#optional override
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines `Jobs` tab.
@@ -48,21 +49,22 @@ If your job deploys more than one manifest, it is a multi manifest deployment.
 A multi manifest deploy is configured in `shippable.jobs.yml` as shown below:
 
 ```
-- name: <string>                     			#required
-  type: deploy                           		#required
-  steps:
-    - IN: manifest-1                          	#required
-    - IN: manifest-2                         	#optional
-    - IN: <cluster>                      		#required
-    - IN: <params>                       		#optional override
-      applyTo:
-        - image-2
-    - IN: <dockerOptions>						#optional override
-      applyTo:
-        - manifest-2
-    - IN: <replicas>							#optional override
-      applyTo:
-        - manifest-2
+jobs:
+  - name: <string>                     		#required
+    type: deploy                           	#required
+    steps:
+      - IN: manifest-1                        	#required
+      - IN: manifest-2                        	#optional
+      - IN: <cluster>                      	#required
+      - IN: <params>                       	#optional override
+        applyTo:
+          - image-2
+      - IN: <dockerOptions>						#optional override
+        applyTo:
+          - manifest-2
+      - IN: <replicas>							#optional override
+        applyTo:
+          - manifest-2
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines `Jobs` tab.
@@ -86,20 +88,21 @@ If you have a combination manifest, you can use it as an input to a `deploy` job
 As an example, assume that combo-manifest is a combination of manifest-1 and manifest-2. A deploy job would look like this:
 
 ```
-- name: <string>                     			#required
-  type: deploy                           		#required
-  steps:
-    - IN: combo-manifest              			#required
-    - IN: <cluster>                      		#required
-    - IN: <params>                       		#optional override
-      applyTo:
-        - image-2
-    - IN: <dockerOptions>						#optional override
-      applyTo:
-        - manifest-2
-    - IN: <replicas>							#optional override
-      applyTo:
-        - manifest-1
+jobs:
+  - name: <string>                     		#required
+    type: deploy                           	#required
+    steps:
+      - IN: combo-manifest              		#required
+      - IN: <cluster>                      	#required
+      - IN: <params>                       	#optional override
+        applyTo:
+          - image-2
+      - IN: <dockerOptions>						#optional override
+        applyTo:
+          - manifest-2
+      - IN: <replicas>							#optional override
+        applyTo:
+          - manifest-1
 
 ```
 
@@ -114,26 +117,27 @@ You might also want to turn off automatic deployments to production.
 To daisy chain 2 deployment jobs, use the snippet below as an example: 
 
 ```
-- name: deploy-2	                     		#required
-  type: deploy                              	#required
-  steps:
-    - IN: deploy-1                   			#required, type deploy
-      trigger: false                        	#optional
-    - IN: <cluster>                      		#required
-    - IN: <params>                       		#optional override
-      applyTo:
-        - image-2
-    - IN: <dockerOptions>						#optional override
-      applyTo:
-        - manifest-2
-    - IN: <replicas>							#optional override
-      applyTo:
-        - manifest-1
+jobs:
+  - name: deploy-2	                     		#required
+    type: deploy                              	#required
+    steps:
+      - IN: deploy-1                   		#required, type deploy
+        switch: off                        	#optional
+      - IN: <cluster>                      	#required
+      - IN: <params>                       	#optional override
+        applyTo:
+          - image-2
+      - IN: <dockerOptions>						#optional override
+        applyTo:
+          - manifest-2
+      - IN: <replicas>							#optional override
+        applyTo:
+          - manifest-1
 ```
 
 Instead of taking a manifest job as an input, this uses another `deploy` job as an input. 
 
-This means that by default, anytime the input deploy job finishes executing, it will trigger this job automatically. You can change this behavior with the `trigger: false` setting as shown in the snippet above. If trigger is set to false, deploy-2 is not automatically triggered after deploy-1 finishes. You can go to the Shippable SPOG view for Pipelines and run the job manually. You can also add a [trigger resource](../triggers/) to run the job manually without going to the Shippable UI.
+This means that by default, anytime the input deploy job finishes executing, it will trigger this job automatically. You can change this behavior with the `switch: off` setting as shown in the snippet above. If switch is turned off, deploy-2 is not automatically triggered after deploy-1 finishes. You can go to the Shippable SPOG view for Pipelines and run the job manually. You can also add a [trigger resource](../triggers/) to run the job manually without going to the Shippable UI.
 
 
 ## Blue-Green deployments
@@ -147,6 +151,7 @@ By default, deployments to Amazon ECS, Google Container Engine and Joyent Triton
 
 If you want to specify upgrade deployment instead of the default blueGreen, you can do it in your `shippable.jobs.yml`: 
 ```
+jobs:  
   - name: <job name>
     type: deploy
     steps:

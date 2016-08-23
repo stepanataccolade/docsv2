@@ -15,6 +15,7 @@ We are actively adding managed job types to reduce the need to use `runSh`. If y
 The following sample shows the overall structure of a runSh job:
 
 ```
+jobs:
   - name: <name>								#required
     type: runSh									#required
     on_start:									#optional
