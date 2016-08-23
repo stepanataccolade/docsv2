@@ -2,55 +2,24 @@ page_title: Unified Pipeline Resources
 page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-#notification
-This resource type is used to add a notification type so that you can send our notifications for the following events:
+#integration
 
-* Job starts
-* Job is completed successfully
-* Job failed 
+Shippable is designed to separate out sensitive authentication information from resources. 
+This is done to ensure there are no encryption/decryption or permissions issues when you move things around i.e. moving resource definitions from one repository to another, or if the person who created the pipeline is no longer the member of the team etc. Integrations are specified as a property in the YML definition for resources that connect to third party services. 
 
-This resource type is only supported for jobs of type `runSh`. Email and Slack notifications are supported as of now.
+An `integration` resource contains your credentials to connect to any [supported third party platform or provider](../../integrations/overview/). This resource is used an inout `IN` to [runSh jobs](../jobs/runSh/)
 
-You can create a notification resource by adding it to `shippable.resources.yml`
+You can create an integration resource by adding it to `shippable.resources.yml`
 
 ```
-- name: mySlack								#required
-  type: notification						#required
-  integration: trriplejay slack				#required
-  pointer:									
-    recipients:
-      - "#beta"								#required
-      - "@trriplejay"						#optional
+- name: <string>
+  type: integration
+  integration: <string>
 ```
-The events for which this notification is sent out are configured in the jobs yml.
 
-## YML properties
-```
-name: string
-```
-This is the name of the resource. Keep it short but explanatory as this is used as a reference for this resource in your jobs yml.
+* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
 
-```
-type: string
-```
-This defines the type of resource. In this case, this is always *notification*. This cannot 
-be changed once set. 
+* `type` is always set to integration
 
-```
-integration: string
-```
-**This is only required for sending Slack notifications**. The value should be set to the name of the integration that contains your credentials to connect to Slack. To learn how to add a Slack integration to your subscription, read the **Adding the Account Integration** section on our [Slack integrations page](../../integrations/notifications/slack/)  
-
-```
-pointer:	
-  method: email								#required for email only
-  recipients:
-    - john@shippable.com					#required
-    - abc@foo.com							#optional
-```
-`method` is required for **email only** and should always be set to `email`. 
-
-`recipients` is an array specifying who should receive notifications. For email notifications, include email addresses where you want to send notifications. For Slack notifications, include channel names or slack usernames where notifications should be sent. Slack channels/users should be entered in double quotes, with a leading # for channels and @ for users. For example, to send to a Slack room foo, specify `"#foo"` and to send to a person tom, specify `"@tom"`
-
-
+* `integration` should be the name of the integration that connects to the third party platform or service you want to connect to. For a complete list of supported third party integrations, visit our [Integrations overview page](../../integrations/overview/), click on a specific integration, and read the **Adding the Account Integration** section.
 
