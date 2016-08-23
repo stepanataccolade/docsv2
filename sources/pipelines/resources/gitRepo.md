@@ -3,7 +3,8 @@ page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # gitRepo
-Using this resource you can hook your source code to pipelines. 
+
+You can use a `gitRepo` resource to connect any source control repository to a job.
 
 Adding this resource type will create a webhook on the source repo server pointing 
 to Shippable. With this, future commits to the repo will automatically create a 
