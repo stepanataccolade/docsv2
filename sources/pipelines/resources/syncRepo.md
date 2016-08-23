@@ -7,7 +7,7 @@ The `syncRepo` resource is at the heart of your deployment pipelines. This resou
 
 When you add a `syncRepo`, Shippable will read the jobs and resources ymls and create your pipeline. We also add a webhook on the source repository that notifies Shippable each time anything in the repository is changed. This webhook notification will automatically sync any changes you make to the jobs and resources ymls and reflect them in your pipeline. 
 
-You need to add at least one syncRepo resource from the Shippable UI. Additional syncRepo resources can be added through the UI or by specifying them in the shippable.resources.yml file in the first syncRepo that was added.
+**You need to add at least one syncRepo resource from the Shippable UI.** Additional syncRepo resources can be added through the UI or by specifying them in the shippable.resources.yml file in the first syncRepo that was added.
 
 This is the only resource type that can be added from the UI. You should not add the same repository as a sync repo more than once. This can lead to unexpected behavior.
 
@@ -20,21 +20,19 @@ This is the only resource type that can be added from the UI. You should not add
 * Select the repository and branch that contains your shippable.jobs.yml and shippable.resources.yml files
 * Name your sync repository and click on `Save`. This should seed your pipeline.
 
-If you click on the SPOG tab, you should see a visualization of the the jobs and resources from your pipeline.
+If you click on the SPOG pill, you should see a visualization of the the jobs and resources from your pipeline.
 
 ## Adding a syncRepo through the yml
 You will always need to add at least one syncRepo through the UI. Subsequent syncRepos can be either added through the UI or you can include them in the `shippable.resources.yml`of the first syncRepo:
 
 ```
-- name: prod-repo                           #required
-  type: syncRepo                            #required
-  integration: avinci-gh                    #required, source control integration
+- name: <string>                           	#required
+  type: syncRepo                            	#required
+  integration: <string>                    	#required, source control integration
   pointer:
-    sourceName: avinci/prod                 #required, org/repo
-    branch: master                          #optional, default master
+    sourceName: org/repo                 		#required
+    branch: <string>                          	#optional, default master
 ```
-
-This will create a resource of type `syncRepo` with the name `prod-repo`. It uses an scm integration named `avinci-gh` which is an integration of type scm. To learn how to create subcription integrations for source control, read the [SCM section of integrations overview page](../../integrations/overview.md#scm). The repo name is `prod` and belongs to `avinci` org. The branch to look for resource and job definitions is `master`
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
  

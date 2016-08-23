@@ -139,7 +139,10 @@ This means that by default, anytime the input deploy job finishes executing, it 
 ## Blue-Green deployments
 Shippable supports 2 types of deployments:
 
-* The default is blue-green deployments, where the newer version of the application or service is brought up and runs side by side with the older version for a brief amount of time. Once the new version is completely up, the older version is stopped. Shippable handles the scenario gracefully and these deployments are zero downtime deployments. 
+* The first type blue-green deployments, where the newer version of the application or service is brought up and runs side by side with the older version for a brief amount of time. Once the new version is completely up, the older version is stopped. Shippable handles the scenario gracefully and these deployments are zero downtime deployments. 
+
+By default, deployments to Amazon ECS, Google Container Engine and Joyent Triton are blue-green deployments.
+
 * The other option is upgrade deployments where we deploy the newer version of the service and bring down the older version without waiting for the newer version to be up and running. Depending on how your Container Service handles this scenario, there might be some downtime with this type of deployment. In our experience, Amazon ECS handles this with no downtime, but with Google Container Engine and Joyent Triton, there might be a brief hiccup if the new container takes some time to come up.  
 
 If you want to specify upgrade deployment instead of the default blueGreen, you can do it in your `shippable.jobs.yml`: 
