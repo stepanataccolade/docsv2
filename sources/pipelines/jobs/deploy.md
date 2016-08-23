@@ -136,3 +136,17 @@ Instead of taking a manifest job as an input, this uses another `deploy` job as 
 This means that by default, anytime the input deploy job finishes executing, it will trigger this job automatically. You can change this behavior with the `trigger: false` setting as shown in the snippet above. If trigger is set to false, deploy-2 is not automatically triggered after deploy-1 finishes. You can go to the Shippable SPOG view for Pipelines and run the job manually. You can also add a [trigger resource](../triggers/) to run the job manually without going to the Shippable UI.
 
 
+## Blue-Green deployments
+Shippable supports 2 types of deployments:
+
+* The default is blue-green deployments, where the newer version of the application or service is brought up and runs side by side with the older version for a brief amount of time. Once the new version is completely up, the older version is stopped. Shippable handles the scenario gracefully and these deployments are zero downtime deployments. 
+* The other option is upgrade deployments where we deploy the newer version of the service and bring down the older version without waiting for the newer version to be up and running. Depending on how your Container Service handles this scenario, there might be some downtime with this type of deployment. In our experience, Amazon ECS handles this with no downtime, but with Google Container Engine and Joyent Triton, there might be a brief hiccup if the new container takes some time to come up.  
+
+If you want to specify upgrade deployment instead of the default blueGreen, you can do it in your `shippable.jobs.yml`: 
+```
+  - name: <job name>
+    type: deploy
+    steps:
+      - TASK: managed
+        deployMethod: upgrade 
+```
