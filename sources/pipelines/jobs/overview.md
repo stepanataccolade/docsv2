@@ -23,12 +23,12 @@ We currently support 4 types of jobs:
 
 - [runSh](runSh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts. 
 
-Jobs and [resources](../resources/overview/) together can be used to model any deployment pipeline, regardless of the complexity of your application. 
+Jobs, [resources](../resources/overview/), and [triggers](../triggers/) together can be used to model any deployment pipeline, regardless of the complexity of your application. 
 
 
 ---
 ## Adding Jobs
-Jobs are defined in a configuration file `shippable.jobs.yml` present in a source control repository. Any repo can contain this file but only one of it can be used. If more than 1 job file is present in the repository, the first one is used. This is done in order to reduce conflict due to the same job being defined in multiple places.
+Jobs are defined in a configuration file `shippable.jobs.yml` present in a source control repository. Any repo can contain this file but only one of it can be used. If more than 1 job files are present in the repository, the first one is used. This is done in order to reduce conflict due to the same job being defined in multiple places.
 
 To learn how to add this file and connect it to pipelines, [click here](../../tutorials/how_to_add_syncRepos)
 

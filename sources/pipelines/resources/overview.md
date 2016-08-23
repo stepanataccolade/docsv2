@@ -4,26 +4,36 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 <br>
 # Resources
-Resources are the basic building blocks of your pipelines. Eg. git repos, docker images etc. 
+Resources are the basic building blocks of your pipelines. They are inputs for and sometimes outputs from the executable units of your pipeline, aka [Jobs](../jobs/overview/).  
 
-A key characteristic of resources is that they can be versioned and are immutable. A specific version of a resource is idempotent. i.e. it returns thesame result every single time it is fetched. eg. git commit sha.
+A key characteristic of resources is that they can be versioned and are immutable. A specific version of a resource is idempotent. i.e. it returns the same result every single time it is fetched. For example, git commit sha is always idempotent.
 
 Shippable internally maintains its own version numbers for every resource so that different resources can be normalized internally. Docker images have tags as a way to version and git repos use commit shas. Both of these have a version number for every tag or sha making it easy to abstract it out.
 
-There are many types of resources that come out of the box. Every resource does one thing and one thing only. Together with [jobs](../jobs/overview/) and [triggers](../triggers/), they are a very powerful concept that can be used to model any pipeline from simple to complex ones. 
+There are several resources that are pre-defined as part of the platform and work as documented in the sections below:
+
+- [syncRepo](syncRepo/): Source repository for yml configuration files defining pipeline resources & jobs
+- [gitRepo](gitRepo/): Source repository for your code
+- [image](image/): Docker image definition 
+- [dockerOptions](dockerOptions/): Options for docker images
+- [params](params/): Parameters for your apps/services/microservices
+- [replicas](replicas/): Number of copies of the service to run
+- [version](version/): Semantic versions
+- [cluster](cluster/): Cluster that defines a container service
+- [notification](#otification/): Notifications for job success or failure
+
+At this time, we do not support definition of custom resources. If you need a resource that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
+
+Jobs, [resources](../resources/overview/), and [triggers](../triggers/) together can be used to model any deployment pipeline, regardless of the complexity of your application. 
 
 ---
-## Adding Resources
-Resources are stored in a resource file `shippable.resources.yml` in a git 
-repository. Any repo can contain this file but only one of it can be used. If 
-more than 1 resource file is present, the first one is used. This is done in order
-to reduce conflict due to the same resource being defined in multiple places.
+## Adding resources
+Resources are defined in a configuration file `shippable.resources.yml` present in a source control repository. Any repo can contain this file but only one of it can be used. If more than 1 resource files are present, the first one is used. This is done in order to reduce conflict due to the same resource being defined in multiple places.
 
-To learn how to add this file and connect it to pipelines, 
-[click here](../../../tutorials/how_to_add_syncRepos)
+To learn how to add this file and connect it to pipelines, [click here](../../../tutorials/how_to_add_syncRepos)
 
 ---
-## Deleting Resources
+## Deleting resources
 
 Since pipelines are all about dependencies and deployable units are flowing through these pipelines at all times, deleting a resource can significantly alter or irreversibly change the pipeline in unexpected ways. To avoid accidental deletion of resource(s) in ymls, we have made deletion of resources a 2 step process. 
 
@@ -38,27 +48,16 @@ To completely remove a resource from the system, you need to hard delete it thro
 A resource must be soft deleted before it can be hard deleted.
 
 ---
-<a name="integration"></a>
-## Integrations
-Shippable is designed to separate out sensitive authentication information from resources. 
-This is done to ensure there are no encryption/decryption or permissions issues when you move things around i.e. moving resource definitions from one repository to another, or if the person who created the pipeline is no longer the member of the team etc. Integrations are specified as a property in the YML definition for resources that connect to third party services. 
-
-To learn how to create integration and map them to your org, 
-[click here](../../../tutorials/how_to_add_integrations)
+## Viewing resources
+You can view resources and version histories of resources by going to the Pipelines tab for your subscription and clicking on the `Resources` pill.
 
 ---
-## Resource Types
-These are the resources that are predefined and work as documented in the sections below:
+<a name="integration"></a>
+## Integrations
+Shippable is designed to separate out sensitive authentication information from your resources yml. 
 
-- [syncRepo](syncRepo/): Source repository for resources & jobs
-- [gitRepo](gitRepo/): Source repository for your code
-- [image](image/): Docker image definition 
-- [dockerOptions](dockerOptions/): Options for docker images
-- [params](params/): Parameters for your apps/services/microservices
-- [replicas](replicas/): Number of copies of the service to run
-- [version](version/): Semantic versions
-- [cluster](cluster/): Cluster that defines a container service
-- [notification](#otification/): Notifications for job success or failure
+This is done to ensure there are no encryption/decryption or permissions issues when you move things around i.e. moving resource definitions from one repository to another, or if the person who created the pipeline is no longer the member of the team etc. Integrations are specified as a property in the YML definition for resources that connect to third party services. 
 
-At this time, we do not support definition of custom resources. If you need a resource that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
+To learn how to create integrations and use them in your ymls, [click here](../../integrations/overview/)
+
 

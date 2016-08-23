@@ -27,9 +27,10 @@ A single package manifest has only one input `image` resource. If your microserv
 A manifest is configured in `shippable.jobs.yml` as shown below:
 
 ```
-- name: <string>                             	#required
-  type: manifest                             	#required
-  steps:
+jobs:
+  - name: <string>                             #required
+    type: manifest                             #required
+    steps:
       - IN: <image>                       		#required
         versionName: <string>           		#optional
       - IN: <dockerOptions>                   	#optional
@@ -54,9 +55,10 @@ There are some cases where your services are not completely decoupled. For examp
 A multi-package manifest is configured in `shippable.jobs.yml` as shown below:
 
 ```
-- name: <string>                             	#required
-  type: manifest                            	#required
-  steps:
+jobs:
+  - name: <string>                             #required
+    type: manifest                            	#required
+    steps:
       - IN: <image>                       		#required
         versionName: <string>            		#optional
       - IN: <image>                        	#required

@@ -22,17 +22,18 @@ If your release job has one or more manifests jobs as inputs and does not have i
 A manifest release is configured in `shippable.jobs.yml` as shown below:
 
 ```
-- name: <string>								#required
-  type: release									#required
-  steps:
-    - IN: <version>								#required
-      switch: on/off							#optional
-    - IN: <manifest>							#required
-      switch: on/off							#optional
-    - IN: <manifest>							#optional
-      switch: on/off							#optional
-    - TASK:	managed							 	#required
-      bump: minor								#required
+jobs:
+  - name: <string>								#required
+    type: release								#required
+    steps:
+      - IN: <version>							#required
+        switch: on/off							#optional
+      - IN: <manifest>							#required
+        switch: on/off							#optional
+      - IN: <manifest>							#optional
+        switch: on/off							#optional
+      - TASK:	managed							 #required
+        bump: minor								#required
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines `Jobs` tab.
@@ -69,17 +70,18 @@ When a release job is configured to run after a deploy job(s), the versioning wi
 A deploy release is configured in `shippable.jobs.yml` as shown below:
 
 ```
-- name: <string>							#required
-  type: release								#required
-  steps:
-    - IN: <version>							#optional
-      switch: on/off						#optional
-    - IN: <deploy>							#required
-      switch: on/off						#optional
-    - IN: <deploy>							#optional
-      switch: on/off						#optional
-    - TASK:	managed							#required
-      bump: beta							#required
+jobs:
+  - name: <string>							#required
+    type: release								#required
+    steps:
+      - IN: <version>							#optional
+        switch: on/off						#optional
+      - IN: <deploy>							#required
+        switch: on/off						#optional
+      - IN: <deploy>							#optional
+        switch: on/off						#optional
+      - TASK:	managed							#required
+        bump: beta							#required
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines `Jobs` tab.
