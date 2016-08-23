@@ -29,7 +29,7 @@ For example, if you want to use different number of replicas in Test and Product
 
 <img src="../../images/resources/overrideReplicas.png" alt="Overriding replicas" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-In the picture above, `deploy-test` takes `replicas-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `replicas-2` as an input. For this production deployment, we will use a superset of settings from `replicas-1` and `replicas-2`, with values for any common settings being chosen from `replicas-2`.
+In the picture above, `deploy-test` takes `replicas-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `replicas-2` as an input. For the production deployment, value of count in `replicas-2` will override the setting from `replicas-1`.
 
 
 

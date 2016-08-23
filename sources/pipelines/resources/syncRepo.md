@@ -36,42 +36,22 @@ You will always need to add at least one syncRepo through the UI. Subsequent syn
 
 This will create a resource of type `syncRepo` with the name `prod-repo`. It uses an scm integration named `avinci-gh` which is an integration of type scm. To learn how to create subcription integrations for source control, read the [SCM section of integrations overview page](../../integrations/overview.md#scm). The repo name is `prod` and belongs to `avinci` org. The branch to look for resource and job definitions is `master`
 
-Your sync repository can be in any supported source control platforms.
+* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
+ 
+* `type` is always set to syncRepo.
 
-## YML properties
-```
-name: string
-```
-This is the name of the resource. Keep it short but explanatory as this is used 
-as a reference in jobs.
+* `integration` should be the name of the integration that connects to the Source Control provider where the repository is located. To learn how to create integrations for a specific Source Control Provider, please select from the list below and read the **Adding an integration** section on that page: 
 
-```
-type: string
-```
-This defines the type of resource. In this case this will always be *syncRepo*. This cannot be 
-changed once set. 
+	- [GitHub](../../integrations/scm/github/)
+	- [Bitbucket](../../integrations/scm/bitbucket/)
+	- [Github Enterprise](../../integrations/scm/githubEnterprise/)
+	- [Bitbucket Server (formerly Stash)](../../integrations/scm/bitbucketServer/)
+	- [Gitlab/GitlabServer](../../integrations/scm/gitlab/)
 
-```
-integration: string
-```
-This defines the integration that we need to connect to the repo. This integration should point to the source control system where the repository containing your pipeline definitions is located. To learn how to create subcription integrations for source control, read the [SCM section of integrations overview page](../../integrations/overview.md#scm)
 
-We support the following source control platforms:
-<a name="repoTypes1"></a>
+* `pointer` section provides information about the repository and branch where the configuration files are located.
+	* `sourceName` is the fully qualified name of the repository in the format **org/repo**
+	* `branch` specifies the branch. If not specified, it defaults to `master`.
+	
 
-- github
-- bitbucket
-- github enterprise
-- bitbucket server (stash)
-- gitlab
-- gitlab server
-
-```
-pointer:
-  sourceName: string 
-  branch: string
-```
-`name` is the fully qualified name of the repo i.e. **org/repo** containing the jobs and resources ymls.
-
-`branch` should be set to the branch where the files are located. It defaults to `master` if not specified.
 
