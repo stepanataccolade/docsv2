@@ -9,13 +9,14 @@ appended to an application or microservice. This resource is used as an input to
 
 You can create this resource by adding it to `shippable.resources.yml`
 ```
-- name: <string>                          		#required
-  type: params                              	#required
-  version:
-    params:                                 
-      key1: "value1"                   		#required atleast 1
-      key2: "value2"                     		#optional
-      secure: <encrypted value>  			 	#optional
+resources:
+  - name: <string>                          	#required
+    type: params                              	#required
+    version:
+      params:                                 
+        key1: "value1"                   		#required atleast 1
+        key2: "value2"                     	#optional
+        secure: <encrypted value>  			#optional
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
@@ -26,7 +27,7 @@ You can create this resource by adding it to `shippable.resources.yml`
 	* Include at least one key value pair under params
 	* You can use secure variables to encrypt any key value pairs that contain sensitive information you don't want to include as plain text. To encrypt one or more key value pairs, [follow the instructions in the Subscription Settings guide](../../navigatingUI/subscriptions/settings.md#encrypt). Copy the encrypted value and include it in your resource file as shown in the snippet above.
 
-A new version of this resource is created everytime aanything in the version section changes, which will trigger any job(s) that has this resource as an `IN` as long as automatic trigger isn't explicitly turned off.  
+A new version of this resource is created everytime aanything in the version section changes.  
 
 	
 ##Overriding params

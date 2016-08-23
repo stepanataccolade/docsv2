@@ -8,65 +8,67 @@ This resource type is used to add a list of docker options that can be appended 
 You can define `dockerOptions` by adding it to `shippable.resources.yml` as shown below:
 
 ```
-- name: <string>                           #required
-  type: dockerOptions                      #required
-  version:
+resources:
+  - name: <string>                           #required
+    type: dockerOptions                      #required
+    version:
     
-    memory: <integer>      	               	#optional, in MB
+      memory: <integer>      	               	#optional, in MB
     
-    cpuShares: <number>                 	#optional 
+      cpuShares: <number>                 		#optional 
     
-    portMappings:                         	#optional
+      portMappings:                         	#optional
       - "80:80"
          	
-    links:									#optional, containerName:alias
-      - <container name>:<alias>
-      - <container name>:<alias>
+      links:									#optional, containerName:alias
+        - <container name>:<alias>
+        - <container name>:<alias>
 
-    volumes:								#optional
-      - "<source>:<container path>:<options>"
-      - "<source>:<container path>:<options>"
+      volumes:									#optional
+        - "<source>:<container path>:<options>"
+        - "<source>:<container path>:<options>"
       
-    logConfig:								#optional 
-      type: <string>						#optional 
-      options:  							#optional
+      logConfig:								#optional 
+        type: <string>							#optional 
+        options:  								#optional
+          <key1>: <value1>
+          <key2>: <value2>
+
+      entryPoint:								#optional
+        - <string> 
+        - <string> 
+
+      cmd:
+        - <string> 
+        - <string> 
+
+      workingDir: <path to working dir> 
+
+      privileged: <boolean>  					# May be true or false
+  
+      labels:
         <key1>: <value1>
         <key2>: <value2>
 
-    entryPoint:								#optional
-      - <string> 
-      - <string> 
+      volumesFrom:
+        - "<container name>:<options>" 		        
+        - "<container name>:<options>"		
+        		
+      ulimits:
+        - name: <name of limit> 				# e.g. cpu
+          soft: <number> 						# soft Limit
+          hard: <number>						# hard Limit
+        - name: <name of limit> 				# e.g. nofile
+          soft: <number> 						# soft Limit, e.g. 50
+          hard: <number>						# hard Limit, e.g. 100
 
-    cmd:
-      - <string> 
-      - <string> 
+      dnsServers:
+        - "<ip address>"
 
-    workingDir: <path to working dir> 
+      dnsSearch:
+        - "<ip address>"
 
-    privileged: <boolean>  					# May be true or false
-
-    labels:
-      <key1>: <value1>
-      <key2>: <value2>
-
-    volumesFrom:
-      - "<container name>:<options>" 			      
-      - "<container name>:<options>"				
-    ulimits:
-      - name: <name of limit> 				# e.g. cpu
-        soft: <number> 						# soft Limit
-        hard: <number>						# hard Limit
-      - name: <name of limit> 				# e.g. nofile
-        soft: <number> 						# soft Limit, e.g. 50
-        hard: <number>						# hard Limit, e.g. 100
-
-    dnsServers:
-      - "<ip address>"
-
-    dnsSearch:
-      - "<ip address>"
-
-    user: <string> 							# For GKE, this should be the UID (a number)
+      user: <string> 							# For GKE, this should be the UID (a number)
 		
 ```
 
@@ -93,7 +95,7 @@ For a table showing the mapping of each setting to a setting in your Container S
 ```
    memory: <number>
 ```
-`memory` is the amount of memory allocated to the container. It is set in megabytes and is an integer. It defaults to 0 if not specified, which means the host node manages it dynamically. 
+`memory` is the amount of memory allocated to the container. It is set in megabytes and is an integer. It defaults to 400mb if not specified. 
 
 
 ```
@@ -225,6 +227,9 @@ This setting maps to DnsSearch in the <a href="https://docs.docker.com/reference
 `user` specifies the user name to be uses inside the container. 
 
 This setting maps to User in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --user option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+
+If you do not provide a dockerOptions resource to a manifest job, it will set memory to 400mb by default. No other default settings will be used.
+
 
 <a name="mappingDockerOptions"></a>
 ##Mapping dockerOptions to your Container Service
