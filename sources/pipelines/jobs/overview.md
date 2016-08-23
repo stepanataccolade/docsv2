@@ -14,6 +14,13 @@ smaller apps/services/microservices.
 
 There are many types of pre-canned jobs that come out of the box. Every job performs one unique function. Together with [resources](../resources/overview/) they become a very powerful concept that can be used to model any pipeline from simple to complex ones. 
 
+These are the job types that are available out of the box:
+
+- [manifest](manifest/): job for creating an app/service/microservice definition
+- [deploy](deploy/): job for deploying to Amazon Elastic Compute Service (ECS), Google Container Engine (GKE), Joyent Triton, Azure Container Service (ACS), Docker Cloud and Docker Data Center
+- [release](release/): job for release management
+- [runSh](runSh/): job for executing a set of shell scripts
+
 ---
 ## Adding Jobs
 Jobs are defined in a configuration file `shippable.jobs.yml` present in a source control repository. Any repo can contain this file but only one of it can be used. If more than 1 job file is present in the repository, the first one is used. This is done in order to reduce conflict due to the same job being defined in multiple places.
@@ -121,11 +128,25 @@ steps:
 `TASK` is an operation that is executed as part of this job.
 
 ---
-## Job Types
-These are the job types that come straight out of the box.
+## Sending job status notifications
 
-- [manifest](manifest/): job for creating an app/service/microservice definition
-- [deploy](deploy/): job for deploying to Amazon Elastic Compute Service (ECS), Google Container Engine (GKE), Joyent Triton, Azure Container Service (ACS), Docker Cloud and Docker Data Center
-- [release](release/): job for release management
-- [runSh](runSh/): job for executing a set of shell scripts
+You can send notifications about job status by adding the `on_start`, `on_success`, or `on_failure` tags to any job of any type. 
 
+You will first need to define a [notification resource](resources/notification/) in your `shippable.resources.yml`.
+
+Then, you can use that resource in your `shippable.jobs.yml` to configure when notifications are sent:
+
+```
+  - name: jobName
+    type: jobType
+    on_start:
+      - NOTIFY: <notification resource name>
+    on_success:
+      - NOTIFY: <notification resource name>
+    on_failure:
+      - NOTIFY: <notification resource name>
+```
+
+* `on_start` specifies that notifications are sent when the job starts.
+* `on_success` specifies that notifications are sent when the job completes successfully.
+* `on_failure` specifies that notifications are sent when the job fails.
