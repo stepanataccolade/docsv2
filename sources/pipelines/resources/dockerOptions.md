@@ -5,8 +5,6 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # dockerOptions
 This resource type is used to add a list of docker options that can be appended to a docker image. This resource on its own does not mean anything unless used in conjunction with an [image resource](image/). A `dockerOptions` resource can be an `IN` resource for [a manifest job](../jobs/manifest/), or for a [deploy job](../jobs/deploy/).
 
-When anything in `dockerOptions` changes, a new version of the resource is created. This triggers any job that has this resource as an `IN` as long as automatic trigger isn't explicitly turned off.
-
 You can define `dockerOptions` by adding it to `shippable.resources.yml` as shown below:
 
 ```
@@ -264,3 +262,9 @@ For example, if you want to use different settings for your service in Test and 
 <img src="../../images/resources/overrideDockerOptions.png" alt="Overriding docker options" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 In the picture above, `deploy-test` takes `dockerOptions-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `dockerOptions-2` as an input. For this production deployment, we will use a superset of settings from `dockerOptions-1` and `dockerOptions-2`, with values for any common settings being chosen from `dockerOptions-2`.
+
+##Triggering dependent jobs
+
+When anything in `dockerOptions` changes, a new version of the resource is created. However, this does not automatically trigger subsequent portions of the pipeline since we have no way of knowing if your code commit changing dockerOptions also changed something else in the pipeline. Triggering dependent jobs automatically might lead to unexpected behaviour in this case. 
+
+To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input [trigger resource](../triggers/) for the job. 
