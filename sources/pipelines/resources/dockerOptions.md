@@ -3,7 +3,7 @@ page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # dockerOptions
-This resource type is used to add a list of docker options that can be appended to a docker image. This resource on its own does not mean anything unless used in conjunction with an image. A `dockerOptions` resource can be an `IN` resource for [a manifest job](../jobs/manifest/), or for a [deploy job](../jobs/deploy/).
+This resource type is used to add a list of docker options that can be appended to a docker image. This resource on its own does not mean anything unless used in conjunction with an [image resource](image/). A `dockerOptions` resource can be an `IN` resource for [a manifest job](../jobs/manifest/), or for a [deploy job](../jobs/deploy/).
 
 When anything in `dockerOptions` changes, a new version of the resource is created. This triggers any job that has this resource as an `IN` as long as automatic trigger isn't explicitly turned off.
 
@@ -69,9 +69,7 @@ You can define `dockerOptions` by adding it to `shippable.resources.yml` as show
       - "<ip address>"
 
     user: <string> 							# For GKE, this should be the UID (a number)
-
-
-			
+		
 ```
 
 This will create a resource of type `dockerOptions`. You can include any settings shown above that you want as part of your `dockerOptions`. All settings are optional. Read below for a description and format of all settings. 
