@@ -80,7 +80,7 @@ For a table showing the mapping of each setting to a setting in your Container S
 - name: <string>
 ```
 
-`name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view in the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
+`name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and in the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
 
 ```
   type: dockerOptions

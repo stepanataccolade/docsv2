@@ -4,64 +4,33 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # gitRepo
 
-You can use a `gitRepo` resource to connect any source control repository to a job.
+You can use a `gitRepo` resource to connect any source control repository to a job. It is typically used as an optional `IN` for [runSh jobs](../jobs/runSh/).  
 
-Adding this resource type will create a webhook on the source repo server pointing 
-to Shippable. With this, future commits to the repo will automatically create a 
-new version for this resource with the new commit sha.
-
-Integrations allow you to add repos on any of the [supported git servers](#repoTypes2) 
-using the same resource type.
+Adding this resource type creates a webhook on the source repoository pointing to Shippable. Due tothis, future commits to the repository will automatically create a new version for this resource with the new commit SHA.
 
 You can create this resource by adding it to `shippable.resources.yml`
 ```
-- name: box-repo                            #required
-  type: gitRepo                             #required
-  integration: avinci-gh                    #required
+- name: <string>                            	#required
+  type: gitRepo                             	#required
+  integration: <string>                     	#required
   pointer:
-    sourceName: avinci/box                  #required
-    branch: master                          #optional
+    sourceName: org/repo                  		#required
+    branch: <string>                          	#optional
 ```
-This will create a resource of type `gitRepo` with the name `box-repo`. It is 
-using an integration `avinci-gh` which is the name of the integration defined, 
-[learn more here](#integration). The repo name is `box` and belongs to `avinci` 
-org. The branch to look for resource and job definitions is `master`
 
-## YML properties
-```
-name: string
-```
-This is the name of the resource. Keep it short but explanatory as this
-is used as a reference in jobs
+* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
+ 
+* `type` is always set to gitRepo.
 
-```
-type: string
-```
-This defines the type of resource. In this case *gitRepo*. This cannot be changed 
-once set. 
+* `integration` should be the name of the integration that connects to the Source Control provider where the repository is located. To learn how to create integrations for a specific Source Control Provider, please select from the list below and read the **Adding an integration** section on that page: 
 
-```
-integration: string
-```
-This defines the integration that we are using to connect to the repo. 
-Shippable supports multiple types of git repository providers and they can be 
-defined as integrations. [Learn more](overview#integration). We support the following 
-types of repository providers
-<a name="repoTypes2"></a>
+	- [GitHub](../../integrations/scm/github/)
+	- [Bitbucket](../../integrations/scm/bitbucket/)
+	- [Github Enterprise](../../integrations/scm/githubEnterprise/)
+	- [Bitbucket Server (formerly Stash)](../../integrations/scm/bitbucketServer/)
+	- [Gitlab/GitlabServer](../../integrations/scm/gitlab/)
 
-- github
-- bitbucket
-- github enterprise
-- bitbucket server (stash)
-- gitlab
-- gitlab server
-
-```
-pointer:
-  sourceName: string 
-  branch: string
-```
-`sourceName` is the fully qualified name of the repo i.e. **org/repo**
-
-`branch` defaults to `master` if its not provided 
+* `pointer` section provides information about the repository and branch you want to connect .
+	* `sourceName` is the fully qualified name of the repository in the format **org/repo**
+	* `branch` specifies the branch you need. If not specified, it defaults to `master`.
 
