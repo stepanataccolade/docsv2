@@ -3,43 +3,33 @@ page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # replicas
-This resource type is used to control the number of copies of the app/service/microservice
-that will be started at the target. This resource on its own does not mean 
-anything unless used in conjunction with a service.
-
-This resource can also be used to override environment variables that are already 
-set in another stage of the pipeline. A common use case for this would be a scenario 
-in  which you want to run different number of copies for the same service in test 
-vs production. 
+This resource type is used to control the number of instances of an application or service
+that will be started in the target environment. This is used as an input resource to [manifest jobs](../jobs/manifest/) or [deploy jobs](../jobs/deploy/). 
 
 You can create this resource by adding it to `shippable.resources.yml`
 ```
-- name: box-scaler                          #required
-  type: replicas                            #required
+- name: <string>                          		#required
+  type: replicas                            	#required
   version:
-    count: 1                                #required
+    count: 1                                	#required
 ```
-The above YML when added to `shippable.resources.yml` will create a resource of 
-type `replicas` with the name `box-scaler`. Currently only 1 copy of the service
-to which this is attached is started when deployed.
 
-## YML properties
-```
-name: string
-```
-This is the name of the resource. Keep it short but explanatory as this is used 
-as a reference in jobs
+* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
 
-```
-type: string
-```
-This defines the type of resource. In this case *replicas*. This cannot be changed 
-once set. 
+* `type` is always set to replicas
 
-```
-version:
-  count: 1
-```
-`count` is an integer that represents the number of copies to run. This is versioned
-and everytime the counter is changed, a new version is created.
+* `count` is an integer that represents the number of instances to run. 
+
+A new version of this resource is created everytime anything in the version section changes, which will trigger any job(s) that has this resource as an `IN` as long as automatic trigger isn't explicitly turned off.
+
+##Overriding replicas
+`replicas` can also be used to override settings that were set in an upstream stage of the pipeline.
+
+For example, if you want to use different number of replicas in Test and Production environments, you can do so by overriding the resource.
+
+<img src="../../images/resources/overrideReplicas.png" alt="Overriding replicas" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+In the picture above, `deploy-test` takes `replicas-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `replicas-2` as an input. For this production deployment, we will use a superset of settings from `replicas-1` and `replicas-2`, with values for any common settings being chosen from `replicas-2`.
+
+
 

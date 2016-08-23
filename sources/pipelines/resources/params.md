@@ -26,7 +26,7 @@ You can create this resource by adding it to `shippable.resources.yml`
 	* Include at least one key value pair under params
 	* You can use secure variables to encrypt any key value pairs that contain sensitive information you don't want to include as plain text. To encrypt one or more key value pairs, [follow the instructions in the Subscription Settings guide](../../navigatingUI/subscriptions/settings.md#encrypt). Copy the encrypted value and include it in your resource file as shown in the snippet above.
 
-A new version of this resource is created everytime any of the values of the params changes, which will trigger any job(s) that has this resource as an `IN` as long as automatic trigger isn't explicitly turned off.  
+A new version of this resource is created everytime aanything in the version section changes, which will trigger any job(s) that has this resource as an `IN` as long as automatic trigger isn't explicitly turned off.  
 
 	
 ##Overriding params
