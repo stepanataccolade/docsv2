@@ -3,7 +3,7 @@ page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # cluster
-This resource type is used to specify a cluster in any Container Service to which you can deploy your application or service. A `cluster` resource is usually an `IN` resource for [a deploy job](../jobs/deploy/). 
+This resource type is used to specify a cluster in any Container Service to which you can deploy your application or service. A `cluster` resource is an `IN` resource for [a deploy job](../jobs/deploy/). 
 
 Please note that the resource just points to an existing cluster and does not create a cluster. 
 
@@ -13,11 +13,11 @@ You can define a cluster resource by adding it to `shippable.resources.yml`
   type: cluster                             	#required
   integration: <integration name>				#required
   pointer:
-    sourceName : "test-aws"                 	#required
-    region: "us-east-1"                     	#required for some container services
+    sourceName : "<string>"                 	#required
+    region: "<string>"                     	#required for some container services
 ```
 
-* resource `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and in the list of resources in the Pipelines `Resources` tab.
+* resource `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and in the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
 
 * `type` is always set to cluster. 
 
@@ -28,10 +28,9 @@ You can define a cluster resource by adding it to `shippable.resources.yml`
 	* [Microsoft Azure Container Service](../../integrations/containerServices/azure/)
 	* [Docker Cloud](../../integrations/containerServices/dcl/)
 
-* `sourcename` is the name of the cluster on the Container Service that is represented by this resource. 
+* `sourcename` is the name of the cluster on the Container Service that is represented by this resource. Specify this value in double quotes.
 
-* `region` is the region where the cluster resides. The values are dependent on the
-integration. This is required for the following types of integrations and will take
+* `region` is the region where the cluster resides, e.g. "us-east-1". Specify this value in double quotes. This is required for the following types of integrations and will take
 in the values that the provider supports
 
 - AWS Elastic Container Service (ECS)
