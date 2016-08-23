@@ -6,15 +6,17 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 An `image` resource is used to add a reference to a docker image to your pipeline. It is used as an input for [manifest jobs](../jobs/manifest/).
 
-You can create an `image` resource by adding it to `shippable.resources.yml`
+You can create an `image` resource by adding it to `shippable.resources.yml`:
+
 ```
-- name: <string>                           	#required
-  type: image                               	#required
-  integration: <string>                   	 	#required
-  pointer:
-    sourceName: "org/repo"                	#required
-  seed:	
-    versionName: "<string>"                #required
+resources:
+  - name: <string>                           	 #required
+    type: image                               	 #required
+    integration: <string>                   	 #required
+    pointer:
+      sourceName: "org/repo"                    #required
+    seed:	
+      versionName: "<string>"                	 #required
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
@@ -36,4 +38,3 @@ You can create an `image` resource by adding it to `shippable.resources.yml`
 
 * `versionName` is usually set to image tag. The seed versionName sets initial tag for the image. 
 
-When the `versionName` changes for an `image` resource, a new version of the resource is created and this triggers any job(s) that has this resource as an `IN` as long as automatic trigger isn't explicitly turned off. 

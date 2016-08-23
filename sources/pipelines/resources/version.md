@@ -9,24 +9,17 @@ A `version` resource is used to create version numbers for releases. It uses <a 
 
 You can create this resource by adding it to `shippable.resources.yml`
 ```
-- name: <string>                         		#required
-  type: version                            	#required
-  seed:
-    versionName: "0.0.1"                    	#required
+resources:
+  - name: <string>                         	#required
+    type: version                            	#required
+    seed:
+      versionName: "0.0.1"                    	#required
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
 
 * `type` is always set to version
 
-* `versionName` is an string integer that represents a semantic version that is used 
-as a starting point. This will get incremented in the IN operations of [jobs](#jobs). 
-You can also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats too
+* `versionName` is an string integer that represents a semantic version that is used as a starting point. This will get incremented in the IN operations of [jobs](#jobs). You can also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats.
 
-```
-seed:
-  versionName: string with format "0.0.0"
-```
-`versionName` is an string integer that represents a semantic version that is used 
-as a starting point. This will get incremented each time a new release is created with a [release job](../jobs/release/). 
 

@@ -12,9 +12,10 @@ An `integration` resource contains your credentials to connect to any [supported
 You can create an integration resource by adding it to `shippable.resources.yml`
 
 ```
-- name: <string>
-  type: integration
-  integration: <string>
+resources:
+  - name: <string>
+    type: integration
+    integration: <string>
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.

@@ -26,12 +26,13 @@ If you click on the SPOG pill, you should see a visualization of the the jobs an
 You will always need to add at least one syncRepo through the UI. Subsequent syncRepos can be either added through the UI or you can include them in the `shippable.resources.yml`of the first syncRepo:
 
 ```
-- name: <string>                           	#required
-  type: syncRepo                            	#required
-  integration: <string>                    	#required, source control integration
-  pointer:
-    sourceName: org/repo                 		#required
-    branch: <string>                          	#optional, default master
+resources:
+  - name: <string>                           	#required
+    type: syncRepo                            	#required
+    integration: <string>                    	#required, source control integration
+    pointer:
+      sourceName: org/repo                 	#required
+      branch: <string>                          #optional, default master
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.

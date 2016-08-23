@@ -8,10 +8,11 @@ that will be started in the target environment. This is used as an input resourc
 
 You can create this resource by adding it to `shippable.resources.yml`
 ```
-- name: <string>                          		#required
-  type: replicas                            	#required
-  version:
-    count: 1                                	#required
+resources:
+  - name: <string>                          	#required
+    type: replicas                            	#required
+    version:
+      count: 1                                	#required
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
@@ -20,7 +21,7 @@ You can create this resource by adding it to `shippable.resources.yml`
 
 * `count` is an integer that represents the number of instances to run. 
 
-A new version of this resource is created everytime anything in the version section changes, which will trigger any job(s) that has this resource as an `IN` as long as automatic trigger isn't explicitly turned off.
+A new version of this resource is created everytime anything in the version section changes.
 
 ##Overriding replicas
 `replicas` can also be used to override settings that were set in an upstream stage of the pipeline.

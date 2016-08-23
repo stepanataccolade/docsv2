@@ -9,12 +9,13 @@ Please note that the resource just points to an existing cluster and does not cr
 
 You can define a cluster resource by adding it to `shippable.resources.yml`
 ```
-- name: <string>                            	#required
-  type: cluster                             	#required
-  integration: <integration name>				#required
-  pointer:
-    sourceName : "<string>"                 	#required
-    region: "<string>"                     	#required for some container services
+resources:
+  - name: <string>                            	#required
+    type: cluster                             	#required
+    integration: <integration name>			#required
+    pointer:
+      sourceName : "<string>"                 	#required
+      region: "<string>"                     	#required for some container services
 ```
 
 * resource `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and in the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.

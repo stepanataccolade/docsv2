@@ -291,7 +291,7 @@ The example above shows the `version.json` for an `image` resource. To use this 
 ```
 [
   {
-    "name": "docket-options",
+    "name": "docker-options",
     "images": [
       {
         "image": "library/nginx",
@@ -516,9 +516,9 @@ The example above shows the `version.json` for an `image` resource. To use this 
 }
 ```
 
-###versionversion
+###version
 
-`version.json` for a integration resource is:
+`version.json` for a version resource is:
 
 
 ```
