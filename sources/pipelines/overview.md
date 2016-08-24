@@ -58,12 +58,19 @@ Let us consider the end to end deployment for one service. The code for your ser
 <img src="../images/codeToProdPipelines.png" alt="Shippable Continuous Integration and Delivery" style="width:1200px;"/>
 
 * Every time your code changes, it triggers CI. This job is represented by `ci`.
+
 * Upon a successful CI run, a versioned docker image for your service is built and pushed to a Docker registry. This is represented by the `image` resource.
+
 * The updated image automatically triggers a deployment to your Test environment. This is represented by the `deploy-Test` job. You can set up Shippable to trigger your functional tests each time this environment is updated. 
+
 * Each time the Test environment is updated, your Test team is also notified through a Slack channel.
+
 * Once the automated (and manual if required) tests have passed, you can create a new release and bump up the version number. Ops team is notified about the new release creation through a Slack channel. This is done by the `release` job.
+
 * The new release is deployed to Beta. This is represented by the `deploy-Beta` job.
+
 * You can run stress tests and any other sanity checks in the Beta environment. If needed, you can also insert another `release` job between Beta and Production deploy jobs.
+
 * **Release day**! You trigger a manual deploy to production! This is represented bu the `deploy-Prod` job.
 
 
