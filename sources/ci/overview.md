@@ -6,6 +6,8 @@ Continuous Integration is an essential first part of a continuous delivery workf
 
 For more on Continuous Integration and why you should include it as part of your workflow, read Martin Fowler's article on the [Benefits of Continuous Integration](http://martinfowler.com/articles/continuousIntegration.html#BenefitsOfContinuousIntegration)
 
+For a complete integrated platform that automated the end to end Continuous Deployment workflow, check out [Shippable's CD pipelines](../pipelines/overview/).
+
 ---
 ##Signing in to Shippable
 
