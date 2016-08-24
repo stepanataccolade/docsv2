@@ -38,6 +38,7 @@ You can also initiate manual builds through the UI, by clicking on the Build but
 ###Configuration
 You need to create a configuration file called **shippable.yml** and commit it to the root of the repository you want to build. This is mandatory for all enabled projects and tells us what the build should do. For the yml structure and how to configure it, check out the [Build Configuration page](shippableyml.md).
 
+
 ###Build flow
 
 When a build is triggered, it is executed in the sequence below -
@@ -55,7 +56,48 @@ When a build is triggered, it is executed in the sequence below -
 
 ---
 
+##Enabling private repositories
+
+To enable GitHub integration for public repositories:  
+
+- Log in to [Shippable](https://app.shippable.com) using your GitHub credentials.
+- Click on `Authorize application` button to authorize Shippable to access your public repositories on GitHub (This is a one-time step). Provide your GitHub password, if prompted.
+- Your subscription using your GitHub account is ready to use. In your 'Subscription', in the 'CI' tab, click the 'Enable Project' section to view all your public repositories in GitHub. Proceed to [enabling a project](/navigatingUI/subscriptions/ci/#enable-project).
+- If you don't see your projects in the above step, click on the Account settings (gear icon on the top right hand navigation bar). In the 'Accounts' section click the `Sync` button.
+- For private repositories, you need to one-time authorize Shippable to access them. You can do this by following the outlined steps:
+- Ensure you have logged in to [Shippable](https://app.shippable.com) using your GitHub credentials.
+- Click on the Account settings (gear icon on the top right hand navigation bar).
+- In the 'Accounts' section and under 'Git Identities', click 'Enable' under 'GitHub'.
+- Click `Authorize application` in the next page to enable access to private repositories.
+
+<img src="/ci/images/integrations/scm/github/enablePvtRepoMv.gif" alt="Enable access to GitHub Private Repositories" style="width:700px;"/>
+
+---  
+##Build triggers
+
+Shippable integrates with GitHub to build your pull requests and show status inline on your GitHub page for the PR.
+
+Whenever a pull request is opened for a project that is enabled on Shippable, we will run a build for the respective pull request and send you a build status notification.
+
+You can also see this status on your GitHub page as shown below:
+
+<img src="/ci/images/integrations/scm/github/prStatus.png" alt="GitHub PR Status" style="width:700px;"/>
+
+You can then merge the PR confidently if the build passes, or fix any issues that cause a failed build.
+
+Each time your pull request is updated, we will kick off a new build and update status.
+
+After you accept the pull request, Shippable will run one more build for the merged repo and will send email notifications for the merged repo.
+
+A few things to note here:
+
+- The YML is always picked from the destination(base) branch.
+- If the pull request comes from a private fork of the project and the subscription key is not added as a deploy key for the fork, the pull request build will fail at the `git_sync` CI step. This is due to the way Bitbucket handles permissions on private forks. To fix this:
+     - Copy the subscription deploy key from Shippable Subscription > Settings > Deployment Keys
+     - Next, add it as a deploy key for the private fork: Bitbucket Project Settings > Deploy Key > Add.
 
 
+###Terminology
+Subscription->Organization
 
 

@@ -4,65 +4,81 @@ page_keywords: source control management system, continuous integration, continu
 
 # GitHub
 
-In order to integrate with your GitHub account, we automatically set up an Account integration when you log in using your GitHub credentials. You do not have to do anything to set this up further.
+GitHub integration is enabled for your Shippable account in one of 2 ways:
 
-##Enabling GitHub account integration
-
-To enable GitHub integration for public repositories:  
-
-- Log in to [Shippable](https://app.shippable.com) using your GitHub credentials.
-- Click on `Authorize application` button to authorize Shippable to access your public repositories on GitHub (This is a one-time step). Provide your GitHub password, if prompted.
-- Your subscription using your GitHub account is ready to use. In your 'Subscription', in the 'CI' tab, click the 'Enable Project' section to view all your public repositories in GitHub. Proceed to [enabling a project](/navigatingUI/subscriptions/ci/#enable-project).
-- If you don't see your projects in the above step, click on the Account settings (gear icon on the top right hand navigation bar). In the 'Accounts' section click the `Sync` button.
-- For private repositories, you need to one-time authorize Shippable to access them. You can do this by following the outlined steps:
-- Ensure you have logged in to [Shippable](https://app.shippable.com) using your GitHub credentials.
-- Click on the Account settings (gear icon on the top right hand navigation bar).
-- In the 'Accounts' section and under 'Git Identities', click 'Enable' under 'GitHub'.
-- Click `Authorize application` in the next page to enable access to private repositories.
-
-<img src="/ci/images/integrations/scm/github/enablePvtRepoMv.gif" alt="Enable access to GitHub Private Repositories" style="width:700px;"/>
-
----  
-##Pull Requests
-
-Shippable integrates with GitHub to build your pull requests and show status inline on your GitHub page for the PR.
-
-Whenever a pull request is opened for a project that is enabled on Shippable, we will run a build for the respective pull request and send you a build status notification.
-
-You can also see this status on your GitHub page as shown below:
-
-<img src="/ci/images/integrations/scm/github/prStatus.png" alt="GitHub PR Status" style="width:700px;"/>
-
-You can then merge the PR confidently if the build passes, or fix any issues that cause a failed build.
-
-Each time your pull request is updated, we will kick off a new build and update status.
-
-After you accept the pull request, Shippable will run one more build for the merged repo and will send email notifications for the merged repo.
+* You sign in to Shippable with your GitHub credentials. In this case, we automatically set up an Account Integration for you. You can see this integration by going to your Account Settings (gear menu in top navbar) and clicking on `Integrations` in the sidebar menu.
+ 
+* You sign in to Shippable with another supported source control provider, and add a GitHub integrations through Account Settings -> Integrations. To learn how to do this, read the [Adding a GitHub integration section](#addGithub).
 
 ---
 
-##Linking GitHub and Bitbucket Accounts
-You can use Shippable to run builds on both GitHub and Bitbucket repositories, by connecting both your accounts on Shippable.
+##Signing in with GitHub
+To build repositories hosted on GitHub. you will need to authorize Shippable to access your repositories. 
 
-This helps in a consolidated view of all projects across both these source control systems.
+To enable public repositories:  
 
-To connect both these accounts, do the following:
+- Log in to [Shippable](https://app.shippable.com) using your GitHub credentials.
+- Click on `Authorize application` button to authorize Shippable to access your public 
+  repositories on GitHub (This is a one-time step). Provide your GitHub password, if prompted.
+- Your account is ready to use after this step. 
+- You can click on the top left menu icon to see a list of your Subscriptions. Choose the subscription you want.  
+- In the 'CI' tab, click the 'Enable Project' section to view all your public and private repositories. Proceed to [enabling a project](../../navigatingUI/subscriptions/ci/#enable-project).
+- If you don't see your projects in the above step, click on the Account settings (gear icon on the top navigation bar). In the 'Accounts' section click the `Sync` button.
 
-- Sign into [Shippable](http://www.shippable.com) with either GitHub or Bitbucket account. Pick the account that you want as your primary account.
-- Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Accounts' section.
-- Under 'Git Identities', you'll see an option to enable Bitbucket, if you've signed in using GitHub and vice-versa.
-- Click the `Enable` button under Bitbucket (or GitHub, if you've signed in using Bitbucket).
-- Follow the authorization flow for Bitbucket (or GitHub). Provide your Bitbucket (or GitHub) credentials when prompted.
+To enable private repositories:
 
-Once both your accounts are linked, you should see a consolidated list of orgs and projects in your account.
+- Go to your **Account Settings** by clicking on the gear icon on the right of the top navbar.
+- In the **Git identities** section, authorize Shippable for private repositories.
 
-Going forward, you can sign in to Shippable with either GitHub or Bitbucket credentials.
+---
 
-**IMPORTANT**
+<a name="addGithub"></a>
+##Adding a GitHub integration
 
-- To see the linked account repositories updated immediately, click on the `Sync` button in 'Account Settings'.
-- Prior to linking the accounts, if you have logged into Shippable using GitHub AND logged in using Bitbucket, you will be unable to link the accounts using the above method. To enable the linking of the accounts in such an instance, open [a support issue](https://github.com/Shippable/support/issues) with a request to delete one of the source control provider accounts within Shippable. Upon deletion, follow the above steps with the existing account to successfully link both the accounts.
+If you did not sign in to Shippable with GitHub credentials but want to connect to your GitHub account for CI or Pipelines, you should add an account integration for GitHub.
 
-Read our blog - [How to link GitHub and Bitbucket accounts](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts).
+This is achieved in 3 steps:
 
+##### Add an account integration
+
+* Go to your **Account Settings** by clicking on the gear menu in the top navbar.
+* Click on **Integrations** in the sidebar menu.
+* Click on **Add Integration**.
+* Enter the following:
+	* In the **Master Integration** dropdown, choose **GitHub** 
+	* Add a friendly name for your integration
+	* Create a [GitHub API token](https://github.com/settings/tokens) with the right settings and paste it in the **Token** textbox 
+* Click on **Save**. You should now see the integration in your list of integrations.
+
+
+#####Set up CI for your repositories 
+If you don't want to use your integration to enable repositories for CI, skip this section and go to the next. 
+
+* In your Account Settings, click on `Sync`.
+* Go to your Home dashboard. Click on the Subscription dropdown on the top left of your screen.
+* You should see your Organizations from GitHub in your list of subscriptions.
+* Click on any GitHub organization and you should be able to enable projects for [CI](../../ci/overview/).
+
+#####Use your integration in your Pipeline configuration 
+
+* Go to your Subscription's Settings tab. This should be the Subscription where you want to set up your pipelines.
+* Click on **Integrations** in the sidebar menu.
+* Click on **Add Integration**.
+* Name your GitHub integration with a friendly name. This can be the same name as the one in your account integration.
+* From the dropdown, choose the account integration you just created in the step above.
+* Click on **Save**.
+
+The integration is now added to your subscription. You can now use this account integration while configuring your Pipeline workflows. In your configurations, **you should use the friendly name for the integration from Subscription Settings**.
+
+For example, if the integration is called `github-foo` in your subscription settings, you can use it in `shippable.resources.yml` as follows:
+
+```
+- name: github-repository                      #required
+  type: gitRepo                             	#required
+  integration: github-foo                     	#this is your github integration name
+  pointer:
+    sourceName: org/repo                  		#required
+    branch: master                          	#optional
+```
+ 
 ---

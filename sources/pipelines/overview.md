@@ -9,21 +9,21 @@ Shippable's continuous deployment pipelines provide an integrated platform, buil
 
 Using our platform, software powered organizations can accelerate innovation by shrinking their software release lifecycle. We achieve this by giving you a continuous deployment platform that helps you:
 
-**Improve productivity**
+#####Improve productivity
 
 Most deployment pipelines today need to be cobbled together with tools that solve part of the end to end requirement. These pipelines are mostly homegrown and DevOps engineers spend a lot of time writing thousands of lines of imperative code to create them. As a result, companies either automate only part of their deployment workflow or bite the bullet and spend the time required to build these pipelines. Both choices are suboptimal and slow down your release cycles.    
  
 Shippable gives you an **end to end declarative platform** that will get your deployment pipeline up and running in less than an hour. No coding required! 
 
-**Always use the best tools for the job**
+#####Always use the best tools for the job
 
 Our pipelines are heterogeneous, i.e. they natively integrate with all tools and services that you might want to use for your deployment workflows. Want to switch from HipChat to Slack? Configure it in less than 5 minutes. Want to deploy to a different cloud endpoint? Also configured in less than 5 mins! 
 
-**Ship cloud native and traditional applications in a unified pipeline**
+#####Ship cloud native and traditional applications in a unified pipeline
 
 Cloud native is the new buzzword, but if you're like most organizations, a bulk of your code is still written in Java and deployed to an IaaS/PaaS. With Shippable, you can use the same pipeline to ship both types of applications.
 
-**View all your deployments in a Single Pane of Glass**
+#####View all your deployments in a Single Pane of Glass
 
 Our pipelines give you an end to end visual representation of your deployment workflow, with the ability to zoom in and out of any part of it. You can view version history, logs, and also upgrade and rollback in no time.
 
@@ -61,17 +61,19 @@ Let us consider the end to end deployment for one service. The code for your ser
 
 * Upon a successful CI run, a versioned docker image for your service is built and pushed to a Docker registry. This is represented by the `image` resource.
 
-* The updated image automatically triggers a deployment to your Test environment. This is represented by the `deploy-Test` job. You can set up Shippable to trigger your functional tests each time this environment is updated. 
+* This triggers creating of a new version of your service manifest, represented by the `manifest` job. This job also takes additional parameters like docker options, environment variables, etc.
+
+* The updated manifest version automatically triggers a deployment to your Test environment. This is represented by the `deploy-Test` job. You need to specify a cluster where you want to deploy your test environment. You can set up Shippable to trigger your functional tests each time this environment is updated. 
 
 * Each time the Test environment is updated, your Test team is also notified through a Slack channel.
 
 * Once the automated (and manual if required) tests have passed, you can create a new release and bump up the version number. Ops team is notified about the new release creation through a Slack channel. This is done by the `release` job.
 
-* The new release is deployed to Beta. This is represented by the `deploy-Beta` job.
+* The new release is deployed to Beta. This is represented by the `deploy-Beta` job. You just specify a cluster and Shippable will deploy your application there.
 
 * You can run stress tests and any other sanity checks in the Beta environment. If needed, you can also insert another `release` job between Beta and Production deploy jobs.
 
-* **Release day**! You trigger a manual deploy to production! This is represented bu the `deploy-Prod` job.
+* **Release day**! You trigger a manual deploy to production! This is represented by the `deploy-Prod` job.
 
 
 

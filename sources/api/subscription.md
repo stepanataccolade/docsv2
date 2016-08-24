@@ -86,13 +86,3 @@ GET/subscriptions/:id
 
 ---
 
-##Delete a subscription
-This route lets you delete your subscription.
-
-Please note that all projects, jobs and runs will also be deleted when the subscription is deleted.
-
-```
-DELETE /subscriptions/:id
-```
-
----

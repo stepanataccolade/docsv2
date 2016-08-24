@@ -7,13 +7,13 @@ Given below is the mapping of a build's statusCode to the build states displayed
 
 |statusCode      | Definition | State|   Icon  |
 |---------------|--------------------|------------|---------|
-|0|waiting | Incomplete | ![add_icon](/navigating_ui/images/ci_build_icon_waiting.png)|
-|20|processing | Incomplete |![add_icon](/navigating_ui/images/ci_build_icon_processing.png)|
-|30|success |Complete |![add_icon](/navigating_ui/images/ci_build_icon_success.png)|
-|50|unstable |Complete |![add_icon](/navigating_ui/images/ci_build_icon_unstable.png)|
-|60|timeout |Complete |![add_icon](/navigating_ui/images/ci_build_icon_timeout.png)|
-|70|canceled |Complete |![add_icon](/navigating_ui/images/ci_build_icon_cancelled.png)|
-|80|failed |Complete |![add_icon](/navigating_ui/images/ci_build_icon_failed.png)|
+|0|waiting | Incomplete | ![add_icon](../navigatingUI/images/builds/buildWaiting.png)|
+|20|processing | Incomplete |![add_icon](../navigatingUI/images/builds/buildProcessing.png)|
+|30|success |Complete |![add_icon](../navigatingUI/images/builds/buildSuccess.png)|
+|50|unstable |Complete |![add_icon](../navigatingUI/images/builds/buildUnstable.png)|
+|60|timeout |Complete |![add_icon](../navigatingUI/images/builds/buildTimeout.png)|
+|70|canceled |Complete |![add_icon](../navigatingUI/images/builds/buildCancelled.png)|
+|80|failed |Complete |![add_icon](../navigatingUI/images/builds/buildFailed.png)|
 
 
 Here is more information on [build states](/navigatingUI/builds/overview/#build-status).
