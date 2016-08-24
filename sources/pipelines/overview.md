@@ -2,14 +2,14 @@ page_title: Unified Pipelines Overview
 page_description: Overview of Shippable Pipelines
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-<br>
-# Shippable Unified Pipelines Overview
 
-Unified pipelines provide the quickest and easiest way to achieve Continuous Delivery. 
+# Shippable Continuous Deployment Pipelines 
 
-Our platform helps you innovate faster by accelerating your software release lifecycle. We achieve this by giving you a continuous deployment platform that helps you:
+Shippable's continuous deployment pipelines provide an integrated platform, built from the ground up, to defragment and streamline the process of shipping applications. 
 
-####Improve productivity
+Using our platform, software powered organizations can accelerate innovation by shrinking their software release lifecycle. We achieve this by giving you a continuous deployment platform that helps you:
+
+**Improve productivity**
 
 Most deployment pipelines today need to be cobbled together with tools that solve part of the end to end requirement. These pipelines are mostly homegrown and DevOps engineers spend a lot of time writing thousands of lines of imperative code to create them. As a result, companies either automate only part of their deployment workflow or bite the bullet and spend the time required to build these pipelines. Both choices are suboptimal and slow down your release cycles.    
  
@@ -17,7 +17,7 @@ Shippable gives you an **end to end declarative platform** that will get your de
 
 **Always use the best tools for the job**
 
-Our pipelines are heterogeneous, i.e. they support all tools and services that you might want to use for your deployment workflows. Want to switch from HipChat to Slack? Configure it in less than 5 minutes. Want to deploy to a different cloud endpoint? Also configured in less than 5 mins! 
+Our pipelines are heterogeneous, i.e. they natively integrate with all tools and services that you might want to use for your deployment workflows. Want to switch from HipChat to Slack? Configure it in less than 5 minutes. Want to deploy to a different cloud endpoint? Also configured in less than 5 mins! 
 
 **Ship cloud native and traditional applications in a unified pipeline**
 
@@ -27,82 +27,44 @@ Cloud native is the new buzzword, but if you're like most organizations, a bulk 
 
 Our pipelines give you an end to end visual representation of your deployment workflow, with the ability to zoom in and out of any part of it. You can view version history, logs, and also upgrade and rollback in no time.
 
+To get started, read our [Getting Started Guide](gettingStarted/).
 
-<br>
-## What is it made of?
-Unified Pipelines consist of three fundamental building blocks that can be strung together.
+---
 
-- [Resources](resources/overview/) are the basic components of your pipeline. These are They can
-include managed integrations to external components or services, custom
-integrations to internal assets, as well as reusable building blocks, such as
-runtime parameters to be used across environments. For example, git
-repositories, docker registries, artifact repositories, s3 buckets, deployment
-endpoints like Heroku, ECS clusters, etc., are all resources.
-- [Jobs](jobs/overview/) are actions that connect the resources together.  They represent
-a set of pre-defined operations or custom actions that can be performed on your
-resources. For example, deploying to an ECS cluster, running CI on a commit to a
-git repo, building a docker image, etc., are all jobs.
-- [Triggers](triggers.md) are special resources used to trigger jobs manually.
-Often, your pipelines will be triggered automatically via events received from
-connected resources, such as webhooks from GitHub or Bitbucket. Triggers, though,
-provide the ability to trigger jobs at any stage of your pipeline via the repo,
-such as manually deploying to an ECS cluster.
+## Why do I need Continuous Deployment?
 
-With these, Shippable gives you a declarative approach to quickly and easily
-create a complete continuous delivery story so that you can avoid spending time
-building it from scratch. Via this approach, you can manage both your software
-delivery and infrastructure provisioning, managing configuration and
-deployments into both traditional and cloud native architectures, whether IaaS,
-PaaS, or CaaS.
+Today, most organizations find it challenging to innovate fast enough to satisfy consumers. DevOps is a set of principles that tries to solve this problem. One of these principles is automation of your software delivery pipelines, also called Continuous Deployment.
 
-<br>
-## Why do I need it?
-As seen in the picture below, Continuous Integration is just a starting point for achieving Continuous Delivery.
+The picture below shows a high level maturity model for Continuous Deployment. As shown below, Continuous Integration is just a starting point for achieving Continuous Delivery/Deployment.
 
-<img src="../images/appDeliveryPipelines.png" alt="Shippable Continuous Integration and Delivery" style="width:1200px;"/>
+<img src="../images/cdMaturityModel.png" alt="Shippable Continuous Integration and Delivery" style="width:800px;"/>
 
-To achieve true end to end Continuous Delivery, the next step is to push your tested code as an immutable deploy artifact. This can be a container image or a JAR file that is stored in a
-repository (Docker registry, JFrog etc.).
+Most organizations today are at L1 or L2 of this maturity model. 
 
-From here, you can deploy these artifacts to an environment and even chain many environments to create a dev, test and production workflow.
+Organizations that have achieved L3 or L4 have put in significant time and resources in order to get there, mostly through struggling with cobbling together a bunch of fragmented tools and writing thousands of lines of custom scripts to create their continuous deployment pipelines. Once created, these custom, homegrown pipelines are rigid, inflexible and hard to maintain. Regardless of the effort, several successful companies like Facebook, Netflix, Amazon have invested in building these pipelines. 
 
-You can override runtime environment variables as you move from one environment to another. Versioned application releases can be created at any stage to combine one or many deployable artifacts.
+However, not every organization has the luxury of having entire in-house teams to manage this process. Not just that, this do-it-yourself approach is a distraction and takes valuable cycles away from product engineering  
 
-<br>
+**Shippable helps you mature from L1 to L4 at your own pace, without needing to build homegrown pipelines.** Our pipelines are configured in a human readable, declarative language, making it very easy to create and update your release workflows. We offer the only integrated platform that address Continuous Integration (CI) and Application Release Automation (ARA) for a complete end to end solution. 
+
+To get started, read our [Getting Started Guide](gettingStarted/).
+
+---
+
 ## Sample use case
-Consider a simple 2 tier Dockerized application on github
 
-- ui  : `yourOrg/www`
-- api : `yourOrg/api`
+Let us consider the end to end deployment for one service. The code for your service is in a repository called gitRepo. 
 
-Your deployment flows through 3 environments, 2 running on GKE and 1 on AWS
+<img src="../images/codeToProdPipelines.png" alt="Shippable Continuous Integration and Delivery" style="width:1200px;"/>
 
-<img src="../images/pipelineRequirement.png" alt="Single Pane of Glass" style="width:640px;"/>
+* Every time your code changes, it triggers CI. This job is represented by `ci`.
+* Upon a successful CI run, a versioned docker image for your service is built and pushed to a Docker registry. This is represented by the `image` resource.
+* The updated image automatically triggers a deployment to your Test environment. This is represented by the `deploy-Test` job. You can set up Shippable to trigger your functional tests each time this environment is updated. 
+* Each time the Test environment is updated, your Test team is also notified through a Slack channel.
+* Once the automated (and manual if required) tests have passed, you can create a new release and bump up the version number. Ops team is notified about the new release creation through a Slack channel. This is done by the `release` job.
+* The new release is deployed to Beta. This is represented by the `deploy-Beta` job.
+* You can run stress tests and any other sanity checks in the Beta environment. If needed, you can also insert another `release` job between Beta and Production deploy jobs.
+* **Release day**! You trigger a manual deploy to production! This is represented bu the `deploy-Prod` job.
 
- - test (GKE): every version is deployed to this environment
- - beta (ECS): pre-production environment where only release versions are deployed
- - prod (ECS): is where all customers are interacting with your environment
 
-Your workflow is this
 
-- `www` and `api` are CI enabled and are auto run if code change is committed
-- upon successful CI run, versioned docker images are built and pushed to docker hub
-- **test** environment is updated every time a new version is available on
-docker hub
-- on every deployment to **test** environment, an automated functional tests
-run is performed and if it passes and test team is notified through a slack channel
-- a successful automation run triggers new release creation and ops team is
-notified through a slack channel
-- ops will manually update the **beta** environment and this deployment triggers
-a automation tests on **beta**
-- on successful testing, the release is updated to release candidate `rc` and
-ops is notified through the slack channel
-- Additional tests, both manual and automated, can be performed on **beta** and
-each successful test pas will create a new `rc`. This process continues several
-times until one day, everything planned for your next `prod` update has been
-tested and approved in **beta**. The current `rc` version is *pegged* to prod
-- Release day! You simply push the *pegged*  version to your **prod** environment
-
-Here is a [how to tutorial]() to achieve this workflow using Shippable Unified
-Pipelines. When finished your pipeline will look like this
-<TODO: Update image>

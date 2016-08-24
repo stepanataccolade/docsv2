@@ -115,6 +115,12 @@ As shown above, the `switch: off` tag can be defined for IN resources or jobs in
 
 ---
 
+## Pausing jobs
+
+You can pause any jobs in your pipeline by going to the `Jobs` pill in the `Pipelines` tab. Click on the `Pause` button for a job to pause it. Paused jobs are never triggered automatically, irrespective of yml configuration. You can unpause a paused job to resume any automatic triggers.
+
+---
+
 ## Pinning specific resource versions
 By default, Shippable uses information from the most recent or latest version of an `IN` input when running a job. However, you might want to 'pin' a specific version of an input for some reason. 
 
