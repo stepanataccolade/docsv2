@@ -89,6 +89,14 @@ Each time your pull request is updated, we will kick off a new build and update 
 
 After you accept the pull request, Shippable will run one more build for the merged repo and will send email notifications for the merged repo.
 
+A few things to note here:
+
+- The YML is always picked from the destination(base) branch.
+- If the pull request comes from a private fork of the project and the subscription key is not added as a deploy key for the fork, the pull request build will fail at the `git_sync` CI step. This is due to the way Bitbucket handles permissions on private forks. To fix this:
+     - Copy the subscription deploy key from Shippable Subscription > Settings > Deployment Keys
+     - Next, add it as a deploy key for the private fork: Bitbucket Project Settings > Deploy Key > Add.
+
+
 ###Terminology
 Subscription->Organization
 

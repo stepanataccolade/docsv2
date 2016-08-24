@@ -4,7 +4,12 @@ page_keywords: source control management system, continuous integration, continu
 
 
 # Bitbucket
-In order to integrate with your Bitbucket account, we automatically set up an Account integration when you log in using your Bitbucket credentials. You do not have to do anything to set this up further.
+
+Bitbucket integration is enabled for your Shippable account in one of 2 ways:
+
+* You sign in to Shippable with your Bitbucket credentials. In this case, we automatically set up an Account Integration for you. You can see this integration by going to your Account Settings (gear menu in top navbar) and clicking on `Integrations` in the sidebar menu.
+ 
+* You sign in to Shippable with another supported source control provider, and add a Bitbucket integrations through Account Settings -> Integrations. To learn how to do this, read the [Adding a Bitbucket integration section](#addBitbucket). 
 
 ---
 
@@ -17,57 +22,59 @@ To enable Bitbucket for public and private repositories:
 - Click on `Authorize application` button to authorize Shippable to access your public and private  repositories on Bitbucket (This is a one-time step). Provide your Bitbucket password, if prompted.
 - Your subscription is ready to use aftet this step. 
 - You can click on the top left menu icon to see a list of your Subscriptions. Choose the subscription you want.  
-- In the 'CI' tab, click the 'Enable Project' section to view all your public and private repositories in Bitbucket. Proceed to [enabling a project](/navigatingUI/subscriptions/ci/#enable-project).
+- In the 'CI' tab, click the 'Enable Project' section to view all your public and private repositories in Bitbucket. Proceed to [enabling a project](../../navigatingUI/subscriptions/ci/#enable-project).
 - If you don't see your projects in the above step, click on the Account settings (gear icon on the top navigation bar). In the 'Accounts' section click the `Sync` button.
 - No additional step required for private repositories as the above step provides access to both public and private repositories hosted on Bitbucket.
 
 ---
 
-##Pull Requests
-Shippable also integrates with Bitbucket to build pull requests.
+<a name="addBitbucket"></a>
+##Adding a Bitbucket integration
 
-<img src="/ci/images/integrations/scm/bitbucket/prStatus.png" alt="Bitbucket PR Status" style="width:700px;"/>
+If you did not sign in to Shippable with Bitbucket credentials but want to connect to your Bitbucket account for CI or Pipelines, you should add an account integration for Bitbucket.
 
-The pull request build can be enabled or disabled by editing the webhook in Bitbucket.
-To enable it:
+This is achieved in 3 steps:
 
-- Go to Bitbucket Project Settings > Webhooks > Edit > Choose from a full list of triggers.
-- Check Pull Request Created and Updated.
-- To disable, uncheck the two options.
+##### Add an account integration
 
-<img src="/ci/images/integrations/scm/bitbucket/webhookTriggers.png" alt="Bitbucket Webhook Triggers" style="width:300px;">
+* Go to your **Account Settings** by clicking on the gear menu in the top navbar.
+* Click on **Integrations** in the sidebar menu.
+* Click on **Add Integration**.
+* Enter the following:
+	* In the **Master Integration** dropdown, choose **Bitbucket** 
+	* Add a friendly name for your integration
+	* Create a **Bitbucket API token** with the right settings and paste it in the **Token** textbox 
+* Click on **Save**. You should now see the integration in your list of integrations.
 
-A few things to note here:
 
-- The YML is always picked from the destination(base) branch.
-- If the pull request comes from a private fork of the project and the subscription key is not added as a deploy key for the fork, the pull request build will fail at the `git_sync` CI step. This is due to the way Bitbucket handles permissions on private forks. To fix this:
-     - Copy the subscription deploy key from Shippable Subscription > Settings > Deployment Keys
-     - Next, add it as a deploy key for the private fork: Bitbucket Project Settings > Deploy Key > Add.
+#####Set up CI for your repositories 
+If you don't want to use your integration to enable repositories for CI, skip this section and go to the next. 
 
----
+* In your Account Settings, click on `Sync`.
+* Go to your Home dashboard. Click on the Subscription dropdown on the top left of your screen.
+* You should see your Organizations from Bitbucket in your list of subscriptions.
+* Click on any Bitbucket organization and you should be able to enable projects for [CI](../../ci/overview/).
 
-##Linking GitHub and Bitbucket Accounts
-You can use Shippable to run builds on both GitHub and Bitbucket repositories, by connecting both your accounts on Shippable.
+#####Use your integration in your Pipeline configuration 
 
-This helps in a consolidated view of all projects across both these source control systems.
+* Go to your Subscription's Settings tab. This should be the Subscription where you want to set up your pipelines.
+* Click on **Integrations** in the sidebar menu.
+* Click on **Add Integration**.
+* Name your Bitbucket integration with a friendly name. This can be the same name as the one in your account integration.
+* From the dropdown, choose the account integration you just created in the step above.
+* Click on **Save**.
 
-To connect both these accounts, do the following:
+The integration is now added to your subscription. You can now use this account integration while configuring your Pipeline workflows. In your configurations, **you should use the friendly name for the integration from Subscription Settings**.
 
-- Sign into [Shippable](http://www.shippable.com) with either GitHub or Bitbucket account. Pick the account that you want as your primary account.
-- Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Accounts' section.
-- Under 'Git Identities', you'll see an option to enable GitHub, if you've signed in using Bitbucket and vice-versa.
-- Click the `Enable` button under GitHub (or Bitbucket, if you've signed in using GitHub).
-- Follow the authorization flow for GitHub (or Bitbucket). Provide your GitHub (or Bitbucket) credentials when prompted.
+For example, if the integration is called `bitbucket-foo` in your subscription settings, you can use it in `shippable.resources.yml` as follows:
 
-Once both your accounts are linked, you should see a consolidated list of orgs and projects in your account.
-
-Going forward, you can sign in to Shippable with either GitHub or Bitbucket credentials.
-
-**IMPORTANT**
-
-- To see the linked account repositories updated immediately, click on the `Sync` button in 'Account Settings'.
-- Prior to linking the accounts, if you have logged into Shippable using GitHub AND logged in using Bitbucket, you will be unable to link the accounts using the above method. To enable the linking of the accounts in such an instance, open [a support issue](https://github.com/Shippable/support/issues) with a request to delete one of the source control provider accounts within Shippable. Upon deletion, follow the above steps with the existing account to successfully link both the accounts.
-
-Read our blog - [How to link GitHub and Bitbucket accounts](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts).
-
+```
+- name: bitbucket-repository                  	#required
+  type: gitRepo                             	#required
+  integration: bitbucket-foo                  	#this is your Bitbucket integration name
+  pointer:
+    sourceName: org/repo                  		#required
+    branch: master                          	#optional
+```
+ 
 ---
