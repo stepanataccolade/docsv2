@@ -15,7 +15,7 @@ This can be done by following the steps below:
 2. Add the Event Trigger Integration to your Subscription
 3. Configure the Event Trigger Integration in the `shippable.yml` file for your project
 
-##1. Adding the Account Integration
+## Adding an Account Integration
 
 You can add the integration for a Project or for a Generic Webhook. The steps to do so are:
 
@@ -50,7 +50,7 @@ The integration will now be available to all your Continuous Integration and Pip
 
 ---
 
-##2. Add the Event Trigger Integration to your Subscription:
+##Add the integration to your Subscription:
 
 1. Ensure you have logged in to [Shippable](https://app.shippable.com).
 2. Select your Subscription from the dropdown burger bar menu on the top left.
@@ -68,8 +68,9 @@ The integration will now be available to all your Continuous Integration and Pip
 
 ---
 
-##3. Configure the Event Trigger Integration in the `shippable.yml` file for your project
+##Configure the Integration 
 
+You will need the following format to add the integration to your shippable.yml:
 
 ```
 integrations:
@@ -112,7 +113,7 @@ Check out our blogs  on practical examples of [Triggering a custom webhook after
 
 ---
 
-##Deleting the Event Trigger Integration from a project
+##Deleting integration from a project
 
 To remove an Event Trigger integration from a project, remove the following section from the `shippable.yml` file:
 
@@ -141,7 +142,7 @@ The integration is now deleted for the project.
 
 ---
 
-##Deleting the Event Trigger integration from your Subscription
+##Deleting integration from your Subscription
 
 1. Ensure you have logged in to [Shippable](https://app.shippable.com).
 2. Select your Subscription from the dropdown burger bar menu on the top left.
@@ -155,7 +156,7 @@ The integration is now deleted for all your Continuous Integration and Pipelines
 
 ---
 
-##Deleting the Event Trigger Account Integration
+##Deleting Account Integration
 
 To remove the Event Trigger Account integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
 

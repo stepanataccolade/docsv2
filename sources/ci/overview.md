@@ -4,25 +4,30 @@ Shippable's Continuous Integration feature helps you automate unit testing, pack
 
 Continuous Integration is an essential first part of a continuous delivery workflow and helps software teams ensure that their changes are built and tested with the latest version of the entire codebase. As a result, most bugs are found almost immediately after the code change is committed, leading to better quality since each bug can be easily isolated to a specific code change and fixed promptly.   
 
-The following picture gives you more context of where CI fits in the end to end application delivery workflow. 
-
-<img src="../images/appDeliveryPipelines.png"
-alt="Application Delivery Pipelines" style="width:1200px;"/>
-
-
 For more on Continuous Integration and why you should include it as part of your workflow, read Martin Fowler's article on the [Benefits of Continuous Integration](http://martinfowler.com/articles/continuousIntegration.html#BenefitsOfContinuousIntegration)
 
 ---
-##CI workflow 
-The picture below shows a very basic CI workflow. Shippable received an incoming webhook from your source control and spins up a build machine. A Shippable agent comes up on the build machine and starts the build container, inside which your CI commands are executed. At the end of the build process, you can push to any endpoint. This endpoint can be an artifact repository like Artifactory or Docker Hub, or can be a PaaS/IaaS/Container Service endpoint.
+##Signing in to Shippable
+
+You do not need to explicitly create an account on the Hosted version of Shippable to start using it. You can sign in using your GitHub or Bitbucket credentials. We use OAuth authentication so you will need to authorize Shippable the first time you sign in. We sync all organizations from your source control, so if you click on the <i class="fa fa-bars" aria-hidden="true"></i> menu at the top left of your screen, you will see a list of your organizations (aka subscriptions on Shippable). You can then click into any organization to [enable projects](../navigatingUI/ci/subscriptions/ci/).
 
 
-<img src="../images/ciWorkflow.png"
-alt="Continuous Integration workflow" style="width:1000px;"/>
+---
+##CI workflow
+
+The picture below shows a very basic CI workflow. Shippable receives an incoming webhook from your source control and spins up a build machine. A Shippable agent comes up on the build machine and starts the build container, inside which your CI commands are executed. At the end of the build process, you can push to any endpoint. This endpoint can be an artifact repository like Artifactory or Docker Hub, or can be a PaaS/IaaS/Container Service endpoint.
+
+<img src="../images/ciWorkflow.png" alt="Continuous Integration workflow" style="width:1000px;"/>
 
 Your CI workflow stops after deployment to an endpoint. If you want to define your end to end application delivery pipelines, check out our [Unified Pipelines section](../pipelines/overview/).
 
-###Triggers
+---
+
+##Configuration
+Your CI workflow is configured with a yml based file called **shippable.yml** which should be committed to the root of the repository you want to build. This is mandatory for all enabled projects and tells us what the build should do. For the yml structure and how to configure it, check out our [Build Configuration page](shippableyml/).
+
+---
+##CI Triggers
 
 When a repository is enabled on Shippable, we enable webhooks on that repository and start listening to commit and pull request events.
 
@@ -35,11 +40,11 @@ Shippable automatically builds and tests your repositories when the following tr
 
 You can also initiate manual builds through the UI, by clicking on the Build button for any project or branch, irrespective of a webhook event.
 
-###Configuration
-You need to create a configuration file called **shippable.yml** and commit it to the root of the repository you want to build. This is mandatory for all enabled projects and tells us what the build should do. For the yml structure and how to configure it, check out the [Build Configuration page](shippableyml.md).
+To learn how to switch some of these triggers off, read about the configuration in [Subscription settings](../navigatingUI/subscriptions/settings/).
 
+---
 
-###Build flow
+##Build flow
 
 When a build is triggered, it is executed in the sequence below -
 
@@ -56,7 +61,7 @@ When a build is triggered, it is executed in the sequence below -
 
 ---
 
-##Enabling private repositories
+##Enabling GitHub private repositories
 
 To enable GitHub integration for public repositories:  
 
@@ -73,31 +78,20 @@ To enable GitHub integration for public repositories:
 <img src="/ci/images/integrations/scm/github/enablePvtRepoMv.gif" alt="Enable access to GitHub Private Repositories" style="width:700px;"/>
 
 ---  
-##Build triggers
 
-Shippable integrates with GitHub to build your pull requests and show status inline on your GitHub page for the PR.
+##Terminology
 
-Whenever a pull request is opened for a project that is enabled on Shippable, we will run a build for the respective pull request and send you a build status notification.
+###Account
 
-You can also see this status on your GitHub page as shown below:
+You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to emcompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services.
 
-<img src="/ci/images/integrations/scm/github/prStatus.png" alt="GitHub PR Status" style="width:700px;"/>
+###Subscription
+A subscription on Shippable corresponds to an organization or personal account in your source control provider. So if you sign in to Shippable with GitHub credentials and your username is abcfoo and you're a member of orgs org1foo and org2foo, you will have 3 subscriptions on Shippable.
 
-You can then merge the PR confidently if the build passes, or fix any issues that cause a failed build.
+Billing is handled per subscription.
 
-Each time your pull request is updated, we will kick off a new build and update status.
+###Projects
+A project on Shippable corresponds to a repository on your source control provider. As with subscriptions, project permissions are also synced with your source control provider.
 
-After you accept the pull request, Shippable will run one more build for the merged repo and will send email notifications for the merged repo.
-
-A few things to note here:
-
-- The YML is always picked from the destination(base) branch.
-- If the pull request comes from a private fork of the project and the subscription key is not added as a deploy key for the fork, the pull request build will fail at the `git_sync` CI step. This is due to the way Bitbucket handles permissions on private forks. To fix this:
-     - Copy the subscription deploy key from Shippable Subscription > Settings > Deployment Keys
-     - Next, add it as a deploy key for the private fork: Bitbucket Project Settings > Deploy Key > Add.
-
-
-###Terminology
-Subscription->Organization
-
-
+###Minions
+Minions are the build machines that are spun up to run your builds on Shippable Hosted. They are also called build machines or build containers at some places in the documentation.

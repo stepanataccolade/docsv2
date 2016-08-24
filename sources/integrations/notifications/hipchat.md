@@ -3,49 +3,53 @@ page_description: Configure HipChat to send out notifications for Continuous Int
 page_keywords: Integration, Integrate, Slack, Notify, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, email, HipChat, IRC
 
 #HipChat
-Notifications can be sent for build status updates, monitoring your Docker image updates, and deployment updates.
 
-To send these notifications to HipChat room(s) and user(s), you'll need to take both steps outlined below:
+You can send HipChat notifications for any status changes for CI and monitored Docker images.
 
-1. Set up HipChat integration on Shippable through UI
-2. Configure HipChat notification options in the `shippable.yml` file
+To send these notifications to HipChat channel(s), you will first need to add an integration to your Account Integrations.
 
-##1. Set up HipChat integration through UI
+
+---
+<a name="addHipchatToAccount"></a>
+##Adding a HipChat integration
 
 There are two actions to set up the HipChat integration through the UI. They are:
 
-- Generate a token for API access
-- Add the HipChat integration to your subscription
+- Configure an incoming webhook on Slack
+- Add the Slack integration to your subscription
 
-###Generate a token for API access
+#####Generate a token for API access
 
 1. Sign in to your HipChat account using [this link to generate a token](https://www.hipchat.com/account/api).
      - Provide credentials to your HipChat account, if prompted.
 2. Create a token with `Send Message` and `Send Notification` scopes.
 
-###Add the HipChat integration to your subscription
-1. Ensure you have logged in to [Shippable](https://app.shippable.com).
-2. Select your Subscription from the dropdown burger bar menu on the top left.
-3. Click the 'Settings' tab and go to the 'Integrations' section.
-4. Click the `Add Integration` button.
-5. In the 'Account Integrations' dropdown list review if you have a HipChat account integration already created. If you have, select it and go to Step 12.
-6. If you do not find an existing HipChat account integration, then select '+Add Integration' option.
-7. In the 'Master Integration' dropdown, select 'HipChat'.
-8. Provide an easy-to-remember name for the HipChat integration, such as 'hipchat-account', in the 'Integration Name' field.
-9. In the 'Token' field, paste the token from HipChat's UI from Step 2 in the above section.
-10. Click the `Save` button.
-11. Provide an easy-to-remember name for the HipChat integration for your Subscription, such as 'hipchat-integration', in the 'Name' field.
-**IMPORTANT:** The 'Name' you have entered in this step should be used in your `shippable.yml` file. Both names should be exactly the same. If not the build will fail with an error.
-12. From the 'Account Integrations' dropdown select the HipChat account integration created.
-13. Click the `Save` button.
-14. The HipChat integration will show up in the list of integrations for your subscription.
-
-<img src="/ci/images/integrations/notifications/hipchat/addIntMv.gif" alt="Add HipChat Integration on Shippable" style="width:700px;"/>
-
+#####Add the HipChat integration to your Account
+* Go to your **Account Settings** by clicking on the gear menu in the top navbar.
+* Click on **Integrations** in the sidebar menu.
+* Click on **Add Integration**.
+* Enter the following:
+	* In the **Master Integration** dropdown, choose **HipChat**  
+	* Add a friendly name for your integration
+	* In the **Token** field, paste the HipChat token
+* Click on **Save**. You should now see the integration in your list of integrations.
+		 	
 ---
 
-##2. Configure HipChat notification options in the `shippable.yml`
-To enable HipChat notification for your project, add the following to the `shippable.yml` file for that project.
+##CI notifications 
+
+To use your HipChat integration for your CI workflows, follow the steps below:
+
+* First, add the [HipChat integration to your Account](#addHipchatToAccount)
+* Go to your Subscription's Settings tab. This should be the Subscription containing the project you want to send HipChat notifications for.
+* Click on **Integrations** in the sidebar menu.
+* Click on **Add Integration**.
+* Name your HipChat integration with a friendly name. This can be the same name as the one in your account integration.
+* From the dropdown, choose the account integration you just created in the step above.
+* Click on **Save**.
+
+To enable HipChat notifications for your project, use the following format in the `shippable.yml` file for that project:
+
 ```
 integrations:
   notifications:
@@ -83,7 +87,12 @@ Check our blog [on configuring HipChat for both CI and Pipelines](http://blog.sh
 
 ---
 
-##Configuring HipChat notifications to monitor Docker Images
+##Pipeline notifications 
+HipChat notifications for Pipeline jobs are not supported at this time. To request these, open a <a href="https://github.com/Shippable/support/issues/" target="_blank">support issue</a> and we'll get back to you.
+
+---
+
+##Docker Image monitoring notifications
 
 You can add a HipChat account integration to receive notifications for monitored Docker images. To do this:
 
@@ -91,7 +100,7 @@ You can add a HipChat account integration to receive notifications for monitored
 2. Go to 'Account Settings' and click the 'Images' section.
 3. Select the 'Image' you want to configure the HipChat notifications.
 4. Under the 'Notifications' section, use the dropdown for the 'Channel' field and select `hipchat`.
-5. From the 'hipchat Integrations' dropdown select the hipchat integration created from your 'Account Settings'.
+5. From the 'HipChat Integrations' dropdown select the HipChat integration created from your 'Account Settings'.
      - If there is no HipChat integration, click `Create Integration` and create a HipChat Account Integration. Follow [these steps](#Set-up-HipChat-integration-in-Account-Settings), if you need help.
 6. In the 'Recipients' field, add the room and/or users. For example: "#roomOne" and/or "@userOne"
 7. Click the `Add Item` button.
@@ -101,11 +110,11 @@ You can add a HipChat account integration to receive notifications for monitored
 <img src="/ci/images/integrations/notifications/hipchat/monitorImages.png" alt="Configure to be notified through HipChat while monitoring a Docker image" style="width:700px;"/>
 
 ---
-##Deleting the HipChat Integration
+##Deleting the Integration
 
-To remove the HipChat integration, you'll need to remove this integration from all dependencies configured to use it.
+To remove a HipChat integration, you'll need to remove this integration from all dependencies configured to use it.
 
-###Deleting HipChat integration from a Project
+###Deleting from a Project
 To remove the HipChat integration from a project, simply remove the section shown below from the `shippable.yml` for that project.
 
 ```
@@ -125,7 +134,7 @@ integrations:
       on_failure: always
 ```
 
-###Deleting HipChat integration from a Subscription
+###Deleting from a Subscription
 To delete a HipChat integration from a subscription, the steps are:
 
 1. Ensure you have logged in to [Shippable](https://app.shippable.com).
@@ -136,7 +145,7 @@ To delete a HipChat integration from a subscription, the steps are:
 
 <img src="/ci/images/integrations/notifications/hipchat/deleteInt.png" alt="Delete the HipChat integration from your Subscription" style="width:700px;"/>
 
-###Deleting HipChat Account Integration
+###Deleting Account Integration
 To delete the HipChat Account integration, all the dependencies, such as Subscriptions, using the HipChat account must be deleted first.
 
 Do note that this action is irreversible.
