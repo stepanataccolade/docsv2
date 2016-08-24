@@ -13,7 +13,7 @@ resources:
     type: dockerOptions                      #required
     version:
     
-      memory: <integer>      	               	#optional, in MB
+      memory: <integer>      	               	#optional, in MiB
     
       cpuShares: <number>                 		#optional 
     
@@ -95,7 +95,7 @@ For a table showing the mapping of each setting to a setting in your Container S
 ```
    memory: <number>
 ```
-`memory` is the amount of memory allocated to the container. It is set in megabytes and is an integer. It defaults to 400mb if not specified. 
+`memory` is the amount of memory in mebibytes allocated to the container. It is set in megabytes and is an integer. It defaults to 400MiB if not specified. 
 
 
 ```
