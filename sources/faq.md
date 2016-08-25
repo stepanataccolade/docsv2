@@ -234,6 +234,19 @@ We will watch for updates and as soon as `php7-dev` is available, the next image
 
 ---
 
+###How do pull request builds work?
+The usual workflow for a pull request is:
+
+* Developer commits to his branch/fork: This will trigger a build on Shippable if the branch/fork is enabled for CI
+* Developer opens a pull request with the changes. This will trigger a pull request build if the branch that is being merged to is enabled on Shippable. We will execute your CI workflow on temporarily merged code and let you know if everything works as expected. A couple of things to know about pull request builds:
+  - The YML is always picked from the destination(base) branch.
+  - If the pull request comes from a private fork of the project and the subscription key is not added as a deploy key for the fork, the pull request build will fail at the `git_sync` CI step. This is due to the way Bitbucket handles permissions on private forks. To fix this:
+     - Copy the subscription deploy key from Shippable Subscription > Settings > Deployment Keys
+     - Next, add it as a deploy key for the private fork: Bitbucket Project Settings > Deploy Key > Add.
+* The pull request is merged. This will trigger a build if the destination (base) branch is enabled on Shippable.
+
+---
+
 ### How do I specify a region while setting up Amazon EC2 Container Registry (ECR) Integration?
 When you set up the [Amazon ECR integration](/ci/integrations/imageRegistries/ecr/), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
 
@@ -275,7 +288,7 @@ build:
 
 ### Can I run unit tests in multiple languages in the same repository?
 
-Yes, you can run unit tests in multiple languages in the same repo. Let's look at an example of running Javascript and Python unit tests in the same build on Shippable. 
+Yes, you can run unit tests in multiple languages in the same repo. Let's look at an example of running Javascript and Python unit tests in the same build on Shippable.
 
 The easiest way to do this would be to specify `node_js` as your language in the `shippable.yml` file, since python already comes installed on our node images by default. Your `shippable.yml` should look like this:
 
@@ -297,7 +310,7 @@ build:
     - pip install -r requirements.txt
     # now run your tests
 ```
-    
+
 
 This `yml` configuration should cover a lot of scenarios. If you want a more tailor-made set-up, you can always create a custom image, install what you want in that image, and then use that for your build. Feel free to use our [drydock images](https://github.com/dry-dock) as a starting place; these are our build images. For more info on how to use custom images with a build, check out our [docs](ci_configure/#pulling-your-ci-image-from-a-docker-registry).
 

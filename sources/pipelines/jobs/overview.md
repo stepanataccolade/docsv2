@@ -163,6 +163,7 @@ The job console looks like this:
 <img src="../../images/jobs/jobConsole.png" alt="Connecting jobs into a pipeline" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 ---
+<a name="jobNotifications"></a>
 ## Sending job status notifications
 
 You can send notifications about job status by adding the `on_start`, `on_success`, or `on_failure` tags to any job of any type. 

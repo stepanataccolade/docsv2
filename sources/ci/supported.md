@@ -116,6 +116,7 @@ We support a multitude of languages, tools, services, as well as all popular sou
 - [Google Container Engine (GKE)](/ci/integrations/containerServices/gke/)
 - [Docker Cloud](/ci/integrations/containerServices/dockerCloud/)
 - [Docker Datacenter](/ci/integrations/containerServices/dockerDatacenter/)
+- [Joyent Triton](/ci/integrations/containerServices/joyentTriton/)
 - Microsoft Azure (coming soon)
 
 ---
@@ -131,9 +132,5 @@ We support a multitude of languages, tools, services, as well as all popular sou
 - [AWS Opsworks](/tutorials/usingOpsWorks/)
 - [Heroku](/tutorials/usingHeroku/)
 - Red Hat Openshift (coming soon)
-
----
-
-## Other third party services
 
 ---

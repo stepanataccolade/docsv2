@@ -4,9 +4,23 @@ page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deplo
 
 # What is Shippable?
 
-Shippable was founded so that software development teams could accelerate their release cycles by automating the build, test and deployment of applications. Our Continuous Delivery pipeline takes your code from source control to production, without the need for configuration management/IT automation tools or infrastructure code.
+Shippable was founded so that software powered organizations could accelerate innovation. We enable this by providing an integrated platform, built from the ground up, to defragment and streamline the process of shipping applications. Using Shippable, you can automate your software delivery from source control to production, without needing to write complex, imperative code.
 
-We integrate with the tools and technologies you use today and will need tomorrow, like GitHub, Bitbucket, GitLab, Bitbucket Server and on-prem repositories, offer seamless deployment to private clouds as well as leading cloud providers including Amazon and Google, and support all application architectures from enterprise grade multi-tier to containerized micro services.
+Today, most organizations find it challenging to innovate fast enough to satisfy consumers. DevOps is a set of principles that tries to solve this problem. One of these principles is automation of your software delivery pipelines, also called Continuous Deployment.
+
+The picture below shows a high level maturity model for Continuous Deployment.
+
+<img src="pipelines/images/cdMaturityModel.png" alt="Shippable Continuous Integration and Delivery" style="width:800px;"/>
+
+Most organizations today are at L1 or L2 of this maturity model, i.e. they have a CI server that runs unit tests and packaging for every code commit. Some have the capability to deploy to one endpoint as part of their CI. However, this does not address the flow of that service or application through various test environments and ultimately to production.
+
+Organizations that have achieved L3 or L4 have put in significant time and resources in order to get there, mostly through struggling with cobbling together a bunch of fragmented tools and writing thousands of lines of custom scripts to create their continuous deployment pipelines. Once created, these custom, homegrown pipelines are rigid, inflexible and hard to maintain. Regardless of the effort, several successful companies like Facebook, Netflix, Amazon have invested in building these pipelines.
+
+However, not every organization has the luxury of having entire in-house teams to manage this process. Not just that, this do-it-yourself approach is a distraction and takes valuable cycles away from product engineering  
+
+**Shippable helps you mature from L1 to L4 at your own pace, without needing to build homegrown pipelines.** Our pipelines are configured in a human readable, declarative language, making it very easy to create and update your release workflows. We offer the only integrated platform that address Continuous Integration (CI) and Application Release Automation (ARA) for a complete end to end solution.
+
+We integrate with the tools and technologies you use today and will need tomorrow, across source control providers, artifact repositories, notification providers, and cloud endpoints. Our platform supports enterprise grade multi-tier applications (e.g. Java applications), as well as modern applications with containerized microservices.
 
 If you believe that your team should focus on product innovation instead of building complex deployment pipelines, you should sign up for Shippable today.
 
@@ -14,11 +28,7 @@ The Shippable platform consists of 2 parts:
 
 **Continuous Integration (CI)**, which enables teams to build and test their repositories for every code commit or pull request and get instant feedback.
 
-**Continuous delivery pipelines** which automate the flow of your application from source control to production. Using these deployment pipelines, you can easily deploy containerized applications to Container Services like Amazon's ECS and Google Container Engine.
-
-Shippable integrates with all popular tools and services, such as build/test tools,  source control providers, docker registries, cloud providers, and container services.
-
-<img src="/images/pipelineBasicFlow.png" alt="End to End Pipeline" style="width:700px;"/>
+**Continuous deployment pipelines** which automate the flow of your application from source control to production. Using these deployment pipelines, you can easily deploy containerized applications to Container Services like Amazon's ECS, Google Container Engine (GKE), Joyent Triton, and Microsoft Azure Container Service (ACS).
 
 ---
 
@@ -41,18 +51,9 @@ Go to [the Continuous Integration section](/ci/overview/) to learn more.
 
 ## Continuous Delivery pipelines
 
-Our powerful deployment pipelines give software development teams the ability to automate the flow of their Docker based applications from CI to a versioned deployment unit which can then be easily and automatically deployed to Container Services like Amazon's ECS or Google Container Engine. Your application components are versioned and individual deployment units, which we call Cells, can be upgraded or rolled back with a single click. We also support auto-deploying to test environments, which means your functional tests can be automated to run on every code commit.
+Our powerful deployment pipelines give software development teams the ability to automate the flow of their Docker based applications from CI to a versioned deployment unit called manifest which can then be easily and automatically deployed to Container Services like Amazon's ECS or Google Container Engine.
 
-Most importantly, our deployment pipelines give you the ability to be cloud agnostic. You can move your applications across Container Services in a few minutes!
-
-You should use Shippable to set up your Continuous Delivery pipelines if you fit the following profile -
-
-* Your application is Dockerized and you run Docker in test environments and Production, or
-* You do not use Docker in production, but run (or are open to running) your Test and/or Production environments on a Container Service, or
-* You are not using Docker in production but are interested in containerizing your Test environments.  
-* You run (or want to run) functional tests for every code commit
-
-Go to [the Unified Pipelines section](/pipelines/overview/) to learn more.
+Go to [the Continuous Deployment section](/pipelines/overview/) to learn more.
 
 ---
 

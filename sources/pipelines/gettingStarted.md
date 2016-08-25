@@ -8,12 +8,13 @@ This page will give you enough information to get started with your deployment p
 
 You can also see pipelines in action by following our tutorial on [deploying a sample application](../tutorials/pipelines/samplePipeline/),
 
+---
 
 ##Pipeline building blocks
 
 [**Resources**](resources/overview/) are the versioned building blocks of your pipelines. They are inputs for and sometimes outputs from the executable units of your pipeline, aka [Jobs](jobs/overview/). Examples of resources include source code repositories, docker images, container clusters, environment variables, etc.
 
-[**Jobs**](jobs/overview/) are the executable units of your pipelines. They take one or more [resources](resources/overview/) as inputs, perform some operation on the inputs, and can output to other resources. Jobs can also act as inputs for other jobs, which serves to daisy-chain a series of jobs into a pipeline.
+[**Jobs**](jobs/overview/) are the executable units of your pipelines. They take one or more [resources](resources/overview/) as inputs, perform some operation on the inputs, and can output to other resources. Jobs can also act as inputs for other jobs, which serve to daisy-chain a series of jobs into a pipeline.
 
 [**Triggers**](triggers/) are used to manually trigger a workflow by running a job that takes the trigger as an input. Manually triggering a job is also available through the SPOG UI, though a `trigger` defined in a versioned yml file in your source control includes all of the versioning and history that comes with repo-managed files.
 
@@ -27,7 +28,7 @@ Your deployment pipelines are defined through three yml-based configuration file
 
 **shippable.resources.yml** is a required file and contains definitions of the [Resources](resources/overview/) in your pipeline.
 
-**shippable.triggers.yml** is an optional file and contains definitions of manual [Triggers](triggers/) for jobs in your pipeline. This file is needed only if you want to manually trigger jobs through commits to your source control repository. Alternatively, you can skip this config and choose to manually trigger jobs through the SPOG view, if desired.
+**shippable.triggers.yml** is an optional file and contains definitions of manual [Triggers](triggers/) for jobs in your pipeline. This file is needed only if you want to manually trigger jobs through commits to your source control repository. Alternatively, you can skip this config and choose to manually trigger jobs through the SPOG view if required.
 
 These configuration files should be committed to a [repository in your source control](#sync). If you have separate deployment pipelines for different environments or applications, you can put config files for each environment or application in separate repositories.
 
@@ -43,6 +44,8 @@ Your pipeline must be 'seeded' with at least one sync repository by specifying i
 You may have entire pipeline configurations maintained in one repository or split up the configuration of different sections of your pipeline in multiple sync repositories. This decision depends on your organizational preferences, as well as [security and permissions requirements](#permissions). For example, you may have pipeline configuration for source control through your first test environment in one repo, configuration for subsequent test environments in another repo, and configuration for your production environment in yet another repo. In this way, you can manage who can configure and execute different areas of your pipeline based on the permissions set on each repo.
 
 ---
+
+<a name="seedPipeline"></a>
 
 ##Seeding your pipeline
 

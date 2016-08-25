@@ -5,12 +5,16 @@ page_keywords: Integration, Integrate, Slack, Notify, microservices, Continuous 
 #Email
 By default, we send email notifications to the last committer and project owner when a build fails, or the status changes from failed to passed.
 
-We get the email address from your source control management system (GitHub/Bitbucket).
+We get your email address from your source control management system (GitHub/Bitbucket).
 
-To customize the email notifications, you'll need to configure options in the `shippable.yml` file. There is no setting up of email integration through the UI.
+To customize email notifications, you'll need to configure options in the `shippable.yml` file. 
 
-##Configure email notification options in the `shippable.yml`
-To configure email notifications for your project, add the following to the `shippable.yml` file for that project.
+##CI notifications 
+
+Follow instructions below to configure email notifications for your CI workflows. This is configured in `shippable.yml`.
+
+The yml format looks like this:
+
 ```
 integrations:
   notifications:
@@ -27,7 +31,7 @@ integrations:
       on_failure: always
 ```
 
-While the above is a sample code for your `shippable.yml`, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
+Use the descriptions of each field below to modify the `yml` above and tailor it to your requirements.
 
 - `integrationName` value is always `email` since it is not configured in the UI - 'Account Settings' and 'Subscription' settings.
 - `type` is `email`.
@@ -46,6 +50,23 @@ While the above is a sample code for your `shippable.yml`, use the descriptions 
      - By default, `on_start` is set to `never` and `on_pull_request` is set to `always` when these tags have not been specified in the `shippable.yml` file.
 
 Check our blog ["Notifying CI failure/success status on Email and Slack"](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack) for multiple scenarios.
+
+###Turn off email notifications
+If you do not want to get notified for any reason, you can turn off email notifications with the following in your `shippable.yml`:
+
+```
+notifications:
+  - integrationName: email
+    type: email
+    on_success: never
+    on_failure: never
+    on_pull_request: never
+```
+---
+
+## Pipeline notifications
+
+Pipeline notifications are sent by defining the [notification resource](../../pipelines/resources/notification/) in your `shippable.resources.yml` and then using it in your `shippable.jobs.yml`. More on this is explained in our [Jobs documentation](../../pipelines/jobs/overview/#jobNotifications). 
 
 ---
 
@@ -66,15 +87,3 @@ You can add an Email account integration to receive notifications for monitored 
 
 ---
 
-##Turn off email notification
-If you do not want to get notified for any reason, you can turn off email notifications with the following in your `shippable.yml`:
-
-```
-notifications:
-  - integrationName: email
-    type: email
-    on_success: never
-    on_failure: never
-    on_pull_request: never
-```
----
