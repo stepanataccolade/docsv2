@@ -15,13 +15,13 @@ resources:
     integration: <string>                   	 #required
     pointer:
       sourceName: "org/repo"                    #required
-    seed:	
+    seed:
       versionName: "<string>"                	 #required
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
+* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
 
-* `type` is always set to image
+* `type` is always set to 'image'.
 
 * `integration` should be the name of the integration that connects to the Docker Registry provider where the image is located. To learn how to create integrations for a specific Docker Registry, please select from the list below and read the **Adding an integration** section on that page:
 
@@ -36,5 +36,4 @@ resources:
 * `pointer` section provides information about the image.
 	* `sourceName` is the fully qualified name of the image. This is dependent on the registry where the image is located. For Docker Hub, this can be <repo name>/<image name>, e.g. manishas/demoImage
 
-* `versionName` is usually set to image tag. The seed versionName sets initial tag for the image. 
-
+* `versionName` is usually set to image tag. The seed versionName sets initial tag for the image.
