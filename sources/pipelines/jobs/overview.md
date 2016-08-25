@@ -82,17 +82,17 @@ For a detailed explanation of the yml for each job type, visit the page for that
 
 ## Triggering jobs
 
-Jobs can be triggered in many ways. For example, consider the configuration below for Job-3:
+Jobs can be triggered in multiple ways, including both automated and manual triggers. For example, consider the configuration below for Job-3:
 
 <img src="../../images/jobs/jobTrigger.png" alt="Connecting jobs into a pipeline" style="width:600px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 
-By default, Job-s will be automatically triggered in one of 4 ways:
+In this configuration, Job-3 will be triggered in one of 4 ways:
 
 1. Job-1, which is an `IN` for Job-3 finishes running and triggers Job-3. This trigger can be [switched off](#switchOff) if needed.
 - Job-2 changes resource-2, which is an `IN` for Job-3 , and hence triggers Job-3. This trigger can be [switched off](#switchOff) if needed.
 - User commits to the [trigger resource](../triggers/), which is an `IN` for Job-3 , and hence triggers Job-3.
-- User right clicks on Job-3 in the SPOG UI and clicks on `Run`
+- User right clicks on Job-3 in the SPOG UI and clicks on `Run` or selects `Run` for Job-3 in the Jobs list on the Jobs tab.
 
 **Please note that changing resource-1 or resource-2 manually through a yml commit will not automatically trigger Job-3.** This behavior is meant to prevent unexpected pipeline behavior, since a single commit can contains changes to several resources and cause several trigger points in the pipeline. If you want your job to be triggered when resources are manually edited in the yml, you can add a `trigger` input for the job and include a change to the trigger resource in the commit every time you want to automaticallly run your job.
 
@@ -111,7 +111,7 @@ jobs:
         switch: off
 ```
 
-As shown above, the `switch: off` tag can be defined for IN resources or jobs in order to turn off automatic triggering of a job when the inputs change.
+As shown above, the `switch: off` tag can be defined for IN resources or jobs in order to turn off automatic triggering of a job when the inputs change. Note that these switches are specific to the input and should be set accordingly for each input.
 
 ---
 
