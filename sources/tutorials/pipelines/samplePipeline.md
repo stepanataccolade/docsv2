@@ -10,7 +10,6 @@ This tutorial walks you through how to configure a demo pipeline using Shippable
 
 * <a href="https://github.com/shippableSamples/samplePipelinesDemo" target="_blank">samplePipelinesDemo</a> repository contains code for the demo
 * <a href="https://github.com/shippableSamples/samplePipelinesTest" target="_blank">samplePipelinesTest</a> contains the configuration for deploying dv to a Test cluster on ECS
-* <a href="https://github.com/shippableSamples/samplePipelinesProd" target="_blank">samplePipelinesProd</a> contains the configuration for deploying dv to a Prod cluster on ECS
 
 ###Create necessary  integrations
 
