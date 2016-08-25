@@ -1,47 +1,21 @@
-<nav class="navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <!-- Logo and toggle grouped together for better display on mobile size -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-contents">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="https://app.shippable.com"><img alt="brand" src="/static/ash/images/shippable-logo-white.png"></a>
-        </div>
-
-        <!-- Nav content to be toggled -->
-        <div class="collapse navbar-collapse" id="navbar-contents">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCT <i class="fa fa-chevron-down"></i></a>
-              <ul class="dropdown-menu">
-                <li><a href="http://www.shippable.com/product.html">overview</a></li>
-                <li role="presentation" class="divider"></li>
-                <li><a href="http://www.shippable.com/integrations.html">integrations</a></li>
-              </ul>
-            </li>
-            <li><a href="http://www.shippable.com/pricing.html">PRICING</a></li>
-            <li><a href="http://docs.shippable.com">DOCS</a></li>
-            <li><a href="http://blog.shippable.com">BLOG</a></li>
-            <li><a href="http://www.shippable.com/company.html">COMPANY</a></li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">LOGIN <i class="fa fa-chevron-down"></i></a>
-              <ul class="dropdown-menu">
-                <li><a href="https://app.shippable.com/auth/github"><i class="fa fa-github fa-lg"></i> github</a></li>
-                <li role="presentation" class="divider"></li>
-                <li><a href="https://app.shippable.com/auth/bitbucket"><i class="fa fa-bitbucket fa-lg"></i> bitbucket</a></li>
-              </ul>
-            </li>
-          </ul>
-          <div id="search">
-            <form action="search.html">
-              <input name="q" id="mkdocs-search-query" type="text" placeholder="Search docs">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+<nav class="docs-nav grid">
+  <a href="https://app.shippable.com" class="navbar-header col-md-4 vcenter grid">
+    <img class="navbar-mascot col-md-3 col-no-pad vcenter grid" src="https://app.shippable.com/mktg/images/yoga-aye-aye.svg"><!--
+    --><img class="navbar-brand col-md-9 col-no-pad vcenter" src="https://app.shippable.com/mktg/images/shippable-logo-white.svg">
+  </a><!--
+  --><div id="search" class="col-md-4 vcenter">
+      <form action="search.html">
+        <input name="q" id="mkdocs-search-query" type="text" placeholder="Search docs">
+      </form>
+    </div><!--
+  --><div class="col-md-4 col-no-pad vcenter">
+    <ul class="nav navbar-nav navbar-right grid">
+      <li><a href="https://app.shippable.com/product.html">PRODUCT</a></li>
+      <li><a href="https://app.shippable.com/company.html">ABOUT</a></li>
+      <li><a href="http://docs.shippable.com">RESOURCE</a></li>
+      <li><a href="https://app.shippable.com/pricing.html">PRICING</a></li>
+      <li><a href="http://blog.shippable.com/">BLOG</a></li>
+      <li><a href="https://app.shippable.com/login.html" class="hilight">START</a></li>
+    </ul>
   </div>
 </nav>

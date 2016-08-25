@@ -1,0 +1,230 @@
+body {
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  font-size: 15px;
+}
+h1 {
+  font-size: 2.5em;
+  color: #58595b;
+  font-weight: 400;
+}
+h2 {
+  font-size: 2em;
+  color: #9f390c;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5em;
+  color: #88300a;
+  font-weight: 400;
+}
+h4 {
+  font-size: 1.25em;
+  color: #58595b;
+  font-weight: 400;
+}
+h5 {
+  font-size: 1.1em;
+  color: #9f390c;
+  font-weight: 400;
+}
+p {
+  font-size: 1em;
+  color: #58595b;
+}
+code {
+  background-color: #f3f3f4;
+  color: #58595b;
+  border: 1px solid #58595b;
+  font-size: 0.8em;
+}
+pre code {
+  font-size:0.9em;
+}
+
+a {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #009999;
+}
+a:hover, a:focus, a:active {
+  color: #49B7E2;
+}
+
+.container-override {
+  max-width: none;
+}
+/*div {
+  border: 1px solid #ff0000;
+}
+.grid {
+  border: 1px solid #ff0000;
+}*/
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+.col-no-pad {
+  padding: 0px;
+}
+.align-self-parent {
+  display: flex;
+  justify-content: center;
+}
+.align-self {
+  align-self: center;
+}
+
+
+/*** Top Nav Bar ***/
+.docs-nav {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#003535+3,009999+100 */
+  background: #003535;*/ /* Old browsers */
+  background: -webkit-linear-gradient(top,  #003535 3%,#009999 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #003535 3%,#009999 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  height: 5em;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003535', endColorstr='#009999',GradientType=0 ); /* IE6-9 */
+  border: 1px solid #58595b;
+  width: 100%;
+}
+.navbar-mascot {
+  max-height: 3em;
+  max-width: 4em;
+}
+.navbar-brand {
+  font-size: 14px;
+  max-height: 3em;
+  max-width: 15em;
+  padding: 0em;
+}
+.docs-nav input {
+  width: 40em;
+  display: block;
+  margin: auto;
+}
+.docs-nav ul > li > a {
+  line-height: calc(5em - 2px);;
+  padding: 0em 1em;
+  color: #ffffff;
+}
+.docs-nav ul > li > a:hover {
+  color: #ffffff;
+  background-color: #009999;
+}
+.docs-nav ul > li > a.hilight {
+  color: #000000;
+  background-color: #eee;
+}
+.docs-nav ul > li > a.hilight:hover {
+  color: #ffffff;
+  background-color: #003535;
+}
+
+/* Main Body of Page */
+.main-body {
+  background: #ffffff;
+}
+
+/*.main-body h1, .main-body h2, .main-body h3, .main-body h4 {
+  color: #003535;
+}*/
+
+/* Accordion tocbar */
+.cd-accordion-menu ul {
+    /* by default hide all sub menus */
+    display: none;
+}
+.cd-accordion-menu ul.active {
+    display: block;
+}
+.side-nav h4 {
+  color: #58595b;
+  margin: 0em;
+  padding: 1em;
+  font-size: 1em;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.side-nav i {
+  color: #58595b;
+  float: right;
+}
+.side-nav li {
+  margin-left: .5em;
+}
+.side-nav h4:hover, .side-nav h4:active, .side-nav h4:focus {
+  background-color: #eeeeee;
+}
+.side-nav li li a {
+  color: #58595b;
+  padding-left: 1.5em;
+  border-left: 2px solid rgba(188, 181, 185, 0.3);
+}
+.side-nav #side-nav li li h4 {
+  border-left: 2px solid rgba(188, 181, 185, 0.3);
+}
+.side-nav a.currentPage {
+  border-left: 2px solid #009999;
+  color: #009999;
+}
+.side-nav.right-nav h4.nav-title {
+  background-color: #009999;
+  color: #ffffff;
+}
+.side-nav.right-nav ul {
+  background-color: #f3f3f4;
+}
+.side-nav.right-nav li li a {
+  color: #009999;
+}
+
+/*** Footer ***/
+.footer {
+  background: #009999;
+  color: #ffffff;
+  padding-top: 1em;
+}
+.footer-top {
+  height: 2.5em;
+}
+.footer-top img {
+  height: 2.5em;
+}
+.footer .navbar-nav > li > a {
+  padding: 0em 1em;
+}
+.footer a {
+  color: #ffffff;
+}
+.footer a:hover {
+  color: #000000;
+}
+.footer-top img {
+  padding-left: 1em;
+}
+.footer-container .row-number-2 {
+  display: none;
+}
+.footer .hs_followme > div {
+  padding: 0px !important;
+}
+.copyright p {
+  margin: 0px;
+  text-align: center;
+  color: #ffffff;
+}
+.social-media {
+  text-align: right;
+}
+
+/*** Hide Google script ***/
+body > iframe {
+  position: fixed;
+}
