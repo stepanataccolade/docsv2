@@ -5,7 +5,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # syncRepo
 The `syncRepo` resource is at the heart of your deployment pipelines. This resource is a pointer to the source control repository containing the files that define your pipelines:  `shippable.resources.yml` and `shippable.jobs.yml`.
 
-When you add a `syncRepo`, Shippable will read the jobs and resources ymls and create your pipeline. We also add a webhook on the source repository that notifies Shippable each time anything in the repository is changed. This webhook notification will automatically sync any changes you make to the jobs and resources ymls and reflect them in your pipeline. 
+When you add a `syncRepo`, Shippable will read the jobs and resources ymls and create your pipeline. We also add a webhook on the source repository that notifies Shippable each time anything in the repository is changed. This webhook notification will automatically sync any changes you make to the jobs and resources ymls and reflect them in your pipeline.
 
 **You need to add at least one syncRepo resource from the Shippable UI.** Additional syncRepo resources can be added through the UI or by specifying them in the shippable.resources.yml file in the first syncRepo that was added.
 
@@ -15,7 +15,7 @@ This is the only resource type that can be added from the UI. You should not add
 
 * Go to your Subscription's page and click on `Pipelines`
 * Click on the `Resources` pill and then click on `Add resource` at the right
-* You will first need to select a subscription integration. This should point to the source control system where the repository containing your pipeline definitions is located. To learn how to create subcription integrations for source control, read the [SCM section of integrations overview page](../../integrations/overview.md#scm). 
+* You will first need to select a subscription integration. This should point to the source control system where the repository containing your pipeline definitions is located. To learn how to create subcription integrations for source control, read the [SCM section of integrations overview page](../../integrations/overview.md#scm).
 * Once you add the integration, you will see a list of repositories in your subscription.
 * Select the repository and branch that contains your shippable.jobs.yml and shippable.resources.yml files
 * Name your sync repository and click on `Save`. This should seed your pipeline.
@@ -35,11 +35,11 @@ resources:
       branch: <string>                          #optional, default master
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
- 
-* `type` is always set to syncRepo.
+* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
 
-* `integration` should be the name of the integration that connects to the Source Control provider where the repository is located. To learn how to create integrations for a specific Source Control Provider, please select from the list below and read the **Adding an integration** section on that page: 
+* `type` is always set to 'syncRepo'.
+
+* `integration` should be the name of the integration that connects to the Source Control provider where the repository is located. To learn how to create integrations for a specific Source Control Provider, please select from the list below and read the **Adding an integration** section on that page:
 
 	- [GitHub](../../integrations/scm/github/)
 	- [Bitbucket](../../integrations/scm/bitbucket/)
@@ -51,6 +51,3 @@ resources:
 * `pointer` section provides information about the repository and branch where the configuration files are located.
 	* `sourceName` is the fully qualified name of the repository in the format **org/repo**
 	* `branch` specifies the branch. If not specified, it defaults to `master`.
-	
-
-

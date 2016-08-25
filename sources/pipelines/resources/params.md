@@ -4,7 +4,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # params
 
-A `params` resource type is used to add a list of environment parameters that are 
+A `params` resource type is used to add a list of environment parameters that are
 appended to an application or microservice. This resource is used as an input to [manifest jobs](../jobs/manifest/) or [deploy jobs](../jobs/deploy/).
 
 You can create this resource by adding it to `shippable.resources.yml`
@@ -19,9 +19,9 @@ resources:
         secure: <encrypted value>  			#optional
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.
+* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
 
-* `type` is always set to params
+* `type` is always set to 'params'.
 
 * The version -> params section includes the key value pairs that are set as environment variables when the application or service starts in the target environment.
 	* Include at least one key value pair under params
@@ -29,7 +29,7 @@ resources:
 
 A new version of this resource is created everytime aanything in the version section changes.  
 
-	
+
 ##Overriding params
 `params` can also be used to override settings that were set in an upstream stage of the pipeline.
 
@@ -38,4 +38,3 @@ For example, if you want to use different environment parameters (say database s
 <img src="../../images/resources/overrideparams.png" alt="Overriding docker options" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 In the picture above, `deploy-test` takes `params-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `params-2` as an input. For this production deployment, we will use a superset of settings from `params-1` and `params-2`, with values for any common settings being chosen from `params-2`.
-
