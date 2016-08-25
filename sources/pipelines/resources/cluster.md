@@ -22,14 +22,14 @@ resources:
 
 * `type` is always set to 'cluster'.
 
-* `integration` should be the name of the integration that contains your credentials to connect to the Container Service of your choice. To learn how to create integrations for a specific Container Service, please select from the list below:
+* `integration` should be the name of the Subscription Integration you create for you subscription that leverages the credentials you set up in Account Integrations to connect to the Container Service of your choice. To learn how to create integrations for a specific Container Service, please select from the list below:
 	* [AWS Elastic Container Service (ECS)](../../integrations/containerServices/ecs/)
 	* [Google Container Engine (GKE)](../../integrations/containerServices/gke/)
 	* [Joyent Triton](../../integrations/containerServices/triton/)
 	* [Microsoft Azure Container Service](../../integrations/containerServices/azure/)
 	* [Docker Cloud](../../integrations/containerServices/dcl/)
 
-* `sourcename` is the name of the cluster on the Container Service that is represented by this resource. Specify this value in double quotes.
+* `sourceName` is the name of the cluster on the Container Service that is represented by this resource. Specify this value in double quotes.
 
 * `region` is the region where the cluster resides, e.g. "us-east-1". Specify this value in double quotes. This is required for the following types of integrations and will take
 in the values that the provider supports

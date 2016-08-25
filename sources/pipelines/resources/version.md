@@ -20,4 +20,4 @@ resources:
 
 * `type` is always set to 'version'.
 
-* `versionName` is an string integer that represents a semantic version that is used as a starting point. This will get incremented in the IN operations of [jobs](#jobs). You can also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats.
+* `versionName` is a string that represents a semantic version that is used as a starting point. This will get incremented in the IN operations of [jobs](#jobs). You can also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats.

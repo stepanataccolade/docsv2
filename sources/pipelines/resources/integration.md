@@ -22,4 +22,4 @@ resources:
 
 * `type` is always set to 'integration'.
 
-* `integration` should be the name of the integration that connects to the third party platform or service you want to connect to. For a complete list of supported third party integrations, visit our [Integrations overview page](../../integrations/overview/), click on a specific integration, and read the **Adding the Account Integration** section.
+* `integration` should be the name of the integration that connects to the third party platform or service you want to connect to. For a complete list of supported third party integrations, visit our [Integrations overview page](../../integrations/overview/), click on a specific integration, and read the **Adding an Integration** section.
