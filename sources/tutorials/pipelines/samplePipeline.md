@@ -18,7 +18,7 @@ You will need the following integrations:
 * GitHub integration: Follow instructions on the [GitHub integration page](../../integrations/scm/github/) for the sections:
     * **Adding an Account Integration**
     * **Use your integration in your Pipeline configuration**
-* Docker Hub integration: Follow instructions at on the [Docker Hub integration page](../../integrations/imageregistries/dockerHub/) for the sections:
+* Docker Hub integration: Follow instructions at on the [Docker Hub integration page](../../integrations/imageRegistries/dockerHub/) for the sections:
     * **Adding an Account Integration**
     * **Adding integration to your subscription**
 * An integration for the Container Service where your cluster is located. This example uses Amazon ECS. You can add an Amazon ECS integration by [following instructions here](../../integrations/containerServices/ecs/)
