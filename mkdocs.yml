@@ -49,68 +49,70 @@ pages:
     - Including/Excluding branches: ci/advancedOptions/branches.md
     - Matrix builds: ci/advancedOptions/matrixBuilds.md
     - Caching: ci/advancedOptions/caching.md
+    - Artifacts: ci/advancedOptions/artifacts.md
     - Using git submodules: ci/advancedOptions/gitSubmodules.md
     - Shippable_retry: ci/advancedOptions/retry.md
+    - Skipping builds: ci/advancedOptions/skipBuild.md
     - Running builds on your own machines (BYON): ci/advancedOptions/byon.md
-    - Images: ci/advancedOptions/images.md
+    - Test and Coverage Reports: ci/advancedOptions/testCoverage.md
     - Timeouts: ci/advancedOptions/timeouts.md
-    - Node Machine Images: ci/advancedOptions/machineImages.md  
+    - Node Machine Images: ci/advancedOptions/machineImages.md
   - Permissions: ci/permissions.md
   - Troubleshooting CI: ci/troubleshoot.md
 - Continuous Deployment Pipelines:
   - Overview: pipelines/overview.md
   - Getting Started: pipelines/gettingStarted.md
-  - Resources: 
+  - Resources:
     - Overview: pipelines/resources/overview.md
     - cluster: pipelines/resources/cluster.md
     - dockerOptions: pipelines/resources/dockerOptions.md
     - gitRepo: pipelines/resources/gitRepo.md
     - image: pipelines/resources/image.md
-    - integration: pipelines/resources/integration.md    
+    - integration: pipelines/resources/integration.md
     - notification: pipelines/resources/notification.md
     - params: pipelines/resources/params.md
     - replicas: pipelines/resources/replicas.md
     - syncRepo: pipelines/resources/syncRepo.md
-    - version: pipelines/resources/version.md                                
-  - Jobs: 
+    - version: pipelines/resources/version.md
+  - Jobs:
     - Overview: pipelines/jobs/overview.md
     - manifest: pipelines/jobs/manifest.md
     - deploy: pipelines/jobs/deploy.md
     - release: pipelines/jobs/release.md
     - runSh: pipelines/jobs/runSh.md
   - Triggers: pipelines/triggers.md
-- Integrations: 
+- Integrations:
   - Overview: integrations/overview.md
-  - Source Control Systems: 
+  - Source Control Systems:
     - Overview: integrations/scm/scmOverview.md
     - GitHub: integrations/scm/github.md
     - GitHub Enterprise: integrations/scm/githubEnterprise.md
     - Bitbucket: integrations/scm/bitbucket.md
     - Bitbucket Server: integrations/scm/bitbucketServer.md
     - GitLab: integrations/scm/gitlab.md
-  - Notifications: 
+  - Notifications:
     - Slack: integrations/notifications/slack.md
     - Email: integrations/notifications/email.md
     - HipChat: integrations/notifications/hipchat.md
     - IRC: integrations/notifications/irc.md
     - Webhooks: integrations/notifications/webhooks.md
-  - Image Registries: 
+  - Image Registries:
     - Docker Hub: integrations/imageRegistries/dockerHub.md
     - Docker Trusted Registry: integrations/imageRegistries/dockerTrustedRegistry.md
     - Amazon EC2 Container Registry (ECR): integrations/imageRegistries/ecr.md
     - Google Container Registry (GCR): integrations/imageRegistries/gcr.md
     - Quay.io: integrations/imageRegistries/quay.md
     - Any Private Registry: integrations/imageRegistries/privateRegistry.md
-  - Container Services: 
+  - Container Services:
     - Amazon EC2 Container Service (ECS): integrations/containerServices/ecs.md
     - Google Container Engine (GKE): integrations/containerServices/gke.md
     - Docker Cloud: integrations/containerServices/dockerCloud.md
     - Docker Datacenter: integrations/containerServices/dockerDatacenter.md
-  - Deploy: 
+  - Deploy:
     - AWS Elastic Beanstalk: integrations/deploy/eb.md
   - Keys:
     - SSH: integrations/keys/ssh.md
-    - PEM:  integrations/keys/pem.md  
+    - PEM:  integrations/keys/pem.md
 - Navigating the UI:
   - Home: navigatingUI/home.md
   - Account:
@@ -137,27 +139,27 @@ pages:
   - Job routes: api/job.md
   - Run routes: api/run.md
   - Status Code Mapping: api/statusMapping.md
-- Tutorials: 
-  - CI Tutorials: 
+- Tutorials:
+  - CI Tutorials:
     - Run a sample CI build: tutorials/ci/runSampleCIBuild.md
     - Monitor your Docker Images for updates: tutorials/ci/howToMonitorDockerImages.md
-    - Integrations tutorials: 
-      - Source Control Systems Tutorials: 
+    - Integrations tutorials:
+      - Source Control Systems Tutorials:
         - Linking GitHub and Bitbucket accounts on Shippable: tutorials/ci/integrations/scm/linkGitHubAndBitbucket.md
         - Building Bitbucket Server repos: tutorials/ci/integrations/scm/usingBitbucketServer.md
         - Building GitLab repos: tutorials/ci/integrations/scm/usingGitLab.md
-      - Container Services Tutorials: 
+      - Container Services Tutorials:
         - Using Docker Datacenter: tutorials/ci/integrations/containerServices/usingDockerDatacenter.md
-      - Deploy Tutorials: 
+      - Deploy Tutorials:
         - Using Heroku: tutorials/ci/integrations/deploy/usingHeroku.md
         - Using OpsWorks: tutorials/ci/integrations/deploy/usingOpsWorks.md
         - Using Code Deploy: tutorials/ci/integrations/deploy/usingCodeDeploy.md
         - Using Digital Ocean: tutorials/ci/integrations/deploy/usingDigitalOcean.md
-  - Pipelines Tutorials:  
-    - Deploying a sample application: tutorials/pipelines/samplePipeline.md    
-    - manifest tutorials: 
+  - Pipelines Tutorials:
+    - Deploying a sample application: tutorials/pipelines/samplePipeline.md
+    - manifest tutorials:
       - Using combination manifests: tutorials/pipelines/usingCombinationManifests.md
-    - runSh tutorials: 
+    - runSh tutorials:
       - Using integrations with runSh: tutorials/pipelines/runShUseIntegrations.md
       - Updating resource version: tutorials/pipelines/updateResourceVersion.md
       - Extracting resource version information: tutorials/pipelines/extractVersionInformation.md

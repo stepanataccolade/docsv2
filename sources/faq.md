@@ -20,6 +20,16 @@ Check our blog on [upgrading your CI/CD subscription](http://blog.shippable.com/
 
 ---
 
+## My builds stopped working. How do I know if Shippable is down?
+
+You can get the current status of the Shippable UI and API by going to our [Service Status page](http://status.shippable.com). Our status page also shows the status of some of our third party integrations like Amazon EC2, Quay.io, Digital Ocean, as well the response time of our API.
+
+The service status page can be viewed from our product UI by going to the heart ekg icon in your top navbar.
+
+For additional details, check our blog on [Shippable status page](http://blog.shippable.com/features_amazon_ecr_regions_status_page_github_tags_and_more#status_page).
+
+---
+
 ### What does the term Minion mean in Shippable?
 Minions are Docker based containers that run your CI builds.
 

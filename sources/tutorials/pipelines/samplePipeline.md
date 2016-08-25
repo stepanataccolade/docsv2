@@ -8,7 +8,7 @@ This tutorial walks you through how to configure a demo pipeline using Shippable
 
 ###Fork the demo projects to your account
 
-* <a href="https://github.com/aye0aye/dv" target="_blank">dv</a> repository contains code for the demo
+* <a href="https://github.com/shippableSamples/samplePipelinesDemo" target="_blank">samplePipelinesDemo</a> repository contains code for the demo
 * <a href="https://github.com/shippableSamples/samplePipelinesTest" target="_blank">samplePipelinesTest</a> contains the configuration for deploying dv to a Test cluster on ECS
 * <a href="https://github.com/shippableSamples/samplePipelinesProd" target="_blank">samplePipelinesProd</a> contains the configuration for deploying dv to a Prod cluster on ECS
 
@@ -63,11 +63,25 @@ The jobs configured in shippable.jobs.yml are:
 ###Deploy to Test
 Right click on the **dv-man** job in the SPOG view and click on `Run`. This will run the manifest job which creates a new service manifest. The deploy job is set up to run after manifest finishes, so it will be automatically triggered.
 
+<img src="../../images/pipelines/samplePipelineTestDeploy.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
+
 ###Check out your deployed demo on ECS
 
-You can now go to your AWS management console and navigate to the deployed application. Clicking on it will take you to the running application.
+You can now go to your AWS management console and navigate to the deployed application by following the steps below:
 
-[Picture coming soon]
+* Go to your ECS cluster by navigating to EC2 Container Service and clicking on the cluster name
+* Click on the Service Name starting with dv. This will take you to the Tasks page
+* Click on the Task to navigate to the containers page.
+* Expand the container to view the IP address of your deployed application
+* Click on the IP address will open up a new browser tab and show you the running application.
 
+<img src="../../images/pipelines/demoApplication.png" alt="Shippable Continuous Integration and Delivery" style="width:800px;"/>
 
-[This sample deploy application will be enhanced with automatic CI trigger and a more complete deployment flow where the application can be manually deployed to production in a single click after the Test environment.] 
+###Adding a release
+[Coming soon]
+
+###Adding a production deployment
+[Coming soon]
+
+###Connecting CI to your pipeline
+[Coming soon]
