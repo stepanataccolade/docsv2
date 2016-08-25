@@ -18,7 +18,7 @@ resources:
       cpuShares: <number>                 		#optional
 
       portMappings:                         	#optional
-      - "80:80"
+        - "80:80"
 
       links:									#optional, containerName:alias
         - <container name>:<alias>

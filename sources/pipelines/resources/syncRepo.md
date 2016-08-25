@@ -39,7 +39,7 @@ resources:
 
 * `type` is always set to 'syncRepo'.
 
-* `integration` should be the name of the integration that connects to the Source Control provider where the repository is located. To learn how to create integrations for a specific Source Control Provider, please select from the list below and read the **Adding an integration** section on that page:
+* `integration` should be the name of the integration that connects to the Source Control provider where the repository is located. To learn how to create integrations for a specific Source Control Provider, please select from the list below and read the **Adding an Integration** section on that page:
 
 	- [GitHub](../../integrations/scm/github/)
 	- [Bitbucket](../../integrations/scm/bitbucket/)
