@@ -7,23 +7,23 @@ Jobs are the executable units of your pipelines. They take one or more [resource
 
 <img src="../../images/jobs/jobWorkflow.png" alt="Connecting jobs into a pipeline" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-Shippable supports 2 types of jobs: managed and unmanaged. 
+Shippable supports jobs in two ways - **managed** and **unmanaged**.
 
-**Managed jobs** are available to use as-is and do not need additional scripting to perform the intended operation, while still being flexible enough to be configured with a few lines of yml config. 
+**Managed jobs** are available to use as-is and do not need additional scripting to perform the intended operation. With a few parameters specified declaratively in a yml block, Shippable will perform a set of standard use case actions automatically.
 
-**Unmanaged jobs** are jobs you can customize to do pretty much anything you need by configuring the job with custom shell scripts. These jobs can take any supported resource as an input and can output to any resource depending on your configuration.
+**Unmanaged jobs** are available for you to provide you complete flexibility to do pretty much anything you need by configuring the job with custom shell scripts. These jobs can take any supported resource as an input and can output to any resource depending on your configuration.
 
 We currently support 4 types of jobs:
 
 - [manifest](manifest/): This managed job type is used for creating and versioning an application or service definition. Your service definition consists of one or more Docker images, options you want to run your containers with, and environment parameters.
 
 - [deploy](deploy/): This managed job type is used to for deploying your application or service to any supported Container Service, including Amazon Elastic Compute Service (ECS), Google Container Engine (GKE), Joyent Triton, Azure Container Service (ACS), Docker Cloud and Docker Data Center.
- 
-- [release](release/): This managed job type is used to perform release management. You can apply semantic versioning to your services or entire application at any stage of your pipeline. 
 
-- [runSh](runSh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts. 
+- [release](release/): This managed job type is used to perform release management. You can apply semantic versioning to your services or entire application at any stage of your pipeline.
 
-Jobs, [resources](../resources/overview/), and [triggers](../triggers/) together can be used to model any deployment pipeline, regardless of the complexity of your application. 
+- [runSh](runSh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
+
+Jobs, [resources](../resources/overview/), and [triggers](../triggers/) together can be used to model any deployment pipeline, regardless of the complexity of your application.
 
 
 ---
@@ -35,9 +35,9 @@ To learn how to add this file and connect it to pipelines, [click here](../../tu
 ---
 
 ## Deleting Jobs
-Since pipelines are all about dependencies and deployable units are flowing through these pipelines at all times, deleting a job can significantly alter or irreversibly change the pipeline in unexpected ways. To avoid accidental deletion of job(s) in ymls, we have made deletion of job a 2 step process. 
+Since pipelines are all about dependencies and deployable units are flowing through these pipelines at all times, deleting a job can significantly alter or irreversibly change the pipeline in unexpected ways. To avoid accidental deletion of job(s) in ymls, we have made deletion of job a 2 step process.
 
-First, you need to soft-delete a job by removing it from your `shippable.jobs.yml` file. This removes it from the pipeline, but does not remove it from the database. You can see a list of soft-deleted jobs at the bottom of the `Jobs` tab. If soft-deleted jobs are added back to the jobs yml, the system will undelete them and you will retain version history for the undeleted jobs. 
+First, you need to soft-delete a job by removing it from your `shippable.jobs.yml` file. This removes it from the pipeline, but does not remove it from the database. You can see a list of soft-deleted jobs at the bottom of the `Jobs` tab. If soft-deleted jobs are added back to the jobs yml, the system will undelete them and you will retain version history for the undeleted jobs.
 
 To completely remove a job from the system, you need to hard delete it through the UI. To do this:
 
@@ -49,22 +49,22 @@ A job must be soft deleted before it can be hard deleted.
 
 ---
 
-## Anatomy of a Job YML 
-Jobs are defined through the YML and they all follow a similar format irrespective of the type of job. 
+## Anatomy of a Job YML
+Jobs are defined through the YML and they all follow a similar format irrespective of the type of job.
 
 ```
 jobs:
   - name: <string>
     type: manifest | deploy | release | runSh
     steps:
-      - IN: <resource>	
+      - IN: <resource>
       - IN: <resource>							
-      
+
 ```
-This a very simple job which needs 2 INput resources to perform whatever that job is designed to do. 
+This a very simple job which needs 2 INput resources to perform whatever that job is designed to do.
 
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines `Resources` tab. 
+* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines `Resources` tab.
 
 * `type` is always set to type of job - manifest, deploy, release, or runSh.
 
@@ -75,7 +75,7 @@ This a very simple job which needs 2 INput resources to perform whatever that jo
 	* `OUT` is the name of the resource which is output from this job. Currently, only runSh jobs can have output resources.
 
 	* `TASK` is an operation that is executed as part of this job. For runSh jobs, these can be custom shell scripts. For other job types, specific configs are done through the TASK section.
-	
+
 For a detailed explanation of the yml for each job type, visit the page for that specific job.
 
 ---
@@ -94,7 +94,7 @@ By default, Job-s will be automatically triggered in one of 4 ways:
 - User commits to the [trigger resource](../triggers/), which is an `IN` for Job-3 , and hence triggers Job-3.
 - User right clicks on Job-3 in the SPOG UI and clicks on `Run`
 
-**Please note that changing resource-1 or resource-2 manually through a yml commit will not automatically trigger Job-3.** This behavior is meant to prevent unexpected pipeline behavior, since a single commit can contains changes to several resources and cause several trigger points in the pipeline. If you want your job to be triggered when resources are manually edited in the yml, you can add a `trigger` input for the job and include a change to the trigger resource in the commit every time you want to automaticallly run your job. 
+**Please note that changing resource-1 or resource-2 manually through a yml commit will not automatically trigger Job-3.** This behavior is meant to prevent unexpected pipeline behavior, since a single commit can contains changes to several resources and cause several trigger points in the pipeline. If you want your job to be triggered when resources are manually edited in the yml, you can add a `trigger` input for the job and include a change to the trigger resource in the commit every time you want to automaticallly run your job.
 
 <a name="switchOff"></a>
 ###Switching triggers off
@@ -111,7 +111,7 @@ jobs:
         switch: off
 ```
 
-As shown above, the `switch: off` tag can be defined for IN resources or jobs in order to turn off automatic triggering of a job when the inputs change. 
+As shown above, the `switch: off` tag can be defined for IN resources or jobs in order to turn off automatic triggering of a job when the inputs change.
 
 ---
 
@@ -122,9 +122,9 @@ You can pause any jobs in your pipeline by going to the `Jobs` pill in the `Pipe
 ---
 
 ## Pinning specific resource versions
-By default, Shippable uses information from the most recent or latest version of an `IN` input when running a job. However, you might want to 'pin' a specific version of an input for some reason. 
+By default, Shippable uses information from the most recent or latest version of an `IN` input when running a job. However, you might want to 'pin' a specific version of an input for some reason.
 
-You can pin a specific input version with the yml below: 
+You can pin a specific input version with the yml below:
 ```
 jobs:
   - name: job_name
@@ -142,7 +142,7 @@ You can use `versionName' to pin `gitRepo` and `image` resources. The versionNam
 * image: tag
 
 
-You can use `versionNumber`, Shippable's internal incremental numbering system, to pin the following resources: 
+You can use `versionNumber`, Shippable's internal incremental numbering system, to pin the following resources:
 
 * dockerOptions
 * params
@@ -152,7 +152,7 @@ You can use `versionNumber`, Shippable's internal incremental numbering system, 
 
 ##Viewing job console output
 
-Just like resources, Jobs are also versioned on Shippable. Every run of a job creates a new version of the job, including a unique build object which stores the console output of the Job run. 
+Just like resources, Jobs are also versioned on Shippable. Every run of a job creates a new version of the job, including a unique build object which stores the console output of the Job run.
 
 You can view console output for a job by clicking on it in the SPOG view or going to the `Jobs` pill in your Pipelines tab and clicking on the Job name.
 
@@ -166,7 +166,7 @@ The job console looks like this:
 <a name="jobNotifications"></a>
 ## Sending job status notifications
 
-You can send notifications about job status by adding the `on_start`, `on_success`, or `on_failure` tags to any job of any type. 
+You can send notifications about job status by adding the `on_start`, `on_success`, or `on_failure` tags to any job of any type.
 
 You will first need to define a [notification resource](resources/notification/) in your `shippable.resources.yml`.
 
