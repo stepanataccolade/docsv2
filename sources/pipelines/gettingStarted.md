@@ -8,20 +8,21 @@ This page will give you enough information to get started with your deployment p
 
 You can also see pipelines in action by following our tutorial on [deploying a sample application](../tutorials/pipelines/samplePipeline/),
 
+---
 
 ##Pipeline building blocks
 
-[**Resources**](resources/overview/) are the versioned building blocks of your pipelines. They are inputs for and sometimes outputs from the executable units of your pipeline, aka [Jobs](jobs/overview/). Examples of resources are
+[**Resources**](resources/overview/) are the versioned building blocks of your pipelines. They are inputs for and sometimes outputs from the executable units of your pipeline, aka [Jobs](jobs/overview/). Examples of resources include source code repositories, docker images, container clusters, environment variables, etc.
 
-[**Jobs**](jobs/overview/) are the executable units of your pipelines. They take one or more [resources](resources/overview/) as inputs, perform some operation on the inputs, and can output to other resources. Jobs can also act as inputs for other jobs, which serves to daisy-chain a series of jobs into a pipeline.
+[**Jobs**](jobs/overview/) are the executable units of your pipelines. They take one or more [resources](resources/overview/) as inputs, perform some operation on the inputs, and can output to other resources. Jobs can also act as inputs for other jobs, which serve to daisy-chain a series of jobs into a pipeline.
 
-[**Triggers**](triggers/) are used to manually trigger a workflow by running a job. Manual run for jobs is also available through the SPOG UI. However, triggers allow you to manually run jobs using a `trigger` defined in a versioned yml file in your source control.
+[**Triggers**](triggers/) are used to manually trigger a workflow by running a job that takes the trigger as an input. Manually triggering a job is also available through the SPOG UI, though a `trigger` defined in a versioned yml file in your source control includes all of the versioning and history that comes with repo-managed files.
 
 ---
 
 ##Configuration files
 
-Your deployment pipelines are defined through 3 yml based configuration files:
+Your deployment pipelines are defined through three yml-based configuration files:
 
 **shippable.jobs.yml** is a required file and contains definitions of the [Jobs](jobs/overview/) in your pipeline.
 
@@ -36,14 +37,16 @@ These configuration files should be committed to a [repository in your source co
 <a name="sync"></a>
 ##Sync repository
 
-The source control repository that contains your pipeline configuration files is called a **Sync Repository**. Each sync repository can have only have one each of `shippable.jobs.yml`, `shippable.resources.yml`, and `shippable.triggers.yml` files.
+A source control repository that contains your pipeline configuration files is called a **Sync Repository** and can only contain one each of the `shippable.jobs.yml`, `shippable.resources.yml`, and `shippable.triggers.yml` files.  
 
-Your sync repository seeds your pipelines into Shippable. At least one sync repository must be added through the Shippable UI. Subsequent sync repositories can be added through the resources yml in your original sync repository by using the [syncRepo resource](resources/syncRepo/).
+Your pipeline must be 'seeded' with at least one sync repository by specifying it through the Shippable UI. Subsequent sync repositories can either be also added through the UI or referencing them from a resource in your original sync repository by using the [syncRepo resource](resources/syncRepo/).
 
-You can use one or many sync repositories to define your pipelines. This decision depends on your organization preferences as well as [security and permissions requirements](#permissions).
+You may have entire pipeline configurations maintained in one repository or split up the configuration of different sections of your pipeline in multiple sync repositories. This decision depends on your organizational preferences, as well as [security and permissions requirements](#permissions). For example, you may have pipeline configuration for source control through your first test environment in one repo, configuration for subsequent test environments in another repo, and configuration for your production environment in yet another repo. In this way, you can manage who can configure and execute different areas of your pipeline based on the permissions set on each repo.
 
 ---
+
 <a name="seedPipeline"></a>
+
 ##Seeding your pipeline
 
 To seed your pipelines, you must add a sync repository from the Shippable UI.
@@ -55,14 +58,14 @@ To do this:
 * Click on the `Pipelines` tab
 * If you have never added a sync repository, you will land on the `Resources` option in the pill menu. If you have added a sync repository in the past, you will need to click on `Resources` in the pill menu.
 * Click on `Add Resource`.
-* Complete the Add resource fields:
+* Complete the Add Resource fields:
 	* The subscription integration dropdown should show the subscription you created in the first step. If not, you will need to go through the flow of adding the integration.
 	* The `Select Project` dropdown will show all repositories in the source control you just connected with the integration. Choose your sync repository.
 	* Select the branch of the sync repository that contains your pipeline configuration files.
 	* Name your sync repository with an easy to remember name.
 * Click on `Save` to apply your sync repository configuration.
 
-This will create your pipelines on Shippable. Click on `SPOG` in the pill menu to view your pipelines.
+You will now see your configured pipelines created on Shippable. Click on `SPOG` in the pill menu to view your pipelines. Note, if you do not see what you expected, you likely have a configuration error. Click on the rSync resource in the SPOG view to see the console and identify any errors that may exist.
 
 ---
 
@@ -87,4 +90,4 @@ You can also filter this view by using Flags. Flags need to be included in your 
 <a name="permissions"></a>
 ## Permissions
 
-Permissions for your deployment pipelines are tighly couples with permissions to your sync repositories. Your pipelines are only visible to accounts with **Owner** or **Collaborator** access to your sync repository. Accounts that do not have access to your sync repository will have no access to your pipelines, even if they are members of your organization.
+Permissions for your deployment pipelines are tightly coupled with permissions for your sync repositories. Consequently, pipeline elements are only visible and accessible to perform actions to users with **Owner**, **Collaborator/Write**, or **Read** access to the sync repository that holds the configuration files. Users that do not have access to your sync repository will not have access to that portion of your pipeline, even if they are members of your organization.

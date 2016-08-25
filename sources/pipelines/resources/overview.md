@@ -14,7 +14,7 @@ There are several resources that are pre-defined as part of the platform and wor
 
 - [syncRepo](syncRepo/): Source repository for yml configuration files defining pipeline resources & jobs
 - [gitRepo](gitRepo/): Source repository for your code
-- [image](image/): Docker image definition 
+- [image](image/): Docker image definition
 - [dockerOptions](dockerOptions/): Options for docker images
 - [params](params/): Parameters for your apps/services/microservices
 - [replicas](replicas/): Number of copies of the service to run
@@ -24,7 +24,7 @@ There are several resources that are pre-defined as part of the platform and wor
 
 At this time, we do not support definition of custom resources. If you need a resource that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
-Jobs, [resources](../resources/overview/), and [triggers](../triggers/) together can be used to model any deployment pipeline, regardless of the complexity of your application. 
+[Jobs](../jobs/overview/), [resources](../resources/overview/), and [triggers](../triggers/) together can be used to model any deployment pipeline, from the simple to highly complex. 
 
 ---
 ## Adding resources
@@ -35,9 +35,9 @@ To learn how to add this file and connect it to pipelines, [click here](../../..
 ---
 ## Deleting resources
 
-Since pipelines are all about dependencies and deployable units are flowing through these pipelines at all times, deleting a resource can significantly alter or irreversibly change the pipeline in unexpected ways. To avoid accidental deletion of resource(s) in ymls, we have made deletion of resources a 2 step process. 
+Since pipelines are all about dependencies and deployable units are flowing through these pipelines at all times, deleting a resource can significantly alter or irreversibly change the pipeline in unexpected ways. To avoid accidental deletion of resource(s) in ymls, we have made deletion of resources a 2 step process.
 
-First, you need to soft-delete a resource by removing it from your `shippable.resources.yml` file. This removes it from the pipeline, but does not remove it from the database. You can see a list of soft-deleted resources at the bottom of the `Resources` tab. If soft-deleted resources are added back to the resources yml, the system will undelete them and you will retain version history for the undeleted resource. 
+First, you need to soft-delete a resource by removing it from your `shippable.resources.yml` file. This removes it from the pipeline, but does not remove it from the database. You can see a list of soft-deleted resources at the bottom of the `Resources` tab. If soft-deleted resources are added back to the resources yml, the system will undelete them and you will retain version history for the undeleted resource.
 
 To completely remove a resource from the system, you need to hard delete it through the UI. To do this:
 
@@ -54,10 +54,8 @@ You can view resources and version histories of resources by going to the Pipeli
 ---
 <a name="integration"></a>
 ## Integrations
-Shippable is designed to separate out sensitive authentication information from your resources yml. 
+Shippable is designed to separate out sensitive authentication information from your resources yml.
 
-This is done to ensure there are no encryption/decryption or permissions issues when you move things around i.e. moving resource definitions from one repository to another, or if the person who created the pipeline is no longer the member of the team etc. Integrations are specified as a property in the YML definition for resources that connect to third party services. 
+This is done to ensure there are no encryption/decryption or permissions issues when you move things around i.e. moving resource definitions from one repository to another, or if the person who created the pipeline is no longer the member of the team etc. Integrations are specified as a property in the YML definition for resources that connect to third party services.
 
 To learn how to create integrations and use them in your ymls, [click here](../../integrations/overview/)
-
-
