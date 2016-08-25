@@ -49,3 +49,4 @@ site/
 # Virtualenvs
 venv
 venvs
+.idea
