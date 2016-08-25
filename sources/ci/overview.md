@@ -15,6 +15,7 @@ You do not need to explicitly create an account on the Hosted version of Shippab
 
 
 ---
+<a name="ciWorkflow"></a>
 ##CI workflow
 
 The picture below shows a very basic CI workflow. Shippable receives an incoming webhook from your source control and spins up a build machine. A Shippable agent comes up on the build machine and starts the build container, inside which your CI commands are executed. At the end of the build process, you can push to any endpoint. This endpoint can be an artifact repository like Artifactory or Docker Hub, or can be a PaaS/IaaS/Container Service endpoint.
