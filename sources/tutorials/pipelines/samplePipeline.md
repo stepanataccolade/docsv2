@@ -67,12 +67,21 @@ Right click on the **dv-man** job in the SPOG view and click on `Run`. This will
 
 ###Check out your deployed demo on ECS
 
-You can now go to your AWS management console and navigate to the deployed application. Clicking on it will take you to the running application.
+You can now go to your AWS management console and navigate to the deployed application by following the steps below:
 
-[Picture coming soon]
+* Go to your ECS cluster by navigating to EC2 Container Service and clicking on the cluster name
+* Click on the Service Name starting with dv. This will take you to the Tasks page
+* Click on the Task to navigate to the containers page.
+* Expand the container to view the IP address of your deployed application
+* Click on the IP address will open up a new browser tab and show you the running application.
+
+<img src="../../images/pipelines/demoApplication.png" alt="Shippable Continuous Integration and Delivery" style="width:800px;"/>
 
 ###Adding a release
+[Coming soon]
 
 ###Adding a production deployment
+[Coming soon]
 
-[This sample deploy application will be enhanced with automatic CI trigger and a more complete deployment flow where the application can be manually deployed to production in a single click after the Test environment.]
+###Connecting CI to your pipeline
+[Coming soon]
