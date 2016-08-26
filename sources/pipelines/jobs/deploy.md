@@ -132,3 +132,26 @@ jobs:
       - TASK: managed
         deployMethod: upgrade
 ```
+
+##Attaching a Load Balancer
+As part of your job, you can choose to deploy an image in your manifest behind a load balancer. Please note that this option currently only works with AWS Classic and Application Load Balancers. Also, the load balancer must be already created on AWS and then configured on Shippable. We do not handle creation of the load balancer.
+
+```  
+jobs:
+  - name: <job name>
+    type: deploy
+    steps:
+      - IN: <manifest>                        #required
+      - IN: <cluster>                         #required
+      - IN: <loadBalancer>                    #optional
+        applyTo:
+          - manifest: <manifest name>         #required for load balancer
+            image: <image>                    #required for load balancer
+            port: <number>                    #required for load balancer
+```
+
+* `loadBalancer` should be the name of your [loadBalancer resource](../resources/loadBalancer/) as defined in your shippable.resources.yml
+* In the `applyTo` section, you need the following:
+    * `manifest` should be the manifest containing the image you want to connect your load balancer to
+    * `image` should be the image resource name in the manifest
+    * `port` is the containerPort to be exposed
