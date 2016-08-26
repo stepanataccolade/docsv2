@@ -4,9 +4,9 @@ page_keywords: containers, languages, services, platforms, lxc, docker, Continuo
 
 # What is an integration?
 
-Integrations are used to connect your Shippable CI or CD workflows to third party platforms and services. We believe in separating authentication credentials from your yml definitions for better security and privacy. All integrations are stored in our Vault for maximum security.
+Integrations are used to connect your Shippable CI or CD workflows to third party platforms and services. We believe in separating authentication credentials from your yml definitions for better security and privacy. All integrations are stored in our <a href="https://www.vaultproject.io/" target="_blank">Vault store</a> for maximum security.
 
-Using an integration is a 3 step process:
+Using an integration is a three step process:
 
 #### Adding an integration to your account
 You can get to your account integrations by clicking on the gear icon in the top navbar and clicking on `Integrations` in the left sidebar menu. Click on `Add integration` to add a new integration. Instructions for each type of integration are in the links below.
