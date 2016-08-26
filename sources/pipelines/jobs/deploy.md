@@ -154,4 +154,4 @@ jobs:
 * In the `applyTo` section, you need the following:
     * `manifest` should be the manifest containing the image you want to connect your load balancer to
     * `image` should be the image resource name in the manifest
-    * `port` is the containerPort you want to connect to
+    * `port` is the containerPort to be exposed
