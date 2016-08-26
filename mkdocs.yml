@@ -69,6 +69,7 @@ pages:
     - gitRepo: pipelines/resources/gitRepo.md
     - image: pipelines/resources/image.md
     - integration: pipelines/resources/integration.md
+    - loadBalancer: pipelines/resources/loadBalancer.md
     - notification: pipelines/resources/notification.md
     - params: pipelines/resources/params.md
     - replicas: pipelines/resources/replicas.md
