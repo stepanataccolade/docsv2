@@ -20,11 +20,13 @@ There are several resources that are pre-defined as part of the platform and wor
 - [replicas](replicas/): Number of copies of the service to run
 - [version](version/): Semantic versions
 - [cluster](cluster/): Cluster that defines a container service
-- [notification](#otification/): Notifications for job success or failure
+- [notification](notification/): Notifications for job success or failure
+- [integration](integration/): Credentials for third party services
+- [loadBalancer](loadBalancer/): AWS Classic and Application Load Balancers
 
 At this time, we do not support definition of custom resources. If you need a resource that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
-[Jobs](../jobs/overview/), [resources](../resources/overview/), and [triggers](../triggers/) together can be used to model any deployment pipeline, from the simple to highly complex. 
+[Jobs](../jobs/overview/), [resources](../resources/overview/), and [triggers](../triggers/) together can be used to model any deployment pipeline, from the simple to highly complex.
 
 ---
 ## Adding resources
