@@ -120,6 +120,7 @@ To do this:
 1. Add the integrations to your Subscription containing the forked samplePipelinesDemo. To do this, go to your Subscription's **Settings** tab and click on **Integrations** in the sidebar menu. Click on **Add integration**, name your integration, and then in the dropdown, choose the integration you created in the previous step.
 
 1. Next, make the following changes to the shippable.yml at the root of your forked sample application:
+    * Uncomment the `notifications` section
     * replace `triggerPipelinesDemo` with the name of the **Event Trigger** integration you created. Please use the integration name from your Subscription Settings here.
 
 
