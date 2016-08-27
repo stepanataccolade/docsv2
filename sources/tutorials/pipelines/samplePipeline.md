@@ -8,29 +8,57 @@ This tutorial walks you through how to configure a demo pipeline using Shippable
 
 ###Fork the demo projects to your account
 
-* <a href="https://github.com/shippableSamples/samplePipelinesDemo" target="_blank">samplePipelinesDemo</a> repository contains code for the demo
-* <a href="https://github.com/shippableSamples/samplePipelinesTest" target="_blank">samplePipelinesTest</a> contains the configuration for deploying dv to a Test cluster on ECS
+1. <a href="https://github.com/shippableSamples/samplePipelinesDemo" target="_blank">samplePipelinesDemo</a> repository contains code for the demo
+1. <a href="https://github.com/shippableSamples/samplePipelinesTest" target="_blank">samplePipelinesTest</a> contains the configuration for deploying samplePipelinesDemo application to a Test cluster on ECS
 
 ###Create necessary  integrations
 
 You will need the following integrations:
 
-* GitHub integration: Follow instructions on the [GitHub integration page](../../integrations/scm/github/) for the sections:
+1. GitHub integration: Follow instructions on the [GitHub integration page](../../integrations/scm/github/) for the sections:
     * **Adding an Account Integration**
     * **Use your integration in your Pipeline configuration**
-* Docker Hub integration: Follow instructions at on the [Docker Hub integration page](../../integrations/imageRegistries/dockerHub/) for the sections:
-    * **Adding an Account Integration**
-    * **Adding integration to your subscription**
-* An integration for the Container Service where your cluster is located. This example uses Amazon ECS. You can add an Amazon ECS integration by [following instructions here](../../integrations/containerServices/ecs/)
+2. Docker Hub integration: Follow instructions at on the [Docker Hub integration page](../../integrations/imageRegistries/dockerHub/) for the sections: **Adding an Account Integration**
+
+3. An integration for the Container Service where your cluster is located. This example uses Amazon ECS. You can add an Amazon ECS integration by [following instructions here](../../integrations/containerServices/ecs/)
+
+###Set up CI for the sample application
+
+Before you get started with setting up your deployments, let's set up CI for your sample application.
+
+1. Add the Docker Hub account integration you created to your Subscription containing the forked **samplepipelinesdemo**. To do this, go to your Subscription's **Settings** tab and click on **Integrations** in the sidebar menu. Click on **Add integration**, name your integration, and then in the dropdown, choose your integration.
+
+1. Next, make the following changes to the shippable.yml at the root of your forked sample application:
+    * replace `shipdeploy` with the **Docker Hub** integration you created. Please use the integration name from your Subscription Settings here.
+    * replace `shippablesamples` in the IMAGE_NAME with your Docker Hub org name where you want to push the image.
+
+1. Enable your forked sample application for CI. Click on **Enable project** in the left sidebar menu, find the samplePipelinesDemo and click on **Enable**.
+
+1. You can trigger a build for your sample application in one of two ways:
+    * Go to the Shippable UI and click on `Build` for the project on the Subscription page
+    * Make a small change to the project. In the /static/css/app.cat.css file, change the color value in the following code
+
+```
+.shippableText{
+  color: #fff;
+  text-align: center;
+  font-size: 8em;
+}
+```
+This should trigger a build on Shippable. Wait for your green build!
+
+1. After the build is complete, check your Docker Hub org to ensure that the image was pushed successfully. Write down the tag of the image pushed (should me master.<build number> if everything went well).
 
 ###Create a cluster
 Cluster creation is not covered in this sample, since it assumes a cluster is already available. Create a cluster on your container service with at least one machine. There are no other constraints. Note down your cluster name and region.
 
-###Edit configuration ymls
+###Edit pipeline configuration ymls
 
-* Open up **samplePipelinesTest/shippable.resources.yml** and make the following edits:
+1. Open up **samplePipelinesTest/shippable.resources.yml** and make the following edits:
     * dv-img resource
         * replace `integration: dh-manishas` for the dv-img resource with `integration: <your docker hub integration name>`
+        * replace `sourceName: shippableSamples/samplepipelinesdemo` with `sourceName: <your Docker Hub org name>/samplepipelinesdemo`
+        * replace `versionName: master.1` with `version: <image tag you copied from Docker Hub>`
     * env-test-ecs resource
         * replace 'integration demo-manishas-ecs' for the env-test-ecs resource with `integration: <your ecs integration name>`
         * replace `demo-shippable-ecs-test` with your cluster name
@@ -42,20 +70,20 @@ Before you proceed with setting up this pipeline on Shippable, let's take a mome
 
 The resources configured in shippable.resources.yml are:
 
-* dv-img is an [image](../../pipelines/resources/image/) resource for the image to be deployed.
-* dv-img-opts is a [dockerOptions](../../pipelines/resources/image/) resource which specifies options for the container, like memory, port mappings, etc.
-* env-test-ecs is a [cluster](../../pipelines/resources/cluster/) resource specifying where the demo application should be deployed
+1. dv-img is an [image](../../pipelines/resources/image/) resource for the image to be deployed.
+1. dv-img-opts is a [dockerOptions](../../pipelines/resources/image/) resource which specifies options for the container, like memory, port mappings, etc.
+1. env-test-ecs is a [cluster](../../pipelines/resources/cluster/) resource specifying where the demo application should be deployed
 
 The jobs configured in shippable.jobs.yml are:
 
-* dv-man is a [manifest](../../pipelines/jobs/manifest/) job that creates a new service manifest each time the image dv-img is updated.
-* dv-test-ecs is a [deploy](../../pipelines/jobs/deploy/) job that deploys the manifest dv-man to the Test cluster env-test-ecs
+1. dv-man is a [manifest](../../pipelines/jobs/manifest/) job that creates a new service manifest each time the image dv-img is updated.
+1. dv-test-ecs is a [deploy](../../pipelines/jobs/deploy/) job that deploys the manifest dv-man to the Test cluster env-test-ecs
 
 ### Seed your pipeline in Shippable
 
-* From the Shippable dashboard, go to the subscription where you forked the demo repositories
-* Follow instructions on the Pipelines page to [seed your pipeline](../../pipelines/gettingStarted/#seedPipeline).
-* Go to the SPOG pill menu of your Pipelines tab and voila! You should see your pipeline there:
+1. From the Shippable dashboard, go to the Subscription where you forked both repositories
+1. Follow instructions on the Pipelines page to [seed your pipeline](../../pipelines/gettingStarted/#seedPipeline).
+1. Go to the SPOG pill menu of your Pipelines tab and voila! You should see your pipeline there:
 
 <img src="../../images/pipelines/seedSamplePipeline.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
 
@@ -68,19 +96,36 @@ Right click on the **dv-man** job in the SPOG view and click on `Run`. This will
 
 You can now go to your AWS management console and navigate to the deployed application by following the steps below:
 
-* Go to your ECS cluster by navigating to EC2 Container Service and clicking on the cluster name
-* Click on the Service Name starting with dv. This will take you to the Tasks page
-* Click on the Task to navigate to the containers page.
-* Expand the container to view the IP address of your deployed application
-* Click on the IP address will open up a new browser tab and show you the running application.
+1. Go to your ECS cluster by navigating to EC2 Container Service and clicking on the cluster name
+1. Click on the Service Name starting with dv. This will take you to the Tasks page
+1. Click on the Task to navigate to the containers page.
+1. Expand the container to view the IP address of your deployed application
+1. Click on the IP address will open up a new browser tab and show you the running application.
 
 <img src="../../images/pipelines/demoApplication.png" alt="Shippable Continuous Integration and Delivery" style="width:800px;"/>
+
+###Connect CI and Pipelines
+
+Now that you have your pipeline up and running, you should connect it to your CI. On completing this step, every code change to your sample application will trigger a deployment to the Test cluster we set up in the previous steps.
+
+To do this:
+
+1. Create an API token for your account. Please note that only accounts with at least one paid subscription are allowed to create API tokens at this time. To do this, go to your **Account Settings** by clicking on the gear icon in the top navbar. Then click on **API tokens** in the left sidebar menu and create a token. Copy the token since you won't be able to see it again.  
+
+1. Next, we will create an account integration of type 'Event Trigger'
+    * Go to  **Integrations** in the left sidebar menu and then click on **Add Integration**
+    * Select **Event Trigger** from the dropdown for **Master Integration** and complete the settings as shown below.
+<img src="../../images/pipelines/samplePipelineEventTrigger.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
+
+1. Add the integrations to your Subscription containing the forked samplePipelinesDemo. To do this, go to your Subscription's **Settings** tab and click on **Integrations** in the sidebar menu. Click on **Add integration**, name your integration, and then in the dropdown, choose the integration you created in the previous step.
+
+1. Next, make the following changes to the shippable.yml at the root of your forked sample application:
+    * replace `triggerPipelinesDemo` with the name of the **Event Trigger** integration you created. Please use the integration name from your Subscription Settings here.
+
+
 
 ###Adding a release
 [Coming soon]
 
 ###Adding a production deployment
-[Coming soon]
-
-###Connecting CI to your pipeline
 [Coming soon]
