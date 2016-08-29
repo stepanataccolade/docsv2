@@ -1,3 +1,10 @@
+/*div {
+  border: 1px solid #ff0000;
+}
+.grid {
+  border: 1px solid #ff0000;
+}*/
+
 body {
   font-family: 'Source Sans Pro', Helvetica, sans-serif;
   font-size: 15px;
@@ -54,83 +61,135 @@ a:hover, a:focus, a:active {
 }
 
 .container-override {
+  width: 100%;
   max-width: none;
+  min-height: 99vh;
+  position: relative;
+  padding: 0;
 }
-/*div {
-  border: 1px solid #ff0000;
+.row {
+  margin: 0;
 }
-.grid {
-  border: 1px solid #ff0000;
-}*/
-.vcenter {
-  display: inline-block;
-  vertical-align: middle;
-  float: none;
-}
-.col-no-pad {
-  padding: 0px;
-}
+
+/*** Centering ***/
 .align-self-parent {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 .align-self {
-  align-self: center;
+    align-self: center;
+}
+.float-right {
+    float: right;
+}
+
+/*** Text Align ***/
+.always-inline-list li {
+    display: inline-block;
+}
+
+/*** Spacing Modifiers ***/
+.col-no-pad {
+    padding: 0px;
+}
+.no-pad {
+    padding: 0;
+}
+.no-margin {
+    margin: 0;
+}
+.margin-025 {
+    margin: 0.25em;
+}
+.margin-05 {
+    margin: 0.5em;
+}
+
+/*** Image Sizing ***/
+.icon-10 {
+    height: 10em;
+}
+.icon-5 {
+    height: 5em;
+}
+.icon-025 {
+    height: 2.5em;
+}
+
+/*** Backgrounds ***/
+.background-lt-grey {
+    background-color: #f3f3f4;
+}
+.background-white {
+    background-color: #ffffff;
+}
+.gray {
+    color: #58595b;
+}
+.transparent {
+    opacity: 0;
+}
+
+/*** Buttons ***/
+.btn-dk {
+    color: #ffffff;
+    background: #009999;
+    padding: 12px 31px;
+    border-radius: 4px;
+    border: none;
+}
+.btn-dk:hover,
+.btn-dk:focus,
+.btn-dk:active {
+    color: #ffffff;
+    background-color: #003535;
+}
+.btn-lt {
+    color: #009999;
+    background: #ffffff;
+    padding: 12px 31px;
+    border-radius: 4px;
+    border: none;
+}
+.btn-lt:hover,
+.btn-lt:focus,
+.btn-lt:active {
+    color: #ffffff;
+    background-color: #003535;
+}
+
+/*** Navbar Mascot ***/
+.color-mascot {
+    height: 4em;
 }
 
 
 /*** Top Nav Bar ***/
-.docs-nav {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#003535+3,009999+100 */
-  background: #003535;*/ /* Old browsers */
-  background: -webkit-linear-gradient(top,  #003535 3%,#009999 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  #003535 3%,#009999 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  height: 5em;
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003535', endColorstr='#009999',GradientType=0 ); /* IE6-9 */
-  border: 1px solid #58595b;
+.top-nav {  
+  border-bottom: 2px solid #d3d3d4;
+}
+.top-nav a.active {
+  background-color: #f3f3f4;
+}
+.top-nav .navbar-menu > ul > li > a {
+    line-height: calc(5em - 2px);;
+    padding: 0em 1em;
+    color: #009999;
+}
+.top-nav .navbar-menu > ul > li > a:hover {
+    background-color: #003535;
+    color: #ffffff;
+}
+.top-nav .navbar-menu > ul > li > a.hilight {
+    color: #ffffff;
+    background-color: #000000;
+}
+.top-nav .navbar-menu > ul > li > a.hilight:hover {
+    background-color: #009999;
+}
+#search input {
   width: 100%;
 }
-.navbar-mascot {
-  max-height: 3em;
-  max-width: 4em;
-}
-.navbar-brand {
-  font-size: 14px;
-  max-height: 3em;
-  max-width: 15em;
-  padding: 0em;
-}
-.docs-nav input {
-  width: 40em;
-  display: block;
-  margin: auto;
-}
-.docs-nav ul > li > a {
-  line-height: calc(5em - 2px);;
-  padding: 0em 1em;
-  color: #ffffff;
-}
-.docs-nav ul > li > a:hover {
-  color: #ffffff;
-  background-color: #009999;
-}
-.docs-nav ul > li > a.hilight {
-  color: #000000;
-  background-color: #eee;
-}
-.docs-nav ul > li > a.hilight:hover {
-  color: #ffffff;
-  background-color: #003535;
-}
-
-/* Main Body of Page */
-.main-body {
-  background: #ffffff;
-}
-
-/*.main-body h1, .main-body h2, .main-body h3, .main-body h4 {
-  color: #003535;
-}*/
 
 /* Accordion tocbar */
 .cd-accordion-menu ul {
@@ -187,38 +246,14 @@ a:hover, a:focus, a:active {
 
 /*** Footer ***/
 .footer {
-  background: #009999;
-  color: #ffffff;
-  padding-top: 1em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
 }
-.footer-top {
-  height: 2.5em;
-}
-.footer-top img {
-  height: 2.5em;
-}
-.footer .navbar-nav > li > a {
-  padding: 0em 1em;
-}
-.footer a {
-  color: #ffffff;
-}
-.footer a:hover {
-  color: #000000;
-}
-.footer-top img {
-  padding-left: 1em;
-}
-.footer-container .row-number-2 {
-  display: none;
-}
-.footer .hs_followme > div {
-  padding: 0px !important;
-}
-.copyright p {
-  margin: 0px;
-  text-align: center;
-  color: #ffffff;
+.footer-spacer {
+  height: 10em;
 }
 .social-media {
   text-align: right;
