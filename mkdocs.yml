@@ -161,8 +161,7 @@ pages:
         - Using Digital Ocean: tutorials/ci/integrations/deploy/usingDigitalOcean.md
   - Pipelines Tutorials:
     - Deploying a sample application: tutorials/pipelines/samplePipeline.md
-    - manifest tutorials:
-      - Using combination manifests: tutorials/pipelines/usingCombinationManifests.md
+    - Seeding your first pipeline: tutorials/pipelines/howToAddSyncRepos.md
     - runSh tutorials:
       - Using integrations with runSh: tutorials/pipelines/runShUseIntegrations.md
       - Updating resource version: tutorials/pipelines/updateResourceVersion.md

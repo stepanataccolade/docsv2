@@ -47,7 +47,7 @@ Before you get started with setting up your deployments, let's set up CI for you
 ```
 This should trigger a build on Shippable. Wait for your green build!
 
-1. After the build is complete, check your Docker Hub org to ensure that the image was pushed successfully. Write down the tag of the image pushed (should me master.<build number> if everything went well).
+1. After the build is complete, check your Docker Hub org to ensure that the image was pushed successfully. Write down the tag of the image pushed (should be master.build_number if everything went well).
 
 ###Create a cluster
 Cluster creation is not covered in this sample, since it assumes a cluster is already available. Create a cluster on your container service with at least one machine. There are no other constraints. Note down your cluster name and region.
@@ -123,10 +123,89 @@ To do this:
     * Uncomment the `notifications` section
     * replace `triggerPipelinesDemo` with the name of the **Event Trigger** integration you created. Please use the integration name from your Subscription Settings here.
 
+<img src="../../images/pipelines/samplePipelineConnectCI.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
 
+Try pushing a color change to your sample demo by going to the /static/css/app.cat.css file and changing color of .shippableText, and see your pipeline light up! Check your running application to see the new color.
 
-###Adding a release
-[Coming soon]
+###Adding a release step
+Now that you have CI hooked up, you have a workflow from source control to a test environment. Next, we will hook up a release job that will be triggered manually when you are satisfied with your tests.
+
+This release job tags your service with a version number starting with a seed version specified in your resources yml.
+
+* Add the following to your shippable.resources.yml in the samplePipelinesTest repository:
+
+```
+  - name: dv-ver
+    type: version
+    seed:
+      versionName: "1.0.0"
+```
+This creates a [version resource](../../pipelines/resources/version/) for your sample project.
+
+* Add the following to your shippable.jobs.yml in the samplePipelinesTest repository:
+
+```
+  - name: dv-rel
+    type: release
+    steps:
+      - IN: dv-ver
+        switch: off
+      - IN: dv-test-ecs
+        switch: off
+      - IN: dv-trigger
+        switch: off
+      - TASK: managed
+        bump: minor
+```
+This creates a [release job](../../pipelines/jobs/release/) for your sample project. It takes the version resource we just created as an input. We are also adding a [trigger resource](../../pipelines/triggers/) that allows us to manually trigger the pipeline. This is defined in `shippable.triggers.yml`. This job is sequenced after the deployment job in your pipeline, and every time a release is created, it currently bumps up the minor version.
+
+Commit your changes. You'll see the release job added at the end:
+
+<img src="../../images/pipelines/samplePipelineAddRelease.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
+
 
 ###Adding a production deployment
-[Coming soon]
+
+Each time a release is created, we will hook it up to deploy to production. You will need an existing cluster on your Container Service to set this up. To configure this:
+
+* Add the following to your shippable.jobs.yml in the samplePipelinesTest repository:
+
+```
+  - name: dv-prod-ecs
+    type: deploy
+    steps:
+      - IN: dv-rel
+        switch: off
+      - IN: env-prod-ecs
+      - TASK: managed
+```
+
+* Add the following to your shippable.resources.yml in the samplePipelinesTest repository:
+
+```
+  - name: env-prod-ecs
+    type: cluster
+    integration: demo-manishas-ecs
+    pointer:
+      sourceName : "demo-shippable-ecs-prod"
+      region: "us-east-1"
+```
+Make the following changes:
+
+* Replace `demo-manisha-ecs` with the Container Service integration name from your subscription.
+* Replace `demo-shippable-ecs-prod` with your prod cluster name.
+* Replace `us-east-1` with the region where your cluster is located
+
+This is similar to the job that deploys to test environment, but it is configured with the prod cluster and is sequenced after the releae job in your pipeline. The job as configured will not be triggered automatically when release is updated. You can turn `switch: on` to run it automatically each time a new release is created, or you can add a trigger resource like we did for the release job so you can trigger it with a commit.
+
+<img src="../../images/pipelines/samplePipelineAddProd.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
+
+###Create a release and trigger deployment!
+
+To create a new release, go to your shippable.triggers.yml and increment the counter by 1. This will trigger the release job and create a release with version 1.1.0.
+
+Next, go to your Shippable UI SPOG view, right click on the production deployment job dv-prod-ecs and click on `Run`. This should deploy your application to your production cluster.
+
+Go to your AWS Management Console and check out your application!
+
+<img src="../../images/pipelines/samplePipelineProdDeploy.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
