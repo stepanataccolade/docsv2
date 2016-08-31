@@ -16,6 +16,12 @@
               </ul>
             {% endfor %}
           </li>
+        {% elif "Search" in section.title %}
+          <li>
+            <a href="{{ section.url }}">
+              SEARCH <i class="fa fa-search"></i>
+            </a>
+          </li>
         {% else %}
           <li>
             <a href="{{ section.url }}">
@@ -27,8 +33,6 @@
     </ul>
   </div>
   <div class="col-md-8">
-    <div id="mkdocs-search-results">
-    </div>
     <div id="content">
         {% block content %} {{ content }} {% endblock %}
     </div>
