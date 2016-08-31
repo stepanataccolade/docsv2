@@ -251,6 +251,18 @@ a:hover, a:focus, a:active {
   color: #009999;
 }
 
+/*** Hubspot CTA button overrides ***/
+a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b {
+  margin: 1em auto;
+  width: 100%;
+}
+a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b:hover,
+a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b:focus,
+a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b:active {
+  color: #ffffff;
+  background-color: #003535;
+}
+
 /*** Footer ***/
 .footer {
   position: absolute;
