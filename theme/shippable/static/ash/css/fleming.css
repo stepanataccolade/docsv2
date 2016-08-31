@@ -187,9 +187,6 @@ a:hover, a:focus, a:active {
 .top-nav .navbar-menu > ul > li > a.hilight:hover {
     background-color: #009999;
 }
-#search input {
-  width: 100%;
-}
 
 /* Accordion tocbar */
 .cd-accordion-menu ul {
@@ -214,6 +211,15 @@ a:hover, a:focus, a:active {
 .side-nav i {
   color: #58595b;
   float: right;
+}
+.side-nav i.fa-search {
+  color: #009999;
+} 
+.side-nav li>a:hover>i.fa-search {
+  color: #49B7E2;
+}
+#search input {
+  width: 100%;
 }
 .side-nav li {
   margin-left: .5em;
