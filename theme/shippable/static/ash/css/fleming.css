@@ -105,6 +105,14 @@ a:hover, a:focus, a:active {
     margin: 0.5em;
 }
 
+/*** Spacers ***/
+.section-separator {
+    height: 5em;
+}
+.content-separator {
+    height: 2em;
+}
+
 /*** Image Sizing ***/
 .icon-10 {
     height: 10em;
@@ -158,11 +166,18 @@ a:hover, a:focus, a:active {
     background-color: #003535;
 }
 
+/*** Hubspot CTA button overrides ***/
+a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b:hover,
+a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b:focus,
+a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b:active {
+  color: #ffffff;
+  background-color: #003535;
+}
+
 /*** Navbar Mascot ***/
 .color-mascot {
     height: 4em;
 }
-
 
 /*** Top Nav Bar ***/
 .top-nav {  
@@ -249,17 +264,6 @@ a:hover, a:focus, a:active {
 }
 .side-nav.right-nav li li a {
   color: #009999;
-}
-
-/*** Hubspot CTA button overrides ***/
-a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b {
-  margin: 2em auto;
-}
-a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b:hover,
-a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b:focus,
-a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b:active {
-  color: #ffffff;
-  background-color: #003535;
 }
 
 /*** Footer ***/
