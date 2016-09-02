@@ -56,7 +56,8 @@ Configuring the deployment process involves two steps.
 
 #### Environment Creation
 You can follow the instructions [here](pipelines_configure#using-an-existing-docker-datacenter) to create a new Environment.
-<img src="../images/ddc_environment_creation.png" alt="Environment Creation" style="width:800px;"/>
+
+<img src="../../../../../images/ddc-environment-creation.png" alt="Environment Creation" style="width:800px;"/>
 
 #### Pipeline Creation
 After Creating an Environment, Click on "Add Pipeline" and you will be redirected to Pipeline creation page.
@@ -64,18 +65,18 @@ After Creating an Environment, Click on "Add Pipeline" and you will be redirecte
 * Give a __Pipeline Name__. This name will be used in naming the containers created on Docker Datacenter. Containers will be named by the pattern *PipelineName-PipelineId-ImageNumber-ReplicaNumber*
 
 * Configure __Cell Manifest__. In this section, you can choose to add one or more docker images that are stored in the [supported registries](/ci/supported). We will add `ship-dtr.in/shippable-ci/sample_node_ddc` that we push in the Continuous Integration phase and specify the key values for Environment variables.
-<img src="../images/ddc_cell_manifest.png" alt="Cell Manifest" style="width:700px;"/>
+<!-- <img src="../images/ddc_cell_manifest.png" alt="Cell Manifest" style="width:700px;"/> -->
 While adding the image, you can configure various options like Port Mapping, Memory Limit etc.
-<img src="../images/ddc_image_creation.png" alt="Image Creation" style="width:700px;"/>
+<!-- <img src="../images/ddc_image_creation.png" alt="Image Creation" style="width:700px;"/> -->
 
 * Configure the __Auto Increment__ and __Pipeline Trigger__. For example, if you set the pattern as `master.*`, Newer versions of Cell Manifest will be created whenever newer tags matching that pattern is available (i.e. master.1, master.2,...,master.N) and the projects specified in the Pipeline Trigger will trigger auto deploy whenever, a build finishes.
-<img src="../images/ddc_autoinc_project_trigger.png" alt="Project Trigger" style="width:700px;"/>
+<!-- <img src="../images/ddc_autoinc_project_trigger.png" alt="Project Trigger" style="width:700px;"/> -->
 
 * Save the Pipeline and now you are ready to deploy your application. You can get an idea of doing various pipeline operations from [here](pipelines_configure/#deploy-a-cell).
-<img src="../images/ddc_cell_deploy.png" alt="Cell Deploy" style="width:700px;"/>
+<!-- <img src="../images/ddc_cell_deploy.png" alt="Cell Deploy" style="width:700px;"/> -->
 
 * Since, we have mapped the Container Port 80 with Host port 30662, we can access the Web server running in the container via that port. Make sure to expose the port 30662 on your firewall. If everything went right, you should see this already !
-<img src="../images/ddc_sample_app.png" alt="Sample Application" style="width:700px;"/>
+<!-- <img src="../images/ddc_sample_app.png" alt="Sample Application" style="width:700px;"/> -->
 
 For more details, check our stepwise guide to [getting started with Docker Datacenter](http://blog.shippable.com/getting-started-with-docker-datacenter).
 
