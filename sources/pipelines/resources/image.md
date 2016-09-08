@@ -16,7 +16,7 @@ resources:
     pointer:
       sourceName: "org/repo"                    #required
     seed:
-      versionName: "<string>"                	 #required
+      versionName: "<string>"                	 #optional
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
@@ -36,4 +36,4 @@ resources:
 * `pointer` section provides information about the image.
 	* `sourceName` is the fully qualified name of the image. This is dependent on the registry where the image is located. For Docker Hub, this can be <repo name>/<image name>, e.g. manishas/demoImage
 
-* `versionName` is usually set to image tag. The seed versionName sets initial tag for the image.
+* `versionName` should be set to a starting value for the image tag. It will be used by the first run of any job that has this image as an input, unless the `versionName` is changed prior to the first run by an upstream job or CI workflow. The default value for this is `latest`. You can also use this to re-seed the image resource with a specific tag. 
