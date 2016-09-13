@@ -114,7 +114,8 @@ To do this:
 
 1. Next, we will create an account integration of type 'Event Trigger'
     * Go to  **Integrations** in the left sidebar menu and then click on **Add Integration**
-    * Select **Event Trigger** from the dropdown for **Master Integration** and complete the settings as shown below.
+    * Select **Event Trigger** from the dropdown for **Master Integration** and complete the settings as shown below. Please make sure you update the `Authorization` textbox in the format `apiToken <token-value>`.
+    <br>
 <img src="../../images/pipelines/samplePipelineEventTrigger.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
 
 1. Add the integrations to your Subscription containing the forked samplePipelinesDemo. To do this, go to your Subscription's **Settings** tab and click on **Integrations** in the sidebar menu. Click on **Add integration**, name your integration, and then in the dropdown, choose the integration you created in the previous step.
