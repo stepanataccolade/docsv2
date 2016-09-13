@@ -73,7 +73,6 @@ pages:
     - notification: pipelines/resources/notification.md
     - params: pipelines/resources/params.md
     - replicas: pipelines/resources/replicas.md
-    - syncRepo: pipelines/resources/syncRepo.md
     - version: pipelines/resources/version.md
   - Jobs:
     - Overview: pipelines/jobs/overview.md
@@ -167,4 +166,4 @@ pages:
       - Updating resource version: tutorials/pipelines/updateResourceVersion.md
       - Extracting resource version information: tutorials/pipelines/extractVersionInformation.md
       - Persisting state between runs: tutorials/pipelines/persistStateBetweenRuns.md
-- Search: search.md
+  - Search: search.md
