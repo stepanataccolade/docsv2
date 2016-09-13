@@ -1,13 +1,13 @@
 
-# PHP
+# Continuous Integration with PHP
 This page explains yml configuration that is specific to PHP projects. For a complete yml reference, please read the [Build configuration section](../shippableyml.md)
 
 ##yml configuration
 
-The sections below explore sections of the yml that are specific to PHP projects. 
+The sections below explore sections of the yml that are specific to PHP projects.
 
 
-###language 
+###language
 
 
 For PHP projects, this tag should always be set to php as show below:
@@ -47,16 +47,16 @@ Depending on the `language` and `services` tags in your yml, an official build i
 
 The pre_ci and pre_ci_boot sections are primarily used in one of the following scenarios:
 
-* You want to use a custom Docker image for your CI 
+* You want to use a custom Docker image for your CI
 * You want to override the default options that are used to boot up the default CI image
 
 If you do not want to do either of the above, you should skip these tags in the yml.
 
 #### Default PHP images
-We have 2 primary build images for PHP projects, which should be sufficient for most projects: 
+We have 2 primary build images for PHP projects, which should be sufficient for most projects:
 
 * [dry-dock/u14php](https://github.com/dry-dock/u14php) is used if you specify `language: php` in your yml and do not specify a `services` tag. This image contains the following:
-	
+
 	* Ubuntu 14.04
 	* PHP versions 5.4, 5.5, 5.6 with extensions memcache, memcached, mongo, amqp-1.6.8, zmq-beta, redis
 	* PHP version 7 with no extensions
@@ -70,11 +70,11 @@ We have 2 primary build images for PHP projects, which should be sufficient for 
 	* Basic packages sudo, build-essential, curl, gcc, make, openssl, software-properties-common, wget, nano, unzip, libxslt-dev, libxml2-dev
 	* Default Java versions: default-jre, default-jdk, openjdk-6, oracle jdk 7  
 	* Python packages python-pip, python-software-properties, python-dev
-	* Node version 0.10 
+	* Node version 0.10
 	* Default Ruby version
 	* Python 2.7.6
 	* awscli
-	* google-cloud-sdk 
+	* google-cloud-sdk
 
 * [dry-dock/u14phpall](https://github.com/dry-dock/u14phpall) is used if you specify one or more services and set the language to go in the yml. This image contains the following **in addition** to everything that is listed for the u14php image above:
 
@@ -97,9 +97,9 @@ If these official images do not satisfy your requirements, you can do one of 2 t
 
 - Continue using official images and include commands to install any missing dependencies or packages in your yml
 - Use a custom build image that contains exactly what you need for yout CI
-	
+
 #### Using a custom build image
-If you do decide to use a custom CI image, you will need to configure the `pre_ci_boot` section and optionally, the `pre_ci` section if you're also building the CI image as part of the workflow. Details on how to configure this are available in the [`pre_ci` and `pre_ci_boot` sections of the Build configuration page](../shippableyml.md#build). 
+If you do decide to use a custom CI image, you will need to configure the `pre_ci_boot` section and optionally, the `pre_ci` section if you're also building the CI image as part of the workflow. Details on how to configure this are available in the [`pre_ci` and `pre_ci_boot` sections of the Build configuration page](../shippableyml.md#build).
 
 ### ci
 The `ci` section should contain all commands you need for your `ci` workflow. Commands in this section are executed sequentially. If any command fails, we exit this section with a non zero exit code.
@@ -127,8 +127,8 @@ build:
 
 #### Enabling pre-installed extensions
 Your build container comes pre-installed with the following extensions for versions 5.4, 5.5, 5.6: memcache, memcached, mongo, amqp-1.6.8, zmq-beta, redis
- 
-You need to enable the extensions you need in your yml. Replace the <extension> in the yml snippet below by the extension you need to enable: 
+
+You need to enable the extensions you need in your yml. Replace the <extension> in the yml snippet below by the extension you need to enable:
 
 ```
 build:
@@ -183,10 +183,3 @@ build:
 ```
 
 To avoid executing the default command, include a simple command in like `pwd` or `ls` in this section.
-
-
-
-
-
-
-

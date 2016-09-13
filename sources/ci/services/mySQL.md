@@ -1,5 +1,5 @@
 
-#MySQL
+#Continuous Integration with MySQL
 
 MySQL 5.6.23 is pre-installed on all Shippable Official images. However, we do not start it by default since not every build needs MySQL.
 
@@ -18,11 +18,11 @@ build:
     - mysql -e "GRANT ALL ON *.* TO shippable@localhost IDENTIFIED BY ''; FLUSH PRIVILEGES;"
     - mysql -e 'create database mytestdb;'
 ```
- 
 
-###Custom startup command 
 
-To customize the startup command, you should define the SHIPPABLE_MYSQL_CMD environment variable in your yml. 
+###Custom startup command
+
+To customize the startup command, you should define the SHIPPABLE_MYSQL_CMD environment variable in your yml.
 
 For example, the following yml snippet overrides the default startup command for MySQL:
 
@@ -31,5 +31,3 @@ env:
   global:
     - SHIPPABLE_MYSQL_CMD="<command>"
 ```
-
-

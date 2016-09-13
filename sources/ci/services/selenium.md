@@ -1,18 +1,18 @@
 
-#Selenium
+#Continuous Integration with Selenium
 
 Selenium 2.52 is pre-installed on all Shippable Official images. However, we do not start it by default since not every build needs Selenium.
 
 To use Selenium, you need a browser to start it on. We support Firefox and it is also pre-installed on official images.
 
-The following yml snippet shows how to use Selenium with a Node.js project. 
+The following yml snippet shows how to use Selenium with a Node.js project.
 
 ```
 language: node_js
 
 node_js:
   - "0.10"
-  
+
 addons:
   firefox: "23.0"
 
@@ -24,7 +24,7 @@ build:
     - sudo npm install
     #use xvfb (X Virtual Framebuffer) to imitate a display
     - "export DISPLAY=:99.0"
-    #run tests 
+    #run tests
     - xvfb-run --server-args="-ac" npm test
 ```
 
@@ -42,5 +42,3 @@ Some of our official images also have Chrome pre-installed. To figure out which 
 
 A sample project using Node.js is provided to help you see how to configure Selenium to work with Chrome. It uses nightwatch.json to select chrome as the browser.
 [Sample project with Node, Selenium, and Chrome](https://github.com/shippableSamples/sample_node_selenium/tree/chrome)
-
-

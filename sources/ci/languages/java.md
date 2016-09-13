@@ -1,13 +1,13 @@
 
-# Java
+# Continuous Integration with Java
 This page explains yml configuration that is specific to Java projects. For a complete yml reference, please read the [Build configuration section](../shippableyml.md)
 
 ##yml configuration
 
-The sections below explore sections of the yml that are specific to Java projects. 
+The sections below explore sections of the yml that are specific to Java projects.
 
 
-###language 
+###language
 
 
 For Java projects, this tag should always be set to java as show below:
@@ -47,16 +47,16 @@ Depending on the `language` and `services` tags in your yml, an official build i
 
 The pre_ci and pre_ci_boot sections are primarily used in one of the following scenarios:
 
-* You want to use a custom Docker image for your CI 
+* You want to use a custom Docker image for your CI
 * You want to override the default options that are used to boot up the default CI image
 
 If you do not want to do either of the above, you should skip these tags in the yml.
 
 #### Default Java images
-We have 2 primary build images for Java projects, which should be sufficient for most projects: 
+We have 2 primary build images for Java projects, which should be sufficient for most projects:
 
 * [dry-dock/u14jav](https://github.com/dry-dock/u14jav) is used if you specify `language: java` in your yml and do not specify a `services` tag. This image contains the following:
-	
+
 	* Ubuntu 14.04
 	* Java versions openjdk6, openjdk7, oraclejdk7, oraclejdk8
 	* Gradle 2.3
@@ -65,11 +65,11 @@ We have 2 primary build images for Java projects, which should be sufficient for
 	* Git
 	* Basic packages sudo, build-essential, curl, gcc, make, openssl, software-properties-common, wget, nano, unzip, libxslt-dev, libxml2-dev
 	* Python packages python-pip, python-software-properties, python-dev
-	* Node version 0.10 
+	* Node version 0.10
 	* Python 2.7.6
-	* Default Ruby version 
+	* Default Ruby version
 	* awscli
-	* google-cloud-sdk 
+	* google-cloud-sdk
 
 * [dry-dock/u14javall](https://github.com/dry-dock/u14javall) is used if you specify one or more services and set the language to java in the yml. This image contains the following **in addition** to everything that is listed for the u14java image above:
 
@@ -92,9 +92,9 @@ If these official images do not satisfy your requirements, you can do one of 2 t
 
 - Continue using official images and include commands to install any missing dependencies or packages in your yml
 - Use a custom build image that contains exactly what you need for yout CI
-	
+
 #### Using a custom build image
-If you do decide to use a custom CI image, you will need to configure the `pre_ci_boot` section and optionally, the `pre_ci` section if you're also building the CI image as part of the workflow. Details on how to configure this are available in the [`pre_ci` and `pre_ci_boot` sections of the Build configuration page](../shippableyml.md#build). 
+If you do decide to use a custom CI image, you will need to configure the `pre_ci_boot` section and optionally, the `pre_ci` section if you're also building the CI image as part of the workflow. Details on how to configure this are available in the [`pre_ci` and `pre_ci_boot` sections of the Build configuration page](../shippableyml.md#build).
 
 ### ci
 The `ci` section should contain all commands you need for your `ci` workflow. Commands in this section are executed sequentially. If any command fails, we exit this section with a non zero exit code.
@@ -112,7 +112,7 @@ build:
     #Create folders for test and code coverage
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
-    
+
     #Run test and code coverage and output results to the right folder
     - mvn clean cobertura:cobertura
 ```
@@ -175,7 +175,7 @@ build:
 * If your repository has a pom.xml file at the root, then our Java builder will use Maven 3:
 
 ```
-build: 
+build:
   ci:
    - mvn install -DskipTests=true
 ```
@@ -189,10 +189,3 @@ build:
 ```
 
 To avoid executing the default command, include a simple command in like `pwd` or `ls` in this section.
-
-
-
-
-
-
-

@@ -1,5 +1,5 @@
 
-#Postgres
+#Continuous Integration with Postgres
 
 Postgres 9.4 is pre-installed on all Shippable Official images. However, we do not start it by default since not every build needs Postgres.
 
@@ -18,7 +18,7 @@ build:
     - psql -c 'create role shippable with superuser;' -U postgres
     - psql -c 'create database myapp_test;' -U postgres
 
-``` 
+```
 
 If your test setup uses different credentials or settings to access the test database, you should put these settings in a config file in your repository (config/database.shippable.yml for example) and copy it over in the ci section:
 
@@ -29,9 +29,9 @@ build:
 
 ```
 
-###Custom startup command 
+###Custom startup command
 
-To customize the startup command, you should define the SHIPPABLE_POSTGRES_CMD environment variable in your yml. 
+To customize the startup command, you should define the SHIPPABLE_POSTGRES_CMD environment variable in your yml.
 
 For example, the following yml snippet overrides the default startup command for postgres:
 

@@ -1,5 +1,5 @@
 
-#SQLite
+#Continuous Integration with SQLite
 
 SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine. You can use SQLite, if you do not want to test your code behaviour with other databases.
 
