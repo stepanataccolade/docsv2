@@ -6,7 +6,7 @@ page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deplo
 
 A source control repository that contains your pipeline configuration files is called a **Sync Repository** and can only contain one each of the `shippable.jobs.yml`, `shippable.resources.yml`, and `shippable.triggers.yml` files.  
 
-Your pipeline must be 'seeded' with at least one sync repository by specifying it through the Shippable UI. Subsequent sync repositories can either be also added through the UI or referencing them from a resource in your original sync repository by using the [syncRepo resource](../../pipelines/resources/syncRepo/).
+You must seed your pipeline with at least one sync repository through the Shippable UI. Subsequent sync repositories can also be added through the UI following the same process. Instructions are in the section below.
 
 You may have entire pipeline configurations maintained in one repository or split up the configuration of different sections of your pipeline in multiple sync repositories. This decision depends on your organizational preferences, as well as [security and permissions requirements](../../pipelines/gettingStarted/#permissions). For example, you may have pipeline configuration for source control through your first test environment in one repo, configuration for subsequent test environments in another repo, and configuration for your production environment in yet another repo. In this way, you can manage who can configure and execute different areas of your pipeline based on the permissions set on each repo.
 
@@ -14,9 +14,7 @@ You may have entire pipeline configurations maintained in one repository or spli
 
 ##Seeding your pipeline
 
-To seed your pipelines, you must add a sync repository from the Shippable UI.
-
-To do this:
+You can add a sync repository by following the steps below:
 
 * First, add a subscription integration for the source control provider where your sync repository is located. Instructions are here - [Source Control Provider Integrations](../integrations/scm/scmOverview/).
 * Go to your Organization's page on Shippable. A list of all available Organizations can be accessed by clicking on the  <i class="fa fa-bars" aria-hidden="true"></i>  icon.
