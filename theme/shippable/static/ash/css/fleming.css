@@ -60,6 +60,13 @@ a:hover, a:focus, a:active {
   color: #49B7E2;
 }
 
+td, th {
+  border-style: solid;
+  border-width: thin;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .container-override {
   width: 100%;
   max-width: none;
@@ -180,7 +187,7 @@ a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b:active {
 }
 
 /*** Top Nav Bar ***/
-.top-nav {  
+.top-nav {
   border-bottom: 2px solid #d3d3d4;
 }
 .top-nav a.active {
@@ -229,7 +236,7 @@ a#cta_button_362403_11afe0ed-1e21-4ad7-9367-5be4709a228b:active {
 }
 .side-nav i.fa-search {
   color: #009999;
-} 
+}
 .side-nav li>a:hover>i.fa-search {
   color: #49B7E2;
 }
