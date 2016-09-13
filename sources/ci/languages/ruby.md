@@ -1,13 +1,13 @@
 
-# Ruby
+# Continuous Integration with Ruby
 This page explains yml configuration that is specific to Ruby projects. For a complete yml reference, please read the [Build configuration section](../shippableyml.md)
 
 ##yml configuration
 
-The sections below explore sections of the yml that are specific to Ruby projects. 
+The sections below explore sections of the yml that are specific to Ruby projects.
 
 
-###language 
+###language
 
 
 For Ruby projects, this tag should always be set to ruby as show below:
@@ -62,16 +62,16 @@ Depending on the `language` and `services` tags in your yml, an official build i
 
 The pre_ci and pre_ci_boot sections are primarily used in one of the following scenarios:
 
-* You want to use a custom Docker image for your CI 
+* You want to use a custom Docker image for your CI
 * You want to override the default options that are used to boot up the default CI image
 
 If you do not want to do either of the above, you should skip these tags in the yml.
 
 #### Default Ruby images
-We have 2 primary build images for Go projects, which should be sufficient for most projects: 
+We have 2 primary build images for Go projects, which should be sufficient for most projects:
 
 * [dry-dock/u14rub](https://github.com/dry-dock/u14rub) is used if you specify `language: go` in your yml and do not specify a `services` tag. This image contains the following:
-	
+
 	* Ubuntu 14.04
 	* Ruby versions 1.8.7, 1.9.2, 1.9.3, 2.0, 2.1.x, 2.2.x, jruby, ree
 	* bundler for each Ruby version
@@ -80,10 +80,10 @@ We have 2 primary build images for Go projects, which should be sufficient for m
 	* Basic packages sudo, build-essential, curl, gcc, make, openssl, software-properties-common, wget, nano, unzip, libxslt-dev, libxml2-dev
 	* Default Java versions: default-jre, default-jdk, openjdk-6, oracle jdk 7  
 	* Python packages python-pip, python-software-properties, python-dev
-	* Node version 0.10 
+	* Node version 0.10
 	* Python 2.7.6
 	* awscli
-	* google-cloud-sdk 
+	* google-cloud-sdk
 
 * [dry-dock/u14ruball](https://github.com/dry-dock/u14ruball) is used if you specify one or more services and set the language to go in the yml. This image contains the following **in addition** to everything that is listed for the u14rub image above:
 
@@ -106,9 +106,9 @@ If these official images do not satisfy your requirements, you can do one of 2 t
 
 - Continue using official images and include commands to install any missing dependencies or packages in your yml
 - Use a custom build image that contains exactly what you need for yout CI
-	
+
 #### Using a custom build image
-If you do decide to use a custom CI image, you will need to configure the `pre_ci_boot` section and optionally, the `pre_ci` section if you're also building the CI image as part of the workflow. Details on how to configure this are available in the [`pre_ci` and `pre_ci_boot` sections of the Build configuration page](../shippableyml.md#build). 
+If you do decide to use a custom CI image, you will need to configure the `pre_ci_boot` section and optionally, the `pre_ci` section if you're also building the CI image as part of the workflow. Details on how to configure this are available in the [`pre_ci` and `pre_ci_boot` sections of the Build configuration page](../shippableyml.md#build).
 
 ### ci
 The `ci` section should contain all commands you need for your `ci` workflow. Commands in this section are executed sequentially. If any command fails, we exit this section with a non zero exit code.
@@ -119,7 +119,7 @@ If needed, you can install your project dependencies using bundler. The snippet 
 ```
 build:
   ci:
-    - bundle install 
+    - bundle install
 
 ```
 
@@ -127,8 +127,8 @@ If you are using a custom gemfile that is not at the root of your repository, yo
 
 ```
 gemfile: gemfiles/Gemfile.ci
-``` 
-If you specify multiple values for this as an array, a build matrix is triggered with one build for each version of the Gemfile. 
+```
+If you specify multiple values for this as an array, a build matrix is triggered with one build for each version of the Gemfile.
 
 You can also specify additional arguments for the `bundle install` command using the bundler_args tag:
 
@@ -141,7 +141,7 @@ Include your test command(s) in the ci section, after you've installed any requi
 
 
 ```
-services: 
+services:
   - postgres
 
 build:
@@ -164,7 +164,7 @@ jdk:
   - oraclejdk8
   - openjdk6
 ```
-The yml above will trigger 4 builds, one against each jdk version. 
+The yml above will trigger 4 builds, one against each jdk version.
 
 
 #### Test and code coverage
@@ -180,7 +180,7 @@ Your dependencies can sometimes fail to install due to network glitches or other
 ```
 build:
   ci:
-    - shippable_retry bundle install 
+    - shippable_retry bundle install
 ```
 
 #### Caching Ruby Gems
@@ -192,12 +192,12 @@ build:
     - bundle package --all
     - bundle install --gemfile="Gemfile"
   cache: true
-  cache_dir_list: 
+  cache_dir_list:
     # replace 2.2.2 with the ruby version you need to cache
     - /usr/local/rvm/gems/$(rvm strings 2.2.2)/gems
     - /usr/local/rvm/gems/$(rvm strings 2.2.2)/specifications
     - $SHIPPABLE_BUILD_DIR
-   
+
 ```
 If the above directories don't work for you, you should check where the gems are installed in your container. To do this, cd /usr/local/rvm/gems and see which directories are in there and need to be cached.
 
@@ -212,10 +212,3 @@ build:
 ```
 
 To avoid executing the default command, include a simple command in like `pwd` or `ls` in this section.
-
-
-
-
-
-
-
