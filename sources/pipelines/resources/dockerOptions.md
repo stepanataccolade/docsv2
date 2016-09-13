@@ -236,27 +236,31 @@ If you do not provide a dockerOptions resource to a manifest job, it will set me
 Even though `dockerOptions` supports a wide variety of configurations, you can only use options that are relevant for your Container Service. The table below maps our tags to settings in Amazon's ECS, Google Container Enginer, and Joyent Triton Public Cloud.
 
 
-| Shippable tag | Amazon ECS | Google Container Engine | Joyent Triton
-| ---- | ---- | ---- | ---- |
-| links | links | none | Links |
-| logConfig | logConfiguration | none | LogConfig |
-| entryPoint | entryPoint | command | Entrypoint |
-| cmd | command | command | Cmd |
-| workingDir | workingDirectory | workingDir | WorkingDir |
-| privileged | privileged | privileged | Privileged (not supported) |
-| labels | dockerLabels | labels | Labels |
-| volumes | volumes/mountPoints | volumeMounts/volumes | Volumes |
-| volumesFrom | volumesFrom | none | VolumesFrom |
-| ulimits | ulimits | none | ulimits |
-| dnsServers | dnsServers | none | Dns |
-| dnsSearch | dnsSearchDomains | none | DnsSearch |
-| user | user | runAsUser | User |
+| **Shippable tag** | Amazon ECS | Google Container Engine | Joyent Triton | Docker Datacenter |
+| ---- | ---- | ---- | ---- | ---- |
+| **cmd** | command | command | Cmd | Cmd |
+| **dnsSearch** | dnsSearchDomains | none | DnsSearch | DnsSearch |
+| **dnsServers** | dnsServers | none | Dns | Dns |
+| **entryPoint** | entryPoint | command | Entrypoint | Entrypoint |
+| **labels** | dockerLabels | labels | Labels | Labels |
+| **links** | links | none | Links | Links |
+| **logConfig** | logConfiguration | none | LogConfig | LogConfig |
+| **network** | networkMode | none | NetworkMode | NetworkMode |
+| **privileged** | privileged | privileged | Privileged (not supported) | Privileged |
+| **readOnlyRootFilesystem** | readonlyRootFilesystem | readOnlyRootFilesystem | ReadonlyRootfs | ReadonlyRootfs |
+| **ulimits** | ulimits | none | ulimits | ulimits |
+| **user** | user | runAsUser | User | User |
+| **volumes** | volumes/mountPoints | volumeMounts/volumes | Volumes | Volumes |
+| **volumesFrom** | volumesFrom | none | VolumesFrom | VolumesFrom |
+| **workingDir** | workingDirectory | workingDir | WorkingDir | WorkingDir |
 
+<br>
 Here are links to docs for each Container Service:
 
 * [Amazon ECS docs](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
 * [Google Container Engine (GKE) docs](http://kubernetes.io/docs/api-reference/v1/definitions/)
 * [Joyent triton docs](https://docs.docker.com/v1.9/engine/reference/api/docker_remote_api_v1.18/)
+* [Docker Datacenter](https://docs.docker.com/v1.9/engine/reference/api/docker_remote_api_v1.18/)
 
 
 ##Overriding dockerOptions
