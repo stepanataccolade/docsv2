@@ -166,4 +166,4 @@ pages:
       - Updating resource version: tutorials/pipelines/updateResourceVersion.md
       - Extracting resource version information: tutorials/pipelines/extractVersionInformation.md
       - Persisting state between runs: tutorials/pipelines/persistStateBetweenRuns.md
-  - Search: search.md
+- Search: search.md
