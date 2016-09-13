@@ -12,7 +12,7 @@ You may have entire pipeline configurations maintained in one repository or spli
 
 ---
 
-##Seeding your pipeline
+##Adding a sync repository
 
 You can add a sync repository by following the steps below:
 
