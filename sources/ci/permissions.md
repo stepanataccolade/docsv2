@@ -10,7 +10,7 @@ We use OAuth authentication.
 
 What this means is if you have either a GitHub or Bitbucket account, you do not need to create a separate account on our platform.
 
-If you want to build repositories in your [GitHub Enterprise](/ci/integrations/scm/githubEnterprise/) instance, you will still need to sign in with GitHub or Bitbucket and add an account integration for GitHub Enterprise.
+If you want to build repositories in your [GitHub Enterprise](/integrations/scm/githubEnterprise/) instance, you will still need to sign in with GitHub or Bitbucket and add an account integration for GitHub Enterprise.
 
 ---
 
@@ -22,11 +22,11 @@ When signing in to Shippable, you will be prompted to give Shippable access to y
 
 If you want to use Shippable to build your private repos, you will need to authorize us for private repositories.
 
-This is done from your Account Settings Page. Read [our documentation](/ci/integrations/scm/github/#enabling-gitHub-account-integration/) for more details.
+This is done from your Account Settings Page. Read [our documentation](/integrations/scm/github/#adding-a-github-account-integration) for more details.
 
 **Bitbucket**- The Bitbucket API does not have public/private granularity, so we ask for access to all repos on Bitbucket by default.
 
-Read [our documentation](/ci/integrations/scm/bitbucket/#enabling-bitbucket-account-integration) for more details.
+Read [our documentation](/integrations/scm/bitbucket/#adding-a-bitbucket-integration) for more details.
 
 > **Note**
 >
@@ -51,7 +51,7 @@ We support 2 roles -
 
 ## Practice Examples
 
-- Run a [sample CI build](gs_ci_sample/) on your own
+- Run a [sample CI build](runFirstBuild/) on your own
 - Refer to the step-wise series of [running CI on a node.js application](http://blog.shippable.com/get-started-with-continuous-integration-for-nodejs-app)  
 
 ---
