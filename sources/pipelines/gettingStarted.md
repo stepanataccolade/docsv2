@@ -37,11 +37,11 @@ These configuration files should be committed to a [repository in your source co
 <a name="sync"></a>
 ##Sync repository
 
-A source control repository that contains your pipeline configuration files is called a **Sync Repository** and can only contain one each of the `shippable.jobs.yml`, `shippable.resources.yml`, and `shippable.triggers.yml` files.  
+A source control repository that contains your pipeline configuration files is called a **Sync Repository**. Each sync repository contains one or more of `shippable.jobs.yml`, `shippable.resources.yml`, and `shippable.triggers.yml` files.  
 
-You must seed your pipeline with at least one sync repository through the Shippable UI. Subsequent sync repositories can also be added through the UI following the same process. Instructions are in the section below.
+You must seed your pipeline with at least one sync repository through the Shippable UI. Subsequent sync repositories can also be added through the UI following the same process. Instructions are in the [Adding a sync repository](#seedPipeline) section below.
 
-You may have entire pipeline configurations maintained in one repository or split up the configuration of different sections of your pipeline in multiple sync repositories. This decision depends on your organizational preferences, as well as [security and permissions requirements](#permissions). For example, you may have pipeline configuration for source control through your first test environment in one repo, configuration for subsequent test environments in another repo, and configuration for your production environment in yet another repo. In this way, you can manage who can configure and execute different areas of your pipeline based on the permissions set on each repo.
+You may have the entire pipeline configuration maintained in one repository, split it across directories within the same repository, or split up the configuration across multiple sync repositories. This decision depends on your organizational preferences, as well as [security and permissions requirements](#permissions). For example, you may have pipeline configuration for source control through your first test environment in one repo, configuration for subsequent test environments in another repo, and configuration for your production environment in yet another repo. In this way, you can manage who can configure and execute different areas of your pipeline based on the permissions set on each repo.
 
 ---
 
@@ -63,7 +63,9 @@ You can add a sync repository by following the steps below:
 	* Name your sync repository with an easy to remember name.
 * Click on `Save` to apply your sync repository configuration.
 
-You will now see your configured pipelines created on Shippable. Click on `SPOG` in the pill menu to view your pipelines. Note, if you do not see what you expected, you likely have a configuration error. Click on the rSync resource in the SPOG view to see the console and identify any errors that may exist.
+At this point, Shippable will parse all configuration files in the sync repository and create your pipeline(s).
+
+You can view your configured pipelines created on Shippable. Click on `SPOG` in the pill menu to view your pipelines. Note, if you do not see what you expected, you likely have a configuration error. Click on the rSync resource in the SPOG view to see the console and identify any errors that may exist.
 
 ---
 

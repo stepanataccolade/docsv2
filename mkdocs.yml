@@ -139,6 +139,9 @@ pages:
   - Job routes: api/job.md
   - Run routes: api/run.md
   - Status Code Mapping: api/statusMapping.md
+- Shippable Server:
+  - Overview: server/overview.md
+  - Installing Shippable Server: server/installingShippableServer.md
 - Tutorials:
   - CI Tutorials:
     - Run a sample CI build: tutorials/ci/runSampleCIBuild.md

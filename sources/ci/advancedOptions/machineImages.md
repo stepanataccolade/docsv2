@@ -3,7 +3,7 @@ page_description: How to configure the node Machine Image for your Continuous In
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Docker, version, 1.11, 1.12
 
 # Machine images
-Machine images are used to spin up a VM for your build. **This should not be confused with the actual build container where your CI workflow is executed.** The CI container is spun up on the build VM and is described in the [Images section](images.md)
+Machine images are used to spin up a VM for your build. **This should not be confused with the actual build container where your CI workflow is executed.** The CI container is spun up on the build VM using either the default image depending on your yml configuration or a custom image if specified in the yml.
 
 The green arrow in the picture below shows where the build machine image is used.
 
