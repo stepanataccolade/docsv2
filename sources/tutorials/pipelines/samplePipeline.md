@@ -110,7 +110,7 @@ Now that you have your pipeline up and running, you should connect it to your CI
 
 To do this:
 
-1. Create an API token for your account. Please note that only accounts with at least one paid subscription are allowed to create API tokens at this time. To do this, go to your **Account Settings** by clicking on the gear icon in the top navbar. Then click on **API tokens** in the left sidebar menu and create a token. Copy the token since you won't be able to see it again.  
+1. Create an API token for your account. To do this, go to your **Account Settings** by clicking on the gear icon in the top navbar. Then click on **API tokens** in the left sidebar menu and create a token. Copy the token since you won't be able to see it again.  
 
 1. Next, we will create an account integration of type 'Event Trigger'
     * Go to  **Integrations** in the left sidebar menu and then click on **Add Integration**

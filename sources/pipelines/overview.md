@@ -76,3 +76,9 @@ In this scenario:
 * After further testing in the Beta environment (e.g. stress tests, smoke tests, etc.), it's ready to deploy to Prod (if needed, we could have also inserted another `release` job between Beta and Production deploy jobs).
 
 * **Release day**! You trigger a manual deploy to production! This is represented by the `deploy-Prod` job.
+
+---
+## Deploying a sample application
+To get started with using pipelines and to understand how they work, you should try deploying our sample application. It will take less than 30 minutes and is a great example to showcase how a simple application can be deployed with Pipelines.
+
+Check out the sample application in our [Pipeline Tutorials section](../../tutorials/pipelines/samplePipeline/)

@@ -164,6 +164,7 @@ pages:
   - Pipelines Tutorials:
     - Deploying a sample application: tutorials/pipelines/samplePipeline.md
     - Seeding your first pipeline: tutorials/pipelines/howToAddSyncRepos.md
+    - Connecting CI and Pipelines: tutorials/pipelines/connectingCiPipelines.md
     - runSh tutorials:
       - Using integrations with runSh: tutorials/pipelines/runShUseIntegrations.md
       - Updating resource version: tutorials/pipelines/updateResourceVersion.md

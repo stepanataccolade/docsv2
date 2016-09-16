@@ -86,8 +86,18 @@ You can interact with the SPOG view in the folllowing ways:
 You can also filter this view by using Flags. Flags need to be included in your job and/or resource configurations to be available as a filter for SPOG.
 
 ---
+## Connecting CI to your Pipelines
+You can trigger your pipeline to run after your CI build is complete. To learn how to do this, check out our [tutorial about connecting CI and Pipelines](../../tutorials/pipelines/connectingCiPipelines/)
+
+---
 
 <a name="permissions"></a>
 ## Permissions
 
 Permissions for your deployment pipelines are tightly coupled with permissions for your sync repositories. Consequently, pipeline elements are only visible and accessible to perform actions to users with **Owner**, **Collaborator/Write**, or **Read** access to the sync repository that holds the configuration files. Users that do not have access to your sync repository will not have access to that portion of your pipeline, even if they are members of your organization.
+
+---
+## Deploying a sample application
+To get started with using pipelines and to understand how they work, you should try deploying our sample application. It will take less than 30 minutes and is a great example to showcase how a simple application can be deployed with Pipelines.
+
+Check out the sample application in our [Pipeline Tutorials section](../../tutorials/pipelines/samplePipeline/)
