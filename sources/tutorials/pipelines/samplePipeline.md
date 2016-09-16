@@ -118,7 +118,7 @@ To do this:
     <br>
 <img src="../../images/pipelines/samplePipelineEventTrigger.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
 
-1. Add the integrations to your Subscription containing the forked samplePipelinesDemo. To do this, go to your Subscription's **Settings** tab and click on **Integrations** in the sidebar menu. Click on **Add integration**, name your integration, and then in the dropdown, choose the integration you created in the previous step.
+1. Add the integration to your Subscription containing the forked samplePipelinesDemo. To do this, go to your Subscription's **Settings** tab and click on **Integrations** in the sidebar menu. Click on **Add integration**, name your integration, and then in the dropdown, choose the integration you created in the previous step.
 
 1. Next, make the following changes to the shippable.yml at the root of your forked sample application:
     * Uncomment the `notifications` section
