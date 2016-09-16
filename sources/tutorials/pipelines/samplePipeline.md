@@ -110,7 +110,7 @@ Now that you have your pipeline up and running, you should connect it to your CI
 
 To do this:
 
-1. Create an API token for your account. Please note that only accounts with at least one paid subscription are allowed to create API tokens at this time. To do this, go to your **Account Settings** by clicking on the gear icon in the top navbar. Then click on **API tokens** in the left sidebar menu and create a token. Copy the token since you won't be able to see it again.  
+1. Create an API token for your account. To do this, go to your **Account Settings** by clicking on the gear icon in the top navbar. Then click on **API tokens** in the left sidebar menu and create a token. Copy the token since you won't be able to see it again.  
 
 1. Next, we will create an account integration of type 'Event Trigger'
     * Go to  **Integrations** in the left sidebar menu and then click on **Add Integration**
@@ -118,7 +118,7 @@ To do this:
     <br>
 <img src="../../images/pipelines/samplePipelineEventTrigger.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
 
-1. Add the integrations to your Subscription containing the forked samplePipelinesDemo. To do this, go to your Subscription's **Settings** tab and click on **Integrations** in the sidebar menu. Click on **Add integration**, name your integration, and then in the dropdown, choose the integration you created in the previous step.
+1. Add the integration to your Subscription containing the forked samplePipelinesDemo. To do this, go to your Subscription's **Settings** tab and click on **Integrations** in the sidebar menu. Click on **Add integration**, name your integration, and then in the dropdown, choose the integration you created in the previous step.
 
 1. Next, make the following changes to the shippable.yml at the root of your forked sample application:
     * Uncomment the `notifications` section
