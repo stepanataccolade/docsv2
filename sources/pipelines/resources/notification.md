@@ -10,19 +10,19 @@ A `notification` resource is used to add a notification type so that you can sen
 * Job is completed successfully (on_success)
 * Job failed (on_failure)
 
-This resource type is only supported for jobs of type `runSh`. Email and Slack notifications are supported as of now.
+Email and Slack notifications are supported for all job types as of now. We are working on adding support for other notification types.
 
 You can create a notification resource by adding it to `shippable.resources.yml`
 
 ```
-notification:
-  - name: <string>								#required
-    type: notification							#required
-    integration: <string>						#required for Slack
-    pointer:									
-      recipients:
-        - "#beta"								#required
-        - "@trriplejay"							#optional
+resources:
+- name: <string>								#required
+  type: notification							#required
+  integration: <string>						#required for Slack
+  pointer:									
+    recipients:
+      - "#beta"								#required
+      - "@trriplejay"							#optional
 ```
 
 The events for which this notification is sent out are configured in the jobs yml.
