@@ -16,13 +16,13 @@ You can create a notification resource by adding it to `shippable.resources.yml`
 
 ```
 resources:
-- name: <string>								#required
-  type: notification							#required
-  integration: <string>						#required for Slack
-  pointer:									
-    recipients:
-      - "#beta"								#required
-      - "@trriplejay"							#optional
+  - name: <string>								#required
+    type: notification							#required
+    integration: <string>						#required for Slack
+    pointer:									
+      recipients:
+        - "#beta"								#required
+        - "@trriplejay"							#optional
 ```
 
 The events for which this notification is sent out are configured in the jobs yml.
