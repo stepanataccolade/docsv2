@@ -102,22 +102,46 @@ Shippable allows you to encrypt your environment variable definitions and keep y
 To encrypt a variable, enter the environment variable and its values in the text box as shown below and click on Encrypt-
 
 ```
-name="abc"`
+name="abc"
 ```
 
-To encrypt multiple variables, you can use the following syntax-
+You can now use these encrypted values with a secure tag . For example, here is the shippable.yml syntax:
+
+```
+#shippable.yml syntax
+env:
+  - secure: <encrypted output>
+```
+
+Here is the shippable.resources.yml syntax:
+
+```
+#shippable.resources. yml syntax
+resources:
+  - name: paran_name                              
+    type: params                                
+    version:
+      params:                                 
+        secure: <encrypted value>           
+```
+
+###Encrypting multiple variables
+To encrypt multiple variables for the shippable.yml for a CI project, you can use the following syntax-
 
 ```
 var1="abc" var2="xyz"
 ```
-Copy the encrypted value.
+Copy the encrypted value and use it in your yml.
 
-You can now use these encrypted values in your shippable.yml with a secure tag . For example,
+To encrypt multiple variables for a shippable.resources.yml for Pipelines, you can use the following syntax-
 
 ```
-env:
-  secure: <encrypted output>
+var1=abc var2=xyz
 ```
+Copy the encrypted value and use it in your yml.
+
+Please note that the difference in syntax for multiple vars in CI and Pipelines is a bug and we will address it soon.
+
 ---
 
 ## Billing
@@ -177,7 +201,7 @@ Your new price will be reflected in your next invoice.
 
 ## Nodes
 
-This page lets you configure the Bring Your Own Nodes (BYON) feature. 
+This page lets you configure the Bring Your Own Nodes (BYON) feature.
 
 By default, all your builds run inside build containers hosted on Shippable's infrastructure.
 
