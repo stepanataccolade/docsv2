@@ -2,43 +2,40 @@ page_title: Deploy a sample application using Shippable's continuous delivery pi
 page_description: Quick start for getting up to speed with pipelines
 page_keywords: getting started, formations, quick start, documentation, shippable
 
-#Connecting CI to Pipelines
+#Versioning Overview
 
-Combining CI and Pipelines gives you a powerful end to end Continuous Delivery solution that can be up and running in minutes. The typical workflow is demonstrated in our [tutorial showing how to deploy a sample application](samplePipeline/).
+If you've read the [Continuous Delivery Pipelines documentation](../../pipelines/overview/), you might have notice that the word 'version' is a bit overloaded. You can have resource versions, job versions, and a version resource which specifies application/service releases. Head spinning much?
 
-This tutorial is focused on a specific scenario - how do you trigger your pipeline after your CI build succeeds?
+This page tries to disambiguate 'version' so you can have a clearer picture of what it means in different situations.
 
-Let us assume the following scenario: Your CI build runs unit tests and generates a Docker image, which you push to a Docker registry. Your pipeline takes this image, creates a service manifest, and then deploys it to a test environment.
+###Resource versions
 
-<img src="../../images/pipelines/connectingCiPipelinesHow.png" alt="Shippable Continuous Integration and Delivery" style="width:800px;"/>
+Most resources in your pipeline is versioned - i.e. each time something changes about the resource, a new version is created. A new version of the resource triggers the pipeline automatically, unless the version changed happened because of a manual yml update.
 
-We're going to see how we can replace the question mark in the picture above with a trigger that will trigger a new version of myImage to be created, which will in turn trigger the manifest job and so on.
+The following resources are versioned:
 
-* Create an API token for your account. To do this, go to your **Account Settings** by clicking on the gear icon in the top navbar. Then click on **API tokens** in the left sidebar menu and create a token. Copy the token since you won't be able to see it again.
+####gitRepo
 
-* Next, create an account integration of type 'Event Trigger'
-    * While still on **Account Settings**, go to  **Integrations** in the left sidebar menu and then click on **Add Integration**
-    * Select **Event Trigger** from the dropdown for **Master Integration** and complete the settings as shown below. Please make sure you update the `Authorization` textbox in the format `apiToken <token-value>`. The resource name should be the resource that refers to the image you're pushing as part of your CI.
 
-    <br>
 
-<img src="../../images/pipelines/samplePipelineEventTrigger.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
+####image
 
-* Add the integration to your Subscription (Organization) containing your CI project. To do this, go to your Subscription's **Settings** tab and click on **Integrations** in the sidebar menu. Click on **Add integration**, name your integration, and then in the dropdown, choose the integration you created in the previous step.
 
-* Next, add the following to the shippable.yml for your CI project:
+####dockerOptions
 
-```
-notifications:
-  - integrationName: triggerDemoPipeline #Replace with name of the integration from subscription settings
-    type: webhook
-    payload:
-      - versionName=$BRANCH.$BUILD_NUMBER  #Replace with the tag of the image you pushed during CI  
-    on_success: always
-    on_failure: never
 
-```
+####params
 
-And that's it. The next time you run your CI build and push your image, your pipeline will be triggered by your event trigger integration.
 
-<img src="../../images/pipelines/connectingCiPipelines.png" alt="Shippable Continuous Integration and Delivery" style="width:800px;"/>
+####replicas
+
+
+You can view version history to see how the resource changed over time.
+
+
+###Job versions
+
+
+
+
+###version resource
