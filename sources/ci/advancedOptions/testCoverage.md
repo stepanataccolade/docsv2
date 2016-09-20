@@ -48,5 +48,5 @@ Examples for other languages can be found in our [Code Samples](ci_languages/).
 
 Once you have set this up, you can view your code coverage results in the `Code coverage` tab on your build page.
 
-Check out our blogs on [creating visualizations of your CI test results](http://blog.shippable.com/automatically-retry-scripts-to-avoid-network-hiccups-during-ci-process) and [setting up code coverage for tests](http://blog.shippable.com/setting-up-code-coverage-visualization-for-tests-in-ci) for additional details.
+Check out our blogs on [creating visualizations of your CI test results](http://blog.shippable.com/setting-up-continuous-integration-test-result-visualization) and [setting up code coverage for tests](http://blog.shippable.com/setting-up-code-coverage-visualization-for-tests-in-ci) for additional details.
 * * *
