@@ -10,7 +10,14 @@ This page tries to disambiguate 'version' so you can have a clearer picture of w
 
 ###Resource versions
 
-Most resources in your pipeline is versioned - i.e. each time something changes about the resource, a new version is created. A new version of the resource triggers the pipeline automatically, unless the version changed happened because of a manual yml update.
+Most [resources](../../pipelines/resources/overview/) in your pipeline are versioned - i.e. each time something changes about the resource, a new version is created.
+
+A resource can change in one of two ways:
+
+* manual editing of the resource in shippable.resources.yml
+* resource is updated by a CI build or [a job in your pipeline](../../pipelines/jobs/overview/)
+
+When a resource is updated by a CI build or a job in your pipeline, the new resource version triggers the next component of your pipeline automatically, unless your jobs yml explicitly prevents automatic triggers.
 
 The following resources are versioned:
 

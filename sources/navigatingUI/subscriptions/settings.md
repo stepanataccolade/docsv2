@@ -84,7 +84,7 @@ one. To do so:
 
 - Click on the '+ Add integration' from the dropdown choices of the 'Account Integrations'
 field as shown above in Step 3.
-- Create the integration. [Detailed instructions here](navigatingUI/accountSettings/integrations/#Adding-an-account-integration).
+- Create the integration. [Detailed instructions here](../accountSettings/integrations/#Adding-an-account-integration).
 - Once you create this integration, add it to  your subscription by following
 Steps 2 and 3.
 
