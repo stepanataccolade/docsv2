@@ -184,7 +184,7 @@ The following pages describe how to use each service in greater detail:
 * * *
 
 ## env
-You can customize your build workflow by using environment variables that are set at runtime and available during your build. Shippable provides [a standard list of environment variables](advanced_options/environmentVariables/) that are available during each build. For example, you can use the `$BRANCH` variable to call different scripts depending on which branch is being built.
+You can customize your build workflow by using environment variables that are set at runtime and available during your build. Shippable provides [a standard list of environment variables](advancedOptions/environmentVariables/) that are available during each build. For example, you can use the `$BRANCH` variable to call different scripts depending on which branch is being built.
 
 You can also define your custom environment variables in the `env` section of your shippable.yml:
 
@@ -197,7 +197,7 @@ The yml snippet above makes the variables $TEST and $FOO available during your b
 Please note that environment variables set in the pre_ci section are not available in the `ci`, `post_ci`, `after_success`, and `after_failure` sections since `pre_ci `commands are run on the build machine and not inside the ci container.`
 
 ###Advanced topics for environment variables
-Our [advanced topic guide for environment variables](advanced_options/environmentVariables/) covers more complex scenarios like:
+Our [advanced topic guide for environment variables](advancedOptions/environmentVariables/) covers more complex scenarios like:
 
 *List of standard environment variables*
 
