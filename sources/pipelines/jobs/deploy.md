@@ -158,3 +158,21 @@ jobs:
     * `manifest` should be the manifest containing the image you want to connect your load balancer to
     * `image` should be the image resource name in the manifest
     * `port` is the containerPort to be exposed
+
+## Forcing deployments for static tags
+
+Shippable assumes that your images are versioned with unique names (we recommend tagging with `$BRANCH.$BUILD_NUMBER`). When your deploy job is triggered, it will deploy the latest version of the IN manifests if something has changed in the manifest, i.e. image tag, dockerOptions settings, or params.
+
+If you tag your images with static tags like `latest` or `$BRANCH_NAME`, Shippable cannot detect if the underlying image has changed, and hence it is not deployed. To force deployments in this scenario, you need to set a flag in your deploy job that tells Shippable to deploy the image each time the job is triggered, regardless of whether anything has changed in the manifest.
+
+You can set the `force` flag for a manifest in your deploy job as shown below:
+
+```
+jobs:
+  - name: <job name>
+    type: deploy
+    steps:
+      - IN: <manifest>                        #required
+        force: true
+      - IN: <cluster>                         #required
+```
