@@ -33,7 +33,7 @@ jobs:
       - IN: <manifest>							#optional
         switch: on/off							#optional
       - TASK:	managed							 #required
-        bump: minor								#required
+        bump: minor								#optional
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines `Jobs` tab.
@@ -42,7 +42,7 @@ jobs:
 	* `switch` provides a way to specify whether you want the release job to trigger automatically when the `version` resource changes. By default, the value is `on` but you can set it to off here to make sure the release and subsequent workflow will need to be triggered manually. This is a way to provide a manual approval gate in your pipeline.
 * You can provide any number of `manifest` jobs as inputs, but you must provide at least one.  This specifies the service(s) that are being versioned. Read more on [manifest jobs here](manifest/).
  	* `switch` provides a way to specify whether you want the release job to trigger automatically when the `manifest` job finishes running. By default, the value is `on` but you can set it to off here to make sure the release and subsequent workflow will need to be triggered manually. This is a way to provide a manual approval gate in your pipeline.
-* `bump` is also a required input and can be set to `major`, `minor`, `patch`, `alpha`, `beta` or `rc`. This specifies how the release version should be incremented each time this job runs and a new release is created. We follow <a href="http://www.semver.org/" target="_blank">semver rules</a> for supported bump values. The release version number is applied to all manifests in the release.
+* `bump` is an optional input with default value `minor` and can be set to `major`, `minor`, `patch`, `alpha`, `beta` or `rc`. This specifies how the release version should be incremented each time this job runs and a new release is created. We follow <a href="http://www.semver.org/" target="_blank">semver rules</a> for supported bump values. The release version number is applied to all manifests in the release.
 
 As an example, if the seed version is 4.0.0, here is how we would increment version based on `bump` value:
 
@@ -81,7 +81,7 @@ jobs:
       - IN: <deploy>							#optional
         switch: on/off						#optional
       - TASK:	managed							#required
-        bump: beta							#required
+        bump: beta							#optional
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines `Jobs` tab.
@@ -95,7 +95,7 @@ jobs:
 * You can provide any number of `deploy` jobs as inputs, but you must provide at least one.  This specifies the service(s) that are being versioned.
  	- `switch` provides a way to specify whether you want the release job to trigger automatically when the `deploy` job finishes running. By default, the value is `on` but you can set it to off here to make sure the release and subsequent workflow will need to be triggered manually. This is a way to provide a manual approval gate in your pipeline.
 
-* `bump` is also a required input and can be set to `major`, `minor`, `patch`, `alpha`, `beta` or `rc`. This specifies how the release version should be incremented each time this job runs and a new release is created. We follow <a href="http://www.semver.org/" target="_blank">semver rules</a> for supported bump values. The release version number is applied to all manifests in the release.
+* `bump` is an optional input with default value `minor` and can be set to `major`, `minor`, `patch`, `alpha`, `beta` or `rc`. This specifies how the release version should be incremented each time this job runs and a new release is created. We follow <a href="http://www.semver.org/" target="_blank">semver rules</a> for supported bump values. The release version number is applied to all manifests in the release.
 
 As an example, if the seed version is 4.0.0, here is how we would increment version based on `bump` value:
 
