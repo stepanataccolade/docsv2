@@ -52,7 +52,7 @@ We support a multitude of languages, tools, services, as well as all popular sou
 -  [RethinkDB 2.0.1](/ci/services/rethinkDB/)
 -  [Riak 2.0.5](/ci/services/riak/)
 -  [Selenium 2.52](/ci/services/selenium/)
--  [SQLite 3](/ci/services/sqLite/)
+-  [SQLite 3](/ci/services/sqlite/)
 
 ---
 
