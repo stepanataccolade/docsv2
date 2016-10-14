@@ -81,7 +81,7 @@ You can interact with the SPOG view in the folllowing ways:
 - Zoom in and out to see additional details for any part of the pipeline
 - Right click on a job to view status, inputs, latest version number
 - Right click on a job to manually run the job
-- Rught click on a resource to view latest version number
+- Right click on a resource to view latest version number
 
 You can also filter this view by using Flags. Flags need to be included in your job and/or resource configurations to be available as a filter for SPOG.
 
