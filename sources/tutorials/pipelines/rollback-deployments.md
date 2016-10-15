@@ -11,13 +11,13 @@ We are working on an easy, single click UI action for rollback since we believe 
 
 ##Rolling back a release
 
-<img src="../../images/pipelines/rollback-release.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
+<img src="../../images/pipelines/rollback-release.png" alt="Shippable Continuous Integration and Delivery" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 In this scenario, you have a setup where the deploy job you want to rollback is preceded by a release job in your pipeline.The easiest way to roll back to a previous deployment here is:
 
 * Identify the versionName of the release you want to roll back to. To do this, go to the `Jobs` tab of your Pipelines page and find the release job in the list. Click on the number in the `Latest version` column for the job.
 
- <img src="../../images/pipelines/view-older-job-versions.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
+ <img src="../../images/pipelines/view-older-job-versions.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 * This will show you a list of releases that were created for your application. Look up the release you want and write down the `versionName` for the release
 
@@ -40,15 +40,17 @@ Your deployment should roll back to the desired release. However, please remembe
 
 ##Rolling back a manifest
 
-<img src="../../images/pipelines/rollback-manifest.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
+<img src="../../images/pipelines/rollback-manifest.png" alt="Shippable Continuous Integration and Delivery" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 In this scenario, you have a setup where the deploy job you want to rollback is preceded by a manifest job in your pipeline.The easiest way to roll back to a previous deployment here is:
 
 * You will first need to identify which image tag you want to roll back to. To go this, go to the `Resources` tab of your Pipelines page and find the image resource  in the list. Click on the number in the `Latest version` column for the image.
 
- <img src="../../images/pipelines/view-older-resource-versions.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
+ <img src="../../images/pipelines/view-older-resource-versions.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 * This will show you a list of versions that were created for your image resource. Look up the `versionName` column and find the tag you want to roll back to. Write this down.
+
+<img src="../../images/pipelines/list-image-versions.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 * Pin the versionName of the image you want to go back to in your yml config for the manifest job.
 
