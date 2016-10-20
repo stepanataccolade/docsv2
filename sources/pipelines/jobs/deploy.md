@@ -180,3 +180,8 @@ jobs:
         force: true
       - IN: <cluster>                         #required
 ```
+
+## Rolling back your deployments
+As much as we want our code to work perfectly, there are situations when major bugs are discovered in a release after it is already deployed to an environment. In such cases, rolling back the deployment is the best way to recover while you fix the problems.
+
+Check out our [tutorial on rolling back deployments](../../tutorials/pipelines/rollback-deployments/) to handle this.
