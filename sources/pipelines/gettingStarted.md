@@ -84,8 +84,29 @@ You can interact with the SPOG view in the folllowing ways:
 - Right click on a resource to view latest version number
 
 You can also filter this view by using Flags. Flags need to be included in your job and/or resource configurations to be available as a filter for SPOG.
+---
+
+##Filtering the SPOG view
+
+If you have a lot of pipelines configured, the SPOG view can get busy and it can be difficult to find a specific job or resource. You can use the `flags` keyword to filter SPOG for easier readability.
+
+The `flags` keyword can be set in any job or resource:
+
+```
+jobs:
+  - name: <string>
+	  type: <job type>
+		#other job related inputs
+		flags:
+		  - <filter name>
+```
+
+Once you commit this, the filters will be shown in the Filter dropdown in your SPOG view.
+
+Please note that you do not need to add flags to every job or resource in your pipeline. If we detect flags for a job or resource and you filter SPOG with that flag, the UI will display all upstream and downstream jobs and resources in the pipeline.
 
 ---
+
 ## Connecting CI to your Pipelines
 You can trigger your pipeline to run after your CI build is complete. To learn how to do this, check out our [tutorial about connecting CI and Pipelines](../../tutorials/pipelines/connectingCiPipelines/)
 

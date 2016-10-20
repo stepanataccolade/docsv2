@@ -41,7 +41,6 @@ We support a multitude of languages, tools, services, as well as all popular sou
 ## Services
 -  [CouchDB 1.6.1](/ci/services/couchDB/)
 -  [Elastic Search 1.5.1](/ci/services/elasticSearch/)
--  [Kestrel](/ci/services/kestrel/)
 -  [Memcached 1.4.23](/ci/services/memcached/)
 -  [MongoDB 3.0](/ci/services/mongoDB/)
 -  [MySQL 5.6.23](/ci/services/mySQL/)
