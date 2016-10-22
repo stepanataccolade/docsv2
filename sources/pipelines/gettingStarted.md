@@ -84,6 +84,7 @@ You can interact with the SPOG view in the folllowing ways:
 - Right click on a resource to view latest version number
 
 You can also filter this view by using Flags. Flags need to be included in your job and/or resource configurations to be available as a filter for SPOG.
+
 ---
 
 ##Filtering the SPOG view
