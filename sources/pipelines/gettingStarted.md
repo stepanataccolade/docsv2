@@ -96,10 +96,10 @@ The `flags` keyword can be set in any job or resource:
 ```
 jobs:
   - name: <string>
-	  type: <job type>
-		#other job related inputs
-		flags:
-		  - <filter name>
+    type: <job type>
+    #other job related inputs
+    flags: 
+      - <filter name>
 ```
 
 Once you commit this, the filters will be shown in the Filter dropdown in your SPOG view.
