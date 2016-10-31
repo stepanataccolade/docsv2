@@ -29,8 +29,9 @@ We're going to see how we can replace the question mark in the picture above wit
 * Next, add the following to the shippable.yml for your CI project:
 
 ```
-notifications:
-  - integrationName: triggerDemoPipeline #Replace with name of the integration from subscription settings
+integrations:
+  notifications:
+    - integrationName: triggerDemoPipeline #Replace with name of the integration from subscription settings
     type: webhook
     payload:
       - versionName=$BRANCH.$BUILD_NUMBER  #Replace with the tag of the image you pushed during CI  
