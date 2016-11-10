@@ -6,7 +6,7 @@ page_keywords: continuous integration environment variables secure encrypted cus
 # Using environment variables
 You can customize your CI workflow by using environment variables. These variables are available to you in all sections of your yml so you can use conditional statements depending on the value(s) of one or more variables.
 
-Shippable provides a standard list of environment variables that are available for every build. You can also define your own variables and use them for your CI workflow. 
+Shippable provides a standard list of environment variables that are available for every build. You can also define your own variables and use them for your CI workflow.
 
 
 ## Standard variables
@@ -171,7 +171,7 @@ You can also use encrypted variables in the global or matrix sections if needed.
 ### Secure variables
 If you need to include environment variables that are used to store sensitive information like passwords or keys, you should encrypt them and enter the encrypted value in your yml.
 
-To encrypt an environment variable, go to your Shippable subscription or project settings. Choose 'Encrypt' from the left sidebar menu. Enter your variables in the textbox in the Encrypt section and click on `Encrypt`. This will give you the encrypted string that you can use in your yml. A more detailed [explanation is given here](../../navigatingUI/projects/settings.md#Encrypt)
+To encrypt an environment variable, go to your Shippable subscription or project settings. Choose 'Encrypt' from the left sidebar menu. Enter your variables in the textbox in the Encrypt section and click on `Encrypt`. This will give you the encrypted string that you can use in your yml. A more detailed [explanation is given here](../../navigatingUI/projects/settings.md#encrypting-your-environment-variables)
 
 <img src="../../images/advancedOptions/encrypt.png" alt="Encrypt Environment Variables" style="width:1000px;"/>
 
@@ -184,13 +184,12 @@ env:
 build:
   ci:
     - echo $FOO  
-``` 
+```
 
-As with other user defined environment variables, you can specify multiple secure variables in your yml to trigger a build matrix or specify them as global. 
+As with other user defined environment variables, you can specify multiple secure variables in your yml to trigger a build matrix or specify them as global.
 
 **Things to remember**
 
-* Due to the security risk of exposing your secure variables, we do not decrypt secure variables for pull request from the forks of public projects. Secure variable decryption is limited to the pull request triggered from the branches on the same repository. 
+* Due to the security risk of exposing your secure variables, we do not decrypt secure variables for pull request from the forks of public projects. Secure variable decryption is limited to the pull request triggered from the branches on the same repository.
 * Decrypted secured variables are not displayed in the script tab for security reasons.
-* Project owners can decrypt secure variables by going to their Settings tab, choosing Encrypt in the sidebar menu, and then entering the secure variable in the Decrypt section. More on [this is explained here](../../navigatingUI/projects/settings.md#Encrypt).
-
+* Project owners can decrypt secure variables by going to their Settings tab, choosing Encrypt in the sidebar menu, and then entering the secure variable in the Decrypt section. More on [this is explained here](../../navigatingUI/projects/settings.md#encrypting-your-environment-variables).
