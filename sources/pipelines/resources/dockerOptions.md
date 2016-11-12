@@ -156,6 +156,20 @@ This setting maps to Entrypoint in the <a href="https://docs.docker.com/referenc
 
 This setting maps to Cmd in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the COMMAND parameter to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>. For more information about the Docker CMD parameter, go to <a href="https://docs.docker.com/reference/builder/#cmd" target="_blank">https://docs.docker.com/reference/builder/#cmd</a>.
 
+NOTE: Multiple commands provided on a single line are not parsed successfully. Splitting each command on separate lines will correctly create and pass the CMD array.
+
+For example, instead of using
+```
+    cmd:
+      - /bin/sh -c while true; do echo hello world; sleep 1; done
+```
+split each command on a separate line as shown below:
+```
+   cmd:
+     - /bin/sh
+     - -c
+     - while true; do echo hello world; sleep 1; done
+```
 
 ```
     workingDir: <path to working dir>
