@@ -2,7 +2,33 @@ page_title: Amazon EC2 Container Registry (ECR) integration
 page_description: Setting up Shippable account integrations for Amazon ECR
 page_keywords: Docker Hub, amazon, ecs, gcr, google, shippable, quay, coreos, docker, registry, EC2 Container Service, Google, Docker Trusted registry, private, elastic compute cloud
 
-# Amazon EC2 Container Registry (ECR)
+# Amazon EC2 Container Registry (ECR) integration
+
+An ECR integration lets you configure the following scenarios:
+
+- Pull a private image
+- Build a Docker image which has a `FROM` that pulls a private image
+- Push an image
+- Use an [image resource](../../pipelines/resources/image/) as part of your CD [pipeline](../../pipelines/overview/)
+
+Using an ECR integration is a three step process:
+
+<img src="../../images/accountIntegrationLifecycle.png" alt="Google Container Registry integration" style="width:800px;"/>
+
+* **Adding an integration to your account**
+
+You can get to your account integrations by clicking on the gear icon in the top navbar and clicking on `Integrations` in the left sidebar menu. Click on `Add integration` to add a new integration. Detailed instructions are provided in the [section below](#addAccountIntegration).
+
+* **Enabling the integration for a [Subscription](../../../ci/overview/#subscription)**
+
+Next, you should go to your [Subscription's Settings](../../../navigatingUI/subscriptions/settings/#adding-integrations) and click on `Integrations` on the left sidebar. Here, you can enable any of your account integrations for that particular subscription. This means that all projects in that subscription can now use that integration in their yml configurations. Detailed instruction on this step and in the [Adding integration to your Subscription section](#addSubscriptionIntegration) below.
+
+* **Using the integration in your yml**
+
+Once an integration is enabled for a subscription, you can use it in any project in that subscription with a few lines of yml configuration. Please note that the integration name should be the one from Subscription Settings. Additional details are in the [Using integration in your yml](#useIntegrationYml) section below.
+
+---
+<a name="addAccountIntegration"></a>
 
 ##Adding the Account Integration
 
@@ -19,27 +45,11 @@ The integration will now be available to all your continuous integration and dep
 
 <img src="/ci/images/integrations/imageRegistries/ecr/addInt.png" alt="Amazon EC2 Container Registry integration" style="width:700px;"/>
 
-
-NOTE: By default, the ECR region is set to `us-east-1`. To override and specify a desired region, you'll need to configure it in the `shippable.yml`. Here's an example, for reference.
-```
-integrations:
-  hub:
-    - integrationName: your_integration_name
-      type: ecr
-      region: us-west-2
-```
-
 ---
 
-##Pull an image from ECR
-You can pull any image you have access to, from ECR and use that to spin up your CI build container.
+<a name="addSubscriptionIntegration"></a>
+##Adding integration to your Subscription
 
-To pull an image, you'll need to do the following:
-
-1. Add the ECR integration to your subscription.
-2. Configure your `shippable.yml` to associate the ECR integration for your project.
-
-###Add the ECR integration to your subscription
 To add ECR integration to your subscription, do the following:
 
 1. Ensure you have logged in to [Shippable](https://app.shippable.com).
@@ -52,198 +62,46 @@ To add ECR integration to your subscription, do the following:
 7. Click the `Save` button.
 8. The ECR integration will show up in the list of integrations for your subscription.
 
-###Configure ECR integration in the `shippable.yml`
-To enable ECR integration for your project, add the following to the `shippable.yml` file for that project.
-```
-pre_ci_boot:
-    image_name: manishas/myImage
-    image_tag: latest
-    pull: true
-    options: "-e HOME=/root"
-
-integrations:
-  hub:
-    - integrationName: ecr-integration
-      type: ecr
-      branches:
-        only:
-          - master
-          - dev
-```
-While the above is a sample code for your `shippable.yml`, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
-
-- `image_name:` value is in the format docker-registry-username/docker-registry-image-repo.
-- `image_tag:` value is the tag for the image that you want to pull.
-- `pull:` set to `true` to pull the image from the specified Image Registry.
-- In the `env` section, you can enter any environment variables you want to be set inside your CI container. Read more about [environment variables](/ci/advancedOptions/envVar/).
-- In the `options` tag, enter any docker options you want to use in the docker run command. You also need to include the HOME environment variable as shown if it is not already set in your image.
-- `integrationName` value is the name of the ECR integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match). Moreover, this account should have permissions to pull the the build image specified in the `image_name` setting.
-- `type` is `ecr`.
-- [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
-
-For more information on pulling images, refer our documentation on [pulling an image](/ci/advancedOptions/images/).
-
 ---
 
-##Build a Docker image which has a `FROM` that pulls an image from ECR
+<a name="useIntegrationYml"></a>
+##Using integration in your yml
 
-If you want to build your Docker image as part of your workflow for each CI run and if your 'Dockerfile' has a `FROM` which pulls a private image from ECR, then you will need to do the following steps:
-
-1. Add the ECR integration to your subscription.
-2. Configure your `shippable.yml` to associate the ECR integration for your project and add few options to ensure you are building the Docker image as part of CI.
-
-**IMPORTANT**
-If you are using a custom image and you specify an ECR integration in your yml, we will try to login to the registry on your behalf from inside your CI build container.
-
-This means that for custom images, you would need the AWS Command Line Interface (CLI) installed inside your custom image if you want this to succeed, else you will get a `aws: command not found` error.
-
-Get around this by setting `agent_only: true` for ECR integration in your `shippable.yml`.
-
-This will ensure that we will not attempt to login to the registry from inside your CI build container.
-However, this also means that you will not be able to pull from or push to ECR in the `ci`, `post_ci`, `on_success` and `on_failure` sections.
-
-If you do want to use docker commands to interact with ECR in your `ci`, `post_ci`, `on_success` or `on_failure` sections within your `shippable.yml`, then include the following in your 'Dockerfile' to install the AWS CLI:
-
-`sudo pip install awscli`
-
-
-###Add the ECR integration to your subscription
-To add ECR integration to your subscription, do the following:
-
-1. Ensure you have logged in to [Shippable](https://app.shippable.com).
-2. Select your Subscription from the dropdown burger bar menu on the top left.
-3. Click the 'Settings' tab and go to the 'Integrations' section.
-4. Click the `Add Integration` button.
-5. Provide an easy-to-remember name for the ECR integration for your Subscription, such as `ecr-integration`, in the 'Name' field.
-**IMPORTANT:** The 'Name' you have entered in this step should be used in your `shippable.yml` file. Both names should be exactly the same. If not the build will fail with an error.
-6. From the 'Account Integrations' dropdown select the ECR account integration created.
-7. Click the `Save` button.
-8. The ECR integration will show up in the list of integrations for your subscription.
-
-###Configure ECR integration in the `shippable.yml`
-
-Add the following to your `shippable.yml` file:
+You can add the integration to your yml with the following snippet:
 
 ```
-build:
-  pre_ci:
-    - docker build -t myImage:tip .
-
-  pre_ci_boot:
-    image_name: myImage
-    image_tag: tip
-    pull: false
-    options: "-e HOME=/root"
-
 integrations:
   hub:
     - integrationName: ecr-integration
       type: ecr
-      agent_only: true
-      branches:
+      region: us-west-2     #optional
+      branches:             #optional
         only:
           - master
           - dev
 ```
 
-- `image_name` value is the name of the image that was built in the `pre_ci` step.
-- `image_tag` is the tag for the image that was built in the `pre_ci` step.
-- set `pull` to `false` if you want to use the image you built during the pre_ci step instead of pulling from a docker registry.
-- In the env section, you can enter any environment variables you want to be set inside your CI container.
-- In the options tag, enter any docker options you want to use in the docker run command. You also need to include the HOME environment variable as shown if it is not already set in your 'Dockerfile'.
-- `integrationName` value is the name of the ECR integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match). Moreover, this account should have permissions to pull the the build image specified in the `image_name` setting.
+- `integrationName` value is the name of the ECR integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
 - `type` is `ecr`.
-- `agent_only:` Set the value to `true` only if you are using a custom Docker image and you want to pull from or push to ECR in the `ci`, `post_ci`, `on_success` or `on_failure` sections.
 - [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
+- [optional] By default, the ECR region is set to `us-east-1`. To override and specify a desired region, you can use the `region` tag to specify region as shown above.
 
-For more information on building images as part of the CI, refer our documentation on [building an image](/ci/advancedOptions/images/).
+Now that you've configured the integration in your yml, you can use docker commands to push or pull images from ECR. For further information about specific scenarios, check out the tutorials below.
 
 ---
 
-##Push an image to ECR
+##Tutorials
 
-You can push your image to ECR in the `post_ci` or `push` sections of the `shippable.yml`.
+We have published the following tutorials to help get started on working with images stored in ECR as part of your CI/Pipelines workflows.
 
-The main difference is that the `post_ci` section runs inside the build container and the `push` section runs outside the build container in the Shippable Agent.
+* [Pulling an image from ECR](../../../tutorials/ci/integrations/imageRegistries/amazon-ecr/pull-docker-image-from-aws-ecr/)
 
-To push an image to ECR, do the following:
+* [Using an image from ECR to spin up your CI container](../../../tutorials/ci/integrations/imageRegistries/amazon-ecr/use-custom-ecr-docker-image-for-ci/)
 
-1. Add the ECR integration to your subscription.
-2. Configure your `shippable.yml` to associate the ECR integration for your project and add few options to ensure you are pushing the Docker image in `post_ci` section or in the `push` section.
+* [Build an image which pulls the base image from ECR](../../../tutorials/ci/integrations/imageRegistries/amazon-ecr/build-docker-image/)
 
-**IMPORTANT**
-If you are using a custom image and you specify an ECR integration in your yml, we will try to login to the registry on your behalf from inside your CI build container.
+* [Push an image to ECR](../../../tutorials/ci/integrations/imageRegistries/amazon-ecr/push-docker-image-to-aws-ecr/)
 
-This means that for custom images, you would need the AWS Command Line Interface (CLI) installed inside your custom image if you want this to succeed, else you will get a `aws: command not found` error.
-
-Get around this by setting `agent_only: true` for ECR integration in your `shippable.yml`.
-
-This will ensure that we will not attempt to login to the registry from inside your CI build container.
-However, this also means that you will not be able to pull from or push to ECR in the `ci`, `post_ci`, `on_success` and `on_failure` sections.
-
-If you do want to use docker commands to interact with ECR in your `ci`, `post_ci`, `on_success` or `on_failure` sections within your `shippable.yml`, then include the following in your 'Dockerfile' to install the AWS CLI:
-
-`sudo pip install awscli`
-
-###Add the ECR integration to your subscription
-To add ECR integration to your subscription, do the following:
-
-1. Ensure you have logged in to [Shippable](https://app.shippable.com).
-2. Select your Subscription from the dropdown burger bar menu on the top left.
-3. Click the 'Settings' tab and go to the 'Integrations' section.
-4. Click the `Add Integration` button.
-5. Provide an easy-to-remember name for the ECR integration for your Subscription, such as `ecr-integration`, in the 'Name' field.
-**IMPORTANT:** The 'Name' you have entered in this step should be used in your `shippable.yml` file. Both names should be exactly the same. If not the build will fail with an error.
-6. From the 'Account Integrations' dropdown select the ECR account integration created.
-7. Click the `Save` button.
-8. The ECR integration will show up in the list of integrations for your subscription.
-
-###Configure ECR integration in the `shippable.yml`
-
-To push the Docker image to ECR in the `post_ci` section, add the following to your `shippable.yml` file:
-
-```
-build:
-  post_ci:
-    #Commit the container only if you want all the artifacts from the CI step
-    - docker commit $SHIPPABLE_CONTAINER_NAME manishas/sample-node:tag
-    - docker push manishas/sample-node:tag
-
-integrations:
-  hub:
-    - integrationName: ecr-integration
-      type: ecr
-      agent_only: true
-      branches:
-        only:
-          - master
-```
-
-Similarly to push the Docker image to ECR in the `push` section, add the following to your `shippable.yml` file:
-
-```
-build:
-  post_ci:
-
-  push:
-    docker push manishas/sample-node:tag
-
-integrations:
-  hub:
-    - integrationName: ecr-integration
-      type: ecr
-      branches:
-        only:
-          - master
-```
-
-
-- `integrationName` value is the name of the ECR integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match). Moreover, this account should have permissions to pull the the build image specified in the `image_name` setting.
-- `type` is `ecr`.
-- `agent_only:` Set the value to `true` only if you are using a custom Docker image and you want to pull from or push to ECR in the `ci`, `post_ci`, `on_success` or `on_failure` sections.
-- [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
-
-For more information on pushing images as part of the CI, refer our documentation on [pushing an image](/ci/advancedOptions/images/).
 
 ---
 

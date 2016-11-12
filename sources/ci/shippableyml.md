@@ -301,8 +301,10 @@ build:
 
 - Do not include commands for your actual CI workflow in this section. This section is mainly for any commands you need to run before the build container is spun up.
 
+<a name="pre-ci-boot"></a>
 ### pre_ci_boot
 This section is **optional** and lets you override the default build image used for your CI workflow. You should include this section in your yml only if:
+
 - You want to use your own custom Docker image for your build
 - You want to customize some options while starting up your CI container
 

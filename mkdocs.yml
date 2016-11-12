@@ -152,6 +152,11 @@ pages:
         - Building Bitbucket Server repos: tutorials/ci/integrations/scm/usingBitbucketServer.md
         - Building GitLab repos: tutorials/ci/integrations/scm/usingGitLab.md
       - Docker registry tutorials:
+        - Amazon ECR tutorials: 
+          - Pull Docker image from ECR: tutorials/ci/integrations/imageRegistries/amazon-ecr/pull-docker-image-from-aws-ecr.md
+          - Build docker image: tutorials/ci/integrations/imageRegistries/amazon-ecr/build-docker-image.md
+          - Push a Docker image to ECR: tutorials/ci/integrations/imageRegistries/amazon-ecr/push-docker-image-to-aws-ecr.md
+          - Use custom Docker image from ECR for CI: tutorials/ci/integrations/imageRegistries/amazon-ecr/use-custom-ecr-docker-image-for-ci.md
         - Interacting with Docker Hub: tutorials/ci/integrations/imageRegistries/usingDockerHub.md
         - Interacting with Google Container Registry: tutorials/ci/integrations/imageRegistries/usingGCR.md
       - Container Services Tutorials:

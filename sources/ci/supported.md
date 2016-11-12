@@ -9,11 +9,11 @@ We support a multitude of languages, tools, services, as well as all popular sou
 ---
 
 ## Source control providers
--  [GitHub](/ci/integrations/scm/github/)
--  [GitHub Enterprise](/ci/integrations/scm/githubEnterprise/)
--  [Bitbucket](/ci/integrations/scm/bitbucket/)
--  [Bitbucket Server](/ci/integrations/scm/bitbucketServer/)
--  [GitLab](/ci/integrations/scm/gitlab/)
+-  [GitHub](/integrations/scm/github/)
+-  [GitHub Enterprise](/integrations/scm/githubEnterprise/)
+-  [Bitbucket](/integrations/scm/bitbucket/)
+-  [Bitbucket Server](/integrations/scm/bitbucketServer/)
+-  [GitLab](/integrations/scm/gitlab/)
 
 ---
 
@@ -93,29 +93,29 @@ We support a multitude of languages, tools, services, as well as all popular sou
 ---
 
 ## Notification Providers
-- [Slack](/ci/integrations/notifications/slack/)
-- [Email](/ci/integrations/notifications/email/)
-- [HipChat](/ci/integrations/notifications/hipchat/)
-- [IRC](/ci/integrations/notifications/irc/)
+- [Slack](/integrations/notifications/slack/)
+- [Email](/integrations/notifications/email/)
+- [HipChat](/integrations/notifications/hipchat/)
+- [IRC](/integrations/notifications/irc/)
 
 ---
 
 ## Image registries
-- [Docker Hub](/ci/integrations/imageRegistries/dockerHub/)
-- [Docker Trusted Registry](/ci/integrations/imageRegistries/dockerTrustedRegistry/)
-- [Amazon EC2 Container Registry (ECR)](/ci/integrations/imageRegistries/ecr/)
-- [Google Container Registry (GCR)](/ci/integrations/imageRegistries/gcr/)
-- [Quay](/ci/integrations/imageRegistries/quay/)
-- [Any private registry](/ci/integrations/imageRegistries/privateRegistry/)
+- [Docker Hub](/integrations/imageRegistries/dockerHub/)
+- [Docker Trusted Registry](/integrations/imageRegistries/dockerTrustedRegistry/)
+- [Amazon EC2 Container Registry (ECR)](/integrations/imageRegistries/ecr/)
+- [Google Container Registry (GCR)](/integrations/imageRegistries/gcr/)
+- [Quay](/integrations/imageRegistries/quay/)
+- [Any private registry](/integrations/imageRegistries/privateRegistry/)
 
 ---
 
 ## Container Services
-- [Amazon EC2 Container Service (ECS)](/ci/integrations/containerServices/ecs/)
-- [Google Container Engine (GKE)](/ci/integrations/containerServices/gke/)
-- [Docker Cloud](/ci/integrations/containerServices/dockerCloud/)
-- [Docker Datacenter](/ci/integrations/containerServices/dockerDatacenter/)
-- [Joyent Triton](/ci/integrations/containerServices/joyentTriton/)
+- [Amazon EC2 Container Service (ECS)](/integrations/containerServices/ecs/)
+- [Google Container Engine (GKE)](/integrations/containerServices/gke/)
+- [Docker Cloud](/integrations/containerServices/dockerCloud/)
+- [Docker Datacenter](/integrations/containerServices/dockerDatacenter/)
+- [Joyent Triton](/integrations/containerServices/joyentTriton/)
 - Microsoft Azure (coming soon)
 
 ---
@@ -127,7 +127,7 @@ We support a multitude of languages, tools, services, as well as all popular sou
 ---
 
 ## PaaS
-- [AWS Elastic Beanstalk](/ci/integrations/deploy/eb/)
+- [AWS Elastic Beanstalk](/integrations/deploy/eb/)
 - [AWS Opsworks](/tutorials/usingOpsWorks/)
 - [Heroku](/tutorials/usingHeroku/)
 - Red Hat Openshift (coming soon)
