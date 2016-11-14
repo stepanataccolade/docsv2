@@ -301,8 +301,10 @@ build:
 
 - Do not include commands for your actual CI workflow in this section. This section is mainly for any commands you need to run before the build container is spun up.
 
+<a name="pre-ci-boot"></a>
 ### pre_ci_boot
 This section is **optional** and lets you override the default build image used for your CI workflow. You should include this section in your yml only if:
+
 - You want to use your own custom Docker image for your build
 - You want to customize some options while starting up your CI container
 
@@ -579,12 +581,12 @@ And that's it. You can now use docker commands under the `build` section of your
 ####ii. Additional Hub integrations
 Please visit the following pages for details on how to add hub integrations for other image registries:
 
-[Docker Trusted Registry](../integrations/imageRegistries/dockerTrustedRegistry.md)
-[Amazon ECR](../integrations/imageRegistries/ecr.md)
-[Google Container Registry](../integrations/imageRegistries/gcr.md)
-[Quay.io](../integrations/imageRegistries/quay.md)
-[Private Docker Registry](../integrations/imageRegistries/privateRegistry.md)
-[Docker Hub](../integrations/imageRegistries/dockerHub.md)
+* [Docker Trusted Registry](../integrations/imageRegistries/dockerTrustedRegistry.md)
+* [Amazon ECR](../integrations/imageRegistries/ecr.md)
+* [Google Container Registry](../integrations/imageRegistries/gcr.md)
+* [Quay.io](../integrations/imageRegistries/quay.md)
+* [Private Docker Registry](../integrations/imageRegistries/privateRegistry.md)
+* [Docker Hub](../integrations/imageRegistries/dockerHub.md)
 
 ### deploy
 The `deploy` section of the yml lets you depoy your code or Docker container to Amazon Elastic Beanstalk (EB).
@@ -621,5 +623,6 @@ Your SSH key will now be available on your build minion in the `/tmp/ssh/` direc
 For a more detailed explanation, check out our [SSH key integration](../integrations/keys/ssh.md) page.
 
 ####ii. Additional Key integrations
-[PEM keys](../integrations/keys/pem.md)
-[SSH keys](../integrations/keys/ssh.md)
+
+* [PEM keys](../integrations/keys/pem.md)
+* [SSH keys](../integrations/keys/ssh.md)
