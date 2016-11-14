@@ -6,9 +6,9 @@ page_keywords: Docker Hub, amazon, ecs, gcr, google, shippable, quay, coreos, do
 
 An ECR integration lets you configure the following scenarios:
 
-- Pull a private image
+- Pull a private image for your CI workfow
 - Build a Docker image which has a `FROM` that pulls a private image
-- Push an image
+- Push an image as part of CI
 - Use an [image resource](../../pipelines/resources/image/) as part of your CD [pipeline](../../pipelines/overview/)
 
 Using an ECR integration is a three step process:
@@ -23,9 +23,11 @@ You can get to your account integrations by clicking on the gear icon in the top
 
 Next, you should go to your [Subscription's Settings](../../../navigatingUI/subscriptions/settings/#adding-integrations) and click on `Integrations` on the left sidebar. Here, you can enable any of your account integrations for that particular subscription. This means that all projects in that subscription can now use that integration in their yml configurations. Detailed instruction on this step and in the [Adding integration to your Subscription section](#addSubscriptionIntegration) below.
 
-* **Using the integration in your yml**
+* **Using the integration in your yml (CI only)**
 
 Once an integration is enabled for a subscription, you can use it in any project in that subscription with a few lines of yml configuration. Please note that the integration name should be the one from Subscription Settings. Additional details are in the [Using integration in your yml](#useIntegrationYml) section below.
+
+If you're creating an integration to use with a pipelines [image resource](../../../pipelines/resources/image/), please refer to the documentation on defining an [integration resource](../../../pipelines/resources/integration/).
 
 ---
 <a name="addAccountIntegration"></a>
@@ -48,7 +50,7 @@ The integration will now be available to all your continuous integration and dep
 ---
 
 <a name="addSubscriptionIntegration"></a>
-##Adding integration to your Subscription
+##Enabling integration for your Subscription
 
 To add ECR integration to your subscription, do the following:
 
@@ -67,7 +69,9 @@ To add ECR integration to your subscription, do the following:
 <a name="useIntegrationYml"></a>
 ##Using integration in your yml
 
-You can add the integration to your yml with the following snippet:
+**This particular step is only valid for CI. For pipelines, check out the [image resource](../../pipelines/resources/integration/)**
+
+For your CI workflow, you can add the integration to your `shippable.yml` with the following snippet:
 
 ```
 integrations:
@@ -101,7 +105,6 @@ We have published the following tutorials to help get started on working with im
 * [Build an image which pulls the base image from ECR](../../../tutorials/ci/integrations/imageRegistries/amazon-ecr/build-docker-image/)
 
 * [Push an image to ECR](../../../tutorials/ci/integrations/imageRegistries/amazon-ecr/push-docker-image-to-aws-ecr/)
-
 
 ---
 

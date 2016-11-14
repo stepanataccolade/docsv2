@@ -5,7 +5,11 @@ You can pull any Docker image you have access to from Amazon's Elastic Container
 
 To do this, follow the steps below:
 
-* Add an Amazon ECR integration to your Account, Subscription, and yml as explained in our [Amazon ECR integration page](../../../../../integrations/imageRegistries/ecr/)
+* From the [Amazon ECR integration page](../../../../../integrations/imageRegistries/ecr/), follow steps for:
+    - [Adding an account integration](../../../../../integrations/imageRegistries/ecr/#addAccountIntegration)
+    - [Enabling the integration for a Subscription](../../../../../integrations/imageRegistries/ecr/#addSubscriptionIntegration)
+    - [Using the integration in your yml](../../../../../integrations/imageRegistries/ecr/#useIntegrationYml)
+
 * Add the `docker pull` command to any section of your yml to pull your Docker image from ECR:
 
 ```

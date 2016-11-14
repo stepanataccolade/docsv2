@@ -11,7 +11,10 @@ FROM: aws-account-id.dkr.ecr.us-east-1.amazonaws.com/my-base-image:base-image-ta
 
 In this scenario, you will need to do the following steps:
 
-* Add an Amazon ECR integration to your Account, Subscription, and yml as explained in our [Amazon ECR integration page](../../../../../integrations/imageRegistries/ecr/)
+* From the [Amazon ECR integration page](../../../../../integrations/imageRegistries/ecr/), follow steps for:
+    - [Adding an account integration](../../../../../integrations/imageRegistries/ecr/#addAccountIntegration)
+    - [Enabling the integration for a Subscription](../../../../../integrations/imageRegistries/ecr/#addSubscriptionIntegration)
+    - [Using the integration in your yml](../../../../../integrations/imageRegistries/ecr/#useIntegrationYml)
 
 * Add the `docker build` command to any section of your yml to build your Docker image:
 

@@ -32,8 +32,9 @@ resources:
 	- [Amazon Elastic Container Registry (ECR)](../../integrations/imageRegistries/ecr/)
 	- [Quay.io](../../integrations/imageRegistries/quay/)
 
+Please make sure your integration is also [enabled for your subscription](../../navigatingUI/subscriptions/settings/#adding-integrations) and you use that  integration name here.
 
 * `pointer` section provides information about the image.
 	* `sourceName` is the fully qualified name of the image. This is dependent on the registry where the image is located. For Docker Hub, this can be <repo name>/<image name>, e.g. manishas/demoImage
 
-* `versionName` should be set to a starting value for the image tag. It will be used by the first run of any job that has this image as an input, unless the `versionName` is changed prior to the first run by an upstream job or CI workflow. The default value for this is `latest`. You can also use this to re-seed the image resource with a specific tag. 
+* `versionName` should be set to a starting value for the image tag. It will be used by the first run of any job that has this image as an input, unless the `versionName` is changed prior to the first run by an upstream job or CI workflow. The default value for this is `latest`. You can also use this to re-seed the image resource with a specific tag.
