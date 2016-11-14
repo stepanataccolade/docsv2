@@ -376,15 +376,14 @@ build:
 - [C/C++](languages/objc.md)
 
 ### post_ci
-The `post_ci` section of the yml is executed after the `ci` section. Similar to the `ci` section, you can include a set of commands in this section which will be executed sequentially.
+The `post_ci` section of the yml is executed after the `ci` section. Similar to the `ci` section, you can include a set of commands in this section which will be executed sequentially. Please note that commands in the `post_ci` section is not executed if the ci section fails.
 
-For example, you can push your docker image to a registry
+Example of post_ci section config:
 
 ```
 build:
-  on_success:
+  post_ci:
     - ./post_CI_processing.sh
-    -
 
 ```  
 
