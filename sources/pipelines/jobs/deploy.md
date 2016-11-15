@@ -114,18 +114,19 @@ Instead of taking a manifest job as an input, this uses another `deploy` job as 
 This means that by default, anytime the input deploy job finishes executing, it will trigger this job automatically. You can change this behavior with the `switch: off` setting as shown in the snippet above. If switch is turned off, deploy-2 is not automatically triggered after deploy-1 finishes. You can go to the Shippable SPOG view for Pipelines and run the job manually. You can also add a [trigger resource](../triggers/) to run the job manually without going to the Shippable UI.
 
 
-## Blue-Green deployments
+## Deployment types
 Shippable supports 3 types of deployments:
 
-* The first type blue-green deployments, where the newer version of the application or service is brought up and runs side by side with the older version for a brief amount of time. Once the new version is completely up, the older version is stopped. Shippable handles the scenario gracefully and these deployments are zero downtime deployments.
+* The first type is **blue-green** deployments, where the newer version of the application or service is brought up and runs side by side with the older version for a brief amount of time. Once the new version is completely up, the older version is stopped. Shippable handles this scenario gracefully and these deployments are zero downtime deployments.
 
 By default, deployments to Amazon ECS, Google Container Engine and Joyent Triton are blue-green deployments.
 
-* The second option is upgrade deployments where we deploy the newer version of the service and bring down the older version without waiting for the newer version to be up and running. Depending on how your Container Service handles this scenario, there might be some downtime with this type of deployment. In our experience, Amazon ECS handles this with no downtime, but with Google Container Engine and Joyent Triton, there might be a brief hiccup if the new container takes some time to come up.  
+* The second type is **upgrade** deployments where we deploy the newer version of the service and bring down the older version without waiting for the newer version to be up and running. Depending on how your Container Service handles this scenario, there might be some downtime with this type of deployment. In our experience, Amazon ECS handles this with no downtime, but with Google Container Engine and Joyent Triton, there might be a brief hiccup if the new container takes some time to come up.  
 
-* The third option is replace deployments where we bring down the old version and waiting until application is stopped successfully than we will start the new version of the application. For sure there will be a downtime with this tpye of deployment. This type is mostly intedend to be used for application deploy on clusters with only one instance where it's not possible to run more than one instance of the same task in parallel.  
+* The third type is **replace** deployments where we bring down the old version and wait until the application is stopped successfully before deploying the new version. This type of deployment always has some downtime, depending on how quickly the Container Service is able to stop and start applications. It is mostly intended to be used for deployments to clusters where it's not possible to run more than one instance of the same task in parallel due to a limited number of machines.  
 
 If you want to specify upgrade or replace deployment instead of the default blueGreen, you can do it in your `shippable.jobs.yml`:
+
 ```
 jobs:  
   - name: <job name>
@@ -133,10 +134,8 @@ jobs:
     steps:
       #first include all the IN inputs
       - TASK: managed
-        deployMethod: upgrade | replace
+        deployMethod: upgrade | replace | blueGreen
 ```
-
-
 
 Please make sure the `TASK` tag is the last one in the list of steps.
 
